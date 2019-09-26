@@ -275,3 +275,8 @@ e_metrobus/media/
 .ipython/
 .env
 .envs/*
+/.envrc
+/os
+/.idea/
+/e_metrobus/static/css/project.min.css
+/e_metrobus/static/js/project.min.js
