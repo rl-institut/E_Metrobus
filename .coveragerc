@@ -1,0 +1,5 @@
+[run]
+include = e_metrobus/*
+omit = *migrations*, *tests*
+plugins =
+    django_coverage_plugin
