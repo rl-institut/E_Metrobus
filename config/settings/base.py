@@ -69,12 +69,13 @@ THIRD_PARTY_APPS = [
     "allauth",
     "allauth.account",
     "allauth.socialaccount",
-    "rest_framework",
+    # "rest_framework",
 ]
 
 LOCAL_APPS = [
     "e_metrobus.users.apps.UsersConfig",
     # Your stuff: custom apps go here
+    "e_metrobus.navigation"
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -214,7 +215,7 @@ EMAIL_TIMEOUT = 5
 # Django Admin URL.
 ADMIN_URL = "admin/"
 # https://docs.djangoproject.com/en/dev/ref/settings/#admins
-ADMINS = [("""Hendrik Huyskens & Bryan Lancien""", "hendrik.huyskens@rl-institut.de")]
+ADMINS = [("Hendrik Huyskens", "hendrik.huyskens@rl-institut.de")]
 # https://docs.djangoproject.com/en/dev/ref/settings/#managers
 MANAGERS = ADMINS
 
