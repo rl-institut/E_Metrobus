@@ -1,6 +1,29 @@
 
-{% extends "base.html" %}
+{% extends "base.html" %}
 
-{% block content %}
-Route
-{% endblock %}
+{% block content %}
+<section class="grid-container">
+  <div class="grid-x station">
+    <div class="cell small-2 station__line">
+      <svg width="52" height="50">
+        <rect x="20" y="0" width="12" height="50" style="fill:#000000;" />
+        <circle x="20" y="0" cx="26" cy="25" r="4" fill="#ffffff" />
+      </svg>
+    </div>
+    <div class="cell small-10 station__name">
+      Route
+    </div>
+  </div>
+  <div class="grid-x station">
+    <div class="cell small-2 station__line">
+      <svg width="52" height="50">
+        <rect x="20" y="0" width="12" height="50" style="fill:#000000;" />
+        <circle x="20" y="0" cx="26" cy="25" r="4" fill="#ffffff" />
+      </svg>
+    </div>
+    <div class="cell small-10 station__name">
+      Route
+    </div>
+  </div>
+</section>
+{% endblock %}
