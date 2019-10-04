@@ -22,6 +22,7 @@ function removeStation(id) {
 function highlightStation(id) {
 	let station = '#' + id;
   $(station).toggleClass("highlight-station");
+  $(station + " svg").toggle();
 }
 
 $("#stationsList .station").click(function() {
