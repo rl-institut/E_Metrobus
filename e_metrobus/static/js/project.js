@@ -9,14 +9,14 @@ let stationsShow = [];
 // add station ID to array
 function saveStation(id) {
 	stations.push(id);
-    //console.log(stations);
+    console.log(stations);
 	return stations;
 }
 
 // remove station ID from array
 function removeStation(id) {
 	stations.splice(-1,1);
-    //console.log(stations);
+    console.log(stations);
 	return stations;
 }
 
@@ -27,13 +27,14 @@ function highlightStation(id) {
   $(station + " svg").toggle();
 }
 
+// highlight line route -> update SVG
 function highlightSVG(stationID) {
   for (i = 0; i < stationID.length; i++) {
     $(stationID[i] + " rect").css({fill: 'red'});
   }
 }
 
-// highlight line route
+// highlight line route (stations)
 function showRoute(e) {
   for (i = e[0]; i < e[1]; i++) {
     routeShow.push("#stationLine" + i);
@@ -42,7 +43,7 @@ function showRoute(e) {
   return routeShow;
 }
 
-// highlight line route
+// highlight line route (between stations)
 function showStations(e) {
   for (i = e[0]; i < e[1]; i++) {
     stationsShow.push("#betweenStations" + i);
@@ -51,7 +52,7 @@ function showStations(e) {
   return stationsShow;
 }
 
-// return station ID numbers
+// return station ID numbers without "station"
 function getStationsID(e) {
   for (i = 0; i < e.length; i++) {
     e[i] = e[i].slice(-2);
@@ -85,18 +86,19 @@ $("#stationsList .station").click(function() {
   	//console.log("Array 1 is not same");
     saveStation(this.id);
     highlightStation(this.id);
-    getStationsID(stations);
+    //getStationsID(stations);
+    console.log("stations[0]: " + stations[0]);
   }
   // if departure and arrival stations are selected and arrival station is tapped again -> remove arrival station
   else if (stations.length === 2 && stations[1] === this.id) {
   	removeStation(this.id);
     highlightStation(this.id);
-  	//console.log("Array is 2 is same");
+    console.log("Array is 2 is same");
+    console.log(stations[1]);
   }
   else {
   	//console.log("error");
   }
-
 
 });
 //console.log("stations: " + stations);
