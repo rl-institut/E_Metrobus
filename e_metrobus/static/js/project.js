@@ -31,15 +31,15 @@ function highlightStation(id) {
 // highlight line route -> update SVG
 function highlightSVG(stationID) {
   for (i = 0; i < stationID.length; i++) {
-    $(stationID[i] + " rect").css({fill: 'red'});
+    $(stationID[i] + " rect").css({fill: '#000000'});
   }
 }
 
 // unhighlight all line when second station is deselected
 function unhighlightSVG() {
   for (i = 0; i < allStationIDs.length; i++) {
-    $("#stationLine" + i + " rect").css({fill: 'black'});
-    $("#betweenStations" + i + " rect").css({fill: 'black'});
+    $("#stationLine" + i + " rect").css({fill: '#EFEFEF'});
+    $("#betweenStations" + i + " rect").css({fill: '#EFEFEF'});
   }
 }
 
