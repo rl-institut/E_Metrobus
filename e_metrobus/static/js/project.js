@@ -3,8 +3,6 @@
 
 /* ROUTE */
 let stations = [];
-let routeShow = [];
-let stationsShow = [];
 let allStationIDs = [
   "station01",
   "station02",
@@ -47,22 +45,42 @@ function unhighlightSVG() {
 
 // highlight line route (stations)
 function showRoute(e) {
-  for (i = e[0]; i < e[1]; i++) {
-    routeShow.push("#stationLine" + i);
+  routeShow = [];
+  // if ID of first selected station is < than 2nd (1st station is above the 2nd station on the screen)
+  if (e[0] < e[e.length-1]) {
+    for (i = e[0]; i < e[1]; i++) {
+      routeShow.push("#stationLine" + i);
+    }
+  }
+  // if ID of first selected station is > than 2nd (1st station is below the 2nd station on the screen)
+  else {
+    for (i = e[1]; i < e[0]; i++) {
+      routeShow.push("#stationLine" + i);
+    }
   }
   highlightSVG(routeShow);
 }
 
 // highlight line route (between stations)
 function showStations(e) {
-  for (i = e[0]; i < e[1]; i++) {
-    stationsShow.push("#betweenStations" + i);
+  stationsShow = [];
+  // if ID of first selected station is < than 2nd (1st station is above the 2nd station on the screen)
+  if (e[0] < e[e.length-1]) {
+    for (i = e[0]; i < e[1]; i++) {
+      stationsShow.push("#betweenStations" + i);
+    }
+  }
+  // if ID of first selected station is > than 2nd (1st station is below the 2nd station on the screen)
+  else {
+    for (i = e[1]; i < e[0]; i++) {
+      stationsShow.push("#betweenStations" + i);
+    }
   }
   highlightSVG(stationsShow);
 }
 
 // return station ID numbers without "station"
-function getStationsID(e) {
+function setStationsID(e) {
   let a = [];
   for (i = 0; i < e.length; i++) {
     a[i] = e[i].slice(-2);
@@ -94,7 +112,7 @@ $("#stationsList .station").click(function() {
   	//console.log("Array 1 is not same");
     saveStation(this.id);
     highlightStation(this.id);
-    getStationsID(stations);
+    setStationsID(stations);
   }
   // if departure and arrival stations are selected and arrival station is tapped again -> remove arrival station
   else if (stations.length === 2 && stations[1] === this.id) {
@@ -107,4 +125,3 @@ $("#stationsList .station").click(function() {
   }
 
 });
-//console.log("stations: " + stations);
