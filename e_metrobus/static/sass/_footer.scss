@@ -1,6 +1,8 @@
+$footer-height: 3.8rem;
+
 .footer {
   background-color: #DDD;
-	height: 3.8rem;
+	height: $footer-height;
 	position: fixed;
 	bottom: 0;
 	width: 100%;
