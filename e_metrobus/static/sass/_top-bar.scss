@@ -16,14 +16,26 @@ section.top-bar {
 		img {
 			width: 1rem;
 			margin-left: .5rem;
+			transform: translateY(-2px);
 		}
 	}
 
 	.top-bar--header {
-		font-size: 1.125rem;
+		font-size: 1rem;
 		font-weight: 700;
 		img {
 			width: 1.5rem;
+			transform: translateY(-2px);
+		}
+	}
+
+	.top-bar--points {
+		text-align: left;
+		font-size: 1rem;
+		font-weight: 700;
+		img {
+			width: 1.2rem;
+			transform: translateY(-2px);
 		}
 	}
 }
