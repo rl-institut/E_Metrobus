@@ -27,16 +27,33 @@
 
   </head>
 
-  <!-- 4 class possibilities: 
+  <!-- 4 class possibilities:
         l-scroll l-scroll--nav          -> scroll with nav + footer
         l-scroll l-scroll--nonav        -> scroll without nav + footer
         l-no-scroll l-no-scroll--nav    -> scroll hidden with nav + footer
         l-no-scroll l-no-scroll--nonav  -> scroll fidden without nav + footer
   -->
-  <body class="l-no-scroll l-no-scroll--nonav">
+  <body {% block body_class %}class="l-scroll l-scroll--nav"{% endblock %}>
 
-    {% block content %}
-    {% endblock content %}
+    <div class="grid-container full">
+
+      <section class="grid-x top-bar">
+        <div class="cell">
+          .top-bar
+        </div>
+      </section>
+
+      <main class="grid-x main-content">
+        {% block content %}
+        {% endblock content %}
+      </main>
+
+      <section class="grid-x footer">
+        <div class="cell">
+          .footer
+        </div>
+      </section>
+    </div>
 
     {% block modal %}{% endblock modal %}
 
