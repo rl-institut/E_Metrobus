@@ -27,13 +27,13 @@
 
   </head>
 
-  <!-- 4 class possibilities: 
+  <!-- 4 class possibilities:
         l-scroll l-scroll--nav          -> scroll with nav + footer
         l-scroll l-scroll--nonav        -> scroll without nav + footer
         l-no-scroll l-no-scroll--nav    -> scroll hidden with nav + footer
         l-no-scroll l-no-scroll--nonav  -> scroll fidden without nav + footer
   -->
-  <body class="l-no-scroll l-no-scroll--nonav">
+  <body {% block body_class %}class="l-scroll l-scroll--nav"{% endblock %}>
 
     {% block content %}
     {% endblock content %}
