@@ -35,8 +35,25 @@
   -->
   <body {% block body_class %}class="l-scroll l-scroll--nav"{% endblock %}>
 
-    {% block content %}
-    {% endblock content %}
+    <div class="grid-container full">
+
+      <section class="grid-x top-bar">
+        <div class="cell">
+          .top-bar
+        </div>
+      </section>
+
+      <main class="grid-x main-content">
+        {% block content %}
+        {% endblock content %}
+      </main>
+
+      <section class="grid-x footer">
+        <div class="cell">
+          .footer
+        </div>
+      </section>
+    </div>
 
     {% block modal %}{% endblock modal %}
 
