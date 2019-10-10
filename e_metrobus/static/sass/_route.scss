@@ -1,0 +1,22 @@
+.station {
+
+  &__line {
+		height: 50px;
+		fill: #EFEFEF;
+	}
+
+	&__name {
+		line-height: 50px;
+	}
+
+	&__between {
+		height: 10px;
+		line-height: 0;
+		fill: #EFEFEF;
+	}
+}
+
+.highlight-station {
+	background-color: yellow;
+	border-radius: 100px;
+}
