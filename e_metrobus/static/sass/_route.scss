@@ -1,3 +1,7 @@
+$station-height: 3.125rem;
+$station-font-size: .875rem;
+$station-font-line-height: 1rem;
+
 #stationsList {
 	width: 100%;
 }
@@ -5,14 +9,17 @@
 .station {
 
   &__line {
-		height: 50px;
+		height: $station-height;
 		fill: #EFEFEF;
 	}
 
 	&__name {
-		line-height: 50px;
-		font-size: .875rem;
-		padding-left: 1rem;
+    font-size: $station-font-size;
+    line-height: $station-font-line-height;
+    padding-left: 1rem;
+    // center station name vertically
+    padding-top: calc((#{$station-height} - #{$station-font-line-height}) / 2 );
+    padding-bottom: calc((#{$station-height} - #{$station-font-line-height}) / 2 );
 	}
 
 	&__between {
