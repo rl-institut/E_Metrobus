@@ -10,7 +10,7 @@ $station-font-line-height: 1rem;
 
   &__line {
 		height: $station-height;
-		fill: #EFEFEF;
+    fill: #EFEFEF;
 	}
 
 	&__name {
@@ -20,6 +20,10 @@ $station-font-line-height: 1rem;
     // center station name vertically
     padding-top: calc((#{$station-height} - #{$station-font-line-height}) / 2 );
     padding-bottom: calc((#{$station-height} - #{$station-font-line-height}) / 2 );
+    //prevent two lines
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
 	}
 
 	&__between {
