@@ -1,12 +1,11 @@
 /* ROUTE */
 let stations = [];
-let allStationIDs = [
-  "station01",
-  "station02",
-  "station03",
-  "station04",
-  "station05",
-];
+let allStationIDs = $('#stationsList [id ^=station]').map(
+  function(){
+    return $(this).attr('id');
+  }
+).get();
+
 
 // add station ID to array
 function saveStation(id) {
@@ -35,7 +34,7 @@ function highlightSVG(stationID) {
 // unhighlight all line when second station is deselected
 function unhighlightSVG() {
   for (i = 0; i < allStationIDs.length; i++) {
-    $("#stationLine" + i + " rect").css({fill: '#EFEFEF'});
+    $("#line" + i + " rect").css({fill: '#EFEFEF'});
     $("#betweenStations" + i + " rect").css({fill: '#EFEFEF'});
   }
 }
@@ -46,13 +45,13 @@ function showRoute(e) {
   // if ID of first selected station is < than 2nd (1st station is above the 2nd station on the screen)
   if (e[0] < e[e.length-1]) {
     for (i = e[0]; i < e[1]; i++) {
-      routeShow.push("#stationLine" + i);
+      routeShow.push("#line" + i);
     }
   }
   // if ID of first selected station is > than 2nd (1st station is below the 2nd station on the screen)
   else {
     for (i = e[1]; i < e[0]; i++) {
-      routeShow.push("#stationLine" + i);
+      routeShow.push("#line" + i);
     }
   }
   highlightSVG(routeShow);
