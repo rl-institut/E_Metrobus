@@ -1,3 +1,7 @@
+#stationsList {
+	width: 100%;
+}
+
 .station {
 
   &__line {
@@ -7,6 +11,7 @@
 
 	&__name {
 		line-height: 50px;
+		font-size: .875rem;
 	}
 
 	&__between {
