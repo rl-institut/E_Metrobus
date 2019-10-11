@@ -2,7 +2,7 @@
 
   {% for station in stations %}
     <div class="grid-x station" id='station{{forloop.counter|stringformat:"02d"}}'>
-      <div class="cell small-2 station__line">
+      <div class="cell small-1 station__line">
         <svg width="52" height="50" id="stationLine{{forloop.counter}}">
           <!-- COMPONENT START -->
           <rect x="20" y="0" width="12" height="50" />
@@ -15,7 +15,7 @@
         </svg>
         <!-- COMPONENT END -->
       </div>
-      <div class="cell small-10 station__name">
+      <div class="cell small-11 station__name">
         {{station}}
       </div>
     </div>
