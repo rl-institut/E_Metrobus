@@ -33,63 +33,19 @@
         l-no-scroll l-no-scroll--nav    -> scroll hidden with nav + footer
         l-no-scroll l-no-scroll--nonav  -> scroll fidden without nav + footer
   -->
-  <body {% block body_class %}class="l-scroll l-scroll--nav"{% endblock %}>
+  <body class="{% block body_class %}l-scroll l-scroll--nav{% endblock %}">
 
     <div class="grid-container full">
 
-      <section class="grid-x top-bar">
-        <div class="cell small-2 top-bar--back">
-          <a href="">
-            <div>
-              <img src="/static/images/icons/i_back_black.svg" alt="Zurück">
-            </div>
-          </a>
-        </div>
-        <div class="cell small-8 top-bar--header">
-          <img src="/static/images/icons/Icon_E_Bus_Front.svg" alt="Elektro-Bus">
-          <span>E-Metrobus</span>
-        </div>
-        <div class="cell small-2 top-bar--points">
-          <img src="/static/images/icons/i_star_black.svg" alt="Stern und Punkten">
-          <span>80</span>
-        </div>
-      </section>
+      {{top_bar}}
 
       <main class="grid-x main-content">
         {% block content %}
         {% endblock content %}
       </main>
 
-      <section class="grid-x footer">
-        <div class="cell small-3 footer__item">
-          <a href="">
-            <div class="footer__item-wrap">
-              <img src="/static/images/icons/i_info_gray.svg" alt="Informationen Icon">
-            </div>
-          </a>
-        </div>
-        <div class="cell small-3 footer__item">
-          <a href="">
-            <div class="footer__item-wrap">
-              <img src="/static/images/icons/i_pin_gray.svg" alt="Pin Icon">
-            </div>
-          </a>
-        </div>
-        <div class="cell small-3 footer__item">
-          <a href="">
-            <div class="footer__item-wrap">
-              <img src="/static/images/icons/i_results_gray.svg" alt="Text Icon">
-            </div>
-          </a>
-        </div>
-        <div class="cell small-3 footer__item">
-          <a href="">
-            <div class="footer__item-wrap">
-              <img src="/static/images/icons/i_quiz_black.svg" alt="Spiel Icon">
-            </div>
-          </a>
-        </div>
-      </section>
+      {{footer}}
+
     </div>
 
     {% block modal %}{% endblock modal %}
