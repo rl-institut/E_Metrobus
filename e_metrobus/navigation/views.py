@@ -43,10 +43,3 @@ class ComparisonView(NavigationView):
 
 class DashboardView(TemplateView):
     template_name = "navigation/dashboard.html"
-
-class LandingPageView(TemplateView):
-    template_name = "navigation/landing_page.html"
-
-
-class TopBarView(TemplateView):
-    template_name = "navigation/top-bar.html"
