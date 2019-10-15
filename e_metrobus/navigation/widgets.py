@@ -1,6 +1,4 @@
 
-from abc import abstractmethod
-
 from django.utils.html import format_html
 from django.utils.safestring import mark_safe
 from django.forms.renderers import get_default_renderer
@@ -45,6 +43,13 @@ class CustomWidget:
 class TopBarWidget(CustomWidget):
     template_name = "widgets/top_bar.html"
 
-    def __init__(self, title, title_icon):
+    def __init__(self, title, title_icon, back_url, points, title_alt=None):
         self.title = title
         self.title_icon = title_icon
+        self.title_alt = title if title_alt is None else title_alt
+        self.back_url = back_url
+        self.points = points
+
+
+class FooterWidget(CustomWidget):
+    template_name = "widgets/footer.html"
