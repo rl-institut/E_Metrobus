@@ -121,3 +121,8 @@ $("#stationsList .station").click(function() {
   }
 
 });
+
+function post() {
+  $('#stations').val(stations);
+  $('#stations_form').submit();
+}

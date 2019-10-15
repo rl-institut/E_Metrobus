@@ -34,3 +34,9 @@
   {% endfor %}
 
 </section>
+
+<button onclick="post();">Senden</button>
+<form method="post" id="stations_form">
+  {% csrf_token %}
+  <input type="hidden" name="stations" id="stations">
+</form>
