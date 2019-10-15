@@ -41,7 +41,7 @@ class ComparisonView(NavigationView):
     template_name = "navigation/comparison.html"
 
 
-class DashboardView(TemplateView):
+class DashboardView(NavigationView):
     template_name = "navigation/dashboard.html"
 
 
