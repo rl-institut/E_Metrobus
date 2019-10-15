@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="grid-container desktop show-for-large">
+  <div class="grid-x align-center text-center">
+    <div class="cell desktop__header">
+      <h1>E-Metrobus Berlin</h1>
+    </div>
+    <div class="cell desktop__subheader">
+      <span>Elektrifizierung von MetroBus-Linien im Berliner ÖPNV mit Schnellladeinfrastruktur</span>
+    </div>
+    <div class="cell desktop__img">
+      <img src="/static/images/Icon_E_Bus_BVG.svg" alt="Elektro-Bus" id="bus">
+    </div>
+    <div class="cell desktop__text">
+      Bitte besuchen Sie diese Seite über ein mobiles Gerät, wenn Sie Interesse am E-Metrobus Projekt haben.
+    </div>
+  </div>
+  <div class="cell desktop__footer" data-sticky-container>
+    <div class="grid-x align-center sticky" data-sticky data-stick-to="bottom">
+      <div class="cell large-2 desktop__logo desktop__logo--RLI">
+        <a href="https://reiner-lemoine-institut.de/" target="_blank" rel="noopener noreferrer" title="Zur Website">
+          <img src="/static/images/RLi_logo.png" alt="RLI Logo">
+        </a>
+      </div>
+      <div class="cell bmvi large-3 desktop__logo desktop__logo--BMWI">
+        <a href="https://www.bmvi.de" target="_blank" rel="noopener noreferrer" title="Zur Website">Bundesministerium für Verkehr und digitale Infrastruktur</a>
+      </div>
+      <div class="cell large-2 desktop__logo desktop__logo--NOW">
+        <a href="https://www.now-gmbh.de/de" target="_blank" rel="noopener noreferrer" title="Zur Website">NOW-GmbH.de</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -22,4 +22,4 @@ class DashboardView(TemplateView):
     template_name = "navigation/dashboard.html"
 
 class LandingPageView(TemplateView):
-    template_name = "navigation/landing-page.html"
+    template_name = "navigation/landing_page.html"
