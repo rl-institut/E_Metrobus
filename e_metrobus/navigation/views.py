@@ -20,3 +20,6 @@ class ComparisonView(TemplateView):
 
 class DashboardView(TemplateView):
     template_name = "navigation/dashboard.html"
+
+class TopBarView(TemplateView):
+    template_name = "navigation/top-bar.html"
