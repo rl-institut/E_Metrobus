@@ -1,4 +1,7 @@
+
 from django.views.generic import TemplateView
+
+from e_metrobus.navigation import widgets
 
 
 class StartView(TemplateView):
@@ -16,6 +19,14 @@ class RouteView(TemplateView):
 
 class ComparisonView(TemplateView):
     template_name = "navigation/comparison.html"
+
+    def get_context_data(self, **kwargs):
+        return {
+            'top_bar': widgets.TopBarWidget(
+                title="E-Metrobus",
+                title_icon="/static/images/icons/Icon_E_Bus_Front.svg"
+            )
+        }
 
 
 class DashboardView(TemplateView):
