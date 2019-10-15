@@ -33,7 +33,7 @@
         l-no-scroll l-no-scroll--nav    -> scroll hidden with nav + footer
         l-no-scroll l-no-scroll--nonav  -> scroll fidden without nav + footer
   -->
-  <body {% block body_class %}class="l-scroll l-scroll--nav"{% endblock %}>
+  <body class="{% block body_class %}l-scroll l-scroll--nav{% endblock %}">
 
     <div class="grid-container full">
 
