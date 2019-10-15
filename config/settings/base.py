@@ -69,7 +69,7 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
-    "e_metrobus.navigation"
+    "e_metrobus"
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
