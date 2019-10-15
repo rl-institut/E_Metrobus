@@ -123,6 +123,11 @@ $("#stationsList .station").click(function() {
 });
 
 function post() {
-  $('#stations').val(stations);
-  $('#stations_form').submit();
+  if (stations.length != 2) {
+    $('#stations_error').html('Fehler!')
+  }
+  else {
+    $('#stations').val(stations);
+    $('#stations_form').submit();
+  }
 }
