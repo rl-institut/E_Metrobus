@@ -8,7 +8,7 @@ class NavigationView(TemplateView):
     title = "E-Metrobus"
     title_icon = "/static/images/icons/Icon_E_Bus_Front.svg"
     title_alt = None
-    back_url = None
+    back_url = ""
 
     def get_context_data(self, **kwargs):
         points = self.request.session.get("points", 0)
