@@ -4,20 +4,29 @@
 
 {% block content %}
   <div class="cell">
-    <div class="grid-x align-center">
-      <div class="cell small-10 bus_icon">
+    <div class="grid-x align-center text-center landpage">
+      <div class="cell landpage__logo landpage__logo--embus">
         <img src="../../static/images/icons/Icon_E_Bus_BVG.svg">
       </div>
-      <div class="cell small-4 logos">
+      <div class="cell landpage__logo">
         <img src="../../static/images/logos/Logo_BVG.png">
       </div>
-      <div class="cell small-4 logos">
+      <div class="cell landpage__logo">
         <img src="../../static/images/logos/TU-Berlin_logo.png">
       </div>
-      <div class="cell small-4 logos">
+      <div class="cell landpage__logo">
         <img src="../../static/images/logos/RLi_logo.png">
       </div>
-
+      <div class="cell landpage__bottom">
+        <div class="grid-x">
+          <div class="cell">
+            <span>Toll, dass du mit einem E-Bus fährst!</span>
+          </div>
+          <div class="cell">
+            <button name="boarding" class="button"><span>Zeig mir warum!</span></button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 {% endblock %}

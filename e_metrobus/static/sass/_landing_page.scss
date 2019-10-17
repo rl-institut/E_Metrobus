@@ -1,5 +1,43 @@
-// CSS for desktop only
+.landpage {
 
+    &__logo {
+    margin: 1rem 0;
+
+    img {
+      height: 5rem;
+    }
+
+    &--embus {
+      margin: 3rem 0 2rem;
+      img {
+        height: 4.5rem;
+      }
+    }
+  }
+  &__bottom {
+    background-color: $primary-color-1;
+    padding: 1rem;
+    position: absolute;
+    bottom: 0;
+
+    span {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    button {
+      margin: 1rem 0;
+      background-color: $secondary-color;
+      width: 15rem;
+
+      span {
+        font-size: 1.1rem;
+      }
+    }
+  }
+}
+
+
+// CSS for desktop only
 .desktop {
 
   &__header {
