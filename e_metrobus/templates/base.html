@@ -33,26 +33,20 @@
         l-no-scroll l-no-scroll--nav    -> scroll hidden with nav + footer
         l-no-scroll l-no-scroll--nonav  -> scroll fidden without nav + footer
   -->
-  <body {% block body_class %}class="l-scroll l-scroll--nav"{% endblock %}>
+  <body class="{% block body_class %}l-scroll l-scroll--nav{% endblock %}">
 
-    <div class="grid-container full">
+    {% include "includes/desktop.html" %}
+    <div class="grid-container full hide-for-large">
 
-      <section class="grid-x top-bar">
-        <div class="cell">
-          .top-bar
-        </div>
-      </section>
+      {{top_bar}}
 
       <main class="grid-x main-content">
         {% block content %}
         {% endblock content %}
       </main>
 
-      <section class="grid-x footer">
-        <div class="cell">
-          .footer
-        </div>
-      </section>
+      {{footer}}
+
     </div>
 
     {% block modal %}{% endblock modal %}

@@ -1,0 +1,33 @@
+// CSS for desktop only
+
+.desktop {
+
+  &__header {
+    padding-top: 2rem;
+  }
+  &__subheader {
+    color: #8d8d8d;
+  }
+  &__img {
+    padding-top: 5rem;
+  }
+  &__text {
+    padding-top: 5rem;
+    font-size: 1.5rem;
+  }
+  &__img img {
+    height: 5rem;
+  }
+  &__footer .grid-x {
+    border-top: 1px solid #c7c7c7;
+    padding-top: 1.5rem;
+  }
+  &__logo {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: .875rem;
+  }
+  &__logo img {
+    width: 8rem;
+  }
+}
