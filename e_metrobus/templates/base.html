@@ -27,45 +27,26 @@
 
   </head>
 
-  <body>
-    <div class="row">
-      <div class="medium-6 medium-offset-3 columns">
-        {% if messages %}
-          {% for message in messages %}
-            <div class="callout {% if message.tags %}{{ message.tags }}{% endif %}" data-closable>
-            <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
-              <span aria-hidden="true">&times;</span>
-            </button>
-            {{ message }}</div>
-          {% endfor %}
-        {% endif %}
-      </div>
-    </div>
+  <!-- 4 class possibilities:
+        l-scroll l-scroll--nav          -> scroll with nav + footer
+        l-scroll l-scroll--nonav        -> scroll without nav + footer
+        l-no-scroll l-no-scroll--nav    -> scroll hidden with nav + footer
+        l-no-scroll l-no-scroll--nonav  -> scroll fidden without nav + footer
+  -->
+  <body class="{% block body_class %}l-scroll l-scroll--nav{% endblock %}">
 
-    <div class="title-bar" data-responsive-toggle="menu" data-hide-for="medium">
-      <button class="menu-icon" type="button" data-toggle></button>
-      <div class="title-bar-title">Menu</div>
-    </div>
+    <div class="grid-container full">
 
-    <div class="top-bar" id="menu">
+      {{top_bar}}
 
-      <div class="top-bar-left hide-for-small-only">
-        <ul class="dropdown menu">
-          <li class="menu-text">E-Metrobus</li>
-        </ul>
-      </div>
+      <main class="grid-x main-content">
+        {% block content %}
+        {% endblock content %}
+      </main>
 
-      <div class="top-bar-right">
-        <ul class="vertical medium-horizontal menu">
-          <li><a href="{% url 'dgstvo' %}">Datenschutz</a></li>
-          <li><a href="{% url 'contact' %}">Kontakt</a></li>
-        </ul>
-      </div>
+      {{footer}}
 
     </div>
-
-    {% block content %}
-    {% endblock content %}
 
     {% block modal %}{% endblock modal %}
 
