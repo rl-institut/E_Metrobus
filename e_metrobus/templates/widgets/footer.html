@@ -1,30 +1,15 @@
 <section class="grid-x footer">
-  <div class="cell small-3 footer__item">
-    <a href="">
-      <div class="footer__item-wrap">
-        <img src="/static/images/icons/i_info_gray.svg" alt="Informationen Icon">
-      </div>
-    </a>
-  </div>
-  <div class="cell small-3 footer__item">
-    <a href="">
-      <div class="footer__item-wrap">
-        <img src="/static/images/icons/i_pin_gray.svg" alt="Pin Icon">
-      </div>
-    </a>
-  </div>
-  <div class="cell small-3 footer__item">
-    <a href="">
-      <div class="footer__item-wrap">
-        <img src="/static/images/icons/i_results_gray.svg" alt="Text Icon">
-      </div>
-    </a>
-  </div>
-  <div class="cell small-3 footer__item">
-    <a href="">
-      <div class="footer__item-wrap">
-        <img src="/static/images/icons/i_quiz_black.svg" alt="Spiel Icon">
-      </div>
-    </a>
-  </div>
+  {% for link in links.values %}
+    <div class="cell small-3 footer__item">
+      {% if link.enabled %}
+        <a href="{% url link.url %}">
+      {% endif %}
+        <div class="footer__item-wrap {% if link.selected %}enter_select_class{% endif %}">
+          <img src="/static/images/icons/i_{{link.name}}_{% if link.enabled %}black{% else %}gray{% endif %}.svg" alt="{{link.name|capfirst}} Icon">
+        </div>
+      {% if link.enabled %}
+        </a>
+      {% endif %}
+    </div>
+  {% endfor %}
 </section>
