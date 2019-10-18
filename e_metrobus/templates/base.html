@@ -35,7 +35,8 @@
   -->
   <body class="{% block body_class %}l-scroll l-scroll--nav{% endblock %}">
 
-    <div class="grid-container full">
+    {% include "includes/desktop.html" %}
+    <div class="grid-container full hide-for-large">
 
       {{top_bar}}
 

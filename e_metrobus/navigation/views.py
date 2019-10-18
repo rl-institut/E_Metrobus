@@ -46,7 +46,3 @@ class DashboardView(NavigationView):
     template_name = "navigation/dashboard.html"
     # Example config
     footer_links = {'pin': {'enabled': False}, 'info': {'selected': True}}
-
-
-class TopBarView(TemplateView):
-    template_name = "navigation/top-bar.html"
