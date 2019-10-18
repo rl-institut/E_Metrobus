@@ -22,6 +22,7 @@ class Question:
 @dataclass
 class Category:
     label: str
+    icon: str
     questions: Dict[str, Question]
 
 
@@ -36,7 +37,11 @@ for cat in question_config:
         questions[q] = Question(
             template=f"{cat}/{q}.html", **question_config[cat]["questions"][q]
         )
-    QUESTIONS[cat] = Category(label=question_config[cat]["label"], questions=questions)
+    QUESTIONS[cat] = Category(
+        label=question_config[cat]["label"],
+        icon=question_config[cat]["icon"],
+        questions=questions,
+    )
 
 
 def get_score_for_category(category: str, session):
