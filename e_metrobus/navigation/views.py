@@ -52,18 +52,33 @@ class QuestionView(NavigationView):
     template_name = "navigation/question.html"
     back_url = "navigation:dashboard"
 
+    def get_context_data(self, **kwargs):
+        self.title = questions.QUESTIONS[kwargs["category"]].label
+        self.title_icon = questions.QUESTIONS[kwargs["category"]].icon
+
+        return super(QuestionView, self).get_context_data(**kwargs)
+
     def get(self, request, *args, **kwargs):
-        category = kwargs["category"]
-        next_question = questions.get_next_question(category, request.session)
+        next_question = questions.get_next_question(kwargs["category"], request.session)
         if next_question is None:
             return redirect("navigation:dashboard")
 
         context = self.get_context_data(**kwargs, question=next_question)
         return self.render_to_response(context)
 
-    def get_context_data(self, **kwargs):
-        # Set top bar:
-        self.title = questions.QUESTIONS[kwargs["category"]].label
-        self.title_icon = questions.QUESTIONS[kwargs["category"]].icon
+    def post(self, request, **kwargs):
+        category = kwargs["category"]
+        question = questions.QUESTIONS[category].questions[request.POST["question"]]
+        answer = request.POST["answer"] == question.correct
 
-        return super(QuestionView, self).get_context_data(**kwargs)
+        if "questions" not in request.session:
+            request.session["questions"] = {}
+        if category not in request.session["questions"]:
+            request.session["questions"][category] = {}
+        if question.name in request.session["questions"][category]:
+            raise ValueError('Answer already given')
+        else:
+            request.session["questions"][category][question.name] = answer
+        request.session.save()
+
+        return redirect('navigation:question', category=category)

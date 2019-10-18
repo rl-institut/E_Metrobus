@@ -13,6 +13,7 @@ SCORE_CATEGORY_COMPLETE = 11
 
 @dataclass
 class Question:
+    name: str
     question: str
     answers: List[str]
     correct: int
@@ -35,7 +36,7 @@ for cat in question_config:
     questions = {}
     for q in question_config[cat]["questions"]:
         questions[q] = Question(
-            template=f"{cat}/{q}.html", **question_config[cat]["questions"][q]
+            template=f"{cat}/{q}.html", name=q, **question_config[cat]["questions"][q]
         )
     QUESTIONS[cat] = Category(
         label=question_config[cat]["label"],
