@@ -24,4 +24,15 @@ section.footer {
     text-align: center;
     line-height: $footer-height;
   }
+  .footer__item {
+    &--selected {
+      background-color: $secondary-color;
+    }
+    &--not-selected {
+      background-color: $gray-1;
+    }
+    &--disabled {
+      background-color: $gray-1;
+    }
+  }
 }

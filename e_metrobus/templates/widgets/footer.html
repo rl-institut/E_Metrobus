@@ -4,7 +4,7 @@
       {% if link.enabled %}
         <a href="{% url link.url %}">
       {% endif %}
-        <div class="footer__item-wrap {% if link.selected %}enter_select_class{% endif %}">
+        <div class="footer__item-wrap {% if link.selected %}footer__item--selected{% endif %}">
           <img src="/static/images/icons/i_{{link.name}}_{% if link.enabled %}black{% else %}gray{% endif %}.svg" alt="{{link.name|capfirst}} Icon">
         </div>
       {% if link.enabled %}
