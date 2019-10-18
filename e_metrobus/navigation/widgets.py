@@ -1,3 +1,4 @@
+from collections import ChainMap
 
 from django.utils.html import format_html
 from django.utils.safestring import mark_safe
@@ -16,7 +17,7 @@ class CustomWidget:
 
     def render(self, **kwargs):
         if self.template_name is None:
-            raise ValueError('No template name given')
+            raise ValueError("No template name given")
         return self._render(self.template_name, self.get_context(**kwargs))
 
     @staticmethod
@@ -33,11 +34,11 @@ class CustomWidget:
         """Include widget media (currently only js)"""
         js = [
             format_html(
-                '<script type="text/javascript" src="{}"></script>',
-                static(path)
-            ) for path in self.js
+                '<script type="text/javascript" src="{}"></script>', static(path)
+            )
+            for path in self.js
         ]
-        return mark_safe('\n'.join(js))
+        return mark_safe("\n".join(js))
 
 
 class TopBarWidget(CustomWidget):
@@ -53,3 +54,40 @@ class TopBarWidget(CustomWidget):
 
 class FooterWidget(CustomWidget):
     template_name = "widgets/footer.html"
+    default_links = {
+        "info": {
+            "name": "info",
+            "url": "navigation:dashboard",
+            "enabled": True,
+            "selected": False,
+        },
+        "pin": {
+            "name": "pin",
+            "url": "navigation:dashboard",
+            "enabled": True,
+            "selected": False,
+        },
+        "results": {
+            "name": "results",
+            "url": "navigation:dashboard",
+            "enabled": True,
+            "selected": False,
+        },
+        "dashboard": {
+            "name": "quiz",
+            "url": "navigation:dashboard",
+            "enabled": True,
+            "selected": False,
+        },
+    }
+
+    def __init__(self, links=None):
+        if links is None:
+            self.links = self.default_links
+        else:
+            self.links = {}
+            for key, values in self.default_links.items():
+                self.links[key] = ChainMap(links.get(key, {}), values)
+
+    def get_context(self, **kwargs):
+        return {"links": self.links}
