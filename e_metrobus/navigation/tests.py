@@ -48,17 +48,28 @@ class QuestionTestCase(TestCase):
             + questions.SCORE_CATEGORY_COMPLETE,
         )
 
-    def test_percentage_complete(self):
+    def test_percentage(self):
         self.assertEqual(
             questions.get_category_done_percentage("e_metrobus", self.session), 1
         )
-
-    def test_percentage_half(self):
         self.assertEqual(
-            questions.get_category_done_percentage("personal", self.session), .5
+            questions.get_category_done_percentage("personal", self.session), 0.5
         )
-
-    def test_percentage_zero(self):
         self.assertEqual(
             questions.get_category_done_percentage("politics", self.session), 0
+        )
+
+    def test_next_question(self):
+        self.assertIsNone(questions.get_next_question("e_metrobus", self.session))
+        self.assertEqual(
+            questions.get_next_question("personal", self.session),
+            questions.QUESTIONS["personal"].questions["where"],
+        )
+        self.assertEqual(
+            questions.get_next_question("politics", self.session),
+            questions.QUESTIONS["politics"].questions["senat"],
+        )
+        self.assertEqual(
+            questions.get_next_question("environment", self.session),
+            questions.QUESTIONS["environment"].questions["trees"],
         )

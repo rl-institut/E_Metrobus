@@ -48,7 +48,7 @@ def get_score_for_category(category: str, session):
     if category not in QUESTIONS:
         raise KeyError(f'No such category "{category}"')
 
-    if category not in session["questions"]:
+    if "questions" not in session or category not in session["questions"]:
         return 0
 
     score = 0
@@ -86,3 +86,14 @@ def get_category_done_percentage(category, session):
         if question in session["questions"][category]:
             done += 1
     return done / total
+
+
+def get_next_question(category, session):
+    if category not in QUESTIONS:
+        raise KeyError('Invalid category')
+    if "questions" not in session or category not in session["questions"]:
+        return list(QUESTIONS[category].questions.values())[0]
+    for question_name, question in QUESTIONS[category].questions.items():
+        if question_name not in session["questions"][category]:
+            return question
+    return None
