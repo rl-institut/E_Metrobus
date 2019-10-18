@@ -39,6 +39,26 @@ for cat in question_config:
     QUESTIONS[cat] = Category(label=question_config[cat]["label"], questions=questions)
 
 
-def get_points_for_category(category: str, session):
-    if category not in session['questions']:
+def get_score_for_category(category: str, session):
+    if category not in QUESTIONS:
+        raise KeyError(f'No such category "{category}"')
+
+    if category not in session["questions"]:
         return 0
+
+    score = 0
+    for question_name in session["questions"][category]:
+        if question_name not in QUESTIONS[category].questions:
+            raise KeyError(f'No question "{question_name} in category "{category}"')
+        if session["questions"][category][question_name]:
+            score += SCORE_CORRECT
+        else:
+            score += SCORE_WRONG
+    if all(
+        [
+            question in session["questions"][category]
+            for question in QUESTIONS[category].questions
+        ]
+    ):
+        score += SCORE_CATEGORY_COMPLETE
+    return score
