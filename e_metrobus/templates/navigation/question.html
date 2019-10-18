@@ -1,0 +1,15 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="cell">
+  <form>
+    <h2>{{question.question}}</h2>
+    <select>
+      {% for answer in question.answers %}
+        <option>{{answer}}</option>
+      {% endfor %}
+    </select>
+  </form>
+</div>
+{% endblock %}
