@@ -69,3 +69,15 @@ def get_total_score(session):
     for category in QUESTIONS:
         score += get_score_for_category(category, session)
     return score
+
+
+def get_category_done_percentage(category, session):
+    total = 0
+    done = 0
+    if category not in session["questions"]:
+        return 0
+    for question in QUESTIONS[category].questions:
+        total += 1
+        if question in session["questions"][category]:
+            done += 1
+    return done / total

@@ -3,7 +3,7 @@ from django.test import TestCase
 from e_metrobus.navigation import questions
 
 
-class ScoreTestCase(TestCase):
+class QuestionTestCase(TestCase):
     def setUp(self):
         self.session = {
             "stations": (3, 4),
@@ -46,4 +46,19 @@ class ScoreTestCase(TestCase):
             questions.SCORE_CORRECT * 2
             + questions.SCORE_WRONG
             + questions.SCORE_CATEGORY_COMPLETE,
+        )
+
+    def test_percentage_complete(self):
+        self.assertEqual(
+            questions.get_category_done_percentage("e_metrobus", self.session), 1
+        )
+
+    def test_percentage_half(self):
+        self.assertEqual(
+            questions.get_category_done_percentage("personal", self.session), .5
+        )
+
+    def test_percentage_zero(self):
+        self.assertEqual(
+            questions.get_category_done_percentage("politics", self.session), 0
         )
