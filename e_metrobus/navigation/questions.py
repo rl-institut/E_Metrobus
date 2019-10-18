@@ -49,7 +49,7 @@ def get_score_for_category(category: str, session):
     score = 0
     for question_name in session["questions"][category]:
         if question_name not in QUESTIONS[category].questions:
-            raise KeyError(f'No question "{question_name} in category "{category}"')
+            continue
         if session["questions"][category][question_name]:
             score += SCORE_CORRECT
         else:
@@ -61,4 +61,11 @@ def get_score_for_category(category: str, session):
         ]
     ):
         score += SCORE_CATEGORY_COMPLETE
+    return score
+
+
+def get_total_score(session):
+    score = 0
+    for category in QUESTIONS:
+        score += get_score_for_category(category, session)
     return score

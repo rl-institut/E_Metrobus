@@ -37,6 +37,13 @@ class ScoreTestCase(TestCase):
         with self.assertRaises(KeyError):
             questions.get_score_for_category("not_there", self.session)
 
-    def test_score_question_error(self):
-        with self.assertRaises(KeyError):
-            questions.get_score_for_category("politics", self.session)
+    def test_score_invalid_question(self):
+        self.assertEqual(questions.get_score_for_category("politics", self.session), 0)
+
+    def test_total_score(self):
+        self.assertEqual(
+            questions.get_total_score(self.session),
+            questions.SCORE_CORRECT * 2
+            + questions.SCORE_WRONG
+            + questions.SCORE_CATEGORY_COMPLETE,
+        )
