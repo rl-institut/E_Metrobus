@@ -1,5 +1,6 @@
 .dashboard {
   &__category {
+    margin-bottom: 2rem;
     height: 10rem;
     position: relative;
   }
@@ -11,5 +12,9 @@
   }
   &__img img {
     height: 5rem;
+  }
+  &__header {
+    transform: translateY(-.5rem);
+    font-weight: 700;
   }
 }
