@@ -1,5 +1,5 @@
 .dashboard {
-    height: calc(100vh - 8rem); // height is about the space on screen between top and bottom navigations
+    height: calc(100vh - 9rem); // height is about the space on screen between top and bottom navigations
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -8,6 +8,11 @@
     margin-bottom: 2rem;
     height: 10rem;
     position: relative;
+
+    @media screen and (min-height: 650px) {
+      margin-top: 3vh;
+      margin-bottom: 7vh;
+    }
   }
 
   &__img {
