@@ -9,33 +9,39 @@
 
     &__logo {
     margin: 1rem 0;
-    img {
-      height: 5rem;
-    }
+
     &--embus {
-      margin: 3rem 0 2rem;
+      margin-top: 5vh;
+      margin-bottom: 7vh;
       animation: fadein 1.5s;
 
-      @media (max-height: 670px) {
-        margin: 1rem 0 1.5rem;
+      @media screen and (min-height: 700px) {
+        margin-top: 7vh;
+        margin-bottom: 10vh;
       }
-      @media (min-height: 750px) {
-        margin: 5.5rem 0 2rem;
-      }
+
       img {
-        height: 4.5rem;
+        width: 60%;
       }
     }
     &--bvg {
       animation: fadein 2.5s ;
+      img {
+        width: 12vh;
+      }
     }
     &--tu {
       animation: fadein 4s;
+      img {
+        width: 14vh;
+      }
     }
     &--rli {
       animation: fadein 5s;
+      img {
+        width: 12vh;
+      }
     }
-
   }
   &__bottom {
     animation: fadein 6s;
