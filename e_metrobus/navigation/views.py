@@ -9,11 +9,12 @@ class NavigationView(TemplateView):
     title_icon = "/static/images/icons/Icon_E_Bus_Front.svg"
     title_alt = None
     back_url = ""
+    footer_links = {}
 
     def get_context_data(self, **kwargs):
         points = self.request.session.get("points", 0)
         return {
-            'footer': widgets.FooterWidget(),
+            'footer': widgets.FooterWidget(links=self.footer_links),
             'top_bar': widgets.TopBarWidget(
                 title=self.title,
                 title_icon=self.title_icon,
@@ -41,9 +42,11 @@ class ComparisonView(NavigationView):
     template_name = "navigation/comparison.html"
 
 
-class DashboardView(TemplateView):
+class DashboardView(NavigationView):
     template_name = "navigation/dashboard.html"
 
 
 class LandingPageView(TemplateView):
     template_name = "navigation/landing-page.html"
+    # Example config
+    footer_links = {'pin': {'enabled': False}, 'info': {'selected': True}}
