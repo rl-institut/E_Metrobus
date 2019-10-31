@@ -35,13 +35,12 @@
 
 </section>
 
-<div class="grid-x align-center text-center station__bottom">
-  <div class="cell" id="stations_error"></div>
+<div class="grid-x align-center text-center station__bottom" id="station_form" style="display: none">
   <div class="cell">
-    <button class="button" onclick="post();">Strecke bestätigen</button>
     <form method="post" id="stations_form">
       {% csrf_token %}
       <input type="hidden" name="stations" id="stations">
+      <button class="button" onclick="post();">Strecke bestätigen</button>
     </form>
   </div>
 </div>

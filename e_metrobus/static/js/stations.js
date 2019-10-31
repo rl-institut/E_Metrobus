@@ -91,8 +91,8 @@ function setStationsID(e) {
 }
 
 $("#stationsList .station").click(function() {
-	// if no station is selected yet -> add departure station
-	if (stations.length === 0) {
+  // if no station is selected yet -> add departure station
+  if (stations.length === 0) {
   	//console.log("Array is empty");
     saveStation(this.id);
     highlightStation(this.id);
@@ -120,13 +120,17 @@ $("#stationsList .station").click(function() {
   	//console.log("error");
   }
 
+  //Show button if 2 stations are selected
+  if (stations.length === 2) {
+    $("#station_form").show();
+  } else {
+    $("#station_form").hide();
+  }
+
 });
 
 function post() {
-  if (stations.length != 2) {
-    $('#stations_error').html('Fehler!')
-  }
-  else {
+  if (stations.length === 2) {
     $('#stations').val(stations);
     $('#stations_form').submit();
   }
