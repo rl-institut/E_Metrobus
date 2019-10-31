@@ -28,10 +28,6 @@ class NavigationView(TemplateView):
         }
 
 
-class StartView(TemplateView):
-    template_name = "navigation/start.html"
-
-
 class RouteView(TemplateView):
     template_name = "navigation/route.html"
 
@@ -67,5 +63,9 @@ class ComparisonView(NavigationView):
 
 class DashboardView(NavigationView):
     template_name = "navigation/dashboard.html"
+
+
+class LandingPageView(TemplateView):
+    template_name = "navigation/landing-page.html"
     # Example config
     footer_links = {'pin': {'enabled': False}, 'info': {'selected': True}}
