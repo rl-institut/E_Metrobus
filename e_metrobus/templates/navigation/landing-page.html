@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block body_class %}class="l-scroll l-scroll--nonav"{% endblock %}
+
+{% block content %}
+  <div class="cell">
+    <div class="grid-x align-center text-center landpage">
+      <div class="cell">
+        <div class="grid-x">
+          <div class="cell landpage__logo landpage__logo--embus">
+            <img src="{%static 'images/icons/Icon_E_Bus_BVG.svg' %}" alt="E-Bus Icon">
+          </div>
+          <div class="cell landpage__logo landpage__logo--bvg">
+            <img src="{% static 'images/logos/Logo_BVG.png' %}" alt="BVG Logo">
+          </div>
+          <div class="cell landpage__logo landpage__logo--tu">
+            <img src="{% static 'images/logos/TU-Berlin_logo.png' %}" alt="TU Berlin Logo">
+          </div>
+          <div class="cell landpage__logo landpage__logo--rli">
+            <img src="{% static 'images/logos/RLi_logo.png' %}" alt="RLI Logo">
+          </div>
+        </div>
+      </div>
+      <div class="cell landpage__bottom">
+        <div class="grid-x">
+          <div class="cell landpage__bottom-text">
+            <span>Toll, dass du mit einem E-Bus fährst!</span>
+          </div>
+          <div class="cell landing__bottom-btn">
+            <a href="{% url 'navigation:route' %}"><button name="boarding" class="button"><span>Zeig mir warum!</span></button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
