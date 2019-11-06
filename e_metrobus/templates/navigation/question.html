@@ -1,0 +1,18 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="cell">
+  <form method="post">
+    {% csrf_token %}
+    <h2>{{question.question}}</h2>
+    <select name="answer">
+      {% for answer in question.answers %}
+        <option>{{answer}}</option>
+      {% endfor %}
+    </select>
+    <input type="hidden" name="question" value="{{question.name}}">
+    <input type="submit" value="Okay">
+  </form>
+</div>
+{% endblock %}

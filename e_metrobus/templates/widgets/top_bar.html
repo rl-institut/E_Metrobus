@@ -1,17 +1,19 @@
+{% load static %}
+
 <section class="grid-x top-bar">
   <div class="cell small-2 top-bar--back">
-    <a href="{{back_url}}">
+    <a href="{% url back_url %}">
       <div>
-        <img src="/static/images/icons/i_back_black.svg" alt="Zurück">
+        <img src="{% static 'images/icons/i_back_black.svg' %}" alt="Zurück">
       </div>
     </a>
   </div>
   <div class="cell small-8 top-bar--header">
-    <img src="{{title_icon}}" alt="{{title_alt}}">
+    <img src="{% static title_icon %}" alt="{{title_alt}}">
     <span>{{title}}</span>
   </div>
   <div class="cell small-2 top-bar--points">
-    <img src="/static/images/icons/i_star_black.svg" alt="Stern und Punkten">
+    <img src="{% static 'images/icons/i_star_black.svg' %}" alt="Stern und Punkten">
     <span>{{points}}</span>
   </div>
 </section>
