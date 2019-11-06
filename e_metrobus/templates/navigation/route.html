@@ -1,6 +1,15 @@
 
-{% extends "base.html" %}
+{% extends "base.html" %}
 
-{% block content %}
-Route
+{% block body_class %}class="l-scroll l-scroll--nonav"{% endblock %}
+
+{% block content %}
+
+{{stations}}
+
+{% endblock %}
+
+{% block javascript %}
+  {{block.super}}
+  {{stations.media}}
 {% endblock %}

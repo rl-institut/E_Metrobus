@@ -1,0 +1,35 @@
+$footer-height: 3.8rem;
+
+section.footer {
+  background-color: #DDD;
+	height: $footer-height;
+  bottom: 0;
+  width: 100%;
+
+	.footer__item {
+	  box-sizing: border-box;
+	  border-right: 1px solid $gray-1;
+
+	  &:last-child {
+		border-right: none;
+	  }
+
+	  img {
+		width: 2rem;
+	  }
+	}
+	.footer__item-wrap {
+	  width: 100%;
+	  height: $footer-height;
+    text-align: center;
+    line-height: $footer-height;
+  }
+  .footer__item {
+    &--selected {
+      background-color: $secondary-color;
+    }
+    &--not-selected {
+      background-color: $gray-1;
+    }
+  }
+}

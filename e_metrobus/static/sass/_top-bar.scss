@@ -1,0 +1,41 @@
+section.top-bar {
+	padding: 0;
+  background-color: $gray-1;
+	height: $top-bar-height;
+	width: 100%;
+	text-align: center;
+
+	.cell {
+		height: 100%;
+		line-height: $top-bar-height;
+	}
+
+	.top-bar--back {
+		text-align: left;
+
+		img {
+			width: 1rem;
+			margin-left: .5rem;
+			transform: translateY(-2px);
+		}
+	}
+
+	.top-bar--header {
+		font-size: 1rem;
+		font-weight: 700;
+		img {
+			width: 1.5rem;
+			transform: translateY(-2px);
+		}
+	}
+
+	.top-bar--points {
+		text-align: left;
+		font-size: .875rem;
+		font-weight: 700;
+		img {
+			width: 1.2rem;
+			transform: translateY(-2px);
+		}
+	}
+}
