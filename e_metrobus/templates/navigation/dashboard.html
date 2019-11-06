@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-Dashboard
+
+{% for category, percentage in categories.items %}
+  <div class="cell">
+    <a href="{% url 'navigation:question' category %}">{{category}} ({{percentage}}%)</a>
+  </div>
+{% endfor %}
+
 {% endblock %}
