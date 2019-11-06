@@ -87,19 +87,33 @@ class QuestionView(NavigationView):
         context = self.get_context_data(**kwargs, question=next_question)
         return self.render_to_response(context)
 
+
+class AnswerView(NavigationView):
+    template_name = "navigation/answer.html"
+    back_url = "navigation:dashboard"
+
+    def get_context_data(self, answer, question, **kwargs):
+        self.title = questions.QUESTIONS[question.category].label
+        self.title_icon = questions.QUESTIONS[question.category].icon
+        context = super(AnswerView, self).get_context_data(**kwargs)
+        context["answer"] = answer
+        context["category"] = question.category
+        context["question_template"] = f"questions/{question.template}"
+        return context
+
     def post(self, request, **kwargs):
-        category = kwargs["category"]
-        question = questions.QUESTIONS[category].questions[request.POST["question"]]
-        answer = request.POST["answer"] == question.correct
+        question = questions.get_question_from_name(request.POST["question"])
+        answer = request.POST["answer"] == question.answers[int(question.correct)]
 
         if "questions" not in request.session:
             request.session["questions"] = {}
-        if category not in request.session["questions"]:
-            request.session["questions"][category] = {}
-        if question.name in request.session["questions"][category]:
-            raise ValueError('Answer already given')
+        if question.category not in request.session["questions"]:
+            request.session["questions"][question.category] = {}
+        if question.name in request.session["questions"][question.category]:
+            raise ValueError("Answer already given")
         else:
-            request.session["questions"][category][question.name] = answer
+            request.session["questions"][question.category][question.name] = answer
         request.session.save()
 
-        return redirect('navigation:question', category=category)
+        context = self.get_context_data(answer=answer, question=question, **kwargs)
+        return self.render_to_response(context)

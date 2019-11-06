@@ -18,6 +18,7 @@ class Question:
     answers: List[str]
     correct: int
     template: str
+    category: str
 
 
 @dataclass
@@ -36,7 +37,10 @@ for cat in question_config:
     questions = {}
     for q in question_config[cat]["questions"]:
         questions[q] = Question(
-            template=f"{cat}/{q}.html", name=q, **question_config[cat]["questions"][q]
+            template=f"{cat}/{q}.html",
+            name=q,
+            category=cat,
+            **question_config[cat]["questions"][q],
         )
     QUESTIONS[cat] = Category(
         label=question_config[cat]["label"],
@@ -91,10 +95,17 @@ def get_category_done_percentage(category, session):
 
 def get_next_question(category, session):
     if category not in QUESTIONS:
-        raise KeyError('Invalid category')
+        raise KeyError("Invalid category")
     if "questions" not in session or category not in session["questions"]:
         return list(QUESTIONS[category].questions.values())[0]
     for question_name, question in QUESTIONS[category].questions.items():
         if question_name not in session["questions"][category]:
             return question
     return None
+
+
+def get_question_from_name(question_name):
+    for category in QUESTIONS.values():
+        if question_name in category.questions:
+            return category.questions[question_name]
+    raise KeyError(f'Question "{question_name}" not found.')

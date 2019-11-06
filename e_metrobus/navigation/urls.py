@@ -8,5 +8,6 @@ urlpatterns = [
     path("route/", view=views.RouteView.as_view(), name="route"),
     path("comparison/", view=views.ComparisonView.as_view(), name="comparison"),
     path("dashboard/", view=views.DashboardView.as_view(), name="dashboard"),
-    path("quiz/<str:category>", view=views.QuestionView.as_view(), name='question')
+    path("quiz/<str:category>", view=views.QuestionView.as_view(), name='question'),
+    path("answer", view=views.AnswerView.as_view(), name='answer')
 ]
