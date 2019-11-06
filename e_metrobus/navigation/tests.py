@@ -50,13 +50,13 @@ class QuestionTestCase(TestCase):
 
     def test_percentage(self):
         self.assertEqual(
-            questions.get_category_done_percentage("e_metrobus", self.session), 1
+            questions.get_category_done_share("e_metrobus", self.session), 1
         )
         self.assertEqual(
-            questions.get_category_done_percentage("personal", self.session), 0.5
+            questions.get_category_done_share("personal", self.session), 0.5
         )
         self.assertEqual(
-            questions.get_category_done_percentage("politics", self.session), 0
+            questions.get_category_done_share("politics", self.session), 0
         )
 
     def test_next_question(self):
