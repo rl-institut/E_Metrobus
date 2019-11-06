@@ -3,7 +3,7 @@
 
 {% block content %}
 <div class="cell">
-  <form method="post">
+  <form method="post" action="{% url 'navigation:answer' %}">
     {% csrf_token %}
     <h2>{{question.question}}</h2>
     <select name="answer">
