@@ -6,6 +6,8 @@ from configobj import ConfigObj
 from django.conf import settings
 
 
+QUESTION_TEMPLATE_FOLDER = "questions"
+
 SCORE_WRONG = 5
 SCORE_CORRECT = 10
 SCORE_CATEGORY_COMPLETE = 11
@@ -37,7 +39,7 @@ for cat in question_config:
     questions = {}
     for q in question_config[cat]["questions"]:
         questions[q] = Question(
-            template=f"{cat}/{q}.html",
+            template=f"{QUESTION_TEMPLATE_FOLDER}/{cat}/{q}.html",
             name=q,
             category=cat,
             **question_config[cat]["questions"][q],

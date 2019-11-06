@@ -1,0 +1,13 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+
+  {% for cat_name, category in categories.items %}
+    <h2>{{cat_name}}</h2>
+    {% for q_name, question in category.questions.items %}
+      <h3>{{q_name}}</h3>
+      {% include question.template %}
+    {% endfor %}
+  {% endfor %}
+{% endblock %}

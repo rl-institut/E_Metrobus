@@ -98,7 +98,7 @@ class AnswerView(NavigationView):
         context = super(AnswerView, self).get_context_data(**kwargs)
         context["answer"] = answer
         context["category"] = question.category
-        context["question_template"] = f"questions/{question.template}"
+        context["question_template"] = question.template
         return context
 
     def post(self, request, **kwargs):
@@ -117,3 +117,12 @@ class AnswerView(NavigationView):
 
         context = self.get_context_data(answer=answer, question=question, **kwargs)
         return self.render_to_response(context)
+
+
+class QuestionsAsTextView(NavigationView):
+    template_name = "navigation/questions_as_text.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(QuestionsAsTextView, self).get_context_data(**kwargs)
+        context["categories"] = questions.QUESTIONS
+        return context
