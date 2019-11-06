@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 
 volumes:
   local_postgres_data: {}
@@ -17,9 +17,12 @@ services:
     env_file:
       - ./.envs/.local/.django
       - ./.envs/.local/.postgres
-    ports:
-      - "8000:8000"
+    expose:
+      - "8000"
     command: /start
+    networks:
+    - e_metrobus_local_network
+    - caddy_network
 
   postgres:
     build:
@@ -31,6 +34,8 @@ services:
       - local_postgres_data_backups:/backups
     env_file:
       - ./.envs/.local/.postgres
+    networks:
+    - e_metrobus_local_network
 
   node:
     build:
@@ -44,7 +49,7 @@ services:
       # http://jdlm.info/articles/2016/03/06/lessons-building-node-app-docker.html
       - /app/node_modules
     command: npm run dev
-    ports:
-      - "3000:3000"
-      # Expose browsersync UI: https://www.browsersync.io/docs/options/#option-ui
-      - "3001:3001"
+
+networks:
+  caddy_network:
+  e_metrobus_local_network:
