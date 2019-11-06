@@ -11,7 +11,7 @@ SECRET_KEY = env(
     default="WaALji6Go8B5Zp9okXgnCiZQIoHKU5MEpwyZY3WAGWga0rAOH00G59rek9lNyejS",
 )
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1"]
+ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", "e-metrobus.berlin"]
 
 # CACHES
 # ------------------------------------------------------------------------------
