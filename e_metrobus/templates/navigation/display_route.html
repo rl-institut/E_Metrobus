@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<div class="cell display-route">
+<div class="cell display-route" id="onboardingAnimate0">
   <div class="grid-x text-center align-center">
     <div class="cell display-route__start">
       Station 1
@@ -25,9 +25,23 @@
     <div class="cell display-route__end">
       Station 2
     </div>
-
   </div>
+</div>
 
+<div class="cell display-route" id="onboardingAnimate1" style="display: none;">
+  <div class="grid-x text-center align-center">
+    <div class="cell">
+      <p class="display-route__text">Deine Strecke mit dem E-Bus beträgt</p>
+      <p class="display-route__number">3,2 km</p>
+      <svg width="220" height="220">
+        <circle cx="110" cy="0" r="110" style="fill:#F0D722" />
+      </svg>
+    </div>
+  </div>
+</div>
+
+<div class="cell display-route" id="onboardingAnimate2" style="display: none;">
+  Test 2
 </div>
 
 

@@ -9,4 +9,16 @@
   &__start {
     padding-bottom: .5rem;
   }
+
+  &__text {
+    transform: translateY(12rem);
+    font-weight: 400;
+  }
+
+  &__number {
+    transform: translateY(12rem);
+    font-weight: 700;
+    font-size: 3rem;
+
+  }
 }
