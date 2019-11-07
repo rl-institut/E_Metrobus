@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="grid-container">
+  <div class="grid-x text-center align-center route">
+    <div class="cell route__start">
+      Station 1
+    </div>
+    <div class="cell">
+      <svg width="52" height="250">
+        <circle cx="26" cy="6" r="6"/>
+				<rect x="20" y="7" width="12" height="236" />
+        <circle cx="26" cy="244" r="6"/>
+        <circle cx="26" cy="6" r="4" fill="#fff"/>
+        <circle cx="26" cy="244" r="4" fill="#fff"/>
+        <polygon points="20,70 32,70 26,80" fill="#fff"/>
+			</svg>
+    </div>
+    <div class="cell route__end">
+      Station 2
+    </div>
+
+  </div>
+
+</div>
+
+
+{% endblock %}
