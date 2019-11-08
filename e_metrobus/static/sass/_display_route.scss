@@ -10,15 +10,34 @@
     padding-bottom: .5rem;
   }
 
+  &__wrap {
+    position: relative;
+  }
+
+  &__text,
+  &__number,
+  &__circle {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+  }
+
   &__text {
-    transform: translateY(12rem);
     font-weight: 400;
+    top: -12vh;
+    z-index: 2;
   }
 
   &__number {
-    transform: translateY(12rem);
     font-weight: 700;
     font-size: 3rem;
+    transform: translateY(-50%);
+    z-index: 2;
+  }
 
+  &__circle {
+    transform: translateY(-50%);
+    z-index: 1;
   }
 }
