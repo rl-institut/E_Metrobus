@@ -2,9 +2,7 @@
 
 // Animate onboarding part
 
-// hide route
-// show yellow circle
-// show first result
+// hide route and start yellow circle animation
 setTimeout(function() {
   $('#onboardingAnimateRoute').hide();
   $('#onboardingAnimateBackground').show();
@@ -26,6 +24,7 @@ setTimeout(function() {
   $('#onboardingAnimateText4').show();
 }, 8000);
 
+// finish yellow circle animation
 setTimeout(function() {
   $('#onboardingAnimateBackground').hide();
   $('#onboardingAnimateText4').hide();
