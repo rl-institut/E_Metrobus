@@ -24,16 +24,17 @@
   }
 
   &__text {
-    font-weight: 400;
-    top: -12vh;
+    transform: translateY(-7vh);
     z-index: 2;
+  }
+
+  &__sentence {
+    font-weight: 400;
   }
 
   &__number {
     font-weight: 700;
     font-size: 3rem;
-    transform: translateY(-50%);
-    z-index: 2;
   }
 
   &__circle {

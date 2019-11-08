@@ -4,7 +4,7 @@
 
 setTimeout(function() {
   $('#onboardingAnimate0').hide();
-  $('#onboardingAnimate1').show();
+  $('#onboardingAnimateBackground').show();
 }, 2000);
 
 // setTimeout(function() {
