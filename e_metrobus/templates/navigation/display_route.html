@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<div class="cell display-route" id="onboardingAnimate0">
+<div class="cell display-route" id="onboardingAnimateRoute">
   <div class="grid-x text-center align-center">
     <div class="cell display-route__start">
       Station 1
@@ -31,10 +31,26 @@
 <div class="cell display-route" id="onboardingAnimateBackground" style="display: none;">
   <div class="grid-x text-center align-center">
     <div class="cell display-route__wrap">
-      <div class="display-route__text">
+      <!-- 1st result -->
+      <div class="display-route__text" id="onboardingAnimateText1" style="display: none;">
         <p class="display-route__sentence">Deine Strecke mit dem E-Bus beträgt</p>
         <p class="display-route__number">3,2 km</p>
       </div>
+      <!-- 2nd result -->
+      <div class="display-route__text" id="onboardingAnimateText2" style="display: none;">
+        <p class="display-route__sentence">Im Vergleich zum Dieselbus sparst Du</p>
+        <p class="display-route__number">99 % CO2</p>
+      </div>
+      <!-- 3rd result -->
+      <div class="display-route__text" id="onboardingAnimateText3" style="display: none;">
+        <p class="display-route__sentence">Im Vergleich zum Pkw sparst Du</p>
+        <p class="display-route__number">99 % CO2</p>
+      </div>
+      <!-- 4th result -->
+      <div class="display-route__text" id="onboardingAnimateText4" style="display: none;">
+        <p class="display-route__sentence">Nur noch zu Fuß oder mit dem Fahrrad kannst Du besser machen!</p>
+      </div>
+      <!-- background yellow circle -->
       <div class="display-route__circle">
         <svg viewBox="0 0 220 220">
           <circle cx="110" cy="110" r="80" style="fill:#F0D722" />
@@ -44,8 +60,13 @@
   </div>
 </div>
 
-<div class="cell display-route" id="onboardingAnimate2" style="display: none;">
-  Test 2
+<!-- Chart -->
+<div class="cell display-route" id="onboardingAnimateChart" style="display: none;">
+  <div class="grid-x text-center align-center">
+    <div class="cell">
+      Graph kommt hier
+    </div>
+  </div>
 </div>
 
 
