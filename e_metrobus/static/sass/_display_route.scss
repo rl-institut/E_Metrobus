@@ -30,6 +30,11 @@
 
   &__sentence {
     font-weight: 400;
+    font-size: 1.25rem;
+
+    @media (max-width: 360px) {
+      font-size: 1rem;
+    }
 
     span {
       font-weight: 700;
