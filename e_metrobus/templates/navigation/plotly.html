@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+Plotly:
+{{plotly|safe}}
+{% endblock %}
+
+{% block javascript %}
+{{block.super}}
+
+<script>
+$(document).ready(function() {
+  var update = {
+    width: 800,  // or any new width
+    height: 500  // " "
+  };
+
+  Plotly.relayout('{{plotly_id}}', update);
+});
+</script>
+{% endblock %}
