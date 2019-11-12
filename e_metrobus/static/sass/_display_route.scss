@@ -1,7 +1,7 @@
 
 .display-route {
   font-weight: 700;
-  height: calc(100vh - 9rem); 
+  height: calc(100vh - 12rem); 
   display: flex; 
   flex-direction: column; 
   justify-content: center;
@@ -46,3 +46,13 @@
     z-index: 1;
   }
 }
+
+#onboardingAnimateIcons {
+  padding-top: 5rem;
+  height: 3rem;
+
+  img {
+    height: 3rem;
+  }
+}
+

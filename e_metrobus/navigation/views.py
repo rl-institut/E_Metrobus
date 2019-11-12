@@ -64,7 +64,7 @@ class ComparisonView(NavigationView):
 class DashboardView(NavigationView):
     template_name = "navigation/dashboard.html"
 
-class DisplayRouteView(TemplateView):
+class DisplayRouteView(NavigationView):
     template_name = "navigation/display_route.html"
 
 class LandingPageView(TemplateView):
