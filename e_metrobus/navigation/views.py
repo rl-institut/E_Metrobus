@@ -7,7 +7,7 @@ from django.shortcuts import redirect
 
 from e_metrobus.navigation import constants
 
-from e_metrobus.navigation import widgets
+from e_metrobus.navigation import widgets, utils
 
 
 class NavigationView(TemplateView):
@@ -83,13 +83,15 @@ class PlotlyView(TemplateView):
         # Plotly Figure:
         animals = ['giraffes', 'orangutans', 'monkeys']
         fig = go.Figure([go.Bar(x=animals, y=[20, 14, 23])])
-        fig.layout.width = None
-        fig.layout.height = None
-        plotly_div = plotly.offline.plot(fig, include_plotlyjs=False, output_type="div")
-        context["plotly"] = plotly_div
-        script = plotly_div[plotly_div.find("<script") + len(
-            '<script type="text/javascript">'):plotly_div.find("</script>")]
-        div_id_start = plotly_div.find('<div id="') + 9
-        div_id_end = plotly_div.find('"', div_id_start)
-        context["plotly_id"] = plotly_div[div_id_start:div_id_end]
+        fig.layout.width = 200
+        fig.layout.height = 300
+        fig.layout.margin.t = 0
+        fig.layout.margin.b = 0
+        fig.layout.margin.l = 0
+        fig.layout.margin.r = 0
+        fig.layout.plot_bgcolor = '#fff'
+        fig.layout.colorscale = [[0, plotly.colors.rgb(220,220,220)], [0.2, rgb(245,195,157)], [0.4, rgb(245,160,105)], [1, rgb(178,10,28)], ]
+        fig.layout.yaxis.visible = False
+        dj_fig = utils.DjangoFigure(fig, displayModeBar=False)
+        context["plotly"] = dj_fig
         return context
