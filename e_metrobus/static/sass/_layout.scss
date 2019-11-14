@@ -60,5 +60,9 @@ $top-bar-height: 2.8rem;
 }
 
 .main-content {
-	padding: 0.75rem;
+	padding: 0;
+	.grid-container {
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+	}
 }
