@@ -69,3 +69,6 @@ class LandingPageView(TemplateView):
     template_name = "navigation/landing-page.html"
     # Example config
     footer_links = {'pin': {'enabled': False}, 'info': {'selected': True}}
+
+class LegalView(NavigationView):
+    template_name = "navigation/legal.html"
