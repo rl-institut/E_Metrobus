@@ -1,7 +1,9 @@
 from django.views.generic import TemplateView
 from django.shortcuts import redirect
 
-from e_metrobus.navigation import widgets, constants, questions
+from e_metrobus.navigation import widgets
+from e_metrobus.navigation import constants
+from e_metrobus.navigation import questions
 
 
 class NavigationView(TemplateView):
@@ -134,3 +136,6 @@ class AnswerView(NavigationView):
 
         context = self.get_context_data(answer=answer, question=question, **kwargs)
         return self.render_to_response(context)
+
+class LegalView(NavigationView):
+    template_name = "navigation/legal.html"
