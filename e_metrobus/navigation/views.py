@@ -83,14 +83,13 @@ class PlotlyView(TemplateView):
         # Plotly Figure:
         animals = ['giraffes', 'orangutans', 'monkeys']
         fig = go.Figure([go.Bar(x=animals, y=[20, 14, 23])])
-        fig.layout.width = 200
-        fig.layout.height = 300
         fig.layout.margin.t = 0
         fig.layout.margin.b = 0
         fig.layout.margin.l = 0
         fig.layout.margin.r = 0
+        fig.layout.autosize = True
         fig.layout.plot_bgcolor = '#fff'
-        fig.layout.colorscale = [[0, plotly.colors.rgb(220,220,220)], [0.2, rgb(245,195,157)], [0.4, rgb(245,160,105)], [1, rgb(178,10,28)], ]
+        # fig.layout.colorscale = [[0, plotly.colors.rgb(220,220,220)], [0.2, rgb(245,195,157)], [0.4, rgb(245,160,105)], [1, rgb(178,10,28)], ]
         fig.layout.yaxis.visible = False
         dj_fig = utils.DjangoFigure(fig, displayModeBar=False)
         context["plotly"] = dj_fig
