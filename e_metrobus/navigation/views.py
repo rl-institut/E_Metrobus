@@ -67,12 +67,16 @@ class DashboardView(NavigationView):
 
     def get_context_data(self, **kwargs):
         context = super(DashboardView, self).get_context_data(**kwargs)
-        context["categories"] = {
-            category: questions.get_category_done_share(
-                category, self.request.session
-            ) * 100
-            for category in questions.QUESTIONS
-        }
+        context["categories"] = [
+            (
+                cat_name,
+                category,
+                constants.Ellipse(
+                    questions.get_category_done_share(cat_name, self.request.session)
+                ),
+            )
+            for cat_name, category in questions.QUESTIONS.items()
+        ]
         return context
 
 
