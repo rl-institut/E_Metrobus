@@ -8,7 +8,7 @@
 <div class="cell display-route" id="onboardingAnimateRoute">
   <div class="grid-x text-center align-center">
     <div class="cell display-route__start">
-      Station 1
+      {{stations.0}}
     </div>
     <div class="cell">
       <svg width="52" height="250">
@@ -26,7 +26,7 @@
 			</svg>
     </div>
     <div class="cell display-route__end">
-      Station 2
+      {{stations.1}}
     </div>
   </div>
 </div>
@@ -60,7 +60,7 @@
       </div>
       <!-- 4th result -->
       <div class="display-route__text" id="onboardingAnimateText4" style="display: none;">
-        <p class="display-route__sentence">Nur noch <span>zu Fuß</span> oder mit dem <span>Fahrrad</span> kannst Du besser machen!</p>
+        <p class="display-route__sentence">Nur noch <span>zu Fuß</span> oder mit dem <span>Fahrrad</span> kannst Du es besser machen!</p>
       </div>
       <div class="display-route__circle">
         <svg viewBox="0 0 220 220">
@@ -80,5 +80,49 @@
   </div>
 </div>
 
-
 {% endblock %}
+
+{% block javascript %}
+{{block.super}}
+
+<script>
+  setTimeout(function() {
+    $('#onboardingAnimateRoute').hide();
+    $('#onboardingAnimateIcons').show();
+    $('#onboardingAnimateIcon1').show();
+    $('#onboardingAnimateBackground').show();
+    $('#onboardingAnimateText1').show();
+  }, 2000);
+
+  setTimeout(function() {
+    $('#onboardingAnimateText1').hide();
+    $('#onboardingAnimateText2').show();
+    $('#onboardingAnimateIcon1').hide();
+    $('#onboardingAnimateIcon2').show();
+  }, 4000);
+
+  setTimeout(function() {
+    $('#onboardingAnimateText2').hide();
+    $('#onboardingAnimateText3').show();
+    $('#onboardingAnimateIcon2').hide();
+    $('#onboardingAnimateIcon3').show();
+  }, 6000);
+
+  setTimeout(function() {
+    $('#onboardingAnimateText3').hide();
+    $('#onboardingAnimateText4').show();
+    $('#onboardingAnimateIcon3').hide();
+    $('#onboardingAnimateIcon4').show();
+  }, 8000);
+
+  // finish yellow circle animation
+  setTimeout(function() {
+    $('#onboardingAnimateBackground').hide();
+    $('#onboardingAnimateText4').hide();
+    $('#onboardingAnimateIcons').hide();
+    $('#onboardingAnimateIcon4').hide();
+    $('#onboardingAnimateChart').show();
+    console.log('hey');
+  }, 10000);
+</script>
+{% endblock %}
