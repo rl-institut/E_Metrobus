@@ -1,0 +1,20 @@
+.legal {
+
+  &__text {
+    font-size: 0.9rem;
+    font-weight: lighter;
+    &--header {
+      margin: 1rem 0;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+  }
+  &__logo {
+    width: 100%;
+    margin: 4rem 0 0;
+    img {
+      height: 4rem;
+
+    }
+  }
+}
