@@ -4,7 +4,6 @@ from django.shortcuts import redirect
 
 from e_metrobus.navigation import chart
 from e_metrobus.navigation import constants
-
 from e_metrobus.navigation import widgets
 
 
@@ -45,30 +44,28 @@ class RouteView(TemplateView):
             return int(start[-2:]) - 1, int(end[-2:]) - 1
 
         request.session["stations"] = get_stations()
-        return redirect("navigation:comparison")
-
-
-class ComparisonView(NavigationView):
-    template_name = "navigation/comparison.html"
-
-    def get(self, request, *args, **kwargs):
-        stations = request.session["stations"]
-        context = self.get_context_data(stations, **kwargs)
-        return self.render_to_response(context)
-
-    def get_context_data(self, stations, **kwargs):
-        context = super(ComparisonView, self).get_context_data(**kwargs)
-        context["stations"] = [constants.STATIONS[i] for i in stations]
-        return context
+        return redirect("navigation:display_route")
 
 
 class DashboardView(NavigationView):
     template_name = "navigation/dashboard.html"
 
 
+class DisplayRouteView(NavigationView):
+    template_name = "navigation/display_route.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(DisplayRouteView, self).get_context_data(**kwargs)
+        context["stations"] = [
+            constants.STATIONS[station] for station in self.request.session["stations"]
+        ]
+        return context
+
+
 class LandingPageView(TemplateView):
     template_name = "navigation/landing-page.html"
     # Example config
+    footer_links = {"pin": {"enabled": False}, "info": {"selected": True}}
     footer_links = {"pin": {"enabled": False}, "info": {"selected": True}}
 
 
