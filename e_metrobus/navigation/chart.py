@@ -1,14 +1,13 @@
-
 from collections import namedtuple
 
 import plotly
 import plotly.graph_objects as go
 
 # at max_value = 50
-MARGIN = 6
+MARGIN = 10
 OFFSET = 1
 SIZE = MARGIN - 2 * OFFSET
-TEXTSIZE = 3
+TEXTSIZE = 5
 
 Sizes = namedtuple("Sizes", ["margin", "offset", "size", "textsize"])
 
@@ -43,29 +42,42 @@ def get_mobility_figure(values):
     max_value = max(values)
     sizes = get_sizes(max_value)
 
-    fig = go.Figure(
-        [
-            go.Bar(x=mobiles, y=values, marker_color=colors, text=values, textposition='outside',)
-        ]
+    bar = go.Bar(
+        x=mobiles,
+        y=values,
+        marker_color=colors,
+        text=values,
+        textposition="outside",
+        width=0.6,
     )
+    bar.textfont.size = 15
+    fig = go.Figure([bar])
     fig.layout.margin.t = 0
     fig.layout.margin.b = 0
-    fig.layout.margin.l = 0
-    fig.layout.margin.r = 0
+    fig.layout.margin.l = 10
+    fig.layout.margin.r = 10
     fig.layout.autosize = True
     fig.layout.plot_bgcolor = "#fff"
+    fig.layout.xaxis.tickangle = -45
+    fig.layout.xaxis.tickfont.size = 15
     fig.layout.yaxis.visible = False
-    fig.layout.yaxis.range = [-sizes.margin, max_value]
+    fig.layout.yaxis.range = [-sizes.margin, max_value + sizes.margin]
 
     # Mobility icons:
     for i, icon in enumerate(["walk", "bike", "ebus", "bus", "car"]):
         fig.add_layout_image(
-            go.layout.Image(source=f"/static/images/icons/i_{icon}.svg", x=i, y=-sizes.offset)
+            go.layout.Image(
+                source=f"/static/images/icons/i_{icon}.svg", x=i, y=-sizes.offset
+            )
         )
     # Trophy Icons:
     for i in range(3):
         fig.add_layout_image(
-            go.layout.Image(source="/static/images/icons/i_trophy.svg", x=i, y=values[i] + sizes.textsize + sizes.size + sizes.offset)
+            go.layout.Image(
+                source="/static/images/icons/i_trophy.svg",
+                x=i,
+                y=values[i] + sizes.textsize + sizes.size + sizes.offset,
+            )
         )
 
     fig.update_layout_images(
