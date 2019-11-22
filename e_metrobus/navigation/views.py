@@ -77,5 +77,6 @@ class PlotlyView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(PlotlyView, self).get_context_data(**kwargs)
-        context["plotly"] = chart.get_mobility_figure([5, 5, 10, 30, 40])
+        # context["plotly"] = chart.get_mobility_figure([5, 5, 10, 30, 50])
+        context["plotly"] = chart.get_mobility_figure([50, 50, 100, 300, 500])
         return context
