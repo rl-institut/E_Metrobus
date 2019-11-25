@@ -13,10 +13,12 @@ SCORE_CATEGORY_COMPLETE = 11
 
 @dataclass
 class Question:
+    name: str
     question: str
     answers: List[str]
     correct: int
     template: str
+    category: str
 
 
 @dataclass
@@ -35,7 +37,10 @@ for cat in question_config:
     questions = {}
     for q in question_config[cat]["questions"]:
         questions[q] = Question(
-            template=f"{cat}/{q}.html", **question_config[cat]["questions"][q]
+            template=f"{cat}/{q}.html",
+            name=q,
+            category=cat,
+            **question_config[cat]["questions"][q],
         )
     QUESTIONS[cat] = Category(
         label=question_config[cat]["label"],
@@ -48,7 +53,7 @@ def get_score_for_category(category: str, session):
     if category not in QUESTIONS:
         raise KeyError(f'No such category "{category}"')
 
-    if category not in session["questions"]:
+    if "questions" not in session or category not in session["questions"]:
         return 0
 
     score = 0
@@ -76,13 +81,31 @@ def get_total_score(session):
     return score
 
 
-def get_category_done_percentage(category, session):
+def get_category_done_share(category, session):
     total = 0
     done = 0
-    if category not in session["questions"]:
+    if "questions" not in session or category not in session["questions"]:
         return 0
     for question in QUESTIONS[category].questions:
         total += 1
         if question in session["questions"][category]:
             done += 1
     return done / total
+
+
+def get_next_question(category, session):
+    if category not in QUESTIONS:
+        raise KeyError("Invalid category")
+    if "questions" not in session or category not in session["questions"]:
+        return list(QUESTIONS[category].questions.values())[0]
+    for question_name, question in QUESTIONS[category].questions.items():
+        if question_name not in session["questions"][category]:
+            return question
+    return None
+
+
+def get_question_from_name(question_name):
+    for category in QUESTIONS.values():
+        if question_name in category.questions:
+            return category.questions[question_name]
+    raise KeyError(f'Question "{question_name}" not found.')
