@@ -44,3 +44,5 @@ services:
 networks:
   emetrobus_network:
   caddy_network:
+    external:
+      name: docker_caddy_network
