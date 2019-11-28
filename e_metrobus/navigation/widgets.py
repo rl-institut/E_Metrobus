@@ -77,7 +77,7 @@ class FooterWidget(CustomWidget):
             "selected": False,
         },
         "pin": {
-            "name": "pin",
+            "name": "leaf",
             "url": "navigation:dashboard",
             "enabled": True,
             "selected": False,

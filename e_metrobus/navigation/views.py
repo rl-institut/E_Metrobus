@@ -1,8 +1,10 @@
-from django.views.generic import TemplateView
-from django.shortcuts import redirect
 
-from e_metrobus.navigation import widgets
+from django.shortcuts import redirect
+from django.views.generic import TemplateView
+
+from e_metrobus.navigation import chart
 from e_metrobus.navigation import constants
+from e_metrobus.navigation import widgets
 from e_metrobus.navigation import questions
 
 
@@ -47,21 +49,7 @@ class RouteView(TemplateView):
             return int(start[-2:]) - 1, int(end[-2:]) - 1
 
         request.session["stations"] = get_stations()
-        return redirect("navigation:comparison")
-
-
-class ComparisonView(NavigationView):
-    template_name = "navigation/comparison.html"
-
-    def get(self, request, *args, **kwargs):
-        stations = request.session["stations"]
-        context = self.get_context_data(stations, **kwargs)
-        return self.render_to_response(context)
-
-    def get_context_data(self, stations, **kwargs):
-        context = super(ComparisonView, self).get_context_data(**kwargs)
-        context["stations"] = [constants.STATIONS[i] for i in stations]
-        return context
+        return redirect("navigation:display_route")
 
 
 class DashboardView(NavigationView):
@@ -82,9 +70,30 @@ class DashboardView(NavigationView):
         return context
 
 
+class DisplayRouteView(NavigationView):
+    template_name = "navigation/display_route.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(DisplayRouteView, self).get_context_data(**kwargs)
+        context["stations"] = [
+            constants.STATIONS[station] for station in self.request.session["stations"]
+        ]
+        return context
+
+
 class LandingPageView(TemplateView):
-    template_name = "navigation/landing-page.html"
+    template_name = "navigation/landing_page.html"
     # Example config
+    footer_links = {"pin": {"enabled": False}, "info": {"selected": True}}
+
+
+class ComparisonView(NavigationView):
+    template_name = "navigation/comparison.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(ComparisonView, self).get_context_data(**kwargs)
+        context["plotly"] = chart.get_mobility_figure([50, 50, 100, 300, 500])
+        return context
     footer_links = {"pin": {"enabled": False}, "info": {"selected": True}}
 
 
@@ -117,7 +126,7 @@ class AnswerView(NavigationView):
         context = super(AnswerView, self).get_context_data(**kwargs)
         context["answer"] = answer
         context["category"] = question.category
-        context["question_template"] = f"questions/{question.template}"
+        context["question_template"] = question.template
         return context
 
     def post(self, request, **kwargs):
@@ -137,5 +146,15 @@ class AnswerView(NavigationView):
         context = self.get_context_data(answer=answer, question=question, **kwargs)
         return self.render_to_response(context)
 
+
 class LegalView(NavigationView):
     template_name = "navigation/legal.html"
+
+
+class QuestionsAsTextView(NavigationView):
+    template_name = "navigation/questions_as_text.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(QuestionsAsTextView, self).get_context_data(**kwargs)
+        context["categories"] = questions.QUESTIONS
+        return context

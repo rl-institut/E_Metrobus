@@ -1,7 +1,22 @@
 {% extends "base.html" %}
 
 {% block content %}
-Comparison:
 
-Du hast die Stationen "{{stations.0}}" und "{{stations.1}}" ausgewählt!
+<div class="cell">
+  {{plotly.div|safe}}
+</div>
+
+<div class="cell text-center landpage__bottom" id="next" style="bottom:3.8rem">
+  <div class="cell landing__bottom-btn">
+    <a href="{% url 'navigation:dashboard' %}"><button class="button"><span>Mehr entdecken!</span></button></a>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block javascript %}
+  {{block.super}}
+  <script>
+    {{plotly.script|safe}}
+  </script>
 {% endblock %}

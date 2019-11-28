@@ -1,0 +1,67 @@
+
+.display-route {
+  font-weight: 700;
+  height: calc(100vh - 12rem); 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center;
+
+  &__start {
+    padding-bottom: .5rem;
+  }
+
+  &__wrap {
+    position: relative;
+  }
+
+  &__text,
+  &__number,
+  &__circle {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    width: 100%;
+  }
+
+  &__text {
+    transform: translateY(-7vh);
+    z-index: 2;
+  }
+
+  &__sentence {
+    font-weight: 400;
+    font-size: 1.25rem;
+
+    @media (max-width: 360px) {
+      font-size: 1rem;
+    }
+
+    span {
+      font-weight: 700;
+    }
+  }
+
+  &__number {
+    font-weight: 700;
+    font-size: 3rem;
+  }
+
+  &__circle {
+    transform: translateY(-50%);
+    z-index: 1;
+  }
+}
+
+#onboardingAnimateRoute {
+  padding-top: 3rem;
+}
+
+#onboardingAnimateIcons {
+  padding-top: 5rem;
+  height: 3rem;
+
+  img {
+    height: 3rem;
+  }
+}
+
