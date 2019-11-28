@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="full reveal" id="answer" data-reveal>
+  {% if answer %}
+    <p>Richtig!</p>
+  {% else %}
+    <p>Falsch!</p>
+  {% endif %}
+</div>
+
+{% include question_template %}
+
+<a href="{% url 'navigation:question' category %}"><button class="btn">Zur nächsten Frage</button></a>
+
+{% endblock %}
+
+{% block javascript %}
+  {{block.super}}
+
+  <script>
+    $( document ).ready(function() {
+      $('#answer').toggle();
+      $('#answer').fadeToggle(4000);
+    });
+  </script>
+{% endblock %}

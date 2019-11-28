@@ -4,9 +4,12 @@ from e_metrobus.navigation import views
 
 app_name = "navigation"
 urlpatterns = [
-    path("", view=views.StartView.as_view(), name="start"),
+    path("", view=views.LandingPageView.as_view(), name="landing-page"),
     path("route/", view=views.RouteView.as_view(), name="route"),
-    path("comparison/", view=views.ComparisonView.as_view(), name="comparison"),
     path("dashboard/", view=views.DashboardView.as_view(), name="dashboard"),
+    path("quiz/<str:category>", view=views.QuestionView.as_view(), name='question'),
+    path("answer", view=views.AnswerView.as_view(), name='answer'),
+    path("comparison/", view=views.ComparisonView.as_view(), name="comparison"),
+    path("display_route/", view=views.DisplayRouteView.as_view(), name="display_route"),
     path("legal/", view=views.LegalView.as_view(), name="legal"),
 ]

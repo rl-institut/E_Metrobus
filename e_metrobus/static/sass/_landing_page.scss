@@ -1,5 +1,75 @@
-// CSS for desktop only
+@keyframes fadein {
+  0% {opacity: 0;}
+  50% {opacity: 0;}
+  100%   { opacity: 1; }
+}
+.landpage {
 
+  padding-bottom: 10rem;
+
+    &__logo {
+    margin: 1rem 0;
+
+    &--embus {
+      margin-top: 5vh;
+      margin-bottom: 7vh;
+      animation: fadein 1.5s;
+
+      @media screen and (min-height: 700px) {
+        margin-top: 7vh;
+        margin-bottom: 10vh;
+      }
+
+      img {
+        width: 60%;
+      }
+    }
+    &--bvg {
+      animation: fadein 2.5s ;
+      img {
+        width: 12vh;
+      }
+    }
+    &--tu {
+      animation: fadein 4s;
+      img {
+        width: 14vh;
+      }
+    }
+    &--rli {
+      animation: fadein 5s;
+      img {
+        width: 12vh;
+      }
+    }
+  }
+  &__bottom {
+    animation: fadein 6s;
+    background-color: $primary-color-1;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+
+    span {
+      font-size: 1.5rem;
+      font-weight: bold;
+      line-height: 1.85rem;
+    }
+    button {
+      animation: fadein 6.5s;
+      margin: 1rem 0;
+      background-color: $secondary-color;
+      width: 15rem;
+      margin-bottom: 0;
+
+      span {
+        font-size: 1.1rem;
+      }
+    }
+  }
+}
+
+// CSS for desktop only
 .desktop {
 
   &__header {
@@ -29,5 +99,68 @@
   }
   &__logo img {
     width: 8rem;
+  }
+}
+
+// CSS for Landscape only
+@media only screen and (min-width: 1024px) {
+  .landscape {
+    visibility: hidden;
+  }
+}
+@media only screen
+and (max-width: 1024px)
+and (orientation: landscape) {
+
+  .landscape {
+
+    &__header {
+      padding-top: 1rem;
+    }
+    &__subheader {
+      color: #8d8d8d;
+    }
+    &__img {
+      padding-top: 2.5rem;
+    }
+    &__text {
+      padding-top: 2.5rem;
+      font-size: 1.5rem;
+    }
+    &__img img {
+      height: 3rem;
+    }
+  }
+}
+@media only screen and (min-height: 370px)
+and (max-height: 450px)
+and (max-width: 1024px)
+and (orientation: landscape) {
+  .landscape {
+
+    &__header {
+      padding-top: 2rem;
+    }
+  }
+}
+@media only screen and (min-height: 450px)
+and (max-height: 580px)
+and (max-width: 1024px)
+and (orientation: landscape) {
+  .landscape {
+
+    &__header {
+      padding-top: 4rem;
+    }
+  }
+}
+@media only screen and (min-height: 580px)
+and (max-width: 1024px)
+and (orientation: landscape) {
+  .landscape {
+
+    &__header {
+      padding-top: 9rem;
+    }
   }
 }
