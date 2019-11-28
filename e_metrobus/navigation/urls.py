@@ -9,4 +9,5 @@ urlpatterns = [
     path("dashboard/", view=views.DashboardView.as_view(), name="dashboard"),
     path("comparison/", view=views.ComparisonView.as_view(), name="comparison"),
     path("display_route/", view=views.DisplayRouteView.as_view(), name="display_route"),
+    path("legal/", view=views.LegalView.as_view(), name="legal"),
 ]

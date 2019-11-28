@@ -75,3 +75,6 @@ class ComparisonView(NavigationView):
         context = super(ComparisonView, self).get_context_data(**kwargs)
         context["plotly"] = chart.get_mobility_figure([50, 50, 100, 300, 500])
         return context
+
+class LegalView(NavigationView):
+    template_name = "navigation/legal.html"
