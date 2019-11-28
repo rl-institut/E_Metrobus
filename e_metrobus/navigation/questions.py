@@ -83,10 +83,10 @@ def get_total_score(session):
     return score
 
 
-def get_category_done_percentage(category, session):
+def get_category_done_share(category, session):
     total = 0
     done = 0
-    if category not in session["questions"]:
+    if "questions" not in session or category not in session["questions"]:
         return 0
     for question in QUESTIONS[category].questions:
         total += 1

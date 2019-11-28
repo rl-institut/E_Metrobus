@@ -101,3 +101,66 @@
     width: 8rem;
   }
 }
+
+// CSS for Landscape only
+@media only screen and (min-width: 1024px) {
+  .landscape {
+    visibility: hidden;
+  }
+}
+@media only screen
+and (max-width: 1024px)
+and (orientation: landscape) {
+
+  .landscape {
+
+    &__header {
+      padding-top: 1rem;
+    }
+    &__subheader {
+      color: #8d8d8d;
+    }
+    &__img {
+      padding-top: 2.5rem;
+    }
+    &__text {
+      padding-top: 2.5rem;
+      font-size: 1.5rem;
+    }
+    &__img img {
+      height: 3rem;
+    }
+  }
+}
+@media only screen and (min-height: 370px)
+and (max-height: 450px)
+and (max-width: 1024px)
+and (orientation: landscape) {
+  .landscape {
+
+    &__header {
+      padding-top: 2rem;
+    }
+  }
+}
+@media only screen and (min-height: 450px)
+and (max-height: 580px)
+and (max-width: 1024px)
+and (orientation: landscape) {
+  .landscape {
+
+    &__header {
+      padding-top: 4rem;
+    }
+  }
+}
+@media only screen and (min-height: 580px)
+and (max-width: 1024px)
+and (orientation: landscape) {
+  .landscape {
+
+    &__header {
+      padding-top: 9rem;
+    }
+  }
+}

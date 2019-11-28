@@ -15,4 +15,5 @@ urlpatterns = [
         view=views.QuestionsAsTextView.as_view(),
         name="questions_as_text",
     ),
+    path("legal/", view=views.LegalView.as_view(), name="legal"),
 ]

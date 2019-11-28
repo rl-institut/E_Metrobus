@@ -1,0 +1,33 @@
+.dashboard {
+    height: calc(100vh - 9rem); // height is about the space on screen between top and bottom navigations
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+  &__category {
+    margin-bottom: 2rem;
+    height: 10rem;
+    position: relative;
+
+    @media screen and (min-height: 650px) {
+      margin-top: 3vh;
+      margin-bottom: 7vh;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__img img {
+    height: 5rem;
+  }
+
+  &__header {
+    transform: translateY(-.5rem);
+    font-weight: 700;
+  }
+}
