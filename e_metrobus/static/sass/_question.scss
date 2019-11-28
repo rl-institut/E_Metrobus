@@ -1,0 +1,77 @@
+.question{
+
+  &__text {
+    margin: 2rem 1rem;
+  }
+  &__answer input {
+    margin: 0;
+    position: fixed;
+    opacity: 0;
+  }
+  &__answer label {
+    min-width: 100%;
+    background-color: $gray-1;
+    border-radius: 50px;
+    height: 2rem;
+    padding: .3rem 0 0 1rem;
+    margin: 1rem 0 0 0 !important;
+  }
+  &__answer input:checked + label {
+    background-color: $primary-color-1;
+  }
+  &__btn {
+    position: fixed;
+    bottom: 0;
+  }
+  &__btn input{
+    margin: 1.5rem 0 5.25rem;
+    width: 15rem;
+    background-color: $gray-1;
+  }
+  &__btn input:hover {
+    background-color: black;
+  }
+  /*&__next {
+    position: fixed;
+    bottom: 0;
+  }*/
+  &__next button {
+    margin: 1.5rem 0 5.25rem;
+    background-color: black;
+    color: $white;
+    width: 15rem;
+  }
+}
+//CSS for correct/wrong-answer
+.answer {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  padding: 12rem 0 0 0;
+  top: 0;
+  left: 0;
+
+  p {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 4rem;
+  }
+  &__correct {
+    background-color: $primary-color-1;
+  }
+  &__wrong {
+    background-color: black;
+    color: $white;
+  }
+}
+//CSS for answer texts
+.answer {
+  &__text {
+    margin: 1.5rem 1rem;
+    height: 9rem;
+    overflow: hidden;
+  }
+}
+#show:target .answer__text {
+  display: none;
+}
