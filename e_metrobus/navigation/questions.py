@@ -16,6 +16,7 @@ SCORE_CATEGORY_COMPLETE = 11
 @dataclass
 class Question:
     name: str
+    label: str
     question: str
     answers: List[str]
     correct: int
