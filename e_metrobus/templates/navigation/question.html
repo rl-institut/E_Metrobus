@@ -12,16 +12,25 @@
       <div class="cell small-10 question__answer">
         <fieldset name="answer">
           {% for answer in question.answers %}
-            <input type="radio" name="answer" value="{{answer}}" id="answer{{forloop.counter}}"/>
+            <input type="radio" class="radio" name="answer" value="{{answer}}" id="answer{{forloop.counter}}"/>
             <label for="answer{{forloop.counter}}">{{answer}}</label>
           {% endfor %}
         </fieldset>
       </div>
       <div class="cell text-center question__btn">
         <input type="hidden" name="question" value="{{question.name}}">
-        <input class="button" type="submit" value="Antworten">
+        <input id="answer" class="button" type="submit" value="Antworten">
       </div>
     </div>
   </form>
 </div>
+{% endblock %}
+
+{% block javascript %}
+  {{block.super}}
+  <script>
+    $(".radio").change(function() {
+      $("#answer").addClass("answer--ready");
+    });
+  </script>
 {% endblock %}
