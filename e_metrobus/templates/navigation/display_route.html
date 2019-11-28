@@ -117,12 +117,7 @@
 
   // finish yellow circle animation
   setTimeout(function() {
-    $('#onboardingAnimateBackground').hide();
-    $('#onboardingAnimateText4').hide();
-    $('#onboardingAnimateIcons').hide();
-    $('#onboardingAnimateIcon4').hide();
-    $('#onboardingAnimateChart').show();
-    console.log('hey');
+    window.location.replace("{% url 'navigation:comparison' %}");
   }, 10000);
 </script>
 {% endblock %}

@@ -1,8 +1,9 @@
+
 from django.views.generic import TemplateView
 from django.shortcuts import redirect
 
-from e_metrobus.navigation import widgets, constants
-
+from e_metrobus.navigation import chart
+from e_metrobus.navigation import constants
 from e_metrobus.navigation import widgets
 
 
@@ -65,3 +66,12 @@ class LandingPageView(TemplateView):
     template_name = "navigation/landing-page.html"
     # Example config
     footer_links = {"pin": {"enabled": False}, "info": {"selected": True}}
+
+
+class ComparisonView(NavigationView):
+    template_name = "navigation/plotly.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(ComparisonView, self).get_context_data(**kwargs)
+        context["plotly"] = chart.get_mobility_figure([50, 50, 100, 300, 500])
+        return context

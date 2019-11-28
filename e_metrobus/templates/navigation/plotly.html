@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="cell">
+  {{plotly.div|safe}}
+</div>
+{% endblock %}
+
+{% block javascript %}
+{{block.super}}
+
+<script>
+{{plotly.script|safe}}
+</script>
+{% endblock %}
