@@ -88,7 +88,7 @@ class LandingPageView(TemplateView):
 
 
 class ComparisonView(NavigationView):
-    template_name = "navigation/plotly.html"
+    template_name = "navigation/comparison.html"
 
     def get_context_data(self, **kwargs):
         context = super(ComparisonView, self).get_context_data(**kwargs)

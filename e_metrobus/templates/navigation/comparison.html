@@ -7,9 +7,8 @@
 {% endblock %}
 
 {% block javascript %}
-{{block.super}}
-
-<script>
-{{plotly.script|safe}}
-</script>
+  {{block.super}}
+  <script>
+    {{plotly.script|safe}}
+  </script>
 {% endblock %}
