@@ -82,7 +82,7 @@ class DisplayRouteView(NavigationView):
 
 
 class LandingPageView(TemplateView):
-    template_name = "navigation/landing-page.html"
+    template_name = "navigation/landing_page.html"
     # Example config
     footer_links = {"pin": {"enabled": False}, "info": {"selected": True}}
 
