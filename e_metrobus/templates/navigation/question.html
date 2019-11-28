@@ -2,17 +2,26 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="cell">
+<div class="cell question">
   <form method="post" action="{% url 'navigation:answer' %}">
-    {% csrf_token %}
-    <h2>{{question.question}}</h2>
-    <select name="answer">
-      {% for answer in question.answers %}
-        <option>{{answer}}</option>
-      {% endfor %}
-    </select>
-    <input type="hidden" name="question" value="{{question.name}}">
-    <input type="submit" value="Okay">
+    <div class="grid-x align-center">
+      <div class="cell small-10 question__text">
+        {% csrf_token %}
+        <h2>{{question.question}}</h2>
+      </div>
+      <div class="cell small-10 question__answer">
+        <fieldset name="answer">
+          {% for answer in question.answers %}
+            <input type="radio" name="answer" value="{{answer}}" id="answer{{forloop.counter}}"/>
+            <label for="answer{{forloop.counter}}">{{answer}}</label>
+          {% endfor %}
+        </fieldset>
+      </div>
+      <div class="cell text-center question__btn">
+        <input type="hidden" name="question" value="{{question.name}}">
+        <input class="button" type="submit" value="Antworten">
+      </div>
+    </div>
   </form>
 </div>
 {% endblock %}

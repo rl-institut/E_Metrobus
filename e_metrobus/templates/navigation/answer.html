@@ -2,18 +2,27 @@
 
 {% block content %}
 
-<div class="full reveal" id="answer" data-reveal>
+<div class="full reveal answer" id="answer" data-reveal>
   {% if answer %}
-    <p>Richtig!</p>
+    <div class="text-center answer answer__correct">
+      <p>Richtig!</p>
+      <img src="../../static/images/icons/noun_correct_1763707.svg" alt="correct_answer">
+    </div>
+
   {% else %}
-    <p>Falsch!</p>
+  <div class="text-center answer answer__wrong">
+    <p>Falsch</p>
+    <img src="../../static/images/icons/noun_Sad_white.svg" alt="correct_answer">
+  </div>
   {% endif %}
 </div>
 
 {% include question_template %}
-
-<a href="{% url 'navigation:question' category %}"><button class="btn">Zur nächsten Frage</button></a>
-
+<div class="grid-x">
+  <div class="cell text-center question__next">
+    <a href="{% url 'navigation:question' category %}"><button class="btn">Zur nächsten Frage</button></a>
+  </div>
+</div>
 {% endblock %}
 
 {% block javascript %}
