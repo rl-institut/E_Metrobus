@@ -31,15 +31,11 @@
   &__btn input:hover {
     background-color: black;
   }
-  /*&__next {
-    position: fixed;
-    bottom: 0;
-  }*/
-  &__next button {
-    margin: 1.5rem 0 5.25rem;
+}
+.answer--ready {
+  background-color: $primary-color-1;
+  input {
     background-color: black;
-    color: $white;
-    width: 15rem;
   }
 }
 //CSS for correct/wrong-answer
