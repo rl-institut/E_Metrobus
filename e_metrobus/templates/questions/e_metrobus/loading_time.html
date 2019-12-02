@@ -1,10 +1,21 @@
 <div class="cell">
   <div class="grid-x">
-    <div class="cell small- 11 medium-11 answer__text">
+    <div class="cell small-11 medium-11 answer__text">
       Die Ladezeiten betragen in der Regel wenige Minuten. Damit hat der Bus wieder so viel Energie geladen, wie er auf der Strecke verbraucht hat. Allgemein ist der Verbrauch und damit auch die benötigte Ladezeit von vielen Faktoren abhängig (Anzahl der Fahrgäste, Verkehrsaufkommen, Stau, Wetter, Fahrweise etc.). Dementsprechend sind auch kürzere oder längere Ladezeiten möglich.
     </div>
-    <div class="cell text-center seemore">
-      <a href="#show">Mehr lesen</a>
+    <div class="cell small-11 medium-11 answer__text answer__text--more" id="moreText">
+      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+    </div>
+    <div class="cell text-center answer__readmore">
+      <a href="" onclick="javascript:show('moreText');">Mehr lesen</a>
     </div>
   </div>
 </div>
+<script>
+function show(id) {
+    if(document.getElementById) {
+        var mydiv = document.getElementById(id);
+        mydiv.style.display = (mydiv.style.display=='block'?'none':'block');
+    }
+}
+</script>
