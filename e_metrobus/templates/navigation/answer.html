@@ -1,26 +1,40 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block content %}
 
 <div class="full reveal answer" id="answer" data-reveal>
   {% if answer %}
     <div class="text-center answer answer__correct">
       <p>Richtig!</p>
-      <img src="../../static/images/icons/noun_correct_1763707.svg" alt="correct_answer">
+      <img src="{% static '/images/icons/noun_correct_1763707.svg' %}" alt="correct_answer">
     </div>
 
   {% else %}
   <div class="text-center answer answer__wrong">
     <p>Falsch</p>
-    <img src="../../static/images/icons/noun_Sad_white.svg" alt="correct_answer">
+    <img src="{% static '/images/icons/noun_Sad_white.svg' %}" alt="correct_answer">
   </div>
   {% endif %}
 </div>
 
-{% include question_template %}
-<div class="grid-x">
-  <div class="cell text-center question__next">
-    <a href="{% url 'navigation:question' category %}"><button class="btn">Zur nächsten Frage</button></a>
+<div class="cell">
+  <div class="grid-x">
+    <div class="cell small-11 medium-11 answer__text">
+      {{question.short_answer}}
+    </div>
+    <div class="cell small-11 medium-11 answer__text answer__text--more" id="moreText" data-toggler data-animate="show">
+      {% include question.template %}
+    </div>
+    <div class="cell text-center answer__readmore" id="moreTextToggler" data-closable>
+      <a data-toggle="moreText" data-close>Mehr lesen</a>
+    </div>
+    <div class="grid-x">
+      <div class="cell text-center question__next">
+        <a href="{% url 'navigation:question' question.category %}"><button class="btn">Zur nächsten Frage</button></a>
+      </div>
+    </div>
   </div>
 </div>
 {% endblock %}

@@ -125,8 +125,7 @@ class AnswerView(NavigationView):
         self.title_icon = questions.QUESTIONS[question.category].icon
         context = super(AnswerView, self).get_context_data(**kwargs)
         context["answer"] = answer
-        context["category"] = question.category
-        context["question_template"] = question.template
+        context["question"] = question
         return context
 
     def post(self, request, **kwargs):
