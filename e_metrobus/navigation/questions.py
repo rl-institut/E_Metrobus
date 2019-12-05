@@ -19,6 +19,7 @@ class Question:
     label: str
     question: str
     answers: List[str]
+    short_answer: str
     correct: int
     template: str
     category: str
