@@ -30,11 +30,9 @@
     <div class="cell text-center answer__readmore" id="moreTextToggler" data-closable>
       <a data-toggle="moreText" data-close>Mehr lesen</a>
     </div>
-    <div class="grid-x">
-      <div class="cell text-center question__next">
-        <a href="{% url 'navigation:question' question.category %}"><button class="btn">Zur nächsten Frage</button></a>
-      </div>
-    </div>
+    <div class="cell text-center question__next">
+      <a href="{% url 'navigation:question' question.category %}" class="button">Zur nächsten Frage</a>
+    </div>    
   </div>
 </div>
 {% endblock %}

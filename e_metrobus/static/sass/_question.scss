@@ -69,8 +69,22 @@
       display: none;
     }
   }
+  &__readmore {
+    color: black;
+    font-size: 0.8rem;
+  }
 }
-#readmore {
-  color: black;
-  font-size: 0.8rem;
+//Button for next question
+.question {
+  &__next {
+    position: fixed;
+    bottom: 0;
+    background-color: $primary-color-1;
+
+    a {
+      margin: 1.5rem 0 5.25rem;
+      width: 15rem;
+      background-color: black;
+    }
+  }
 }
