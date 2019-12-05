@@ -8,13 +8,13 @@
   {% if answer %}
     <div class="text-center answer answer__correct">
       <p>Richtig!</p>
-      <img src="{% static '/images/icons/noun_correct_1763707.svg' %}" alt="correct_answer">
+      <img src="{% static 'images/icons/noun_correct_1763707.svg' %}" alt="correct_answer">
     </div>
 
   {% else %}
   <div class="text-center answer answer__wrong">
     <p>Falsch</p>
-    <img src="{% static '/images/icons/noun_Sad_white.svg' %}" alt="correct_answer">
+    <img src="{% static 'images/icons/noun_Sad_white.svg' %}" alt="correct_answer">
   </div>
   {% endif %}
 </div>
@@ -32,7 +32,7 @@
     </div>
     <div class="cell text-center question__next">
       <a href="{% url 'navigation:question' question.category %}" class="button">Zur nächsten Frage</a>
-    </div>    
+    </div>
   </div>
 </div>
 {% endblock %}
