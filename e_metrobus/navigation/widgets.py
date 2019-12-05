@@ -73,18 +73,18 @@ class FooterWidget(CustomWidget):
         "info": {
             "name": "info",
             "url": "navigation:dashboard",
-            "enabled": True,
+            "enabled": False,
             "selected": False,
         },
-        "pin": {
+        "leaf": {
             "name": "leaf",
             "url": "navigation:dashboard",
-            "enabled": True,
+            "enabled": False,
             "selected": False,
         },
         "results": {
             "name": "results",
-            "url": "navigation:dashboard",
+            "url": "navigation:questions_as_text",
             "enabled": True,
             "selected": False,
         },

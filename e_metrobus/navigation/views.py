@@ -54,6 +54,7 @@ class RouteView(TemplateView):
 
 class DashboardView(NavigationView):
     template_name = "navigation/dashboard.html"
+    footer_links = {"dashboard": {"selected": True}}
 
     def get_context_data(self, **kwargs):
         context = super(DashboardView, self).get_context_data(**kwargs)
@@ -72,6 +73,7 @@ class DashboardView(NavigationView):
 
 class DisplayRouteView(NavigationView):
     template_name = "navigation/display_route.html"
+    footer_links = {"info": {"selected": True}}
 
     def get_context_data(self, **kwargs):
         context = super(DisplayRouteView, self).get_context_data(**kwargs)
@@ -83,23 +85,23 @@ class DisplayRouteView(NavigationView):
 
 class LandingPageView(TemplateView):
     template_name = "navigation/landing_page.html"
-    # Example config
-    footer_links = {"pin": {"enabled": False}, "info": {"selected": True}}
+    footer_links = {"leaf": {"enabled": False}, "info": {"selected": True}}
 
 
 class ComparisonView(NavigationView):
     template_name = "navigation/comparison.html"
+    footer_links = {"info": {"selected": True}}
 
     def get_context_data(self, **kwargs):
         context = super(ComparisonView, self).get_context_data(**kwargs)
         context["plotly"] = chart.get_mobility_figure([50, 50, 100, 300, 500])
         return context
-    footer_links = {"pin": {"enabled": False}, "info": {"selected": True}}
 
 
 class QuestionView(NavigationView):
     template_name = "navigation/question.html"
     back_url = "navigation:dashboard"
+    footer_links = {"dashboard": {"selected": True}}
 
     def get_context_data(self, **kwargs):
         self.title = questions.QUESTIONS[kwargs["category"]].label
@@ -119,6 +121,7 @@ class QuestionView(NavigationView):
 class AnswerView(NavigationView):
     template_name = "navigation/answer.html"
     back_url = "navigation:dashboard"
+    footer_links = {"dashboard": {"selected": True}}
 
     def get_context_data(self, answer, question, **kwargs):
         self.title = questions.QUESTIONS[question.category].label
@@ -152,6 +155,7 @@ class LegalView(NavigationView):
 
 class QuestionsAsTextView(NavigationView):
     template_name = "navigation/questions_as_text.html"
+    footer_links = {"results": {"selected": True}}
 
     def get_context_data(self, **kwargs):
         context = super(QuestionsAsTextView, self).get_context_data(**kwargs)
