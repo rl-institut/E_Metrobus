@@ -69,9 +69,13 @@
       display: none;
     }
   }
-  &__readmore {
+  &__readmore a {
     color: black;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+  &__readmore img {
+    height: 1.5rem;
   }
 }
 //Button for next question
