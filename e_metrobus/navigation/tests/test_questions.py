@@ -8,9 +8,9 @@ class QuestionTestCase(TestCase):
         self.session = {
             "stations": (3, 4),
             "questions": {
-                "e_metrobus": {"electrification": True, "busses": False},
-                "personal": {"ego": True},
-                "politics": {"not_there": True},
+                "e_metrobus": {"loading_time": True, "line_200": False},
+                "personal": {"advantages": True},
+                "politics": {"invalid": True},
             },
         }
 
@@ -24,13 +24,12 @@ class QuestionTestCase(TestCase):
             questions.get_score_for_category("e_metrobus", self.session),
             questions.SCORE_CORRECT
             + questions.SCORE_WRONG
-            + questions.SCORE_CATEGORY_COMPLETE,
         )
 
     def test_score_category_not_complete(self):
         self.assertEqual(
             questions.get_score_for_category("personal", self.session),
-            questions.SCORE_CORRECT,
+            questions.SCORE_CORRECT + questions.SCORE_CATEGORY_COMPLETE
         )
 
     def test_score_category_error(self):
@@ -50,26 +49,28 @@ class QuestionTestCase(TestCase):
 
     def test_percentage(self):
         self.assertEqual(
-            questions.get_category_done_share("e_metrobus", self.session), 1
+            questions.get_category_done_share("e_metrobus", self.session), 2/3
         )
         self.assertEqual(
-            questions.get_category_done_share("personal", self.session), 0.5
+            questions.get_category_done_share("personal", self.session), 1
         )
         self.assertEqual(
             questions.get_category_done_share("politics", self.session), 0
         )
 
     def test_next_question(self):
-        self.assertIsNone(questions.get_next_question("e_metrobus", self.session))
         self.assertEqual(
-            questions.get_next_question("personal", self.session),
-            questions.QUESTIONS["personal"].questions["where"],
+            questions.get_next_question("e_metrobus", self.session),
+            questions.QUESTIONS["e_metrobus"].questions["loading"],
+        )
+        self.assertIsNone(
+            questions.get_next_question("personal", self.session)
         )
         self.assertEqual(
             questions.get_next_question("politics", self.session),
-            questions.QUESTIONS["politics"].questions["senat"],
+            questions.QUESTIONS["politics"].questions["ebus_time"],
         )
         self.assertEqual(
             questions.get_next_question("environment", self.session),
-            questions.QUESTIONS["environment"].questions["trees"],
+            questions.QUESTIONS["environment"].questions["co2_reduction"],
         )
