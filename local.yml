@@ -44,11 +44,15 @@ services:
     image: e_metrobus_local_node
     depends_on:
       - django
+    ports:
+    - "127.0.0.1:3000:3000"
     volumes:
       - .:/app
       # http://jdlm.info/articles/2016/03/06/lessons-building-node-app-docker.html
       - /app/node_modules
     command: npm run dev
+    networks:
+    - e_metrobus_local_network
 
 networks:
   caddy_network:
