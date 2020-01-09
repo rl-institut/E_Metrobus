@@ -2,12 +2,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-  {% for cat_name, category in categories.items %}
-<div class="cell"><h2>{{category.label}}</h2></div>
-    {% for q_name, question in category.questions.items %}
-      <div class="cell"><h3>{{question.label}}</h3></div>
-      {% include question.template %}
+<div class="cell">
+  <div class="grid-x questionstext">
+    {% for cat_name, category in categories.items %}
+  <div class="cell questionstext__catlabel"><h2>{{category.label}}</h2></div>
+      {% for q_name, question in category.questions.items %}
+        <div class="cell questionstext__questlabel"><h3>{{question.label}}</h3></div>
+        {% include question.template %}
+      {% endfor %}
     {% endfor %}
-  {% endfor %}
+  </div>
+</div>
 {% endblock %}
