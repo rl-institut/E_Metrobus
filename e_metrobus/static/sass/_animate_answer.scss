@@ -17,6 +17,7 @@
     }
     &--right {
       z-index: 4;
+      animation: whobble 2s infinite;
     }
   }
   &__street {
@@ -32,8 +33,7 @@
     position: fixed;
     top: 21rem;
     background-image: url("../images/icons/city_bg_gray.svg");
-    background-size: 50%;
-    //animation:loop1 5s infinite reverse linear;
+    background-size: 50% 12rem;
 
     &--1 {
       animation:loop1 5s infinite reverse linear;
@@ -42,11 +42,14 @@
       animation:loop2 5s infinite reverse linear;
     }
   }
-
 }
 @keyframes loop1 {
 	from {left:-100% } to {left:0px}
 }
 @keyframes loop2 {
 	from {left:0px } to {left:100%}
+}
+@keyframes whobble {
+  90% {transform: translateY(0);}
+  100% {transform: translateY(-2px);}
 }
