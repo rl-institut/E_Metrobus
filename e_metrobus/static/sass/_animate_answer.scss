@@ -1,0 +1,19 @@
+.animate_answer {
+
+  &__battery {
+    margin: 5rem 0 4rem;
+  }
+
+  &__text {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  &__bus {
+    margin: 8rem 0 0;
+
+    img {
+      width: 16rem;
+    }
+  }
+}
