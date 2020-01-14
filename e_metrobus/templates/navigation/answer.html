@@ -67,8 +67,11 @@
 
   <script>
     $( document ).ready(function() {
-      $('#answer').toggle();
-      $('#answer').fadeToggle(4000);
+      $('#answer').show();
+      function hideReveal() {
+        $('#answer').hide();
+      }
+      setTimeout(hideReveal, 3000);
     });
   </script>
 {% endblock %}
