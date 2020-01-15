@@ -17,6 +17,4 @@ urlpatterns = [
         name="questions_as_text",
     ),
     path("legal/", view=views.LegalView.as_view(), name="legal"),
-    path("right/", view=views.RightView.as_view()),
-    path("wrong/", view=views.WrongView.as_view()),
 ]
