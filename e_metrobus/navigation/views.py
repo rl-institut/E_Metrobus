@@ -1,4 +1,3 @@
-
 from django.shortcuts import redirect
 from django.views.generic import TemplateView
 
@@ -95,6 +94,22 @@ class ComparisonView(NavigationView):
     def get_context_data(self, **kwargs):
         context = super(ComparisonView, self).get_context_data(**kwargs)
         context["plotly"] = chart.get_mobility_figure([50, 50, 100, 300, 500])
+        return context
+
+
+class EnvironmentView(NavigationView):
+    template_name = "navigation/environment.html"
+    footer_links = {"leaf": {"selected": True}}
+
+    def get_context_data(self, **kwargs):
+        context = super(EnvironmentView, self).get_context_data(**kwargs)
+        # FIXME: Dummy values
+        context["personal"] = constants.Consumption(
+            fuel=200, co2=300, nitrogen=20, fine_dust=10
+        )
+        context["total"] = constants.Consumption(
+            fuel=200000, co2=300000, nitrogen=20000, fine_dust=10000
+        )
         return context
 
 

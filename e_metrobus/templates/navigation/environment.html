@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="cell">
+  <table>
+    <tr>
+      <th></th>
+      <th>Diesel</th>
+      <th>CO2 Verbrauch</th>
+      <th>Stickoxide</th>
+      <th>Feinstaub</th>
+    </tr>
+    <tr>
+      <td>Deine Fahrt</td>
+      <td>{{personal.fuel}}</td>
+      <td>{{personal.co2}}</td>
+      <td>{{personal.nitrogen}}</td>
+      <td>{{personal.fine_dust}}</td>
+    </tr>
+    <tr>
+      <td>E-Bus Flotte</td>
+      <td>{{total.fuel}}</td>
+      <td>{{total.co2}}</td>
+      <td>{{total.nitrogen}}</td>
+      <td>{{total.fine_dust}}</td>
+    </tr>
+  </table>
+</div>
+
+{% endblock %}
