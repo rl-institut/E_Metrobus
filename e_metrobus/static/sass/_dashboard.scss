@@ -34,18 +34,18 @@
   &__info {
     position: absolute;
     top: 16rem;
-    background-color: black;
-    color: white;
+    background-color: $secondary-color;
+    color: $white;
     padding: 1rem 0;
 
     p {
       margin-right: 2.5rem;
     }
     button {
-      color: white;
+      color: $white;
     }
     button:hover {
-      color: white;
+      color: $white;
     }
   }
 }
