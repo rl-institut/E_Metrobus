@@ -1,0 +1,55 @@
+.animate_answer {
+
+  &__battery {
+    margin: 4rem 0 3rem;
+  }
+
+  &__text {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  &__bus {
+    margin: 8rem 0 0;
+
+    img {
+      width: 16rem;
+    }
+    &--right {
+      z-index: 4;
+      animation: whobble 2s infinite;
+    }
+  }
+  &__street {
+    position: fixed;
+    bottom: 0;
+    top: 31.5rem;
+    //background-color: #0ABAB5;
+  }
+  &__city {
+    height: 9rem;
+    text-align: left;
+    z-index: -1;
+    position: fixed;
+    top: 19rem;
+    background-image: url("../images/icons/city_bg_gray.svg");
+    background-size: 50% 12rem;
+
+    &--1 {
+      animation:loop1 5s infinite reverse linear;
+    }
+    &--2 {
+      animation:loop2 5s infinite reverse linear;
+    }
+  }
+}
+@keyframes loop1 {
+	from {left:-100% } to {left:0px}
+}
+@keyframes loop2 {
+	from {left:0px } to {left:100%}
+}
+@keyframes whobble {
+  90% {transform: translateY(0);}
+  100% {transform: translateY(-2px);}
+}

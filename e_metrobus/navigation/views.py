@@ -161,3 +161,21 @@ class QuestionsAsTextView(NavigationView):
         context = super(QuestionsAsTextView, self).get_context_data(**kwargs)
         context["categories"] = questions.QUESTIONS
         return context
+
+
+class RightView(NavigationView):
+    template_name = "navigation/right.html"
+    footer_links = {"info": {"selected": True}}
+
+    def get_context_data(self, **kwargs):
+        context = super(RightView, self).get_context_data(**kwargs)
+        return context
+
+
+class WrongView(NavigationView):
+    template_name = "navigation/wrong.html"
+    footer_links = {"info": {"selected": True}}
+
+    def get_context_data(self, **kwargs):
+        context = super(WrongView, self).get_context_data(**kwargs)
+        return context

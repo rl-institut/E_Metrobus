@@ -64,10 +64,13 @@ def get_mobility_figure(values):
     fig.layout.yaxis.range = [-sizes.margin, max_value + sizes.margin]
 
     # Mobility icons:
-    for i, icon in enumerate(["walk", "bike", "ebus", "bus", "car"]):
+    for i, icon in enumerate(["pedestrian", "bike", "ebus", "bus", "car"]):
+        color = "gray"
+        if icon == "ebus":
+            color = "black"
         fig.add_layout_image(
             go.layout.Image(
-                source=f"/static/images/icons/i_{icon}.svg", x=i, y=-sizes.offset
+                source=f"/static/images/icons/i_{icon}_{color}.svg", x=i, y=-sizes.offset
             )
         )
     # Trophy Icons:

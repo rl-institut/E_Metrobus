@@ -27,18 +27,13 @@
             </a>
             <div class="dashboard__header">{{category.label}}</div>
           </div>
-          <div class="cell small-10 dashboard__info" id="info1">
-            <p>Hier kannst Du weiter entdecken und Spaß mit dem Quiz haben! Die erste Frage hast Du schon beantwortet!</p>
-            <button class="close-button" type="button" name="close-button" id="close">x</button>
-          </div>
     {% endfor %}
+    <div class="cell small-10 dashboard__info" data-closable>
+      <p>Hier kannst Du weiter entdecken und Spaß mit dem Quiz haben! Die erste Frage hast Du schon beantwortet!</p>
+      <button class="close-button" type="button" name="close-button" data-close>x</button>
+    </div>
   </div>
 </div>
-<script>
-document.getElementById('close').onClick.function(){
-  document.getElementById("info1").style.visibility = "hidden";
-  }
-</script>
 
 
 {% endblock %}

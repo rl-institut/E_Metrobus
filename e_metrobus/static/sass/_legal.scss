@@ -1,13 +1,14 @@
 .legal {
 
+  &__header {
+    margin: 1rem 0;
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
   &__text {
     font-size: 0.9rem;
     font-weight: lighter;
-    &--header {
-      margin: 1rem 0;
-      font-size: 1.1rem;
-      font-weight: bold;
-    }
+    text-align: left;
   }
   &__logo {
     width: 100%;
