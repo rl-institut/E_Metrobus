@@ -56,6 +56,12 @@ class DashboardView(NavigationView):
     template_name = "navigation/dashboard.html"
     footer_links = {"dashboard": {"selected": True}}
 
+    def get(self, request, *args, **kwargs):
+        if "first_time" not in request.session:
+            request.session["first_time"] = False
+            kwargs["first_time"] = True
+        return super(DashboardView, self).get(request, *args, **kwargs)
+
     def get_context_data(self, **kwargs):
         context = super(DashboardView, self).get_context_data(**kwargs)
         context["categories"] = [
