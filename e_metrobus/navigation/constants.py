@@ -1,5 +1,6 @@
 
 import math
+from collections import namedtuple
 
 ELLIPSE_RADIUS = 43
 ELLIPSE_X_OFFSET = 7
@@ -26,3 +27,6 @@ class Ellipse:
 
     def __str__(self):
         return f"M {ELLIPSE_RADIUS + ELLIPSE_X_OFFSET} {ELLIPSE_Y_OFFSET} A {ELLIPSE_RADIUS} {ELLIPSE_RADIUS} 0 {self.large} 1 {self.x} {self.y}"
+
+
+Consumption = namedtuple("Consumption", ["fuel", "co2", "nitrogen", "fine_dust"])
