@@ -8,8 +8,15 @@
   {% if answer %}
   <div class="cell">
     <div class="grid-x text-center">
-      <div class="cell animate_answer__battery">
-        <img src="{% static 'images/icons/battery_full.svg' %}" alt="battery_full">
+      <div class="cell animate_answer__points">
+        <div class="grid-x align-center">
+          <div class="cell small-1 animate_answer__points--star">
+            <img src="{% static 'images/icons/i_star_turkis.svg' %}" alt="star">
+          </div>
+          <div class="cell small-1">
+            <span>15</span>
+          </div>
+        </div>
       </div>
       <div class="cell animate_answer__text">
         <span>RICHTIG!</span>

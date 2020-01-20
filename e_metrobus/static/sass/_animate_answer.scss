@@ -4,6 +4,25 @@
     margin: 4rem 0 3rem;
   }
 
+  &__points {
+    margin: 4rem 0 3rem;
+    padding: 1rem 0;
+    height: 6.25rem;
+
+    span {
+      line-height: 2.5rem;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    &--star {
+      animation: star_blink 2s ease-in-out;
+      img {
+        height: 2.5rem;
+      }
+    }
+  }
+
   &__text {
     font-size: 1.5rem;
     font-weight: bold;
@@ -52,4 +71,10 @@
 @keyframes whobble {
   90% {transform: translateY(0);}
   100% {transform: translateY(-2px);}
+}
+@keyframes star_blink {
+  0% {transform: scale(1,1);}
+  50% {transform: scale(1.7,1.7);}
+  100% {transform: scale(1,1);}
+
 }
