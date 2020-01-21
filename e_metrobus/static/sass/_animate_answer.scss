@@ -13,10 +13,12 @@
       line-height: 2.5rem;
       font-size: 1.5rem;
       font-weight: bold;
+      padding-top: 1rem;
+      margin-left: 1rem;
     }
 
     &--star {
-      animation: star_blink 2s ease-in-out;
+      animation: star_blink .4s ease-in-out;
       img {
         height: 2.5rem;
       }
@@ -74,7 +76,7 @@
 }
 @keyframes star_blink {
   0% {transform: scale(1,1);}
-  50% {transform: scale(1.7,1.7);}
+  50% {transform: scale(3,3);}
   100% {transform: scale(1,1);}
 
 }
