@@ -8,4 +8,16 @@
 <div class="cell">
   Glückwunsch du hast das Quiz mit {{points}} Punkten abgeschlossen!
 </div>
+
+{% if show_link %}
+  {% if hash %}
+    Link zum Teilen deiner Punkte: {% url 'navigation:score' hash=hash %}
+  {% else %}
+    <form method="post">
+      {% csrf_token %}
+      <input type="submit" class="btn" value="Hier klicken um Punkte zu teilen">
+    </form>
+  {% endif %}
+{% endif %}
+
 {% endblock %}

@@ -1,11 +1,11 @@
-
-from django.shortcuts import redirect
+from django.shortcuts import redirect, Http404, get_object_or_404
 from django.views.generic import TemplateView
 
 from e_metrobus.navigation import chart
 from e_metrobus.navigation import constants
 from e_metrobus.navigation import widgets
 from e_metrobus.navigation import questions
+from e_metrobus.navigation import models
 
 
 class NavigationView(TemplateView):
@@ -163,7 +163,7 @@ class CategoryFinishedView(TemplateView):
     def get_context_data(self, **kwargs):
         return {
             "category": questions.QUESTIONS[kwargs["category"]].label,
-            "points": questions.SCORE_CATEGORY_COMPLETE
+            "points": questions.SCORE_CATEGORY_COMPLETE,
         }
 
 
@@ -171,9 +171,26 @@ class QuizFinishedView(TemplateView):
     template_name = "navigation/quiz_finished.html"
 
     def get_context_data(self, **kwargs):
-        return {
-            "points": questions.get_total_score(self.request.session)
-        }
+        context = super(QuizFinishedView, self).get_context_data(**kwargs)
+        if "hash" in kwargs:
+            context["points"] = get_object_or_404(
+                models.Score, hash=kwargs["hash"]
+            ).score
+        else:
+            context["points"] = questions.get_total_score(self.request.session)
+            context["show_link"] = True
+        return context
+
+    def post(self, request, **kwargs):
+        if not questions.all_questions_answered(request.session):
+            raise Http404("Not all questions answered. Please go back to quiz.")
+        if "hashed_score" not in request.session:
+            score = models.Score.save_score(request.session)
+            request.session["hashed_score"] = score.hash
+            context = self.get_context_data(hash=score.hash, **kwargs)
+        else:
+            context = self.get_context_data(hash=request.session["hashed_score"])
+        return self.render_to_response(context)
 
 
 class LegalView(NavigationView):

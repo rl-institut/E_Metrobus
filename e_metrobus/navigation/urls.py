@@ -22,6 +22,11 @@ urlpatterns = [
         name="finished_quiz",
     ),
     path(
+        "score/<str:hash>/",
+        view=views.QuizFinishedView.as_view(),
+        name="score",
+    ),
+    path(
         "questions_as_text/",
         view=views.QuestionsAsTextView.as_view(),
         name="questions_as_text",
