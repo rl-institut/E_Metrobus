@@ -57,6 +57,8 @@ class DashboardView(NavigationView):
     footer_links = {"dashboard": {"selected": True}}
 
     def get(self, request, *args, **kwargs):
+        if questions.all_questions_answered(request.session):
+            return redirect("navigation:finished_quiz")
         if "first_time" not in request.session:
             request.session["first_time"] = False
             kwargs["first_time"] = True
@@ -162,6 +164,15 @@ class CategoryFinishedView(TemplateView):
         return {
             "category": questions.QUESTIONS[kwargs["category"]].label,
             "points": questions.SCORE_CATEGORY_COMPLETE
+        }
+
+
+class QuizFinishedView(TemplateView):
+    template_name = "navigation/quiz_finished.html"
+
+    def get_context_data(self, **kwargs):
+        return {
+            "points": questions.get_total_score(self.request.session)
         }
 
 

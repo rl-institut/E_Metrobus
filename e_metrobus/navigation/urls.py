@@ -17,6 +17,11 @@ urlpatterns = [
         name="category_finished",
     ),
     path(
+        "finished/",
+        view=views.QuizFinishedView.as_view(),
+        name="finished_quiz",
+    ),
+    path(
         "questions_as_text/",
         view=views.QuestionsAsTextView.as_view(),
         name="questions_as_text",
