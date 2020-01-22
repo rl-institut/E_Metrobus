@@ -20,4 +20,11 @@
   {% endif %}
 {% endif %}
 
+<div class="cell">
+  <form method="post">
+      {% csrf_token %}
+      <input type="submit" class="btn" name="reset" value="Hier kannst du das Quiz neu starten.">
+    </form>
+</div>
+
 {% endblock %}

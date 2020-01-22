@@ -182,6 +182,10 @@ class QuizFinishedView(TemplateView):
         return context
 
     def post(self, request, **kwargs):
+        if "reset" in request.POST:
+            request.session.clear()
+            return redirect("navigation:landing_page")
+
         if not questions.all_questions_answered(request.session):
             raise Http404("Not all questions answered. Please go back to quiz.")
         if "hashed_score" not in request.session:
