@@ -6,6 +6,9 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 
 ## [Unreleased]
 ### Added
+- Score animation when answering a question.
+- Environment page.
+- "Choose your route" text.
 - Popup at first-time-visit on dashboard.
 
 ## [0.2.0] - 2020-01-13
