@@ -118,7 +118,7 @@ class QuestionView(NavigationView):
     def get(self, request, *args, **kwargs):
         next_question = questions.get_next_question(kwargs["category"], request.session)
         if next_question is None:
-            return redirect("navigation:dashboard")
+            return redirect("navigation:category_finished", category=kwargs["category"])
 
         context = self.get_context_data(**kwargs, question=next_question)
         return self.render_to_response(context)
@@ -153,6 +153,16 @@ class AnswerView(NavigationView):
 
         context = self.get_context_data(answer=answer, question=question, **kwargs)
         return self.render_to_response(context)
+
+
+class CategoryFinishedView(TemplateView):
+    template_name = "navigation/category_finished.html"
+
+    def get_context_data(self, **kwargs):
+        return {
+            "category": questions.QUESTIONS[kwargs["category"]].label,
+            "points": questions.SCORE_CATEGORY_COMPLETE
+        }
 
 
 class LegalView(NavigationView):

@@ -1,0 +1,25 @@
+
+{% extends "base.html" %}
+
+{% block body_class %}class="l-scroll l-scroll--nonav"{% endblock %}
+
+{% block content %}
+
+<div class="cell">
+  Glückwunsch du hast die Kategorie "{{category}}" abgeschlossen!
+  Du erhälst {{points}} Punkte dafür!
+</div>
+{% endblock %}
+
+
+{% block javascript %}
+  {{block.super}}
+  <script>
+    $( document ).ready(function() {
+      function redirect_to_dashboard() {
+        window.location.replace("{% url 'navigation:dashboard' %}");
+      }
+      setTimeout(redirect_to_dashboard, 3000);
+    });
+  </script>
+{% endblock %}
