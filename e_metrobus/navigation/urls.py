@@ -12,6 +12,11 @@ urlpatterns = [
     path("quiz/<str:category>/", view=views.QuestionView.as_view(), name="question"),
     path("answer/", view=views.AnswerView.as_view(), name="answer"),
     path(
+        "finished/<str:category>/",
+        view=views.CategoryFinishedView.as_view(),
+        name="category_finished",
+    ),
+    path(
         "questions_as_text/",
         view=views.QuestionsAsTextView.as_view(),
         name="questions_as_text",

@@ -6,6 +6,7 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 
 ## [Unreleased]
 ### Added
+- Added category finished page.
 - Score animation when answering a question.
 - Environment page.
 - "Choose your route" text.
