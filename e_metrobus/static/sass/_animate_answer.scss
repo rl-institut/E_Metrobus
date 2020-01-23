@@ -23,6 +23,16 @@
         height: 2.5rem;
       }
     }
+    &--star_wrong {
+      animation: star_shrink .6s ease-in-out;
+      img {
+        height: 2.5rem;
+      }
+    }
+
+    &--wrong {
+      margin: 1.5rem 0 0;
+    }
   }
 
   &__text {
@@ -39,6 +49,9 @@
     &--right {
       z-index: 4;
       animation: whobble 2s infinite;
+    }
+    &--wrong {
+      margin: 6.5rem 0 0;
     }
   }
   &__street {
@@ -78,5 +91,9 @@
   0% {transform: scale(1,1);}
   50% {transform: scale(3,3);}
   100% {transform: scale(1,1);}
-
+}
+@keyframes star_shrink {
+  0% {transform: scale(1,1);}
+  50% {transform: scale(0.5,0.5);}
+  100% {transform: scale(1,1);}
 }

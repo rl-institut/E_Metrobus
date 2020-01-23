@@ -43,7 +43,17 @@
       <div class="cell animate_answer__text">
         <span>FALSCH...</span>
       </div>
-      <div class="cell animate_answer__bus">
+      <div class="cell animate_answer__points animate_answer__points--wrong">
+        <div class="grid-x align-center">
+          <div class="cell small-1 animate_answer__points--star_wrong">
+            <img src="{% static 'images/icons/i_star_black.svg' %}" alt="star">
+          </div>
+          <div class="cell small-1 animate_answer__points--star_wrong">
+            <span>{{points}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="cell animate_answer__bus animate_answer__bus--wrong">
         <img src="{% static 'images/icons/Icon_E_Bus_BVG_empty_battery.svg' %}" alt="bus_battery_empty">
       </div>
     </div>
@@ -78,7 +88,7 @@
       function hideReveal() {
         $('#answer').hide();
       }
-      setTimeout(hideReveal, 3000);
+      //setTimeout(hideReveal, 3000);
     });
   </script>
 {% endblock %}
