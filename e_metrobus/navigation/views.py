@@ -135,6 +135,7 @@ class AnswerView(NavigationView):
         context = super(AnswerView, self).get_context_data(**kwargs)
         context["answer"] = answer
         context["question"] = question
+        context["points"] = questions.SCORE_CORRECT if answer else questions.SCORE_WRONG
         return context
 
     def post(self, request, **kwargs):
