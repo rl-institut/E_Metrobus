@@ -13,7 +13,7 @@
       <span>Glückwunsch!</span>
     </div>
     <div class="cell cat_fin__text">
-      <span>Du hast die Kategorie <br> <span id="cat_fin_name">{{category}}</span> <br> abgeschlossen!</span>
+      <span>Du hast die Kategorie <br> <span id="cat_fin_name">{{category.label}}</span> <br> abgeschlossen!</span>
     </div>
     <div class="cell animate_answer__points" id="cat_fin_points">
       <div class="grid-x align-center">
@@ -26,7 +26,7 @@
       </div>
     </div>
     <div class="cell cat_fin__icon">
-      <img src="{% static '/images/icons/i_earth_black.svg' %}">
+      <img src="{% static category.icon %}">
     </div>
   </div>
 </div>

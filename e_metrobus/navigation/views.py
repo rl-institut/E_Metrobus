@@ -160,7 +160,7 @@ class CategoryFinishedView(TemplateView):
 
     def get_context_data(self, **kwargs):
         return {
-            "category": questions.QUESTIONS[kwargs["category"]].label,
+            "category": questions.QUESTIONS[kwargs["category"]],
             "points": questions.SCORE_CATEGORY_COMPLETE
         }
 
