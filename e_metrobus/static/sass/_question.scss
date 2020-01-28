@@ -26,6 +26,8 @@
   &__btn input{
     margin: 1.5rem 0 5.25rem;
     width: 15rem;
+    font-weight: 700;
+    font-size: 1rem;
     background-color: $gray-1;
   }
   &__btn input:hover {
@@ -83,6 +85,8 @@
   &__next {
     position: fixed;
     bottom: 0;
+    font-weight: 700;
+    font-size: 1rem;
     background-color: $primary-color-1;
 
     a {
