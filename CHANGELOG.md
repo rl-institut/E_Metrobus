@@ -11,6 +11,8 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 - Environment page.
 - "Choose your route" text.
 - Popup at first-time-visit on dashboard.
+### Changed
+- Change route link
 
 ## [0.2.0] - 2020-01-13
 ### Added
