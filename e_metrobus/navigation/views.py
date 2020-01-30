@@ -80,6 +80,7 @@ class DashboardView(NavigationView):
 class DisplayRouteView(NavigationView):
     template_name = "navigation/display_route.html"
     footer_links = {"info": {"selected": True}}
+    back_url = None
 
     def get_context_data(self, **kwargs):
         context = super(DisplayRouteView, self).get_context_data(**kwargs)
@@ -97,6 +98,7 @@ class LandingPageView(TemplateView):
 class ComparisonView(NavigationView):
     template_name = "navigation/comparison.html"
     footer_links = {"info": {"selected": True}}
+    back_url = None
 
     def get_context_data(self, **kwargs):
         context = super(ComparisonView, self).get_context_data(**kwargs)
