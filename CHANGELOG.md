@@ -5,12 +5,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project tries to adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [0.3.0]
 ### Added
 - Category finished page.
 - Score animation when answering a question.
 - Environment page.
 - "Choose your route" text.
 - Popup at first-time-visit on dashboard.
+### Changed
+- Color variables (BVG original)
 
 ## [0.2.0] - 2020-01-13
 ### Added
