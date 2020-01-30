@@ -1,4 +1,3 @@
-
 from django.shortcuts import redirect
 from django.views.generic import TemplateView
 
@@ -79,7 +78,10 @@ class DashboardView(NavigationView):
 
 class DisplayRouteView(NavigationView):
     template_name = "navigation/display_route.html"
-    footer_links = {"info": {"selected": True}}
+    footer_links = {
+        "results": {"enabled": False},
+        "dashboard": {"selected": True, "enabled": False},
+    }
 
     def get_context_data(self, **kwargs):
         context = super(DisplayRouteView, self).get_context_data(**kwargs)
@@ -96,7 +98,10 @@ class LandingPageView(TemplateView):
 
 class ComparisonView(NavigationView):
     template_name = "navigation/comparison.html"
-    footer_links = {"info": {"selected": True}}
+    footer_links = {
+        "results": {"enabled": False},
+        "dashboard": {"selected": True, "enabled": False},
+    }
 
     def get_context_data(self, **kwargs):
         context = super(ComparisonView, self).get_context_data(**kwargs)
@@ -162,7 +167,7 @@ class CategoryFinishedView(TemplateView):
     def get_context_data(self, **kwargs):
         return {
             "category": questions.QUESTIONS[kwargs["category"]],
-            "points": questions.SCORE_CATEGORY_COMPLETE
+            "points": questions.SCORE_CATEGORY_COMPLETE,
         }
 
 
