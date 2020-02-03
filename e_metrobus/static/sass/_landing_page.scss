@@ -78,24 +78,76 @@
 .desktop {
 
   &__header {
-    padding-top: 2rem;
+    padding-top: 10rem;
   }
   &__subheader {
     color: #8d8d8d;
   }
-  &__img {
-    padding-top: 5rem;
+  &__link {
+    width: 100%;
+    height: 100%;
+    background-color: $primary-color-1;
+
+    &--img {
+      margin: 4rem 0 4rem 3rem;
+      img {
+        height: 30rem;
+      }
+    }
+    &--text {
+      margin-top: 10rem;
+      height: 5rem;
+    }
+    &--qr {
+      margin-top: 8rem;
+      height: 7rem;
+    }
   }
-  &__text {
-    padding-top: 5rem;
-    font-size: 1.5rem;
+  &__appinfo {
+
+    &--header {
+      margin: 6rem 0 3rem 0;
+      color: $primary-color-2;
+      span {
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+    }
+    &--img {
+      height: 3rem;
+      margin-bottom: 1rem;
+      img {
+        width: 3rem;
+      }
+    }
+    &--text {
+      font-weight: light;
+    }
   }
-  &__img img {
-    height: 5rem;
+  &__info {
+    margin: 10rem 0;
+
+    &--header {
+      margin: 0 0 4rem 0;
+      span{
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+    }
+    &--text {
+      padding: 0 10rem 0 0;
+    }
+    &--img {
+      height: 15rem;
+      background-color: grey;
+    }
   }
+
+
   &__footer .grid-x {
     border-top: 1px solid #c7c7c7;
     padding-top: 1.5rem;
+
   }
   &__logo {
     padding-left: 1rem;
@@ -104,6 +156,10 @@
   }
   &__logo img {
     width: 8rem;
+    max-height: 7rem;
+  }
+  &__logo--BVG img{
+    width: 6rem;
   }
 }
 
