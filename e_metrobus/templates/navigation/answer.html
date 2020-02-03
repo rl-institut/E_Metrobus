@@ -66,11 +66,8 @@
     <div class="cell small-11 medium-11 answer__text">
       {{question.short_answer}}
     </div>
-    <div class="cell small-11 medium-11 answer__text answer__text--more" id="moreText" data-toggler data-animate="show">
+    <div class="cell small-11 medium-11 answer__text">
       {% include question.template %}
-    </div>
-    <div class="cell text-center answer__readmore" id="moreTextToggler" data-closable>
-      <a data-toggle="moreText" data-close>Mehr lesen<img src="{% static 'images/icons/ion_arrow_down.svg' %}" alt="arrow_down"></a>
     </div>
     <div class="cell text-center question__next">
       <a href="{% url 'navigation:question' question.category %}" class="button">Zur nächsten Frage</a>
