@@ -82,7 +82,8 @@ class DashboardView(NavigationView):
 class DisplayRouteView(NavigationView):
     template_name = "navigation/display_route.html"
     footer_links = {"info": {"selected": True}}
-    back_url = None
+    back_url = "navigation:route"
+    top_bar_template = "widgets/top_bar_route.html"
 
     def get_context_data(self, **kwargs):
         context = super(DisplayRouteView, self).get_context_data(**kwargs)
@@ -92,15 +93,10 @@ class DisplayRouteView(NavigationView):
         return context
 
 
-class LandingPageView(TemplateView):
-    template_name = "navigation/landing_page.html"
-    footer_links = {"leaf": {"enabled": False}, "info": {"selected": True}}
-
-
 class ComparisonView(NavigationView):
     template_name = "navigation/comparison.html"
-    footer_links = {"info": {"selected": True}}
-    back_url = None
+    back_url = "navigation:route"
+    top_bar_template = "widgets/top_bar_route.html"
 
     def get_context_data(self, **kwargs):
         context = super(ComparisonView, self).get_context_data(**kwargs)
@@ -200,3 +196,8 @@ class WrongView(NavigationView):
     def get_context_data(self, **kwargs):
         context = super(WrongView, self).get_context_data(**kwargs)
         return context
+
+
+class LandingPageView(TemplateView):
+    template_name = "navigation/landing_page.html"
+    footer_links = {"leaf": {"enabled": False}, "info": {"selected": True}}
