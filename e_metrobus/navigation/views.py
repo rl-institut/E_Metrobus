@@ -13,6 +13,7 @@ class NavigationView(TemplateView):
     title_icon = "images/icons/Icon_E_Bus_Front.svg"
     title_alt = None
     back_url = "navigation:dashboard"
+    top_bar_template = None
     footer_links = {}
 
     def get_context_data(self, **kwargs):
@@ -25,6 +26,7 @@ class NavigationView(TemplateView):
             title_alt=self.title_alt,
             back_url=self.back_url,
             points=points,
+            template=self.top_bar_template
         )
         return context
 
