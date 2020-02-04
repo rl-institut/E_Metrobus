@@ -100,7 +100,10 @@
     }
     &--qr {
       margin-top: 8rem;
+      margin-bottom: 2rem;
       height: 7rem;
+      width: 7rem;
+      background-color: $secondary-color;
     }
   }
   &__appinfo {
