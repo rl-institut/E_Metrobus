@@ -77,11 +77,13 @@
 // CSS for desktop only
 .desktop {
 
-  &__header {
+  &__header h1 {
     padding-top: 10rem;
+    font-weight: 700;
   }
   &__subheader {
-    color: #8d8d8d;
+    font-weight: 300;
+    font-size: 1.25rem;
   }
   &__link {
     width: 100%;
@@ -89,7 +91,7 @@
     background-color: $primary-color-1;
 
     &--img {
-      margin: 4rem 0 4rem 3rem;
+      margin: 4rem 0 4rem 4rem;
       img {
         height: 30rem;
       }
@@ -97,13 +99,18 @@
     &--text {
       margin-top: 10rem;
       height: 5rem;
+      font-size: 1.5rem;
     }
     &--qr {
       margin-top: 8rem;
       margin-bottom: 2rem;
-      height: 7rem;
-      width: 7rem;
+      height: 7rem!important;
+      width: 7rem!important;
       background-color: $secondary-color;
+    }
+    &--link {
+      font-weight: 700;
+      font-size: 1.25rem;
     }
   }
   &__appinfo {
@@ -124,7 +131,9 @@
       }
     }
     &--text {
-      font-weight: light;
+      padding-left: .5rem;
+      padding-right: .5rem;
+      max-width: 35rem;
     }
   }
   &__info {
@@ -140,7 +149,8 @@
       }
     }
     &--text {
-      padding: 0 10rem 0 0;
+      padding: 0 2rem 0 0;
+      width: 50%;
     }
     &--img {
       height: 15rem;
