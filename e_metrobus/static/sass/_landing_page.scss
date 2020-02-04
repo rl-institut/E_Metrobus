@@ -165,7 +165,7 @@
   &__footer .grid-x {
     border-top: 1px solid #c7c7c7;
     padding-top: 1.5rem;
-
+    padding-bottom: 1.5rem;
   }
   &__logo {
     padding-left: 1rem;
@@ -183,8 +183,8 @@
 
 // CSS for Landscape only
 @media only screen and (min-width: 1024px) {
-  .landscape {
-    visibility: hidden;
+  .grid-container.landscape {
+    display: none!important;
   }
 }
 @media only screen
