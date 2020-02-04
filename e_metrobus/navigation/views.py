@@ -1,4 +1,3 @@
-
 from django.shortcuts import redirect
 from django.views.generic import TemplateView
 
@@ -79,7 +78,10 @@ class DashboardView(NavigationView):
 
 class DisplayRouteView(NavigationView):
     template_name = "navigation/display_route.html"
-    footer_links = {"info": {"selected": True}}
+    footer_links = {
+        "results": {"enabled": False},
+        "dashboard": {"selected": True, "enabled": False},
+    }
 
     def get_context_data(self, **kwargs):
         context = super(DisplayRouteView, self).get_context_data(**kwargs)
@@ -96,7 +98,10 @@ class LandingPageView(TemplateView):
 
 class ComparisonView(NavigationView):
     template_name = "navigation/comparison.html"
-    footer_links = {"info": {"selected": True}}
+    footer_links = {
+        "results": {"enabled": False},
+        "dashboard": {"selected": True, "enabled": False},
+    }
 
     def get_context_data(self, **kwargs):
         context = super(ComparisonView, self).get_context_data(**kwargs)
@@ -118,7 +123,7 @@ class QuestionView(NavigationView):
     def get(self, request, *args, **kwargs):
         next_question = questions.get_next_question(kwargs["category"], request.session)
         if next_question is None:
-            return redirect("navigation:dashboard")
+            return redirect("navigation:category_finished", category=kwargs["category"])
 
         context = self.get_context_data(**kwargs, question=next_question)
         return self.render_to_response(context)
@@ -135,6 +140,7 @@ class AnswerView(NavigationView):
         context = super(AnswerView, self).get_context_data(**kwargs)
         context["answer"] = answer
         context["question"] = question
+        context["points"] = questions.SCORE_CORRECT if answer else questions.SCORE_WRONG
         return context
 
     def post(self, request, **kwargs):
@@ -153,6 +159,16 @@ class AnswerView(NavigationView):
 
         context = self.get_context_data(answer=answer, question=question, **kwargs)
         return self.render_to_response(context)
+
+
+class CategoryFinishedView(TemplateView):
+    template_name = "navigation/category_finished.html"
+
+    def get_context_data(self, **kwargs):
+        return {
+            "category": questions.QUESTIONS[kwargs["category"]],
+            "points": questions.SCORE_CATEGORY_COMPLETE,
+        }
 
 
 class LegalView(NavigationView):
