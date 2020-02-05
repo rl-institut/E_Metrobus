@@ -35,23 +35,23 @@ class CustomWidget:
         """Include widget media (currently only js)"""
         js = [
             format_html(
-                '<script type="text/javascript" src="{}"></script>',
-                static(path)
-            ) for path in self.js
+                '<script type="text/javascript" src="{}"></script>', static(path)
+            )
+            for path in self.js
         ]
-        return mark_safe('\n'.join(js))
+        return mark_safe("\n".join(js))
 
 
 class StationsWidget(CustomWidget):
-    template_name = 'widgets/stations.html'
-    js = ('js/stations.js',)
+    template_name = "widgets/stations.html"
+    js = ("js/stations.js",)
 
     def __init__(self, stations, request):
         self.stations = stations
         self.request = request
 
     def get_context(self, **kwargs):
-        context = {'stations': self.stations}
+        context = {"stations": self.stations}
         context.update(csrf(self.request))
         return context
 
@@ -59,7 +59,11 @@ class StationsWidget(CustomWidget):
 class TopBarWidget(CustomWidget):
     template_name = "widgets/top_bar.html"
 
-    def __init__(self, title, title_icon, back_url, points, title_alt=None):
+    def __init__(
+        self, title, title_icon, back_url, points, title_alt=None, template=None
+    ):
+        if template:
+            self.template_name = template
         self.title = title
         self.title_icon = title_icon
         self.title_alt = title if title_alt is None else title_alt
