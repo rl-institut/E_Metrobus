@@ -187,24 +187,6 @@ class QuestionsAsTextView(NavigationView):
         return context
 
 
-class RightView(NavigationView):
-    template_name = "navigation/right.html"
-    footer_links = {"info": {"selected": True}}
-
-    def get_context_data(self, **kwargs):
-        context = super(RightView, self).get_context_data(**kwargs)
-        return context
-
-
-class WrongView(NavigationView):
-    template_name = "navigation/wrong.html"
-    footer_links = {"info": {"selected": True}}
-
-    def get_context_data(self, **kwargs):
-        context = super(WrongView, self).get_context_data(**kwargs)
-        return context
-
-
 class LandingPageView(TemplateView):
     template_name = "navigation/landing_page.html"
     footer_links = {"leaf": {"enabled": False}, "info": {"selected": True}}
