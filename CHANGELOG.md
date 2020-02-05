@@ -6,6 +6,7 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 
 ## [Unreleased]
 ### Changed 
+- Landing page holds project information
 - Footer links for display_route and comparison page
 
 ## [0.3.0]
