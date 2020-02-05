@@ -76,7 +76,7 @@ class FooterWidget(CustomWidget):
     default_links = {
         "info": {
             "name": "info",
-            "url": "navigation:dashboard",
+            "url": "navigation:legal",
             "enabled": False,
             "selected": False,
         },
