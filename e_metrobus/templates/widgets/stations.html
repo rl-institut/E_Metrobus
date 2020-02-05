@@ -11,7 +11,7 @@
         </svg>
         <!-- COMPONENT START -->
         <svg width="52" height="50" style="display: none">
-          <polygon points="22,19 34,25 22,31" style="fill:#000000;" />
+          <polygon points="22,19 34,25 22,31" style="fill:#252424;" />
         </svg>
         <!-- COMPONENT END -->
       </div>
@@ -35,12 +35,18 @@
 
 </section>
 
+<div class="grid-x align-center text-center station__bottom">
+  <div class="cell">
+    <span>Bitte gib Deine Strecke ein!</span>
+  </div>
+</div>
+
 <div class="grid-x align-center text-center station__bottom" id="station_form" style="display: none">
   <div class="cell">
     <form method="post" id="stations_form">
       {% csrf_token %}
       <input type="hidden" name="stations" id="stations">
-      <button class="button" onclick="post();">Strecke bestätigen</button>
+      <button class="button button--yellow" onclick="post();">Strecke bestätigen</button>
     </form>
   </div>
 </div>

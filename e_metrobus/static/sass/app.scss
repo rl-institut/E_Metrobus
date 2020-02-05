@@ -1,9 +1,10 @@
 @charset 'utf-8';
 
-@import 'sass/dashboard';
 @import 'sass/fonts';
 @import 'sass/variables';
+
 @import 'sass/components';
+@import 'sass/dashboard';
 @import 'sass/fonts';
 @import 'sass/landing_page';
 @import 'sass/legal';
@@ -16,6 +17,7 @@
 @import 'sass/question';
 @import 'sass/questions_as_text';
 @import 'sass/animate_answer';
+@import 'sass/category_finished';
 @import 'libs/foundation-sites/scss/foundation';
 
 @include foundation-global-styles;

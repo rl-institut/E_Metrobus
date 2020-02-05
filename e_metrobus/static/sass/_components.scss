@@ -1,0 +1,9 @@
+button {
+	background-color: $secondary-color !important;
+	color: $white;
+	
+	&.button--yellow {
+		background-color: $primary-color-1 !important;
+		color: $secondary-color;
+	}
+}

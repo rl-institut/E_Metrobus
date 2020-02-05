@@ -24,11 +24,11 @@ $button-fill: solid !default;
 
 /// Default background color for buttons.
 /// @type Color
-$button-background: $primary-color !default;
+$button-background: $secondary-color;
 
 /// Background color on hover for buttons.
 /// @type Color
-$button-background-hover: scale-color($button-background, $lightness: -15%) !default;
+$button-background-hover: $button-background;//scale-color($button-background, $lightness: -15%) !default;
 
 /// Font color for buttons.
 /// @type List
