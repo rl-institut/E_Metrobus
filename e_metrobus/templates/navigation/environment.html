@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="cell">
-  <table>
+  <!-- <table>
     <tr>
       <th></th>
       <th>Diesel</th>
@@ -25,7 +25,101 @@
       <td>{{total.nitrogen}}</td>
       <td>{{total.fine_dust}}</td>
     </tr>
-  </table>
+  </table> -->
+  <div class="grid-x text-center leaf">
+    <div class="cell small-6 medium-6 leaf__header">
+      <span>Deine Fahrt</span>
+    </div>
+    <div class="cell small-6 medium-6 leaf__header">
+      <span>E-Bus Flotte</span>
+    </div>
+    <div class="cell small-6 medium-6 leaf__dist-wrap">
+      <div class="grid-x ">
+        <div class="cell leaf__distance">
+          <span class="leaf__data--value">2,24</span><br>
+          <span class="leaf__data--unit">km</span>
+        </div>
+        <div class="cell leaf__distance--circle">
+          <svg height="150" width="150" viewbox="0 0 4 4">
+            <circle cx="2" cy="2" r="2" fill="#F0D722"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="cell small-6 medium-6 leaf__dist-wrap">
+      <div class="grid-x ">
+        <div class="cell leaf__distance">
+          <span class="leaf__data--value">7825,54</span><br>
+          <span class="leaf__data--unit">km</span>
+        </div>
+        <div class="cell leaf__distance--circle">
+          <svg height="150" width="150" viewbox="0 0 4 4">
+            <circle cx="2" cy="2" r="2" fill="#17BEBB"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="cell leaf__icon">
+      <img src="../../static/images/icons/i_leaf_black.svg" alt="diesel">
+    </div>
+    <div class="cell small-6 medium-6 own leaf__data">
+      <span class="leaf__data--value">{{personal.fuel}}</span><br>
+      <span class="leaf__data--unit">Liter Diesel</span>
+    </div>
+    <div class="cell small-6 medium-6 fleet leaf__data">
+      <span class="leaf__data--value">{{total.fuel}}</span><br>
+      <span class="leaf__data--unit">Liter Diesel</span>
+    </div>
+    <div class="cell leaf__resources">
+      <span class="leaf__data--value">= 99,99 X weniger Diesel</span><br>
+      <span class="leaf__data--unit">als konventionelle Busse</span>
+    </div>
+    <div class="cell leaf__icon">
+      <img src="../../static/images/icons/i_leaf_black.svg" alt="co2">
+    </div>
+    <div class="cell small-6 medium-6 own leaf__data">
+      <span class="leaf__data--value">{{personal.co2}}</span><br>
+      <span class="leaf__data--unit">Tonnen CO2</span>
+    </div>
+    <div class="cell small-6 medium-6 fleet leaf__data">
+      <span class="leaf__data--value">{{total.co2}}</span><br>
+      <span class="leaf__data--unit">Tonnen CO2</span>
+    </div>
+    <div class="cell leaf__resources">
+      <span class="leaf__data--value">= 99,99 X weniger CO2</span><br>
+      <span class="leaf__data--unit">als konventionelle Busse</span>
+    </div>
+    <div class="cell leaf__icon">
+      <img src="../../static/images/icons/i_leaf_black.svg" alt="nitrogen">
+    </div>
+    <div class="cell small-6 medium-6 own leaf__data">
+      <span class="leaf__data--value">{{personal.nitrogen}}</span><br>
+      <span class="leaf__data--unit">kg Stickoxide</span>
+    </div>
+    <div class="cell small-6 medium-6 fleet leaf__data">
+      <span class="leaf__data--value">{{total.nitrogen}}</span><br>
+      <span class="leaf__data--unit">kg Stickoxide</span>
+    </div>
+    <div class="cell leaf__resources">
+      <span class="leaf__data--value">= 99,99 X weniger Stickoxide</span><br>
+      <span class="leaf__data--unit">als konventionelle Busse</span>
+    </div>
+    <div class="cell leaf__icon">
+      <img src="../../static/images/icons/i_leaf_black.svg" alt="fine_dust">
+    </div>
+    <div class="cell small-6 medium-6 own leaf__data">
+      <span class="leaf__data--value">{{personal.fine_dust}}</span><br>
+      <span class="leaf__data--unit">kg Feinstaub</span>
+    </div>
+    <div class="cell small-6 medium-6 fleet leaf__data">
+      <span class="leaf__data--value">{{total.fine_dust}}</span><br>
+      <span class="leaf__data--unit">kg Feinstaub</span>
+    </div>
+    <div class="cell leaf__resources">
+      <span class="leaf__data--value">= 99,99 X weniger Feinstaub</span><br>
+      <span class="leaf__data--unit">als konventionelle Busse</span>
+    </div>
+  </div>
 </div>
 
 {% endblock %}
