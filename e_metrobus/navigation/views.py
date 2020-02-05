@@ -1,3 +1,4 @@
+
 from django.shortcuts import redirect
 from django.views.generic import TemplateView
 
@@ -12,6 +13,7 @@ class NavigationView(TemplateView):
     title_icon = "images/icons/Icon_E_Bus_Front.svg"
     title_alt = None
     back_url = "navigation:dashboard"
+    top_bar_template = None
     footer_links = {}
 
     def get_context_data(self, **kwargs):
@@ -24,6 +26,7 @@ class NavigationView(TemplateView):
             title_alt=self.title_alt,
             back_url=self.back_url,
             points=points,
+            template=self.top_bar_template
         )
         return context
 
@@ -82,6 +85,8 @@ class DisplayRouteView(NavigationView):
         "results": {"enabled": False},
         "dashboard": {"selected": True, "enabled": False},
     }
+    back_url = "navigation:route"
+    top_bar_template = "widgets/top_bar_route.html"
 
     def get_context_data(self, **kwargs):
         context = super(DisplayRouteView, self).get_context_data(**kwargs)
@@ -91,17 +96,14 @@ class DisplayRouteView(NavigationView):
         return context
 
 
-class LandingPageView(TemplateView):
-    template_name = "navigation/landing_page.html"
-    footer_links = {"leaf": {"enabled": False}, "info": {"selected": True}}
-
-
 class ComparisonView(NavigationView):
     template_name = "navigation/comparison.html"
     footer_links = {
         "results": {"enabled": False},
         "dashboard": {"selected": True, "enabled": False},
     }
+    back_url = "navigation:route"
+    top_bar_template = "widgets/top_bar_route.html"
 
     def get_context_data(self, **kwargs):
         context = super(ComparisonView, self).get_context_data(**kwargs)
@@ -167,7 +169,7 @@ class CategoryFinishedView(TemplateView):
     def get_context_data(self, **kwargs):
         return {
             "category": questions.QUESTIONS[kwargs["category"]],
-            "points": questions.SCORE_CATEGORY_COMPLETE,
+            "points": questions.SCORE_CATEGORY_COMPLETE
         }
 
 
@@ -201,3 +203,8 @@ class WrongView(NavigationView):
     def get_context_data(self, **kwargs):
         context = super(WrongView, self).get_context_data(**kwargs)
         return context
+
+
+class LandingPageView(TemplateView):
+    template_name = "navigation/landing_page.html"
+    footer_links = {"leaf": {"enabled": False}, "info": {"selected": True}}
