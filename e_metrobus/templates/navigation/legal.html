@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block content %}
 <div class="grid-container">
   <div class="grid-x text-center">
@@ -7,16 +9,16 @@
       <span>Legale Informationen</span>
     </div>
     <div class="cell legal__text">
-      <span>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</span>
+
     </div>
     <div class="legal__logo">
-      <img src="../../static/images/RLi_logo.png" alt="">
+      <img src="{% static 'images/logos/Logo_Nationale_Organisation_Wasserstoff-_und_Brennstoffzellentechnologie.svg.png' %}" alt="NOW GmbH Logo">
     </div>
     <div class="legal__logo">
-      <img src="../../static/images/RLi_logo.png" alt="">
+      <img src="{% static 'images/logos/Bundesministerium_für_Verkehr_und_digitale_Infrastruktur_Logo.svg.png' %}" alt="BMVI Logo">
     </div>
     <div class="legal__logo">
-      <img src="../../static/images/RLi_logo.png" alt="">
+      <img src="{% static 'images/logos/ptj_logo.jpg' %}" alt="PTJ Jülich Logo">
     </div>
   </div>
 </div>
