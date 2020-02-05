@@ -7,6 +7,8 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 ## [Unreleased]
 ### Added
 - Legal page
+
+## [0.4.0]
 ### Changed 
 - Landing page holds project information
 - Footer links for display_route and comparison page
