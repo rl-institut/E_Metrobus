@@ -31,10 +31,6 @@ class NavigationView(TemplateView):
         return context
 
 
-class StartView(TemplateView):
-    template_name = "navigation/start.html"
-
-
 class RouteView(TemplateView):
     template_name = "navigation/route.html"
 
