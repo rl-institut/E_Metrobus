@@ -89,13 +89,13 @@ class FooterWidget(CustomWidget):
         "results": {
             "name": "results",
             "url": "navigation:questions_as_text",
-            "enabled": True,
+            "enabled": False,
             "selected": False,
         },
         "dashboard": {
             "name": "quiz",
             "url": "navigation:dashboard",
-            "enabled": True,
+            "enabled": False,
             "selected": False,
         },
     }
