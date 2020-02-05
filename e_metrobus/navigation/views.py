@@ -81,7 +81,10 @@ class DashboardView(NavigationView):
 
 class DisplayRouteView(NavigationView):
     template_name = "navigation/display_route.html"
-    footer_links = {"info": {"selected": True}, "results": {"enabled": False}}
+    footer_links = {
+        "results": {"enabled": False},
+        "dashboard": {"selected": True, "enabled": False},
+    }
     back_url = "navigation:route"
     top_bar_template = "widgets/top_bar_route.html"
 
@@ -95,7 +98,10 @@ class DisplayRouteView(NavigationView):
 
 class ComparisonView(NavigationView):
     template_name = "navigation/comparison.html"
-    footer_links = {"info": {"selected": True}, "results": {"enabled": False}}
+    footer_links = {
+        "results": {"enabled": False},
+        "dashboard": {"selected": True, "enabled": False},
+    }
     back_url = "navigation:route"
     top_bar_template = "widgets/top_bar_route.html"
 
