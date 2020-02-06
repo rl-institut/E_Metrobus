@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block content %}
 
 <div class="cell">
@@ -37,7 +39,7 @@
       </div>
     </div>
     <div class="cell leaf__icon">
-      <img src="../../static/images/icons/i_fuel_black.svg" alt="Diesel Icon">
+      <img src="{% static 'images/icons/i_fuel_black.svg' %}" alt="Diesel Icon">
     </div>
     <div class="cell small-6 medium-6 own leaf__data">
       <span class="leaf__data--value">{{user.fuel}}</span><br>
@@ -52,7 +54,7 @@
       <span class="leaf__data--unit">als konventionelle Busse</span>
     </div>
     <div class="cell leaf__icon">
-      <img src="../../static/images/icons/i_co2_black.svg" alt="CO2 Icon">
+      <img src="{% static 'images/icons/i_co2_black.svg' %}" alt="CO2 Icon">
     </div>
     <div class="cell small-6 medium-6 own leaf__data">
       <span class="leaf__data--value">{{user.co2}}</span><br>
@@ -67,7 +69,7 @@
       <span class="leaf__data--unit">als konventionelle Busse</span>
     </div>
     <div class="cell leaf__icon">
-      <img src="../../static/images/icons/i_nox_black.svg" alt="Stickoxide Icon">
+      <img src="{% static 'images/icons/i_nox_black.svg' %}" alt="Stickoxide Icon">
     </div>
     <div class="cell small-6 medium-6 own leaf__data">
       <span class="leaf__data--value">{{user.nitrogen}}</span><br>
@@ -82,7 +84,7 @@
       <span class="leaf__data--unit">als konventionelle Busse</span>
     </div>
     <div class="cell leaf__icon">
-      <img src="../../static/images/icons/i_gas_black.svg" alt="Feinstaub Icon">
+      <img src="{% static 'images/icons/i_gas_black.svg' %}" alt="Feinstaub Icon">
     </div>
     <div class="cell small-6 medium-6 own leaf__data">
       <span class="leaf__data--value">{{user.fine_dust}}</span><br>
