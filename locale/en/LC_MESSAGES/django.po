@@ -1,0 +1,66 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-02-06 14:34+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: e_metrobus/templates/includes/desktop.html:13
+msgid ""
+"Elektrifizierung von MetroBus-Linien im Berliner ÖPNV mit "
+"Schnellladeinfrastruktur"
+msgstr "Test"
+
+#: e_metrobus/templates/includes/desktop.html:26
+msgid "App auf mobilen Geräten verfügbar"
+msgstr "app"
+
+#: e_metrobus/templates/includes/desktop.html:41
+msgid "Was vermittelt die App?"
+msgstr ""
+
+#: e_metrobus/templates/includes/desktop.html:51
+msgid "Genaue Zahlen der eigenen Emissionen durch eine Fahrt mit dem E-Bus"
+msgstr ""
+
+#: e_metrobus/templates/includes/desktop.html:54
+msgid "Vergleich der Zahlen zu anderen Verkehrsmitteln"
+msgstr ""
+
+#: e_metrobus/templates/includes/desktop.html:57
+msgid "Informationen über E-Metrobus und die Umwelt anhand eines Ouizes"
+msgstr ""
+
+#: e_metrobus/templates/includes/desktop.html:65
+msgid "Die Mobilität der Zukunft kommt nach Berlin"
+msgstr ""
+
+#: e_metrobus/templates/includes/desktop.html:68
+msgid ""
+"Seit August 2015 fährt die Linie 204 elektrisch durch die Hauptstadt. "
+"Steigen Sie ein und erleben sie die Vorteile der elektrischen Mobilität! Auf "
+"der Live-Karte können Sie jederzeit sehen, wo unsere Elektrobusse gerade "
+"unterwegs sind. Und während Sie auf den Bus warten: Warum nicht einfach auf "
+"Ihrem Smartphone weiterlesen?"
+msgstr ""
+
+#: e_metrobus/templates/navigation/landing_page.html:30
+msgid "Toll, dass du mit einem E-Bus fährst!"
+msgstr ""
+
+#: e_metrobus/templates/navigation/landing_page.html:33
+msgid "Zeig mir warum!"
+msgstr ""
