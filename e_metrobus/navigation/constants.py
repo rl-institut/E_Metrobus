@@ -1,4 +1,3 @@
-
 import math
 from collections import namedtuple
 
@@ -29,4 +28,6 @@ class Ellipse:
         return f"M {ELLIPSE_RADIUS + ELLIPSE_X_OFFSET} {ELLIPSE_Y_OFFSET} A {ELLIPSE_RADIUS} {ELLIPSE_RADIUS} 0 {self.large} 1 {self.x} {self.y}"
 
 
-Consumption = namedtuple("Consumption", ["fuel", "co2", "nitrogen", "fine_dust"])
+Consumption = namedtuple(
+    "Consumption", ["distance", "fuel", "co2", "nitrogen", "fine_dust"]
+)
