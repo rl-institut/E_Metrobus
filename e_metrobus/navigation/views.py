@@ -1,3 +1,4 @@
+
 from django.shortcuts import redirect
 from django.views.generic import TemplateView
 
@@ -12,6 +13,7 @@ class NavigationView(TemplateView):
     title_icon = "images/icons/Icon_E_Bus_Front.svg"
     title_alt = None
     back_url = "navigation:dashboard"
+    top_bar_template = None
     footer_links = {}
 
     def get_context_data(self, **kwargs):
@@ -24,12 +26,9 @@ class NavigationView(TemplateView):
             title_alt=self.title_alt,
             back_url=self.back_url,
             points=points,
+            template=self.top_bar_template
         )
         return context
-
-
-class StartView(TemplateView):
-    template_name = "navigation/start.html"
 
 
 class RouteView(TemplateView):
@@ -53,7 +52,11 @@ class RouteView(TemplateView):
 
 class DashboardView(NavigationView):
     template_name = "navigation/dashboard.html"
-    footer_links = {"dashboard": {"selected": True}}
+    footer_links = {
+        "info": {"enabled": True},
+        "dashboard": {"selected": True},
+        "results": {"enabled": True}
+    }
 
     def get(self, request, *args, **kwargs):
         if "first_time" not in request.session:
@@ -78,10 +81,9 @@ class DashboardView(NavigationView):
 
 class DisplayRouteView(NavigationView):
     template_name = "navigation/display_route.html"
-    footer_links = {
-        "results": {"enabled": False},
-        "dashboard": {"selected": True, "enabled": False},
-    }
+    footer_links = {"dashboard": {"selected": True}}
+    back_url = "navigation:route"
+    top_bar_template = "widgets/top_bar_route.html"
 
     def get_context_data(self, **kwargs):
         context = super(DisplayRouteView, self).get_context_data(**kwargs)
@@ -91,17 +93,11 @@ class DisplayRouteView(NavigationView):
         return context
 
 
-class LandingPageView(TemplateView):
-    template_name = "navigation/landing_page.html"
-    footer_links = {"leaf": {"enabled": False}, "info": {"selected": True}}
-
-
 class ComparisonView(NavigationView):
     template_name = "navigation/comparison.html"
-    footer_links = {
-        "results": {"enabled": False},
-        "dashboard": {"selected": True, "enabled": False},
-    }
+    footer_links = {"dashboard": {"selected": True}}
+    back_url = "navigation:route"
+    top_bar_template = "widgets/top_bar_route.html"
 
     def get_context_data(self, **kwargs):
         context = super(ComparisonView, self).get_context_data(**kwargs)
@@ -112,7 +108,11 @@ class ComparisonView(NavigationView):
 class QuestionView(NavigationView):
     template_name = "navigation/question.html"
     back_url = "navigation:dashboard"
-    footer_links = {"dashboard": {"selected": True}}
+    footer_links = {
+        "info": {"enabled": True},
+        "dashboard": {"selected": True, "enabled": True},
+        "results": {"enabled": True}
+    }
 
     def get_context_data(self, **kwargs):
         self.title = questions.QUESTIONS[kwargs["category"]].label
@@ -132,7 +132,11 @@ class QuestionView(NavigationView):
 class AnswerView(NavigationView):
     template_name = "navigation/answer.html"
     back_url = "navigation:dashboard"
-    footer_links = {"dashboard": {"selected": True}}
+    footer_links = {
+        "info": {"enabled": True},
+        "dashboard": {"selected": True, "enabled": True},
+        "results": {"enabled": True}
+    }
 
     def get_context_data(self, answer, question, **kwargs):
         self.title = questions.QUESTIONS[question.category].label
@@ -167,17 +171,26 @@ class CategoryFinishedView(TemplateView):
     def get_context_data(self, **kwargs):
         return {
             "category": questions.QUESTIONS[kwargs["category"]],
-            "points": questions.SCORE_CATEGORY_COMPLETE,
+            "points": questions.SCORE_CATEGORY_COMPLETE
         }
 
 
 class LegalView(NavigationView):
     template_name = "navigation/legal.html"
+    footer_links = {
+        "info": {"selected": True},
+        "dashboard": {"enabled": True},
+        "results": {"enabled": True}
+    }
 
 
 class QuestionsAsTextView(NavigationView):
     template_name = "navigation/questions_as_text.html"
-    footer_links = {"results": {"selected": True}}
+    footer_links = {
+        "info": {"enabled": True},
+        "dashboard": {"enabled": True},
+        "results": {"selected": True}
+    }
 
     def get_context_data(self, **kwargs):
         context = super(QuestionsAsTextView, self).get_context_data(**kwargs)
@@ -185,19 +198,6 @@ class QuestionsAsTextView(NavigationView):
         return context
 
 
-class RightView(NavigationView):
-    template_name = "navigation/right.html"
-    footer_links = {"info": {"selected": True}}
-
-    def get_context_data(self, **kwargs):
-        context = super(RightView, self).get_context_data(**kwargs)
-        return context
-
-
-class WrongView(NavigationView):
-    template_name = "navigation/wrong.html"
-    footer_links = {"info": {"selected": True}}
-
-    def get_context_data(self, **kwargs):
-        context = super(WrongView, self).get_context_data(**kwargs)
-        return context
+class LandingPageView(TemplateView):
+    template_name = "navigation/landing_page.html"
+    footer_links = {"dashboard": {"selected": True}}
