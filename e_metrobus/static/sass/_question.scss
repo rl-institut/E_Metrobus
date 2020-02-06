@@ -30,13 +30,13 @@
     background-color: $gray-1 !important;
   }
   &__btn input:hover {
-    background-color: black;
+    background-color: #252424;
   }
 }
 .answer--ready {
   background-color: $primary-color-1;
   input {
-    background-color: black !important;
+    background-color: #252424;
   }
 }
 //CSS for correct/wrong-answer
@@ -57,7 +57,7 @@
     background-color: $primary-color-1;
   }
   &__wrong {
-    background-color: black;
+    background-color: #252424;
     color: $white;
   }
 }
@@ -71,7 +71,7 @@
     }
   }
   &__readmore a {
-    color: black;
+    color: #252424;
     font-size: 0.9rem;
     font-weight: bold;
   }
@@ -92,6 +92,8 @@
       margin: 1.5rem 0 5.25rem;
       padding-top: 1.2rem;
       //background-color: black;
+      width: 15rem;
+      background-color: #252424;
     }
   }
 }
