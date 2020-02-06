@@ -25,10 +25,9 @@
   }
   &__btn input{
     margin: 1.5rem 0 5.25rem;
-    width: 15rem;
     font-weight: 700;
     font-size: 1rem;
-    background-color: $gray-1;
+    background-color: $gray-1 !important;
   }
   &__btn input:hover {
     background-color: black;
@@ -37,7 +36,7 @@
 .answer--ready {
   background-color: $primary-color-1;
   input {
-    background-color: black;
+    background-color: black !important;
   }
 }
 //CSS for correct/wrong-answer
@@ -91,8 +90,7 @@
 
     a, a:hover {
       margin: 1.5rem 0 5.25rem;
-      width: 15rem;
-      background-color: black;
+      //background-color: black;
     }
   }
 }

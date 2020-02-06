@@ -1,6 +1,7 @@
-button, button:hover {
+button, button:hover, .button {
 	background-color: $secondary-color !important;
 	color: $white;
+	width: 15rem !important;
 
 	&.button--yellow {
 		background-color: $primary-color-1 !important;
