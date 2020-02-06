@@ -1,0 +1,46 @@
+
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block body_class %}class="l-scroll l-scroll--nonav"{% endblock %}
+
+{% block content %}
+
+<div class="cell">
+  <div class="grid-x text-center align-center cat_fin">
+    <div class="cell cat_fin__congrats">
+      <span>Glückwunsch!</span>
+    </div>
+    <div class="cell cat_fin__text">
+      <span>Du hast die Kategorie <br> <span id="cat_fin_name">{{category.label}}</span> <br> abgeschlossen!</span>
+    </div>
+    <div class="cell animate_answer__points" id="cat_fin_points">
+      <div class="grid-x align-center">
+        <div class="cell small-1 animate_answer__points--star">
+          <img src="{% static 'images/icons/i_star_turkis.svg' %}" alt="star">
+        </div>
+        <div class="cell small-1 animate_answer__points--star">
+          <span>{{points}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="cell cat_fin__icon">
+      <img src="{% static category.icon %}">
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+
+{% block javascript %}
+  {{block.super}}
+  <script>
+    $( document ).ready(function() {
+      function redirect_to_dashboard() {
+        window.location.replace("{% url 'navigation:dashboard' %}");
+      }
+      setTimeout(redirect_to_dashboard, 3000);
+    });
+  </script>
+{% endblock %}
