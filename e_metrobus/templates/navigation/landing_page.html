@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% load static %}
+{% load i18n %}
 
 {% block body_class %}class="l-scroll l-scroll--nonav"{% endblock %}
 
@@ -26,10 +27,10 @@
       <div class="cell landpage__bottom">
         <div class="grid-x">
           <div class="cell landpage__bottom-text">
-            <span>Toll, dass du mit einem E-Bus fährst!</span>
+            <span>{% trans 'Toll, dass du mit einem E-Bus fährst!' %}</span>
           </div>
           <div class="cell landing__bottom-btn">
-            <a href="{% url 'navigation:route' %}"><button name="boarding" class="button"><span>Zeig mir warum!</span></button></a>
+            <a href="{% url 'navigation:route' %}"><button name="boarding" class="button"><span>{% trans 'Zeig mir warum!' %}</span></button></a>
           </div>
         </div>
       </div>

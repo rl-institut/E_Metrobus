@@ -1,4 +1,6 @@
 
+{% load i18n %}
+
 <div class="desktop show-for-large">
   <div class="grid-x align-center">
 
@@ -8,7 +10,7 @@
           <h1>E-Metrobus Berlin</h1>
         </div>
         <div class="cell desktop__subheader">
-          <span>Elektrifizierung von MetroBus-Linien im Berliner ÖPNV mit Schnellladeinfrastruktur</span>
+          <span>{% trans 'Elektrifizierung von MetroBus-Linien im Berliner ÖPNV mit Schnellladeinfrastruktur' %}</span>
         </div>
       </div>
     </div>
@@ -17,11 +19,11 @@
         <div class="cell large-5 desktop__link--img">
           <img src="../../static/images/HP_hero_device.png" alt="phone">
         </div>
-      
+
         <div class="cell large-5 align-right">
           <div class="grid-x align-center">
             <div class="cell text-center desktop__link--text">
-              <span>App auf mobilen Geräten verfügbar</span>
+              <span>{% trans 'App auf mobilen Geräten verfügbar' %}</span>
             </div>
             <div class="cell large-5 text-center desktop__link--qr">
             </div>
@@ -36,7 +38,7 @@
     <div class="cell large-8 desktop__appinfo">
       <div class="grid-x align-center text-center">
         <div class="cell desktop__appinfo--header">
-          <h2>Was vermittelt die App?</h2>
+          <h2>{% trans 'Was vermittelt die App?' %}</h2>
         </div>
         <div class="cell large-4 desktop__appinfo--img">
           <img src="../../static/images/icons/i_co2_blue.svg" alt="Kohlenstoffdioxid Icon">
@@ -46,13 +48,13 @@
           <img src="../../static/images/icons/i_quiz_blue.svg" alt="Quiz Icon">
         </div>
         <div class="cell large-4 desktop__appinfo--text">
-          Genaue Zahlen der eigenen Emissionen durch eine Fahrt mit dem E-Bus
+          {% trans 'Genaue Zahlen der eigenen Emissionen durch eine Fahrt mit dem E-Bus' %}
         </div>
         <div class="cell large-4 desktop__appinfo--text">
-          Vergleich der Zahlen zu anderen Verkehrsmitteln
+          {% trans 'Vergleich der Zahlen zu anderen Verkehrsmitteln' %}
         </div>
         <div class="cell large-4 desktop__appinfo--text">
-          Informationen über E-Metrobus und die Umwelt anhand eines Ouizes
+          {% trans 'Informationen über E-Metrobus und die Umwelt anhand eines Ouizes' %}
         </div>
       </div>
     </div>
@@ -60,11 +62,10 @@
     <div class="cell large-8 desktop__info">
       <div class="grid-x align-center">
         <div class="cell text-center desktop__info--header">
-          <h3>Die Mobilität der Zukunft kommt nach Berlin</h3>
+          <h3>{% trans 'Die Mobilität der Zukunft kommt nach Berlin' %}</h3>
         </div>
         <div class="cell large-6 desktop__info--text">
-          <span>Seit August 2015 fährt die Linie 204 elektrisch durch die Hauptstadt. Steigen Sie ein und erleben sie die Vorteile der elektrischen Mobilität!
-          Auf der Live-Karte können Sie jederzeit sehen, wo unsere Elektrobusse gerade unterwegs sind. Und während Sie auf den Bus warten: Warum nicht einfach auf Ihrem Smartphone weiterlesen?</span>
+          <span>{% trans 'Seit August 2015 fährt die Linie 204 elektrisch durch die Hauptstadt. Steigen Sie ein und erleben sie die Vorteile der elektrischen Mobilität! Auf der Live-Karte können Sie jederzeit sehen, wo unsere Elektrobusse gerade unterwegs sind. Und während Sie auf den Bus warten: Warum nicht einfach auf Ihrem Smartphone weiterlesen?' %}</span>
         </div>
         <div class="cell large-5 desktop__info--img">
         </div>
