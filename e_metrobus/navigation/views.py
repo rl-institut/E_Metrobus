@@ -111,11 +111,14 @@ class EnvironmentView(NavigationView):
     def get_context_data(self, **kwargs):
         context = super(EnvironmentView, self).get_context_data(**kwargs)
         # FIXME: Dummy values
-        context["personal"] = constants.Consumption(
-            fuel=200, co2=300, nitrogen=20, fine_dust=10
+        context["user"] = constants.Consumption(
+            distance=10, fuel=200, co2=300, nitrogen=20, fine_dust=10
         )
-        context["total"] = constants.Consumption(
-            fuel=200000, co2=300000, nitrogen=20000, fine_dust=10000
+        context["fleet"] = constants.Consumption(
+            distance=3000, fuel=200000, co2=300000, nitrogen=20000, fine_dust=10000
+        )
+        context["comparison"] = constants.Consumption(
+            distance=None, fuel=99, co2=99, nitrogen=99, fine_dust=99
         )
         return context
 
