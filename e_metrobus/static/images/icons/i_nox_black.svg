@@ -5,39 +5,15 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   id="svg8"
-   version="1.1"
-   y="0px"
-   x="0px"
-   viewBox="0 0 100 100"
-   data-name="Layer 1"
-   fill="#000000"
-   width="100px"
    height="100px"
-   sodipodi:docname="i_nox_black.svg"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)">
-  <sodipodi:namedview
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="1853"
-     inkscape:window-height="1025"
-     id="namedview8"
-     showgrid="false"
-     inkscape:zoom="2.36"
-     inkscape:cx="50"
-     inkscape:cy="50"
-     inkscape:window-x="67"
-     inkscape:window-y="27"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg8" />
+   width="100px"
+   fill="#000000"
+   data-name="Layer 1"
+   viewBox="0 0 100 100"
+   x="0px"
+   y="0px"
+   version="1.1"
+   id="svg8">
   <metadata
      id="metadata14">
     <rdf:RDF>
@@ -55,21 +31,21 @@
   <title
      id="title2">12</title>
   <g
-     aria-label="NOx"
-     transform="scale(0.74426054,1.3436155)"
-     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:62.42048264px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';letter-spacing:0px;word-spacing:0px;fill:#252424;fill-opacity:1;stroke:none;stroke-width:3.90128016"
-     id="text842">
+     id="text2483"
+     style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:55.32400131px;line-height:1.25;font-family:Roboto;-inkscape-font-specification:'Roboto Bold';letter-spacing:0px;word-spacing:0px;fill:#252424;fill-opacity:1;stroke:none;stroke-width:3.45775008"
+     transform="scale(0.94399335,1.0593295)"
+     aria-label="NOx">
     <path
-       d="M 47.130032,60.145031 H 37.986406 L 20.186816,30.946387 V 60.145031 H 11.04319 V 15.767969 h 9.143626 L 38.016885,45.02757 V 15.767969 h 9.113147 z"
-       style="stroke-width:3.90128016"
-       id="path815" />
+       id="path2485"
+       style="stroke-width:3.45775008"
+       d="M 34.925946,72.98645 H 26.821845 L 11.04586,47.107352 V 72.98645 H 2.941758 V 33.654543 H 11.04586 L 26.848858,59.587669 V 33.654543 h 8.077088 z" />
     <path
-       d="m 91.629009,38.962299 q 0,6.552931 -2.316385,11.490489 -2.316385,4.937558 -6.644368,7.619688 -4.297504,2.68213 -9.875115,2.68213 -5.516654,0 -9.844637,-2.651651 -4.327983,-2.651652 -6.705325,-7.558731 -2.377343,-4.937557 -2.407822,-11.338095 v -2.19447 q 0,-6.552932 2.346864,-11.520968 2.377343,-4.998515 6.674847,-7.650167 4.327982,-2.68213 9.875115,-2.68213 5.547133,0 9.844637,2.68213 4.327983,2.651652 6.674846,7.650167 2.377343,4.968036 2.377343,11.490489 z m -9.26554,-2.011598 q 0,-6.979634 -2.499258,-10.606605 -2.499258,-3.626972 -7.132028,-3.626972 -4.602291,0 -7.101549,3.596493 -2.499257,3.566014 -2.529736,10.48469 v 2.163992 q 0,6.796761 2.499257,10.545648 2.499258,3.748886 7.192986,3.748886 4.602291,0 7.07107,-3.596492 2.468779,-3.626972 2.499258,-10.545648 z"
-       style="stroke-width:3.90128016"
-       id="path817" />
+       id="path2487"
+       style="stroke-width:3.45775008"
+       d="m 74.365909,54.211948 q 0,5.807939 -2.053039,10.184154 -2.053039,4.376215 -5.88898,6.753418 -3.808928,2.377204 -8.75243,2.377204 -4.889475,0 -8.725417,-2.35019 -3.835941,-2.350189 -5.943008,-6.699391 -2.107066,-4.376215 -2.13408,-10.049086 v -1.944984 q 0,-5.80794 2.080053,-10.211168 2.107067,-4.430243 5.915994,-6.780432 3.835942,-2.377203 8.75243,-2.377203 4.916489,0 8.725417,2.377203 3.835941,2.350189 5.915994,6.780432 2.107066,4.403228 2.107066,10.184154 z m -8.212156,-1.782903 q 0,-6.186131 -2.215121,-9.400758 -2.215121,-3.214627 -6.3212,-3.214627 -4.079064,0 -6.294185,3.187614 -2.215122,3.160599 -2.242135,9.292703 v 1.917971 q 0,6.024049 2.215121,9.34673 2.215121,3.322682 6.375227,3.322682 4.079064,0 6.267172,-3.187613 2.188107,-3.214627 2.215121,-9.346731 z" />
     <path
-       d="m 110.31248,37.011659 5.54714,-9.844637 h 9.41793 l -9.38745,16.153738 9.78368,16.824271 h -9.44842 l -5.8824,-10.362775 -5.85192,10.362775 H 95.012152 L 104.79583,43.32076 95.438854,27.167022 h 9.448416 z"
-       style="stroke-width:3.90128016"
-       id="path819" />
+       id="path2489"
+       style="stroke-width:3.45775008"
+       d="m 90.925288,52.483073 4.916489,-8.725416 H 104.189 l -8.32021,14.317246 8.67139,14.911547 H 96.165941 L 90.952302,63.801802 85.765677,72.98645 H 77.364425 L 86.035814,58.074903 77.742616,43.757657 h 8.374239 z" />
   </g>
 </svg>
