@@ -54,6 +54,7 @@ class DashboardView(NavigationView):
     footer_links = {
         "info": {"enabled": True},
         "dashboard": {"selected": True},
+        "leaf": {"enabled": True},
         "results": {"enabled": True}
     }
 
@@ -106,7 +107,12 @@ class ComparisonView(NavigationView):
 
 class EnvironmentView(NavigationView):
     template_name = "navigation/environment.html"
-    footer_links = {"leaf": {"selected": True}}
+    footer_links = {
+        "info": {"enabled": True},
+        "dashboard": {"enabled": True},
+        "leaf": {"selected": True},
+        "results": {"enabled": True}
+    }
 
     def get_context_data(self, **kwargs):
         context = super(EnvironmentView, self).get_context_data(**kwargs)
@@ -129,6 +135,7 @@ class QuestionView(NavigationView):
     footer_links = {
         "info": {"enabled": True},
         "dashboard": {"selected": True, "enabled": True},
+        "leaf": {"enabled": True},
         "results": {"enabled": True}
     }
 
@@ -153,6 +160,7 @@ class AnswerView(NavigationView):
     footer_links = {
         "info": {"enabled": True},
         "dashboard": {"selected": True, "enabled": True},
+        "leaf": {"enabled": True},
         "results": {"enabled": True}
     }
 
@@ -198,6 +206,7 @@ class LegalView(NavigationView):
     footer_links = {
         "info": {"selected": True},
         "dashboard": {"enabled": True},
+        "leaf": {"enabled": True},
         "results": {"enabled": True}
     }
 
@@ -207,6 +216,7 @@ class QuestionsAsTextView(NavigationView):
     footer_links = {
         "info": {"enabled": True},
         "dashboard": {"enabled": True},
+        "leaf": {"enabled": True},
         "results": {"selected": True}
     }
 
