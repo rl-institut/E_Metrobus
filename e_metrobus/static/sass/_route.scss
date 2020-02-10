@@ -39,9 +39,6 @@ $station-font-line-height: 1rem;
 		height: 7rem;
 		position: fixed;
 		bottom: 0;
-		button {
-			font-weight: bold;
-		}
 		span {
 			color: $white;
 			font-size: 1.5rem;
@@ -55,9 +52,9 @@ $station-font-line-height: 1rem;
 	border-radius: 100px;
 }
 
-#stations_form {
-	button {
-		font-weight: 700;
-		font-size: 1rem;
-	}
-}
+// #stations_form {
+// 	button {
+// 		// font-weight: 700;
+// 		// font-size: 1rem;
+// 	}
+// }
