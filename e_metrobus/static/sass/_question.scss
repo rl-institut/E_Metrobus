@@ -25,8 +25,6 @@
   }
   &__btn input{
     margin: 1.5rem 0 5.25rem;
-    font-weight: 700;
-    font-size: 1rem;
     background-color: $gray-1 !important;
   }
   &__btn input:hover {
@@ -36,7 +34,7 @@
 .answer--ready {
   background-color: $primary-color-1;
   input {
-    background-color: #252424;
+    background-color: #252424 !important;
   }
 }
 //CSS for correct/wrong-answer
@@ -84,16 +82,11 @@
   &__next {
     position: fixed;
     bottom: 0;
-    font-weight: 700;
-    font-size: 1rem;
     background-color: $primary-color-1;
 
     a, a:hover {
       margin: 1.5rem 0 5.25rem;
-      padding-top: 1.2rem;
-      //background-color: black;
-      width: 15rem;
-      background-color: #252424;
+      padding-top: 1.1rem;
     }
   }
 }

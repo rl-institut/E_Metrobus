@@ -82,8 +82,8 @@ class FooterWidget(CustomWidget):
         },
         "leaf": {
             "name": "leaf",
-            "url": "navigation:dashboard",
-            "enabled": False,
+            "url": "navigation:environment",
+            "enabled": True,
             "selected": False,
         },
         "results": {
