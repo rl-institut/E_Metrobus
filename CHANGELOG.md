@@ -9,6 +9,7 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 - Environment page.
 
 ### Changed
+- illness type plus color.
 - onboard animation speed (slowed down)
 
 ## [0.5.0] - 2020-02-05
