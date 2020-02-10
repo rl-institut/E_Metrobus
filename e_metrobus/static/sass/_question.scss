@@ -25,17 +25,16 @@
   }
   &__btn input{
     margin: 1.5rem 0 5.25rem;
-    width: 15rem;
-    background-color: $gray-1;
+    background-color: $gray-1 !important;
   }
   &__btn input:hover {
-    background-color: black;
+    background-color: #252424;
   }
 }
 .answer--ready {
   background-color: $primary-color-1;
   input {
-    background-color: black;
+    background-color: #252424 !important;
   }
 }
 //CSS for correct/wrong-answer
@@ -56,7 +55,7 @@
     background-color: $primary-color-1;
   }
   &__wrong {
-    background-color: black;
+    background-color: #252424;
     color: $white;
   }
 }
@@ -70,7 +69,7 @@
     }
   }
   &__readmore a {
-    color: black;
+    color: #252424;
     font-size: 0.9rem;
     font-weight: bold;
   }
@@ -85,10 +84,9 @@
     bottom: 0;
     background-color: $primary-color-1;
 
-    a {
+    a, a:hover {
       margin: 1.5rem 0 5.25rem;
-      width: 15rem;
-      background-color: black;
+      padding-top: 1.1rem;
     }
   }
 }
