@@ -64,18 +64,14 @@
 .answer {
   &__text {
     margin: 1.5rem 1rem 0;
+    font-weight: 700;
 
     &--more {
-      display: none;
+      font-weight: 300;
+      img {
+        margin: 2rem 0; 
+      }
     }
-  }
-  &__readmore a {
-    color: #252424;
-    font-size: 0.9rem;
-    font-weight: bold;
-  }
-  &__readmore img {
-    height: 1.5rem;
   }
 }
 //Button for next question
