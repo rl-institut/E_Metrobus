@@ -1,0 +1,25 @@
+.quiz-fin {
+  position: relative;
+
+  &__text {
+    margin: 5rem 0 4rem;
+
+    p {
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+    span {
+      color: $primary-color-2;
+      font-size: 1.6rem;
+    }
+  }
+  &__img {
+    img {
+      height: 6rem;
+    }
+  }
+  &__bottom {
+    position: absolute;
+    bottom: 1rem;
+  }
+}

@@ -4,27 +4,38 @@
 {% block body_class %}class="l-scroll l-scroll--nonav"{% endblock %}
 
 {% block content %}
-
 <div class="cell">
-  Glückwunsch du hast das Quiz mit {{points}} Punkten abgeschlossen!
+  <div class="grid-x text-center align-center">
+    <div class="cell small-8 quiz-fin__text">
+      <p>Glückwunsch du hast das Quiz mit <span>{{points}}</span> Punkten abgeschlossen!</p>
+    </div>
+    <div class="cell quiz-fin__img">
+      <img src="../../static/images/icons/i_trophy.svg" alt="confetti">
+    </div>
+    <div class="cell quiz-fin__bottom">
+      <div class="grid-x">
+        <div class="cell">
+          {% if show_link %}
+            {% if hash %}
+              Link zum Teilen deiner Punkte: {% url 'navigation:score' hash=hash %}
+            {% else %}
+              <form method="post">
+                {% csrf_token %}
+                <input type="submit" class="btn button button--yellow" value="Ergebnis teilen">
+              </form>
+            {% endif %}
+          {% endif %}
+        </div>
+        <div class="cell">
+          <form method="post">
+              {% csrf_token %}
+              <input type="submit" class="btn button" name="reset" value="Quiz neu starten">
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-{% if show_link %}
-  {% if hash %}
-    Link zum Teilen deiner Punkte: {% url 'navigation:score' hash=hash %}
-  {% else %}
-    <form method="post">
-      {% csrf_token %}
-      <input type="submit" class="btn" value="Hier klicken um Punkte zu teilen">
-    </form>
-  {% endif %}
-{% endif %}
-
-<div class="cell">
-  <form method="post">
-      {% csrf_token %}
-      <input type="submit" class="btn" name="reset" value="Hier kannst du das Quiz neu starten.">
-    </form>
-</div>
 
 {% endblock %}
