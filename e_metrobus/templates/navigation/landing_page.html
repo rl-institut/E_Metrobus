@@ -24,6 +24,28 @@
           </div>
         </div>
       </div>
+      <div class="cell landpage__language">
+        <div class="grid-x align-center text-center">
+          <div class="cell small-10 landpage__language--switch">
+            <img src="../../static/images/icons/i_flag_uk.svg" alt="uk_flag">
+            <a href="#" data-open="language_popup"><span>Switch to English</span></a>
+          </div>
+          <div class="cell small-reveal" id="language_popup" data-reveal>
+            <div class="grid-x align-center text-center">
+              <div class="cell small-11 landpage__language--popup">
+                <span>{% trans 'Sprache auswählen' %}</span>
+                <p>
+                  <input type="radio" id="english" name="language" value="english">
+                  <label for="english"><img src="../../static/images/icons/i_flag_uk.svg" alt="uk_flag">English</label><br>
+                  <input type="radio" id="german" name="language" value="german">
+                  <label for="german"><img src="../../static/images/icons/i_flag_de.svg" alt="de_flag">Deutsch</label>
+                </p>
+                <input class="close-button" type="button" name="close-button" id="language_close" value="x" data-close></input>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="cell landpage__bottom">
         <div class="grid-x">
           <div class="cell landpage__bottom-text">
