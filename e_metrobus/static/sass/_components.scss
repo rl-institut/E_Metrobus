@@ -1,7 +1,11 @@
-button {
+button, button:hover, button:active, button:focus, button:visited, .button, .button:active, .button:focus, .button:hover, .button:visited {
 	background-color: $secondary-color !important;
 	color: $white;
-	
+	width: 15rem !important;
+	height: 3.325rem;
+	font-weight: 700;
+	font-size: 1rem !important;
+
 	&.button--yellow {
 		background-color: $primary-color-1 !important;
 		color: $secondary-color;
