@@ -1,3 +1,4 @@
+
 from django.shortcuts import redirect, Http404, get_object_or_404
 from django.views.generic import TemplateView
 
@@ -55,6 +56,7 @@ class DashboardView(NavigationView):
     footer_links = {
         "info": {"enabled": True},
         "dashboard": {"selected": True},
+        "leaf": {"enabled": True},
         "results": {"enabled": True}
     }
 
@@ -107,12 +109,37 @@ class ComparisonView(NavigationView):
         return context
 
 
+class EnvironmentView(NavigationView):
+    template_name = "navigation/environment.html"
+    footer_links = {
+        "info": {"enabled": True},
+        "dashboard": {"enabled": True},
+        "leaf": {"selected": True},
+        "results": {"enabled": True}
+    }
+
+    def get_context_data(self, **kwargs):
+        context = super(EnvironmentView, self).get_context_data(**kwargs)
+        # FIXME: Dummy values
+        context["user"] = constants.Consumption(
+            distance=10, fuel=200, co2=300, nitrogen=20, fine_dust=10
+        )
+        context["fleet"] = constants.Consumption(
+            distance=3000, fuel=200000, co2=300000, nitrogen=20000, fine_dust=10000
+        )
+        context["comparison"] = constants.Consumption(
+            distance=None, fuel=99, co2=99, nitrogen=99, fine_dust=99
+        )
+        return context
+
+
 class QuestionView(NavigationView):
     template_name = "navigation/question.html"
     back_url = "navigation:dashboard"
     footer_links = {
         "info": {"enabled": True},
         "dashboard": {"selected": True, "enabled": True},
+        "leaf": {"enabled": True},
         "results": {"enabled": True}
     }
 
@@ -137,6 +164,7 @@ class AnswerView(NavigationView):
     footer_links = {
         "info": {"enabled": True},
         "dashboard": {"selected": True, "enabled": True},
+        "leaf": {"enabled": True},
         "results": {"enabled": True}
     }
 
@@ -173,7 +201,7 @@ class CategoryFinishedView(TemplateView):
     def get_context_data(self, **kwargs):
         return {
             "category": questions.QUESTIONS[kwargs["category"]],
-            "points": questions.SCORE_CATEGORY_COMPLETE,
+            "points": questions.SCORE_CATEGORY_COMPLETE
         }
 
 
@@ -212,6 +240,7 @@ class LegalView(NavigationView):
     footer_links = {
         "info": {"selected": True},
         "dashboard": {"enabled": True},
+        "leaf": {"enabled": True},
         "results": {"enabled": True}
     }
 
@@ -221,6 +250,7 @@ class QuestionsAsTextView(NavigationView):
     footer_links = {
         "info": {"enabled": True},
         "dashboard": {"enabled": True},
+        "leaf": {"enabled": True},
         "results": {"selected": True}
     }
 
