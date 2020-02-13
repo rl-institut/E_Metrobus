@@ -20,6 +20,12 @@ section.top-bar {
 		}
 	}
 
+	.top-bar--language {
+		img {
+			height: 2rem;
+		}
+	}
+
 	.top-bar--header {
 		font-size: 1rem;
 		font-weight: 700;
@@ -30,7 +36,6 @@ section.top-bar {
 	}
 
 	.top-bar--points {
-		text-align: left;
 		font-size: .875rem;
 		font-weight: 700;
 		img {
