@@ -6,13 +6,31 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 
 ## [Unreleased]
 ### Added
+- Environment page.
+
+### Changed
+- leaf footer links
+- illness type plus color.
+- onboard animation speed (slowed down)
+
+## [0.5.0] - 2020-02-05
+### Added
+- Legal page
+
+## [0.4.0] - 2020-02-05
+### Changed 
+- Landing page holds project information
+- Footer links for display_route and comparison page
+
+## [0.3.0] - 2020-02-05
+### Added
 - Category finished page.
 - Score animation when answering a question.
-- Environment page.
 - "Choose your route" text.
 - Popup at first-time-visit on dashboard.
-### Changed 
-- Footer links for display_route and comparison page
+
+### Changed
+- Color variables (BVG original)
 
 ## [0.2.0] - 2020-01-13
 ### Added

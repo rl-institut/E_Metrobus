@@ -2,11 +2,13 @@
 
 <section class="grid-x top-bar">
   <div class="cell small-2 top-bar--back">
-    <a href="{% url back_url %}">
-      <div>
-        <img src="{% static 'images/icons/i_back_black.svg' %}" alt="Zurück">
-      </div>
-    </a>
+    {% if back_url %}
+      <a href="{% url back_url %}">
+        <div>
+          <img src="{% static 'images/icons/i_back_black.svg' %}" alt="Zurück">
+        </div>
+      </a>
+    {% endif %}
   </div>
   <div class="cell small-8 top-bar--header">
     <img src="{% static title_icon %}" alt="{{title_alt}}">
