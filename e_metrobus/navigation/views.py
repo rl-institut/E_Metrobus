@@ -26,7 +26,7 @@ class NavigationView(TemplateView):
             title_alt=self.title_alt,
             back_url=self.back_url,
             points=points,
-            template=self.top_bar_template
+            template=self.top_bar_template,
         )
         return context
 
@@ -55,7 +55,7 @@ class DashboardView(NavigationView):
     footer_links = {
         "info": {"enabled": True},
         "dashboard": {"selected": True},
-        "results": {"enabled": True}
+        "results": {"enabled": True},
     }
 
     def get(self, request, *args, **kwargs):
@@ -113,7 +113,7 @@ class QuestionView(NavigationView):
     footer_links = {
         "info": {"enabled": True},
         "dashboard": {"selected": True, "enabled": True},
-        "results": {"enabled": True}
+        "results": {"enabled": True},
     }
 
     def get_context_data(self, **kwargs):
@@ -137,7 +137,7 @@ class AnswerView(NavigationView):
     footer_links = {
         "info": {"enabled": True},
         "dashboard": {"selected": True, "enabled": True},
-        "results": {"enabled": True}
+        "results": {"enabled": True},
     }
 
     def get_context_data(self, answer, question, **kwargs):
@@ -182,13 +182,13 @@ class QuizFinishedView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(QuizFinishedView, self).get_context_data(**kwargs)
-        if "hash" in kwargs:
+        if "share" in kwargs or "hash" not in kwargs:
+            context["points"] = questions.get_total_score(self.request.session)
+            context["show_link"] = True
+        else:
             context["points"] = get_object_or_404(
                 models.Score, hash=kwargs["hash"]
             ).score
-        else:
-            context["points"] = questions.get_total_score(self.request.session)
-            context["show_link"] = True
         return context
 
     def post(self, request, **kwargs):
@@ -201,9 +201,11 @@ class QuizFinishedView(TemplateView):
         if "hashed_score" not in request.session:
             score = models.Score.save_score(request.session)
             request.session["hashed_score"] = score.hash
-            context = self.get_context_data(hash=score.hash, **kwargs)
+            context = self.get_context_data(hash=score.hash, share=True)
         else:
-            context = self.get_context_data(hash=request.session["hashed_score"])
+            context = self.get_context_data(
+                hash=request.session["hashed_score"], share=True
+            )
         return self.render_to_response(context)
 
 
@@ -212,7 +214,7 @@ class LegalView(NavigationView):
     footer_links = {
         "info": {"selected": True},
         "dashboard": {"enabled": True},
-        "results": {"enabled": True}
+        "results": {"enabled": True},
     }
 
 
@@ -221,7 +223,7 @@ class QuestionsAsTextView(NavigationView):
     footer_links = {
         "info": {"enabled": True},
         "dashboard": {"enabled": True},
-        "results": {"selected": True}
+        "results": {"selected": True},
     }
 
     def get_context_data(self, **kwargs):
