@@ -12,6 +12,7 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 ### Changed
 - leaf footer links
 - onboard animation speed (slowed down)
+- answer page layout fixed
 
 ## [0.5.0] - 2020-02-05
 ### Added
