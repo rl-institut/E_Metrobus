@@ -10,6 +10,9 @@
     &__logo {
     margin: 6.5rem 0;
 
+    @media screen and (max-height: 600px) {
+      margin: 4rem 0;
+    }
     @media screen and (max-height: 640px) {
       margin-bottom: 4rem;
     }
