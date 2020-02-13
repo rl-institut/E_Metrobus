@@ -35,10 +35,8 @@
               <div class="cell small-11 landpage__language--popup">
                 <span>{% trans 'Sprache auswählen' %}</span>
                 <p>
-                  <input type="radio" id="english" name="language" value="english">
-                  <label for="english"><img src="{% static 'images/icons/i_flag_uk.svg' %}" alt="uk_flag">English</label><br>
-                  <input type="radio" id="german" name="language" value="german">
-                  <label for="german"><img src="{% static 'images/icons/i_flag_de.svg' %}" alt="de_flag">Deutsch</label>
+                  <a href="en/"><img src="{% static 'images/icons/i_flag_uk.svg' %}" alt="uk_flag">English</a><br>
+                  <a href="/"><img src="{% static 'images/icons/i_flag_de.svg' %}" alt="de_flag">Deutsch</a>
                 </p>
                 <input class="close-button" type="button" name="close-button" id="language_close" value="x" data-close>
               </div>
