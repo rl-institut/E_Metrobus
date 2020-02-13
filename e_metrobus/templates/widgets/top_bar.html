@@ -1,7 +1,7 @@
 {% load static %}
 
 <section class="grid-x top-bar">
-  <div class="cell small-2 top-bar--back">
+  <div class="cell small-1 top-bar--back">
     {% if back_url %}
       <a href="{% url back_url %}">
         <div>
@@ -9,6 +9,25 @@
         </div>
       </a>
     {% endif %}
+  </div>
+  <div class="cell small-1 top-bar--language">
+    <a href="#" data-open="language_popup">
+      <img src="{% static 'images/icons/i_flag_uk.svg' %}" alt="uk_flag">
+    </a>
+    <div class="cell small-reveal" id="language_popup" data-reveal>
+      <div class="grid-x align-center text-center">
+        <div class="cell small-11 landpage__language--popup">
+          <span>Sprache auswählen</span>
+          <p>
+            <input type="radio" id="english" name="language" value="english">
+            <label for="english"><img src="../../static/images/icons/i_flag_uk.svg" alt="uk_flag">English</label><br>
+            <input type="radio" id="german" name="language" value="german">
+            <label for="german"><img src="../../static/images/icons/i_flag_de.svg" alt="de_flag">Deutsch</label>
+          </p>
+          <input class="close-button" type="button" name="close-button" id="language_close" value="x" data-close></input>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="cell small-8 top-bar--header">
     <img src="{% static title_icon %}" alt="{{title_alt}}">
