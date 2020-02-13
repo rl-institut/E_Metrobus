@@ -17,7 +17,7 @@
         <div class="cell">
           {% if show_link %}
             {% if hash %}
-              Link zum Teilen deiner Punkte: {% url 'navigation:score' hash=hash %}
+              Link zum Teilen deiner Punkte: {{request.scheme}}://{{request.get_host}}{% url 'navigation:score' hash=hash %}
             {% else %}
               <form method="post">
                 {% csrf_token %}
