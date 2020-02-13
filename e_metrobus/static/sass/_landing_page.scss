@@ -10,6 +10,10 @@
     &__logo {
     margin: 6.5rem 0;
 
+    @media screen and (max-height: 640px) {
+      margin-bottom: 4rem;
+    }
+
     &--embus {
       margin-top: 6vh;
       margin-bottom: 6vh;
