@@ -4,14 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project tries to adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.6.0] - 2020-02-13
 ### Added
 - Environment page.
 - Score can be saved and shared via link.
 
 ### Changed
 - leaf footer links
-- illness type plus color.
 - onboard animation speed (slowed down)
 
 ## [0.5.0] - 2020-02-05
