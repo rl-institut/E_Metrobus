@@ -27,8 +27,14 @@
       <div class="cell landpage__language">
         <div class="grid-x align-center text-center">
           <div class="cell small-10 landpage__language--switch">
-            <img src="{% static 'images/icons/i_flag_uk.svg' %}" alt="uk_flag">
-            <a href="#" data-open="language_popup"><span>Switch to English</span></a>
+            {% get_current_language as LANGUAGE_CODE %}
+            {% if LANGUAGE_CODE == "de" %}
+              <img src="{% static 'images/icons/i_flag_uk.svg' %}" alt="uk_flag">
+              <a href="#" data-open="language_popup"><span>Switch to English</span></a>
+            {% else %}
+              <img src="{% static 'images/icons/i_flag_de.svg' %}" alt="uk_flag">
+              <a href="#" data-open="language_popup"><span>Deutsch auswählen</span></a>
+            {% endif %}
           </div>
           <div class="cell small-reveal" id="language_popup" data-reveal>
             <div class="grid-x align-center text-center">
