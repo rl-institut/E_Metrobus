@@ -113,3 +113,10 @@ def get_question_from_name(question_name):
         if question_name in category.questions:
             return category.questions[question_name]
     raise KeyError(f'Question "{question_name}" not found.')
+
+
+def all_questions_answered(session):
+    for category in QUESTIONS:
+        if get_category_done_share(category, session) != 1.0:
+            return False
+    return True
