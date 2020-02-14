@@ -83,12 +83,14 @@
   {{block.super}}
 
   <script>
-    $( document ).ready(function() {
-      $('#answer').show();
-      function hideReveal() {
-        $('#answer').hide();
-      }
-      setTimeout(hideReveal, 3000);
-    });
+    {% if answer != None %}
+      $( document ).ready(function() {
+        $('#answer').show();
+        function hideReveal() {
+          $('#answer').hide();
+        }
+        setTimeout(hideReveal, 3000);
+      });
+    {% endif %}
   </script>
 {% endblock %}

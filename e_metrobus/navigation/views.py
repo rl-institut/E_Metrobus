@@ -157,7 +157,7 @@ class AnswerView(NavigationView):
         "results": {"enabled": True}
     }
 
-    def get_context_data(self, answer, question, **kwargs):
+    def get_context_data(self, question, answer=None, **kwargs):
         self.title = questions.QUESTIONS[question.category].label
         self.title_icon = questions.QUESTIONS[question.category].icon
         context = super(AnswerView, self).get_context_data(**kwargs)
@@ -165,6 +165,14 @@ class AnswerView(NavigationView):
         context["question"] = question
         context["points"] = questions.SCORE_CORRECT if answer else questions.SCORE_WRONG
         return context
+
+    def get(self, request, **kwargs):
+        question_name = request.session.get("last_answered_question")
+        if question_name is None:
+            raise ValueError("No question answered yet!")
+        question = questions.get_question_from_name(question_name)
+        context = self.get_context_data(question=question, **kwargs)
+        return self.render_to_response(context)
 
     def post(self, request, **kwargs):
         question = questions.get_question_from_name(request.POST["question"])
@@ -178,9 +186,10 @@ class AnswerView(NavigationView):
             raise ValueError("Answer already given")
         else:
             request.session["questions"][question.category][question.name] = answer
+            request.session["last_answered_question"] = question.name
         request.session.save()
 
-        context = self.get_context_data(answer=answer, question=question, **kwargs)
+        context = self.get_context_data(question=question, answer=answer, **kwargs)
         return self.render_to_response(context)
 
 
