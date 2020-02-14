@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-06 14:34+0100\n"
+"POT-Creation-Date: 2020-02-14 09:15+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,10 +57,74 @@ msgid ""
 "Ihrem Smartphone weiterlesen?"
 msgstr ""
 
-#: e_metrobus/templates/navigation/landing_page.html:30
+#: e_metrobus/templates/navigation/landing_page.html:48
 msgid "Toll, dass du mit einem E-Bus fährst!"
 msgstr ""
 
-#: e_metrobus/templates/navigation/landing_page.html:33
+#: e_metrobus/templates/navigation/landing_page.html:51
 msgid "Zeig mir warum!"
+msgstr ""
+
+#: e_metrobus/templates/questions/e_metrobus/line_200.html:4
+msgid ""
+"\n"
+"Planmäßiger Start der Elektrifizierung der Linie 200 ist 2020. Vorerst "
+"sollen 17 E-Busse auf dieser Linie eingesetzt werden.\n"
+msgstr ""
+
+#: e_metrobus/templates/questions/e_metrobus/loading.html:5
+msgid ""
+"\n"
+"Der Bus wird an den Endhaltestellen Hertzallee und Michelangelostraße mit "
+"einem Pantographen aufgeladen. Dieser ist in der Ladesäule integriert. Wenn "
+"der Bus unter der Ladesäule steht, wird der Pantograph heruntergefahren und "
+"verbindet sich mit den Schienen auf dem Dach des Busses. Geladen wird in "
+"wenigen Minuten mit 450 kW. Wird die Leistung mit einem handelsüblichen "
+"Wasserkocher verglichen (etwa 2 kW Leistung) entspricht die Ladeleistung 225 "
+"Wasserkochern.\n"
+msgstr ""
+
+#: e_metrobus/templates/questions/e_metrobus/loading_time.html:4
+msgid ""
+"\n"
+"Die Ladezeiten betragen in der Regel wenige Minuten. Damit hat der Bus "
+"wieder so viel Energie geladen, wie er auf der Strecke verbraucht hat. "
+"Allgemein ist der Verbrauch und damit auch die benötigte Ladezeit von vielen "
+"Faktoren abhängig (Anzahl der Fahrgäste, Verkehrsaufkommen, Stau, Wetter, "
+"Fahrweise etc.). Dementsprechend sind auch kürzere oder längere Ladezeiten "
+"möglich.\n"
+msgstr ""
+
+#: e_metrobus/templates/questions/environment/co2_reduction.html:4
+msgid ""
+"\n"
+"E-Busse sind lokal komplett emissionsfrei. Mit der Elektrifizierung der "
+"Buslinie 200 werden pro Fahrt circa 15 kg CO2 eingespart. Auf das Jahr "
+"hochgerechnet werden circa 444 t Co2 eingespart. Um den gleichen Effekt zu "
+"erreichen, müssten bei durchschnittlichem Fahrverhalten rund 12 Diesel-"
+"Personenkraftwagen elektrifiziert werden.\n"
+msgstr ""
+
+#: e_metrobus/templates/questions/personal/advantages.html:4
+msgid ""
+"\n"
+"Als Fahrgast profitieren Sie von einem deutlich ruhigeren Fahrerlebnis.\n"
+"Elektrische Busse sind leiser als Dieselbusse und vibrieren weniger.\n"
+"Als Anwohner der Buslinie 200 dürfen Sie sich über eine erheblich geringere "
+"Lärm- und Abgasbelastung freuen.\n"
+"Insgesamt trägt der E-Bus so zu einem lebenswerten Berlin bei.\n"
+"Die Geräuschemission eines E-Busses entspricht denen eines "
+"durchschnittlichen PKW und ist damit um ca. die Hälfte geringer als die "
+"eines modernen Dieselbusmotors.\n"
+msgstr ""
+
+#: e_metrobus/templates/questions/politics/ebus_time.html:4
+msgid ""
+"\n"
+"Ziel des Verbundprojektes E-Bus Berlin war es, eine Buslinie in Berlin "
+"komplett elektrisch zu betreiben. Der mehrmonatige Testbetrieb im Alltag, "
+"welcher am 31.08.2015 aufgenommen wurde, wurde wissenschaftlich durch die TU "
+"Berlin begleitet und hinsichtlich Umweltbilanz, Wirtschaftlichkeit und "
+"Nutzerakzeptanz bewertet. Aktuell ist die Testphase abgeschlossen und die "
+"Elektrobusse schon vollkommen in die Flotte der BVG integriert.\n"
 msgstr ""
