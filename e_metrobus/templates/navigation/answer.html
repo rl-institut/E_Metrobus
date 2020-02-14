@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 
@@ -64,7 +65,7 @@
 <div class="cell">
   <div class="grid-x">
     <div class="cell small-11 medium-11 answer__text">
-      {{question.short_answer}}
+      {% trans question.short_answer %}
     </div>
     <div class="cell small-11 medium-11 answer__text answer__text--more" id="moreText" data-toggler data-animate="show">
       {% include question.template %}

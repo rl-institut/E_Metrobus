@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-14 09:15+0100\n"
+"POT-Creation-Date: 2020-02-14 10:10+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -65,6 +65,124 @@ msgstr ""
 msgid "Zeig mir warum!"
 msgstr ""
 
+#: e_metrobus/templates/pages/question_translations.html:5
+msgid "E-Metrobus"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:9
+msgid "Ladezeiten"
+msgstr "Charging times"
+
+#: e_metrobus/templates/pages/question_translations.html:10
+msgid "Wie lange muss dieser Bus an der Endhaltestelle laden?"
+msgstr "How long does it take to charge the bus?"
+
+#: e_metrobus/templates/pages/question_translations.html:11
+msgid "27-33 Minuten"
+msgstr "27-33 Minutes"
+
+#: e_metrobus/templates/pages/question_translations.html:11
+msgid "1 Stunde"
+msgstr "1 Hour"
+
+#: e_metrobus/templates/pages/question_translations.html:11
+msgid "Wenige Minuten"
+msgstr "Few minutes"
+
+#: e_metrobus/templates/pages/question_translations.html:11
+msgid "30 Sekunden"
+msgstr "30 seconds"
+
+#: e_metrobus/templates/pages/question_translations.html:13
+msgid "Der Bus muss nur wenige Minuten laden!"
+msgstr "Bus has to charge only a few minutes!"
+
+#: e_metrobus/templates/pages/question_translations.html:15
+msgid "Linie 200"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:16
+msgid "Wann sollen E-Busse auf Linie 200 zum Einsatz kommen?"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:19
+msgid "Linie 200 soll ab dem Jahr 2020 unterwegs sein!"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:21
+msgid "Ladevorgang"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:22
+msgid "Wie wird die Buslinie 200 geladen?"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:23
+msgid "Stecker"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:25
+msgid "Der Bus wird mittels eines Pantographen geladen"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:28
+msgid "Umwelt"
+msgstr "Environment"
+
+#: e_metrobus/templates/pages/question_translations.html:32
+msgid "CO2 Reduktion"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:33
+msgid ""
+"Wie viel CO2 werden durch den Einsatz der Elektrobusse auf der Linie 200 "
+"jährlich eingespart?"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:36
+msgid ""
+"444 t CO2 können durch die Elektrifizierung der Linie 200 pro Jahr "
+"eongespart werden"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:39
+msgid "Politk"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:43
+msgid "Zeitplan"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:44
+msgid "Seit wann fahren Elektrobusse in Berlin?"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:47
+msgid "Elektrobusse fahren seit dem Jahr 2015 in Berlin"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:50
+msgid "Ich"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:54
+msgid "Vorteile"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:55
+msgid ""
+"Was sind Vorteile einer elektrifizierten Buslinie? (Mehrfachauswahl noch "
+"nicht möglich)"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:56
+msgid "Weniger CO2-Belastung"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:58
+msgid "Vorteile sind unte anderem eine geringere CO2- und Lärm-Belastung"
+msgstr ""
+
 #: e_metrobus/templates/questions/e_metrobus/line_200.html:4
 msgid ""
 "\n"
@@ -94,6 +212,9 @@ msgid ""
 "Fahrweise etc.). Dementsprechend sind auch kürzere oder längere Ladezeiten "
 "möglich.\n"
 msgstr ""
+"\n"
+"few minutes"
+"\n"
 
 #: e_metrobus/templates/questions/environment/co2_reduction.html:4
 msgid ""
@@ -128,3 +249,5 @@ msgid ""
 "Nutzerakzeptanz bewertet. Aktuell ist die Testphase abgeschlossen und die "
 "Elektrobusse schon vollkommen in die Flotte der BVG integriert.\n"
 msgstr ""
+"\n"
+"English!\n"

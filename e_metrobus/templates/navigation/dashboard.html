@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% load static %}
+{% load i18n %}
 
 <!--#17BEBB-->
 
@@ -25,7 +26,7 @@
                 <img src="{% static category.icon %}">
               </div>
             </a>
-            <div class="dashboard__header">{{category.label}}</div>
+            <div class="dashboard__header">{% trans category.label %}</div>
           </div>
     {% endfor %}
 
