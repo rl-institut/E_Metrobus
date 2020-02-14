@@ -29,24 +29,16 @@
           <div class="cell small-10 landpage__language--switch">
             {% get_current_language as LANGUAGE_CODE %}
             {% if LANGUAGE_CODE == "de" %}
-              <img src="{% static 'images/icons/i_flag_uk.svg' %}" alt="uk_flag">
-              <a href="#" data-open="language_popup"><span>Switch to English</span></a>
+              <a href="en/" data-open="language_popup">
+                <img src="{% static 'images/icons/i_flag_uk.svg' %}" alt="uk_flag">
+                <span>Switch to English</span>
+              </a>
             {% else %}
-              <img src="{% static 'images/icons/i_flag_de.svg' %}" alt="uk_flag">
-              <a href="#" data-open="language_popup"><span>Deutsch auswählen</span></a>
+              <a href="/" data-open="language_popup">
+                <img src="{% static 'images/icons/i_flag_de.svg' %}" alt="uk_flag">
+                <span>Zu Deutsch wechseln</span>
+              </a>
             {% endif %}
-          </div>
-          <div class="cell small-reveal" id="language_popup" data-reveal>
-            <div class="grid-x align-center text-center">
-              <div class="cell small-11 landpage__language--popup">
-                <span>{% trans 'Sprache auswählen' %}</span>
-                <p>
-                  <a href="en/"><img src="{% static 'images/icons/i_flag_uk.svg' %}" alt="uk_flag">English</a><br>
-                  <a href="/"><img src="{% static 'images/icons/i_flag_de.svg' %}" alt="de_flag">Deutsch</a>
-                </p>
-                <input class="close-button" type="button" name="close-button" id="language_close" value="x" data-close>
-              </div>
-            </div>
           </div>
         </div>
       </div>
