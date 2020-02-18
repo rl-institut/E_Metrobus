@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-14 10:10+0100\n"
+"POT-Creation-Date: 2020-02-18 17:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -56,6 +56,15 @@ msgid ""
 "unterwegs sind. Und während Sie auf den Bus warten: Warum nicht einfach auf "
 "Ihrem Smartphone weiterlesen?"
 msgstr ""
+
+#: e_metrobus/templates/navigation/category_finished.html:15
+msgid "Glückwunsch!"
+msgstr ""
+
+#: e_metrobus/templates/navigation/category_finished.html:19
+#, python-format
+msgid "Du hast die Kategorie %(cat_label)s abgeschlossen!"
+msgstr "You finished category %(cat_label)s!"
 
 #: e_metrobus/templates/navigation/landing_page.html:48
 msgid "Toll, dass du mit einem E-Bus fährst!"
@@ -213,8 +222,7 @@ msgid ""
 "möglich.\n"
 msgstr ""
 "\n"
-"few minutes"
-"\n"
+"few minutes\n"
 
 #: e_metrobus/templates/questions/environment/co2_reduction.html:4
 msgid ""
