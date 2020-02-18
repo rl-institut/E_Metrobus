@@ -8,6 +8,7 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 ### Added
 - Environment page.
 - Score can be saved and shared via link.
+- Score animation on dashboard.
 
 ### Changed
 - leaf footer links
