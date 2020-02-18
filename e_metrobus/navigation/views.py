@@ -19,14 +19,14 @@ class NavigationView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(NavigationView, self).get_context_data(**kwargs)
-        points = questions.get_total_score(self.request.session)
+        score = questions.get_total_score(self.request.session)
         context["footer"] = widgets.FooterWidget(links=self.footer_links)
         context["top_bar"] = widgets.TopBarWidget(
             title=self.title,
             title_icon=self.title_icon,
             title_alt=self.title_alt,
             back_url=self.back_url,
-            points=points,
+            score=score,
             template=self.top_bar_template
         )
         return context
@@ -70,6 +70,10 @@ class DashboardView(NavigationView):
 
     def get_context_data(self, **kwargs):
         context = super(DashboardView, self).get_context_data(**kwargs)
+        current_score = questions.get_total_score(self.request.session)
+        if self.request.session.get("score_at_last_visit", 0) < current_score:
+            self.request.session["score_at_last_visit"] = current_score
+            context["top_bar"].score_changed = True
         context["categories"] = [
             (
                 cat_name,

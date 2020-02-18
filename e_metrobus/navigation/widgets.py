@@ -60,7 +60,7 @@ class TopBarWidget(CustomWidget):
     template_name = "widgets/top_bar.html"
 
     def __init__(
-        self, title, title_icon, back_url, points, title_alt=None, template=None
+        self, title, title_icon, back_url, score, title_alt=None, template=None
     ):
         if template:
             self.template_name = template
@@ -68,7 +68,8 @@ class TopBarWidget(CustomWidget):
         self.title_icon = title_icon
         self.title_alt = title if title_alt is None else title_alt
         self.back_url = back_url
-        self.points = points
+        self.score = score
+        self.score_changed = False
 
 
 class FooterWidget(CustomWidget):
