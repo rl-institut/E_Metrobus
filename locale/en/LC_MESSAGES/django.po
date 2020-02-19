@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-18 17:12+0100\n"
+"POT-Creation-Date: 2020-02-19 11:30+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: e_metrobus/templates/includes/desktop.html:13
+#: e_metrobus/templates/includes/landscape.html:7
 msgid ""
 "Elektrifizierung von MetroBus-Linien im Berliner ÖPNV mit "
 "Schnellladeinfrastruktur"
@@ -57,6 +58,28 @@ msgid ""
 "Ihrem Smartphone weiterlesen?"
 msgstr ""
 
+#: e_metrobus/templates/includes/landscape.html:4
+msgid "E-Metrobus Berlin"
+msgstr ""
+
+#: e_metrobus/templates/includes/landscape.html:13
+msgid ""
+"Bitte besuchen Sie diese Seite im Portrait Modus, wenn Sie Interesse am E-"
+"Metrobus Projekt haben."
+msgstr ""
+
+#: e_metrobus/templates/navigation/answer.html:23
+msgid "RICHTIG!"
+msgstr ""
+
+#: e_metrobus/templates/navigation/answer.html:45
+msgid "FALSCH..."
+msgstr ""
+
+#: e_metrobus/templates/navigation/answer.html:77
+msgid "Zur nächsten Frage"
+msgstr ""
+
 #: e_metrobus/templates/navigation/category_finished.html:15
 msgid "Glückwunsch!"
 msgstr ""
@@ -66,12 +89,100 @@ msgstr ""
 msgid "Du hast die Kategorie %(cat_label)s abgeschlossen!"
 msgstr "You finished category %(cat_label)s!"
 
+#: e_metrobus/templates/navigation/comparison.html:11
+msgid "Mehr entdecken!"
+msgstr ""
+
+#: e_metrobus/templates/navigation/dashboard.html:35
+msgid ""
+"Hier kannst Du weiter entdecken und Spaß mit dem Quiz haben! Die erste Frage "
+"hast Du schon beantwortet!"
+msgstr ""
+
+#: e_metrobus/templates/navigation/display_route.html:49
+msgid "Deine Strecke mit dem <span>E-Bus</span> beträgt"
+msgstr ""
+
+#: e_metrobus/templates/navigation/display_route.html:54
+msgid "Im Vergleich zum <span>Dieselbus</span> sparst Du"
+msgstr "With %(bus)s you are saving"
+
+#: e_metrobus/templates/navigation/display_route.html:59
+msgid "Im Vergleich zum <span>Pkw</span> sparst Du"
+msgstr "With %(bus)s you are saving"
+
+#: e_metrobus/templates/navigation/display_route.html:64
+msgid ""
+"Nur noch <span>zu Fuß</span> oder mit dem <span>Fahrrad</span> kannst Du es "
+"besser machen!"
+msgstr ""
+
+#: e_metrobus/templates/navigation/environment.html:10
+msgid "Deine Fahrt"
+msgstr ""
+
+#: e_metrobus/templates/navigation/environment.html:13
+msgid "E-Bus Flotte"
+msgstr ""
+
+#: e_metrobus/templates/navigation/environment.html:46
+#: e_metrobus/templates/navigation/environment.html:50
+msgid "Liter Diesel"
+msgstr ""
+
+#: e_metrobus/templates/navigation/environment.html:53
+#: e_metrobus/templates/navigation/environment.html:68
+#: e_metrobus/templates/navigation/environment.html:83
+#: e_metrobus/templates/navigation/environment.html:98
+msgid "weniger"
+msgstr ""
+
+#: e_metrobus/templates/navigation/environment.html:53
+msgid "Diesel"
+msgstr ""
+
+#: e_metrobus/templates/navigation/environment.html:54
+#: e_metrobus/templates/navigation/environment.html:69
+#: e_metrobus/templates/navigation/environment.html:84
+#: e_metrobus/templates/navigation/environment.html:99
+msgid "als konventionelle Busse"
+msgstr ""
+
+#: e_metrobus/templates/navigation/environment.html:61
+#: e_metrobus/templates/navigation/environment.html:65
+msgid "Tonnen"
+msgstr ""
+
+#: e_metrobus/templates/navigation/environment.html:68
+msgid "CO2"
+msgstr ""
+
+#: e_metrobus/templates/navigation/environment.html:76
+#: e_metrobus/templates/navigation/environment.html:80
+#: e_metrobus/templates/navigation/environment.html:83
+msgid "Stickoxide"
+msgstr ""
+
+#: e_metrobus/templates/navigation/environment.html:91
+#: e_metrobus/templates/navigation/environment.html:95
+#: e_metrobus/templates/navigation/environment.html:98
+msgid "Feinstaub"
+msgstr ""
+
 #: e_metrobus/templates/navigation/landing_page.html:48
 msgid "Toll, dass du mit einem E-Bus fährst!"
 msgstr ""
 
 #: e_metrobus/templates/navigation/landing_page.html:51
 msgid "Zeig mir warum!"
+msgstr ""
+
+#: e_metrobus/templates/navigation/legal.html:9
+msgid "Legale Informationen"
+msgstr ""
+
+#: e_metrobus/templates/navigation/question.html:24
+msgid "Antworten"
 msgstr ""
 
 #: e_metrobus/templates/pages/question_translations.html:5
@@ -259,3 +370,15 @@ msgid ""
 msgstr ""
 "\n"
 "English!\n"
+
+#: e_metrobus/templates/widgets/stations.html:40
+msgid "Bitte gib Deine Strecke ein!"
+msgstr ""
+
+#: e_metrobus/templates/widgets/stations.html:49
+msgid "Strecke bestätigen"
+msgstr ""
+
+#: e_metrobus/templates/widgets/top_bar_route.html:8
+msgid "Strecke ändern"
+msgstr ""

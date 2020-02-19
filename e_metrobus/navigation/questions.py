@@ -25,6 +25,9 @@ class Question:
     template: str
     category: str
 
+    def get_label(self):
+        return _(self.label)
+
 
 @dataclass
 class Category:

@@ -37,7 +37,7 @@
 
 <div class="grid-x align-center text-center station__bottom">
   <div class="cell">
-    <span>Bitte gib Deine Strecke ein!</span>
+    <span>{% trans "Bitte gib Deine Strecke ein!" %}</span>
   </div>
 </div>
 
@@ -46,7 +46,7 @@
     <form method="post" id="stations_form">
       {% csrf_token %}
       <input type="hidden" name="stations" id="stations">
-      <button class="button button--yellow" onclick="post();">Strecke bestätigen</button>
+      <button class="button button--yellow" onclick="post();">{% trans "Strecke bestätigen" %}</button>
     </form>
   </div>
 </div>
