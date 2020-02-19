@@ -1,0 +1,384 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-02-19 11:30+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: e_metrobus/templates/includes/desktop.html:13
+#: e_metrobus/templates/includes/landscape.html:7
+msgid ""
+"Elektrifizierung von MetroBus-Linien im Berliner ÖPNV mit "
+"Schnellladeinfrastruktur"
+msgstr "Test"
+
+#: e_metrobus/templates/includes/desktop.html:26
+msgid "App auf mobilen Geräten verfügbar"
+msgstr "app"
+
+#: e_metrobus/templates/includes/desktop.html:41
+msgid "Was vermittelt die App?"
+msgstr ""
+
+#: e_metrobus/templates/includes/desktop.html:51
+msgid "Genaue Zahlen der eigenen Emissionen durch eine Fahrt mit dem E-Bus"
+msgstr ""
+
+#: e_metrobus/templates/includes/desktop.html:54
+msgid "Vergleich der Zahlen zu anderen Verkehrsmitteln"
+msgstr ""
+
+#: e_metrobus/templates/includes/desktop.html:57
+msgid "Informationen über E-Metrobus und die Umwelt anhand eines Ouizes"
+msgstr ""
+
+#: e_metrobus/templates/includes/desktop.html:65
+msgid "Die Mobilität der Zukunft kommt nach Berlin"
+msgstr ""
+
+#: e_metrobus/templates/includes/desktop.html:68
+msgid ""
+"Seit August 2015 fährt die Linie 204 elektrisch durch die Hauptstadt. "
+"Steigen Sie ein und erleben sie die Vorteile der elektrischen Mobilität! Auf "
+"der Live-Karte können Sie jederzeit sehen, wo unsere Elektrobusse gerade "
+"unterwegs sind. Und während Sie auf den Bus warten: Warum nicht einfach auf "
+"Ihrem Smartphone weiterlesen?"
+msgstr ""
+
+#: e_metrobus/templates/includes/landscape.html:4
+msgid "E-Metrobus Berlin"
+msgstr ""
+
+#: e_metrobus/templates/includes/landscape.html:13
+msgid ""
+"Bitte besuchen Sie diese Seite im Portrait Modus, wenn Sie Interesse am E-"
+"Metrobus Projekt haben."
+msgstr ""
+
+#: e_metrobus/templates/navigation/answer.html:23
+msgid "RICHTIG!"
+msgstr ""
+
+#: e_metrobus/templates/navigation/answer.html:45
+msgid "FALSCH..."
+msgstr ""
+
+#: e_metrobus/templates/navigation/answer.html:77
+msgid "Zur nächsten Frage"
+msgstr ""
+
+#: e_metrobus/templates/navigation/category_finished.html:15
+msgid "Glückwunsch!"
+msgstr ""
+
+#: e_metrobus/templates/navigation/category_finished.html:19
+#, python-format
+msgid "Du hast die Kategorie %(cat_label)s abgeschlossen!"
+msgstr "You finished category %(cat_label)s!"
+
+#: e_metrobus/templates/navigation/comparison.html:11
+msgid "Mehr entdecken!"
+msgstr ""
+
+#: e_metrobus/templates/navigation/dashboard.html:35
+msgid ""
+"Hier kannst Du weiter entdecken und Spaß mit dem Quiz haben! Die erste Frage "
+"hast Du schon beantwortet!"
+msgstr ""
+
+#: e_metrobus/templates/navigation/display_route.html:49
+msgid "Deine Strecke mit dem <span>E-Bus</span> beträgt"
+msgstr ""
+
+#: e_metrobus/templates/navigation/display_route.html:54
+msgid "Im Vergleich zum <span>Dieselbus</span> sparst Du"
+msgstr "With %(bus)s you are saving"
+
+#: e_metrobus/templates/navigation/display_route.html:59
+msgid "Im Vergleich zum <span>Pkw</span> sparst Du"
+msgstr "With %(bus)s you are saving"
+
+#: e_metrobus/templates/navigation/display_route.html:64
+msgid ""
+"Nur noch <span>zu Fuß</span> oder mit dem <span>Fahrrad</span> kannst Du es "
+"besser machen!"
+msgstr ""
+
+#: e_metrobus/templates/navigation/environment.html:10
+msgid "Deine Fahrt"
+msgstr ""
+
+#: e_metrobus/templates/navigation/environment.html:13
+msgid "E-Bus Flotte"
+msgstr ""
+
+#: e_metrobus/templates/navigation/environment.html:46
+#: e_metrobus/templates/navigation/environment.html:50
+msgid "Liter Diesel"
+msgstr ""
+
+#: e_metrobus/templates/navigation/environment.html:53
+#: e_metrobus/templates/navigation/environment.html:68
+#: e_metrobus/templates/navigation/environment.html:83
+#: e_metrobus/templates/navigation/environment.html:98
+msgid "weniger"
+msgstr ""
+
+#: e_metrobus/templates/navigation/environment.html:53
+msgid "Diesel"
+msgstr ""
+
+#: e_metrobus/templates/navigation/environment.html:54
+#: e_metrobus/templates/navigation/environment.html:69
+#: e_metrobus/templates/navigation/environment.html:84
+#: e_metrobus/templates/navigation/environment.html:99
+msgid "als konventionelle Busse"
+msgstr ""
+
+#: e_metrobus/templates/navigation/environment.html:61
+#: e_metrobus/templates/navigation/environment.html:65
+msgid "Tonnen"
+msgstr ""
+
+#: e_metrobus/templates/navigation/environment.html:68
+msgid "CO2"
+msgstr ""
+
+#: e_metrobus/templates/navigation/environment.html:76
+#: e_metrobus/templates/navigation/environment.html:80
+#: e_metrobus/templates/navigation/environment.html:83
+msgid "Stickoxide"
+msgstr ""
+
+#: e_metrobus/templates/navigation/environment.html:91
+#: e_metrobus/templates/navigation/environment.html:95
+#: e_metrobus/templates/navigation/environment.html:98
+msgid "Feinstaub"
+msgstr ""
+
+#: e_metrobus/templates/navigation/landing_page.html:48
+msgid "Toll, dass du mit einem E-Bus fährst!"
+msgstr ""
+
+#: e_metrobus/templates/navigation/landing_page.html:51
+msgid "Zeig mir warum!"
+msgstr ""
+
+#: e_metrobus/templates/navigation/legal.html:9
+msgid "Legale Informationen"
+msgstr ""
+
+#: e_metrobus/templates/navigation/question.html:24
+msgid "Antworten"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:5
+msgid "E-Metrobus"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:9
+msgid "Ladezeiten"
+msgstr "Charging times"
+
+#: e_metrobus/templates/pages/question_translations.html:10
+msgid "Wie lange muss dieser Bus an der Endhaltestelle laden?"
+msgstr "How long does it take to charge the bus?"
+
+#: e_metrobus/templates/pages/question_translations.html:11
+msgid "27-33 Minuten"
+msgstr "27-33 Minutes"
+
+#: e_metrobus/templates/pages/question_translations.html:11
+msgid "1 Stunde"
+msgstr "1 Hour"
+
+#: e_metrobus/templates/pages/question_translations.html:11
+msgid "Wenige Minuten"
+msgstr "Few minutes"
+
+#: e_metrobus/templates/pages/question_translations.html:11
+msgid "30 Sekunden"
+msgstr "30 seconds"
+
+#: e_metrobus/templates/pages/question_translations.html:13
+msgid "Der Bus muss nur wenige Minuten laden!"
+msgstr "Bus has to charge only a few minutes!"
+
+#: e_metrobus/templates/pages/question_translations.html:15
+msgid "Linie 200"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:16
+msgid "Wann sollen E-Busse auf Linie 200 zum Einsatz kommen?"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:19
+msgid "Linie 200 soll ab dem Jahr 2020 unterwegs sein!"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:21
+msgid "Ladevorgang"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:22
+msgid "Wie wird die Buslinie 200 geladen?"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:23
+msgid "Stecker"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:25
+msgid "Der Bus wird mittels eines Pantographen geladen"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:28
+msgid "Umwelt"
+msgstr "Environment"
+
+#: e_metrobus/templates/pages/question_translations.html:32
+msgid "CO2 Reduktion"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:33
+msgid ""
+"Wie viel CO2 werden durch den Einsatz der Elektrobusse auf der Linie 200 "
+"jährlich eingespart?"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:36
+msgid ""
+"444 t CO2 können durch die Elektrifizierung der Linie 200 pro Jahr "
+"eongespart werden"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:39
+msgid "Politk"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:43
+msgid "Zeitplan"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:44
+msgid "Seit wann fahren Elektrobusse in Berlin?"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:47
+msgid "Elektrobusse fahren seit dem Jahr 2015 in Berlin"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:50
+msgid "Ich"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:54
+msgid "Vorteile"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:55
+msgid ""
+"Was sind Vorteile einer elektrifizierten Buslinie? (Mehrfachauswahl noch "
+"nicht möglich)"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:56
+msgid "Weniger CO2-Belastung"
+msgstr ""
+
+#: e_metrobus/templates/pages/question_translations.html:58
+msgid "Vorteile sind unte anderem eine geringere CO2- und Lärm-Belastung"
+msgstr ""
+
+#: e_metrobus/templates/questions/e_metrobus/line_200.html:4
+msgid ""
+"\n"
+"Planmäßiger Start der Elektrifizierung der Linie 200 ist 2020. Vorerst "
+"sollen 17 E-Busse auf dieser Linie eingesetzt werden.\n"
+msgstr ""
+
+#: e_metrobus/templates/questions/e_metrobus/loading.html:5
+msgid ""
+"\n"
+"Der Bus wird an den Endhaltestellen Hertzallee und Michelangelostraße mit "
+"einem Pantographen aufgeladen. Dieser ist in der Ladesäule integriert. Wenn "
+"der Bus unter der Ladesäule steht, wird der Pantograph heruntergefahren und "
+"verbindet sich mit den Schienen auf dem Dach des Busses. Geladen wird in "
+"wenigen Minuten mit 450 kW. Wird die Leistung mit einem handelsüblichen "
+"Wasserkocher verglichen (etwa 2 kW Leistung) entspricht die Ladeleistung 225 "
+"Wasserkochern.\n"
+msgstr ""
+
+#: e_metrobus/templates/questions/e_metrobus/loading_time.html:4
+msgid ""
+"\n"
+"Die Ladezeiten betragen in der Regel wenige Minuten. Damit hat der Bus "
+"wieder so viel Energie geladen, wie er auf der Strecke verbraucht hat. "
+"Allgemein ist der Verbrauch und damit auch die benötigte Ladezeit von vielen "
+"Faktoren abhängig (Anzahl der Fahrgäste, Verkehrsaufkommen, Stau, Wetter, "
+"Fahrweise etc.). Dementsprechend sind auch kürzere oder längere Ladezeiten "
+"möglich.\n"
+msgstr ""
+"\n"
+"few minutes\n"
+
+#: e_metrobus/templates/questions/environment/co2_reduction.html:4
+msgid ""
+"\n"
+"E-Busse sind lokal komplett emissionsfrei. Mit der Elektrifizierung der "
+"Buslinie 200 werden pro Fahrt circa 15 kg CO2 eingespart. Auf das Jahr "
+"hochgerechnet werden circa 444 t Co2 eingespart. Um den gleichen Effekt zu "
+"erreichen, müssten bei durchschnittlichem Fahrverhalten rund 12 Diesel-"
+"Personenkraftwagen elektrifiziert werden.\n"
+msgstr ""
+
+#: e_metrobus/templates/questions/personal/advantages.html:4
+msgid ""
+"\n"
+"Als Fahrgast profitieren Sie von einem deutlich ruhigeren Fahrerlebnis.\n"
+"Elektrische Busse sind leiser als Dieselbusse und vibrieren weniger.\n"
+"Als Anwohner der Buslinie 200 dürfen Sie sich über eine erheblich geringere "
+"Lärm- und Abgasbelastung freuen.\n"
+"Insgesamt trägt der E-Bus so zu einem lebenswerten Berlin bei.\n"
+"Die Geräuschemission eines E-Busses entspricht denen eines "
+"durchschnittlichen PKW und ist damit um ca. die Hälfte geringer als die "
+"eines modernen Dieselbusmotors.\n"
+msgstr ""
+
+#: e_metrobus/templates/questions/politics/ebus_time.html:4
+msgid ""
+"\n"
+"Ziel des Verbundprojektes E-Bus Berlin war es, eine Buslinie in Berlin "
+"komplett elektrisch zu betreiben. Der mehrmonatige Testbetrieb im Alltag, "
+"welcher am 31.08.2015 aufgenommen wurde, wurde wissenschaftlich durch die TU "
+"Berlin begleitet und hinsichtlich Umweltbilanz, Wirtschaftlichkeit und "
+"Nutzerakzeptanz bewertet. Aktuell ist die Testphase abgeschlossen und die "
+"Elektrobusse schon vollkommen in die Flotte der BVG integriert.\n"
+msgstr ""
+"\n"
+"English!\n"
+
+#: e_metrobus/templates/widgets/stations.html:40
+msgid "Bitte gib Deine Strecke ein!"
+msgstr ""
+
+#: e_metrobus/templates/widgets/stations.html:49
+msgid "Strecke bestätigen"
+msgstr ""
+
+#: e_metrobus/templates/widgets/top_bar_route.html:8
+msgid "Strecke ändern"
+msgstr ""
