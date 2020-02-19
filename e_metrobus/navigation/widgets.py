@@ -64,7 +64,7 @@ class TopBarWidget(CustomWidget):
         title,
         title_icon,
         back_url,
-        points,
+        score,
         title_alt=None,
         template=None,
         request=None,
@@ -75,7 +75,8 @@ class TopBarWidget(CustomWidget):
         self.title_icon = title_icon
         self.title_alt = title if title_alt is None else title_alt
         self.back_url = back_url
-        self.points = points
+        self.score = score
+        self.score_changed = False
         self.request = request
 
 

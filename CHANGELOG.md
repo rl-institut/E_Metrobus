@@ -9,6 +9,7 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 - Environment page.
 - english language support
 - Score can be saved and shared via link.
+- Score animation on dashboard.
 
 ### Changed
 - leaf footer links
