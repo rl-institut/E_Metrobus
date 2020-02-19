@@ -4,21 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project tries to adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
-### Added
-- Environment page.
-- english language support
-- Score can be saved and shared via link.
-
-### Changed
-- leaf footer links
-- illness type plus color.
-- onboard animation speed (slowed down)
-- answer page layout fixed
-- dashboard icons
-
 ## [0.5.0] - 2020-02-05
 ### Added
+<<<<<<< HEAD
+- Score can be saved and shared via link.
+- Added category finished page.
+=======
 - Legal page
 
 ## [0.4.0] - 2020-02-05
@@ -29,10 +20,11 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 ## [0.3.0] - 2020-02-05
 ### Added
 - Category finished page.
+>>>>>>> buttons
 - Score animation when answering a question.
+- Environment page.
 - "Choose your route" text.
 - Popup at first-time-visit on dashboard.
-
 ### Changed
 - Color variables (BVG original)
 

@@ -26,7 +26,7 @@
                 <img src="{% static category.icon %}">
               </div>
             </a>
-            <div class="dashboard__header">{% trans category.label %}</div>
+            <div class="dashboard__header">{{category.get_label}}</div>
           </div>
     {% endfor %}
 

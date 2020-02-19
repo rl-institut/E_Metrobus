@@ -1,4 +1,3 @@
-
 from django.shortcuts import redirect, Http404, get_object_or_404
 from django.views.generic import TemplateView
 
@@ -27,8 +26,7 @@ class NavigationView(TemplateView):
             title_alt=self.title_alt,
             back_url=self.back_url,
             points=points,
-            template=self.top_bar_template,
-            request=self.request
+            template=self.top_bar_template
         )
         return context
 
@@ -57,7 +55,6 @@ class DashboardView(NavigationView):
     footer_links = {
         "info": {"enabled": True},
         "dashboard": {"selected": True},
-        "leaf": {"enabled": True},
         "results": {"enabled": True}
     }
 
@@ -110,37 +107,12 @@ class ComparisonView(NavigationView):
         return context
 
 
-class EnvironmentView(NavigationView):
-    template_name = "navigation/environment.html"
-    footer_links = {
-        "info": {"enabled": True},
-        "dashboard": {"enabled": True},
-        "leaf": {"selected": True},
-        "results": {"enabled": True}
-    }
-
-    def get_context_data(self, **kwargs):
-        context = super(EnvironmentView, self).get_context_data(**kwargs)
-        # FIXME: Dummy values
-        context["user"] = constants.Consumption(
-            distance=10, fuel=200, co2=300, nitrogen=20, fine_dust=10
-        )
-        context["fleet"] = constants.Consumption(
-            distance=3000, fuel=200000, co2=300000, nitrogen=20000, fine_dust=10000
-        )
-        context["comparison"] = constants.Consumption(
-            distance=None, fuel=99, co2=99, nitrogen=99, fine_dust=99
-        )
-        return context
-
-
 class QuestionView(NavigationView):
     template_name = "navigation/question.html"
     back_url = "navigation:dashboard"
     footer_links = {
         "info": {"enabled": True},
         "dashboard": {"selected": True, "enabled": True},
-        "leaf": {"enabled": True},
         "results": {"enabled": True}
     }
 
@@ -165,11 +137,10 @@ class AnswerView(NavigationView):
     footer_links = {
         "info": {"enabled": True},
         "dashboard": {"selected": True, "enabled": True},
-        "leaf": {"enabled": True},
         "results": {"enabled": True}
     }
 
-    def get_context_data(self, question, answer=None, **kwargs):
+    def get_context_data(self, answer, question, **kwargs):
         self.title = questions.QUESTIONS[question.category].label
         self.title_icon = questions.QUESTIONS[question.category].icon
         context = super(AnswerView, self).get_context_data(**kwargs)
@@ -177,14 +148,6 @@ class AnswerView(NavigationView):
         context["question"] = question
         context["points"] = questions.SCORE_CORRECT if answer else questions.SCORE_WRONG
         return context
-
-    def get(self, request, **kwargs):
-        question_name = request.session.get("last_answered_question")
-        if question_name is None:
-            raise ValueError("No question answered yet!")
-        question = questions.get_question_from_name(question_name)
-        context = self.get_context_data(question=question, **kwargs)
-        return self.render_to_response(context)
 
     def post(self, request, **kwargs):
         question = questions.get_question_from_name(request.POST["question"])
@@ -198,10 +161,9 @@ class AnswerView(NavigationView):
             raise ValueError("Answer already given")
         else:
             request.session["questions"][question.category][question.name] = answer
-            request.session["last_answered_question"] = question.name
         request.session.save()
 
-        context = self.get_context_data(question=question, answer=answer, **kwargs)
+        context = self.get_context_data(answer=answer, question=question, **kwargs)
         return self.render_to_response(context)
 
 
@@ -210,8 +172,13 @@ class CategoryFinishedView(TemplateView):
 
     def get_context_data(self, **kwargs):
         return {
+<<<<<<< HEAD
+            "category": questions.QUESTIONS[kwargs["category"]].label,
+            "points": questions.SCORE_CATEGORY_COMPLETE,
+=======
             "category": questions.QUESTIONS[kwargs["category"]],
             "points": questions.SCORE_CATEGORY_COMPLETE
+>>>>>>> buttons
         }
 
 
@@ -250,7 +217,6 @@ class LegalView(NavigationView):
     footer_links = {
         "info": {"selected": True},
         "dashboard": {"enabled": True},
-        "leaf": {"enabled": True},
         "results": {"enabled": True}
     }
 
@@ -260,7 +226,6 @@ class QuestionsAsTextView(NavigationView):
     footer_links = {
         "info": {"enabled": True},
         "dashboard": {"enabled": True},
-        "leaf": {"enabled": True},
         "results": {"selected": True}
     }
 
