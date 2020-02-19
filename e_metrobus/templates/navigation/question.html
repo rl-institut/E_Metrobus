@@ -1,25 +1,27 @@
 
 {% extends "base.html" %}
 
+{% load i18n %}
+
 {% block content %}
 <div class="cell question">
   <form method="post" action="{% url 'navigation:answer' %}">
     <div class="grid-x align-center">
       <div class="cell small-10 question__text">
         {% csrf_token %}
-        <h2>{{question.question}}</h2>
+        <h2>{% trans question.question %}</h2>
       </div>
       <div class="cell small-10 question__answer">
         <fieldset name="answer">
           {% for answer in question.answers %}
             <input type="radio" class="radio" name="answer" value="{{answer}}" id="answer{{forloop.counter}}"/>
-            <label for="answer{{forloop.counter}}">{{answer}}</label>
+            <label for="answer{{forloop.counter}}">{% trans answer %}</label>
           {% endfor %}
         </fieldset>
       </div>
       <div class="cell text-center question__btn" id="answer">
         <input type="hidden" name="question" value="{{question.name}}">
-        <input class="button" type="submit" value="Antworten">
+        <input class="button" type="submit" value="{% trans 'Antworten' %}">
       </div>
     </div>
   </form>

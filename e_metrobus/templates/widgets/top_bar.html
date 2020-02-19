@@ -1,7 +1,9 @@
 {% load static %}
+{% load i18n %}
+{% load translation %}
 
 <section class="grid-x top-bar">
-  <div class="cell small-2 top-bar--back">
+  <div class="cell small-1 top-bar--back">
     {% if back_url %}
       <a href="{% url back_url %}">
         <div>
@@ -10,12 +12,24 @@
       </a>
     {% endif %}
   </div>
-  <div class="cell small-8 top-bar--header">
+  <div class="cell small-2 top-bar--language">
+    {% get_current_language as LANGUAGE_CODE %}
+    {% if LANGUAGE_CODE == 'de' %}
+      <a href="{% translate_url 'en' %}">
+        <img src="{% static 'images/icons/i_flag_uk.svg' %}" alt="uk_flag">
+      </a>
+    {% else %}
+      <a href="{% translate_url 'de' %}">
+        <img src="{% static 'images/icons/i_flag_de.svg' %}" alt="uk_flag">
+      </a>
+    {% endif %}
+  </div>
+  <div class="cell small-6 top-bar--header">
     <img src="{% static title_icon %}" alt="{{title_alt}}">
     <span>{{title}}</span>
   </div>
-  <div class="cell small-2 top-bar--points {% if score_changed %}dashboard_animation{% endif %}">
-    <img src="{% static 'images/icons/i_star_black.svg' %}" alt="Stern und Punkten">
+  <div class="cell small-3 top-bar--points {% if score_changed %}dashboard_animation{% endif %}">
+    <img src="{% static 'images/icons/i_star_black.svg' %}" alt="stars and points">
     <span>{{score}}</span>
   </div>
 </section>

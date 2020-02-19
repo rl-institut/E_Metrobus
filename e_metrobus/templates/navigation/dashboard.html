@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% load static %}
+{% load i18n %}
 
 <!--#17BEBB-->
 
@@ -25,14 +26,14 @@
                 <img src="{% static category.icon %}">
               </div>
             </a>
-            <div class="dashboard__header">{{category.label}}</div>
+            <div class="dashboard__header">{{category.get_label}}</div>
           </div>
     {% endfor %}
 
     {% if first_time %}
       <div class="cell small-10 dashboard__info" data-closable>
-        <p>Hier kannst Du weiter entdecken und Spaß mit dem Quiz haben! Die erste Frage hast Du schon beantwortet!</p>
-        <input class="close-button" type="button" name="close-button" id="close-button" value="x" data-close></input>
+        <p>{% trans "Hier kannst Du weiter entdecken und Spaß mit dem Quiz haben! Die erste Frage hast Du schon beantwortet!" %}</p>
+        <button class="close-button" type="button" name="close-button" data-close>x</button>
       </div>
     {% endif %}
   </div>

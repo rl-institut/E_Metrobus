@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% load static %}
+{% load i18n %}
 
 {% block body_class %}class="l-scroll l-scroll--nonav"{% endblock %}
 
@@ -23,13 +24,31 @@
           </div>
         </div>
       </div>
+      <div class="cell landpage__language">
+        <div class="grid-x align-center text-center">
+          <div class="cell small-10 landpage__language--switch">
+            {% get_current_language as LANGUAGE_CODE %}
+            {% if LANGUAGE_CODE == "de" %}
+              <a href="en/" data-open="language_popup">
+                <img src="{% static 'images/icons/i_flag_uk.svg' %}" alt="uk_flag">
+                <span>Switch to English</span>
+              </a>
+            {% else %}
+              <a href="/" data-open="language_popup">
+                <img src="{% static 'images/icons/i_flag_de.svg' %}" alt="uk_flag">
+                <span>Zu Deutsch wechseln</span>
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
       <div class="cell landpage__bottom">
         <div class="grid-x">
           <div class="cell landpage__bottom-text">
-            <span>Toll, dass du mit einem E-Bus fährst!</span>
+            <span>{% trans 'Toll, dass du mit einem E-Bus fährst!' %}</span>
           </div>
           <div class="cell landing__bottom-btn">
-            <a href="{% url 'navigation:route' %}"><button name="boarding" class="button">Zeig mir warum!</button></a>
+            <a href="{% url 'navigation:route' %}"><button name="boarding" class="button">{% trans 'Zeig mir warum!' %}</button></a>
           </div>
         </div>
       </div>

@@ -1,16 +1,17 @@
 {% extends "base.html" %}
 
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 
 <div class="cell">
   <div class="grid-x text-center leaf">
     <div class="cell small-6 medium-6 leaf__header">
-      <span>Deine Fahrt</span>
+      <span>{% trans "Deine Fahrt" %}</span>
     </div>
     <div class="cell small-6 medium-6 leaf__header">
-      <span>E-Bus Flotte</span>
+      <span>{% trans "E-Bus Flotte" %}</span>
     </div>
     <div class="cell small-6 medium-6 leaf__dist-wrap">
       <div class="grid-x ">
@@ -43,60 +44,60 @@
     </div>
     <div class="cell small-6 medium-6 own leaf__data">
       <span class="leaf__data--value">{{user.fuel}}</span><br>
-      <span class="leaf__data--unit">Liter Diesel</span>
+      <span class="leaf__data--unit">{% trans "Liter Diesel" %}</span>
     </div>
     <div class="cell small-6 medium-6 fleet leaf__data">
       <span class="leaf__data--value">{{fleet.fuel}}</span><br>
-      <span class="leaf__data--unit">Liter Diesel</span>
+      <span class="leaf__data--unit">{% trans "Liter Diesel" %}</span>
     </div>
     <div class="cell leaf__resources">
-      <span class="leaf__data--value">= {{comparison.fuel}} X weniger Diesel</span><br>
-      <span class="leaf__data--unit">als konventionelle Busse</span>
+      <span class="leaf__data--value">= {{comparison.fuel}} X {% trans "weniger" %} {% trans "Diesel" %}</span><br>
+      <span class="leaf__data--unit">{% trans "als konventionelle Busse" %}</span>
     </div>
     <div class="cell leaf__icon">
       <img src="{% static 'images/icons/i_co2_black.svg' %}" alt="CO2 Icon">
     </div>
     <div class="cell small-6 medium-6 own leaf__data">
       <span class="leaf__data--value">{{user.co2}}</span><br>
-      <span class="leaf__data--unit">Tonnen CO2</span>
+      <span class="leaf__data--unit">{% trans "Tonnen" %} CO2</span>
     </div>
     <div class="cell small-6 medium-6 fleet leaf__data">
       <span class="leaf__data--value">{{fleet.co2}}</span><br>
-      <span class="leaf__data--unit">Tonnen CO2</span>
+      <span class="leaf__data--unit">{% trans "Tonnen" %} CO2</span>
     </div>
     <div class="cell leaf__resources">
-      <span class="leaf__data--value">= {{comparison.co2}} X weniger CO2</span><br>
-      <span class="leaf__data--unit">als konventionelle Busse</span>
+      <span class="leaf__data--value">= {{comparison.co2}} X {% trans "weniger" %} {% trans "CO2" %}</span><br>
+      <span class="leaf__data--unit">{% trans "als konventionelle Busse" %}</span>
     </div>
     <div class="cell leaf__icon">
       <img src="{% static 'images/icons/i_nox_black.svg' %}" alt="Stickoxide Icon">
     </div>
     <div class="cell small-6 medium-6 own leaf__data">
       <span class="leaf__data--value">{{user.nitrogen}}</span><br>
-      <span class="leaf__data--unit">kg Stickoxide</span>
+      <span class="leaf__data--unit">kg {% trans "Stickoxide" %}</span>
     </div>
     <div class="cell small-6 medium-6 fleet leaf__data">
       <span class="leaf__data--value">{{fleet.nitrogen}}</span><br>
-      <span class="leaf__data--unit">kg Stickoxide</span>
+      <span class="leaf__data--unit">kg {% trans "Stickoxide" %}</span>
     </div>
     <div class="cell leaf__resources">
-      <span class="leaf__data--value">= {{comparison.nitrogen}} X weniger Stickoxide</span><br>
-      <span class="leaf__data--unit">als konventionelle Busse</span>
+      <span class="leaf__data--value">= {{comparison.nitrogen}} X {% trans "weniger" %} {% trans "Stickoxide" %}</span><br>
+      <span class="leaf__data--unit">{% trans "als konventionelle Busse" %}</span>
     </div>
     <div class="cell leaf__icon">
       <img src="{% static 'images/icons/i_gas_black.svg' %}" alt="Feinstaub Icon">
     </div>
     <div class="cell small-6 medium-6 own leaf__data">
       <span class="leaf__data--value">{{user.fine_dust}}</span><br>
-      <span class="leaf__data--unit">kg Feinstaub</span>
+      <span class="leaf__data--unit">kg {% trans "Feinstaub" %}</span>
     </div>
     <div class="cell small-6 medium-6 fleet leaf__data">
       <span class="leaf__data--value">{{fleet.fine_dust}}</span><br>
-      <span class="leaf__data--unit">kg Feinstaub</span>
+      <span class="leaf__data--unit">kg {% trans "Feinstaub" %}</span>
     </div>
     <div class="cell leaf__resources">
-      <span class="leaf__data--value">= {{comparison.fine_dust}} X weniger Feinstaub</span><br>
-      <span class="leaf__data--unit">als konventionelle Busse</span>
+      <span class="leaf__data--value">= {{comparison.fine_dust}} X {% trans "weniger" %} {% trans "Feinstaub" %}</span><br>
+      <span class="leaf__data--unit">{% trans "als konventionelle Busse" %}</span>
     </div>
   </div>
 </div>
