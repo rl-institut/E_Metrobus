@@ -27,7 +27,6 @@ class NavigationView(TemplateView):
             title_alt=self.title_alt,
             back_url=self.back_url,
             score=score,
-            template=self.top_bar_template
             template=self.top_bar_template,
             request=self.request
         )
