@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-02-19 11:30+0100\n"
+"POT-Creation-Date: 2020-02-19 11:40+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: e_metrobus/templates/includes/desktop.html:13
-#: e_metrobus/templates/includes/landscape.html:7
+#: e_metrobus/templates/includes/landscape.html:10
 msgid ""
 "Elektrifizierung von MetroBus-Linien im Berliner ÖPNV mit "
 "Schnellladeinfrastruktur"
@@ -58,11 +58,11 @@ msgid ""
 "Ihrem Smartphone weiterlesen?"
 msgstr ""
 
-#: e_metrobus/templates/includes/landscape.html:4
+#: e_metrobus/templates/includes/landscape.html:7
 msgid "E-Metrobus Berlin"
 msgstr ""
 
-#: e_metrobus/templates/includes/landscape.html:13
+#: e_metrobus/templates/includes/landscape.html:16
 msgid ""
 "Bitte besuchen Sie diese Seite im Portrait Modus, wenn Sie Interesse am E-"
 "Metrobus Projekt haben."
@@ -76,7 +76,7 @@ msgstr ""
 msgid "FALSCH..."
 msgstr ""
 
-#: e_metrobus/templates/navigation/answer.html:77
+#: e_metrobus/templates/navigation/answer.html:74
 msgid "Zur nächsten Frage"
 msgstr ""
 
@@ -89,7 +89,7 @@ msgstr ""
 msgid "Du hast die Kategorie %(cat_label)s abgeschlossen!"
 msgstr "You finished category %(cat_label)s!"
 
-#: e_metrobus/templates/navigation/comparison.html:11
+#: e_metrobus/templates/navigation/comparison.html:13
 msgid "Mehr entdecken!"
 msgstr ""
 
@@ -117,55 +117,55 @@ msgid ""
 "besser machen!"
 msgstr ""
 
-#: e_metrobus/templates/navigation/environment.html:10
+#: e_metrobus/templates/navigation/environment.html:11
 msgid "Deine Fahrt"
 msgstr ""
 
-#: e_metrobus/templates/navigation/environment.html:13
+#: e_metrobus/templates/navigation/environment.html:14
 msgid "E-Bus Flotte"
 msgstr ""
 
-#: e_metrobus/templates/navigation/environment.html:46
-#: e_metrobus/templates/navigation/environment.html:50
+#: e_metrobus/templates/navigation/environment.html:47
+#: e_metrobus/templates/navigation/environment.html:51
 msgid "Liter Diesel"
-msgstr ""
-
-#: e_metrobus/templates/navigation/environment.html:53
-#: e_metrobus/templates/navigation/environment.html:68
-#: e_metrobus/templates/navigation/environment.html:83
-#: e_metrobus/templates/navigation/environment.html:98
-msgid "weniger"
-msgstr ""
-
-#: e_metrobus/templates/navigation/environment.html:53
-msgid "Diesel"
 msgstr ""
 
 #: e_metrobus/templates/navigation/environment.html:54
 #: e_metrobus/templates/navigation/environment.html:69
 #: e_metrobus/templates/navigation/environment.html:84
 #: e_metrobus/templates/navigation/environment.html:99
+msgid "weniger"
+msgstr ""
+
+#: e_metrobus/templates/navigation/environment.html:54
+msgid "Diesel"
+msgstr ""
+
+#: e_metrobus/templates/navigation/environment.html:55
+#: e_metrobus/templates/navigation/environment.html:70
+#: e_metrobus/templates/navigation/environment.html:85
+#: e_metrobus/templates/navigation/environment.html:100
 msgid "als konventionelle Busse"
 msgstr ""
 
-#: e_metrobus/templates/navigation/environment.html:61
-#: e_metrobus/templates/navigation/environment.html:65
+#: e_metrobus/templates/navigation/environment.html:62
+#: e_metrobus/templates/navigation/environment.html:66
 msgid "Tonnen"
 msgstr ""
 
-#: e_metrobus/templates/navigation/environment.html:68
+#: e_metrobus/templates/navigation/environment.html:69
 msgid "CO2"
 msgstr ""
 
-#: e_metrobus/templates/navigation/environment.html:76
-#: e_metrobus/templates/navigation/environment.html:80
-#: e_metrobus/templates/navigation/environment.html:83
+#: e_metrobus/templates/navigation/environment.html:77
+#: e_metrobus/templates/navigation/environment.html:81
+#: e_metrobus/templates/navigation/environment.html:84
 msgid "Stickoxide"
 msgstr ""
 
-#: e_metrobus/templates/navigation/environment.html:91
-#: e_metrobus/templates/navigation/environment.html:95
-#: e_metrobus/templates/navigation/environment.html:98
+#: e_metrobus/templates/navigation/environment.html:92
+#: e_metrobus/templates/navigation/environment.html:96
+#: e_metrobus/templates/navigation/environment.html:99
 msgid "Feinstaub"
 msgstr ""
 
@@ -177,12 +177,29 @@ msgstr ""
 msgid "Zeig mir warum!"
 msgstr ""
 
-#: e_metrobus/templates/navigation/legal.html:9
+#: e_metrobus/templates/navigation/legal.html:10
 msgid "Legale Informationen"
 msgstr ""
 
 #: e_metrobus/templates/navigation/question.html:24
 msgid "Antworten"
+msgstr ""
+
+#: e_metrobus/templates/navigation/quiz_finished.html:19
+#, python-format
+msgid "Glückwunsch du hast das Quiz mit %(score)s Punkten abgeschlossen!"
+msgstr ""
+
+#: e_metrobus/templates/navigation/quiz_finished.html:29
+msgid "Link zum Teilen deiner Punkte:"
+msgstr ""
+
+#: e_metrobus/templates/navigation/quiz_finished.html:33
+msgid "Ergebnis teilen"
+msgstr ""
+
+#: e_metrobus/templates/navigation/quiz_finished.html:41
+msgid "Quiz neu starten"
 msgstr ""
 
 #: e_metrobus/templates/pages/question_translations.html:5
