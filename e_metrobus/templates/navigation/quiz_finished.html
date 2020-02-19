@@ -1,6 +1,10 @@
 
 {% extends "base.html" %}
 
+{% load static %}
+{% load i18n %}
+{% load translation %}
+
 {% block body_class %}class="l-scroll l-scroll--nonav"{% endblock %}
 
 {% block content %}
@@ -12,21 +16,21 @@
 <div class="cell">
   <div class="grid-x text-center align-center">
     <div class="cell small-8 quiz-fin__text">
-      <p>Glückwunsch du hast das Quiz mit <span>{{points}}</span> Punkten abgeschlossen!</p>
+      <p>{% blocktrans with score="<span>{}</span>"|format_text:points %}Glückwunsch du hast das Quiz mit {{score}} Punkten abgeschlossen!{% endblocktrans %}</p>
     </div>
     <div class="cell quiz-fin__img">
-      <img src="../../static/images/icons/i_badge_yellow.svg" alt="badge">
+      <img src="{% static 'images/icons/i_badge_yellow.svg' %}" alt="badge">
     </div>
     <div class="cell quiz-fin__bottom">
       <div class="grid-x">
         <div class="cell">
           {% if show_link %}
             {% if hash %}
-              Link zum Teilen deiner Punkte: {% url 'navigation:score' hash=hash %}
+              {% trans "Link zum Teilen deiner Punkte:" %} {% url 'navigation:score' hash=hash %}
             {% else %}
               <form method="post">
                 {% csrf_token %}
-                <input type="submit" class="btn button button--yellow" value="Ergebnis teilen">
+                <input type="submit" class="btn button button--yellow" value="{% trans 'Ergebnis teilen' %}">
               </form>
             {% endif %}
           {% endif %}
@@ -34,13 +38,13 @@
         <div class="cell">
           <form method="post">
               {% csrf_token %}
-              <input type="submit" class="btn button" name="reset" value="Quiz neu starten">
+              <input type="submit" class="btn button" name="reset" value="{% trans 'Quiz neu starten' %}">
             </form>
         </div>
       </div>
     </div>
   </div>
 </div>
-<script type="text/javascript" src="../../static/js/confetti.js"></script>
+<script type="text/javascript" src="{% static 'js/confetti.js' %}"></script>
 
 {% endblock %}
