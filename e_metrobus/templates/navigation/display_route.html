@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 
@@ -36,7 +37,7 @@
   <img id="onboardingAnimateIcon1" src="{% static 'images/icons/Icon_Pin.svg' %}" alt="Pin Icon" style="display: none;">
   <img id="onboardingAnimateIcon2" src="{% static 'images/icons/Icon_Conventional_Bus.svg' %}" alt="Conventional Bus Icon" style="display: none;">
   <img id="onboardingAnimateIcon3" src="{% static 'images/icons/Icon_Conventional_Car.svg' %}" alt="Conventional Car Icon" style="display: none;">
-  <img id="onboardingAnimateIcon4" src="{% static 'images/icons/Icon_Pedestrian_Bike.svg' %}" alt="Laufende Person und Fahrradfahrer Icon" style="display: none;">
+  <img id="onboardingAnimateIcon4" src="{% static 'images/icons/Icon_Pedestrian_Bike.svg' %}" alt="Walking person and bycicle Icon" style="display: none;">
 </div>
 
 <!-- background yellow circle animation -->
@@ -45,22 +46,22 @@
     <div class="cell display-route__wrap">
       <!-- 1st result -->
       <div class="display-route__text" id="onboardingAnimateText1" style="display: none;">
-        <p class="display-route__sentence">Deine Strecke mit dem <span>E-Bus</span> beträgt</p>
+        <p class="display-route__sentence">{% trans "Deine Strecke mit dem <span>E-Bus</span> beträgt" %}</p>
         <p class="display-route__number">3,2 km</p>
       </div>
       <!-- 2nd result -->
       <div class="display-route__text" id="onboardingAnimateText2" style="display: none;">
-        <p class="display-route__sentence">Im Vergleich zum <span>Dieselbus</span> sparst Du</p>
+        <p class="display-route__sentence">{% trans "Im Vergleich zum <span>Dieselbus</span> sparst Du" %}</p>
         <p class="display-route__number">99 % CO2</p>
       </div>
       <!-- 3rd result -->
       <div class="display-route__text" id="onboardingAnimateText3" style="display: none;">
-        <p class="display-route__sentence">Im Vergleich zum <span>Pkw</span> sparst Du</p>
+        <p class="display-route__sentence">{% trans "Im Vergleich zum <span>Pkw</span> sparst Du" %}</p>
         <p class="display-route__number">99 % CO2</p>
       </div>
       <!-- 4th result -->
       <div class="display-route__text" id="onboardingAnimateText4" style="display: none;">
-        <p class="display-route__sentence">Nur noch <span>zu Fuß</span> oder mit dem <span>Fahrrad</span> kannst Du es besser machen!</p>
+        <p class="display-route__sentence">{% trans "Nur noch <span>zu Fuß</span> oder mit dem <span>Fahrrad</span> kannst Du es besser machen!" %}</p>
       </div>
       <div class="display-route__circle">
         <svg viewBox="0 0 220 220">
