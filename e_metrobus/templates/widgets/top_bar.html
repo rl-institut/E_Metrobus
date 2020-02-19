@@ -28,8 +28,8 @@
     <img src="{% static title_icon %}" alt="{{title_alt}}">
     <span>{{title}}</span>
   </div>
-  <div class="cell small-3 top-bar--points">
+  <div class="cell small-3 top-bar--points {% if score_changed %}dashboard_animation{% endif %}">
     <img src="{% static 'images/icons/i_star_black.svg' %}" alt="stars and points">
-    <span>{{points}}</span>
+    <span>{{score}}</span>
   </div>
 </section>
