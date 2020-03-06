@@ -60,6 +60,7 @@ class DashboardView(NavigationView):
         "leaf": {"enabled": True},
         "results": {"enabled": True}
     }
+    back_url = None
 
     def get(self, request, *args, **kwargs):
         if questions.all_questions_answered(request.session):
