@@ -1,0 +1,49 @@
+
+{% extends "base.html" %}
+
+{% load static %}
+{% load i18n %}
+{% load translation %}
+
+{% block body_class %}class="l-scroll l-scroll--nonav"{% endblock %}
+
+{% block content %}
+<div class="cell" id="confetti"></div>
+<div class="cell">
+  <div class="grid-x text-center align-center">
+    <div class="cell small-8 quiz-fin__text">
+      <p>{% blocktrans with score="<span>{}</span>"|format_text:points %}Glückwunsch du hast das Quiz mit {{score}} Punkten abgeschlossen!{% endblocktrans %}</p>
+    </div>
+    <div class="cell quiz-fin__img">
+      <img src="{% static 'images/icons/i_badge_yellow.svg' %}" alt="badge">
+    </div>
+    <div class="cell quiz-fin__bottom">
+      <div class="grid-x">
+        <div class="cell">
+          {% if show_link %}
+            {% if hash %}
+              {% trans "Link zum Teilen deiner Punkte:" %} {{request.scheme}}://{{request.get_host}}{% url 'navigation:score' hash=hash %}
+            {% else %}
+              <form method="post">
+                {% csrf_token %}
+                <input type="submit" class="btn button button--yellow" value="{% trans 'Ergebnis teilen' %}">
+              </form>
+            {% endif %}
+          {% endif %}
+        </div>
+        <div class="cell">
+          <form method="post">
+              {% csrf_token %}
+              <input type="submit" class="btn button" name="reset" value="{% trans 'Quiz neu starten' %}">
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+  {{block.super}}
+  <script type="text/javascript" src="{% static 'js/confetti.js' %}"></script>
+{% endblock %}

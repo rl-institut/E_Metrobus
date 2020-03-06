@@ -4,6 +4,7 @@ from dataclasses import dataclass
 from configobj import ConfigObj
 
 from django.conf import settings
+from django.utils.translation import gettext as _
 
 
 QUESTION_TEMPLATE_FOLDER = "questions"
@@ -24,12 +25,18 @@ class Question:
     template: str
     category: str
 
+    def get_label(self):
+        return _(self.label)
+
 
 @dataclass
 class Category:
     label: str
     icon: str
     questions: Dict[str, Question]
+
+    def get_label(self):
+        return _(self.label)
 
 
 question_config = ConfigObj(
@@ -113,3 +120,10 @@ def get_question_from_name(question_name):
         if question_name in category.questions:
             return category.questions[question_name]
     raise KeyError(f'Question "{question_name}" not found.')
+
+
+def all_questions_answered(session):
+    for category in QUESTIONS:
+        if get_category_done_share(category, session) != 1.0:
+            return False
+    return True

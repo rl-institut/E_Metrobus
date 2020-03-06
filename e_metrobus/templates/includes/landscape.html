@@ -1,16 +1,19 @@
+
+{% load i18n %}
+
 <div class="grid-container landscape hide-for-large show-for-landscape">
   <div class="grid-x align-center text-center">
     <div class="cell landscape__header">
-      <h2>E-Metrobus Berlin</h2>
+      <h2>{% trans "E-Metrobus Berlin" %}</h2>
     </div>
     <div class="cell landscape__subheader">
-      <span>Elektrifizierung von MetroBus-Linien im Berliner ÖPNV mit Schnellladeinfrastruktur</span>
+      <span>{% trans "Elektrifizierung von MetroBus-Linien im Berliner ÖPNV mit Schnellladeinfrastruktur" %}</span>
     </div>
     <div class="cell landscape__img">
       <img src="/static/images/Icon_E_Bus_BVG.svg" alt="Elektro-Bus" id="bus">
     </div>
     <div class="cell landscape__text">
-      Bitte besuchen Sie diese Seite im Portrait Modus, wenn Sie Interesse am E-Metrobus Projekt haben.
+      {% trans "Bitte besuchen Sie diese Seite im Portrait Modus, wenn Sie Interesse am E-Metrobus Projekt haben." %}
     </div>
   </div>
 </div>
