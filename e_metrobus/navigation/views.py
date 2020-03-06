@@ -19,15 +19,16 @@ class NavigationView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(NavigationView, self).get_context_data(**kwargs)
-        points = questions.get_total_score(self.request.session)
+        score = questions.get_total_score(self.request.session)
         context["footer"] = widgets.FooterWidget(links=self.footer_links)
         context["top_bar"] = widgets.TopBarWidget(
             title=self.title,
             title_icon=self.title_icon,
             title_alt=self.title_alt,
             back_url=self.back_url,
-            points=points,
-            template=self.top_bar_template
+            score=score,
+            template=self.top_bar_template,
+            request=self.request
         )
         return context
 
@@ -70,6 +71,10 @@ class DashboardView(NavigationView):
 
     def get_context_data(self, **kwargs):
         context = super(DashboardView, self).get_context_data(**kwargs)
+        current_score = questions.get_total_score(self.request.session)
+        if self.request.session.get("score_at_last_visit", 0) < current_score:
+            self.request.session["score_at_last_visit"] = current_score
+            context["top_bar"].score_changed = True
         context["categories"] = [
             (
                 cat_name,
@@ -168,7 +173,7 @@ class AnswerView(NavigationView):
         "results": {"enabled": True}
     }
 
-    def get_context_data(self, answer, question, **kwargs):
+    def get_context_data(self, question, answer=None, **kwargs):
         self.title = questions.QUESTIONS[question.category].label
         self.title_icon = questions.QUESTIONS[question.category].icon
         context = super(AnswerView, self).get_context_data(**kwargs)
@@ -176,6 +181,14 @@ class AnswerView(NavigationView):
         context["question"] = question
         context["points"] = questions.SCORE_CORRECT if answer else questions.SCORE_WRONG
         return context
+
+    def get(self, request, **kwargs):
+        question_name = request.session.get("last_answered_question")
+        if question_name is None:
+            raise ValueError("No question answered yet!")
+        question = questions.get_question_from_name(question_name)
+        context = self.get_context_data(question=question, **kwargs)
+        return self.render_to_response(context)
 
     def post(self, request, **kwargs):
         question = questions.get_question_from_name(request.POST["question"])
@@ -189,9 +202,10 @@ class AnswerView(NavigationView):
             raise ValueError("Answer already given")
         else:
             request.session["questions"][question.category][question.name] = answer
+            request.session["last_answered_question"] = question.name
         request.session.save()
 
-        context = self.get_context_data(answer=answer, question=question, **kwargs)
+        context = self.get_context_data(question=question, answer=answer, **kwargs)
         return self.render_to_response(context)
 
 

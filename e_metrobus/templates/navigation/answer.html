@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 
@@ -19,7 +20,7 @@
         </div>
       </div>
       <div class="cell animate_answer__text">
-        <span>RICHTIG!</span>
+        <span>{% trans "RICHTIG!" %}</span>
       </div>
       <div class="cell animate_answer__bus">
         <div class="grid-x">
@@ -41,7 +42,7 @@
         <img src="{% static 'images/icons/battery_empty.svg' %}" alt="battery_empty">
       </div>
       <div class="cell animate_answer__text">
-        <span>FALSCH...</span>
+        <span>{% trans "FALSCH..." %}</span>
       </div>
       <div class="cell animate_answer__points animate_answer__points--wrong">
         <div class="grid-x align-center">
@@ -64,13 +65,13 @@
 <div class="cell">
   <div class="grid-x">
     <div class="cell small-11 medium-11 answer__text">
-      {{question.short_answer}}
+      {% trans question.short_answer %}
     </div>
     <div class="cell small-11 medium-11 answer__text answer__text--more">
       {% include question.template %}
     </div>
     <div class="cell text-center question__next">
-      <a href="{% url 'navigation:question' question.category %}" class="button">Zur nächsten Frage</a>
+      <a href="{% url 'navigation:question' question.category %}" class="button">{% trans "Zur nächsten Frage" %}</a>
     </div>
   </div>
 </div>
@@ -80,12 +81,14 @@
   {{block.super}}
 
   <script>
-    $( document ).ready(function() {
-      $('#answer').show();
-      function hideReveal() {
-        $('#answer').hide();
-      }
-      setTimeout(hideReveal, 3000);
-    });
+    {% if answer != None %}
+      $( document ).ready(function() {
+        $('#answer').show();
+        function hideReveal() {
+          $('#answer').hide();
+        }
+        setTimeout(hideReveal, 3000);
+      });
+    {% endif %}
   </script>
 {% endblock %}
