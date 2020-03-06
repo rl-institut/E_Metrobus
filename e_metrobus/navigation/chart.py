@@ -8,6 +8,7 @@ MARGIN = 10
 OFFSET = 1
 SIZE = MARGIN - 2 * OFFSET
 TEXTSIZE = 5
+TROPHY_OFFSET = 20
 
 Sizes = namedtuple("Sizes", ["margin", "offset", "size", "textsize"])
 
@@ -70,16 +71,18 @@ def get_mobility_figure(values):
             color = "black"
         fig.add_layout_image(
             go.layout.Image(
-                source=f"/static/images/icons/i_{icon}_{color}.svg", x=i, y=-sizes.offset
+                source=f"/static/images/icons/i_{icon}_{color}.svg",
+                x=i,
+                y=-sizes.offset,
             )
         )
     # Trophy Icons:
     for i in range(3):
         fig.add_layout_image(
             go.layout.Image(
-                source="/static/images/icons/i_trophy.svg",
+                source=f"/static/images/icons/i_trophy_{i+1}_{'black' if i == 2 else 'gray'}.svg",
                 x=i,
-                y=values[i] + sizes.textsize + sizes.size + sizes.offset,
+                y=values[i] + sizes.textsize + sizes.size + sizes.offset + TROPHY_OFFSET,
             )
         )
 
