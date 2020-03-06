@@ -6,15 +6,6 @@ ELLIPSE_X_OFFSET = 7
 ELLIPSE_Y_OFFSET = 7
 
 
-STATIONS = [
-    "Hertzallee",
-    "S+U Zoologischer Garten",
-    "S+U Zoologischer Garten/Jebensstr.",
-    "Breitscheidplatz",
-    "Budapester Str.",
-]
-
-
 class Ellipse:
     def __init__(self, share):
         """Calculates ellipse coordinates to draw from share"""

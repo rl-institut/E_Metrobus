@@ -1,4 +1,3 @@
-
 from django.shortcuts import redirect, Http404, get_object_or_404
 from django.views.generic import TemplateView
 
@@ -7,6 +6,7 @@ from e_metrobus.navigation import constants
 from e_metrobus.navigation import widgets
 from e_metrobus.navigation import questions
 from e_metrobus.navigation import models
+from e_metrobus.navigation import stations
 
 
 class NavigationView(TemplateView):
@@ -28,7 +28,7 @@ class NavigationView(TemplateView):
             back_url=self.back_url,
             score=score,
             template=self.top_bar_template,
-            request=self.request
+            request=self.request,
         )
         return context
 
@@ -39,7 +39,9 @@ class RouteView(TemplateView):
     def get(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
 
-        context["stations"] = widgets.StationsWidget(constants.STATIONS, request)
+        context["stations"] = widgets.StationsWidget(
+            stations.STATIONS.get_stations(), request
+        )
         return self.render_to_response(context)
 
     def post(self, request, *args, **kwargs):
@@ -58,7 +60,7 @@ class DashboardView(NavigationView):
         "info": {"enabled": True},
         "dashboard": {"selected": True},
         "leaf": {"enabled": True},
-        "results": {"enabled": True}
+        "results": {"enabled": True},
     }
     back_url = None
 
@@ -97,9 +99,18 @@ class DisplayRouteView(NavigationView):
 
     def get_context_data(self, **kwargs):
         context = super(DisplayRouteView, self).get_context_data(**kwargs)
-        context["stations"] = [
-            constants.STATIONS[station] for station in self.request.session["stations"]
+        current_stations = [
+            stations.STATIONS[station] for station in self.request.session["stations"]
         ]
+        context["stations"] = current_stations
+        context["distance"] = stations.STATIONS.get_distance(*current_stations)
+        route_data = stations.STATIONS.get_route_data(*current_stations)
+        context["comparison"] = {
+            "bus": (route_data["bus"].co2 - route_data["e-bus"].co2)
+            / route_data["bus"].co2 * 100,
+            "car": (route_data["car"].co2 - route_data["e-bus"].co2)
+            / route_data["car"].co2 * 100,
+        }
         return context
 
 
@@ -121,7 +132,7 @@ class EnvironmentView(NavigationView):
         "info": {"enabled": True},
         "dashboard": {"enabled": True},
         "leaf": {"selected": True},
-        "results": {"enabled": True}
+        "results": {"enabled": True},
     }
 
     def get_context_data(self, **kwargs):
@@ -146,7 +157,7 @@ class QuestionView(NavigationView):
         "info": {"enabled": True},
         "dashboard": {"selected": True, "enabled": True},
         "leaf": {"enabled": True},
-        "results": {"enabled": True}
+        "results": {"enabled": True},
     }
 
     def get_context_data(self, **kwargs):
@@ -171,7 +182,7 @@ class AnswerView(NavigationView):
         "info": {"enabled": True},
         "dashboard": {"selected": True, "enabled": True},
         "leaf": {"enabled": True},
-        "results": {"enabled": True}
+        "results": {"enabled": True},
     }
 
     def get_context_data(self, question, answer=None, **kwargs):
@@ -216,7 +227,7 @@ class CategoryFinishedView(TemplateView):
     def get_context_data(self, **kwargs):
         return {
             "category": questions.QUESTIONS[kwargs["category"]],
-            "points": questions.SCORE_CATEGORY_COMPLETE
+            "points": questions.SCORE_CATEGORY_COMPLETE,
         }
 
 
@@ -258,7 +269,7 @@ class LegalView(NavigationView):
         "info": {"selected": True},
         "dashboard": {"enabled": True},
         "leaf": {"enabled": True},
-        "results": {"enabled": True}
+        "results": {"enabled": True},
     }
 
 
@@ -268,7 +279,7 @@ class QuestionsAsTextView(NavigationView):
         "info": {"enabled": True},
         "dashboard": {"enabled": True},
         "leaf": {"enabled": True},
-        "results": {"selected": True}
+        "results": {"selected": True},
     }
 
     def get_context_data(self, **kwargs):
