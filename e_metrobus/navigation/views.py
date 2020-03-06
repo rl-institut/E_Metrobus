@@ -124,7 +124,14 @@ class ComparisonView(NavigationView):
 
     def get_context_data(self, **kwargs):
         context = super(ComparisonView, self).get_context_data(**kwargs)
-        context["plotly"] = chart.get_mobility_figure([50, 50, 100, 300, 500])
+        current_stations = [
+            stations.STATIONS[station] for station in self.request.session["stations"]
+        ]
+        route_data = stations.STATIONS.get_route_data(*current_stations)
+        chart_order = ("pedestrian", "bicycle", "e-bus", "bus", "car")
+        context["plotly"] = chart.get_mobility_figure(
+            [route_data[vehicle].co2 for vehicle in chart_order]
+        )
         return context
 
 
