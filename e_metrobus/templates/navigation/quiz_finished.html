@@ -8,11 +8,7 @@
 {% block body_class %}class="l-scroll l-scroll--nonav"{% endblock %}
 
 {% block content %}
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.js"></script>
-<div class="cell" id="confetti">
-
-
-</div>
+<div class="cell" id="confetti"></div>
 <div class="cell">
   <div class="grid-x text-center align-center">
     <div class="cell small-8 quiz-fin__text">
@@ -26,7 +22,7 @@
         <div class="cell">
           {% if show_link %}
             {% if hash %}
-              {% trans "Link zum Teilen deiner Punkte:" %} {% url 'navigation:score' hash=hash %}
+              {% trans "Link zum Teilen deiner Punkte:" %} {{request.scheme}}://{{request.get_host}}{% url 'navigation:score' hash=hash %}
             {% else %}
               <form method="post">
                 {% csrf_token %}
@@ -45,6 +41,9 @@
     </div>
   </div>
 </div>
-<script type="text/javascript" src="{% static 'js/confetti.js' %}"></script>
-
 {% endblock %}
+
+{% block javascript %}
+  {{block.super}}
+  <script type="text/javascript" src="{% static 'js/confetti.js' %}"></script>
+{% endblock %}
