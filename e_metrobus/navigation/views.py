@@ -107,9 +107,11 @@ class DisplayRouteView(NavigationView):
         route_data = stations.STATIONS.get_route_data(*current_stations)
         context["comparison"] = {
             "bus": (route_data["bus"].co2 - route_data["e-bus"].co2)
-            / route_data["bus"].co2 * 100,
+            / route_data["bus"].co2
+            * 100,
             "car": (route_data["car"].co2 - route_data["e-bus"].co2)
-            / route_data["car"].co2 * 100,
+            / route_data["car"].co2
+            * 100,
         }
         return context
 
@@ -137,15 +139,29 @@ class EnvironmentView(NavigationView):
 
     def get_context_data(self, **kwargs):
         context = super(EnvironmentView, self).get_context_data(**kwargs)
-        # FIXME: Dummy values
-        context["user"] = constants.Consumption(
-            distance=10, fuel=200, co2=300, nitrogen=20, fine_dust=10
+
+        current_stations = [
+            stations.STATIONS[station] for station in self.request.session["stations"]
+        ]
+        e_bus_data = stations.STATIONS.get_route_data_for_vehicle(
+            *current_stations, vehicle="e-bus"
         )
-        context["fleet"] = constants.Consumption(
-            distance=3000, fuel=200000, co2=300000, nitrogen=20000, fine_dust=10000
+        user_consumption = constants.Consumption(
+            distance=stations.STATIONS.get_distance(*current_stations),
+            **e_bus_data.__dict__
         )
+        bus_data = stations.STATIONS.get_route_data_for_vehicle(
+            *current_stations, vehicle="bus"
+        )
+        bus_consumption = constants.Consumption(
+            distance=1,
+            **bus_data.__dict__
+        )
+        fleet_consumption = constants.FLEET_CONSUMPTION
+        context["user"] = user_consumption
+        context["fleet"] = fleet_consumption
         context["comparison"] = constants.Consumption(
-            distance=None, fuel=99, co2=99, nitrogen=99, fine_dust=99
+            *((x - y) / x * 100 for x, y in zip(bus_consumption, user_consumption))
         )
         return context
 

@@ -1,4 +1,3 @@
-
 import os
 from dataclasses import dataclass, fields
 from typing import Dict
@@ -48,20 +47,35 @@ class Stations:
         for i, station in enumerate(self.stations):
             self.stations[station] = self.stations.iloc[i]
 
+    @staticmethod
+    def __calc_route_data(km, vehicle):
+        return vehicle.data * vehicle.passengers * km
+
     def get_stations(self):
-        return (station for station in self.stations)
+        return [station for station in self.stations]
 
     def get_distance(self, from_station: str, to_station: str) -> float:
         return self.stations[from_station][to_station]
 
     def get_route_data(
-        self, from_station: str, to_station: str
+        self, from_station: str, to_station: str, vehicle=None
     ) -> Dict[str, DataPerKilometer]:
         passenger_kilometer = self.get_distance(from_station, to_station)
         return {
-            vehicle.name: vehicle.data * vehicle.passengers * passenger_kilometer
+            vehicle.name: self.__calc_route_data(passenger_kilometer, vehicle)
             for vehicle in VEHICLES
         }
+
+    def get_route_data_for_vehicle(
+        self, from_station: str, to_station: str, vehicle: str
+    ) -> DataPerKilometer:
+        passenger_kilometer = self.get_distance(from_station, to_station)
+        i = 0
+        while i < len(VEHICLES):
+            if VEHICLES[i].name == vehicle:
+                return VEHICLES[i].data * VEHICLES[i].passengers * passenger_kilometer
+            i += 1
+        raise KeyError("Vehicle not found", vehicle)
 
     def __getitem__(self, item):
         return self.stations.index[item]
