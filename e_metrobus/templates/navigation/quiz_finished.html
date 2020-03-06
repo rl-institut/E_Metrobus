@@ -41,6 +41,9 @@
     </div>
   </div>
 </div>
-<script type="text/javascript" src="{% static 'js/confetti.js' %}"></script>
-
 {% endblock %}
+
+{% block javascript %}
+  {{block.super}}
+  <script type="text/javascript" src="{% static 'js/confetti.js' %}"></script>
+{% endblock %}
