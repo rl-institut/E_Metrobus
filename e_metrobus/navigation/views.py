@@ -60,6 +60,7 @@ class DashboardView(NavigationView):
         "leaf": {"enabled": True},
         "results": {"enabled": True}
     }
+    back_url = None
 
     def get(self, request, *args, **kwargs):
         if questions.all_questions_answered(request.session):
@@ -224,13 +225,13 @@ class QuizFinishedView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(QuizFinishedView, self).get_context_data(**kwargs)
-        if "hash" in kwargs:
+        if "share" in kwargs or "hash" not in kwargs:
+            context["points"] = questions.get_total_score(self.request.session)
+            context["show_link"] = True
+        else:
             context["points"] = get_object_or_404(
                 models.Score, hash=kwargs["hash"]
             ).score
-        else:
-            context["points"] = questions.get_total_score(self.request.session)
-            context["show_link"] = True
         return context
 
     def post(self, request, **kwargs):
@@ -243,9 +244,11 @@ class QuizFinishedView(TemplateView):
         if "hashed_score" not in request.session:
             score = models.Score.save_score(request.session)
             request.session["hashed_score"] = score.hash
-            context = self.get_context_data(hash=score.hash, **kwargs)
+            context = self.get_context_data(hash=score.hash, share=True)
         else:
-            context = self.get_context_data(hash=request.session["hashed_score"])
+            context = self.get_context_data(
+                hash=request.session["hashed_score"], share=True
+            )
         return self.render_to_response(context)
 
 

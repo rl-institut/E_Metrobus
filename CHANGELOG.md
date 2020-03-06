@@ -16,6 +16,8 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 - onboard animation speed (slowed down)
 - answer page layout fixed
 - dashboard icons
+- trophy icons
+- removed back arrow on dashboard
 
 ## [0.5.0] - 2020-02-05
 ### Added

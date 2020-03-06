@@ -1,4 +1,5 @@
 
+{% load static %}
 {% load i18n %}
 
 <div class="desktop show-for-large">
@@ -17,7 +18,7 @@
     <div class="cell large-6 desktop__link">
       <div class="grid-x">
         <div class="cell large-5 desktop__link--img">
-          <img src="../../static/images/HP_hero_device.png" alt="phone">
+          <img src="{% static 'images/HP_hero_device.png' %}" alt="phone">
         </div>
 
         <div class="cell large-5 align-right">
@@ -26,6 +27,7 @@
               <span>{% trans 'App auf mobilen Geräten verfügbar' %}</span>
             </div>
             <div class="cell large-5 text-center desktop__link--qr">
+              <img src="{% static 'images/qr-code.svg' %}" alt="qr-code">
             </div>
             <div class="cell text-center desktop__link--link">
               <span>https://e-metrobus.berlin/</span>
@@ -41,11 +43,11 @@
           <h2>{% trans 'Was vermittelt die App?' %}</h2>
         </div>
         <div class="cell large-4 desktop__appinfo--img">
-          <img src="../../static/images/icons/i_co2_blue.svg" alt="Kohlenstoffdioxid Icon">
+          <img src="{% static 'images/icons/i_co2_blue.svg' %}" alt="Kohlenstoffdioxid Icon">
         </div><div class="cell large-4 desktop__appinfo--img">
-          <img src="../../static/images/icons/i_ebus_blue.svg" alt="E-Bus Icon">
+          <img src="{% static 'images/icons/i_ebus_blue.svg' %}" alt="E-Bus Icon">
         </div><div class="cell large-4 desktop__appinfo--img">
-          <img src="../../static/images/icons/i_quiz_blue.svg" alt="Quiz Icon">
+          <img src="{% static 'images/icons/i_quiz_blue.svg' %}" alt="Quiz Icon">
         </div>
         <div class="cell large-4 desktop__appinfo--text">
           {% trans 'Genaue Zahlen der eigenen Emissionen durch eine Fahrt mit dem E-Bus' %}
@@ -79,17 +81,17 @@
     <div class="grid-x align-center">
       <div class="cell bmvi large-2 desktop__logo desktop__logo--BVG">
         <a href="https://www.bvg.de/de" target="_blank" rel="noopener noreferrer" title="Zur Website">
-          <img src="/static/images/logos/Logo_BVG.png" alt="BVG Logo">
+          <img src="{% static 'images/logos/Logo_BVG.png' %}" alt="BVG Logo">
         </a>
       </div>
       <div class="cell large-2 desktop__logo desktop__logo--RLI">
         <a href="https://reiner-lemoine-institut.de/" target="_blank" rel="noopener noreferrer" title="Zur Website">
-          <img src="/static/images/RLi_logo.png" alt="RLI Logo">
+          <img src="{% static 'images/RLi_logo.png' %}" alt="RLI Logo">
         </a>
       </div>
       <div class="cell large-2 desktop__logo desktop__logo--TUB">
         <a href="https://www.mpm.tu-berlin.de/menue/home/" target="_blank" rel="noopener noreferrer" title="Zur Website">
-          <img src="/static/images/logos/TU-Berlin_logo.png" alt="TUB Logo">
+          <img src="{% static 'images/logos/TU-Berlin_logo.png' %}" alt="TUB Logo">
         </a>
       </div>
     </div>
