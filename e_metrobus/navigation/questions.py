@@ -4,6 +4,7 @@ from dataclasses import dataclass
 from configobj import ConfigObj
 
 from django.conf import settings
+from django.utils.translation import gettext as _
 
 
 QUESTION_TEMPLATE_FOLDER = "questions"
@@ -24,12 +25,18 @@ class Question:
     template: str
     category: str
 
+    def get_label(self):
+        return _(self.label)
+
 
 @dataclass
 class Category:
     label: str
     icon: str
     questions: Dict[str, Question]
+
+    def get_label(self):
+        return _(self.label)
 
 
 question_config = ConfigObj(

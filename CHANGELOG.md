@@ -6,7 +6,18 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 
 ## [Unreleased]
 ### Added
+- Environment page.
+- english language support
 - Score can be saved and shared via link.
+- Score animation on dashboard.
+
+### Changed
+- leaf footer links
+- illness type plus color.
+- onboard animation speed (slowed down)
+- answer page layout fixed
+- dashboard icons
+- trophy icons
 
 ## [0.5.0] - 2020-02-05
 ### Added
@@ -21,9 +32,9 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 ### Added
 - Category finished page.
 - Score animation when answering a question.
-- Environment page.
 - "Choose your route" text.
 - Popup at first-time-visit on dashboard.
+
 ### Changed
 - Color variables (BVG original)
 
