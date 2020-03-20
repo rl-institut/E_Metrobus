@@ -61,11 +61,19 @@
     animation: fadein 6s;
     background-color: $primary-color-1;
     padding: 2rem .5rem;
-    height: 50vh;
+    height: 60vh;
     >.grid-x {
       height: 100%;
+      padding-top: 20%;
     }
-    span {
+    &-text {
+      position: relative;
+    }
+    &-text span {
+      position: absolute;
+      width: 100%;
+      right: 0;
+      bottom: 0;
       font-size: 1.5rem;
       font-weight: bold;
       line-height: 1.85rem;
@@ -78,6 +86,13 @@
   }
 
   &__language {
+    position: relative;
+    & > .grid-x {
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      right: 0;
+    }
     &--switch {
       animation: fadein 7.5s;
       img {
@@ -85,7 +100,8 @@
         margin: 0.5rem;
       }
       span {
-        color: $gray-2;
+        color: $secondary-color;
+        font-size: 1rem;
       }
     }
     &--popup {
@@ -113,8 +129,8 @@
     height: 25vh;
   }
   &__bottom {
-    padding: 1rem .5rem 0;
-    height: 25vh;
+    padding: 0 .5rem 0;
+    height: 15vh;
   }
 }
 #language_popup {
