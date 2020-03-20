@@ -38,21 +38,21 @@
     &--bvg {
       animation: fadein 4s ;
       img {
-        width: 11vh;
+        max-width: 9vh;
       }
     }
     &--tu {
       animation: fadein 4s;
       img {
         margin-top: 0.3rem;
-        width: 13vh;
+        max-width: 10.75vh;
       }
     }
     &--rli {
       animation: fadein 4s;
       img {
         margin-top: 0.5rem;
-        width: 11vh;
+        max-width: 9vh;
       }
     }
   }
@@ -62,7 +62,7 @@
     top: 50vh;
     animation: fadein 6s;
     background-color: $primary-color-1;
-    padding: 1rem;
+    padding: 2rem .5rem;
     span {
       font-size: 1.5rem;
       font-weight: bold;
@@ -110,7 +110,7 @@
     }
   }
   &__bottom {
-    padding: 1rem;
+    padding: 1rem .5rem 0;
     position: fixed;
     bottom: 0;
   }
