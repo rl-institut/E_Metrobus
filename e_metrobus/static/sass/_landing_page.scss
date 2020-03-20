@@ -36,20 +36,20 @@
       }
     }
     &--bvg {
-      animation: fadein 4s ;
+      animation: fadein 7.5s ;
       img {
         max-width: 9vh;
       }
     }
     &--tu {
-      animation: fadein 4s;
+      animation: fadein 7.5s;
       img {
         margin-top: 0.3rem;
         max-width: 10.75vh;
       }
     }
     &--rli {
-      animation: fadein 4s;
+      animation: fadein 7.5s;
       img {
         margin-top: 0.5rem;
         max-width: 10vh;
@@ -58,7 +58,7 @@
   }
 
   &__button {
-    animation: fadein 6s;
+    animation: fadein 4s;
     background-color: $primary-color-1;
     padding: 2rem .5rem;
     height: 60vh;
