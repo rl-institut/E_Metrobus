@@ -5,7 +5,7 @@
 }
 .landpage {
 
-  padding-bottom: 10rem;
+  height: 100vh;
 
     &__logo {
     margin: 1rem 0;
@@ -58,11 +58,13 @@
   }
 
   &__button {
-    position: absolute;
-    top: 50vh;
     animation: fadein 6s;
     background-color: $primary-color-1;
     padding: 2rem .5rem;
+    height: 50vh;
+    >.grid-x {
+      height: 100%;
+    }
     span {
       font-size: 1.5rem;
       font-weight: bold;
@@ -76,8 +78,6 @@
   }
 
   &__language {
-    position: absolute;
-    top: 37vh;
     &--switch {
       animation: fadein 7.5s;
       img {
@@ -109,10 +109,12 @@
       }
     }
   }
+  &__ebus {
+    height: 25vh;
+  }
   &__bottom {
     padding: 1rem .5rem 0;
-    position: fixed;
-    bottom: 0;
+    height: 25vh;
   }
 }
 #language_popup {
