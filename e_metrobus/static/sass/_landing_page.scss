@@ -5,16 +5,16 @@
 }
 .landpage {
 
-  padding-bottom: 10rem;
+  height: 100vh;
 
     &__logo {
-    margin: 6.5rem 0;
+    margin: 1rem 0;
 
     @media screen and (max-height: 600px) {
-      margin: 4rem 0;
+      margin: 1rem 0;
     }
     @media screen and (max-height: 640px) {
-      margin-bottom: 4rem;
+      margin-bottom: 1rem;
     }
 
     &--embus {
@@ -36,27 +36,63 @@
       }
     }
     &--bvg {
-      animation: fadein 4s ;
+      animation: fadein 7.5s ;
       img {
-        width: 11vh;
+        max-width: 9vh;
       }
     }
     &--tu {
-      animation: fadein 4s;
+      animation: fadein 7.5s;
       img {
         margin-top: 0.3rem;
-        width: 13vh;
+        max-width: 10.75vh;
       }
     }
     &--rli {
-      animation: fadein 4s;
+      animation: fadein 7.5s;
       img {
         margin-top: 0.5rem;
-        width: 11vh;
+        max-width: 10vh;
       }
     }
   }
+
+  &__button {
+    animation: fadein 4s;
+    background-color: $primary-color-1;
+    padding: 2rem .5rem;
+    height: 60vh;
+    >.grid-x {
+      height: 100%;
+      padding-top: 20%;
+    }
+    &-text {
+      position: relative;
+    }
+    &-text span {
+      position: absolute;
+      width: 100%;
+      right: 0;
+      bottom: 0;
+      font-size: 1.5rem;
+      font-weight: bold;
+      line-height: 1.85rem;
+    }
+    button {
+      animation: fadein 6.5s;
+      margin: 1rem 0;
+      margin-bottom: 0;
+    }
+  }
+
   &__language {
+    position: relative;
+    & > .grid-x {
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      right: 0;
+    }
     &--switch {
       animation: fadein 7.5s;
       img {
@@ -64,8 +100,9 @@
         margin: 0.5rem;
       }
       span {
-        color: $gray-2;
         vertical-align: middle;
+        color: $secondary-color;
+        font-size: 1rem;
       }
     }
     &--popup {
@@ -89,23 +126,12 @@
       }
     }
   }
+  &__ebus {
+    height: 25vh;
+  }
   &__bottom {
-    animation: fadein 6s;
-    background-color: $primary-color-1;
-    padding: 1rem;
-    position: fixed;
-    bottom: 0;
-
-    span {
-      font-size: 1.5rem;
-      font-weight: bold;
-      line-height: 1.85rem;
-    }
-    button {
-      animation: fadein 6.5s;
-      margin: 1rem 0;
-      margin-bottom: 0;
-    }
+    padding: 0 .5rem 0;
+    height: 15vh;
   }
 }
 #language_popup {
