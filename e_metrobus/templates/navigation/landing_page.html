@@ -8,11 +8,43 @@
 {% block content %}
   <div class="cell">
     <div class="grid-x align-center text-center landpage">
-      <div class="cell">
+      <div class="cell landpage__ebus">
         <div class="grid-x">
           <div class="cell landpage__logo landpage__logo--embus">
             <img src="{%static 'images/icons/Icon_E_Bus_BVG.svg' %}" alt="E-Bus Icon">
           </div>
+        </div>
+      </div>
+      <div class="cell landpage__button">
+        <div class="grid-x">
+          <div class="cell landpage__button-text">
+            <span>{% trans 'Toll, dass du mit einem E-Bus fährst!' %}</span>
+          </div>
+          <div class="cell landing__button-btn">
+            <a href="{% url 'navigation:route' %}"><button name="boarding" class="button">{% trans 'Zeig mir warum!' %}</button></a>
+          </div>
+          <div class="cell landpage__language">
+            <div class="grid-x align-center text-center">
+              <div class="cell small-10 landpage__language--switch">
+                {% get_current_language as LANGUAGE_CODE %}
+                {% if LANGUAGE_CODE == "de" %}
+                  <a href="en/" data-open="language_popup">
+                    <img src="{% static 'images/icons/i_flag_uk.svg' %}" alt="uk_flag">
+                    <span>Switch to English</span>
+                  </a>
+                {% else %}
+                  <a href="/" data-open="language_popup">
+                    <img src="{% static 'images/icons/i_flag_de.svg' %}" alt="uk_flag">
+                    <span>Zu Deutsch wechseln</span>
+                  </a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cell landpage__bottom">
+        <div class="grid-x">
           <div class="cell small-4 landpage__logo landpage__logo--bvg">
             <img src="{% static 'images/logos/Logo_BVG.png' %}" alt="BVG Logo">
           </div>
@@ -21,34 +53,6 @@
           </div>
           <div class="cell small-4 landpage__logo landpage__logo--rli">
             <img src="{% static 'images/logos/RLi_logo.png' %}" alt="RLI Logo">
-          </div>
-        </div>
-      </div>
-      <div class="cell landpage__language">
-        <div class="grid-x align-center text-center">
-          <div class="cell small-10 landpage__language--switch">
-            {% get_current_language as LANGUAGE_CODE %}
-            {% if LANGUAGE_CODE == "de" %}
-              <a href="en/" data-open="language_popup">
-                <img src="{% static 'images/icons/i_flag_uk.svg' %}" alt="uk_flag">
-                <span>Switch to English</span>
-              </a>
-            {% else %}
-              <a href="/" data-open="language_popup">
-                <img src="{% static 'images/icons/i_flag_de.svg' %}" alt="uk_flag">
-                <span>Zu Deutsch wechseln</span>
-              </a>
-            {% endif %}
-          </div>
-        </div>
-      </div>
-      <div class="cell landpage__bottom">
-        <div class="grid-x">
-          <div class="cell landpage__bottom-text">
-            <span>{% trans 'Toll, dass du mit einem E-Bus fährst!' %}</span>
-          </div>
-          <div class="cell landing__bottom-btn">
-            <a href="{% url 'navigation:route' %}"><button name="boarding" class="button">{% trans 'Zeig mir warum!' %}</button></a>
           </div>
         </div>
       </div>
