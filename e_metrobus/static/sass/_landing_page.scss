@@ -60,11 +60,12 @@
     &--switch {
       animation: fadein 7.5s;
       img {
-        height: 2rem;
+        height: 1.25rem;
         margin: 0.5rem;
       }
       span {
         color: $gray-2;
+        vertical-align: middle;
       }
     }
     &--popup {
