@@ -65,6 +65,7 @@ def get_mobility_figure(values):
     fig.layout.plot_bgcolor = "#fff"
     fig.layout.xaxis.tickangle = -45
     fig.layout.xaxis.tickfont.size = 15
+    fig.layout.font.family = "Roboto"
     fig.layout.font.color = E_BUS_COLOR
     fig.layout.yaxis.visible = False
     fig.layout.yaxis.range = [-sizes.margin, max_value + sizes.margin]
