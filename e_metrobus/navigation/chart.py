@@ -10,6 +10,9 @@ SIZE = MARGIN - 2 * OFFSET
 TEXTSIZE = 5
 TROPHY_OFFSET = 20
 
+DEFAULT_COLOR = "Gainsboro"
+E_BUS_COLOR = "black"
+
 Sizes = namedtuple("Sizes", ["margin", "offset", "size", "textsize"])
 
 
@@ -36,8 +39,8 @@ def get_sizes(max_value):
 
 
 def get_mobility_figure(values):
-    colors = ["Gainsboro"] * 5
-    colors[2] = "black"
+    colors = [DEFAULT_COLOR] * 5
+    colors[2] = E_BUS_COLOR
     mobiles = ["Zu Fuß", "Fahrrad", "E-Bus", "Dieselbus", "PKW"]
 
     max_value = max(values)
@@ -52,6 +55,7 @@ def get_mobility_figure(values):
         width=0.6,
     )
     bar.textfont.size = 15
+    bar.textfont.color = E_BUS_COLOR
     fig = go.Figure([bar])
     fig.layout.margin.t = 0
     fig.layout.margin.b = 0
@@ -61,8 +65,18 @@ def get_mobility_figure(values):
     fig.layout.plot_bgcolor = "#fff"
     fig.layout.xaxis.tickangle = -45
     fig.layout.xaxis.tickfont.size = 15
+    fig.layout.font.family = "Roboto"
+    fig.layout.font.color = E_BUS_COLOR
     fig.layout.yaxis.visible = False
     fig.layout.yaxis.range = [-sizes.margin, max_value + sizes.margin]
+    fig.add_annotation(
+        x=0.5,
+        y=max_value,
+        text="CO2 Emissionen<br>nach Verkehrsmittel",
+        font={"size": 15, "color": E_BUS_COLOR},
+        align="left",
+        showarrow=False,
+    )
 
     # Mobility icons:
     for i, icon in enumerate(["pedestrian", "bike", "ebus", "bus", "car"]):
@@ -82,10 +96,13 @@ def get_mobility_figure(values):
             go.layout.Image(
                 source=f"/static/images/icons/i_trophy_{i+1}_{'black' if i == 2 else 'gray'}.svg",
                 x=i,
-                y=values[i] + sizes.textsize + sizes.size + sizes.offset + TROPHY_OFFSET,
+                y=values[i]
+                + sizes.textsize
+                + sizes.size
+                + sizes.offset
+                + TROPHY_OFFSET,
             )
         )
-
     fig.update_layout_images(
         {
             "xref": "x",
