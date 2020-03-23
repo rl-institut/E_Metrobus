@@ -51,7 +51,7 @@
       <span class="leaf__data--unit">{% trans "Liter Diesel" %}</span>
     </div>
     <div class="cell leaf__resources">
-      <span class="leaf__data--value">= {{comparison.fuel}} X {% trans "weniger" %} {% trans "Diesel" %}</span><br>
+      <span class="leaf__data--value">= {{comparison.fuel|floatformat:"1"}} % {% trans "weniger" %} {% trans "Diesel" %}</span><br>
       <span class="leaf__data--unit">{% trans "als konventionelle Busse" %}</span>
     </div>
     <div class="cell leaf__icon">
@@ -66,7 +66,7 @@
       <span class="leaf__data--unit">{% trans "Tonnen" %} CO2</span>
     </div>
     <div class="cell leaf__resources">
-      <span class="leaf__data--value">= {{comparison.co2}} X {% trans "weniger" %} {% trans "CO2" %}</span><br>
+      <span class="leaf__data--value">= {{comparison.co2|floatformat:"1"}} % {% trans "weniger" %} {% trans "CO2" %}</span><br>
       <span class="leaf__data--unit">{% trans "als konventionelle Busse" %}</span>
     </div>
     <div class="cell leaf__icon">
@@ -81,7 +81,7 @@
       <span class="leaf__data--unit">kg {% trans "Stickoxide" %}</span>
     </div>
     <div class="cell leaf__resources">
-      <span class="leaf__data--value">= {{comparison.nitrogen}} X {% trans "weniger" %} {% trans "Stickoxide" %}</span><br>
+      <span class="leaf__data--value">= {{comparison.nitrogen|floatformat:"1"}} % {% trans "weniger" %} {% trans "Stickoxide" %}</span><br>
       <span class="leaf__data--unit">{% trans "als konventionelle Busse" %}</span>
     </div>
     <div class="cell leaf__icon">
@@ -96,7 +96,7 @@
       <span class="leaf__data--unit">kg {% trans "Feinstaub" %}</span>
     </div>
     <div class="cell leaf__resources">
-      <span class="leaf__data--value">= {{comparison.fine_dust}} X {% trans "weniger" %} {% trans "Feinstaub" %}</span><br>
+      <span class="leaf__data--value">= {{comparison.fine_dust|floatformat:"1"}} % {% trans "weniger" %} {% trans "Feinstaub" %}</span><br>
       <span class="leaf__data--unit">{% trans "als konventionelle Busse" %}</span>
     </div>
   </div>

@@ -47,17 +47,17 @@
       <!-- 1st result -->
       <div class="display-route__text" id="onboardingAnimateText1" style="display: none;">
         <p class="display-route__sentence">{% trans "Deine Strecke mit dem <span>E-Bus</span> beträgt" %}</p>
-        <p class="display-route__number">3,2 km</p>
+        <p class="display-route__number">{{distance}} km</p>
       </div>
       <!-- 2nd result -->
       <div class="display-route__text" id="onboardingAnimateText2" style="display: none;">
         <p class="display-route__sentence">{% trans "Im Vergleich zum <span>Dieselbus</span> sparst Du" %}</p>
-        <p class="display-route__number">99 % CO2</p>
+        <p class="display-route__number">{{comparison.bus|floatformat:"0"}} % CO2</p>
       </div>
       <!-- 3rd result -->
       <div class="display-route__text" id="onboardingAnimateText3" style="display: none;">
         <p class="display-route__sentence">{% trans "Im Vergleich zum <span>Pkw</span> sparst Du" %}</p>
-        <p class="display-route__number">99 % CO2</p>
+        <p class="display-route__number">{{comparison.car|floatformat:"0"}} % CO2</p>
       </div>
       <!-- 4th result -->
       <div class="display-route__text" id="onboardingAnimateText4" style="display: none;">
@@ -68,15 +68,6 @@
           <circle cx="110" cy="110" r="80" style="fill:#F0D722" />
         </svg>
       </div>
-    </div>
-  </div>
-</div>
-
-<!-- Chart display -->
-<div class="cell display-route" id="onboardingAnimateChart" style="display: none;">
-  <div class="grid-x text-center align-center">
-    <div class="cell">
-      Graph kommt hier
     </div>
   </div>
 </div>
