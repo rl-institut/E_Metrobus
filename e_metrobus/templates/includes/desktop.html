@@ -37,26 +37,27 @@
       </div>
     </div>
 
-    <div class="cell large-8 desktop__appinfo">
+    <div class="cell medium-10 large-10 xlarge-9 xxlarge-8 desktop__appinfo">
       <div class="grid-x align-center text-center">
-        <div class="cell desktop__appinfo--header">
-          <h2>{% trans 'Was vermittelt die App?' %}</h2>
+        <div class="cell medium-6 desktop__appinfo--img">
+          <img src="{% static 'images/icons/i_time_black_line.svg' %}" alt="Zeit Icon">
+          <h2>Laufzeit</h2>
+          {% trans 'Das E-MetroBus Projekt läuft für einen Zeitraum von Januar 2019 bis Januar 2023' %}
         </div>
-        <div class="cell large-4 desktop__appinfo--img">
-          <img src="{% static 'images/icons/i_co2_blue.svg' %}" alt="Kohlenstoffdioxid Icon">
-        </div><div class="cell large-4 desktop__appinfo--img">
-          <img src="{% static 'images/icons/i_ebus_blue.svg' %}" alt="E-Bus Icon">
-        </div><div class="cell large-4 desktop__appinfo--img">
-          <img src="{% static 'images/icons/i_quiz_blue.svg' %}" alt="Quiz Icon">
+        <div class="cell medium-6 desktop__appinfo--img">
+          <img src="{% static 'images/icons/i_government_black_desktop.svg' %}" alt="Ministerium Icon">
+          <h2>Förderung</h2>
+          {% trans 'Die Förderung erfolgt als ein Forschungs- und Entwicklungsvorhaben im Rahmen der Förderrichtlinie Elektromobilität des Bundesministeriums für Verkehr und digitale Infrastruktur' %}
         </div>
-        <div class="cell large-4 desktop__appinfo--text">
-          {% trans 'Genaue Zahlen der eigenen Emissionen durch eine Fahrt mit dem E-Bus' %}
+        <div class="cell medium-6 desktop__appinfo--img desktop__appinfo--img--bus">
+          <img src="{% static 'images/icons/i_bus_black_line.svg' %}" alt="Bus Icon">
+          <h2>Busse</h2>
+          {% trans 'Um möglichst lange ladungsbedingte Standzeiten zu vermeiden, müssen die Busse in der Lage sein, mit einer hohen Leistung geladen zu werden' %}
         </div>
-        <div class="cell large-4 desktop__appinfo--text">
-          {% trans 'Vergleich der Zahlen zu anderen Verkehrsmitteln' %}
-        </div>
-        <div class="cell large-4 desktop__appinfo--text">
-          {% trans 'Informationen über E-Metrobus und die Umwelt anhand eines Ouizes' %}
+        <div class="cell medium-6 desktop__appinfo--img">
+          <img src="{% static 'images/icons/i_electricity_black_line.svg' %}" alt="Strom Icon">
+          <h2>Ladeinfrastruktur</h2>
+          {% trans 'Eine Ladeinfrastruktur von über 300kW soll erprobt werden. Der resultierende Bedarf soll sowohl mit den eigens aus Erneuerbaren Energien produziertem Strom als auch aus dem Versorgungsnetz bereitgestellt werden' %}
         </div>
       </div>
     </div>
