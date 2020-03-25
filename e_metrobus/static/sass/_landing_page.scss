@@ -257,6 +257,22 @@ background: none;
   }
 }
 
+.desktop-objectives {
+  &__text {
+    background-color: $primary-color-1;
+    padding: 3rem;
+    @media only screen and (min-width: 1440px) {
+      padding: 5rem;
+    }
+  }
+  &__img {
+    background-image: url(../images/Emetrobus_LP_img.png);
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
+
 // CSS for Landscape only
 @media only screen and (min-width: 1024px) {
   .grid-container.landscape {
