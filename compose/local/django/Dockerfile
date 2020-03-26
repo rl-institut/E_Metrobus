@@ -17,6 +17,10 @@ RUN apk update \
   # libsass dependencies
   && apk add g++
 
+RUN pip install --no-cache-dir numpy
+RUN pip install --no-cache-dir pandas
+RUN pip install --no-cache-dir django-libsass==0.7
+
 # Requirements are installed here to ensure they will be cached.
 COPY ./requirements /requirements
 RUN pip install -r /requirements/local.txt
