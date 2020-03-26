@@ -1,15 +1,16 @@
 .questionstext {
-  margin: 0 1rem 1.5rem;
+  margin: .5rem 1rem 0 ;
 
   &__catlabel {
-    margin: 1.5rem 0 0 0;
+    //margin: 1rem 0 0 0;
     h2 {
+      color: #000;
       font-weight: bold;
       margin-bottom: 0;
     }
   }
   &__questlabel {
-    margin-top: 1.5rem;
+    margin-top: .5rem;
   }
   img {
     margin: 1rem 0;
