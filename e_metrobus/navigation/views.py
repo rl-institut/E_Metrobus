@@ -314,3 +314,12 @@ class QuestionsAsTextView(NavigationView):
 class LandingPageView(TemplateView):
     template_name = "navigation/landing_page.html"
     footer_links = {"dashboard": {"selected": True}}
+
+class FeedbackView(NavigationView):
+    template_name = "navigation/feedback.html"
+    footer_links = {
+        "info": {"selected": True},
+        "dashboard": {"enabled": True},
+        "leaf": {"enabled": True},
+        "results": {"enabled": True},
+    }
