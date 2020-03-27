@@ -33,6 +33,7 @@ class Question:
 class Category:
     label: str
     icon: str
+    small_icon: str
     questions: Dict[str, Question]
 
     def get_label(self):
@@ -56,6 +57,7 @@ for cat in question_config:
     QUESTIONS[cat] = Category(
         label=question_config[cat]["label"],
         icon=question_config[cat]["icon"],
+        small_icon=question_config[cat]["small_icon"],
         questions=questions,
     )
 
