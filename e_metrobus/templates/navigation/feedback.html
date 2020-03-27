@@ -5,4 +5,71 @@
 
 {% block content %}
 
+<div class="cell feedback">
+  <div class="grid-x">
+    <div class="cell feedback__quest">
+      <div class="grid-x">
+        <div class="cell feedback__quest--text">
+          <p>Wie fandest Du die App insgesamt?</p>
+        </div>
+        <div class="cell feedback__quest--stars">
+          <img src="{% static 'images/icons/i_star_blue.svg' %}" alt="star_blue">
+          <img src="{% static 'images/icons/i_star_blue.svg' %}" alt="star_blue">
+          <img src="{% static 'images/icons/i_star_blue.svg' %}" alt="star_blue">
+          <img src="{% static 'images/icons/i_star_gray.svg' %}" alt="star_gray">
+          <img src="{% static 'images/icons/i_star_gray.svg' %}" alt="star_gray">
+        </div>
+      </div>
+    </div>
+    <div class="cell feedback__quest">
+      <div class="grid-x">
+        <div class="cell feedback__quest--text">
+          <p>Wie fandest Du die App insgesamt?</p>
+        </div>
+        <div class="cell feedback__quest--stars">
+          <img src="{% static 'images/icons/i_star_gray.svg' %}" alt="star_gray">
+          <img src="{% static 'images/icons/i_star_gray.svg' %}" alt="star_gray">
+          <img src="{% static 'images/icons/i_star_gray.svg' %}" alt="star_gray">
+          <img src="{% static 'images/icons/i_star_gray.svg' %}" alt="star_gray">
+          <img src="{% static 'images/icons/i_star_gray.svg' %}" alt="star_gray">
+        </div>
+      </div>
+    </div>
+    <div class="cell feedback__quest">
+      <div class="grid-x">
+        <div class="cell feedback__quest--text">
+          <p>Wie fandest Du die App insgesamt?</p>
+        </div>
+        <div class="cell feedback__quest--stars">
+          <img src="{% static 'images/icons/i_star_gray.svg' %}" alt="star_gray">
+          <img src="{% static 'images/icons/i_star_gray.svg' %}" alt="star_gray">
+          <img src="{% static 'images/icons/i_star_gray.svg' %}" alt="star_gray">
+          <img src="{% static 'images/icons/i_star_gray.svg' %}" alt="star_gray">
+          <img src="{% static 'images/icons/i_star_gray.svg' %}" alt="star_gray">
+        </div>
+      </div>
+    </div>
+    <div class="cell feedback__quest">
+      <div class="grid-x">
+        <div class="cell feedback__quest--text">
+          <p>Schreib uns deine Meinung/Kritik:</p>
+        </div>
+        <div class="cell feedback__quest--critic">
+          <textarea name="critic" rows="4" cols="30"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="cell feedback__btn">
+      <div class="grid-x align-center text-center">
+        <div class="cell">
+          <button class="button--yellow" type="button" name="button">Meinung schicken</button>
+        </div>
+        <div class="cell feedback__btn--skip">
+          <a href="#">Überspringen</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 {% endblock %}

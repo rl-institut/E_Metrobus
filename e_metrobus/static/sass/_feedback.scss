@@ -1,0 +1,32 @@
+.feedback {
+
+
+  &__quest {
+    margin: 1.5rem 1.5rem 0;
+
+    &--stars {
+
+      img {
+        width: 2rem;
+        margin-left: .2rem;
+      }
+    }
+    &--critic {
+
+      textarea {
+        width: 20rem;
+      }
+    }
+  }
+  &__btn {
+    margin-top: 0.5rem;
+
+    &--skip {
+      margin: 1.5rem 0;
+
+      a {
+        color: $secondary-color;
+      }
+    }
+  }
+}

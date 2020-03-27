@@ -318,7 +318,7 @@ class LandingPageView(TemplateView):
 class FeedbackView(NavigationView):
     template_name = "navigation/feedback.html"
     footer_links = {
-        "info": {"selected": True},
+        "info": {"enabled": True},
         "dashboard": {"enabled": True},
         "leaf": {"enabled": True},
         "results": {"enabled": True},
