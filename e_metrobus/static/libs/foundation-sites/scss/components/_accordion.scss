@@ -83,15 +83,15 @@ $accordion-content-padding: 1rem !default;
   display: block;
   padding: $padding;
 
-  border: $border;
-  border-bottom: 0;
+  // border: $border;
+  //border-bottom: 0;
 
   font-size: $font-size;
   line-height: 1;
   color: $color;
 
   :last-child:not(.is-active) > & {
-    border-bottom: $border;
+    //border-bottom: $border;
     border-radius: 0 0 $global-radius $global-radius;
   }
 
