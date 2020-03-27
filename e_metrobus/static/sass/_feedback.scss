@@ -2,7 +2,17 @@
 
 
   &__quest {
-    margin: 1.5rem 1.5rem 0;
+    margin: 1.5rem 1.5rem 1rem;
+
+    @include breakpoint(medium only) {
+      margin-left: 0;
+    }
+
+    &--text {
+      @include breakpoint(medium only) {
+        text-align: center;
+      }
+    }
 
     &--stars {
 
@@ -10,16 +20,29 @@
         width: 2rem;
         margin-left: .2rem;
       }
+      @include breakpoint (medium only) {
+        text-align: center;
+        img {
+          text-align: center;
+        }
+      }
     }
     &--critic {
 
       textarea {
         width: 20rem;
+        @include breakpoint(medium only) {
+          margin: 0 auto;
+        }
       }
     }
   }
   &__btn {
     margin-top: 0.5rem;
+
+    @include breakpoint(medium only) {
+      margin-top: 2rem;
+    }
 
     &--skip {
       margin: 1.5rem 0;
