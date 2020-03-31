@@ -185,7 +185,7 @@ class QuestionView(NavigationView):
 
     def get_context_data(self, **kwargs):
         self.title = questions.QUESTIONS[kwargs["category"]].label
-        self.title_icon = questions.QUESTIONS[kwargs["category"]].icon
+        self.title_icon = questions.QUESTIONS[kwargs["category"]].small_icon
 
         return super(QuestionView, self).get_context_data(**kwargs)
 

@@ -184,7 +184,8 @@ background: none;
   }
   &__appinfo {
 
-    padding-top: 4rem;
+    padding-top: 8rem;
+    padding-bottom: 6rem;
 
     &--header {
       margin: 6rem 0 3rem 0;
@@ -195,17 +196,25 @@ background: none;
       }
     }
     &--img {
-      height: 3rem;
-      margin-bottom: 1rem;
+      margin-bottom: 4rem;
+      padding: 0 1rem;
+      @media screen and (min-width: 1200px) {
+        padding: 0 3rem;
+      }
+      @media screen and (min-width: 1440px) {
+        padding: 0 5rem;
+      }
       img {
         width: 3rem;
+        margin-bottom: .75rem;
+      }
+      h2 {
+        font-size: 1rem;
+        font-weight: 700;
       }
     }
-    &--text {
-      padding-top: .5rem;
-      padding-left: .5rem;
-      padding-right: .5rem;
-      max-width: 35rem;
+    &--img--bus img {
+      width: 3.75rem;
     }
   }
   &__info {
@@ -247,6 +256,22 @@ background: none;
   }
   &__logo--BVG img{
     width: 6rem;
+  }
+}
+
+.desktop-objectives {
+  &__text {
+    background-color: $primary-color-1;
+    padding: 3rem;
+    @media only screen and (min-width: 1440px) {
+      padding: 5rem;
+    }
+  }
+  &__img {
+    background-image: url(../images/Emetrobus_LP_img.png);
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 }
 
