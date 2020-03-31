@@ -160,10 +160,7 @@ class EnvironmentView(NavigationView):
         bus_data = stations.STATIONS.get_route_data_for_vehicle(
             *current_stations, vehicle="bus"
         )
-        bus_consumption = constants.Consumption(
-            distance=1,
-            **bus_data.__dict__
-        )
+        bus_consumption = constants.Consumption(distance=1, **bus_data.__dict__)
         fleet_consumption = constants.FLEET_CONSUMPTION
         context["user"] = user_consumption
         context["fleet"] = fleet_consumption
@@ -187,7 +184,14 @@ class QuestionView(NavigationView):
         self.title = questions.QUESTIONS[kwargs["category"]].label
         self.title_icon = questions.QUESTIONS[kwargs["category"]].icon
 
-        return super(QuestionView, self).get_context_data(**kwargs)
+        context = super(QuestionView, self).get_context_data(**kwargs)
+        context["category_percentage"] = round(
+            questions.get_category_done_share(
+                category=kwargs["category"], session=self.request.session
+            )
+            * 100
+        )
+        return context
 
     def get(self, request, *args, **kwargs):
         next_question = questions.get_next_question(kwargs["category"], request.session)
