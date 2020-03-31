@@ -82,7 +82,7 @@ def get_mobility_figure(values):
     for i, icon in enumerate(["pedestrian", "bike", "ebus", "bus", "car"]):
         color = "gray"
         if icon == "ebus":
-            color = "black"
+            color = "black_fill"
         fig.add_layout_image(
             go.layout.Image(
                 source=f"/static/images/icons/i_{icon}_{color}.svg",
