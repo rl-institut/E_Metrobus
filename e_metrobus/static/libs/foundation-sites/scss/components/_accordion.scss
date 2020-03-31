@@ -75,7 +75,7 @@ $accordion-content-padding: 1rem !default;
 @mixin accordion-title (
   $padding: $accordion-item-padding,
   $font-size: $accordion-title-font-size,
-  $color: $accordion-item-color,
+  $color: $black,//$accordion-item-color,
   $border: $accordion-content-border,
   $background-hover: $accordion-item-background-hover
 ) {
@@ -98,6 +98,7 @@ $accordion-content-padding: 1rem !default;
   &:hover,
   &:focus {
     background-color: $background-hover;
+    color: $black;
   }
 
   @if $accordion-plusminus {

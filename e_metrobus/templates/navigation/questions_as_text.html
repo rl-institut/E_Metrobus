@@ -4,17 +4,17 @@
 {% block content %}
 <div class="cell">
   <div class="accordion questionstext" data-accordion data-allow-all-closed="true">
-    <div data-accordion-item>
-      {% for cat_name, category in categories.items %}
-    <a href="#" class="accordion-title questionstext__catlabel"><h2>{{category.get_label}}</h2></a>
-        {% for q_name, question in category.questions.items %}
-          <div class="accordion-content" data-tab-content>
-            <div class="questionstext__questlabel"><h3>{{question.get_label}}</h3></div>
-            {% include question.template %}
-          </div>
-        {% endfor %}
-      {% endfor %}
-    </div>
+    {% for cat_name, category in categories.items %}
+      <div data-accordion-item>
+      <a href="#" class="accordion-title questionstext__catlabel"><h2>{{category.get_label}}</h2></a>
+          {% for q_name, question in category.questions.items %}
+            <div class="accordion-content" data-tab-content>
+              <div class="questionstext__questlabel"><h3>{{question.get_label}}</h3></div>
+              {% include question.template %}
+            </div>
+          {% endfor %}
+      </div>
+    {% endfor %}
   </div>
 </div>
 {% endblock %}
