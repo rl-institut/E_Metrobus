@@ -9,6 +9,7 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 - icons and images to landing page
 
 ### Changed
+- Departure station can be changed
 - category icons to filled and line icons
 - Answer animation can be skipped
 
