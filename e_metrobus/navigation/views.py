@@ -11,7 +11,7 @@ from e_metrobus.navigation import stations
 
 class NavigationView(TemplateView):
     title = "E-Metrobus"
-    title_icon = "images/icons/Icon_E_Bus_Front.svg"
+    title_icon = "images/icons/i_ebus_black_fill.svg"
     title_alt = None
     back_url = "navigation:dashboard"
     top_bar_template = None
