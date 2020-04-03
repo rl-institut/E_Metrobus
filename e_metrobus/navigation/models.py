@@ -26,4 +26,4 @@ class Feedback(models.Model):
     question3 = models.IntegerField(
         validators=[MinValueValidator(1), MaxValueValidator(5)]
     )
-    comment = models.TextField()
+    comment = models.TextField(null=True, blank=True)

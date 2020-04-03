@@ -1,0 +1,18 @@
+
+{% load static %}
+
+<input id="{{widget.attrs.id}}" type="hidden" name="{{widget.name}}" value="{{widget.value}}" required="{{widget.required}}">
+<div class="cell feedback__quest">
+  <div class="grid-x align-center">
+    <div class="cell feedback__quest--text">
+      <p>{{widget.attr.label}}</p>
+    </div>
+    <div class="cell feedback__quest--stars">
+      <img src="{% static 'images/icons/i_star_blue.svg' %}" alt="Stern">
+      <img src="{% static 'images/icons/i_star_blue.svg' %}" alt="Stern">
+      <img src="{% static 'images/icons/i_star_blue.svg' %}" alt="Stern">
+      <img src="{% static 'images/icons/i_star_gray.svg' %}" alt="Stern">
+      <img src="{% static 'images/icons/i_star_gray.svg' %}" alt="Stern">
+    </div>
+  </div>
+</div>

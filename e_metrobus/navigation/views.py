@@ -7,6 +7,7 @@ from e_metrobus.navigation import widgets
 from e_metrobus.navigation import questions
 from e_metrobus.navigation import models
 from e_metrobus.navigation import stations
+from e_metrobus.navigation import forms
 
 
 class NavigationView(TemplateView):
@@ -319,6 +320,7 @@ class LandingPageView(TemplateView):
     template_name = "navigation/landing_page.html"
     footer_links = {"dashboard": {"selected": True}}
 
+
 class FeedbackView(NavigationView):
     template_name = "navigation/feedback.html"
     footer_links = {
@@ -327,3 +329,27 @@ class FeedbackView(NavigationView):
         "leaf": {"enabled": True},
         "results": {"enabled": True},
     }
+
+    def get_context_data(self, **kwargs):
+        context = super(FeedbackView, self).get_context_data(**kwargs)
+        context["feedback"] = kwargs.get(
+            "feedback",
+            forms.FeedbackForm(
+                initial={"question1": 3, "question2": 3, "question3": 3}
+            ),
+        )
+        return context
+    
+    def get(self, request, *args, **kwargs):
+        if "feedback_given" in request.session:
+            return redirect("navigation:finished_quiz")
+        return super(FeedbackView, self).get(request, *args, **kwargs)
+
+    def post(self, request, **kwargs):
+        feedback = forms.FeedbackForm(request.POST)
+        if feedback.is_valid():
+            feedback.save()
+            request.session["feedback_given"] = True
+        else:
+            return self.render_to_response(self.get_context_data(feedback=feedback))
+        return redirect("navigation:finished_quiz")
