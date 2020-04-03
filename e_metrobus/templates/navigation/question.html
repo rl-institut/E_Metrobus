@@ -4,6 +4,9 @@
 {% load i18n %}
 
 {% block content %}
+<div class="cell progress-bar">
+  <div class="progress-bar__fill" style="width: {{category_percentage}}%;"></div>
+</div>
 <div class="cell question">
   <form method="post" action="{% url 'navigation:answer' %}" id="question">
     <input type="hidden" name="question" value="{{question.name}}">
