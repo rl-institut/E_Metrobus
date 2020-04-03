@@ -6,6 +6,7 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 
 ## [Unreleased]
 ### Added 
+- feedback page
 - icons and images to landing page
 
 ### Changed
