@@ -8,14 +8,14 @@
   {{plotly.div|safe}}
 </div>
 
-<div class="cell text-center landpage__bottom" id="next" style="bottom:3.8rem">
+<div class="cell text-center" id="next">
   <div class="cell landing__bottom-btn">
     <a href="{% url 'navigation:dashboard' %}"><button class="button">{% trans "Mehr entdecken!" %}</button></a>
   </div>
 </div>
 
-<div class="cell text-center landpage__bottom" data-open="comparisonData" style="bottom:.8rem">
-  <button class="data-source-button">Woher kommen die Zahlen?</button>
+<div class="cell text-center data-source-button" data-open="comparisonData">
+  <button>Woher kommen die Zahlen?</button>
 </div>
 
 <div class="reveal" id="comparisonData" data-reveal>
