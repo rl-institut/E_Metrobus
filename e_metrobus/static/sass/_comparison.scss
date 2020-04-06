@@ -1,0 +1,17 @@
+button.close-button {
+	background-color: transparent !important;
+	font-size: 2rem !important;
+	width: 2.5rem !important;
+	height: 2.5rem;
+}
+
+button.data-source-button {
+	background-color: transparent !important;
+	color: $secondary-color;
+}
+
+.comparison-table {
+    th {
+        min-width: 200px;
+    }
+}
