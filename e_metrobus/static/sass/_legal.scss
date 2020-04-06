@@ -4,6 +4,9 @@
     margin: 1rem 0;
     font-size: 1.1rem;
     font-weight: bold;
+    &--data {
+      margin-top: 2rem;
+    }
   }
   &__text {
     font-size: 0.9rem;
@@ -12,9 +15,9 @@
   }
   &__logo {
     width: 100%;
-    margin: 4rem 0 0;
+    margin: 1rem 0 1rem;
     img {
-      height: 4rem;
+      height: 3rem;
 
     }
   }
