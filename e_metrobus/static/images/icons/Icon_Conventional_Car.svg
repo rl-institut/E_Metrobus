@@ -5,12 +5,36 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="138.75311"
    height="50.603374"
    viewBox="0 0 138.75311 50.603375"
    version="1.1"
    id="svg28"
-   style="fill:none">
+   style="fill:none"
+   sodipodi:docname="Icon_Conventional_Car.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1853"
+     inkscape:window-height="1025"
+     id="namedview21"
+     showgrid="false"
+     inkscape:zoom="3.1855141"
+     inkscape:cx="69.376556"
+     inkscape:cy="25.301687"
+     inkscape:window-x="67"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg28" />
   <metadata
      id="metadata34">
     <rdf:RDF>
@@ -19,19 +43,12 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <defs
      id="defs32" />
-  <ellipse
-     ry="6.75"
-     rx="56.018623"
-     cy="43.853374"
-     cx="82.734482"
-     id="path822"
-     style="opacity:0.869;fill:#efefef;fill-opacity:1;stroke:none;stroke-width:7.86691666;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:fill markers stroke" />
   <path
      d="m 40.500058,17.452351 -0.3178,14.5127 5.19069,0.8475 80.296602,0.2119 2.9661,-3.7077 -0.9534,-11.1228 c 0,0 -18.4322,-2.7543 -18.9619,-2.6483 -0.5296,0.1059 -57.309302,-0.7416 -57.309302,-0.7416 z"
      id="path4"

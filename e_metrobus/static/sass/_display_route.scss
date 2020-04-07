@@ -10,6 +10,11 @@
 
   &__wrap {
     position: relative;
+
+    img {
+      height: 4.5rem;
+      padding-top: 2rem;
+    }
   }
 
   &__text,
@@ -58,11 +63,6 @@
     font-weight: 700;
     font-size: 3rem;
     padding: 0 4rem;
-  }
-
-  &__circle {
-    transform: translateY(-50%);
-    z-index: 1;
   }
 }
 
