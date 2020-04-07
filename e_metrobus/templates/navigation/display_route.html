@@ -7,26 +7,30 @@
 
 <!-- route display -->
 <div class="cell display-route" id="onboardingAnimate1">
-  <div class="grid-x text-center align-center">
-    <div class="cell display-route__start">
-      {{stations.0}}
-    </div>
+  <div class="grid-x text-center align-middle display-route__stations">
     <div class="cell">
-      <svg width="52" height="250">
-        <circle cx="26" cy="6" r="6"/>
-				<rect x="20" y="7" width="12" height="236" />
-        <circle cx="26" cy="244" r="6"/>
-        <circle cx="26" cy="6" r="4" fill="#fff"/>
-        <circle cx="26" cy="244" r="4" fill="#fff"/>
-        <rect x="20" y="105" width="20" height="2" style="fill:#F0D722" />
-        <rect x="20" y="115" width="20" height="4" style="fill:#F0D722" />
-        <rect x="20" y="125" width="20" height="10" style="fill:#F0D722" />
-        <rect x="20" y="141" width="20" height="4" style="fill:#F0D722" />
-        <rect x="20" y="153" width="20" height="2" style="fill:#F0D722" />
-			</svg>
-    </div>
-    <div class="cell display-route__end">
-      {{stations.1}}
+      <div class="grid-x">
+        <div class="cell display-route__start">
+          {{stations.0}}
+        </div>
+        <div class="cell">
+          <svg width="52" height="250">
+            <circle cx="26" cy="6" r="6"/>
+            <rect x="20" y="7" width="12" height="236" />
+            <circle cx="26" cy="244" r="6"/>
+            <circle cx="26" cy="6" r="4" fill="#fff"/>
+            <circle cx="26" cy="244" r="4" fill="#fff"/>
+            <rect x="20" y="105" width="20" height="2" style="fill:#F0D722" />
+            <rect x="20" y="115" width="20" height="4" style="fill:#F0D722" />
+            <rect x="20" y="125" width="20" height="10" style="fill:#F0D722" />
+            <rect x="20" y="141" width="20" height="4" style="fill:#F0D722" />
+            <rect x="20" y="153" width="20" height="2" style="fill:#F0D722" />
+          </svg>
+        </div>
+        <div class="cell display-route__end">
+          {{stations.1}}
+        </div>
+      </div>
     </div>
   </div>
   <div class="carousel-arrow carousel-arrow--next" onclick="show2()">
