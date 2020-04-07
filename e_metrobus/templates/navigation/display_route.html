@@ -104,7 +104,7 @@
   <div class="carousel-arrow carousel-arrow--previous" onclick="show4()">
     <img src="{% static 'images/icons/i_previous_black_large.svg' %}" alt="Zur vorherigen Seite Icon">
   </div>
-  <div class="carousel-arrow carousel-arrow--next" onclick="show2()">
+  <div class="carousel-arrow carousel-arrow--next" onclick="toComparisonPage()">
     <img src="{% static 'images/icons/i_next_black_large.svg' %}" alt="Zur nächsten Seite Icon">
   </div>
 </div>
@@ -144,6 +144,10 @@ function show5() {
   $('#onboardingAnimate4').hide();
   $('#onboardingAnimate5').show();
 };
+
+function toComparisonPage() {
+  window.location = "/comparison/";
+}
 
   /*
   setTimeout(function() {
