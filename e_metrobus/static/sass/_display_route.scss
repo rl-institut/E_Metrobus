@@ -86,7 +86,7 @@
 .carousel-arrow {
   position: absolute;
   width: 50%;
-  height: 100%;
+  height: calc(100vh - 6rem);
   top: 2.8rem;
   z-index: 99999;
 
