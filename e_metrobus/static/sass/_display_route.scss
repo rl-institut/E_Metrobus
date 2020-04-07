@@ -12,8 +12,8 @@
     position: relative;
 
     img {
-      height: 4.5rem;
-      padding-top: 2rem;
+      height: 3rem;
+      margin-top: 4rem;
     }
   }
 
@@ -47,11 +47,11 @@
 
   &__sentence {
     font-weight: 400;
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     padding: 0 4rem;
 
     @media (max-width: 360px) {
-      font-size: 1rem;
+      font-size: 1.25rem;
     }
 
     span {
@@ -62,7 +62,7 @@
   &__number {
     font-weight: 700;
     font-size: 3rem;
-    padding: 0 4rem;
+    padding: 0 3rem;
   }
 }
 
