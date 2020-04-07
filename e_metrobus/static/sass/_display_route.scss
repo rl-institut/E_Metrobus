@@ -1,10 +1,8 @@
 
 .display-route {
   font-weight: 700;
-  height: calc(100vh - 12rem); 
-  display: flex; 
-  flex-direction: column; 
-  justify-content: center;
+  height: calc(100vh - 6rem); 
+  background-color: $primary-color-1;
 
   &__start {
     padding-bottom: .5rem;
@@ -15,12 +13,22 @@
   }
 
   &__text,
-  &__number,
   &__circle {
     margin: 0;
     position: absolute;
-    top: 25%;
     width: 100%;
+  }
+
+  &__text {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
+  &__circle {
+    top: 20%;
   }
 
   &__number {
@@ -35,6 +43,7 @@
   &__sentence {
     font-weight: 400;
     font-size: 1.25rem;
+    padding: 0 4rem;
 
     @media (max-width: 360px) {
       font-size: 1rem;
@@ -48,6 +57,7 @@
   &__number {
     font-weight: 700;
     font-size: 3rem;
+    padding: 0 4rem;
   }
 
   &__circle {

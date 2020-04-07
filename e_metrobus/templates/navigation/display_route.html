@@ -18,12 +18,11 @@
         <circle cx="26" cy="244" r="6"/>
         <circle cx="26" cy="6" r="4" fill="#fff"/>
         <circle cx="26" cy="244" r="4" fill="#fff"/>
-        <rect x="20" y="105" width="20" height="2" style="fill:#FFF" />
-        <rect x="20" y="115" width="20" height="4" style="fill:#FFF" />
-        <rect x="20" y="125" width="20" height="10" style="fill:#FFF" />
-        <rect x="20" y="141" width="20" height="4" style="fill:#FFF" />
-        <rect x="20" y="153" width="20" height="2" style="fill:#FFF" />
-        <polygon points="21,60 31,60 26,70" fill="#fff"/>
+        <rect x="20" y="105" width="20" height="2" style="fill:#F0D722" />
+        <rect x="20" y="115" width="20" height="4" style="fill:#F0D722" />
+        <rect x="20" y="125" width="20" height="10" style="fill:#F0D722" />
+        <rect x="20" y="141" width="20" height="4" style="fill:#F0D722" />
+        <rect x="20" y="153" width="20" height="2" style="fill:#F0D722" />
 			</svg>
     </div>
     <div class="cell display-route__end">
@@ -37,18 +36,11 @@
 
 <div class="cell display-route" id="onboardingAnimate2" style="display: none;">
   <div class="grid-x display-route__grid text-center align-center">
-    <div class="cell onboarding-icon">
-      <img src="{% static 'images/icons/Icon_Pin.svg' %}" alt="Pin Icon">
-    </div>
     <div class="cell display-route__wrap">
+      <img src="{% static 'images/icons/Icon_Pin.svg' %}" alt="Pin Icon">
       <div class="display-route__text">
         <p class="display-route__sentence">{% trans "Deine Strecke mit dem <span>E-Bus</span> beträgt" %}</p>
         <p class="display-route__number">{{distance}} km</p>
-      </div>
-      <div class="display-route__circle">
-        <svg viewBox="0 0 220 220">
-          <circle cx="110" cy="110" r="80" style="fill:#F0D722" />
-        </svg>
       </div>
     </div>
   </div>
@@ -62,18 +54,11 @@
 
 <div class="cell display-route" id="onboardingAnimate3" style="display: none;">
   <div class="grid-x display-route__grid text-center align-center">
-    <div class="cell onboarding-icon">
-      <img id="onboardingAnimateIcon2" src="{% static 'images/icons/Icon_Conventional_Bus.svg' %}" alt="Conventional Bus Icon">
-    </div>
     <div class="cell display-route__wrap">
+      <img id="onboardingAnimateIcon2" src="{% static 'images/icons/Icon_Conventional_Bus.svg' %}" alt="Conventional Bus Icon">
       <div class="display-route__text">
         <p class="display-route__sentence">{% trans "Im Vergleich zum <span>Dieselbus</span> sparst Du" %}</p>
         <p class="display-route__number">{{comparison.bus|floatformat:"0"}} % CO2</p>
-      </div>
-      <div class="display-route__circle">
-        <svg viewBox="0 0 220 220">
-          <circle cx="110" cy="110" r="80" style="fill:#F0D722" />
-        </svg>
       </div>
     </div>
   </div>
@@ -87,18 +72,11 @@
 
 <div class="cell display-route" id="onboardingAnimate4" style="display: none;">
   <div class="grid-x display-route__grid text-center align-center">
-    <div class="cell onboarding-icon">
-      <img id="onboardingAnimateIcon3" src="{% static 'images/icons/Icon_Conventional_Car.svg' %}" alt="Conventional Car Icon">
-    </div>
     <div class="cell display-route__wrap">
+      <img id="onboardingAnimateIcon3" src="{% static 'images/icons/Icon_Conventional_Car.svg' %}" alt="Conventional Car Icon">
       <div class="display-route__text">
         <p class="display-route__sentence">{% trans "Im Vergleich zum <span>Pkw</span> sparst Du" %}</p>
         <p class="display-route__number">{{comparison.car|floatformat:"0"}} % CO2</p>
-      </div>
-      <div class="display-route__circle">
-        <svg viewBox="0 0 220 220">
-          <circle cx="110" cy="110" r="80" style="fill:#F0D722" />
-        </svg>
       </div>
     </div>
   </div>
@@ -112,17 +90,10 @@
 
 <div class="cell display-route" id="onboardingAnimate5" style="display: none;">
   <div class="grid-x display-route__grid text-center align-center">
-    <div class="cell onboarding-icon">
-      <img id="onboardingAnimateIcon4" src="{% static 'images/icons/Icon_Pedestrian_Bike.svg' %}" alt="Walking person and bycicle Icon">
-    </div>
     <div class="cell display-route__wrap">
+      <img id="onboardingAnimateIcon4" src="{% static 'images/icons/Icon_Pedestrian_Bike.svg' %}" alt="Walking person and bycicle Icon">
       <div class="display-route__text">
         <p class="display-route__sentence">{% trans "Nur noch <span>zu Fuß</span> oder mit dem <span>Fahrrad</span> kannst Du es besser machen!" %}</p>
-      </div>
-      <div class="display-route__circle">
-        <svg viewBox="0 0 220 220">
-          <circle cx="110" cy="110" r="80" style="fill:#F0D722" />
-        </svg>
       </div>
     </div>
   </div>
