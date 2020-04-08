@@ -65,7 +65,7 @@ msgstr ""
 "Come and experience the advantages of electric mobility! Through the use of the"
 "live map, you can always track where our electric buses are currently on the"
 "road. And while you are waiting for the bus to arrive, why not discover new"
-information about the topic?"
+"information about the topic?"
 
 
 #: e_metrobus/templates/includes/landscape.html:7
@@ -400,7 +400,7 @@ msgstr ""
 "bus line 200 will save approximately 15 kg of CO2 per journey. This means"
 "that over the course of the whole year, approximately 444 tonnes of CO2"
 "will be saved. To achieve the same effect, around 12 diesel passenger cars"
-would have to to be electrified assuming regular driving behaviour.\n"
+"would have to to be electrified assuming regular driving behaviour.\n"
 
 #: e_metrobus/templates/questions/personal/advantages.html:4
 msgid ""
@@ -441,8 +441,6 @@ msgstr ""
 "economic efficiency and user acceptance of the electric bus line were"
 "evaluated. The trial phase is now completed and the electric buses are"
 "already fully integrated into the BVG fleet.\n"
-
-\n"
 
 #: e_metrobus/templates/widgets/stations.html:40
 msgid "Bitte gib Deine Strecke ein!"
