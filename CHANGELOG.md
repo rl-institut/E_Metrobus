@@ -6,9 +6,11 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 
 ## [Unreleased]
 ### Added 
+- real station data
 - icons and images to landing page
 
 ### Changed
+- timed display route to carousel
 - Departure station can be changed
 - category icons to filled and line icons
 - Answer animation can be skipped
