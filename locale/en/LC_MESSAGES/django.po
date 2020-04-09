@@ -130,16 +130,16 @@ msgid ""
 "Nur noch <span>zu Fuß</span> oder mit dem <span>Fahrrad</span> kannst Du es "
 "besser machen!"
 msgstr ""
-"You can only do better <span>on foot</span> or with the"
+"You can only do better <span>on foot</span> or with the "
 "<span>bike</span>!"
 
 #: e_metrobus/templates/navigation/environment.html:11
 msgid "Deine Fahrt"
-msgstr "Your journey
+msgstr "Your journey"
 
 #: e_metrobus/templates/navigation/environment.html:14
 msgid "E-Bus Flotte"
-msgstr "E-Bus Fleet
+msgstr "E-Bus Fleet"
 
 #: e_metrobus/templates/navigation/environment.html:47
 #: e_metrobus/templates/navigation/environment.html:51
@@ -414,6 +414,7 @@ msgid ""
 "durchschnittlichen PKW und ist damit um ca. die Hälfte geringer als die "
 "eines modernen Dieselbusmotors.\n"
 msgstr ""
+"\n"
 "As a passenger, you benefit from a much quiter driving experience.\n"
 "Electric buses are quieter than diesel buses and they vibrate less. \n"
 "As a resident of bus line 200, you can enjoy much lower noise and"
