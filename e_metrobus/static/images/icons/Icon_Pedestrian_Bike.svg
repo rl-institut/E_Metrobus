@@ -5,12 +5,36 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="183.00571"
    height="61.695171"
    viewBox="0 0 183.00571 61.695171"
    version="1.1"
    id="svg4"
-   style="fill:none">
+   style="fill:none"
+   sodipodi:docname="Icon_Pedestrian_Bike.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1853"
+     inkscape:window-height="1025"
+     id="namedview10"
+     showgrid="false"
+     inkscape:zoom="2.4152252"
+     inkscape:cx="91.502853"
+     inkscape:cy="30.847586"
+     inkscape:window-x="67"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4" />
   <metadata
      id="metadata10">
     <rdf:RDF>
@@ -19,30 +43,16 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <defs
      id="defs8" />
-  <ellipse
-     style="opacity:0.869;fill:#efefef;fill-opacity:1;stroke:none;stroke-width:7.13176727;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:fill markers stroke"
-     id="path822"
-     cx="136.96756"
-     cy="54.945171"
-     rx="46.038136"
-     ry="6.75" />
   <path
      d="m 118.55072,30.843997 c 6.9255,0 12.54,5.624 12.54,12.54 0,6.9255 -5.6145,12.54 -12.54,12.54 -6.9255,0 -12.54004,-5.6145 -12.54004,-12.54 0,-6.916 5.61454,-12.54 12.54004,-12.54 z m 38.76,0 c 6.9255,0 12.54,5.624 12.54,12.54 0,6.9255 -5.6145,12.54 -12.54,12.54 -6.9255,0 -12.54,-5.6145 -12.54,-12.54 0,-6.916 5.6145,-12.54 12.54,-12.54 z m -38.76,3.135 c 5.187,0 9.405,4.218 9.405,9.405 0,5.1965 -4.218,9.405 -9.405,9.405 -5.187,0 -9.40504,-4.2085 -9.40504,-9.405 0,-5.187 4.21804,-9.405 9.40504,-9.405 z m 38.76,0 c 5.187,0 9.405,4.218 9.405,9.405 0,5.1965 -4.218,9.405 -9.405,9.405 -5.187,0 -9.405,-4.2085 -9.405,-9.405 0,-5.187 4.218,-9.405 9.405,-9.405 z m -23.522,-25.1465002 c 0.6555,-0.0095 1.311,0.2375 1.8145,0.7315 l 10.7635,10.7730002 h 8.4455 c 1.3775,0 2.4985,1.1115 2.4985,2.489 0,1.3775 -1.121,2.4985 -2.4985,2.4985 h -9.4145 c -0.01,0 -0.019,0 -0.0285,0 -0.6555,0.0095 -1.3015,-0.2375 -1.7955,-0.7315 l -9.2625,-9.2625 -4.9495,8.5595 12.597,3.382 c 1.1305,0.2945 1.8715,1.33 1.8525,2.451 0,0.228 -0.0285,0.456 -0.0855,0.684 l -4.2085,15.713 c -0.361,1.33 -1.729,2.1185 -3.059,1.767 -1.33,-0.361 -2.1185,-1.729 -1.767,-3.059 l 3.591,-13.376 -13.319,-3.572 c -1.1305,-0.304 -1.862,-1.3205 -1.8525,-2.4415 -0.01,-0.4275 0.1045,-0.874 0.3325,-1.273 l 8.132,-14.079 c 0.475,-0.8170001 1.33,-1.2635001 2.2135,-1.2540002 z m 2.6695,-8.78749995 c 2.3085,0 4.1705,1.87149995 4.1705,4.17049995 0,2.299 -1.862,4.1705 -4.1705,4.1705 -2.299,0 -4.1705,-1.8715 -4.1705,-4.1705 0,-2.299 1.8715,-4.17049995 4.1705,-4.17049995 z"
      id="path2"
      style="clip-rule:evenodd;fill:#000000;fill-rule:evenodd" />
-  <ellipse
-     style="opacity:0.869;fill:#efefef;fill-opacity:1;stroke:none;stroke-width:5.95925045;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:fill markers stroke"
-     id="path822-4"
-     cx="32.144501"
-     cy="54.527534"
-     rx="32.144501"
-     ry="6.75" />
   <path
      d="m 35.824086,10.627422 c 2.93471,0 5.31366,-2.3790616 5.31366,-5.3137167 C 41.137746,2.379028 38.758796,0 35.824086,0 c -2.9347,0 -5.31366,2.379028 -5.31366,5.3137053 0,2.9346551 2.37896,5.3137167 5.31366,5.3137167 z"
      id="path2-4"
