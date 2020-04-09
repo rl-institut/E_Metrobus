@@ -47,6 +47,9 @@ class Stations:
         for i, station in enumerate(self.stations):
             self.stations[station] = self.stations.iloc[i]
 
+        # Distances in meter -> kilometer:
+        self.stations = self.stations / 1000
+
     @staticmethod
     def __calc_route_data(km, vehicle):
         return vehicle.data * vehicle.passengers * km
