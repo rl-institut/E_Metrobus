@@ -47,7 +47,11 @@
       <!-- 1st result -->
       <div class="display-route__text" id="onboardingAnimateText1" style="display: none;">
         <p class="display-route__sentence">{% trans "Deine Strecke mit dem <span>E-Bus</span> beträgt" %}</p>
-        <p class="display-route__number">{{distance}} km</p>
+        {% if distance < 1 %}
+          <p class="display-route__number">{{distance_in_meter|floatformat:"0"}} m</p>
+        {% else %}
+          <p class="display-route__number">{{distance|floatformat:"1"}} km</p>
+        {% endif %}
       </div>
       <!-- 2nd result -->
       <div class="display-route__text" id="onboardingAnimateText2" style="display: none;">

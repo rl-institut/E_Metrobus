@@ -104,6 +104,7 @@ class DisplayRouteView(NavigationView):
         ]
         context["stations"] = current_stations
         context["distance"] = stations.STATIONS.get_distance(*current_stations)
+        context["distance_in_meter"] = context["distance"] * 1000
         route_data = stations.STATIONS.get_route_data(*current_stations)
         context["comparison"] = {
             "bus": (route_data["bus"].co2 - route_data["e-bus"].co2)
