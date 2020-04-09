@@ -75,7 +75,7 @@ $accordion-content-padding: 1rem !default;
 @mixin accordion-title (
   $padding: $accordion-item-padding,
   $font-size: $accordion-title-font-size,
-  $color: $accordion-item-color,
+  $color: $black,//$accordion-item-color,
   $border: $accordion-content-border,
   $background-hover: $accordion-item-background-hover
 ) {
@@ -83,21 +83,22 @@ $accordion-content-padding: 1rem !default;
   display: block;
   padding: $padding;
 
-  border: $border;
-  border-bottom: 0;
+  // border: $border;
+  //border-bottom: 0;
 
   font-size: $font-size;
   line-height: 1;
   color: $color;
 
   :last-child:not(.is-active) > & {
-    border-bottom: $border;
+    //border-bottom: $border;
     border-radius: 0 0 $global-radius $global-radius;
   }
 
   &:hover,
   &:focus {
     background-color: $background-hover;
+    color: $black;
   }
 
   @if $accordion-plusminus {

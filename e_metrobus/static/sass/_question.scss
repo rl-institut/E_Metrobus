@@ -1,3 +1,14 @@
+.progress-bar {
+  height: .75rem;
+  width: 100%;
+  background-color: $gray-3;
+
+  &__fill {
+    background-color: $primary-color-2;
+    height: 100%;
+  }
+}
+
 .question{
 
   &__text {

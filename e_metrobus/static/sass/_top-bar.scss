@@ -4,6 +4,7 @@ section.top-bar {
 	height: $top-bar-height;
 	width: 100%;
 	text-align: center;
+	z-index: 3;
 
 	.cell {
 		height: 100%;
@@ -22,7 +23,7 @@ section.top-bar {
 
 	.top-bar--language {
 		img {
-			height: 2rem;
+			height: 1.25rem;
 		}
 	}
 
