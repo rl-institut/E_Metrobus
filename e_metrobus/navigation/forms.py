@@ -20,3 +20,6 @@ class FeedbackForm(forms.ModelForm):
             "question3": FeedbackStarsWidget,
             "comment": FeedbackCommentWidget
         }
+
+    class Media:
+        js = ("js/feedback.js",)

@@ -1,18 +1,18 @@
 
 {% load static %}
 
-<input id="{{widget.attrs.id}}" type="hidden" name="{{widget.name}}" value="{{widget.value}}" required="{{widget.required}}">
 <div class="cell feedback__quest">
   <div class="grid-x align-center">
     <div class="cell feedback__quest--text">
       <p>{{widget.attr.label}}</p>
     </div>
     <div class="cell feedback__quest--stars">
-      <img src="{% static 'images/icons/i_star_blue.svg' %}" alt="Stern">
-      <img src="{% static 'images/icons/i_star_blue.svg' %}" alt="Stern">
-      <img src="{% static 'images/icons/i_star_blue.svg' %}" alt="Stern">
-      <img src="{% static 'images/icons/i_star_gray.svg' %}" alt="Stern">
-      <img src="{% static 'images/icons/i_star_gray.svg' %}" alt="Stern">
+      <input id="star_input" type="hidden" name="{{widget.name}}" value="{{widget.value}}">
+      <svg onclick="star_clicked(this);" onmouseover="star_hovered(this);" onmouseout="star_unhovered(this);" data-rating="1"><path style="fill:#17bebb;fill-opacity:1" d="M94,36.3l-27.7-3.1c-0.5-0.1-1-0.4-1.2-0.9L53.6,6.9c-1.4-3.1-5.8-3.1-7.2,0L34.9,32.3c-0.2,0.5-0.7,0.8-1.2,0.9L6,36.3    c-3.4,0.4-4.7,4.6-2.2,6.8l20.6,18.8c0.4,0.4,0.6,0.9,0.5,1.4l-5.6,27.3c-0.7,3.3,2.9,5.9,5.8,4.2l24.2-13.7c0.5-0.3,1-0.3,1.5,0    L75,94.8c3,1.7,6.5-0.9,5.8-4.2l-5.6-27.3c-0.1-0.5,0.1-1.1,0.5-1.4l20.6-18.8C98.7,40.8,97.4,36.7,94,36.3z" /></svg>
+      <svg onclick="star_clicked(this);" onmouseover="star_hovered(this);" onmouseout="star_unhovered(this);" data-rating="2"><path style="fill:#17bebb;fill-opacity:1" d="M94,36.3l-27.7-3.1c-0.5-0.1-1-0.4-1.2-0.9L53.6,6.9c-1.4-3.1-5.8-3.1-7.2,0L34.9,32.3c-0.2,0.5-0.7,0.8-1.2,0.9L6,36.3    c-3.4,0.4-4.7,4.6-2.2,6.8l20.6,18.8c0.4,0.4,0.6,0.9,0.5,1.4l-5.6,27.3c-0.7,3.3,2.9,5.9,5.8,4.2l24.2-13.7c0.5-0.3,1-0.3,1.5,0    L75,94.8c3,1.7,6.5-0.9,5.8-4.2l-5.6-27.3c-0.1-0.5,0.1-1.1,0.5-1.4l20.6-18.8C98.7,40.8,97.4,36.7,94,36.3z" /></svg>
+      <svg onclick="star_clicked(this);" onmouseover="star_hovered(this);" onmouseout="star_unhovered(this);" data-rating="3"><path style="fill:#17bebb;fill-opacity:1" d="M94,36.3l-27.7-3.1c-0.5-0.1-1-0.4-1.2-0.9L53.6,6.9c-1.4-3.1-5.8-3.1-7.2,0L34.9,32.3c-0.2,0.5-0.7,0.8-1.2,0.9L6,36.3    c-3.4,0.4-4.7,4.6-2.2,6.8l20.6,18.8c0.4,0.4,0.6,0.9,0.5,1.4l-5.6,27.3c-0.7,3.3,2.9,5.9,5.8,4.2l24.2-13.7c0.5-0.3,1-0.3,1.5,0    L75,94.8c3,1.7,6.5-0.9,5.8-4.2l-5.6-27.3c-0.1-0.5,0.1-1.1,0.5-1.4l20.6-18.8C98.7,40.8,97.4,36.7,94,36.3z" /></svg>
+      <svg onclick="star_clicked(this);" onmouseover="star_hovered(this);" onmouseout="star_unhovered(this);" data-rating="4"><path style="fill:#17bebb;fill-opacity:1" d="M94,36.3l-27.7-3.1c-0.5-0.1-1-0.4-1.2-0.9L53.6,6.9c-1.4-3.1-5.8-3.1-7.2,0L34.9,32.3c-0.2,0.5-0.7,0.8-1.2,0.9L6,36.3    c-3.4,0.4-4.7,4.6-2.2,6.8l20.6,18.8c0.4,0.4,0.6,0.9,0.5,1.4l-5.6,27.3c-0.7,3.3,2.9,5.9,5.8,4.2l24.2-13.7c0.5-0.3,1-0.3,1.5,0    L75,94.8c3,1.7,6.5-0.9,5.8-4.2l-5.6-27.3c-0.1-0.5,0.1-1.1,0.5-1.4l20.6-18.8C98.7,40.8,97.4,36.7,94,36.3z" /></svg>
+      <svg onclick="star_clicked(this);" onmouseover="star_hovered(this);" onmouseout="star_unhovered(this);" data-rating="5"><path style="fill:#17bebb;fill-opacity:1" d="M94,36.3l-27.7-3.1c-0.5-0.1-1-0.4-1.2-0.9L53.6,6.9c-1.4-3.1-5.8-3.1-7.2,0L34.9,32.3c-0.2,0.5-0.7,0.8-1.2,0.9L6,36.3    c-3.4,0.4-4.7,4.6-2.2,6.8l20.6,18.8c0.4,0.4,0.6,0.9,0.5,1.4l-5.6,27.3c-0.7,3.3,2.9,5.9,5.8,4.2l24.2-13.7c0.5-0.3,1-0.3,1.5,0    L75,94.8c3,1.7,6.5-0.9,5.8-4.2l-5.6-27.3c-0.1-0.5,0.1-1.1,0.5-1.4l20.6-18.8C98.7,40.8,97.4,36.7,94,36.3z" /></svg>
     </div>
   </div>
 </div>

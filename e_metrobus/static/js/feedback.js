@@ -1,0 +1,25 @@
+
+function star_hovered(star) {
+  let rating = $(star).data("rating");
+  select_stars($(star).parent(), rating);
+};
+
+function star_unhovered(star) {
+  let rating = $(star).parent().find("#star_input").val();
+  select_stars($(star).parent(), rating);
+};
+
+function star_clicked(star) {
+  let rating = $(star).data("rating");
+  $(star).parent().find("#star_input").val(rating);
+}
+
+function select_stars(star_form, rating) {
+  star_form.children("svg").each(function(i, svg) {
+     if ($(svg).data("rating") <= rating) {
+        $(svg).find("path").css("fill", "green");
+     } else {
+        $(svg).find("path").css("fill", "blue");
+     }
+  });
+}
