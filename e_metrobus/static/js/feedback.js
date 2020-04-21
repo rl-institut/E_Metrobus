@@ -1,4 +1,8 @@
 
+function init_stars() {
+  select_stars($(".feedback__quest--stars"), 0);
+}
+
 function star_hovered(star) {
   let rating = $(star).data("rating");
   select_stars($(star).parent(), rating);
@@ -14,8 +18,11 @@ function star_clicked(star) {
   $(star).parent().find("#star_input").val(rating);
 }
 
-function select_stars(star_form, rating) {
-  star_form.children("svg").each(function(i, svg) {
+function select_stars(stars, rating) {
+  if (rating == 0) {
+    rating = stars.find("#star_input").val();
+  }
+  stars.children("svg").each(function(i, svg) {
      if ($(svg).data("rating") <= rating) {
         $(svg).find("path").css("fill", "green");
      } else {
@@ -23,3 +30,5 @@ function select_stars(star_form, rating) {
      }
   });
 }
+
+init_stars();
