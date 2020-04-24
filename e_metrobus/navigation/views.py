@@ -131,8 +131,9 @@ class ComparisonView(NavigationView):
         route_data = stations.STATIONS.get_route_data(*current_stations)
         chart_order = ("pedestrian", "bicycle", "e-bus", "bus", "car")
         context["plotly"] = chart.get_mobility_figure(
-            [route_data[vehicle].co2 for vehicle in chart_order]
+            [int(route_data[vehicle].co2) for vehicle in chart_order]
         )
+        context["info_table"] = widgets.InfoTable()
         return context
 
 
@@ -299,6 +300,11 @@ class LegalView(NavigationView):
         "leaf": {"enabled": True},
         "results": {"enabled": True},
     }
+
+    def get_context_data(self, **kwargs):
+        context = super(LegalView, self).get_context_data(**kwargs)
+        context["info_table"] = widgets.InfoTable()
+        return context
 
 
 class QuestionsAsTextView(NavigationView):

@@ -1,40 +1,12 @@
 import os
-from dataclasses import dataclass, fields
 from typing import Dict
 
 import pandas
 from django.conf import settings
 
+from e_metrobus.navigation.constants import DataPerKilometer, VEHICLES
+
 STATIONS_FILE = os.path.join(settings.APPS_DIR, "navigation", "stations.csv")
-
-
-@dataclass
-class DataPerKilometer:
-    fuel: float
-    co2: float
-    nitrogen: float
-    fine_dust: float
-
-    def __mul__(self, value):
-        return DataPerKilometer(
-            *(getattr(self, dim.name) * value for dim in fields(self))
-        )
-
-
-@dataclass
-class Vehicle:
-    name: str
-    passengers: int
-    data: DataPerKilometer
-
-
-VEHICLES = [
-    Vehicle(name="car", passengers=30, data=DataPerKilometer(14 / 100, 322, 34, 54)),
-    Vehicle(name="bus", passengers=30, data=DataPerKilometer(10 / 100, 200, 22, 40)),
-    Vehicle(name="e-bus", passengers=30, data=DataPerKilometer(5 / 100, 120, 10, 30)),
-    Vehicle(name="bicycle", passengers=30, data=DataPerKilometer(0, 0, 0, 0)),
-    Vehicle(name="pedestrian", passengers=30, data=DataPerKilometer(0, 0, 0, 0)),
-]
 
 
 class Stations:
@@ -52,7 +24,7 @@ class Stations:
 
     @staticmethod
     def __calc_route_data(km, vehicle):
-        return vehicle.data * vehicle.passengers * km
+        return vehicle.data * km / vehicle.passengers
 
     def get_stations(self):
         return [station for station in self.stations]
