@@ -14,16 +14,27 @@
       <div class="cell small-10 question__text">
         {% csrf_token %}
         <h2>{% trans question.question %}</h2>
-        Multiple-Choice: {{question.is_multiple_choice}}
+        {% if question.is_multiple_choice %}
+          ({% trans 'Mehrere Antworten möglich' %})
+        {% endif %}
       </div>
       <div class="cell small-10 question__answer">
         <fieldset name="answer">
           {% for answer in question.answers %}
-            <input type="radio" class="radio" name="answer" value="{{answer}}" id="answer{{forloop.counter}}"/>
+            {% if question.is_multiple_choice %}
+              <input type="checkbox" class="checkbox" name="answer" value="{{answer}}" id="answer{{forloop.counter}}"/>
+            {% else %}
+              <input type="radio" class="radio" name="answer" value="{{answer}}" id="answer{{forloop.counter}}"/>
+            {% endif %}
             <label for="answer{{forloop.counter}}">{% trans answer %}</label>
           {% endfor %}
         </fieldset>
       </div>
+      {% if question.is_multiple_choice %}
+      <div class="cell text-center question__btn">
+        <input class="button" type="submit" value="{% trans 'Antworten' %}">
+      </div>
+      {% endif %}
     </div>
   </form>
 </div>
@@ -33,13 +44,19 @@
   {{block.super}}
   <script>
     $(".radio").change(function() {
-      $("#answer").addClass("answer--ready");
       setTimeout(
         function () {
           $("#question").submit();
         },
         300
       );
+    });
+    $(".checkbox").change(function() {
+      if ($('fieldset[name="answer"] input:checked').length > 0) {
+        $(".question__btn").addClass("answer--ready");
+      } else {
+        $(".question__btn").removeClass("answer--ready");
+      };
     });
   </script>
 {% endblock %}
