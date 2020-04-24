@@ -264,6 +264,7 @@ class QuizFinishedView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(QuizFinishedView, self).get_context_data(**kwargs)
+        context["feedback_given"] = self.request.session.get("feedback_given", False)
         if "share" in kwargs or "hash" not in kwargs:
             context["points"] = questions.get_total_score(self.request.session)
             context["show_link"] = True
@@ -339,13 +340,17 @@ class FeedbackView(NavigationView):
             ),
         )
         return context
-    
+
     def get(self, request, *args, **kwargs):
         if "feedback_given" in request.session:
             return redirect("navigation:finished_quiz")
         return super(FeedbackView, self).get(request, *args, **kwargs)
 
     def post(self, request, **kwargs):
+        if "skip" in request.POST:
+            request.session["feedback_given"] = True
+            return redirect("navigation:finished_quiz")
+
         feedback = forms.FeedbackForm(request.POST)
         if feedback.is_valid():
             feedback.save()
