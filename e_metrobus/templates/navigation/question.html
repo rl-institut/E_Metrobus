@@ -15,7 +15,7 @@
         {% csrf_token %}
         <h2>{% trans question.question %}</h2>
         {% if question.is_multiple_choice %}
-          ({% trans 'Mehrere Antworten möglich' %})
+          <span class="question__hint">({% trans 'Mehrere Antworten möglich' %})</span>
         {% endif %}
       </div>
       <div class="cell small-10 question__answer">
