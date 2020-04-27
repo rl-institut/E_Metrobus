@@ -7,6 +7,7 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 ## [Unreleased]
 ### Changed
 - if third station is selected, selection is undone
+- on landing page, switching language skips fade-in
 
 ## [0.7.0] - 2020-04-09
 ### Added 

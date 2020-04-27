@@ -319,3 +319,9 @@ class QuestionsAsTextView(NavigationView):
 class LandingPageView(TemplateView):
     template_name = "navigation/landing_page.html"
     footer_links = {"dashboard": {"selected": True}}
+
+    def get_context_data(self, **kwargs):
+        context = super(LandingPageView, self).get_context_data(**kwargs)
+        if "visited" in self.request.GET:
+            context["visited"] = True
+        return context
