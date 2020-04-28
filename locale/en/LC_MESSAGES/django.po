@@ -46,11 +46,11 @@ msgstr "Charging times"
 msgid ""
 "Das E-MetroBus Projekt läuft für einen Zeitraum von Januar 2019 bis Januar "
 "2023"
-msgstr ""
+msgstr "The E-MetroBus project runs from January 2019 to January 2023"
 
 #: e_metrobus/templates/includes/desktop.html:49
 msgid "Förderung"
-msgstr ""
+msgstr "Funding"
 
 #: e_metrobus/templates/includes/desktop.html:50
 msgid ""
@@ -58,20 +58,24 @@ msgid ""
 "der Förderrichtlinie Elektromobilität des Bundesministeriums für Verkehr und "
 "digitale Infrastruktur"
 msgstr ""
+"The funding is provided as a research and development project within the "
+"framework of the Electromobility Funding Directive of the Federal Ministry "
+"of Transport and Digital Infrastructure"
 
 #: e_metrobus/templates/includes/desktop.html:54
 msgid "Busse"
-msgstr ""
+msgstr "Buses"
 
 #: e_metrobus/templates/includes/desktop.html:55
 msgid ""
 "Um möglichst lange ladungsbedingte Standzeiten zu vermeiden, müssen die "
 "Busse in der Lage sein, mit einer hohen Leistung geladen zu werden"
-msgstr ""
+msgstr "In order to avoid charge-related downtimes for as long as possible, "
+"the buses must be able to be charge at high power"
 
 #: e_metrobus/templates/includes/desktop.html:59
 msgid "Ladeinfrastruktur"
-msgstr ""
+msgstr "Charging infrastructure"
 
 #: e_metrobus/templates/includes/desktop.html:60
 msgid ""
@@ -79,10 +83,13 @@ msgid ""
 "Bedarf soll sowohl mit den eigens aus Erneuerbaren Energien produziertem "
 "Strom als auch aus dem Versorgungsnetz bereitgestellt werden"
 msgstr ""
+"A charging infrastructure of over 300kW is to be tried and tested. The "
+"resulting demand is to be met with both electricity generated from renewable "
+"energy sources and from the supply network"
 
 #: e_metrobus/templates/includes/desktop.html:68
 msgid "Projektziele"
-msgstr ""
+msgstr "Project goals"
 
 #: e_metrobus/templates/includes/desktop.html:70
 msgid ""
@@ -96,6 +103,15 @@ msgid ""
 "lokale Stromnetz – dies wird insbesondere dann deutlich, wenn alle 1400 "
 "Busse der BVG-Flotte in die Untersuchung mit einbezogen werden."
 msgstr ""
+"In the E-MetroBus project, 15 articulated buses operated by the Berlin "
+"transport authority (BVG) will be electrified and equipped so that they can "
+"be charged particulary quickly. Retrofitting the buses, however, involves "
+"technical and organizational challenges. On the one hand, the time the buses "
+"have available for charging must be flexible, as it can vary greatly due to "
+"traffic-related delays and closures. On the other hand, the fast-charging "
+"technology in question puts a strain on the local power grid - this becomes "
+"particularly clear when all 1400 buses in the BVG fleet are included in the "
+"study"
 
 #: e_metrobus/templates/includes/desktop.html:73
 msgid ""
@@ -110,6 +126,15 @@ msgid ""
 "die Übertragbarkeit auf Verkehrsbetriebe unterschiedlicher Größenordnung "
 "untersucht."
 msgstr ""
+"The RLI develops different scenarios of how a local, grid-compatible supply "
+"of the charging stations can be achieved. The energy systems are modeled, "
+"simulated and their topology is then optimised from an economic and "
+"ecological perspective. In order to relieve the local power grid, the use of "
+"renewable energy systems and their integration into smart grids, which regulate "
+"consumption and generation in the grid according to energy requirements, will "
+"be examined in detail. Synergies with other modes of transport and their "
+"transferability to transport companies of different sizes will then be "
+"examined"
 
 #: e_metrobus/templates/includes/landscape.html:16
 msgid ""
