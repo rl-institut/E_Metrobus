@@ -233,7 +233,12 @@ class AnswerView(NavigationView):
 
     def post(self, request, **kwargs):
         question = questions.get_question_from_name(request.POST["question"])
-        answer = request.POST["answer"] == question.answers[int(question.correct)]
+        if isinstance(question.correct, list):
+            answer = request.POST.getlist("answer") == [
+                question.answers[i] for i in map(int, question.correct)
+            ]
+        else:
+            answer = request.POST["answer"] == question.answers[int(question.correct)]
 
         if "questions" not in request.session:
             request.session["questions"] = {}
@@ -325,3 +330,9 @@ class QuestionsAsTextView(NavigationView):
 class LandingPageView(TemplateView):
     template_name = "navigation/landing_page.html"
     footer_links = {"dashboard": {"selected": True}}
+
+    def get_context_data(self, **kwargs):
+        context = super(LandingPageView, self).get_context_data(**kwargs)
+        if "visited" in self.request.GET:
+            context["visited"] = True
+        return context

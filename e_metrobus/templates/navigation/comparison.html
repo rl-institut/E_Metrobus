@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 
+{% load static %}
 {% load i18n %}
+
+{% block header %}
+  <script src="{% static 'js/plotly.min.js' %}"></script>
+{% endblock %}
 
 {% block content %}
 
