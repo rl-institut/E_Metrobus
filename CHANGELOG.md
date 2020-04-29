@@ -5,11 +5,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project tries to adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-### Added 
+### Added
 - feedback page
+
+### Changed
+- if third station is selected, selection is undone
+- on landing page, switching language skips fade-in
+
+## [0.7.0] - 2020-04-09
+### Added 
+- real station data
 - icons and images to landing page
 
 ### Changed
+- timed display route to carousel
 - Departure station can be changed
 - category icons to filled and line icons
 - Answer animation can be skipped
