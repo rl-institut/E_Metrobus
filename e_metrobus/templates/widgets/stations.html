@@ -3,6 +3,15 @@
 
 <section class="grid-container" id="stationsList">
 
+  <div class="grid-x">
+    <div class="cell station__between" id="test">
+      <svg width="52" height="60" id="endStation">
+        <circle x="20" y="0" cx="26" cy="12" r="6" fill="#EFEFEF" />
+        <rect x="20" y="0" width="12" height="60" />
+      </svg>
+    </div>
+  </div>
+
   {% for station in stations %}
     <div class="grid-x station" id='station{{forloop.counter|stringformat:"02d"}}'>
       <div class="cell small-1 station__line">
@@ -35,6 +44,14 @@
       </div>
     {% endif %}
   {% endfor %}
+
+  <div class="grid-x">
+    <div class="cell station__between" id="test">
+      <svg width="52" height="60" id="endStation">
+        <circle x="20" y="0" cx="26" cy="12" r="6" fill="#EFEFEF" />
+      </svg>
+    </div>
+  </div>
 
 </section>
 
