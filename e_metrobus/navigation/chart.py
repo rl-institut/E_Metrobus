@@ -3,6 +3,8 @@ from collections import namedtuple
 import plotly
 import plotly.graph_objects as go
 
+from django.utils.translation import gettext as _
+
 # at max_value = 50
 MARGIN = 10
 OFFSET = 1
@@ -41,7 +43,9 @@ def get_sizes(max_value):
 def get_mobility_figure(values):
     colors = [DEFAULT_COLOR] * 5
     colors[2] = E_BUS_COLOR
-    mobiles = ["Zu Fuß", "Fahrrad", "E-Bus", "Dieselbus", "PKW"]
+    mobiles = [
+        _(vehicle) for vehicle in ("Zu Fuß", "Fahrrad", "E-Bus", "Dieselbus", "PKW")
+    ]
 
     max_value = max(values)
     sizes = get_sizes(max_value)
@@ -72,7 +76,7 @@ def get_mobility_figure(values):
     fig.add_annotation(
         x=0.5,
         y=max_value,
-        text="CO2 Emissionen<br>nach Verkehrsmittel",
+        text=_("CO2 Emissionen [in g]<br>nach Verkehrsmittel"),
         font={"size": 15, "color": E_BUS_COLOR},
         align="left",
         showarrow=False,

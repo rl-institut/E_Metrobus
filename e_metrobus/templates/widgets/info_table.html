@@ -1,0 +1,28 @@
+
+{% load i18n %}
+
+<div class="cell table-scroll data__table">
+  <table class="comparison-table scroll">
+    <thead>
+      <tr>
+        <th>{% trans 'Fahrzeug' %}</th>
+        <th>{% trans 'Diesel' %} [l/km]</th>
+        <th>{% trans 'CO2' %} [g/km]</th>
+        <th>{% trans 'Stickoxide' %} [g/km]</th>
+        <th>{% trans 'Feinstaub' %} [g/km]</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for vehicle in vehicles %}
+        <tr>
+          <td>{{vehicle.label}}</td>
+          <td>{{vehicle.data.fuel}}</td>
+          <td>{{vehicle.data.co2}}</td>
+          <td>{{vehicle.data.nitrogen}}</td>
+          <td>{{vehicle.data.fine_dust}}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <p class="data__source">{% trans 'Quelle' %}: {{source}}</p>
+</div>
