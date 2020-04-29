@@ -1,5 +1,4 @@
 .legal {
-
   &__header {
     margin: 1rem 0;
     font-size: 1.1rem;
@@ -21,4 +20,8 @@
 
     }
   }
+}
+
+.grid-container.legal__wrap {
+  margin-left: .5rem;
 }
