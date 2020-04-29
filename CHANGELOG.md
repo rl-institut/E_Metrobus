@@ -7,6 +7,7 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 ## [Unreleased]
 ### Added
 - feedback page
+- data tables
 
 ### Changed
 - if third station is selected, selection is undone
