@@ -21,7 +21,21 @@
           <img src="{% static 'images/HP_hero_device.png' %}" alt="phone">
         </div>
 
-        <div class="cell large-5 align-right">
+        <div class="cell large-5 align-right desktop__top-right">
+          <div class="desktop__lang">
+          {% get_current_language as LANGUAGE_CODE %}
+          {% if LANGUAGE_CODE == "de" %}
+            <a href="en/?visited" data-open="language_popup">
+              <img src="{% static 'images/icons/i_flag_uk.svg' %}" alt="UK Flagge">
+              <span>Switch to English</span>
+            </a>
+          {% else %}
+            <a href="/?visited" data-open="language_popup">
+              <img src="{% static 'images/icons/i_flag_de.svg' %}" alt="Deutschland Flagge">
+              <span>Zu Deutsch wechseln</span>
+            </a>
+          {% endif %}
+          </div>
           <div class="grid-x align-center">
             <div class="cell text-center desktop__link--text">
               <span>{% trans 'App auf mobilen Geräten verfügbar' %}</span>
