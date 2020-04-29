@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 12:10+0200\n"
+"POT-Creation-Date: 2020-04-29 12:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,30 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: e_metrobus/navigation/chart.py:46
+msgid "Zu Fuß"
+msgstr "On foot"
+
+#: e_metrobus/navigation/chart.py:46
+msgid "Fahrrad"
+msgstr "Bike"
+
+#: e_metrobus/navigation/chart.py:46
+msgid "E-Bus"
+msgstr "E-bus"
+
+#: e_metrobus/navigation/chart.py:46
+msgid "Dieselbus"
+msgstr "Diesel"
+
+#: e_metrobus/navigation/chart.py:46
+msgid "PKW"
+msgstr "Car"
+
+#: e_metrobus/navigation/chart.py:77
+msgid "CO2 Emissionen<br>nach Verkehrsmittel"
+msgstr "CO2 emissions<br>per vehicle"
 
 #: e_metrobus/templates/includes/desktop.html:11
 #: e_metrobus/templates/includes/landscape.html:7
