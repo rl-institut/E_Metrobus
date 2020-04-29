@@ -184,11 +184,11 @@ msgstr "Your route with the <span>E-Bus</span> is"
 
 #: e_metrobus/templates/navigation/display_route.html:68
 msgid "Im Vergleich zum <span>Dieselbus</span> sparst Du"
-msgstr "With %(bus)s you are saving"
+msgstr "In comparison to a <span>diesel bus</span> you are saving"
 
 #: e_metrobus/templates/navigation/display_route.html:86
 msgid "Im Vergleich zum <span>Pkw</span> sparst Du"
-msgstr "With %(bus)s you are saving"
+msgstr "In comparison to a <span>passenger car</span> you are saving"
 
 #: e_metrobus/templates/navigation/display_route.html:104
 msgid ""
