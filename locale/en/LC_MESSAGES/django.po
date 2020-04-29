@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-23 10:50+0200\n"
+"POT-Creation-Date: 2020-04-29 12:10+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,8 +70,9 @@ msgstr "Buses"
 msgid ""
 "Um möglichst lange ladungsbedingte Standzeiten zu vermeiden, müssen die "
 "Busse in der Lage sein, mit einer hohen Leistung geladen zu werden"
-msgstr "In order to avoid charge-related downtimes for as long as possible, "
-"the buses must be able to be charge at high power"
+msgstr ""
+"In order to avoid charge-related downtimes for as long as possible, the "
+"buses must be able to be charge at high power"
 
 #: e_metrobus/templates/includes/desktop.html:59
 msgid "Ladeinfrastruktur"
@@ -130,11 +131,11 @@ msgstr ""
 "of the charging stations can be achieved. The energy systems are modeled, "
 "simulated and their topology is then optimised from an economic and "
 "ecological perspective. In order to relieve the local power grid, the use of "
-"renewable energy systems and their integration into smart grids, which regulate "
-"consumption and generation in the grid according to energy requirements, will "
-"be examined in detail. Synergies with other modes of transport and their "
-"transferability to transport companies of different sizes will then be "
-"examined"
+"renewable energy systems and their integration into smart grids, which "
+"regulate consumption and generation in the grid according to energy "
+"requirements, will be examined in detail. Synergies with other modes of "
+"transport and their transferability to transport companies of different "
+"sizes will then be examined"
 
 #: e_metrobus/templates/includes/landscape.html:16
 msgid ""
@@ -165,7 +166,7 @@ msgstr "Congratulations!"
 msgid "Du hast die Kategorie %(cat_label)s abgeschlossen!"
 msgstr "You finished category %(cat_label)s!"
 
-#: e_metrobus/templates/navigation/comparison.html:13
+#: e_metrobus/templates/navigation/comparison.html:18
 msgid "Mehr entdecken!"
 msgstr "Discover more!"
 
@@ -248,6 +249,14 @@ msgstr "Nitrogen oxide"
 msgid "Feinstaub"
 msgstr "Particulate matter"
 
+#: e_metrobus/templates/navigation/feedback.html:18
+msgid "Meinung schicken"
+msgstr "Send feedback"
+
+#: e_metrobus/templates/navigation/feedback.html:21
+msgid "Überspringen"
+msgstr "Skip"
+
 #: e_metrobus/templates/navigation/landing_page.html:21
 msgid "Toll, dass du mit einem E-Bus fährst!"
 msgstr "It's great that you are taking an E-Bus!"
@@ -260,7 +269,11 @@ msgstr "Show me why!"
 msgid "Legale Informationen"
 msgstr "Legal information"
 
-#: e_metrobus/templates/navigation/question.html:27
+#: e_metrobus/templates/navigation/question.html:18
+msgid "Mehrere Antworten möglich"
+msgstr "Multiple answers possible"
+
+#: e_metrobus/templates/navigation/question.html:35
 msgid "Antworten"
 msgstr "Answers"
 
