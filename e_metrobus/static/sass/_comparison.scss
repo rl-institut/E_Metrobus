@@ -24,6 +24,18 @@ button.close-button {
 
 .comparison-table {
     th {
-        min-width: 200px;
+        min-width: 80px;
     }
+}
+
+.data__source {
+    color: $gray-4;
+    font-size: .875rem;
+    margin-right: .5rem;
+}
+
+.data__title {
+    font-weight: 700;
+    color: $gray-4;
+    padding: 0 0 3.5rem;
 }

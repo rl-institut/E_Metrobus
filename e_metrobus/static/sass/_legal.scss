@@ -1,11 +1,11 @@
 .legal {
-
   &__header {
     margin: 1rem 0;
     font-size: 1.1rem;
     font-weight: bold;
     &--data {
-      margin-top: 2rem;
+      margin-top: 4rem;
+      margin-bottom: 1rem;
     }
   }
   &__text {
@@ -21,4 +21,8 @@
 
     }
   }
+}
+
+.grid-container.legal__wrap {
+  margin-left: .5rem;
 }
