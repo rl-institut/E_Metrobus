@@ -24,9 +24,9 @@ function select_stars(stars, rating) {
   }
   stars.children("svg").each(function(i, svg) {
      if ($(svg).data("rating") <= rating) {
-        $(svg).find("path").css("fill", "green");
+        $(svg).find("path").css("fill", "#17BEBB");
      } else {
-        $(svg).find("path").css("fill", "blue");
+        $(svg).find("path").css("fill", "#E3E3E3");
      }
   });
 }
