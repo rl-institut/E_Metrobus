@@ -7,6 +7,7 @@ from e_metrobus.navigation import widgets
 from e_metrobus.navigation import questions
 from e_metrobus.navigation import models
 from e_metrobus.navigation import stations
+from e_metrobus.navigation import forms
 
 
 class NavigationView(TemplateView):
@@ -215,7 +216,7 @@ class AnswerView(NavigationView):
 
     def get_context_data(self, question, answer=None, **kwargs):
         self.title = questions.QUESTIONS[question.category].label
-        self.title_icon = questions.QUESTIONS[question.category].icon
+        self.title_icon = questions.QUESTIONS[question.category].small_icon
         context = super(AnswerView, self).get_context_data(**kwargs)
         context["answer"] = answer
         context["question"] = question
@@ -232,7 +233,12 @@ class AnswerView(NavigationView):
 
     def post(self, request, **kwargs):
         question = questions.get_question_from_name(request.POST["question"])
-        answer = request.POST["answer"] == question.answers[int(question.correct)]
+        if isinstance(question.correct, list):
+            answer = request.POST.getlist("answer") == [
+                question.answers[i] for i in map(int, question.correct)
+            ]
+        else:
+            answer = request.POST["answer"] == question.answers[int(question.correct)]
 
         if "questions" not in request.session:
             request.session["questions"] = {}
@@ -264,6 +270,7 @@ class QuizFinishedView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(QuizFinishedView, self).get_context_data(**kwargs)
+        context["feedback_given"] = self.request.session.get("feedback_given", False)
         if "share" in kwargs or "hash" not in kwargs:
             context["points"] = questions.get_total_score(self.request.session)
             context["show_link"] = True
@@ -319,3 +326,47 @@ class QuestionsAsTextView(NavigationView):
 class LandingPageView(TemplateView):
     template_name = "navigation/landing_page.html"
     footer_links = {"dashboard": {"selected": True}}
+
+    def get_context_data(self, **kwargs):
+        context = super(LandingPageView, self).get_context_data(**kwargs)
+        if "visited" in self.request.GET:
+            context["visited"] = True
+        return context
+
+
+class FeedbackView(NavigationView):
+    template_name = "navigation/feedback.html"
+    footer_links = {
+        "info": {"enabled": True},
+        "dashboard": {"enabled": True},
+        "leaf": {"enabled": True},
+        "results": {"enabled": True},
+    }
+
+    def get_context_data(self, **kwargs):
+        context = super(FeedbackView, self).get_context_data(**kwargs)
+        context["feedback"] = kwargs.get(
+            "feedback",
+            forms.FeedbackForm(
+                initial={"question1": 3, "question2": 3, "question3": 3}
+            ),
+        )
+        return context
+
+    def get(self, request, *args, **kwargs):
+        if "feedback_given" in request.session:
+            return redirect("navigation:finished_quiz")
+        return super(FeedbackView, self).get(request, *args, **kwargs)
+
+    def post(self, request, **kwargs):
+        if "skip" in request.POST:
+            request.session["feedback_given"] = True
+            return redirect("navigation:finished_quiz")
+
+        feedback = forms.FeedbackForm(request.POST)
+        if feedback.is_valid():
+            feedback.save()
+            request.session["feedback_given"] = True
+        else:
+            return self.render_to_response(self.get_context_data(feedback=feedback))
+        return redirect("navigation:finished_quiz")
