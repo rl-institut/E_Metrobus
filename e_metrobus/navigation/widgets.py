@@ -1,5 +1,6 @@
 from collections import ChainMap
 
+from django.forms import widgets
 from django.forms.renderers import get_default_renderer
 from django.template.context_processors import csrf
 from django.templatetags.static import static
@@ -121,6 +122,14 @@ class FooterWidget(CustomWidget):
 
     def get_context(self, **kwargs):
         return {"links": self.links}
+
+
+class FeedbackStarsWidget(widgets.NumberInput):
+    template_name = "widgets/feedback_stars.html"
+
+
+class FeedbackCommentWidget(widgets.TextInput):
+    template_name = "widgets/feedback_comment.html"
 
 
 class InfoTable(CustomWidget):
