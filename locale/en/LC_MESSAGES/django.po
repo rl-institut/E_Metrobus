@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-29 12:34+0200\n"
+"POT-Creation-Date: 2020-04-30 09:31+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Zu Fuß"
 msgstr "On foot"
 
-#: e_metrobus/navigation/chart.py:46
+#: e_metrobus/navigation/chart.py:46 e_metrobus/navigation/constants.py:84
 msgid "Fahrrad"
 msgstr "Bike"
 
@@ -30,17 +30,25 @@ msgstr "Bike"
 msgid "E-Bus"
 msgstr "E-bus"
 
-#: e_metrobus/navigation/chart.py:46
+#: e_metrobus/navigation/chart.py:46 e_metrobus/navigation/constants.py:72
 msgid "Dieselbus"
 msgstr "Diesel"
 
-#: e_metrobus/navigation/chart.py:46
+#: e_metrobus/navigation/chart.py:46 e_metrobus/navigation/constants.py:66
 msgid "PKW"
 msgstr "Car"
 
 #: e_metrobus/navigation/chart.py:77
-msgid "CO2 Emissionen<br>nach Verkehrsmittel"
-msgstr "CO2 emissions<br>per vehicle"
+msgid "CO2 Emissionen [in g]<br>nach Verkehrsmittel"
+msgstr "CO2 emissions [in g]<br>per vehicle"
+
+#: e_metrobus/navigation/constants.py:78
+msgid "Elektrobus"
+msgstr "E-Bus"
+
+#: e_metrobus/navigation/constants.py:90
+msgid "zu Fuß"
+msgstr "On foot"
 
 #: e_metrobus/templates/includes/desktop.html:11
 #: e_metrobus/templates/includes/landscape.html:7
@@ -240,6 +248,7 @@ msgid "weniger"
 msgstr "less"
 
 #: e_metrobus/templates/navigation/environment.html:54
+#: e_metrobus/templates/widgets/info_table.html:9
 msgid "Diesel"
 msgstr "Diesel"
 
@@ -256,18 +265,21 @@ msgid "Tonnen"
 msgstr "Tonnes"
 
 #: e_metrobus/templates/navigation/environment.html:69
+#: e_metrobus/templates/widgets/info_table.html:10
 msgid "CO2"
 msgstr "CO2"
 
 #: e_metrobus/templates/navigation/environment.html:77
 #: e_metrobus/templates/navigation/environment.html:81
 #: e_metrobus/templates/navigation/environment.html:84
+#: e_metrobus/templates/widgets/info_table.html:11
 msgid "Stickoxide"
 msgstr "Nitrogen oxide"
 
 #: e_metrobus/templates/navigation/environment.html:92
 #: e_metrobus/templates/navigation/environment.html:96
 #: e_metrobus/templates/navigation/environment.html:99
+#: e_metrobus/templates/widgets/info_table.html:12
 msgid "Feinstaub"
 msgstr "Particulate matter"
 
@@ -538,6 +550,14 @@ msgstr ""
 "economic efficiency and user acceptance of the electric bus line were "
 "evaluated. The trial phase is now completed and the electric buses are "
 "already fully integrated into the BVG fleet.\n"
+
+#: e_metrobus/templates/widgets/info_table.html:8
+msgid "Fahrzeug"
+msgstr ""
+
+#: e_metrobus/templates/widgets/info_table.html:27
+msgid "Quelle"
+msgstr ""
 
 #: e_metrobus/templates/widgets/stations.html:43
 msgid "Bitte gib Deine Strecke ein!"
