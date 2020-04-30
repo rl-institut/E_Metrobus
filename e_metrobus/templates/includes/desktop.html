@@ -8,7 +8,7 @@
     <div class="cell large-6">
       <div class="grid-x align-center text-center">
         <div class="cell desktop__header">
-          <h1>E-Metrobus Berlin</h1>
+          <h1>{% trans 'E-Metrobus Berlin' %}</h1>
         </div>
         <div class="cell desktop__subheader">
           <span>{% trans 'Elektrifizierung von MetroBus-Linien im Berliner ÖPNV mit Schnellladeinfrastruktur' %}</span>
@@ -55,22 +55,22 @@
       <div class="grid-x align-center text-center">
         <div class="cell medium-6 desktop__appinfo--img">
           <img src="{% static 'images/icons/i_time_blue_line.svg' %}" alt="Zeit Icon">
-          <h2>Laufzeit</h2>
+          <h2>{% trans 'Laufzeit' %}</h2>
           {% trans 'Das E-MetroBus Projekt läuft für einen Zeitraum von Januar 2019 bis Januar 2023' %}
         </div>
         <div class="cell medium-6 desktop__appinfo--img">
           <img src="{% static 'images/icons/i_government_blue_desktop.svg' %}" alt="Ministerium Icon">
-          <h2>Förderung</h2>
+          <h2>{% trans 'Förderung' %}</h2>
           {% trans 'Die Förderung erfolgt als ein Forschungs- und Entwicklungsvorhaben im Rahmen der Förderrichtlinie Elektromobilität des Bundesministeriums für Verkehr und digitale Infrastruktur' %}
         </div>
         <div class="cell medium-6 desktop__appinfo--img desktop__appinfo--img--bus">
           <img src="{% static 'images/icons/i_bus_blue_line.svg' %}" alt="Bus Icon">
-          <h2>Busse</h2>
+          <h2>{% trans 'Busse' %}</h2>
           {% trans 'Um möglichst lange ladungsbedingte Standzeiten zu vermeiden, müssen die Busse in der Lage sein, mit einer hohen Leistung geladen zu werden' %}
         </div>
         <div class="cell medium-6 desktop__appinfo--img">
           <img src="{% static 'images/icons/i_electricity_blue_line.svg' %}" alt="Strom Icon">
-          <h2>Ladeinfrastruktur</h2>
+          <h2>{% trans 'Ladeinfrastruktur' %}</h2>
           {% trans 'Eine Ladeinfrastruktur von über 300kW soll erprobt werden. Der resultierende Bedarf soll sowohl mit den eigens aus Erneuerbaren Energien produziertem Strom als auch aus dem Versorgungsnetz bereitgestellt werden' %}
         </div>
       </div>
@@ -79,10 +79,13 @@
     <div class="cell desktop-objectives">
       <div class="grid-x">
         <div class="cell medium-6 desktop-objectives__text">
-          <h2>Projektziele</h2>
-          <p>Im Projekt E-MetroBus werden 15 Gelenkbusse der Berliner Verkehrsbetriebe (BVG) elektrifiziert und so ausgerüstet, dass sie besonders schnell geladen werden können.
-            Eine Umrüstung der Busse bringt einige technische und organisatorische Herausforderungen mit sich. Einerseits muss die Zeit, die die Busse zum Laden zur Verfügung haben, flexibel gestaltet werden, da sie durch verkehrsbedingte Verspätungen und Sperrungen stark variieren kann. Andererseits belastet die dafür infrage kommende Schnellladetechnologie das lokale Stromnetz – dies wird insbesondere dann deutlich, wenn alle 1400 Busse der BVG-Flotte in die Untersuchung mit einbezogen werden.</p>
-            <p>Das RLI entwickelt unterschiedliche Szenarien, wie eine lokale, netzdienliche Versorgung der Ladestationen erreicht werden kann. Dabei werden die Energiesysteme modelliert, simuliert und ihre Topologie anschließend unter ökonomischen und ökologischen Aspekten optimiert. Um das lokale Stromnetz zu entlasten, soll vor allem auch der Einsatz von Erneuerbare-Energie-Anlagen und die Einbindung in intelligente Netze, die je nach Energiebedarf Verbrauch und Erzeugung im Netz regulieren, im Detail betrachtet werden. Daraufhin werden Synergien zu anderen Verkehrsträgern und die Übertragbarkeit auf Verkehrsbetriebe unterschiedlicher Größenordnung untersucht.</p>
+          <h2>{% trans 'Projektziele' %}</h2>
+          <p>
+            {% trans 'Im Projekt E-MetroBus werden 15 Gelenkbusse der Berliner Verkehrsbetriebe (BVG) elektrifiziert und so ausgerüstet, dass sie besonders schnell geladen werden können. Eine Umrüstung der Busse bringt einige technische und organisatorische Herausforderungen mit sich. Einerseits muss die Zeit, die die Busse zum Laden zur Verfügung haben, flexibel gestaltet werden, da sie durch verkehrsbedingte Verspätungen und Sperrungen stark variieren kann. Andererseits belastet die dafür infrage kommende Schnellladetechnologie das lokale Stromnetz – dies wird insbesondere dann deutlich, wenn alle 1400 Busse der BVG-Flotte in die Untersuchung mit einbezogen werden.' %}
+          </p>
+          <p>
+            {% trans 'Das RLI entwickelt unterschiedliche Szenarien, wie eine lokale, netzdienliche Versorgung der Ladestationen erreicht werden kann. Dabei werden die Energiesysteme modelliert, simuliert und ihre Topologie anschließend unter ökonomischen und ökologischen Aspekten optimiert. Um das lokale Stromnetz zu entlasten, soll vor allem auch der Einsatz von Erneuerbare-Energie-Anlagen und die Einbindung in intelligente Netze, die je nach Energiebedarf Verbrauch und Erzeugung im Netz regulieren, im Detail betrachtet werden. Daraufhin werden Synergien zu anderen Verkehrsträgern und die Übertragbarkeit auf Verkehrsbetriebe unterschiedlicher Größenordnung untersucht.' %}
+          </p>
         </div>
         <div class="cell medium-6 desktop-objectives__img"></div>
       </div>
