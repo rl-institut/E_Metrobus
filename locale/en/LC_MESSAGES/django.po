@@ -62,7 +62,7 @@ msgstr "App available on mobile devices"
 
 #: e_metrobus/templates/includes/desktop.html:44
 msgid "Laufzeit"
-msgstr "Project time"
+msgstr "Project duration"
 
 #: e_metrobus/templates/includes/desktop.html:45
 msgid ""
