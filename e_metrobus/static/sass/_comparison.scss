@@ -1,0 +1,44 @@
+#next button {
+    margin-bottom: .5rem;
+    margin-top: 1rem;
+}
+
+button.close-button,
+button.close-button:focus,
+button.close-button:active,
+button.close-button:hover {
+	background-color: transparent !important;
+	font-size: 2rem !important;
+	width: 2.5rem !important;
+	height: 2.5rem;
+}
+
+.data-source-button {
+    &:focus {
+        outline-color: transparent;
+    }
+    button,
+    button:focus {
+	    background-color: transparent !important;
+        color: $gray-2;
+        outline-color: transparent;
+    }
+}
+
+.comparison-table {
+    th {
+        min-width: 80px;
+    }
+}
+
+.data__source {
+    color: $gray-4;
+    font-size: .875rem;
+    margin-right: .5rem;
+}
+
+.data__title {
+    font-weight: 700;
+    color: $gray-4;
+    padding: 0 0 3.5rem;
+}

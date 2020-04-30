@@ -74,7 +74,7 @@ def get_mobility_figure(values):
     fig.add_annotation(
         x=0.5,
         y=max_value,
-        text=_("CO2 Emissionen<br>nach Verkehrsmittel"),
+        text=_("CO2 Emissionen [in g]<br>nach Verkehrsmittel"),
         font={"size": 15, "color": E_BUS_COLOR},
         align="left",
         showarrow=False,
