@@ -1,0 +1,25 @@
+
+{% extends "base.html" %}
+
+{% block body_class %}class="l-scroll l-scroll--nonav"{% endblock %}
+
+{% block content %}
+
+<div class="route-drop">
+  <div class="grid-x route-drop__top">
+    top
+  </div>
+  <div class="grid-x route-drop__main">
+    top
+  </div>
+  <div class="grid-x route-drop__bottom">
+    top
+  </div>
+</div>
+
+{% endblock %}
+
+{% block javascript %}
+  {{block.super}}
+  {{stations.media}}
+{% endblock %}

@@ -60,3 +60,21 @@ $station-font-line-height: 1rem;
 // 		// font-size: 1rem;
 // 	}
 // }
+
+
+// Route Dropdown
+.route-drop {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+
+	.route-drop__top {
+		height: 15vh;
+	}
+	.route-drop__main {
+		flex: 1;
+	}
+	.route-drop__bottom {
+		height: 15vh;
+	}
+}
