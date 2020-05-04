@@ -67,14 +67,32 @@ $station-font-line-height: 1rem;
 	display: flex;
 	flex-direction: column;
 	height: 100vh;
+	width: 100%;
 
 	.route-drop__top {
-		height: 15vh;
+		height: 20vh;
+		background-image: url(../images/Route_top_img.svg);
+		background-position: center center;
+		background-size: cover;
+
+		@media only screen and (min-width: 500px) {
+			height: 24vh;
+		}
+		@media only screen and (min-width: 700px) {
+			height: 28vh;
+		}
+		@media only screen and (min-width: 850px) {
+			height: 32vh;
+		}
 	}
 	.route-drop__main {
 		flex: 1;
 	}
 	.route-drop__bottom {
 		height: 15vh;
+		
+		.landing__bottom-btn {
+			text-align: center;
+		}
 	}
 }
