@@ -82,11 +82,48 @@ $station-font-line-height: 1rem;
 			height: 28vh;
 		}
 		@media only screen and (min-width: 850px) {
-			height: 32vh;
+			height: 32	vh;
 		}
 	}
 	.route-drop__main {
 		flex: 1;
+		padding: 2rem 1rem;
+		align-content: center;
+		.route-drop__question {
+			width: 100%;
+			display: flex;
+			flex-wrap: wrap;
+		}
+		.route-drop__question--end {
+			margin-top: 1rem;
+		}
+		.route-drop__question--icon,
+		.route-drop__question--text {
+			display: inline-block;
+		}
+		.route-drop__question--icon img {
+			height: 1.25rem;
+		}
+		.route-drop__question--text label {
+			font-size: 1rem;
+			font-weight: 700;
+		}
+		.route-drop__dropdown {
+			margin-top: .5rem;
+			width: 100%;
+
+			select {
+				height: 3rem;
+				padding-right: 0;
+			}
+		}
+	}
+	.route-drop__dotted-line {
+		background: url(../images/Route_dotted_line.svg);
+		background-position: left;
+		background-repeat: no-repeat;
+		height: 15vh;
+		width: 100%;
 	}
 	.route-drop__bottom {
 		height: 15vh;
