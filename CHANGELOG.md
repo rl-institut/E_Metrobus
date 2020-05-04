@@ -10,6 +10,7 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 - data tables
 
 ### Changed
+- first question is answered after display route
 - if third station is selected, selection is undone
 - on landing page, switching language skips fade-in
 
