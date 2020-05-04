@@ -107,6 +107,8 @@ $station-font-line-height: 1rem;
 		.route-drop__question--text label {
 			font-size: 1rem;
 			font-weight: 700;
+			color: $secondary-color;
+			padding-left: .5rem;
 		}
 		.route-drop__dropdown {
 			margin-top: .5rem;
