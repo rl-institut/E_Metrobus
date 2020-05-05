@@ -10,18 +10,18 @@
     <div class="grid-x align-center text-center landpage">
       <div class="cell landpage__ebus">
         <div class="grid-x">
-          <div class="cell landpage__logo landpage__logo--embus" {% if visited %}style="animation: none"{% endif %}>
-            <img src="{%static 'images/icons/Icon_E_Bus_BVG.svg' %}" alt="E-Bus Icon">
+          <div class="cell landpage__logo landpage__logo--embus">
+            <img id="animateBus" src="{%static 'images/icons/Icon_E_Bus_BVG.svg' %}" alt="E-Bus Icon" {% if visited %}style="animation: none"{% endif %}>
           </div>
         </div>
       </div>
       <div class="cell landpage__button" {% if visited %}style="animation: none"{% endif %}>
         <div class="grid-x">
-          <div class="cell landpage__button-text">
+          <div id="animateLPText" class="cell landpage__button-text">
             <span>{% trans 'Toll, dass du mit einem E-Bus fährst!' %}</span>
           </div>
           <div class="cell landing__button-btn">
-            <a href="{% url 'navigation:route' %}"><button name="boarding" class="button" {% if visited %}style="animation: none"{% endif %}>{% trans 'Zeig mir warum!' %}</button></a>
+            <a href="{% url 'navigation:route' %}"><button id="animateLPButton" name="boarding" class="button" {% if visited %}style="animation: none"{% endif %}>{% trans 'Zeig mir warum!' %}</button></a>
           </div>
           <div class="cell landpage__language">
             <div class="grid-x align-center text-center">
