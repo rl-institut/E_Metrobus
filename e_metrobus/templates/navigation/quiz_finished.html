@@ -8,7 +8,7 @@
 {% block body_class %}class="l-scroll l-scroll--nonav"{% endblock %}
 
 {% block content %}
-<div class="cell" id="confetti"></div>
+<div class="cell" id="confetti" xmlns="http://www.w3.org/1999/html"></div>
 <div class="cell">
   <div class="grid-x text-center align-center">
     <div class="cell small-8 quiz-fin__text">
@@ -22,7 +22,7 @@
         <div class="cell">
           {% if show_link %}
             {% if hash %}
-              {% trans "Link zum Teilen deiner Punkte:" %} {{request.scheme}}://{{request.get_host}}{% url 'navigation:score' hash=hash %}
+              <input id="share_input" type="text" value="{{request.scheme}}://{{request.get_host}}{% url 'navigation:score' hash=hash %}"><button onclick="shareLink();">{% trans "Teile Link" %}</button>
               <div id="share-buttons">
                 <a href="http://www.facebook.com/sharer.php?u={{request.scheme}}://{{request.get_host}}{% url 'navigation:score' hash=hash %}" target="_blank">
                   <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
@@ -66,5 +66,11 @@
         2000
       );
     {% endif %}
+
+    function shareLink() {
+      shareLink = $("#share_input");
+      shareLink.select();
+      document.execCommand("copy");
+    }
   </script>
 {% endblock %}
