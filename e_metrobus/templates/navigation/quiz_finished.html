@@ -22,16 +22,16 @@
         <div class="cell">
           {% if show_link %}
             {% if hash %}
-              <!-- {% trans "Link zum Teilen deiner Punkte:" %} {{request.scheme}}://{{request.get_host}}{% url 'navigation:score' hash=hash %} -->
+              {% trans "Link zum Teilen deiner Punkte:" %} {{request.scheme}}://{{request.get_host}}{% url 'navigation:score' hash=hash %}
               <div id="share-buttons">
                 <a href="http://www.facebook.com/sharer.php?u={{request.scheme}}://{{request.get_host}}{% url 'navigation:score' hash=hash %}" target="_blank">
                   <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
                 </a>
                 <a href="whatsapp://send?text=text%20{{request.scheme}}://{{request.get_host}}{% url 'navigation:score' hash=hash %}">
-                  Whatsapp
+                  <img src="{% static 'images/logos/WhatsApp.svg' %}">
                 </a>
                 <a href="tg://msg_url?url={{request.scheme}}://{{request.get_host}}{% url 'navigation:score' hash=hash %}&amp;text=text">
-                  Telegram
+                  <img src="{% static 'images/logos/Telegram.svg' %}">
                 </a>
               </div>
             {% else %}
