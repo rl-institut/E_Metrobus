@@ -2,18 +2,24 @@
 {% extends "base.html" %}
 
 {% load static %}
+{% load i18n %}
+{% load translation %}
 
 {% block body_class %}class="l-scroll l-scroll--nonav"{% endblock %}
 
 {% block content %}
 
+<div class="category__bg"></div>
+
 <div class="cell">
-  <div class="grid-x text-center align-center cat_fin">
+  <div class="grid-x text-center align-center cat_fin" id="cat_fin">
     <div class="cell cat_fin__congrats">
-      <span>Glückwunsch!</span>
+      <span>{% trans 'Glückwunsch!' %}</span>
     </div>
     <div class="cell cat_fin__text">
-      <span>Du hast die Kategorie <br> <span id="cat_fin_name">{{category.label}}</span> <br> abgeschlossen!</span>
+      <span>
+        {% blocktrans with cat_label='<br> <span id="cat_fin_name">{0}</span> <br>'|format_text:category.get_label %}Du hast die Kategorie {{cat_label}} abgeschlossen!{% endblocktrans %}
+      </span>
     </div>
     <div class="cell animate_answer__points" id="cat_fin_points">
       <div class="grid-x align-center">
@@ -40,6 +46,7 @@
       function redirect_to_dashboard() {
         window.location.replace("{% url 'navigation:dashboard' %}");
       }
+      $('#cat_fin').click(redirect_to_dashboard);
       setTimeout(redirect_to_dashboard, 3000);
     });
   </script>

@@ -1,9 +1,10 @@
 import os
-from typing import List, Dict
+from typing import List, Dict, Union
 from dataclasses import dataclass
 from configobj import ConfigObj
 
 from django.conf import settings
+from django.utils.translation import gettext as _
 
 
 QUESTION_TEMPLATE_FOLDER = "questions"
@@ -18,18 +19,26 @@ class Question:
     name: str
     label: str
     question: str
+    is_multiple_choice: bool
     answers: List[str]
     short_answer: str
-    correct: int
+    correct: Union[int, List[int]]
     template: str
     category: str
+
+    def get_label(self):
+        return _(self.label)
 
 
 @dataclass
 class Category:
     label: str
     icon: str
+    small_icon: str
     questions: Dict[str, Question]
+
+    def get_label(self):
+        return _(self.label)
 
 
 question_config = ConfigObj(
@@ -44,11 +53,15 @@ for cat in question_config:
             template=f"{QUESTION_TEMPLATE_FOLDER}/{cat}/{q}.html",
             name=q,
             category=cat,
+            is_multiple_choice=isinstance(
+                question_config[cat]["questions"][q]["correct"], list
+            ),
             **question_config[cat]["questions"][q],
         )
     QUESTIONS[cat] = Category(
         label=question_config[cat]["label"],
         icon=question_config[cat]["icon"],
+        small_icon=question_config[cat]["small_icon"],
         questions=questions,
     )
 

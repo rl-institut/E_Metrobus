@@ -6,7 +6,42 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 
 ## [Unreleased]
 ### Added
+- feedback page
+- data tables
+
+### Changed
+- first question is answered after display route
+- if third station is selected, selection is undone
+- on landing page, switching language skips fade-in
+
+## [0.7.0] - 2020-04-09
+### Added 
+- real station data
+- icons and images to landing page
+
+### Changed
+- timed display route to carousel
+- Departure station can be changed
+- category icons to filled and line icons
+- Answer animation can be skipped
+
+### Fixed
+- First dashboard popup layout
+
+## [0.6.0] - 2020-02-19
+### Added
+- Environment page.
+- english language support
 - Score can be saved and shared via link.
+- Score animation on dashboard.
+
+### Changed
+- leaf footer links
+- onboard animation speed (slowed down)
+- answer page layout fixed
+- dashboard icons
+- trophy icons
+- removed back arrow on dashboard
 
 ## [0.5.0] - 2020-02-05
 ### Added
@@ -21,9 +56,9 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 ### Added
 - Category finished page.
 - Score animation when answering a question.
-- Environment page.
 - "Choose your route" text.
 - Popup at first-time-visit on dashboard.
+
 ### Changed
 - Color variables (BVG original)
 

@@ -1,3 +1,14 @@
+.progress-bar {
+  height: .75rem;
+  width: 100%;
+  background-color: $gray-3;
+
+  &__fill {
+    background-color: $primary-color-2;
+    height: 100%;
+  }
+}
+
 .question{
 
   &__text {
@@ -62,19 +73,16 @@
 //CSS for answer texts
 .answer {
   &__text {
-    margin: 1.5rem 1rem;
+    margin: 1.5rem 1rem 0;
+    font-weight: 700;
 
     &--more {
-      display: none;
+      font-weight: 300;
+      margin-bottom: 5rem;
+      img {
+        margin: 2rem 0;
+      }
     }
-  }
-  &__readmore a {
-    color: #252424;
-    font-size: 0.9rem;
-    font-weight: bold;
-  }
-  &__readmore img {
-    height: 1.5rem;
   }
 }
 //Button for next question
@@ -89,4 +97,9 @@
       padding-top: 1.1rem;
     }
   }
+}
+
+.question__hint {
+  font-size: 1rem;
+  color: $gray-2;
 }

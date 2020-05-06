@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   style="fill:#000000"
+   id="svg10"
+   version="1.1"
+   y="0px"
+   x="0px"
+   viewBox="0 0 62.112374 62.154661"
+   width="94.109657"
+   height="94.173729">
+  <metadata
+     id="metadata16">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Fichier 12</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs14" />
+  <title
+     id="title2">Fichier 12</title>
+  <g
+     transform="translate(-1.9576248,-1.9576271)"
+     id="g8"
+     data-name="Calque 2">
+    <g
+       id="g6"
+       data-name="Calque 1">
+      <path
+         id="path849"
+         d="M 2,8.0700002 C 2.03207,5.4161625 5.3097828,1.9576271 7.9004237,1.9576271 c 5.1841113,0 36.0616503,0.042373 50.0995763,0.042373 2.765957,0 5.972458,3.1001364 5.972458,5.7605931 0,5.1152928 0.05754,46.8749258 0.05754,50.2294068 0,3.207051 -3.413474,6.122288 -6.28,6.122288 -5.230577,0 -35.821342,-0.01229 -49.4103395,-0.01229 -2.7881908,0 -6.3820337,-2.955264 -6.3820337,-5.790677 0,-2.726694 0.010301,-47.585483 0.04237,-50.2393204 z"
+         style="fill:#000007;fill-opacity:1;stroke:none;stroke-width:0.33000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <path
+         id="path870"
+         transform="matrix(0.66,0,0,0.66,1.9576248,1.9576271)"
+         d="M 0.0234375 51.777344 C 0.014665426 65.801579 0 83.557545 0 85.380859 C 5.9211895e-16 89.67694 5.4453904 94.154297 9.6699219 94.154297 C 30.259312 94.154297 76.608086 94.173828 84.533203 94.173828 C 88.876424 94.173828 94.048828 89.757605 94.048828 84.898438 C 94.048828 82.686513 94.026491 65.349455 94.009766 51.777344 L 0.0234375 51.777344 z "
+         style="fill:#ffce00;fill-opacity:1;stroke:none;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <rect
+         y="22.676258"
+         x="1.9576248"
+         height="20.7174"
+         width="62.072342"
+         id="rect878"
+         style="opacity:1;fill:#dd0000;fill-opacity:1;stroke:none;stroke-width:0.28800336;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:fill markers stroke" />
+    </g>
+  </g>
+</svg>

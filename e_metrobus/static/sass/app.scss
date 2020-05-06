@@ -3,6 +3,7 @@
 @import 'sass/fonts';
 @import 'sass/variables';
 
+@import 'sass/comparison';
 @import 'sass/components';
 @import 'sass/dashboard';
 @import 'sass/fonts';
@@ -18,7 +19,10 @@
 @import 'sass/questions_as_text';
 @import 'sass/animate_answer';
 @import 'sass/category_finished';
+@import 'sass/environment';
 @import 'sass/quiz_finished';
+@import 'sass/confetti';
+@import 'sass/feedback';
 @import 'libs/foundation-sites/scss/foundation';
 
 @include foundation-global-styles;

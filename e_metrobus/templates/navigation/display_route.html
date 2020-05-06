@@ -1,84 +1,120 @@
 {% extends "base.html" %}
 
 {% load static %}
+{% load i18n %}
 
 {% block content %}
 
 <!-- route display -->
-<div class="cell display-route" id="onboardingAnimateRoute">
-  <div class="grid-x text-center align-center">
-    <div class="cell display-route__start">
-      {{stations.0}}
-    </div>
+<div class="display-route__bg"></div>
+
+<div class="cell display-route" id="onboardingAnimate1">
+  <div class="grid-x text-center align-middle display-route__stations">
     <div class="cell">
-      <svg width="52" height="250">
-        <circle cx="26" cy="6" r="6"/>
-				<rect x="20" y="7" width="12" height="236" />
-        <circle cx="26" cy="244" r="6"/>
-        <circle cx="26" cy="6" r="4" fill="#fff"/>
-        <circle cx="26" cy="244" r="4" fill="#fff"/>
-        <rect x="20" y="105" width="20" height="2" style="fill:#FFF" />
-        <rect x="20" y="115" width="20" height="4" style="fill:#FFF" />
-        <rect x="20" y="125" width="20" height="10" style="fill:#FFF" />
-        <rect x="20" y="141" width="20" height="4" style="fill:#FFF" />
-        <rect x="20" y="153" width="20" height="2" style="fill:#FFF" />
-        <polygon points="21,60 31,60 26,70" fill="#fff"/>
-			</svg>
+      <div class="grid-x">
+        <div class="cell display-route__start">
+          {{stations.0}}
+        </div>
+        <div class="cell">
+          <svg width="52" height="250">
+            <circle cx="26" cy="6" r="6"/>
+            <rect x="20" y="7" width="12" height="236" />
+            <circle cx="26" cy="244" r="6"/>
+            <circle cx="26" cy="6" r="4" fill="#fff"/>
+            <circle cx="26" cy="244" r="4" fill="#fff"/>
+            <rect x="20" y="105" width="20" height="2" style="fill:#F0D722" />
+            <rect x="20" y="115" width="20" height="4" style="fill:#F0D722" />
+            <rect x="20" y="125" width="20" height="10" style="fill:#F0D722" />
+            <rect x="20" y="141" width="20" height="4" style="fill:#F0D722" />
+            <rect x="20" y="153" width="20" height="2" style="fill:#F0D722" />
+          </svg>
+        </div>
+        <div class="cell display-route__end">
+          {{stations.1}}
+        </div>
+      </div>
     </div>
-    <div class="cell display-route__end">
-      {{stations.1}}
-    </div>
+  </div>
+  <div class="carousel-arrow carousel-arrow--next" onclick="show2()">
+    <img src="{% static 'images/icons/i_next_black_large.svg' %}" alt="Zur nächsten Seite Icon">
   </div>
 </div>
 
-<!-- Icons on top -->
-<div class="cell display-route" id="onboardingAnimateIcons" style="display: none;">
-  <img id="onboardingAnimateIcon1" src="{% static 'images/icons/Icon_Pin.svg' %}" alt="Pin Icon" style="display: none;">
-  <img id="onboardingAnimateIcon2" src="{% static 'images/icons/Icon_Conventional_Bus.svg' %}" alt="Conventional Bus Icon" style="display: none;">
-  <img id="onboardingAnimateIcon3" src="{% static 'images/icons/Icon_Conventional_Car.svg' %}" alt="Conventional Car Icon" style="display: none;">
-  <img id="onboardingAnimateIcon4" src="{% static 'images/icons/Icon_Pedestrian_Bike.svg' %}" alt="Laufende Person und Fahrradfahrer Icon" style="display: none;">
-</div>
-
-<!-- background yellow circle animation -->
-<div class="cell display-route" id="onboardingAnimateBackground" style="display: none;">
-  <div class="grid-x text-center align-center">
+<div class="cell display-route" id="onboardingAnimate2" style="display: none;">
+  <div class="grid-x display-route__grid text-center align-center">
     <div class="cell display-route__wrap">
-      <!-- 1st result -->
-      <div class="display-route__text" id="onboardingAnimateText1" style="display: none;">
-        <p class="display-route__sentence">Deine Strecke mit dem <span>E-Bus</span> beträgt</p>
-        <p class="display-route__number">3,2 km</p>
-      </div>
-      <!-- 2nd result -->
-      <div class="display-route__text" id="onboardingAnimateText2" style="display: none;">
-        <p class="display-route__sentence">Im Vergleich zum <span>Dieselbus</span> sparst Du</p>
-        <p class="display-route__number">99 % CO2</p>
-      </div>
-      <!-- 3rd result -->
-      <div class="display-route__text" id="onboardingAnimateText3" style="display: none;">
-        <p class="display-route__sentence">Im Vergleich zum <span>Pkw</span> sparst Du</p>
-        <p class="display-route__number">99 % CO2</p>
-      </div>
-      <!-- 4th result -->
-      <div class="display-route__text" id="onboardingAnimateText4" style="display: none;">
-        <p class="display-route__sentence">Nur noch <span>zu Fuß</span> oder mit dem <span>Fahrrad</span> kannst Du es besser machen!</p>
-      </div>
-      <div class="display-route__circle">
-        <svg viewBox="0 0 220 220">
-          <circle cx="110" cy="110" r="80" style="fill:#F0D722" />
-        </svg>
+      <img class="larger" src="{% static 'images/icons/Icon_Route.svg' %}" alt="Route image">
+      <div class="display-route__text">
+        <p class="display-route__sentence">{% trans "Deine Strecke mit dem <span>E-Bus</span> beträgt" %}</p>
+        {% if distance < 1 %}
+          <p class="display-route__number">{{distance_in_meter|floatformat:"0"}} m</p>
+        {% else %}
+          <p class="display-route__number">{{distance|floatformat:"1"}} km</p>
+        {% endif %}
       </div>
     </div>
+  </div>
+  <div class="carousel-arrow carousel-arrow--previous" onclick="show1()">
+    <img src="{% static 'images/icons/i_previous_black_large.svg' %}" alt="Zur vorherigen Seite Icon">
+  </div>
+  <div class="carousel-arrow carousel-arrow--next" onclick="show3()">
+    <img src="{% static 'images/icons/i_next_black_large.svg' %}" alt="Zur nächsten Seite Icon">
   </div>
 </div>
 
-<!-- Chart display -->
-<div class="cell display-route" id="onboardingAnimateChart" style="display: none;">
-  <div class="grid-x text-center align-center">
-    <div class="cell">
-      Graph kommt hier
+<div class="cell display-route" id="onboardingAnimate3" style="display: none;">
+  <div class="grid-x display-route__grid text-center align-center">
+    <div class="cell display-route__wrap">
+      <img id="onboardingAnimateIcon2" src="{% static 'images/icons/Icon_Conventional_Bus.svg' %}" alt="Conventional Bus Icon">
+      <div class="display-route__text">
+        <p class="display-route__sentence">{% trans "Im Vergleich zum <span>Dieselbus</span> sparst Du" %}</p>
+        <p class="display-route__number">{{comparison.bus|floatformat:"0"}} % CO2</p>
+      </div>
     </div>
   </div>
+  <div class="carousel-arrow carousel-arrow--previous" onclick="show2()">
+    <img src="{% static 'images/icons/i_previous_black_large.svg' %}" alt="Zur vorherigen Seite Icon">
+  </div>
+  <div class="carousel-arrow carousel-arrow--next" onclick="show4()">
+    <img src="{% static 'images/icons/i_next_black_large.svg' %}" alt="Zur nächsten Seite Icon">
+  </div>
 </div>
+
+<div class="cell display-route" id="onboardingAnimate4" style="display: none;">
+  <div class="grid-x display-route__grid text-center align-center">
+    <div class="cell display-route__wrap">
+      <img id="onboardingAnimateIcon3" src="{% static 'images/icons/Icon_Conventional_Car.svg' %}" alt="Conventional Car Icon">
+      <div class="display-route__text">
+        <p class="display-route__sentence">{% trans "Im Vergleich zum <span>Pkw</span> sparst Du" %}</p>
+        <p class="display-route__number">{{comparison.car|floatformat:"0"}} % CO2</p>
+      </div>
+    </div>
+  </div>
+  <div class="carousel-arrow carousel-arrow--previous" onclick="show3()">
+    <img src="{% static 'images/icons/i_previous_black_large.svg' %}" alt="Zur vorherigen Seite Icon">
+  </div>
+  <div class="carousel-arrow carousel-arrow--next" onclick="show5()">
+    <img src="{% static 'images/icons/i_next_black_large.svg' %}" alt="Zur nächsten Seite Icon">
+  </div>
+</div>
+
+<div class="cell display-route" id="onboardingAnimate5" style="display: none;">
+  <div class="grid-x display-route__grid text-center align-center">
+    <div class="cell display-route__wrap">
+      <img id="onboardingAnimateIcon4" src="{% static 'images/icons/Icon_Pedestrian_Bike.svg' %}" alt="Walking person and bycicle Icon">
+      <div class="display-route__text">
+        <p class="display-route__sentence">{% trans "Nur noch <span>zu Fuß</span> oder mit dem <span>Fahrrad</span> kannst Du es besser machen!" %}</p>
+      </div>
+    </div>
+  </div>
+  <div class="carousel-arrow carousel-arrow--previous" onclick="show4()">
+    <img src="{% static 'images/icons/i_previous_black_large.svg' %}" alt="Zur vorherigen Seite Icon">
+  </div>
+  <div class="carousel-arrow carousel-arrow--next" onclick="toComparisonPage()">
+    <img src="{% static 'images/icons/i_next_black_large.svg' %}" alt="Zur nächsten Seite Icon">
+  </div>
+</div>
+
 
 {% endblock %}
 
@@ -86,38 +122,38 @@
 {{block.super}}
 
 <script>
-  setTimeout(function() {
-    $('#onboardingAnimateRoute').hide();
-    $('#onboardingAnimateIcons').show();
-    $('#onboardingAnimateIcon1').show();
-    $('#onboardingAnimateBackground').show();
-    $('#onboardingAnimateText1').show();
-  }, 2000);
 
-  setTimeout(function() {
-    $('#onboardingAnimateText1').hide();
-    $('#onboardingAnimateText2').show();
-    $('#onboardingAnimateIcon1').hide();
-    $('#onboardingAnimateIcon2').show();
-  }, 4000);
+function show1() {
+  $('#onboardingAnimate1').fadeIn(800);
+  $('#onboardingAnimate2').hide();
+};
 
-  setTimeout(function() {
-    $('#onboardingAnimateText2').hide();
-    $('#onboardingAnimateText3').show();
-    $('#onboardingAnimateIcon2').hide();
-    $('#onboardingAnimateIcon3').show();
-  }, 6000);
+function show2() {
+  $('#onboardingAnimate1').hide();
+  $('#onboardingAnimate2').fadeIn(800);
+  $('#onboardingAnimate3').hide();
+};
 
-  setTimeout(function() {
-    $('#onboardingAnimateText3').hide();
-    $('#onboardingAnimateText4').show();
-    $('#onboardingAnimateIcon3').hide();
-    $('#onboardingAnimateIcon4').show();
-  }, 8000);
+function show3() {
+  $('#onboardingAnimate2').hide();
+  $('#onboardingAnimate3').fadeIn(800);
+  $('#onboardingAnimate4').hide();
+};
 
-  // finish yellow circle animation
-  setTimeout(function() {
-    window.location.replace("{% url 'navigation:comparison' %}");
-  }, 10000);
+function show4() {
+  $('#onboardingAnimate3').hide();
+  $('#onboardingAnimate4').fadeIn(800);
+  $('#onboardingAnimate5').hide();
+};
+
+function show5() {
+  $('#onboardingAnimate4').hide();
+  $('#onboardingAnimate5').fadeIn(800);
+};
+
+function toComparisonPage() {
+  window.location = "{% url 'navigation:comparison' %}";
+}
+
 </script>
 {% endblock %}

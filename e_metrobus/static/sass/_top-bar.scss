@@ -4,6 +4,7 @@ section.top-bar {
 	height: $top-bar-height;
 	width: 100%;
 	text-align: center;
+	z-index: 3;
 
 	.cell {
 		height: 100%;
@@ -20,6 +21,12 @@ section.top-bar {
 		}
 	}
 
+	.top-bar--language {
+		img {
+			height: 1.25rem;
+		}
+	}
+
 	.top-bar--header {
 		font-size: 1rem;
 		font-weight: 700;
@@ -30,7 +37,6 @@ section.top-bar {
 	}
 
 	.top-bar--points {
-		text-align: left;
 		font-size: .875rem;
 		font-weight: 700;
 		img {
@@ -38,4 +44,8 @@ section.top-bar {
 			transform: translateY(-2px);
 		}
 	}
+}
+
+.dashboard_animation {
+	animation: star_blink .4s ease-in-out;
 }

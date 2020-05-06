@@ -5,6 +5,11 @@
     justify-content: center;
     position: relative;
 
+    @media only screen and (min-width: 600px) {
+      width: 60%!important;
+      margin: 0 auto;
+    }
+
   &__category {
     margin-bottom: 2rem;
     height: 10rem;
@@ -50,5 +55,22 @@
     button:hover {
       color: $white;
     }
+  }
+}
+#close-button {
+  color: $white;
+  border: none;
+  background: none;
+}
+
+.pattern-bg {
+  position: absolute;
+  width: 100%;
+  height: calc(100vh - 4rem);
+  background: url(../images/Dashboard_Pattern.svg);
+  background-size: 12rem;
+
+  @media only screen and (min-width: 600px) {
+    background-size: 18rem;
   }
 }

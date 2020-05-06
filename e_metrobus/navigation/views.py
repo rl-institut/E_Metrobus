@@ -6,11 +6,13 @@ from e_metrobus.navigation import constants
 from e_metrobus.navigation import widgets
 from e_metrobus.navigation import questions
 from e_metrobus.navigation import models
+from e_metrobus.navigation import stations
+from e_metrobus.navigation import forms
 
 
 class NavigationView(TemplateView):
     title = "E-Metrobus"
-    title_icon = "images/icons/Icon_E_Bus_Front.svg"
+    title_icon = "images/icons/i_ebus_black_fill.svg"
     title_alt = None
     back_url = "navigation:dashboard"
     top_bar_template = None
@@ -18,15 +20,16 @@ class NavigationView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(NavigationView, self).get_context_data(**kwargs)
-        points = questions.get_total_score(self.request.session)
+        score = questions.get_total_score(self.request.session)
         context["footer"] = widgets.FooterWidget(links=self.footer_links)
         context["top_bar"] = widgets.TopBarWidget(
             title=self.title,
             title_icon=self.title_icon,
             title_alt=self.title_alt,
             back_url=self.back_url,
-            points=points,
+            score=score,
             template=self.top_bar_template,
+            request=self.request,
         )
         return context
 
@@ -37,7 +40,9 @@ class RouteView(TemplateView):
     def get(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
 
-        context["stations"] = widgets.StationsWidget(constants.STATIONS, request)
+        context["stations"] = widgets.StationsWidget(
+            stations.STATIONS.get_stations(), request
+        )
         return self.render_to_response(context)
 
     def post(self, request, *args, **kwargs):
@@ -55,8 +60,10 @@ class DashboardView(NavigationView):
     footer_links = {
         "info": {"enabled": True},
         "dashboard": {"selected": True},
+        "leaf": {"enabled": True},
         "results": {"enabled": True},
     }
+    back_url = None
 
     def get(self, request, *args, **kwargs):
         if questions.all_questions_answered(request.session):
@@ -68,6 +75,10 @@ class DashboardView(NavigationView):
 
     def get_context_data(self, **kwargs):
         context = super(DashboardView, self).get_context_data(**kwargs)
+        current_score = questions.get_total_score(self.request.session)
+        if self.request.session.get("score_at_last_visit", 0) < current_score:
+            self.request.session["score_at_last_visit"] = current_score
+            context["top_bar"].score_changed = True
         context["categories"] = [
             (
                 cat_name,
@@ -89,10 +100,33 @@ class DisplayRouteView(NavigationView):
 
     def get_context_data(self, **kwargs):
         context = super(DisplayRouteView, self).get_context_data(**kwargs)
-        context["stations"] = [
-            constants.STATIONS[station] for station in self.request.session["stations"]
+        current_stations = [
+            stations.STATIONS[station] for station in self.request.session["stations"]
         ]
+        context["stations"] = current_stations
+        context["distance"] = stations.STATIONS.get_distance(*current_stations)
+        context["distance_in_meter"] = context["distance"] * 1000
+        route_data = stations.STATIONS.get_route_data(*current_stations)
+        context["comparison"] = {
+            "bus": (route_data["bus"].co2 - route_data["e-bus"].co2)
+            / route_data["bus"].co2
+            * 100,
+            "car": (route_data["car"].co2 - route_data["e-bus"].co2)
+            / route_data["car"].co2
+            * 100,
+        }
         return context
+
+    def get(self, request, *args, **kwargs):
+        # Set first question as "answered":
+        if "questions" not in request.session:
+            request.session["questions"] = {}
+        if "e_metrobus" not in request.session["questions"]:
+            request.session["questions"]["e_metrobus"] = {}
+        request.session["questions"]["e_metrobus"]["route"] = True
+        request.session["last_answered_question"] = "route"
+        request.session.save()
+        return super(DisplayRouteView, self).get(request, *args, **kwargs)
 
 
 class ComparisonView(NavigationView):
@@ -103,7 +137,50 @@ class ComparisonView(NavigationView):
 
     def get_context_data(self, **kwargs):
         context = super(ComparisonView, self).get_context_data(**kwargs)
-        context["plotly"] = chart.get_mobility_figure([50, 50, 100, 300, 500])
+        current_stations = [
+            stations.STATIONS[station] for station in self.request.session["stations"]
+        ]
+        route_data = stations.STATIONS.get_route_data(*current_stations)
+        chart_order = ("pedestrian", "bicycle", "e-bus", "bus", "car")
+        context["plotly"] = chart.get_mobility_figure(
+            [int(route_data[vehicle].co2) for vehicle in chart_order]
+        )
+        context["info_table"] = widgets.InfoTable()
+        return context
+
+
+class EnvironmentView(NavigationView):
+    template_name = "navigation/environment.html"
+    footer_links = {
+        "info": {"enabled": True},
+        "dashboard": {"enabled": True},
+        "leaf": {"selected": True},
+        "results": {"enabled": True},
+    }
+
+    def get_context_data(self, **kwargs):
+        context = super(EnvironmentView, self).get_context_data(**kwargs)
+
+        current_stations = [
+            stations.STATIONS[station] for station in self.request.session["stations"]
+        ]
+        e_bus_data = stations.STATIONS.get_route_data_for_vehicle(
+            *current_stations, vehicle="e-bus"
+        )
+        user_consumption = constants.Consumption(
+            distance=stations.STATIONS.get_distance(*current_stations),
+            **e_bus_data.__dict__
+        )
+        bus_data = stations.STATIONS.get_route_data_for_vehicle(
+            *current_stations, vehicle="bus"
+        )
+        bus_consumption = constants.Consumption(distance=1, **bus_data.__dict__)
+        fleet_consumption = constants.FLEET_CONSUMPTION
+        context["user"] = user_consumption
+        context["fleet"] = fleet_consumption
+        context["comparison"] = constants.Consumption(
+            *((x - y) / x * 100 for x, y in zip(bus_consumption, user_consumption))
+        )
         return context
 
 
@@ -113,14 +190,22 @@ class QuestionView(NavigationView):
     footer_links = {
         "info": {"enabled": True},
         "dashboard": {"selected": True, "enabled": True},
+        "leaf": {"enabled": True},
         "results": {"enabled": True},
     }
 
     def get_context_data(self, **kwargs):
         self.title = questions.QUESTIONS[kwargs["category"]].label
-        self.title_icon = questions.QUESTIONS[kwargs["category"]].icon
+        self.title_icon = questions.QUESTIONS[kwargs["category"]].small_icon
 
-        return super(QuestionView, self).get_context_data(**kwargs)
+        context = super(QuestionView, self).get_context_data(**kwargs)
+        context["category_percentage"] = round(
+            questions.get_category_done_share(
+                category=kwargs["category"], session=self.request.session
+            )
+            * 100
+        )
+        return context
 
     def get(self, request, *args, **kwargs):
         next_question = questions.get_next_question(kwargs["category"], request.session)
@@ -137,21 +222,35 @@ class AnswerView(NavigationView):
     footer_links = {
         "info": {"enabled": True},
         "dashboard": {"selected": True, "enabled": True},
+        "leaf": {"enabled": True},
         "results": {"enabled": True},
     }
 
-    def get_context_data(self, answer, question, **kwargs):
+    def get_context_data(self, question, answer=None, **kwargs):
         self.title = questions.QUESTIONS[question.category].label
-        self.title_icon = questions.QUESTIONS[question.category].icon
+        self.title_icon = questions.QUESTIONS[question.category].small_icon
         context = super(AnswerView, self).get_context_data(**kwargs)
         context["answer"] = answer
         context["question"] = question
         context["points"] = questions.SCORE_CORRECT if answer else questions.SCORE_WRONG
         return context
 
+    def get(self, request, **kwargs):
+        question_name = request.session.get("last_answered_question")
+        if question_name is None:
+            raise ValueError("No question answered yet!")
+        question = questions.get_question_from_name(question_name)
+        context = self.get_context_data(question=question, **kwargs)
+        return self.render_to_response(context)
+
     def post(self, request, **kwargs):
         question = questions.get_question_from_name(request.POST["question"])
-        answer = request.POST["answer"] == question.answers[int(question.correct)]
+        if isinstance(question.correct, list):
+            answer = request.POST.getlist("answer") == [
+                question.answers[i] for i in map(int, question.correct)
+            ]
+        else:
+            answer = request.POST["answer"] == question.answers[int(question.correct)]
 
         if "questions" not in request.session:
             request.session["questions"] = {}
@@ -161,9 +260,10 @@ class AnswerView(NavigationView):
             raise ValueError("Answer already given")
         else:
             request.session["questions"][question.category][question.name] = answer
+            request.session["last_answered_question"] = question.name
         request.session.save()
 
-        context = self.get_context_data(answer=answer, question=question, **kwargs)
+        context = self.get_context_data(question=question, answer=answer, **kwargs)
         return self.render_to_response(context)
 
 
@@ -182,6 +282,7 @@ class QuizFinishedView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(QuizFinishedView, self).get_context_data(**kwargs)
+        context["feedback_given"] = self.request.session.get("feedback_given", False)
         if "share" in kwargs or "hash" not in kwargs:
             context["points"] = questions.get_total_score(self.request.session)
             context["show_link"] = True
@@ -214,8 +315,14 @@ class LegalView(NavigationView):
     footer_links = {
         "info": {"selected": True},
         "dashboard": {"enabled": True},
+        "leaf": {"enabled": True},
         "results": {"enabled": True},
     }
+
+    def get_context_data(self, **kwargs):
+        context = super(LegalView, self).get_context_data(**kwargs)
+        context["info_table"] = widgets.InfoTable()
+        return context
 
 
 class QuestionsAsTextView(NavigationView):
@@ -223,6 +330,7 @@ class QuestionsAsTextView(NavigationView):
     footer_links = {
         "info": {"enabled": True},
         "dashboard": {"enabled": True},
+        "leaf": {"enabled": True},
         "results": {"selected": True},
     }
 
@@ -235,3 +343,47 @@ class QuestionsAsTextView(NavigationView):
 class LandingPageView(TemplateView):
     template_name = "navigation/landing_page.html"
     footer_links = {"dashboard": {"selected": True}}
+
+    def get_context_data(self, **kwargs):
+        context = super(LandingPageView, self).get_context_data(**kwargs)
+        if "visited" in self.request.GET:
+            context["visited"] = True
+        return context
+
+
+class FeedbackView(NavigationView):
+    template_name = "navigation/feedback.html"
+    footer_links = {
+        "info": {"enabled": True},
+        "dashboard": {"enabled": True},
+        "leaf": {"enabled": True},
+        "results": {"enabled": True},
+    }
+
+    def get_context_data(self, **kwargs):
+        context = super(FeedbackView, self).get_context_data(**kwargs)
+        context["feedback"] = kwargs.get(
+            "feedback",
+            forms.FeedbackForm(
+                initial={"question1": 3, "question2": 3, "question3": 3}
+            ),
+        )
+        return context
+
+    def get(self, request, *args, **kwargs):
+        if "feedback_given" in request.session:
+            return redirect("navigation:finished_quiz")
+        return super(FeedbackView, self).get(request, *args, **kwargs)
+
+    def post(self, request, **kwargs):
+        if "skip" in request.POST:
+            request.session["feedback_given"] = True
+            return redirect("navigation:finished_quiz")
+
+        feedback = forms.FeedbackForm(request.POST)
+        if feedback.is_valid():
+            feedback.save()
+            request.session["feedback_given"] = True
+        else:
+            return self.render_to_response(self.get_context_data(feedback=feedback))
+        return redirect("navigation:finished_quiz")

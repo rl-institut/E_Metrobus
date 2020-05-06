@@ -1,11 +1,13 @@
+
 {% load static %}
+{% load i18n %}
 
 <section class="grid-x top-bar">
   <div class="cell top-bar--back">
     <a href="{% url back_url %}">
       <div style="color: black">
         <img src="{% static 'images/icons/i_back_black.svg' %}" alt="Zurück">
-        Strecke ändern
+        {% trans "Strecke ändern" %}
       </div>
     </a>
   </div>

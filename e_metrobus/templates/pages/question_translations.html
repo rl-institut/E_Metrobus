@@ -1,0 +1,58 @@
+
+{% load i18n %}
+
+[e_metrobus]
+  label = {% trans "E-Metrobus" %}
+  icon = "images/icons/Icon_E_Bus_Front.svg"
+  [[questions]]
+    [[[loading_time]]]
+      label = {% trans "Ladezeiten" %}
+      question = {% trans "Wie lange muss dieser Bus an der Endhaltestelle laden?" %}
+      answers = {% trans "27-33 Minuten" %}, {% trans "1 Stunde" %}, {% trans "Wenige Minuten" %}, {% trans "30 Sekunden" %}
+      correct = 2
+      short_answer = {% trans "Der Bus muss nur wenige Minuten laden!" %}
+    [[[line_200]]]
+      label = {% trans "Linie 200" %}
+      question = {% trans "Wann sollen E-Busse auf Linie 200 zum Einsatz kommen?" %}
+      answers = "2020", "2021", "2022", "2025"
+      correct = 0
+      short_answer = {% trans "Linie 200 soll ab dem Jahr 2020 unterwegs sein!" %}
+    [[[loading]]]
+      label = {% trans "Ladevorgang" %}
+      question = {% trans "Wie wird die Buslinie 200 geladen?" %}
+      answers = {% trans "Stecker", "Pantograph", "Berührungslos mittels Induktion", "Batterie wird gewechselt" %}
+      correct = 1
+      short_answer = {% trans "Der Bus wird mittels eines Pantographen geladen" %}
+
+[environment]
+  label = {% trans "Umwelt" %}
+  icon = "images/icons/i_earth_black.svg"
+  [[questions]]
+    [[[co2_reduction]]]
+      label = {% trans "CO2 Reduktion" %}
+      question = {% trans "Wie viel CO2 werden durch den Einsatz der Elektrobusse auf der Linie 200 jährlich eingespart?" %}
+      answers = "444 t", "111 t", "759 kg", "50 t"
+      correct = 0
+      short_answer = {% trans "444 t CO2 können durch die Elektrifizierung der Linie 200 pro Jahr eongespart werden" %}
+
+[politics]
+  label = {% trans "Politk" %}
+  icon = "images/icons/i_info_black.svg"
+  [[questions]]
+    [[[ebus_time]]]
+      label = {% trans "Zeitplan" %}
+      question = {% trans "Seit wann fahren Elektrobusse in Berlin?" %}
+      answers = "2014", "2015", "2016", "2019"
+      correct = 1
+      short_answer = {% trans "Elektrobusse fahren seit dem Jahr 2015 in Berlin" %}
+
+[personal]
+  label = {% trans "Ich" %}
+  icon = "images/icons/i_user_black.svg"
+  [[questions]]
+    [[[advantages]]]
+      label = {% trans "Vorteile" %}
+      question = {% trans "Was sind Vorteile einer elektrifizierten Buslinie? (Mehrfachauswahl noch nicht möglich)" %}
+      answers = {% trans "Weniger CO2-Belastung", "Weniger Lärmbelastung", "Kürzere Fahrzeiten", "Günstigere Fahrkarten" %}
+      correct = 0
+      short_answer = {% trans "Vorteile sind unte anderem eine geringere CO2- und Lärm-Belastung" %}

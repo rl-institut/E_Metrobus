@@ -1,26 +1,40 @@
 
 {% extends "base.html" %}
 
+{% load i18n %}
+
 {% block content %}
+<div class="cell progress-bar">
+  <div class="progress-bar__fill" style="width: {{category_percentage}}%;"></div>
+</div>
 <div class="cell question">
-  <form method="post" action="{% url 'navigation:answer' %}">
+  <form method="post" action="{% url 'navigation:answer' %}" id="question">
+    <input type="hidden" name="question" value="{{question.name}}">
     <div class="grid-x align-center">
       <div class="cell small-10 question__text">
         {% csrf_token %}
-        <h2>{{question.question}}</h2>
+        <h2>{% trans question.question %}</h2>
+        {% if question.is_multiple_choice %}
+          <span class="question__hint">({% trans 'Mehrere Antworten möglich' %})</span>
+        {% endif %}
       </div>
       <div class="cell small-10 question__answer">
         <fieldset name="answer">
           {% for answer in question.answers %}
-            <input type="radio" class="radio" name="answer" value="{{answer}}" id="answer{{forloop.counter}}"/>
-            <label for="answer{{forloop.counter}}">{{answer}}</label>
+            {% if question.is_multiple_choice %}
+              <input type="checkbox" class="checkbox" name="answer" value="{{answer}}" id="answer{{forloop.counter}}"/>
+            {% else %}
+              <input type="radio" class="radio" name="answer" value="{{answer}}" id="answer{{forloop.counter}}"/>
+            {% endif %}
+            <label for="answer{{forloop.counter}}">{% trans answer %}</label>
           {% endfor %}
         </fieldset>
       </div>
-      <div class="cell text-center question__btn" id="answer">
-        <input type="hidden" name="question" value="{{question.name}}">
-        <input class="button" type="submit" value="Antworten">
+      {% if question.is_multiple_choice %}
+      <div class="cell text-center question__btn">
+        <input class="button" type="submit" value="{% trans 'Antworten' %}">
       </div>
+      {% endif %}
     </div>
   </form>
 </div>
@@ -30,7 +44,19 @@
   {{block.super}}
   <script>
     $(".radio").change(function() {
-      $("#answer").addClass("answer--ready");
+      setTimeout(
+        function () {
+          $("#question").submit();
+        },
+        300
+      );
+    });
+    $(".checkbox").change(function() {
+      if ($('fieldset[name="answer"] input:checked').length > 0) {
+        $(".question__btn").addClass("answer--ready");
+      } else {
+        $(".question__btn").removeClass("answer--ready");
+      };
     });
   </script>
 {% endblock %}
