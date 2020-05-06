@@ -8,7 +8,7 @@
 
 {% block content %}
 
-<form method="post" class="route-drop">
+<form id="stations_form" method="post" class="route-drop">
   {% csrf_token %}
   <div class="grid-x route-drop__top">
   </div>
@@ -47,12 +47,21 @@
   </div>
   <div class="grid-x route-drop__bottom">
     <div class="cell landing__bottom-btn">
-      <button class="button" onclick="submit_stations();">{% trans "Strecke bestätigen" %}</button>
+      <button class="button">{% trans "Strecke bestätigen" %}</button>
+    </div>
   </div>
-</div>
+</form>
 
 {% endblock %}
 
 {% block javascript %}
   {{block.super}}
+  <script>
+    $('#stations_form').submit(function(e){
+      if ($("#stationStart").val() == $("#stationEnd").val()) {
+        e.preventDefault();
+        alert("Start- und Endstation müssen verschieden sein.");
+      }
+    });
+  </script>
 {% endblock %}
