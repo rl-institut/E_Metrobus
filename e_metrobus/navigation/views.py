@@ -54,22 +54,22 @@ class RouteView(TemplateView):
         request.session["stations"] = get_stations()
         return redirect("navigation:display_route")
 
+
 class RouteDropdownView(TemplateView):
     template_name = "navigation/route_dropdown.html"
 
     def get(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)
 
-        context["stations"] = widgets.StationsWidget(
-            stations.STATIONS.get_stations(), request
-        )
+        context["stations"] = stations.STATIONS.get_stations()
         return self.render_to_response(context)
 
     def post(self, request, *args, **kwargs):
         def get_stations():
-            stations_raw = request.POST["stations"]
-            start, end = stations_raw.split(",")
-            return int(start[-2:]) - 1, int(end[-2:]) - 1
+            start = request.POST["stationStart"]
+            end = request.POST["stationEnd"]
+            station_list = stations.STATIONS.get_stations()
+            return station_list.index(start), station_list.index(end)
 
         request.session["stations"] = get_stations()
         return redirect("navigation:display_route")

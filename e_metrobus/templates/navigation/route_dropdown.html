@@ -1,52 +1,53 @@
 
 {% extends "base.html" %}
 
+{% load static %}
+{% load i18n %}
+
 {% block body_class %}class="l-scroll l-scroll--nonav"{% endblock %}
 
 {% block content %}
 
-<div class="route-drop">
+<form method="post" class="route-drop">
+  {% csrf_token %}
   <div class="grid-x route-drop__top">
   </div>
   <div class="grid-x route-drop__main">
     <div class="route-drop__question route-drop__question--start">
       <div class="route-drop__question--icon">
-        <img src="../static/images/icons/Icon_Circle.svg" alt="icon">
+        <img src="{% static 'images/icons/Icon_Circle.svg' %}" alt="icon">
       </div>
       <div class="route-drop__question--text">
-        <label for="stationStart">Wo bist Du eingestiegen?</label>
+        <label for="stationStart">{% trans 'Wo bist Du eingestiegen?' %}</label>
       </div>
       <div class="route-drop__dropdown">
-        <select id="stationStart">
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="mercedes">Mercedes</option>
-          <option value="audi">Audi</option>
+        <select id="stationStart" name="stationStart">
+          {% for station in stations %}
+            <option value="{{station}}">{{station}}</option>
+          {% endfor %}
         </select>
       </div>
     </div>
     <div class="route-drop__dotted-line"></div>
     <div class="route-drop__question route-drop__question--end">
       <div class="route-drop__question--icon">
-        <img src="../static/images/icons/Icon_Pin.svg" alt="icon">
+        <img src="{% static 'images/icons/Icon_Pin.svg' %}" alt="icon">
       </div>
       <div class="route-drop__question--text">
-        <label for="stationEnd">Wo steigst Du aus?</label>
+        <label for="stationEnd">{% trans 'Wo steigst Du aus?' %}</label>
       </div>
       <div class="route-drop__dropdown">
-        <select id="stationEnd">
-          <option value="volvo">Volvo</option>
-          <option value="saab">Saab</option>
-          <option value="mercedes">Mercedes</option>
-          <option value="audi">Audi</option>
+        <select id="stationEnd" name="stationEnd">
+          {% for station in stations %}
+            <option value="{{station}}">{{station}}</option>
+          {% endfor %}
         </select>
       </div>
     </div>
   </div>
   <div class="grid-x route-drop__bottom">
     <div class="cell landing__bottom-btn">
-      <a href=""><button class="button">Bestätigen</button></a>
-    </div>
+      <button class="button" onclick="submit_stations();">{% trans "Strecke bestätigen" %}</button>
   </div>
 </div>
 
@@ -54,5 +55,4 @@
 
 {% block javascript %}
   {{block.super}}
-  {{stations.media}}
 {% endblock %}
