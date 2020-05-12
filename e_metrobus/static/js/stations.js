@@ -56,15 +56,20 @@ function getStationIDs() {
 
 $("#stationsList .station").click(function() {
   if (stations.length == 2 && !stations.includes(this.id)) {
-     return
+     showLines(false);
+     for (i = 0; i < stations.length; i++) {
+        highlightStation(stations[i])
+     }
+     stations = [];
   }
   if (stations.includes(this.id)) {
   	showLines(false);
     removeStation(this.id);
+    highlightStation(this.id);
   } else {
     saveStation(this.id);
+    highlightStation(this.id);
   }
-  highlightStation(this.id);
 
   //Show button if 2 stations are selected
   if (stations.length === 2) {

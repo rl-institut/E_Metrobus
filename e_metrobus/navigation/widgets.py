@@ -7,6 +7,8 @@ from django.templatetags.static import static
 from django.utils.html import format_html
 from django.utils.safestring import mark_safe
 
+from e_metrobus.navigation import constants
+
 
 class CustomWidget:
     template_name = None
@@ -128,3 +130,13 @@ class FeedbackStarsWidget(widgets.NumberInput):
 
 class FeedbackCommentWidget(widgets.TextInput):
     template_name = "widgets/feedback_comment.html"
+
+
+class InfoTable(CustomWidget):
+    template_name = "widgets/info_table.html"
+
+    def get_context(self, **kwargs):
+        return {
+            "vehicles": constants.VEHICLES,
+            "source": constants.DATA_SOURCE
+        }

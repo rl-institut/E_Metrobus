@@ -1,8 +1,39 @@
 @keyframes fadein {
   0% {opacity: 0;}
-  50% {opacity: 0;}
   100%   { opacity: 1; }
 }
+
+@keyframes animateBus {
+  0% {
+    transform: translateX(-150%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes animateLPButton {
+  0% {
+    transform: scale(1, 1) translateY(-150px);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  60% {
+    transform: scale(1, 1) translateY(0);
+  }
+  73% {
+    transform: scale(1.15, .85) translateY(0);
+  }
+  87% {
+    transform: scale(1, 1) translateY(-10px);
+  }
+  100% {
+    transform: scale(1, 1) translateY(0);
+  }
+}
+
 .landpage {
 
   height: 100vh;
@@ -20,11 +51,16 @@
     &--embus {
       margin-top: 6vh;
       margin-bottom: 6vh;
-      animation: fadein 2s;
 
       @media screen and (min-height: 700px) {
         margin-top: 7vh;
         margin-bottom: 8vh;
+      }
+
+      #animateBus {
+        animation: animateBus;
+        animation-duration: 1.25s;
+        animation-timing-function: ease-in-out;
       }
 
       img {
@@ -36,20 +72,26 @@
       }
     }
     &--bvg {
-      animation: fadein 7.5s ;
+      animation: fadein 2s;
+      animation-delay: 4s;
+      animation-fill-mode: backwards;
       img {
         max-width: 9vh;
       }
     }
     &--tu {
-      animation: fadein 7.5s;
+      animation: fadein 2s;
+      animation-delay: 4.15s;
+      animation-fill-mode: backwards;
       img {
         margin-top: 0.3rem;
         max-width: 10.75vh;
       }
     }
     &--rli {
-      animation: fadein 7.5s;
+      animation: fadein 2s;
+      animation-delay: 4.3s;
+      animation-fill-mode: backwards;
       img {
         margin-top: 0.5rem;
         max-width: 10vh;
@@ -57,8 +99,15 @@
     }
   }
 
+  #animateLPButton {
+    animation: animateLPButton;
+    animation-fill-mode: backwards;
+    animation-delay: 3s;
+    animation-duration: .5s;
+    animation-timing-function: linear;
+  }
+
   &__button {
-    animation: fadein 4s;
     background-color: $primary-color-1;
     padding: 2rem .5rem;
     height: 60vh;
@@ -79,7 +128,6 @@
       line-height: 1.85rem;
     }
     button {
-      animation: fadein 6.5s;
       margin: 1rem 0;
       margin-bottom: 0;
     }
@@ -94,7 +142,9 @@
       right: 0;
     }
     &--switch {
-      animation: fadein 7.5s;
+      animation: fadein 1.5s;
+      animation-fill-mode: backwards;
+      animation-delay: 4.5s;
       img {
         height: 1.25rem;
         margin: 0.5rem;
@@ -334,6 +384,29 @@ and (orientation: landscape) {
 
     &__header {
       padding-top: 9rem;
+    }
+  }
+}
+
+.desktop__top-right {
+  position: relative;
+
+  .desktop__lang {
+    position: absolute;
+    height: 2rem;
+    top: 1.5rem;
+    right: 0;
+
+    img {
+      height: 1.25rem;
+      transform: translateY(-2px);
+    }
+
+    span {
+      color: $secondary-color;
+      font-size: 1rem;
+      padding-left: .5rem;
+      font-weight: 700;
     }
   }
 }

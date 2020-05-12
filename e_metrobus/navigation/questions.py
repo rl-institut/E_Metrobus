@@ -1,5 +1,5 @@
 import os
-from typing import List, Dict
+from typing import List, Dict, Union
 from dataclasses import dataclass
 from configobj import ConfigObj
 
@@ -19,9 +19,10 @@ class Question:
     name: str
     label: str
     question: str
+    is_multiple_choice: bool
     answers: List[str]
     short_answer: str
-    correct: int
+    correct: Union[int, List[int]]
     template: str
     category: str
 
@@ -52,6 +53,9 @@ for cat in question_config:
             template=f"{QUESTION_TEMPLATE_FOLDER}/{cat}/{q}.html",
             name=q,
             category=cat,
+            is_multiple_choice=isinstance(
+                question_config[cat]["questions"][q]["correct"], list
+            ),
             **question_config[cat]["questions"][q],
         )
     QUESTIONS[cat] = Category(

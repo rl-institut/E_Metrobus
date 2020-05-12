@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 
+{% load static %}
 {% load i18n %}
+
+{% block header %}
+  <script src="{% static 'js/plotly.min.js' %}"></script>
+{% endblock %}
 
 {% block content %}
 
@@ -8,10 +13,22 @@
   {{plotly.div|safe}}
 </div>
 
-<div class="cell text-center landpage__bottom" id="next" style="bottom:3.8rem">
+<div class="cell text-center" id="next">
   <div class="cell landing__bottom-btn">
-    <a href="{% url 'navigation:dashboard' %}"><button class="button">{% trans "Mehr entdecken!" %}</button></a>
+    <a href="{% url 'navigation:dashboard' %}"><button id="animateComparisonBtn" class="button">{% trans "Mehr entdecken!" %}</button></a>
   </div>
+</div>
+
+<div class="cell text-center data-source-button" data-open="comparisonData">
+  <button>Woher kommen die Zahlen?</button>
+</div>
+
+<div class="full reveal" id="comparisonData" data-reveal>
+  <p class="data__title">Die Daten hinter der Zahlen</p>
+  {{info_table}}
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
 </div>
 
 {% endblock %}

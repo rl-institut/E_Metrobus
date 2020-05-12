@@ -1,6 +1,6 @@
 {
   "name": "e_metrobus",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "dependencies": {},
   "devDependencies": {
     "autoprefixer": "^9.4.7",

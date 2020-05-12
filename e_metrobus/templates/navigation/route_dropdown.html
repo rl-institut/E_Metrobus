@@ -1,0 +1,67 @@
+
+{% extends "base.html" %}
+
+{% load static %}
+{% load i18n %}
+
+{% block body_class %}class="l-scroll l-scroll--nonav"{% endblock %}
+
+{% block content %}
+
+<form id="stations_form" method="post" class="route-drop">
+  {% csrf_token %}
+  <div class="grid-x route-drop__top">
+  </div>
+  <div class="grid-x route-drop__main">
+    <div class="route-drop__question route-drop__question--start">
+      <div class="route-drop__question--icon">
+        <img src="{% static 'images/icons/Icon_Circle.svg' %}" alt="icon">
+      </div>
+      <div class="route-drop__question--text">
+        <label for="stationStart">{% trans 'Wo bist Du eingestiegen?' %}</label>
+      </div>
+      <div class="route-drop__dropdown">
+        <select id="stationStart" name="stationStart">
+          {% for station in stations %}
+            <option value="{{station}}">{{station}}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+    <div class="route-drop__dotted-line"></div>
+    <div class="route-drop__question route-drop__question--end">
+      <div class="route-drop__question--icon">
+        <img src="{% static 'images/icons/Icon_Pin.svg' %}" alt="icon">
+      </div>
+      <div class="route-drop__question--text">
+        <label for="stationEnd">{% trans 'Wo steigst Du aus?' %}</label>
+      </div>
+      <div class="route-drop__dropdown">
+        <select id="stationEnd" name="stationEnd">
+          {% for station in stations %}
+            <option value="{{station}}">{{station}}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="grid-x route-drop__bottom">
+    <div class="cell landing__bottom-btn">
+      <button class="button">{% trans "Strecke bestätigen" %}</button>
+    </div>
+  </div>
+</form>
+
+{% endblock %}
+
+{% block javascript %}
+  {{block.super}}
+  <script>
+    $('#stations_form').submit(function(e){
+      if ($("#stationStart").val() == $("#stationEnd").val()) {
+        e.preventDefault();
+        alert("Start- und Endstation müssen verschieden sein.");
+      }
+    });
+  </script>
+{% endblock %}

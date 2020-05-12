@@ -30,3 +30,13 @@
   }
 
 }
+
+.category__bg {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background: url(../images/Dashboard_Pattern_blue.svg);
+  background-size: 12rem;
+  z-index: -1;
+}

@@ -55,6 +55,25 @@ class RouteView(TemplateView):
         return redirect("navigation:display_route")
 
 
+class RouteDropdownView(TemplateView):
+    template_name = "navigation/route_dropdown.html"
+
+    def get(self, request, *args, **kwargs):
+        context = self.get_context_data(**kwargs)
+        context["stations"] = stations.STATIONS.get_stations()
+        return self.render_to_response(context)
+
+    def post(self, request, *args, **kwargs):
+        def get_stations():
+            start = request.POST["stationStart"]
+            end = request.POST["stationEnd"]
+            station_list = stations.STATIONS.get_stations()
+            return station_list.index(start), station_list.index(end)
+
+        request.session["stations"] = get_stations()
+        return redirect("navigation:display_route")
+
+
 class DashboardView(NavigationView):
     template_name = "navigation/dashboard.html"
     footer_links = {
@@ -105,6 +124,7 @@ class DisplayRouteView(NavigationView):
         ]
         context["stations"] = current_stations
         context["distance"] = stations.STATIONS.get_distance(*current_stations)
+        context["distance_in_meter"] = context["distance"] * 1000
         route_data = stations.STATIONS.get_route_data(*current_stations)
         context["comparison"] = {
             "bus": (route_data["bus"].co2 - route_data["e-bus"].co2)
@@ -115,6 +135,17 @@ class DisplayRouteView(NavigationView):
             * 100,
         }
         return context
+
+    def get(self, request, *args, **kwargs):
+        # Set first question as "answered":
+        if "questions" not in request.session:
+            request.session["questions"] = {}
+        if "e_metrobus" not in request.session["questions"]:
+            request.session["questions"]["e_metrobus"] = {}
+        request.session["questions"]["e_metrobus"]["route"] = True
+        request.session["last_answered_question"] = "route"
+        request.session.save()
+        return super(DisplayRouteView, self).get(request, *args, **kwargs)
 
 
 class ComparisonView(NavigationView):
@@ -131,8 +162,9 @@ class ComparisonView(NavigationView):
         route_data = stations.STATIONS.get_route_data(*current_stations)
         chart_order = ("pedestrian", "bicycle", "e-bus", "bus", "car")
         context["plotly"] = chart.get_mobility_figure(
-            [route_data[vehicle].co2 for vehicle in chart_order]
+            [int(route_data[vehicle].co2) for vehicle in chart_order]
         )
+        context["info_table"] = widgets.InfoTable()
         return context
 
 
@@ -215,7 +247,7 @@ class AnswerView(NavigationView):
 
     def get_context_data(self, question, answer=None, **kwargs):
         self.title = questions.QUESTIONS[question.category].label
-        self.title_icon = questions.QUESTIONS[question.category].icon
+        self.title_icon = questions.QUESTIONS[question.category].small_icon
         context = super(AnswerView, self).get_context_data(**kwargs)
         context["answer"] = answer
         context["question"] = question
@@ -232,7 +264,12 @@ class AnswerView(NavigationView):
 
     def post(self, request, **kwargs):
         question = questions.get_question_from_name(request.POST["question"])
-        answer = request.POST["answer"] == question.answers[int(question.correct)]
+        if isinstance(question.correct, list):
+            answer = request.POST.getlist("answer") == [
+                question.answers[i] for i in map(int, question.correct)
+            ]
+        else:
+            answer = request.POST["answer"] == question.answers[int(question.correct)]
 
         if "questions" not in request.session:
             request.session["questions"] = {}
@@ -301,6 +338,11 @@ class LegalView(NavigationView):
         "results": {"enabled": True},
     }
 
+    def get_context_data(self, **kwargs):
+        context = super(LegalView, self).get_context_data(**kwargs)
+        context["info_table"] = widgets.InfoTable()
+        return context
+
 
 class QuestionsAsTextView(NavigationView):
     template_name = "navigation/questions_as_text.html"
@@ -320,6 +362,12 @@ class QuestionsAsTextView(NavigationView):
 class LandingPageView(TemplateView):
     template_name = "navigation/landing_page.html"
     footer_links = {"dashboard": {"selected": True}}
+
+    def get_context_data(self, **kwargs):
+        context = super(LandingPageView, self).get_context_data(**kwargs)
+        if "visited" in self.request.GET:
+            context["visited"] = True
+        return context
 
 
 class FeedbackView(NavigationView):

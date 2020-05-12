@@ -5,10 +5,10 @@ $(document).ready(function() {
     var DEG_TO_RAD = Math.PI / 180;
     var RAD_TO_DEG = 180 / Math.PI;
     var colors = [
-        ["#df0049", "#660671"],
-        ["#00e857", "#005291"],
-        ["#2bebbc", "#05798a"],
-        ["#ffd200", "#b06c00"]
+        ["#F0D722", "#17BEBB"],
+        ["#F0D722", "#252424"],
+        ["#F0D722", "#252424"],
+        ["#17BEBB", "#252424"]
     ];
 
     function Vector2(_x, _y) {
