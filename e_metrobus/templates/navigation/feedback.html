@@ -8,6 +8,9 @@
 <div class="cell feedback">
   <div class="grid-x">
     <form method="post" class="feedback__form">
+      <div class="cell feedback__btn--skip">
+        <button type="submit" name="skip" style= "cursor:pointer">{% trans 'Überspringen' %}</button>
+      </div>
       {% csrf_token %}
 
       {{feedback}}
@@ -16,9 +19,6 @@
         <div class="grid-x align-center text-center">
           <div class="cell">
             <button class="button--yellow" type="submit" style= "cursor:pointer">{% trans 'Meinung schicken' %}</button>
-          </div>
-          <div class="cell feedback__btn--skip">
-            <button type="submit" name="skip" style= "cursor:pointer">{% trans 'Überspringen' %}</button>
           </div>
         </div>
       </div>
