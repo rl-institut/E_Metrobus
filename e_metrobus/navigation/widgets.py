@@ -1,10 +1,13 @@
 from collections import ChainMap
 
+from django.forms import widgets
+from django.forms.renderers import get_default_renderer
+from django.template.context_processors import csrf
+from django.templatetags.static import static
 from django.utils.html import format_html
 from django.utils.safestring import mark_safe
-from django.forms.renderers import get_default_renderer
-from django.templatetags.static import static
-from django.template.context_processors import csrf
+
+from e_metrobus.navigation import constants
 
 
 class CustomWidget:
@@ -119,3 +122,21 @@ class FooterWidget(CustomWidget):
 
     def get_context(self, **kwargs):
         return {"links": self.links}
+
+
+class FeedbackStarsWidget(widgets.NumberInput):
+    template_name = "widgets/feedback_stars.html"
+
+
+class FeedbackCommentWidget(widgets.TextInput):
+    template_name = "widgets/feedback_comment.html"
+
+
+class InfoTable(CustomWidget):
+    template_name = "widgets/info_table.html"
+
+    def get_context(self, **kwargs):
+        return {
+            "vehicles": constants.VEHICLES,
+            "source": constants.DATA_SOURCE
+        }

@@ -6,6 +6,8 @@
 {% block content %}
 
 <!-- route display -->
+<div class="display-route__bg"></div>
+
 <div class="cell display-route" id="onboardingAnimate1">
   <div class="grid-x text-center align-middle display-route__stations">
     <div class="cell">
@@ -41,7 +43,7 @@
 <div class="cell display-route" id="onboardingAnimate2" style="display: none;">
   <div class="grid-x display-route__grid text-center align-center">
     <div class="cell display-route__wrap">
-      <img src="{% static 'images/icons/Icon_Pin.svg' %}" alt="Pin Icon">
+      <img class="larger" src="{% static 'images/icons/Icon_Route.svg' %}" alt="Route image">
       <div class="display-route__text">
         <p class="display-route__sentence">{% trans "Deine Strecke mit dem <span>E-Bus</span> beträgt" %}</p>
         {% if distance < 1 %}
@@ -122,35 +124,35 @@
 <script>
 
 function show1() {
-  $('#onboardingAnimate1').show();
+  $('#onboardingAnimate1').fadeIn(800);
   $('#onboardingAnimate2').hide();
 };
 
 function show2() {
   $('#onboardingAnimate1').hide();
-  $('#onboardingAnimate2').show();
+  $('#onboardingAnimate2').fadeIn(800);
   $('#onboardingAnimate3').hide();
 };
 
 function show3() {
   $('#onboardingAnimate2').hide();
-  $('#onboardingAnimate3').show();
+  $('#onboardingAnimate3').fadeIn(800);
   $('#onboardingAnimate4').hide();
 };
 
 function show4() {
   $('#onboardingAnimate3').hide();
-  $('#onboardingAnimate4').show();
+  $('#onboardingAnimate4').fadeIn(800);
   $('#onboardingAnimate5').hide();
 };
 
 function show5() {
   $('#onboardingAnimate4').hide();
-  $('#onboardingAnimate5').show();
+  $('#onboardingAnimate5').fadeIn(800);
 };
 
 function toComparisonPage() {
-  window.location = "/comparison/";
+  window.location = "{% url 'navigation:comparison' %}";
 }
 
 </script>
