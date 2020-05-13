@@ -1,9 +1,12 @@
 .dashboard {
-    height: calc(100vh - 9rem); // height is about the space on screen between top and bottom navigations
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
 
     @media only screen and (min-width: 600px) {
       width: 60%!important;
@@ -66,7 +69,7 @@
 .pattern-bg {
   position: absolute;
   width: 100%;
-  height: calc(100vh - 4rem);
+  height: calc(100% - 4rem);
   background: url(../images/Dashboard_Pattern.svg);
   background-size: 12rem;
 
