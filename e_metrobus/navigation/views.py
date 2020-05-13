@@ -10,6 +10,13 @@ from e_metrobus.navigation import stations
 from e_metrobus.navigation import forms
 
 
+class CheckStationsMixin:
+    def get(self, request, *args, **kwargs):
+        if "stations" not in request.session:
+            return redirect("navigation:route")
+        return super(CheckStationsMixin, self).get(request, *args, **kwargs)
+
+
 class NavigationView(TemplateView):
     title = "E-Metrobus"
     title_icon = "images/icons/i_ebus_black_fill.svg"
@@ -74,7 +81,7 @@ class RouteDropdownView(TemplateView):
         return redirect("navigation:display_route")
 
 
-class DashboardView(NavigationView):
+class DashboardView(CheckStationsMixin, NavigationView):
     template_name = "navigation/dashboard.html"
     footer_links = {
         "info": {"enabled": True},
@@ -111,7 +118,7 @@ class DashboardView(NavigationView):
         return context
 
 
-class DisplayRouteView(NavigationView):
+class DisplayRouteView(CheckStationsMixin, NavigationView):
     template_name = "navigation/display_route.html"
     footer_links = {"dashboard": {"selected": True}}
     back_url = "navigation:route"
@@ -148,7 +155,7 @@ class DisplayRouteView(NavigationView):
         return super(DisplayRouteView, self).get(request, *args, **kwargs)
 
 
-class ComparisonView(NavigationView):
+class ComparisonView(CheckStationsMixin, NavigationView):
     template_name = "navigation/comparison.html"
     footer_links = {"dashboard": {"selected": True}}
     back_url = "navigation:route"
@@ -168,7 +175,7 @@ class ComparisonView(NavigationView):
         return context
 
 
-class EnvironmentView(NavigationView):
+class EnvironmentView(CheckStationsMixin, NavigationView):
     template_name = "navigation/environment.html"
     footer_links = {
         "info": {"enabled": True},
@@ -198,7 +205,10 @@ class EnvironmentView(NavigationView):
         context["user"] = user_consumption
         context["fleet"] = fleet_consumption
         context["comparison"] = constants.Consumption(
-            *((x - y) / x * 100 for x, y in zip(bus_consumption, user_consumption))
+            *(
+                (x - y) / x * 100 if x != 0 else 0
+                for x, y in zip(bus_consumption, user_consumption)
+            )
         )
         return context
 

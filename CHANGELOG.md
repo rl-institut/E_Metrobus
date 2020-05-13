@@ -10,6 +10,7 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 
 ### Fixed
 - questions as text page
+- environment page redirects to stations if not yet selected
 
 ## [0.8.0] - 2020-05-12
 ### Added
