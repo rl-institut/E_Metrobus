@@ -35,8 +35,7 @@
 }
 
 .landpage {
-
-  height: 100vh;
+  height: 100%;
 
     &__logo {
     margin: 1rem 0;
@@ -110,7 +109,7 @@
   &__button {
     background-color: $primary-color-1;
     padding: 2rem .5rem;
-    height: 60vh;
+    height: 20rem;
     >.grid-x {
       height: 100%;
       padding-top: 20%;
@@ -177,11 +176,13 @@
     }
   }
   &__ebus {
-    height: 25vh;
+    //height: 25vh;
   }
   &__bottom {
     padding: 0 .5rem 0;
-    height: 15vh;
+    position: fixed;
+    bottom: 0;
+    //height: 15vh;
   }
 }
 #language_popup {
