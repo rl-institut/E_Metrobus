@@ -198,7 +198,10 @@ class EnvironmentView(NavigationView):
         context["user"] = user_consumption
         context["fleet"] = fleet_consumption
         context["comparison"] = constants.Consumption(
-            *((x - y) / x * 100 for x, y in zip(bus_consumption, user_consumption))
+            *(
+                (x - y) / x * 100 if x != 0 else 0
+                for x, y in zip(bus_consumption, user_consumption)
+            )
         )
         return context
 
