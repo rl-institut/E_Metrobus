@@ -4,6 +4,7 @@ import plotly
 import plotly.graph_objects as go
 
 from django.utils.translation import gettext as _
+from django.utils.html import format_html
 
 # at max_value = 50
 MARGIN = 10
@@ -13,7 +14,7 @@ TEXTSIZE = 5
 TROPHY_OFFSET = 20
 
 DEFAULT_COLOR = "Gainsboro"
-E_BUS_COLOR = "black"
+E_BUS_COLOR = "#B0B0B0"
 
 Sizes = namedtuple("Sizes", ["margin", "offset", "size", "textsize"])
 
@@ -21,10 +22,7 @@ Sizes = namedtuple("Sizes", ["margin", "offset", "size", "textsize"])
 class DjangoFigure:
     def __init__(self, figure, **config):
         plotly_div = plotly.offline.plot(
-            figure,
-            include_plotlyjs=False,
-            output_type="div",
-            config=config
+            figure, include_plotlyjs=False, output_type="div", config=config
         )
 
         self.script = plotly_div[
@@ -36,7 +34,7 @@ class DjangoFigure:
         div_id_end = plotly_div.find('"', div_id_start + 9)
         self.div_id = plotly_div[div_id_start + 9 : div_id_end]
 
-        self.div = f'<div id="{self.div_id}" class="plotly-graph-div" style="height:60vh; width:100vw;"></div>'
+        self.div = f'<div id="{self.div_id}" class="plotly-graph-div" style="height:55vh; width:100vw;"></div>'
 
 
 def get_sizes(max_value):
@@ -86,13 +84,17 @@ def get_mobility_figure(values):
     # Mobility icons:
     for i, icon in enumerate(["pedestrian", "bike", "ebus", "bus", "car"]):
         color = "gray"
+        size = sizes.size * 0.7
         if icon == "ebus":
             color = "black_fill"
+            size = sizes.size
         fig.add_layout_image(
             go.layout.Image(
                 source=f"/static/images/icons/i_{icon}_{color}.svg",
                 x=i,
                 y=-sizes.offset,
+                sizex=size,
+                sizey=size,
             )
         )
     # Trophy Icons:
@@ -106,16 +108,14 @@ def get_mobility_figure(values):
                 + sizes.size
                 + sizes.offset
                 + TROPHY_OFFSET,
+                sizex=sizes.size,
+                sizey=sizes.size,
             )
         )
     fig.update_layout_images(
-        {
-            "xref": "x",
-            "yref": "y",
-            "sizex": sizes.size,
-            "sizey": sizes.size,
-            "xanchor": "center",
-            "yanchor": "top",
-        }
+        {"xref": "x", "yref": "y", "xanchor": "center", "yanchor": "top",}
     )
+    # fig.update_layout(
+    #     xaxis=dict(tickmode='array', ticktext=ticktext, tickvals=mobiles)
+    # )
     return DjangoFigure(fig, displayModeBar=False, staticPlot=True)
