@@ -21,7 +21,10 @@ Sizes = namedtuple("Sizes", ["margin", "offset", "size", "textsize"])
 class DjangoFigure:
     def __init__(self, figure, **config):
         plotly_div = plotly.offline.plot(
-            figure, include_plotlyjs=False, output_type="div", config=config
+            figure,
+            include_plotlyjs=False,
+            output_type="div",
+            config=config
         )
 
         self.script = plotly_div[
@@ -115,4 +118,4 @@ def get_mobility_figure(values):
             "yanchor": "top",
         }
     )
-    return DjangoFigure(fig, displayModeBar=False)
+    return DjangoFigure(fig, displayModeBar=False, staticPlot=True)
