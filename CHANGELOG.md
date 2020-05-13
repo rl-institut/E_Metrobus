@@ -8,6 +8,9 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 ### Changed
 - comparison chart is static (no zoom possible)
 
+### Fixed
+- body height too tall on android browser
+
 ## [0.8.0] - 2020-05-12
 ### Added
 - feedback page
