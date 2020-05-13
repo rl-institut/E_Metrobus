@@ -113,6 +113,9 @@
     >.grid-x {
       height: 100%;
       padding-top: 20%;
+      @media screen and ( min-height: 850px ) {
+        padding-top: 0;
+      }
     }
     &-text {
       position: relative;
