@@ -6,7 +6,6 @@ app_name = "navigation"
 urlpatterns = [
     path("", view=views.LandingPageView.as_view(), name="landing_page"),
     path("route/", view=views.RouteView.as_view(), name="route"),
-    path("route_dropdown/", view=views.RouteDropdownView.as_view(), name="route_dropdown"),
     path("display_route/", view=views.DisplayRouteView.as_view(), name="display_route"),
     path("comparison/", view=views.ComparisonView.as_view(), name="comparison"),
     path("environment/", view=views.EnvironmentView.as_view(), name="environment"),

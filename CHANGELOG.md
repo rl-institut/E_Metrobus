@@ -7,6 +7,7 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 ## [Unreleased]
 ### Changed
 - comparison chart is static (no zoom possible)
+- enabled route dropdown as default route
 
 ### Fixed
 - questions as text page
