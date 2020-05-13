@@ -52,6 +52,13 @@
   </div>
 </form>
 
+<div class="tiny reveal" id="same_stations" data-reveal>
+  {% trans 'Ein- und Ausstieg müssen verschieden sein.' %}
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
 {% endblock %}
 
 {% block javascript %}
@@ -60,7 +67,7 @@
     $('#stations_form').submit(function(e){
       if ($("#stationStart").val() == $("#stationEnd").val()) {
         e.preventDefault();
-        alert("Start- und Endstation müssen verschieden sein.");
+        $('#same_stations').foundation('open');
       }
     });
   </script>
