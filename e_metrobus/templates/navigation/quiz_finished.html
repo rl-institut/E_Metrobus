@@ -8,11 +8,11 @@
 {% block body_class %}class="l-scroll l-scroll--nonav"{% endblock %}
 
 {% block content %}
-<div class="cell" id="confetti"></div>
+<div class="cell" id="confetti" xmlns="http://www.w3.org/1999/html"></div>
 <div class="cell">
   <div class="grid-x text-center align-center">
-    <div class="cell small-8 quiz-fin__text">
-      <p>{% blocktrans with score="<span>{}</span>"|format_text:points %}Glückwunsch! Du hast das Quiz mit {{score}} Punkten abgeschlossen!{% endblocktrans %}</p>
+    <div class="cell small-10 medium-6 quiz-fin__text">
+      <p>{% blocktrans with score="<span>{}</span>"|format_text:points %}Glückwunsch!<br>Du hast das Quiz mit {{score}} Punkten abgeschlossen!{% endblocktrans %}</p>
     </div>
     <div class="cell quiz-fin__img">
       <img src="{% static 'images/icons/i_badge_yellow.svg' %}" alt="badge">
@@ -22,7 +22,38 @@
         <div class="cell">
           {% if show_link %}
             {% if hash %}
-              {% trans "Link zum Teilen deiner Punkte:" %} {{request.scheme}}://{{request.get_host}}{% url 'navigation:score' hash=hash %}
+            <input type="submit" class="btn button button--yellow" value="{% trans 'Ergebnis teilen' %}" data-open="share-reveal">
+            <div class="reveal" id="share-reveal" data-reveal>
+              <div class="grid-x share-reveal" id="share-buttons">
+                <div class="cell share-reveal__title">
+                  <span>Ergebnisse teilen</span>
+                </div>
+                <div class="cell small-4 share-reveal__icon">
+                  <a href="http://www.facebook.com/sharer.php?u={{request.scheme}}://{{request.get_host}}{% url 'navigation:score' hash=hash %}" target="_blank">
+                    <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook Icon" />
+                  </a>
+                </div>
+                <div class="cell small-4 share-reveal__icon">
+                  <a href="whatsapp://send?text=text%20{{request.scheme}}://{{request.get_host}}{% url 'navigation:score' hash=hash %}">
+                    <img src="{% static 'images/icons/i_whatsapp.png' %}" alt="Whatsapp Icon">
+                  </a>
+                </div>
+                <div class="cell small-4 share-reveal__icon">
+                  <a href="tg://msg_url?url={{request.scheme}}://{{request.get_host}}{% url 'navigation:score' hash=hash %}&amp;text=text">
+                    <img src="{% static 'images/icons/i_telegram.png' %}" alt="Telegram Icon">
+                  </a>
+                </div>
+                <div class="cell small-4 share-reveal__icon">
+                  <img src="{% static 'images/icons/i_copy.svg' %}" alt="Copy Icon" onclick="shareLink();">
+                  <div id="link_copied" hidden>
+                    {% trans 'Link wurde kopiert' %}
+                  </div>
+                </div>
+              </div>
+              <button class="close-button" data-close aria-label="Close modal" type="button">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
             {% else %}
               <form method="post">
                 {% csrf_token %}
@@ -55,5 +86,22 @@
         2000
       );
     {% endif %}
+
+    function shareLink() {
+      var text = "{{request.scheme}}://{{request.get_host}}{% url 'navigation:score' hash=hash %}";
+      var input = document.createElement('input');
+      input.setAttribute('value', text);
+      document.body.appendChild(input);
+      input.select();
+      var result = document.execCommand('copy');
+      document.body.removeChild(input);
+      $('#link_copied').fadeIn();
+      setTimeout(
+        function () {
+          $('#link_copied').fadeOut();
+        },
+        2000
+      );
+    }
   </script>
 {% endblock %}

@@ -10,6 +10,11 @@ button, button:hover, button:active, button:focus, button:visited, .button, .but
 		background-color: $primary-color-1 !important;
 		color: $secondary-color;
 	}
+
+	&.button--margin-small {
+		margin-top: .25rem;
+		margin-bottom: .25rem;
+	}
 }
 
 :focus {
