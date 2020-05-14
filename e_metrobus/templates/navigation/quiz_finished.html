@@ -11,8 +11,8 @@
 <div class="cell" id="confetti" xmlns="http://www.w3.org/1999/html"></div>
 <div class="cell">
   <div class="grid-x text-center align-center">
-    <div class="cell small-8 quiz-fin__text">
-      <p>{% blocktrans with score="<span>{}</span>"|format_text:points %}Glückwunsch! Du hast das Quiz mit {{score}} Punkten abgeschlossen!{% endblocktrans %}</p>
+    <div class="cell small-10 medium-6 quiz-fin__text">
+      <p>{% blocktrans with score="<span>{}</span>"|format_text:points %}Glückwunsch!<br>Du hast das Quiz mit {{score}} Punkten abgeschlossen!{% endblocktrans %}</p>
     </div>
     <div class="cell quiz-fin__img">
       <img src="{% static 'images/icons/i_badge_yellow.svg' %}" alt="badge">

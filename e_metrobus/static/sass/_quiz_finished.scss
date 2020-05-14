@@ -10,7 +10,7 @@
     }
     span {
       color: $primary-color-2;
-      font-size: 1.6rem;
+      font-size: 2.25rem;
     }
   }
   &__img {
@@ -60,6 +60,7 @@
   left: 50%;
   transform: translateX(-50%);
   padding: .5rem 1rem;
-  background-color: rgba(0, 0, 0, .2);
+  min-width: 12rem;
+  background-color: rgba(0, 0, 0, .05);
   border-radius: 8px;
 }
