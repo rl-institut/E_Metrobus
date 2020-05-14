@@ -54,3 +54,12 @@
     }
   }
 }
+
+#link_copied {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: .5rem 1rem;
+  background-color: rgba(0, 0, 0, .2);
+  border-radius: 8px;
+}

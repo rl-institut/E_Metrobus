@@ -45,9 +45,9 @@
                 </div>
                 <div class="cell small-4 share-reveal__icon">
                   <img src="{% static 'images/icons/i_copy.svg' %}" alt="Copy Icon" onclick="shareLink();">
-                </div>
-                <div id="link_copied" hidden>
-                  {% trans 'Link wurde kopiert' %}
+                  <div id="link_copied" hidden>
+                    {% trans 'Link wurde kopiert' %}
+                  </div>
                 </div>
               </div>
               <button class="close-button" data-close aria-label="Close modal" type="button">
@@ -95,12 +95,12 @@
       input.select();
       var result = document.execCommand('copy');
       document.body.removeChild(input);
-      $('#link_copied').show();
+      $('#link_copied').fadeIn();
       setTimeout(
         function () {
-          $('#link_copied').hide();
+          $('#link_copied').fadeOut();
         },
-        1000
+        2000
       );
     }
   </script>
