@@ -24,6 +24,18 @@
   }
 }
 
+#share-reveal {
+  height: 22rem!important;
+  min-height: 22rem;
+  top: 0!important;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+
+  &:focus {
+    outline-width: 0;
+  }
+}
+
 .share-reveal {
   padding-top: 2rem;
 
