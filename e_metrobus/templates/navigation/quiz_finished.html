@@ -44,14 +44,12 @@
                   </a>
                 </div>
                 <div class="cell small-4 share-reveal__icon">
-                  <a href="" target="_blank">
-                    <img src="{% static 'images/icons/i_copy.svg' %}" alt="Copy Icon">
-                  </a>
+                  <img src="{% static 'images/icons/i_copy.svg' %}" alt="Copy Icon" onclick="shareLink();">
+                </div>
+                <div id="link_copied" hidden>
+                  {% trans 'Link wurde kopiert' %}
                 </div>
               </div>
-              <!--
-              <input id="share_input" type="text" value="{{request.scheme}}://{{request.get_host}}{% url 'navigation:score' hash=hash %}"><button class="btn button button--yellow button--margin-small" onclick="shareLink();">{% trans "Ergebnis teilen" %}</button>
-              -->
               <button class="close-button" data-close aria-label="Close modal" type="button">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -90,9 +88,20 @@
     {% endif %}
 
     function shareLink() {
-      shareLink = $("#share_input");
-      shareLink.select();
-      document.execCommand("copy");
+      var text = "{{request.scheme}}://{{request.get_host}}{% url 'navigation:score' hash=hash %}";
+      var input = document.createElement('input');
+      input.setAttribute('value', text);
+      document.body.appendChild(input);
+      input.select();
+      var result = document.execCommand('copy');
+      document.body.removeChild(input);
+      $('#link_copied').show();
+      setTimeout(
+        function () {
+          $('#link_copied').hide();
+        },
+        1000
+      );
     }
   </script>
 {% endblock %}
