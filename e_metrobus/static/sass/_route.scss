@@ -89,6 +89,8 @@ $station-font-line-height: 1rem;
 		flex: 1;
 		padding: 2rem 1rem;
 		align-content: center;
+		max-width: 35rem;
+		margin: 0 auto;
 		.route-drop__question {
 			width: 100%;
 			display: flex;
