@@ -290,8 +290,6 @@ class QuizFinishedView(TemplateView):
             context["points"] = get_object_or_404(
                 models.Score, hash=kwargs["hash"]
             ).score
-        context["hash"] = 123  # FIXME: Test only
-        context["feedback_given"] = True  # FIXME: Test only
         return context
 
     def post(self, request, **kwargs):
