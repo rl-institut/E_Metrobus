@@ -4,7 +4,6 @@ import plotly
 import plotly.graph_objects as go
 
 from django.utils.translation import gettext as _
-from django.utils.html import format_html
 
 # at max_value = 50
 MARGIN = 10
@@ -14,7 +13,8 @@ TEXTSIZE = 5
 TROPHY_OFFSET = 20
 
 DEFAULT_COLOR = "Gainsboro"
-E_BUS_COLOR = "#B0B0B0"
+FONT_COLOR = "#B0B0B0"
+E_BUS_COLOR = "#F0D722"
 
 Sizes = namedtuple("Sizes", ["margin", "offset", "size", "textsize"])
 
@@ -58,7 +58,7 @@ def get_mobility_figure(values):
         width=0.6,
     )
     bar.textfont.size = 15
-    bar.textfont.color = E_BUS_COLOR
+    bar.textfont.color = FONT_COLOR
     fig = go.Figure([bar])
     fig.layout.margin.t = 0
     fig.layout.margin.b = 0
@@ -69,32 +69,30 @@ def get_mobility_figure(values):
     fig.layout.xaxis.tickangle = -45
     fig.layout.xaxis.tickfont.size = 15
     fig.layout.font.family = "Roboto"
-    fig.layout.font.color = E_BUS_COLOR
+    fig.layout.font.color = FONT_COLOR
     fig.layout.yaxis.visible = False
     fig.layout.yaxis.range = [-sizes.margin, max_value + sizes.margin]
     fig.add_annotation(
         x=0.5,
         y=max_value,
         text=_("CO2 Emissionen [in g]<br>nach Verkehrsmittel"),
-        font={"size": 15, "color": E_BUS_COLOR},
+        font={"size": 15, "color": FONT_COLOR},
         align="left",
         showarrow=False,
     )
 
     # Mobility icons:
     for i, icon in enumerate(["pedestrian", "bike", "ebus", "bus", "car"]):
-        color = "gray"
-        size = sizes.size * 0.7
+        color = "black_small"
         if icon == "ebus":
-            color = "black_fill"
-            size = sizes.size
+            color = "yellow_circle"
         fig.add_layout_image(
             go.layout.Image(
                 source=f"/static/images/icons/i_{icon}_{color}.svg",
                 x=i,
                 y=-sizes.offset,
-                sizex=size,
-                sizey=size,
+                sizex=sizes.size,
+                sizey=sizes.size,
             )
         )
     # Trophy Icons:
