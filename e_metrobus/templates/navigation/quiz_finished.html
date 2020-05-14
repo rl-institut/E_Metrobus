@@ -22,18 +22,38 @@
         <div class="cell">
           {% if show_link %}
             {% if hash %}
-              <input id="share_input" type="text" value="{{request.scheme}}://{{request.get_host}}{% url 'navigation:score' hash=hash %}"><button onclick="shareLink();">{% trans "Teile Link" %}</button>
-              <div id="share-buttons">
-                <a href="http://www.facebook.com/sharer.php?u={{request.scheme}}://{{request.get_host}}{% url 'navigation:score' hash=hash %}" target="_blank">
-                  <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
-                </a>
-                <a href="whatsapp://send?text=text%20{{request.scheme}}://{{request.get_host}}{% url 'navigation:score' hash=hash %}">
-                  <img src="{% static 'images/logos/WhatsApp.svg' %}">
-                </a>
-                <a href="tg://msg_url?url={{request.scheme}}://{{request.get_host}}{% url 'navigation:score' hash=hash %}&amp;text=text">
-                  <img src="{% static 'images/logos/Telegram.svg' %}">
-                </a>
+            <input type="submit" class="btn button button--yellow" value="{% trans 'Ergebnis teilen' %}" data-open="share-reveal">
+            <div class="reveal" id="share-reveal" data-reveal>
+              <div class="grid-x share-reveal" id="share-buttons">
+                <div class="cell share-reveal__title">
+                  <span>Ergebnisse teilen</span>
+                </div>
+                <div class="cell small-4 share-reveal__icon">
+                  <a href="http://www.facebook.com/sharer.php?u={{request.scheme}}://{{request.get_host}}{% url 'navigation:score' hash=hash %}" target="_blank">
+                    <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook Icon" />
+                  </a>
+                </div>
+                <div class="cell small-4 share-reveal__icon">
+                  <a href="whatsapp://send?text=text%20{{request.scheme}}://{{request.get_host}}{% url 'navigation:score' hash=hash %}">
+                    <img src="{% static 'images/icons/i_whatsapp.png' %}" alt="Whatsapp Icon">
+                  </a>
+                </div>
+                <div class="cell small-4 share-reveal__icon">
+                  <a href="tg://msg_url?url={{request.scheme}}://{{request.get_host}}{% url 'navigation:score' hash=hash %}&amp;text=text">
+                    <img src="{% static 'images/icons/i_telegram.png' %}" alt="Telegram Icon">
+                  </a>
+                </div>
+                <div class="cell small-4 share-reveal__icon">
+                  <a href="" target="_blank">
+                    <img src="{% static 'images/icons/i_copy.svg' %}" alt="Copy Icon">
+                  </a>
+                </div>
               </div>
+              <input id="share_input" type="text" value="{{request.scheme}}://{{request.get_host}}{% url 'navigation:score' hash=hash %}"><button class="btn button button--yellow button--margin-small" onclick="shareLink();">{% trans "Ergebnis teilen" %}</button>
+              <button class="close-button" data-close aria-label="Close modal" type="button">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
             {% else %}
               <form method="post">
                 {% csrf_token %}
