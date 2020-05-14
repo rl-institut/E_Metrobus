@@ -63,26 +63,26 @@ $station-font-line-height: 1rem;
 
 
 // Route Dropdown
-.route-drop {
+#stations_form.route-drop {
 	display: flex;
 	flex-direction: column;
-	height: 100vh;
+	height: 100%;
 	width: 100%;
 
 	.route-drop__top {
-		height: 20vh;
+		height: 9rem;
 		background-image: url(../images/Route_top_img.svg);
 		background-position: center center;
 		background-size: cover;
 
 		@media only screen and (min-width: 500px) {
-			height: 24vh;
+			height: 12rem;
 		}
 		@media only screen and (min-width: 700px) {
-			height: 28vh;
+			height: 16rem;
 		}
 		@media only screen and (min-width: 850px) {
-			height: 32	vh;
+			height: 18rem;
 		}
 	}
 	.route-drop__main {
@@ -124,11 +124,14 @@ $station-font-line-height: 1rem;
 		background: url(../images/Route_dotted_line.svg);
 		background-position: left;
 		background-repeat: no-repeat;
-		height: 15vh;
+		height: 3rem;
 		width: 100%;
 	}
 	.route-drop__bottom {
-		height: 15vh;
+		padding-bottom: 1rem;
+		position: absolute;
+    	bottom: 0;
+    	width: 100%;
 		
 		.landing__bottom-btn {
 			text-align: center;
