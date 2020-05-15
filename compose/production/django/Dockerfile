@@ -22,6 +22,8 @@ RUN apk update \
   # libsass dependencies
   && apk add g++
 
+RUN apt-get install gettext
+
 RUN addgroup -S django \
     && adduser -S -G django django
 
