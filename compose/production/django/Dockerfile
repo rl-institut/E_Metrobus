@@ -20,7 +20,9 @@ RUN apk update \
   # CFFI dependencies
   && apk add libffi-dev py-cffi \
   # libsass dependencies
-  && apk add g++
+  && apk add g++ \
+  # to compilemessages
+  && apk add gettext
 
 RUN addgroup -S django \
     && adduser -S -G django django
