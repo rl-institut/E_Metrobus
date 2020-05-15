@@ -61,3 +61,16 @@ button.close-button:hover {
     animation-duration: .25s;
     animation-timing-function: ease-in-out;
 }
+
+.comparison__btn {
+    padding-top: 1rem;
+    @media screen and (min-height: 600px) {
+        padding-top: 2rem;
+    }
+    @media screen and (min-height: 700px) {
+        padding-top: 3rem;
+    }
+    @media screen and (min-height: 900px) {
+        padding-top: 5rem;
+    }
+}
