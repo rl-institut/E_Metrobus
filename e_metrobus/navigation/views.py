@@ -385,19 +385,18 @@ class FeedbackView(NavigationView):
         return context
 
     def get(self, request, *args, **kwargs):
-        if "feedback_given" in request.session:
+        if request.session.get("feedback_given", False):
             return redirect("navigation:finished_quiz")
+        request.session["feedback_given"] = True
         return super(FeedbackView, self).get(request, *args, **kwargs)
 
     def post(self, request, **kwargs):
         if "skip" in request.POST:
-            request.session["feedback_given"] = True
             return redirect("navigation:finished_quiz")
 
         feedback = forms.FeedbackForm(request.POST)
         if feedback.is_valid():
             feedback.save()
-            request.session["feedback_given"] = True
         else:
             return self.render_to_response(self.get_context_data(feedback=feedback))
         return redirect("navigation:finished_quiz")
