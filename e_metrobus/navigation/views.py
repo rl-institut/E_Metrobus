@@ -291,20 +291,10 @@ class QuizFinishedView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(QuizFinishedView, self).get_context_data(**kwargs)
         context["feedback_given"] = self.request.session.get("feedback_given", False)
-        if "share" in kwargs or "hash" not in kwargs:
-            context["points"] = questions.get_total_score(self.request.session)
-            context["show_link"] = True
-        else:
-            context["points"] = get_object_or_404(
-                models.Score, hash=kwargs["hash"]
-            ).score
+        context["points"] = questions.get_total_score(self.request.session)
         return context
 
-    def post(self, request, **kwargs):
-        if "reset" in request.POST:
-            request.session.clear()
-            return redirect("navigation:landing_page")
-
+    def get(self, request, *args, **kwargs):
         if not questions.all_questions_answered(request.session):
             raise Http404("Not all questions answered. Please go back to quiz.")
         if "hashed_score" not in request.session:
@@ -316,6 +306,22 @@ class QuizFinishedView(TemplateView):
                 hash=request.session["hashed_score"], share=True
             )
         return self.render_to_response(context)
+
+    def post(self, request, **kwargs):
+        if "reset" in request.POST:
+            request.session.clear()
+            return redirect("navigation:landing_page")
+
+
+class ShareScoreView(TemplateView):
+    template_name = "navigation/finished_base.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(ShareScoreView, self).get_context_data(**kwargs)
+        context["points"] = get_object_or_404(
+            models.Score, hash=kwargs["hash"]
+        ).score
+        return context
 
 
 class LegalView(NavigationView):

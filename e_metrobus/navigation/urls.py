@@ -24,7 +24,7 @@ urlpatterns = [
     ),
     path(
         "score/<str:hash>/",
-        view=views.QuizFinishedView.as_view(),
+        view=views.ShareScoreView.as_view(),
         name="score",
     ),
     path(
