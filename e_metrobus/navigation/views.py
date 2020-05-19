@@ -10,6 +10,13 @@ from e_metrobus.navigation import stations
 from e_metrobus.navigation import forms
 
 
+class CheckStationsMixin:
+    def get(self, request, *args, **kwargs):
+        if "stations" not in request.session:
+            return redirect("navigation:route")
+        return super(CheckStationsMixin, self).get(request, *args, **kwargs)
+
+
 class NavigationView(TemplateView):
     title = "E-Metrobus"
     title_icon = "images/icons/i_ebus_black_fill.svg"
@@ -35,27 +42,6 @@ class NavigationView(TemplateView):
 
 
 class RouteView(TemplateView):
-    template_name = "navigation/route.html"
-
-    def get(self, request, *args, **kwargs):
-        context = self.get_context_data(**kwargs)
-
-        context["stations"] = widgets.StationsWidget(
-            stations.STATIONS.get_stations(), request
-        )
-        return self.render_to_response(context)
-
-    def post(self, request, *args, **kwargs):
-        def get_stations():
-            stations_raw = request.POST["stations"]
-            start, end = stations_raw.split(",")
-            return int(start[-2:]) - 1, int(end[-2:]) - 1
-
-        request.session["stations"] = get_stations()
-        return redirect("navigation:display_route")
-
-
-class RouteDropdownView(TemplateView):
     template_name = "navigation/route_dropdown.html"
 
     def get(self, request, *args, **kwargs):
@@ -74,7 +60,7 @@ class RouteDropdownView(TemplateView):
         return redirect("navigation:display_route")
 
 
-class DashboardView(NavigationView):
+class DashboardView(CheckStationsMixin, NavigationView):
     template_name = "navigation/dashboard.html"
     footer_links = {
         "info": {"enabled": True},
@@ -111,7 +97,7 @@ class DashboardView(NavigationView):
         return context
 
 
-class DisplayRouteView(NavigationView):
+class DisplayRouteView(CheckStationsMixin, NavigationView):
     template_name = "navigation/display_route.html"
     footer_links = {"dashboard": {"selected": True}}
     back_url = "navigation:route"
@@ -148,7 +134,7 @@ class DisplayRouteView(NavigationView):
         return super(DisplayRouteView, self).get(request, *args, **kwargs)
 
 
-class ComparisonView(NavigationView):
+class ComparisonView(CheckStationsMixin, NavigationView):
     template_name = "navigation/comparison.html"
     footer_links = {"dashboard": {"selected": True}}
     back_url = "navigation:route"
@@ -168,7 +154,7 @@ class ComparisonView(NavigationView):
         return context
 
 
-class EnvironmentView(NavigationView):
+class EnvironmentView(CheckStationsMixin, NavigationView):
     template_name = "navigation/environment.html"
     footer_links = {
         "info": {"enabled": True},
@@ -198,7 +184,10 @@ class EnvironmentView(NavigationView):
         context["user"] = user_consumption
         context["fleet"] = fleet_consumption
         context["comparison"] = constants.Consumption(
-            *((x - y) / x * 100 for x, y in zip(bus_consumption, user_consumption))
+            *(
+                (x - y) / x * 100 if x != 0 else 0
+                for x, y in zip(bus_consumption, user_consumption)
+            )
         )
         return context
 
@@ -302,20 +291,10 @@ class QuizFinishedView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(QuizFinishedView, self).get_context_data(**kwargs)
         context["feedback_given"] = self.request.session.get("feedback_given", False)
-        if "share" in kwargs or "hash" not in kwargs:
-            context["points"] = questions.get_total_score(self.request.session)
-            context["show_link"] = True
-        else:
-            context["points"] = get_object_or_404(
-                models.Score, hash=kwargs["hash"]
-            ).score
+        context["points"] = questions.get_total_score(self.request.session)
         return context
 
-    def post(self, request, **kwargs):
-        if "reset" in request.POST:
-            request.session.clear()
-            return redirect("navigation:landing_page")
-
+    def get(self, request, *args, **kwargs):
         if not questions.all_questions_answered(request.session):
             raise Http404("Not all questions answered. Please go back to quiz.")
         if "hashed_score" not in request.session:
@@ -327,6 +306,22 @@ class QuizFinishedView(TemplateView):
                 hash=request.session["hashed_score"], share=True
             )
         return self.render_to_response(context)
+
+    def post(self, request, **kwargs):
+        if "reset" in request.POST:
+            request.session.clear()
+            return redirect("navigation:landing_page")
+
+
+class ShareScoreView(TemplateView):
+    template_name = "navigation/finished_base.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(ShareScoreView, self).get_context_data(**kwargs)
+        context["points"] = get_object_or_404(
+            models.Score, hash=kwargs["hash"]
+        ).score
+        return context
 
 
 class LegalView(NavigationView):
@@ -390,19 +385,18 @@ class FeedbackView(NavigationView):
         return context
 
     def get(self, request, *args, **kwargs):
-        if "feedback_given" in request.session:
+        if request.session.get("feedback_given", False):
             return redirect("navigation:finished_quiz")
+        request.session["feedback_given"] = True
         return super(FeedbackView, self).get(request, *args, **kwargs)
 
     def post(self, request, **kwargs):
         if "skip" in request.POST:
-            request.session["feedback_given"] = True
             return redirect("navigation:finished_quiz")
 
         feedback = forms.FeedbackForm(request.POST)
         if feedback.is_valid():
             feedback.save()
-            request.session["feedback_given"] = True
         else:
             return self.render_to_response(self.get_context_data(feedback=feedback))
         return redirect("navigation:finished_quiz")

@@ -13,7 +13,8 @@ TEXTSIZE = 5
 TROPHY_OFFSET = 20
 
 DEFAULT_COLOR = "Gainsboro"
-E_BUS_COLOR = "black"
+FONT_COLOR = "#B0B0B0"
+E_BUS_COLOR = "#F0D722"
 
 Sizes = namedtuple("Sizes", ["margin", "offset", "size", "textsize"])
 
@@ -33,7 +34,7 @@ class DjangoFigure:
         div_id_end = plotly_div.find('"', div_id_start + 9)
         self.div_id = plotly_div[div_id_start + 9 : div_id_end]
 
-        self.div = f'<div id="{self.div_id}" class="plotly-graph-div" style="height:60vh; width:100vw;"></div>'
+        self.div = f'<div id="{self.div_id}" class="plotly-graph-div" style="height:55vh; width:100vw;"></div>'
 
 
 def get_sizes(max_value):
@@ -57,7 +58,7 @@ def get_mobility_figure(values):
         width=0.6,
     )
     bar.textfont.size = 15
-    bar.textfont.color = E_BUS_COLOR
+    bar.textfont.color = FONT_COLOR
     fig = go.Figure([bar])
     fig.layout.margin.t = 0
     fig.layout.margin.b = 0
@@ -68,28 +69,30 @@ def get_mobility_figure(values):
     fig.layout.xaxis.tickangle = -45
     fig.layout.xaxis.tickfont.size = 15
     fig.layout.font.family = "Roboto"
-    fig.layout.font.color = E_BUS_COLOR
+    fig.layout.font.color = FONT_COLOR
     fig.layout.yaxis.visible = False
     fig.layout.yaxis.range = [-sizes.margin, max_value + sizes.margin]
     fig.add_annotation(
         x=0.5,
         y=max_value,
         text=_("CO2 Emissionen [in g]<br>nach Verkehrsmittel"),
-        font={"size": 15, "color": E_BUS_COLOR},
+        font={"size": 15, "color": FONT_COLOR},
         align="left",
         showarrow=False,
     )
 
     # Mobility icons:
     for i, icon in enumerate(["pedestrian", "bike", "ebus", "bus", "car"]):
-        color = "gray"
+        color = "black_small"
         if icon == "ebus":
-            color = "black_fill"
+            color = "yellow_circle"
         fig.add_layout_image(
             go.layout.Image(
                 source=f"/static/images/icons/i_{icon}_{color}.svg",
                 x=i,
                 y=-sizes.offset,
+                sizex=sizes.size,
+                sizey=sizes.size,
             )
         )
     # Trophy Icons:
@@ -103,16 +106,14 @@ def get_mobility_figure(values):
                 + sizes.size
                 + sizes.offset
                 + TROPHY_OFFSET,
+                sizex=sizes.size,
+                sizey=sizes.size,
             )
         )
     fig.update_layout_images(
-        {
-            "xref": "x",
-            "yref": "y",
-            "sizex": sizes.size,
-            "sizey": sizes.size,
-            "xanchor": "center",
-            "yanchor": "top",
-        }
+        {"xref": "x", "yref": "y", "xanchor": "center", "yanchor": "top",}
     )
-    return DjangoFigure(fig, displayModeBar=False)
+    # fig.update_layout(
+    #     xaxis=dict(tickmode='array', ticktext=ticktext, tickvals=mobiles)
+    # )
+    return DjangoFigure(fig, displayModeBar=False, staticPlot=True)

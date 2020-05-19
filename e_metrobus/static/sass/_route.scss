@@ -63,32 +63,34 @@ $station-font-line-height: 1rem;
 
 
 // Route Dropdown
-.route-drop {
+#stations_form.route-drop {
 	display: flex;
 	flex-direction: column;
-	height: 100vh;
+	height: 100%;
 	width: 100%;
 
 	.route-drop__top {
-		height: 20vh;
+		height: 9rem;
 		background-image: url(../images/Route_top_img.svg);
 		background-position: center center;
 		background-size: cover;
 
 		@media only screen and (min-width: 500px) {
-			height: 24vh;
+			height: 12rem;
 		}
 		@media only screen and (min-width: 700px) {
-			height: 28vh;
+			height: 16rem;
 		}
 		@media only screen and (min-width: 850px) {
-			height: 32	vh;
+			height: 18rem;
 		}
 	}
 	.route-drop__main {
 		flex: 1;
 		padding: 2rem 1rem;
 		align-content: center;
+		max-width: 35rem;
+		margin: 0 auto;
 		.route-drop__question {
 			width: 100%;
 			display: flex;
@@ -124,14 +126,41 @@ $station-font-line-height: 1rem;
 		background: url(../images/Route_dotted_line.svg);
 		background-position: left;
 		background-repeat: no-repeat;
-		height: 15vh;
+		height: 3rem;
 		width: 100%;
 	}
 	.route-drop__bottom {
-		height: 15vh;
+		padding-bottom: 1rem;
+		position: absolute;
+    	bottom: 0;
+    	width: 100%;
 		
 		.landing__bottom-btn {
 			text-align: center;
 		}
+	}
+}
+
+#same_stations {
+	width: 70%;
+	max-height: 20rem;
+	position: relative;
+    left: 50% !important;
+	transform: translateX(-50%);
+	min-height: 0 !important;
+	text-align: center;
+
+	.same-stations__img {
+		display: block;
+		padding-top: 4.5rem;
+		padding-bottom: 2rem;;
+		margin: 0 auto;
+		width: 11rem;
+	}
+
+	.same-stations__text {
+		text-align: center;
+		color: $error-color;
+		font-weight: 700;
 	}
 }

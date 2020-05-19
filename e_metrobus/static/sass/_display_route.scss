@@ -1,7 +1,10 @@
 
 .display-route {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   font-weight: 700;
-  height: calc(100vh - 6rem); 
+  height: 100%; 
   background-color: $primary-color-1;
 
   &__start {
@@ -13,12 +16,12 @@
 
     img {
       height: 3rem;
-      margin-top: 4rem;
+      margin-top: 6rem;
     }
 
     img.larger {
       height: 4.5rem;
-      margin-top: 3rem;
+      margin-top: 5.5rem;
     }
   }
 
@@ -66,8 +69,12 @@
 
   &__number {
     font-weight: 700;
-    font-size: 3rem;
+    font-size: 2.5rem;
     padding: 0 3rem;
+
+    @media screen and ( min-width: 350px ) {
+      font-size: 3rem;
+    }
   }
 }
 
@@ -94,10 +101,11 @@
 
 .carousel-arrow {
   position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   width: 50%;
-  height: calc(100vh - 6rem);
-  top: 2.8rem;
   z-index: 99999;
+  height: 100%;
 
   &--previous {
     left: 0;
@@ -134,9 +142,9 @@
 
 .display-route__bg {
   background-color: $primary-color-1; 
-  position: absolute; 
-  top:0; 
-  height: 100vh; 
+  position: absolute;
+  top: 0;
+  height: 100%; 
   width: 100%; 
   z-index: -1;
 }
