@@ -12,6 +12,7 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 ### Fixed
 - questions as text page
 - environment page redirects to stations if not yet selected
+- accordion on question_as_text page
 
 ### Fixed
 - body height too tall on android browser
