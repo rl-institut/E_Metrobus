@@ -1,7 +1,11 @@
 .animate_answer {
 
   &__battery {
-    margin: 4rem 0 3rem;
+    margin: 2rem 0 2rem;
+
+    img {
+      height: 2rem;
+    }
   }
 
   &__points {
@@ -64,7 +68,7 @@
     text-align: left;
     z-index: -1;
     position: fixed;
-    top: 19rem;
+    top: 16rem;
     background-image: url("../images/icons/city_bg_gray.svg");
     background-size: 50% 12rem;
 
