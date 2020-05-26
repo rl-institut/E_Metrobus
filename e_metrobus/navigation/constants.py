@@ -56,7 +56,6 @@ class DataPerKilometer:
 class Vehicle:
     name: str
     label: str
-    passengers: float
     data: DataPerKilometer
 
 
@@ -64,33 +63,17 @@ VEHICLES = [
     Vehicle(
         name="car",
         label=_("PKW"),
-        passengers=1,
-        data=DataPerKilometer(fuel=0, co2=220.5, nitrogen=0.645, fine_dust=0.006),
+        data=DataPerKilometer(fuel=0, co2=147, nitrogen=0.43, fine_dust=0.004),
     ),
     Vehicle(
         name="bus",
         label=_("Dieselbus"),
-        passengers=30,
-        data=DataPerKilometer(fuel=0, co2=1520, nitrogen=6.08, fine_dust=0.057),
+        data=DataPerKilometer(fuel=0, co2=80, nitrogen=0.32, fine_dust=0.003),
     ),
-    Vehicle(
-        name="e-bus",
-        label=_("Elektrobus"),
-        passengers=30,
-        data=DataPerKilometer(0, 0, 0, 0),
-    ),
-    Vehicle(
-        name="bicycle",
-        label=_("Fahrrad"),
-        passengers=30,
-        data=DataPerKilometer(0, 0, 0, 0),
-    ),
-    Vehicle(
-        name="pedestrian",
-        label=_("zu Fuß"),
-        passengers=30,
-        data=DataPerKilometer(0, 0, 0, 0),
-    ),
+    Vehicle(name="e-pkw", label=_("Elektro-PKW"), data=DataPerKilometer(0, 53, 0, 0),),
+    Vehicle(name="e-bus", label=_("Elektrobus"), data=DataPerKilometer(0, 42, 0, 0),),
+    Vehicle(name="bicycle", label=_("Fahrrad"), data=DataPerKilometer(0, 0, 0, 0),),
+    Vehicle(name="pedestrian", label=_("zu Fuß"), data=DataPerKilometer(0, 0, 0, 0),),
 ]
 
 DATA_SOURCE = 'Umweltbundesamt, "Vergleich der durchschnittlicher Emissionen einzelner Verkehrsmittel im Personenverkehr in Deutschland - Bezugsjahr 2018", 01/2020'
