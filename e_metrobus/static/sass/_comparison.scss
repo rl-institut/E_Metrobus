@@ -18,10 +18,13 @@ button.close-button:hover {
         outline-color: transparent;
     }
     button,
+    button:hover,
+    button:active,
     button:focus {
 	    background-color: transparent !important;
-        color: $gray-2;
-        outline-color: transparent;
+      color: $gray-2;
+      outline-color: transparent;
+      cursor: pointer;
     }
 }
 
