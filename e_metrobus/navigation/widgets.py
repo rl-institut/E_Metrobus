@@ -138,5 +138,5 @@ class InfoTable(CustomWidget):
     def get_context(self, **kwargs):
         return {
             "vehicles": constants.VEHICLES,
-            "source": constants.DATA_SOURCE
+            "sources": constants.DATA_SOURCES
         }

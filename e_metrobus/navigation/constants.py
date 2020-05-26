@@ -76,4 +76,7 @@ VEHICLES = [
     Vehicle(name="pedestrian", label=_("zu Fuß"), data=DataPerKilometer(0, 0, 0, 0),),
 ]
 
-DATA_SOURCE = 'Umweltbundesamt, "Vergleich der durchschnittlicher Emissionen einzelner Verkehrsmittel im Personenverkehr in Deutschland - Bezugsjahr 2018", 01/2020'
+DATA_SOURCES = [
+    'Umweltbundesamt, "Vergleich der durchschnittlicher Emissionen einzelner Verkehrsmittel im Personenverkehr in Deutschland - Bezugsjahr 2018", 01/2020',
+    'Umweltbundesamt, "Entwicklung der spezifischen Kohlendioxid-Emissionen des deutschen Strommix in den Jahren 1990 - 2019", 13/2020',
+]
