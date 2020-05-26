@@ -2,8 +2,9 @@ $footer-height: 3.8rem;
 
 section.footer {
 	height: $footer-height;
-  bottom: 0;
-  width: 100%;
+  	bottom: 0;
+	  width: 100%;
+	  background-color: $gray-1;
 
 	.footer__item {
 	  box-sizing: border-box;
