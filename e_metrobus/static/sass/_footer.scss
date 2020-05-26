@@ -5,6 +5,7 @@ section.footer {
   	bottom: 0;
 	  width: 100%;
 	  background-color: $gray-1;
+	  z-index: 9999999999; // fix horizontal scroll-bar from data table on info page overlapping footer
 
 	.footer__item {
 	  box-sizing: border-box;
