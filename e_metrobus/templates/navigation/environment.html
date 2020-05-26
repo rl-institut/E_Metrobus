@@ -59,14 +59,14 @@
     </div>
     <div class="cell small-6 medium-6 own leaf__data">
       <span class="leaf__data--value">{{user.co2}}</span><br>
-      <span class="leaf__data--unit">{% trans "Tonnen" %} CO2</span>
+      <span class="leaf__data--unit">{% trans "Tonnen" %} CO<sub>2</sub></span>
     </div>
     <div class="cell small-6 medium-6 fleet leaf__data">
       <span class="leaf__data--value">{{fleet.co2}}</span><br>
-      <span class="leaf__data--unit">{% trans "Tonnen" %} CO2</span>
+      <span class="leaf__data--unit">{% trans "Tonnen" %} CO<sub>2</sub></span>
     </div>
     <div class="cell leaf__resources">
-      <span class="leaf__data--value">= {{comparison.co2|floatformat:"1"}} % {% trans "weniger" %} {% trans "CO2" %}</span><br>
+      <span class="leaf__data--value">= {{comparison.co2|floatformat:"1"}} % {% trans "weniger" %} {% trans "CO<sub>2</sub>" %}</span><br>
       <span class="leaf__data--unit">{% trans "als konventionelle Busse" %}</span>
     </div>
     <div class="cell leaf__icon">

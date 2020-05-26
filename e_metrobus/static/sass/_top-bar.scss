@@ -46,6 +46,29 @@ section.top-bar {
 	}
 }
 
+.cell.top-bar__wrap {
+	width: 10rem;
+	text-align: left;
+	width: 10rem;
+
+	a.top-bar__link {
+		color: #000;
+		height: 100%;
+		width: 10rem;
+	}
+
+	.top-bar__tap {
+		width: 10rem;
+		height: 100%;
+		padding-left: .5rem;
+	}
+
+	img {
+		height: 1rem;
+		transform: translateY(-2px);
+	}
+}
+
 .dashboard_animation {
 	animation: star_blink .4s ease-in-out;
 }
