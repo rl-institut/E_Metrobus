@@ -146,7 +146,7 @@ class ComparisonView(CheckStationsMixin, NavigationView):
             stations.STATIONS[station] for station in self.request.session["stations"]
         ]
         route_data = stations.STATIONS.get_route_data(*current_stations)
-        chart_order = ("pedestrian", "bicycle", "e-bus", "bus", "car")
+        chart_order = ("pedestrian", "e-bus", "e-pkw", "bus", "car")
         context["plotly"] = chart.get_mobility_figure(
             [int(route_data[vehicle].co2) for vehicle in chart_order]
         )
