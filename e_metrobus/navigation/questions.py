@@ -5,6 +5,7 @@ from configobj import ConfigObj
 
 from django.conf import settings
 from django.utils.translation import gettext as _
+from django.utils.html import format_html
 
 
 QUESTION_TEMPLATE_FOLDER = "questions"
@@ -56,7 +57,16 @@ for cat in question_config:
             is_multiple_choice=isinstance(
                 question_config[cat]["questions"][q]["correct"], list
             ),
-            **question_config[cat]["questions"][q],
+            label=question_config[cat]["questions"][q]["label"],
+            question=format_html(question_config[cat]["questions"][q]["question"]),
+            answers=[
+                format_html(answer)
+                for answer in question_config[cat]["questions"][q]["answers"]
+            ],
+            short_answer=format_html(
+                question_config[cat]["questions"][q]["short_answer"]
+            ),
+            correct=question_config[cat]["questions"][q]["correct"],
         )
     QUESTIONS[cat] = Category(
         label=question_config[cat]["label"],
