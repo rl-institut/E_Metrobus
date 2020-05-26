@@ -116,6 +116,9 @@ class DisplayRouteView(CheckStationsMixin, NavigationView):
             "bus": (route_data["bus"].co2 - route_data["e-bus"].co2)
             / route_data["bus"].co2
             * 100,
+            "e_pkw": (route_data["e-pkw"].co2 - route_data["e-bus"].co2)
+            / route_data["e-pkw"].co2
+            * 100,
             "car": (route_data["car"].co2 - route_data["e-bus"].co2)
             / route_data["car"].co2
             * 100,
@@ -327,9 +330,7 @@ class ShareScoreView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(ShareScoreView, self).get_context_data(**kwargs)
-        context["points"] = get_object_or_404(
-            models.Score, hash=kwargs["hash"]
-        ).score
+        context["points"] = get_object_or_404(models.Score, hash=kwargs["hash"]).score
         return context
 
 
