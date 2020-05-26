@@ -51,7 +51,7 @@
         {% if distance < 1 %}
           <p class="display-route__number">{{distance_in_meter|floatformat:"0"}} m</p>
         {% else %}
-          <p class="display-route__number">{{distance|floatformat:"1"}} km</p>
+          <p class="display-route__number display-route__number--small">{{distance|floatformat:"1"}} km</p>
         {% endif %}
       </div>
     </div>
@@ -71,7 +71,7 @@
       <div class="display-route__text">
         <p class="display-route__sentence">{% trans "Im Vergleich zum <span>Dieselbus</span> sparst Du" %}</p>
         <p class="display-route__number">{{co2.bus.percent|floatformat:"0"}} % CO<sub>2</sub></p>
-        <p class="display-route__number">({{co2.bus.gram|floatformat:"0"}} g CO<sub>2</sub>)</p>
+        <p class="display-route__number display-route__number--small">({{co2.bus.gram|floatformat:"0"}} g CO<sub>2</sub>)</p>
       </div>
     </div>
   </div>
@@ -90,7 +90,7 @@
       <div class="display-route__text">
         <p class="display-route__sentence">{% trans "Im Vergleich zum <span>Pkw</span> sparst Du" %}</p>
         <p class="display-route__number">{{co2.car.percent|floatformat:"0"}} % CO<sub>2</sub></p>
-        <p class="display-route__number">({{co2.car.gram|floatformat:"0"}} g CO<sub>2</sub>)</p>
+        <p class="display-route__number display-route__number--small">({{co2.car.gram|floatformat:"0"}} g CO<sub>2</sub>)</p>
       </div>
     </div>
   </div>
