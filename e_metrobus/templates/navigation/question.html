@@ -8,7 +8,7 @@
   <div class="progress-bar__fill" style="width: {{category_percentage}}%;"></div>
 </div>
 <div class="cell question">
-  <form method="post" action="{% url 'navigation:answer' %}" id="question">
+  <form method="post" action="{% url 'navigation:answer_score' %}" id="question">
     <input type="hidden" name="question" value="{{question.name}}">
     <div class="grid-x align-center">
       <div class="cell small-10 question__text">
