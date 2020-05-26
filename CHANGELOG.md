@@ -8,6 +8,9 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 ### Added
 - CO2 in gram on display route page
 
+### Fixed
+- Answer shows up shortly before answer score animation
+
 ## [0.9.0] - 2020-05-19
 ### Added 
 - social media links
