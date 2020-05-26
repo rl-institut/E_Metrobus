@@ -31,14 +31,47 @@
     {% endfor %}
 
     {% if first_time %}
-      <div class="cell small-10 dashboard__info" data-closable>
-        <p>{% trans "Hier kannst Du weiter entdecken und Spaß mit dem Quiz haben! Die erste Frage hast Du schon beantwortet!" %}</p>
-        <button class="close-button" type="button" name="close-button" data-close>x</button>
+      <div id="tour_div" class="cell small-10" data-closable>
+        <p id="tour_text"></p>
+        <button type="button" onclick="skip_tour();">{% trans "Überspringen" %}</button>
+        <button class="close-button" type="button" name="close-button" onclick="next_tour();">x</button>
       </div>
     {% endif %}
   </div>
 </div>
 
+{% endblock content %}
 
+{% block javascript %}
+  {{block.super}}
+  <script>
+  {% if first_time %}
+    var tour_counter = 0;
+    var tour_texts = [
+      "{% trans "Hier kannst Du weiter entdecken und Spaß mit dem Quiz haben! Die erste Frage hast Du schon beantwortet!" %}",
+      "{% trans "Zweiter Text" %}",
+      "{% trans "Dritter Text" %}"
+    ];
+    var tour_classes = ["dashboard__info", "dashboard__header", "dashboard__info"];
 
-{% endblock %}
+    function next_tour() {
+      if (tour_counter < tour_texts.length) {
+        if (tour_counter > 0) {
+          $("#tour_div").removeClass(tour_classes[tour_counter - 1]);
+        }
+        $("#tour_div").addClass(tour_classes[tour_counter]);
+        $("#tour_text").html(tour_texts[tour_counter]);
+        tour_counter += 1;
+      } else {
+        $("#tour_div").hide();
+      }
+    };
+
+    function skip_tour() {
+      $("#tour_div").hide();
+    }
+
+    next_tour();
+  {% endif %}
+  </script>
+{% endblock javascript %}
