@@ -82,8 +82,8 @@ def get_mobility_figure(values):
     )
 
     # Mobility icons:
-    for i, icon in enumerate(["pedestrian", "ebus", "car", "bus", "car"]):
-        color = "black_small"
+    for i, icon in enumerate(["pedestrian_bike", "ebus", "e_car", "bus", "car"]):
+        color = "small"
         if icon == "ebus":
             color = "yellow_circle"
         fig.add_layout_image(
