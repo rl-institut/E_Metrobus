@@ -72,7 +72,7 @@
     }
     &--bvg {
       animation: fadein 2s;
-      animation-delay: 4s;
+      animation-delay: 3s;
       animation-fill-mode: backwards;
       img {
         max-width: 9vh;
@@ -80,7 +80,7 @@
     }
     &--tu {
       animation: fadein 2s;
-      animation-delay: 4.15s;
+      animation-delay: 3.15s;
       animation-fill-mode: backwards;
       img {
         margin-top: 0.3rem;
@@ -89,7 +89,7 @@
     }
     &--rli {
       animation: fadein 2s;
-      animation-delay: 4.3s;
+      animation-delay: 3.3s;
       animation-fill-mode: backwards;
       img {
         margin-top: 0.5rem;
@@ -101,7 +101,7 @@
   #animateLPButton {
     animation: animateLPButton;
     animation-fill-mode: backwards;
-    animation-delay: 3s;
+    animation-delay: 2s;
     animation-duration: .5s;
     animation-timing-function: linear;
   }
@@ -146,7 +146,7 @@
     &--switch {
       animation: fadein 1.5s;
       animation-fill-mode: backwards;
-      animation-delay: 4.5s;
+      animation-delay: 3.5s;
       img {
         height: 1.25rem;
         margin: 0.5rem;
