@@ -112,13 +112,19 @@ class DisplayRouteView(CheckStationsMixin, NavigationView):
         context["distance"] = stations.STATIONS.get_distance(*current_stations)
         context["distance_in_meter"] = context["distance"] * 1000
         route_data = stations.STATIONS.get_route_data(*current_stations)
-        context["comparison"] = {
-            "bus": (route_data["bus"].co2 - route_data["e-bus"].co2)
-            / route_data["bus"].co2
-            * 100,
-            "car": (route_data["car"].co2 - route_data["e-bus"].co2)
-            / route_data["car"].co2
-            * 100,
+        context["co2"] = {
+            "bus": {
+                "percent": (route_data["bus"].co2 - route_data["e-bus"].co2)
+                / route_data["bus"].co2
+                * 100,
+                "gram": route_data["bus"].co2 - route_data["e-bus"].co2,
+            },
+            "car": {
+                "percent": (route_data["car"].co2 - route_data["e-bus"].co2)
+                / route_data["car"].co2
+                * 100,
+                "gram": route_data["car"].co2 - route_data["e-bus"].co2,
+            },
         }
         return context
 
@@ -234,13 +240,11 @@ class AnswerView(NavigationView):
         "results": {"enabled": True},
     }
 
-    def get_context_data(self, question, answer=None, **kwargs):
+    def get_context_data(self, question, **kwargs):
         self.title = questions.QUESTIONS[question.category].label
         self.title_icon = questions.QUESTIONS[question.category].small_icon
         context = super(AnswerView, self).get_context_data(**kwargs)
-        context["answer"] = answer
         context["question"] = question
-        context["points"] = questions.SCORE_CORRECT if answer else questions.SCORE_WRONG
         return context
 
     def get(self, request, **kwargs):
@@ -250,6 +254,17 @@ class AnswerView(NavigationView):
         question = questions.get_question_from_name(question_name)
         context = self.get_context_data(question=question, **kwargs)
         return self.render_to_response(context)
+
+
+class AnswerScoreView(TemplateView):
+    template_name = "navigation/answer_score.html"
+
+    def get_context_data(self, question, answer, **kwargs):
+        context = super(AnswerScoreView, self).get_context_data(**kwargs)
+        context["answer"] = answer
+        context["question"] = question
+        context["points"] = questions.SCORE_CORRECT if answer else questions.SCORE_WRONG
+        return context
 
     def post(self, request, **kwargs):
         question = questions.get_question_from_name(request.POST["question"])
@@ -318,9 +333,7 @@ class ShareScoreView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(ShareScoreView, self).get_context_data(**kwargs)
-        context["points"] = get_object_or_404(
-            models.Score, hash=kwargs["hash"]
-        ).score
+        context["points"] = get_object_or_404(models.Score, hash=kwargs["hash"]).score
         return context
 
 
