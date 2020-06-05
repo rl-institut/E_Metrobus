@@ -12,17 +12,24 @@
 {% block content %}
 
 <div class="cell">
-  {{plotly.div|safe}}
-</div>
+  <div class="grid-y comparison__wrap">
 
-<div class="cell text-center" id="next">
-  <div class="cell landing__bottom-btn comparison__btn">
-    <a href="{% url 'navigation:dashboard' %}"><button id="animateComparisonBtn" class="button">{% trans "Mehr entdecken!" %}</button></a>
+    <div class="cell comparison__chart">
+      {{plotly.div|safe}}
+    </div>
+    
+    <div class="cell comparison__btn">
+      <div id="next">
+        <div class="landing__bottom-btn comparison__btn--next">
+          <a href="{% url 'navigation:dashboard' %}"><button id="animateComparisonBtn" class="button">{% trans "Mehr entdecken!" %}</button></a>
+        </div>
+      </div>
+      <div class="text-center data-source-button" data-open="comparisonData">
+        <button>Woher kommen die Zahlen?</button>
+      </div>
+    </div>
+
   </div>
-</div>
-
-<div class="cell text-center data-source-button" data-open="comparisonData">
-  <button>Woher kommen die Zahlen?</button>
 </div>
 
 <div class="full reveal" id="comparisonData" data-reveal>
@@ -32,6 +39,7 @@
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
+
 
 {% endblock %}
 

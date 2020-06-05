@@ -1,3 +1,12 @@
+.comparison__wrap {
+    justify-content: space-around;
+    height: 100%;
+
+    .comparison__btn--next {
+        text-align: center;
+    }
+}
+
 #next button {
     margin-bottom: .5rem;
     margin-top: 1rem;
@@ -65,7 +74,7 @@ button.close-button:hover {
     animation-timing-function: ease-in-out;
 }
 
-.comparison__btn {
+.comparison__btn--next {
     padding-top: 1rem;
     @media screen and (min-height: 600px) {
         padding-top: 2rem;
