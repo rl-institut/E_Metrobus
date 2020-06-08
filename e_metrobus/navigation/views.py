@@ -217,12 +217,11 @@ class QuestionView(NavigationView):
         self.title_icon = questions.QUESTIONS[kwargs["category"]].small_icon
 
         context = super(QuestionView, self).get_context_data(**kwargs)
-        context["category_percentage"] = round(
-            questions.get_category_shares(
-                category=kwargs["category"], session=self.request.session
-            ).done
-            * 100
+        shares = questions.get_category_shares(
+            category=kwargs["category"], session=self.request.session
         )
+        context["category_percentage_done"] = round(shares.done * 100)
+        context["category_percentage_correct"] = round(shares.correct * 100)
         return context
 
     def get(self, request, *args, **kwargs):

@@ -5,7 +5,8 @@
 
 {% block content %}
 <div class="cell progress-bar">
-  <div class="progress-bar__fill" style="width: {{category_percentage}}%;"></div>
+  <div class="progress-bar__fill" style="background-color: #E46C6C; width: {{category_percentage_done}}%;"></div>
+  <div class="progress-bar__fill" style="width: {{category_percentage_correct}}%;"></div>
 </div>
 <div class="cell question">
   <form method="post" action="{% url 'navigation:answer_score' %}" id="question">
