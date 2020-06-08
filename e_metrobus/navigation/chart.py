@@ -44,7 +44,7 @@ def get_sizes(max_value):
 def get_mobility_figure(values):
     colors = [DEFAULT_COLOR] * 5
     colors[1] = E_BUS_COLOR
-    mobiles = [_("Zu Fuß/<br>Fahrrad"), _("E-Bus"), _("E-PKW"), _("Dieselbus"), _("PKW")]
+    mobiles = [_("Zu Fuß/<br>Fahrrad"), _("E-Bus"), _("E-Pkw"), _("Dieselbus"), _("Pkw")]
 
     max_value = max(values)
     sizes = get_sizes(max_value)

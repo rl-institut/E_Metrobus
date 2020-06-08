@@ -18,7 +18,7 @@ class CheckStationsMixin:
 
 
 class NavigationView(TemplateView):
-    title = "E-Metrobus"
+    title = "E-MetroBus"
     title_icon = "images/icons/i_ebus_black_fill.svg"
     title_alt = None
     back_url = "navigation:dashboard"
@@ -112,16 +112,25 @@ class DisplayRouteView(CheckStationsMixin, NavigationView):
         context["distance"] = stations.STATIONS.get_distance(*current_stations)
         context["distance_in_meter"] = context["distance"] * 1000
         route_data = stations.STATIONS.get_route_data(*current_stations)
-        context["comparison"] = {
-            "bus": (route_data["bus"].co2 - route_data["e-bus"].co2)
-            / route_data["bus"].co2
-            * 100,
-            "e_pkw": (route_data["e-pkw"].co2 - route_data["e-bus"].co2)
-            / route_data["e-pkw"].co2
-            * 100,
-            "car": (route_data["car"].co2 - route_data["e-bus"].co2)
-            / route_data["car"].co2
-            * 100,
+        context["co2"] = {
+            "bus": {
+                "percent": (route_data["bus"].co2 - route_data["e-bus"].co2)
+                / route_data["bus"].co2
+                * 100,
+                "gram": route_data["bus"].co2 - route_data["e-bus"].co2,
+            },
+            "e_pkw": {
+                "percent": (route_data["e_pkw"].co2 - route_data["e-bus"].co2)
+                / route_data["e_pkw"].co2
+                * 100,
+                "gram": route_data["e_pkw"].co2 - route_data["e-bus"].co2,
+            },
+            "car": {
+                "percent": (route_data["car"].co2 - route_data["e-bus"].co2)
+                / route_data["car"].co2
+                * 100,
+                "gram": route_data["car"].co2 - route_data["e-bus"].co2,
+            },
         }
         return context
 
@@ -330,7 +339,9 @@ class ShareScoreView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(ShareScoreView, self).get_context_data(**kwargs)
-        context["points"] = get_object_or_404(models.Score, hash=kwargs["hash"]).score
+        context["points"] = get_object_or_404(
+            models.Score, hash=kwargs["hash"]
+        ).score
         return context
 
 

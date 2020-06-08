@@ -7,6 +7,8 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 ## [Unreleased]
 ### Added
 - Data for E-PKW
+- e-Bus favicon
+- CO2 in gram on display route page
 
 ### Fixed
 - Answer shows up shortly before answer score animation
