@@ -18,7 +18,7 @@ class CheckStationsMixin:
 
 
 class NavigationView(TemplateView):
-    title = "E-Metrobus"
+    title = "E-MetroBus"
     title_icon = "images/icons/i_ebus_black_fill.svg"
     title_alt = None
     back_url = "navigation:dashboard"
