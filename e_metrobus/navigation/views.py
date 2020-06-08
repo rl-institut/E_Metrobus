@@ -120,10 +120,10 @@ class DisplayRouteView(CheckStationsMixin, NavigationView):
                 "gram": route_data["bus"].co2 - route_data["e-bus"].co2,
             },
             "e_pkw": {
-                "percent": (route_data["e_pkw"].co2 - route_data["e-bus"].co2)
-                / route_data["e_pkw"].co2
+                "percent": (route_data["e-pkw"].co2 - route_data["e-bus"].co2)
+                / route_data["e-pkw"].co2
                 * 100,
-                "gram": route_data["e_pkw"].co2 - route_data["e-bus"].co2,
+                "gram": route_data["e-pkw"].co2 - route_data["e-bus"].co2,
             },
             "car": {
                 "percent": (route_data["car"].co2 - route_data["e-bus"].co2)
