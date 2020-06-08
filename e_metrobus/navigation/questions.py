@@ -57,7 +57,7 @@ for cat in question_config:
             is_multiple_choice=isinstance(
                 question_config[cat]["questions"][q]["correct"], list
             ),
-            label=question_config[cat]["questions"][q]["label"],
+            label=format_html(question_config[cat]["questions"][q]["label"]),
             question=format_html(question_config[cat]["questions"][q]["question"]),
             answers=[
                 format_html(answer)
