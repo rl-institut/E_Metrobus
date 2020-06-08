@@ -31,6 +31,8 @@ class Ellipse:
         )
 
     def __str__(self):
+        if self.share == 1:
+            return f"M {ELLIPSE_RADIUS + ELLIPSE_X_OFFSET} {ELLIPSE_Y_OFFSET} A {ELLIPSE_RADIUS} {ELLIPSE_RADIUS} 0 {self.large} 1 {ELLIPSE_X_OFFSET + ELLIPSE_RADIUS } {ELLIPSE_Y_OFFSET + 2 * ELLIPSE_RADIUS} A {ELLIPSE_RADIUS} {ELLIPSE_RADIUS} 0 {self.large} 1 {ELLIPSE_X_OFFSET + ELLIPSE_RADIUS } {ELLIPSE_Y_OFFSET}"
         return f"M {ELLIPSE_RADIUS + ELLIPSE_X_OFFSET} {ELLIPSE_Y_OFFSET} A {ELLIPSE_RADIUS} {ELLIPSE_RADIUS} 0 {self.large} 1 {self.x} {self.y}"
 
 

@@ -84,16 +84,20 @@ class DashboardView(CheckStationsMixin, NavigationView):
         if self.request.session.get("score_at_last_visit", 0) < current_score:
             self.request.session["score_at_last_visit"] = current_score
             context["top_bar"].score_changed = True
-        context["categories"] = [
-            (
-                cat_name,
-                category,
-                constants.Ellipse(
-                    questions.get_category_done_share(cat_name, self.request.session)
-                ),
+
+        categories = []
+        for cat_name, category in questions.QUESTIONS.items():
+            shares = questions.get_category_shares(cat_name, self.request.session)
+            categories.append(
+                (
+                    cat_name,
+                    category,
+                    constants.Ellipse(shares.correct),
+                    constants.Ellipse(shares.done),
+                )
             )
-            for cat_name, category in questions.QUESTIONS.items()
-        ]
+        context["categories"] = categories
+
         return context
 
 
@@ -214,9 +218,9 @@ class QuestionView(NavigationView):
 
         context = super(QuestionView, self).get_context_data(**kwargs)
         context["category_percentage"] = round(
-            questions.get_category_done_share(
+            questions.get_category_shares(
                 category=kwargs["category"], session=self.request.session
-            )
+            ).done
             * 100
         )
         return context
