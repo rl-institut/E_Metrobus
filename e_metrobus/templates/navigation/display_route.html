@@ -67,11 +67,11 @@
 <div class="cell display-route" id="onboardingAnimate3" style="display: none;">
   <div class="grid-x display-route__grid text-center align-center">
     <div class="cell display-route__wrap">
-      <img id="onboardingAnimateIcon2" src="{% static 'images/icons/Icon_Conventional_Bus.svg' %}" alt="Conventional Bus Icon">
+      <img id="onboardingAnimateIcon2" src="{% static 'images/icons/Icon_E_Car.svg' %}" alt="E-PKW Icon">
       <div class="display-route__text">
-        <p class="display-route__sentence">{% trans "Im Vergleich zum <span>Dieselbus</span> sparst du" %}</p>
-        <p class="display-route__number">{{co2.bus.percent|floatformat:"0"}} % CO<sub>2</sub></p>
-        <p class="display-route__number display-route__number--small">({{co2.bus.gram|floatformat:"0"}} g CO<sub>2</sub>)</p>
+        <p class="display-route__sentence">{% trans "Im Vergleich zum <span>E-PKW</span> sparst du" %}</p>
+        <p class="display-route__number">{{co2.e_pkw.percent|floatformat:"0"}} % CO<sub>2</sub></p>
+        <p class="display-route__number display-route__number--small">({{co2.e_pkw.gram|floatformat:"0"}} g CO<sub>2</sub>)</p>
       </div>
     </div>
   </div>
@@ -86,11 +86,11 @@
 <div class="cell display-route" id="onboardingAnimate4" style="display: none;">
   <div class="grid-x display-route__grid text-center align-center">
     <div class="cell display-route__wrap">
-      <img id="onboardingAnimateIcon3" src="{% static 'images/icons/Icon_Conventional_Car.svg' %}" alt="Conventional Car Icon">
+      <img id="onboardingAnimateIcon3" src="{% static 'images/icons/Icon_Conventional_Bus.svg' %}" alt="Conventional Bus Icon">
       <div class="display-route__text">
-        <p class="display-route__sentence">{% trans "Im Vergleich zum <span>Pkw</span> sparst du" %}</p>
-        <p class="display-route__number">{{co2.car.percent|floatformat:"0"}} % CO<sub>2</sub></p>
-        <p class="display-route__number display-route__number--small">({{co2.car.gram|floatformat:"0"}} g CO<sub>2</sub>)</p>
+        <p class="display-route__sentence">{% trans "Im Vergleich zum <span>Dieselbus</span> sparst du" %}</p>
+        <p class="display-route__number">{{co2.bus.percent|floatformat:"0"}} % CO<sub>2</sub></p>
+        <p class="display-route__number display-route__number--small">({{co2.bus.gram|floatformat:"0"}} g CO<sub>2</sub>)</p>
       </div>
     </div>
   </div>
@@ -105,13 +105,32 @@
 <div class="cell display-route" id="onboardingAnimate5" style="display: none;">
   <div class="grid-x display-route__grid text-center align-center">
     <div class="cell display-route__wrap">
+      <img id="onboardingAnimateIcon5" src="{% static 'images/icons/Icon_Conventional_Car.svg' %}" alt="Conventional Car Icon">
+      <div class="display-route__text">
+        <p class="display-route__sentence">{% trans "Im Vergleich zum <span>Pkw</span> sparst du" %}</p>
+        <p class="display-route__number">{{co2.car.percent|floatformat:"0"}} % CO<sub>2</sub></p>
+        <p class="display-route__number display-route__number--small">({{co2.car.gram|floatformat:"0"}} g CO<sub>2</sub>)</p>
+      </div>
+    </div>
+  </div>
+  <div class="carousel-arrow carousel-arrow--previous" onclick="show4()">
+    <img src="{% static 'images/icons/i_previous_black_large.svg' %}" alt="Zur vorherigen Seite Icon">
+  </div>
+  <div class="carousel-arrow carousel-arrow--next" onclick="show6()">
+    <img src="{% static 'images/icons/i_next_black_large.svg' %}" alt="Zur nächsten Seite Icon">
+  </div>
+</div>
+
+<div class="cell display-route" id="onboardingAnimate6" style="display: none;">
+  <div class="grid-x display-route__grid text-center align-center">
+    <div class="cell display-route__wrap">
       <img id="onboardingAnimateIcon4" src="{% static 'images/icons/Icon_Pedestrian_Bike.svg' %}" alt="Walking person and bycicle Icon">
       <div class="display-route__text">
         <p class="display-route__sentence">{% trans "Nur noch <span>zu Fuß</span> oder mit dem <span>Fahrrad</span> kannst du es besser machen!" %}</p>
       </div>
     </div>
   </div>
-  <div class="carousel-arrow carousel-arrow--previous" onclick="show4()">
+  <div class="carousel-arrow carousel-arrow--previous" onclick="show5()">
     <img src="{% static 'images/icons/i_previous_black_large.svg' %}" alt="Zur vorherigen Seite Icon">
   </div>
   <div class="carousel-arrow carousel-arrow--next" onclick="toComparisonPage()">
@@ -153,6 +172,12 @@ function show4() {
 function show5() {
   $('#onboardingAnimate4').hide();
   $('#onboardingAnimate5').fadeIn(800);
+  $('#onboardingAnimate6').hide();
+};
+
+function show6() {
+  $('#onboardingAnimate5').hide();
+  $('#onboardingAnimate6').fadeIn(800);
 };
 
 function toComparisonPage() {

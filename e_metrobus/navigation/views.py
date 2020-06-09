@@ -119,6 +119,12 @@ class DisplayRouteView(CheckStationsMixin, NavigationView):
                 * 100,
                 "gram": route_data["bus"].co2 - route_data["e-bus"].co2,
             },
+            "e_pkw": {
+                "percent": (route_data["e-pkw"].co2 - route_data["e-bus"].co2)
+                / route_data["e-pkw"].co2
+                * 100,
+                "gram": route_data["e-pkw"].co2 - route_data["e-bus"].co2,
+            },
             "car": {
                 "percent": (route_data["car"].co2 - route_data["e-bus"].co2)
                 / route_data["car"].co2
@@ -152,7 +158,7 @@ class ComparisonView(CheckStationsMixin, NavigationView):
             stations.STATIONS[station] for station in self.request.session["stations"]
         ]
         route_data = stations.STATIONS.get_route_data(*current_stations)
-        chart_order = ("pedestrian", "bicycle", "e-bus", "bus", "car")
+        chart_order = ("pedestrian", "e-bus", "e-pkw", "bus", "car")
         context["plotly"] = chart.get_mobility_figure(
             [int(route_data[vehicle].co2) for vehicle in chart_order]
         )
@@ -333,7 +339,9 @@ class ShareScoreView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(ShareScoreView, self).get_context_data(**kwargs)
-        context["points"] = get_object_or_404(models.Score, hash=kwargs["hash"]).score
+        context["points"] = get_object_or_404(
+            models.Score, hash=kwargs["hash"]
+        ).score
         return context
 
 
