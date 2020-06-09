@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project tries to adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.10.0] - 2020-06-09
+### Added
+- Data for E-PKW
+- e-Bus favicon
+- CO2 in gram on display route page
+
+### Fixed
+- Answer shows up shortly before answer score animation
+
 ## [0.9.0] - 2020-05-19
 ### Added 
 - social media links

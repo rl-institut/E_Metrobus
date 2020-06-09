@@ -10,7 +10,7 @@ MARGIN = 10
 OFFSET = 1
 SIZE = MARGIN - 2 * OFFSET
 TEXTSIZE = 5
-TROPHY_OFFSET = 20
+TROPHY_OFFSET = 10
 
 DEFAULT_COLOR = "Gainsboro"
 FONT_COLOR = "#B0B0B0"
@@ -43,8 +43,8 @@ def get_sizes(max_value):
 
 def get_mobility_figure(values):
     colors = [DEFAULT_COLOR] * 5
-    colors[2] = E_BUS_COLOR
-    mobiles = [_("Zu Fuß"), _("Fahrrad"), _("E-Bus"), _("Dieselbus"), _("PKW")]
+    colors[1] = E_BUS_COLOR
+    mobiles = [_("Zu Fuß/<br>Fahrrad"), _("E-Bus"), _("E-Pkw"), _("Dieselbus"), _("Pkw")]
 
     max_value = max(values)
     sizes = get_sizes(max_value)
@@ -75,15 +75,15 @@ def get_mobility_figure(values):
     fig.add_annotation(
         x=0.5,
         y=max_value,
-        text=_("CO2 Emissionen [in g]<br>nach Verkehrsmittel"),
+        text=_("CO<sub>2</sub> Emissionen [in g]<br>nach Verkehrsmittel"),
         font={"size": 15, "color": FONT_COLOR},
         align="left",
         showarrow=False,
     )
 
     # Mobility icons:
-    for i, icon in enumerate(["pedestrian", "bike", "ebus", "bus", "car"]):
-        color = "black_small"
+    for i, icon in enumerate(["pedestrian_bike", "ebus", "e_car", "bus", "car"]):
+        color = "small"
         if icon == "ebus":
             color = "yellow_circle"
         fig.add_layout_image(
@@ -99,7 +99,7 @@ def get_mobility_figure(values):
     for i in range(3):
         fig.add_layout_image(
             go.layout.Image(
-                source=f"/static/images/icons/i_trophy_{i+1}_{'black' if i == 2 else 'gray'}.svg",
+                source=f"/static/images/icons/i_trophy_{i+1}_{'black' if i == 1 else 'gray'}.svg",
                 x=i,
                 y=values[i]
                 + sizes.textsize
@@ -113,7 +113,4 @@ def get_mobility_figure(values):
     fig.update_layout_images(
         {"xref": "x", "yref": "y", "xanchor": "center", "yanchor": "top",}
     )
-    # fig.update_layout(
-    #     xaxis=dict(tickmode='array', ticktext=ticktext, tickvals=mobiles)
-    # )
     return DjangoFigure(fig, displayModeBar=False, staticPlot=True)

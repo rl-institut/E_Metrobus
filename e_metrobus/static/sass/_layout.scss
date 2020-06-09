@@ -34,6 +34,15 @@ $top-bar-height: 2.8rem;
 		margin-top: $top-bar-height;
 		margin-bottom: $footer-height;
 	}
+	&.l-scroll--nofooter {
+		.main-content {
+			height: calc(100vh - #{$top-bar-height});
+			margin-bottom: 0;
+		}
+		section.footer {
+			display: none;
+		}
+	}
 }
 
 .l-no-scroll--nav {

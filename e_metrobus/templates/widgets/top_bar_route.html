@@ -3,9 +3,9 @@
 {% load i18n %}
 
 <section class="grid-x top-bar">
-  <div class="cell top-bar--back">
-    <a href="{% url back_url %}">
-      <div style="color: black">
+  <div class="cell top-bar__wrap">
+    <a class="cell top-bar__link" href="{% url back_url %}">
+      <div class="top-bar__tap">
         <img src="{% static 'images/icons/i_back_black.svg' %}" alt="Zurück">
         {% trans "Strecke ändern" %}
       </div>

@@ -7,7 +7,7 @@
       <tr>
         <th>{% trans 'Fahrzeug' %}</th>
         <th>{% trans 'Diesel' %} [l/km]</th>
-        <th>{% trans 'CO2' %} [g/km]</th>
+        <th>{% trans 'CO<sub>2</sub>' %} [g/km]</th>
         <th>{% trans 'Stickoxide' %} [g/km]</th>
         <th>{% trans 'Feinstaub' %} [g/km]</th>
       </tr>
@@ -24,5 +24,10 @@
       {% endfor %}
     </tbody>
   </table>
-  <p class="data__source">{% trans 'Quelle' %}: {{source}}</p>
+  <p class="data__source">
+    {% trans 'Quellen' %}:<br>
+    {% for source in sources %}
+      {{source}}<br>
+    {% endfor %}
+  </p>
 </div>

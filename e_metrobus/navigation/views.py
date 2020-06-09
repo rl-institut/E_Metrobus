@@ -18,7 +18,7 @@ class CheckStationsMixin:
 
 
 class NavigationView(TemplateView):
-    title = "E-Metrobus"
+    title = "E-MetroBus"
     title_icon = "images/icons/i_ebus_black_fill.svg"
     title_alt = None
     back_url = "navigation:dashboard"
@@ -112,13 +112,25 @@ class DisplayRouteView(CheckStationsMixin, NavigationView):
         context["distance"] = stations.STATIONS.get_distance(*current_stations)
         context["distance_in_meter"] = context["distance"] * 1000
         route_data = stations.STATIONS.get_route_data(*current_stations)
-        context["comparison"] = {
-            "bus": (route_data["bus"].co2 - route_data["e-bus"].co2)
-            / route_data["bus"].co2
-            * 100,
-            "car": (route_data["car"].co2 - route_data["e-bus"].co2)
-            / route_data["car"].co2
-            * 100,
+        context["co2"] = {
+            "bus": {
+                "percent": (route_data["bus"].co2 - route_data["e-bus"].co2)
+                / route_data["bus"].co2
+                * 100,
+                "gram": route_data["bus"].co2 - route_data["e-bus"].co2,
+            },
+            "e_pkw": {
+                "percent": (route_data["e-pkw"].co2 - route_data["e-bus"].co2)
+                / route_data["e-pkw"].co2
+                * 100,
+                "gram": route_data["e-pkw"].co2 - route_data["e-bus"].co2,
+            },
+            "car": {
+                "percent": (route_data["car"].co2 - route_data["e-bus"].co2)
+                / route_data["car"].co2
+                * 100,
+                "gram": route_data["car"].co2 - route_data["e-bus"].co2,
+            },
         }
         return context
 
@@ -146,7 +158,7 @@ class ComparisonView(CheckStationsMixin, NavigationView):
             stations.STATIONS[station] for station in self.request.session["stations"]
         ]
         route_data = stations.STATIONS.get_route_data(*current_stations)
-        chart_order = ("pedestrian", "bicycle", "e-bus", "bus", "car")
+        chart_order = ("pedestrian", "e-bus", "e-pkw", "bus", "car")
         context["plotly"] = chart.get_mobility_figure(
             [int(route_data[vehicle].co2) for vehicle in chart_order]
         )
@@ -234,13 +246,11 @@ class AnswerView(NavigationView):
         "results": {"enabled": True},
     }
 
-    def get_context_data(self, question, answer=None, **kwargs):
+    def get_context_data(self, question, **kwargs):
         self.title = questions.QUESTIONS[question.category].label
         self.title_icon = questions.QUESTIONS[question.category].small_icon
         context = super(AnswerView, self).get_context_data(**kwargs)
-        context["answer"] = answer
         context["question"] = question
-        context["points"] = questions.SCORE_CORRECT if answer else questions.SCORE_WRONG
         return context
 
     def get(self, request, **kwargs):
@@ -250,6 +260,17 @@ class AnswerView(NavigationView):
         question = questions.get_question_from_name(question_name)
         context = self.get_context_data(question=question, **kwargs)
         return self.render_to_response(context)
+
+
+class AnswerScoreView(TemplateView):
+    template_name = "navigation/answer_score.html"
+
+    def get_context_data(self, question, answer, **kwargs):
+        context = super(AnswerScoreView, self).get_context_data(**kwargs)
+        context["answer"] = answer
+        context["question"] = question
+        context["points"] = questions.SCORE_CORRECT if answer else questions.SCORE_WRONG
+        return context
 
     def post(self, request, **kwargs):
         question = questions.get_question_from_name(request.POST["question"])
