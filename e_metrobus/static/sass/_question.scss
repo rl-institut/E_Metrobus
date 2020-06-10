@@ -2,10 +2,16 @@
   height: .75rem;
   width: 100%;
   background-color: $gray-3;
+  position: relative;
 
   &__fill {
     background-color: $primary-color-2;
     height: 100%;
+
+    &--correct {
+      position: absolute;
+      top: 0;
+    }
   }
 }
 
