@@ -389,14 +389,8 @@ class LandingPageView(TemplateView):
         return context
 
 
-class FeedbackView(NavigationView):
+class FeedbackView(TemplateView):
     template_name = "navigation/feedback.html"
-    footer_links = {
-        "info": {"enabled": True},
-        "dashboard": {"enabled": True},
-        "leaf": {"enabled": True},
-        "results": {"enabled": True},
-    }
 
     def get_context_data(self, **kwargs):
         context = super(FeedbackView, self).get_context_data(**kwargs)
