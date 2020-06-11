@@ -43,10 +43,10 @@ class Bug(models.Model):
     )
     initial_descriptions = {
         TECHNICAL: _(
-            "Etwas funktioniert nicht? Ein Link ist kaputt? Beschreib uns dein Problem!"
+            "Etwas funktioniert nicht? Ein Link ist kaputt?"
         ),
         USAGE: _(
-            "Ist etwas schwierig oder frustrierend zu nutzen? Du kannst uns das gerne hier genauer beschreiben."
+            "Ist etwas schwierig oder frustrierend zu nutzen?"
         ),
         CONTENT: _("Um welchen Inhalt geht es?"),
         OTHER: _("Kannst du uns dein Problem beschreiben?"),
