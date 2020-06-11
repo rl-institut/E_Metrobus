@@ -1,7 +1,10 @@
-from django import forms
+import json
 
-from e_metrobus.navigation.models import Feedback, Bug
-from e_metrobus.navigation.widgets import FeedbackStarsWidget, FeedbackCommentWidget
+from django import forms
+from django.utils.safestring import mark_safe
+
+from e_metrobus.navigation.models import Bug, Feedback
+from e_metrobus.navigation.widgets import FeedbackCommentWidget, FeedbackStarsWidget
 
 
 class FeedbackForm(forms.ModelForm):
@@ -29,3 +32,7 @@ class BugForm(forms.ModelForm):
     class Meta:
         model = Bug
         fields = ("type", "description")
+
+    @property
+    def descriptions(self):
+        return mark_safe(json.dumps(self.Meta.model.initial_descriptions))

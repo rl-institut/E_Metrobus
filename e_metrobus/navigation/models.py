@@ -31,15 +31,27 @@ class Feedback(models.Model):
 
 
 class Bug(models.Model):
-    ERROR = "error"
-    DESIGN = "design"
+    TECHNICAL = "technical"
+    USAGE = "usage"
+    CONTENT = "content"
     OTHER = "other"
     BUG_TYPES = (
-        (ERROR, _("Fehler")),
-        (DESIGN, _("Design")),
-        (OTHER, _("Sonstiges")),
+        (TECHNICAL, _("Technisches Problem")),
+        (USAGE, _("Schwierigkeit bei der Nutzung der App")),
+        (CONTENT, _("Inkorrekter oder unverständlicher Inhalt")),
+        (OTHER, _("Anderes")),
     )
+    initial_descriptions = {
+        TECHNICAL: _(
+            "Etwas funktioniert nicht? Ein Link ist kaputt? Beschreib uns dein Problem!"
+        ),
+        USAGE: _(
+            "Ist etwas schwierig oder frustrierend zu nutzen? Du kannst uns das gerne hier genauer beschreiben."
+        ),
+        CONTENT: _("Um welchen Inhalt geht es?"),
+        OTHER: _("Kannst du uns dein Problem beschreiben?"),
+    }
     type = models.CharField(
-        max_length=20, choices=BUG_TYPES, verbose_name=_("Problem")
+        max_length=20, default=None, choices=BUG_TYPES, verbose_name=_("Problem")
     )
     description = models.TextField(verbose_name=_("Beschreibung"))

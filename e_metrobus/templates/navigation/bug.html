@@ -14,7 +14,6 @@
     <form method="post" class="feedback__form">
       {% csrf_token %}
       {{bug}}
-
       <div class="cell">
         <div class="grid-x align-center text-center">
           <div class="cell">
@@ -27,4 +26,15 @@
   </div>
 </div>
 
-{% endblock %}
+{% endblock content %}
+
+{% block javascript %}
+  {{block.super}}
+  <script>
+  var descriptions = {{bug.descriptions}};
+  $("#id_type").change(function() {
+    type = $(this).val();
+    $("#id_description").val(descriptions[type]);
+  });
+  </script>
+{% endblock javascript %}

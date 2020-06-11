@@ -439,7 +439,11 @@ class BugView(NavigationView):
         context = super(BugView, self).get_context_data(**kwargs)
         context["bug"] = kwargs.get(
             "bug",
-            forms.BugForm(initial={"type": models.Bug.ERROR}),
+            forms.BugForm(
+                initial={
+                    "type": models.Bug.TECHNICAL,
+                    "description": models.Bug.initial_descriptions[models.Bug.TECHNICAL]
+                }),
         )
         return context
 
