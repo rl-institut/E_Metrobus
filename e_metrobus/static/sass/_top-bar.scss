@@ -46,13 +46,17 @@ section.top-bar {
 	}
 
 	.top-bar--share {
-		font-size: .875rem;
-		font-weight: 700;
 		img {
 			width: 1.2rem;
 			transform: translateY(-2px);
 		}
 	}
+}
+
+img.share-reveal__icon {
+	width: 1.2rem;
+	transform: translateY(-2px);
+	margin-right: 1rem;
 }
 
 .cell.top-bar__wrap {

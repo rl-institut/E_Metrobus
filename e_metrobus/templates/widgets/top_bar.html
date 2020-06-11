@@ -38,7 +38,7 @@
 <div class="reveal" id="share-reveal" data-reveal>
   <div class="grid-x share-reveal" id="share-buttons">
     <div class="cell share-reveal__title">
-      <span>Ergebnisse teilen</span>
+      <span><img src="{% static 'images/icons/i_share.svg' %}" alt="App teilen" class="share-reveal__icon">App teilen</span>
     </div>
     <div class="cell small-4 share-reveal__icon">
       <a href="http://www.facebook.com/sharer.php?u={{request.scheme}}://{{request.get_host}}{% url 'navigation:landing_page' %}" target="_blank">
