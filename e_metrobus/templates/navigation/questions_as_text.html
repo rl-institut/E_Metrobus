@@ -14,7 +14,9 @@
         {% for q_name, question in category.questions.items %}
             {% if q_name != "route" %}
               <div class="questionstext__questlabel"><h3>{{question.get_label}}</h3></div>
-              {% include question.template %}
+              <div class="project__question">
+                {% include question.template %}
+              </div>
             {% endif %}
           {% endfor %}
       </div>
