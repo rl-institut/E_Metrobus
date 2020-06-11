@@ -7,6 +7,7 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 ## [Unreleased]
 ### Changed 
 - progress bar/cirle shows correct and wrong answers
+- added share link on navigation bar
  
 ## [0.10.0] - 2020-06-09
 ### Added
