@@ -40,6 +40,6 @@ class Bug(models.Model):
         (OTHER, _("Sonstiges")),
     )
     type = models.CharField(
-        max_length=20, choices=BUG_TYPES, verbose_name=_("Fehlerart")
+        max_length=20, choices=BUG_TYPES, verbose_name=_("Problem")
     )
-    description = models.TextField(verbose_name=_("Fehlerbeschreibung"))
+    description = models.TextField(verbose_name=_("Beschreibung"))

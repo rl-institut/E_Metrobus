@@ -71,3 +71,20 @@
     }
   }
 }
+
+.bug__question {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 1.5rem;
+}
+
+.bug__form {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 1rem;
+  padding-bottom: 2.5rem;
+
+  select {
+    background-image: none;
+  }
+}
