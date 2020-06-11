@@ -1,18 +1,20 @@
 import os
-from typing import List, Dict, Union
+from collections import namedtuple
 from dataclasses import dataclass
+from typing import Dict, List, Union
+
 from configobj import ConfigObj
-
 from django.conf import settings
-from django.utils.translation import gettext as _
 from django.utils.html import format_html
-
+from django.utils.translation import gettext as _
 
 QUESTION_TEMPLATE_FOLDER = "questions"
 
 SCORE_WRONG = 5
 SCORE_CORRECT = 10
 SCORE_CATEGORY_COMPLETE = 11
+
+Shares = namedtuple("Shares", ["done", "correct"])
 
 
 @dataclass
@@ -108,16 +110,18 @@ def get_total_score(session):
     return score
 
 
-def get_category_done_share(category, session):
+def get_category_shares(category, session):
     total = 0
     done = 0
+    correct = 0
     if "questions" not in session or category not in session["questions"]:
-        return 0
+        return Shares(0, 0)
     for question in QUESTIONS[category].questions:
         total += 1
         if question in session["questions"][category]:
             done += 1
-    return done / total
+            correct += session["questions"][category][question]
+    return Shares(done / total, correct / total)
 
 
 def get_next_question(category, session):
@@ -140,6 +144,6 @@ def get_question_from_name(question_name):
 
 def all_questions_answered(session):
     for category in QUESTIONS:
-        if get_category_done_share(category, session) != 1.0:
+        if get_category_shares(category, session).done != 1.0:
             return False
     return True
