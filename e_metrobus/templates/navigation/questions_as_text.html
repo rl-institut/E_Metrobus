@@ -2,8 +2,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="cell">
-  <ul class="tabs" data-tabs id="question_tabs">
+<div class="cell project">
+  <ul class="tabs project__tabs" data-tabs id="question_tabs">
     {% for cat_name, category in categories.items %}
       <li class="tabs-title{% if forloop.first %} is-active{% endif %}"><a href="#{{cat_name}}" aria-selected="true">{{category.get_label}}</a></li>
     {% endfor %}
