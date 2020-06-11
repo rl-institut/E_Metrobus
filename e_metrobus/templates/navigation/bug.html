@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+
+<div class="cell feedback">
+  <div class="grid-x">
+    <form method="post" class="feedback__form">
+      {% csrf_token %}
+      {{bug}}
+
+      <div class="cell feedback__btn">
+        <div class="grid-x align-center text-center">
+          <div class="cell">
+            <button class="button--yellow" type="submit" style= "cursor:pointer">{% trans 'Fehlermeldung schicken' %}</button>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

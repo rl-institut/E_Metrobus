@@ -1,6 +1,6 @@
 from django import forms
 
-from e_metrobus.navigation.models import Feedback
+from e_metrobus.navigation.models import Feedback, Bug
 from e_metrobus.navigation.widgets import FeedbackStarsWidget, FeedbackCommentWidget
 
 
@@ -23,3 +23,9 @@ class FeedbackForm(forms.ModelForm):
 
     class Media:
         js = ("js/feedback.js",)
+
+
+class BugForm(forms.ModelForm):
+    class Meta:
+        model = Bug
+        fields = ("type", "description")

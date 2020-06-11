@@ -1,5 +1,6 @@
 import uuid
 from django.db import models
+from django.utils.translation import gettext as _
 from django.core.validators import MinValueValidator, MaxValueValidator
 
 from e_metrobus.navigation import questions
@@ -27,3 +28,18 @@ class Feedback(models.Model):
         validators=[MinValueValidator(1), MaxValueValidator(5)]
     )
     comment = models.TextField(null=True, blank=True)
+
+
+class Bug(models.Model):
+    ERROR = "error"
+    DESIGN = "design"
+    OTHER = "other"
+    BUG_TYPES = (
+        (ERROR, _("Fehler")),
+        (DESIGN, _("Design")),
+        (OTHER, _("Sonstiges")),
+    )
+    type = models.CharField(
+        max_length=20, choices=BUG_TYPES, verbose_name=_("Fehlerart")
+    )
+    description = models.TextField(verbose_name=_("Fehlerbeschreibung"))

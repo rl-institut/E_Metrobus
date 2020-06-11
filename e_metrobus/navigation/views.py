@@ -424,3 +424,29 @@ class FeedbackView(NavigationView):
         else:
             return self.render_to_response(self.get_context_data(feedback=feedback))
         return redirect("navigation:finished_quiz")
+
+
+class BugView(NavigationView):
+    template_name = "navigation/bug.html"
+    footer_links = {
+        "info": {"enabled": True},
+        "dashboard": {"enabled": True},
+        "leaf": {"enabled": True},
+        "results": {"enabled": True},
+    }
+
+    def get_context_data(self, **kwargs):
+        context = super(BugView, self).get_context_data(**kwargs)
+        context["bug"] = kwargs.get(
+            "bug",
+            forms.BugForm(initial={"type": models.Bug.ERROR}),
+        )
+        return context
+
+    def post(self, request, **kwargs):
+        bug = forms.BugForm(request.POST)
+        if bug.is_valid():
+            bug.save()
+        else:
+            return self.render_to_response(self.get_context_data(bug=bug))
+        return redirect("navigation:dashboard")
