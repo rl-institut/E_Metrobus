@@ -27,6 +27,10 @@
           </div>
     {% endfor %}
 
+    {% if quiz_finished %}
+      <a href="{% url 'navigation:finished_quiz' %}">{% trans 'Quiz geschafft!' %}</a>
+    {% endif %}
+
     {% if first_time %}
       <div class="cell small-10 dashboard__info" data-closable>
         <p>{% trans "Hier kannst du mehr entdecken und Spaß mit dem Quiz haben! Die erste Frage hast du schon beantwortet!" %}</p>

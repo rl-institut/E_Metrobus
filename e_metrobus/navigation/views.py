@@ -71,7 +71,10 @@ class DashboardView(CheckStationsMixin, NavigationView):
     back_url = None
 
     def get(self, request, *args, **kwargs):
-        if questions.all_questions_answered(request.session):
+        if (
+            questions.all_questions_answered(request.session)
+            and "hashed_score" not in request.session
+        ):
             return redirect("navigation:finished_quiz")
         if "first_time" not in request.session:
             request.session["first_time"] = False
@@ -84,6 +87,8 @@ class DashboardView(CheckStationsMixin, NavigationView):
         if self.request.session.get("score_at_last_visit", 0) < current_score:
             self.request.session["score_at_last_visit"] = current_score
             context["top_bar"].score_changed = True
+
+        context["quiz_finished"] = "hashed_score" in self.request.session
 
         categories = []
         for cat_name, category in questions.QUESTIONS.items():
@@ -342,9 +347,7 @@ class ShareScoreView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(ShareScoreView, self).get_context_data(**kwargs)
-        context["points"] = get_object_or_404(
-            models.Score, hash=kwargs["hash"]
-        ).score
+        context["points"] = get_object_or_404(models.Score, hash=kwargs["hash"]).score
         return context
 
 
@@ -391,6 +394,7 @@ class LandingPageView(TemplateView):
 
 class FeedbackView(NavigationView):
     template_name = "navigation/feedback.html"
+    back_url = "navigation:finished_quiz"
     footer_links = {
         "info": {"enabled": True},
         "dashboard": {"enabled": True},
