@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+
+<div class="cell bug__question">
+  <p>Hast du ein Bug gefunden oder willst du uns ein Feedback über die App schicken? Dann melde dich gerne bei uns!</p>
+</div>
+
+<div class="cell bug__form">
+  <div class="grid-x">
+    <form method="post" class="feedback__form">
+      {% csrf_token %}
+      {{bug}}
+      <div class="cell">
+        <div class="grid-x align-center text-center">
+          <div class="cell">
+            <button class="button" type="submit" style= "cursor:pointer">{% trans 'Schicken' %}</button>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+{% endblock content %}
+
+{% block javascript %}
+  {{block.super}}
+  <script>
+    var descriptions = {{bug.descriptions}};
+    $("#id_description").attr("placeholder", descriptions["technical"]);
+
+    $("#id_type").change(function() {
+      type = $(this).val();
+      $("#id_description").attr("placeholder", descriptions[type]);
+    });
+
+  </script>
+{% endblock javascript %}

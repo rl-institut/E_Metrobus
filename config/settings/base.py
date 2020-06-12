@@ -65,7 +65,7 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    "foundation_formtags",  # Form layouts
+
 ]
 
 LOCAL_APPS = [
