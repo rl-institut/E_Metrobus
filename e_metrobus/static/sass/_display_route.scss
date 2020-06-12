@@ -11,6 +11,15 @@
     padding-bottom: .5rem;
   }
 
+  &__start,
+  &__end {
+    font-size: 1.35rem;
+
+    @media screen and (max-width: 340px) {
+      font-size: 1.25rem;
+    }
+  }
+
   &__wrap {
     position: relative;
 
