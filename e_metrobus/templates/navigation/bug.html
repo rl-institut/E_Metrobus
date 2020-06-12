@@ -31,10 +31,13 @@
 {% block javascript %}
   {{block.super}}
   <script>
-  var descriptions = {{bug.descriptions}};
-  $("#id_type").change(function() {
-    type = $(this).val();
-    $("#id_description").val(descriptions[type]);
-  });
+    var descriptions = {{bug.descriptions}};
+    $("#id_description").attr("placeholder", descriptions["technical"]);
+
+    $("#id_type").change(function() {
+      type = $(this).val();
+      $("#id_description").attr("placeholder", descriptions[type]);
+    });
+
   </script>
 {% endblock javascript %}

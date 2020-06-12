@@ -342,9 +342,7 @@ class ShareScoreView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(ShareScoreView, self).get_context_data(**kwargs)
-        context["points"] = get_object_or_404(
-            models.Score, hash=kwargs["hash"]
-        ).score
+        context["points"] = get_object_or_404(models.Score, hash=kwargs["hash"]).score
         return context
 
 
@@ -438,12 +436,7 @@ class BugView(NavigationView):
     def get_context_data(self, **kwargs):
         context = super(BugView, self).get_context_data(**kwargs)
         context["bug"] = kwargs.get(
-            "bug",
-            forms.BugForm(
-                initial={
-                    "type": models.Bug.TECHNICAL,
-                    "description": models.Bug.initial_descriptions[models.Bug.TECHNICAL]
-                }),
+            "bug", forms.BugForm(initial={"type": models.Bug.TECHNICAL}),
         )
         return context
 
