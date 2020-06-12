@@ -81,6 +81,7 @@ class TopBarWidget(CustomWidget):
         self.score = score
         self.score_changed = False
         self.request = request
+        self.share_link_js = True
 
 
 class FooterWidget(CustomWidget):

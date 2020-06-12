@@ -82,6 +82,25 @@
         window.addEventListener("resize", resetHeight);
         // called to initially set the height.
         resetHeight();
+
+        {% if top_bar.share_link_js %}
+          function shareLink() {
+            var text = "{{request.scheme}}://{{request.get_host}}{% url 'navigation:landing_page' %}";
+            var input = document.createElement('input');
+            input.setAttribute('value', text);
+            document.body.appendChild(input);
+            input.select();
+            var result = document.execCommand('copy');
+            document.body.removeChild(input);
+            $('#link_copied').fadeIn();
+            setTimeout(
+              function () {
+                $('#link_copied').fadeOut();
+              },
+              2000
+            );
+          }
+        {% endif %}
       </script>
     {% endblock javascript %}
   </body>

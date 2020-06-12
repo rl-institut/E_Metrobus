@@ -3,15 +3,15 @@
 {% load translation %}
 
 <section class="grid-x top-bar">
-  <div class="cell small-1 top-bar--back">
-    {% if back_url %}
+  {% if back_url %}
+    <div class="cell small-1 top-bar--back">
       <a href="{% url back_url %}">
         <div>
           <img src="{% static 'images/icons/i_back_black.svg' %}" alt="Zurück">
         </div>
       </a>
-    {% endif %}
-  </div>
+    </div>
+  {% endif %}
   <div class="cell small-2 top-bar--language">
     {% get_current_language as LANGUAGE_CODE %}
     {% if LANGUAGE_CODE == 'de' %}
@@ -24,12 +24,45 @@
       </a>
     {% endif %}
   </div>
-  <div class="cell small-6 top-bar--header">
+  <div class="cell small-5 top-bar--header">
     <img src="{% static title_icon %}" alt="{{title_alt}}">
     <span>{{title}}</span>
   </div>
-  <div class="cell small-3 top-bar--points {% if score_changed %}dashboard_animation{% endif %}">
-    <img src="{% static 'images/icons/i_star_blue.svg' %}" alt="stars and points">
-    <span>{{score}}</span>
+  <div class="cell small-2 top-bar--share">
+    <a data-open="share-reveal">
+      <img src="{% static 'images/icons/i_share.svg' %}" alt="App teilen">
+    </a>
   </div>
 </section>
+
+<div class="reveal" id="share-reveal" data-reveal>
+  <div class="grid-x share-reveal" id="share-buttons">
+    <div class="cell share-reveal__title">
+      <span><img src="{% static 'images/icons/i_share.svg' %}" alt="App teilen" class="share-reveal__icon">App teilen</span>
+    </div>
+    <div class="cell small-4 share-reveal__icon">
+      <a href="http://www.facebook.com/sharer.php?u={{request.scheme}}://{{request.get_host}}{% url 'navigation:landing_page' %}" target="_blank">
+        <img src="{% static 'images/icons/i_fb.png' %}" alt="Facebook Icon">
+      </a>
+    </div>
+    <div class="cell small-4 share-reveal__icon">
+      <a href="whatsapp://send?text=text%20{{request.scheme}}://{{request.get_host}}{% url 'navigation:landing_page' %}">
+        <img src="{% static 'images/icons/i_whatsapp.png' %}" alt="Whatsapp Icon">
+      </a>
+    </div>
+    <div class="cell small-4 share-reveal__icon">
+      <a href="tg://msg_url?url={{request.scheme}}://{{request.get_host}}{% url 'navigation:landing_page' %}&amp;text=text">
+        <img src="{% static 'images/icons/i_telegram.png' %}" alt="Telegram Icon">
+      </a>
+    </div>
+    <div class="cell small-4 share-reveal__icon">
+      <img src="{% static 'images/icons/i_copy.svg' %}" alt="Copy Icon" onclick="shareLink();">
+      <div id="link_copied" hidden>
+        {% trans 'Link wurde kopiert' %}
+      </div>
+    </div>
+  </div>
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
