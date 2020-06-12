@@ -87,9 +87,9 @@ class TopBarWidget(CustomWidget):
 class FooterWidget(CustomWidget):
     template_name = "widgets/footer.html"
     default_links = {
-        "info": {
-            "name": "info",
-            "url": "navigation:legal",
+        "dashboard": {
+            "name": "quiz",
+            "url": "navigation:dashboard",
             "enabled": False,
             "selected": False,
         },
@@ -105,9 +105,9 @@ class FooterWidget(CustomWidget):
             "enabled": False,
             "selected": False,
         },
-        "dashboard": {
-            "name": "quiz",
-            "url": "navigation:dashboard",
+        "info": {
+            "name": "info",
+            "url": "navigation:legal",
             "enabled": False,
             "selected": False,
         },
