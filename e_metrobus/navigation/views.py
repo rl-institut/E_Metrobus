@@ -441,3 +441,10 @@ class BugView(NavigationView):
         else:
             return self.render_to_response(self.get_context_data(bug=bug))
         return redirect("navigation:dashboard")
+
+class TourView(NavigationView):
+    template_name = "navigation/tour.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(TourView, self).get_context_data(**kwargs)
+        return context
