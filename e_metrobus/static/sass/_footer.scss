@@ -15,15 +15,42 @@ section.footer {
 		border-right: none;
 	  }
 
+	  .footer__item-wrap {
+		  display: flex;
+		  flex-direction: column;
+	  }
+
+	  .footer__item--selected {
+		  color: $gray-2;
+	  }
+
+	  .footer__item--not-selected {
+		color: $secondary-color;
+	}
+
 	  img {
-		width: 2rem;
+		display: block;
+		width: 1.55rem;
+		vertical-align: sub;
+		margin: 0 auto;
+		transform: translateY(8px);
+	  }
+
+	  span {
+		display: block;
+		font-size: .75rem;
+		transform: translateY(-8px);
+
+		@media screen and (max-width: 340px) {
+			font-size: .7rem;
+		}
 	  }
 	}
 	.footer__item-wrap {
-	  width: 100%;
-	  height: $footer-height;
-    text-align: center;
-    line-height: $footer-height;
+	  	width: 100%;
+	  	height: $footer-height;
+    	text-align: center;
+    	line-height: $footer-height;
   }
   .footer__item {
     &--selected {
