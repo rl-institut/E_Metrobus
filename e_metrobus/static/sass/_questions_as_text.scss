@@ -1,6 +1,6 @@
 $secondary-color: #252424;
-$tab-border: 2px solid $secondary-color;
-$tab-border-half: 1px solid $secondary-color;
+$tab-border: 2px solid $white;
+$tab-border-half: 1px solid $white;
 $tab-border-radius: 8px;
 
 .project {
@@ -46,10 +46,20 @@ $tab-border-radius: 8px;
   li a {
     font-size: 1rem;
     font-weight: 700;
+    padding: 1rem .5rem;
+  }
+
+  .tabs-title--100-width {
+    width: 100%;
+
+    a {
+      border-bottom-left-radius: $tab-border-radius;
+      border-bottom-right-radius: $tab-border-radius;
+    }
   }
 
   .tabs-title > a {
-    background-color: $white;
+    background-color: #EFEFEF;
     color: $secondary-color;
   }
 
