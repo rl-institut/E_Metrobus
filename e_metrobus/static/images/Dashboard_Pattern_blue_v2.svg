@@ -5,11 +5,35 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    id="svg35"
    version="1.1"
    width="1134.245"
    height="1133.53"
-   viewBox="0 0 300.102 299.913">
+   viewBox="0 0 300.102 299.913"
+   sodipodi:docname="Dashboard_Pattern_blue_v2.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1853"
+     inkscape:window-height="1025"
+     id="namedview21"
+     showgrid="false"
+     inkscape:zoom="0.41639832"
+     inkscape:cx="567.1225"
+     inkscape:cy="566.76501"
+     inkscape:window-x="67"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg35" />
   <metadata
      id="metadata39">
     <rdf:RDF>
@@ -18,7 +42,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -32,6 +56,13 @@
          fill="#fff" />
     </clipPath>
   </defs>
+  <rect
+     style="opacity:1;fill:#5fbfbc;fill-opacity:1;stroke:none;stroke-width:1.99998379;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:fill markers stroke"
+     id="rect831"
+     width="299.9129"
+     height="300.54831"
+     x="0.6354087"
+     y="-1.582449e-07" />
   <g
      id="g33"
      fill="#e6f8f7">
