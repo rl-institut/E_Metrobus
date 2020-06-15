@@ -13,6 +13,7 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 - added share link on navigation bar
 - used tabs in favor of accordion on questions-as-text page
 - footer icons and added labels
+- legal page uses tabs
  
 ## [0.10.0] - 2020-06-09
 ### Added
