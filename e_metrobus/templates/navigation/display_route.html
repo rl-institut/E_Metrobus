@@ -14,10 +14,10 @@
   <div class="grid-x text-center align-middle display-route__stations">
     <div class="cell">
       <div class="grid-x">
-        <div class="cell display-route__start">
+        <div class="cell display-route__start" id="display-route-start">
           {{stations.0}}
         </div>
-        <div class="cell">
+        <div class="cell" id="display-route-line">
           <svg width="52" height="250">
             <circle cx="26" cy="6" r="6"/>
             <rect x="20" y="7" width="12" height="236" />
@@ -31,7 +31,7 @@
             <rect x="20" y="153" width="20" height="2" style="fill:#F0D722" />
           </svg>
         </div>
-        <div class="cell display-route__end">
+        <div class="cell display-route__end" id="display-route-end">
           {{stations.1}}
         </div>
       </div>
@@ -49,7 +49,7 @@
       <div class="display-route__text">
         <p class="display-route__sentence">{% trans "Deine Strecke mit dem <span>E-Bus</span> beträgt" %}</p>
         {% if distance < 1 %}
-          <p class="display-route__number">{{distance_in_meter|floatformat:"0"}} m</p>
+          <p class="display-route__number display-route-number">{{distance_in_meter|floatformat:"0"}} m</p>
         {% else %}
           <p class="display-route__number">{{distance|floatformat:"1"}} km</p>
         {% endif %}
@@ -70,8 +70,8 @@
       <img id="onboardingAnimateIcon2" src="{% static 'images/icons/Icon_E_Car.svg' %}" alt="E-PKW Icon">
       <div class="display-route__text">
         <p class="display-route__sentence">{% trans "Im Vergleich zum <span>E-PKW</span> sparst du" %}</p>
-        <p class="display-route__number">{{co2.e_pkw.percent|floatformat:"0"}} % CO<sub>2</sub></p>
-        <p class="display-route__number display-route__number--small">({{co2.e_pkw.gram|floatformat:"0"}} g CO<sub>2</sub>)</p>
+        <p class="display-route__number display-route-number">{{co2.e_pkw.percent|floatformat:"0"}} % CO<sub>2</sub></p>
+        <p class="display-route__number display-route__number--small display-route-small-number">({{co2.e_pkw.gram|floatformat:"0"}} g CO<sub>2</sub>)</p>
       </div>
     </div>
   </div>
@@ -89,8 +89,8 @@
       <img id="onboardingAnimateIcon3" src="{% static 'images/icons/Icon_Conventional_Bus.svg' %}" alt="Conventional Bus Icon">
       <div class="display-route__text">
         <p class="display-route__sentence">{% trans "Im Vergleich zum <span>Dieselbus</span> sparst du" %}</p>
-        <p class="display-route__number">{{co2.bus.percent|floatformat:"0"}} % CO<sub>2</sub></p>
-        <p class="display-route__number display-route__number--small">({{co2.bus.gram|floatformat:"0"}} g CO<sub>2</sub>)</p>
+        <p class="display-route__number display-route-number">{{co2.bus.percent|floatformat:"0"}} % CO<sub>2</sub></p>
+        <p class="display-route__number display-route__number--small display-route-small-number">({{co2.bus.gram|floatformat:"0"}} g CO<sub>2</sub>)</p>
       </div>
     </div>
   </div>
@@ -108,8 +108,8 @@
       <img id="onboardingAnimateIcon5" src="{% static 'images/icons/Icon_Conventional_Car.svg' %}" alt="Conventional Car Icon">
       <div class="display-route__text">
         <p class="display-route__sentence">{% trans "Im Vergleich zum <span>Pkw</span> sparst du" %}</p>
-        <p class="display-route__number">{{co2.car.percent|floatformat:"0"}} % CO<sub>2</sub></p>
-        <p class="display-route__number display-route__number--small">({{co2.car.gram|floatformat:"0"}} g CO<sub>2</sub>)</p>
+        <p class="display-route__number display-route-number">{{co2.car.percent|floatformat:"0"}} % CO<sub>2</sub></p>
+        <p class="display-route__number display-route__number--small display-route-small-number">({{co2.car.gram|floatformat:"0"}} g CO<sub>2</sub>)</p>
       </div>
     </div>
   </div>
