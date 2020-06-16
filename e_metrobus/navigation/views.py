@@ -1,3 +1,5 @@
+import posthog
+
 from django.shortcuts import redirect, Http404, get_object_or_404
 from django.views.generic import TemplateView
 
@@ -17,7 +19,17 @@ class CheckStationsMixin:
         return super(CheckStationsMixin, self).get(request, *args, **kwargs)
 
 
-class NavigationView(TemplateView):
+class PosthogMixin:
+    def dispatch(self, request, *args, **kwargs):
+        posthog.capture(
+            request.session.session_key,
+            request.path,
+            properties=request.session._session,
+        )
+        return super(PosthogMixin, self).dispatch(request, *args, **kwargs)
+
+
+class NavigationView(PosthogMixin, TemplateView):
     title = "E-MetroBus"
     title_icon = "images/icons/i_ebus_black_fill.svg"
     title_alt = None
@@ -41,7 +53,7 @@ class NavigationView(TemplateView):
         return context
 
 
-class RouteView(TemplateView):
+class RouteView(PosthogMixin, TemplateView):
     template_name = "navigation/route_dropdown.html"
 
     def get(self, request, *args, **kwargs):
@@ -265,7 +277,7 @@ class AnswerView(NavigationView):
         return self.render_to_response(context)
 
 
-class AnswerScoreView(TemplateView):
+class AnswerScoreView(PosthogMixin, TemplateView):
     template_name = "navigation/answer_score.html"
 
     def get_context_data(self, question, answer, **kwargs):
@@ -299,7 +311,7 @@ class AnswerScoreView(TemplateView):
         return self.render_to_response(context)
 
 
-class CategoryFinishedView(TemplateView):
+class CategoryFinishedView(PosthogMixin, TemplateView):
     template_name = "navigation/category_finished.html"
 
     def get_context_data(self, **kwargs):
@@ -309,7 +321,7 @@ class CategoryFinishedView(TemplateView):
         }
 
 
-class QuizFinishedView(TemplateView):
+class QuizFinishedView(PosthogMixin, TemplateView):
     template_name = "navigation/quiz_finished.html"
 
     def get_context_data(self, **kwargs):
@@ -337,7 +349,7 @@ class QuizFinishedView(TemplateView):
             return redirect("navigation:landing_page")
 
 
-class ShareScoreView(TemplateView):
+class ShareScoreView(PosthogMixin, TemplateView):
     template_name = "navigation/finished_base.html"
 
     def get_context_data(self, **kwargs):
@@ -376,7 +388,7 @@ class QuestionsAsTextView(NavigationView):
         return context
 
 
-class LandingPageView(TemplateView):
+class LandingPageView(PosthogMixin, TemplateView):
     template_name = "navigation/landing_page.html"
     footer_links = {"dashboard": {"selected": True}}
 
@@ -387,7 +399,7 @@ class LandingPageView(TemplateView):
         return context
 
 
-class FeedbackView(TemplateView):
+class FeedbackView(PosthogMixin, TemplateView):
     template_name = "navigation/feedback.html"
 
     def get_context_data(self, **kwargs):
