@@ -64,4 +64,31 @@
       </div>
     </div>
   </div>
+
+  <div class="privacypop pop">
+    <p>Wir verwenden Cookies, um das Benutzererlebnis zu verbessern und den Website-Verkehr zu analysieren. Aus diesen Gründen können wir die Daten über Ihre Benutzung der Webseite mit unseren Analytik-Partnern teilen.</p>
+    <button id="pricacyButton" class="button button--small button--yellow close">{% trans 'Okay' %}</button>
+  </div>
 {% endblock %}
+
+{% block javascript %}
+  {{block.super}}
+  <script>
+    function deselect(e) {
+      $('.pop').slideFadeToggle(function() {
+        e.removeClass('selected');
+      });    
+    }
+
+    $(function() {
+      $('.close').on('click', function() {
+        deselect($('#contact'));
+        return false;
+      });
+    });
+
+    $.fn.slideFadeToggle = function(easing, callback) {
+      return this.animate({ opacity: 'toggle', height: 'toggle' }, 'fast', easing, callback);
+    };
+  </script>
+{% endblock javascript %}
