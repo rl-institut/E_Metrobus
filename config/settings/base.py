@@ -238,4 +238,4 @@ COMPRESS_CACHEABLE_PRECOMPILERS = (("text/x-scss", "django_libsass.SassCompiler"
 # Your stuff...
 # ------------------------------------------------------------------------------
 posthog.api_key = env.str("POSTHOG_KEY", default=None)
-posthog.host = env.url("POSTHOG_URL", default=None)
+posthog.host = env.str("POSTHOG_URL", default=None)
