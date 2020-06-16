@@ -21,12 +21,14 @@ class CheckStationsMixin:
 
 class PosthogMixin:
     def dispatch(self, request, *args, **kwargs):
-        if request.session.session_key:
-            posthog.capture(
-                request.session.session_key,
-                request.path,
-                properties=request.session._session,
-            )
+        if not request.session.session_key:
+            request.session.save()
+
+        posthog.capture(
+            request.session.session_key,
+            request.path,
+            properties=request.session._session,
+        )
         return super(PosthogMixin, self).dispatch(request, *args, **kwargs)
 
 
