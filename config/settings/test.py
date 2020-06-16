@@ -1,6 +1,7 @@
 """
 With these settings, tests run faster.
 """
+import posthog
 
 from .base import *  # noqa
 from .base import env
@@ -51,3 +52,5 @@ EMAIL_BACKEND = "django.core.mail.backends.locmem.EmailBackend"
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+# Disable Posthog in test mode
+posthog.disabled = True
