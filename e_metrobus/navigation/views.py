@@ -73,9 +73,6 @@ class DashboardView(CheckStationsMixin, NavigationView):
     def get(self, request, *args, **kwargs):
         if questions.all_questions_answered(request.session):
             return redirect("navigation:finished_quiz")
-        if "first_time" not in request.session:
-            request.session["first_time"] = False
-            kwargs["first_time"] = True
         return super(DashboardView, self).get(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
@@ -167,6 +164,9 @@ class ComparisonView(CheckStationsMixin, NavigationView):
             [int(route_data[vehicle].co2) for vehicle in chart_order]
         )
         context["info_table"] = widgets.InfoTable()
+        if "first_time" not in self.request.session:
+            self.request.session["first_time"] = False
+            context["first_time"] = True
         return context
 
 
@@ -427,3 +427,11 @@ class FeedbackView(TemplateView):
         else:
             return self.render_to_response(self.get_context_data(feedback=feedback))
         return redirect("navigation:finished_quiz")
+
+
+class TourView(NavigationView):
+    template_name = "navigation/tour.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(TourView, self).get_context_data(**kwargs)
+        return context

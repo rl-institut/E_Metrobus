@@ -7,6 +7,7 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 ## [Unreleased]
 ### Added
 - bug reports can be send
+- single page tour after comparison page
 
 ### Changed 
 - progress bar/cirle shows correct and wrong answers
