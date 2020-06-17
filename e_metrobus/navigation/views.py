@@ -167,6 +167,8 @@ class ComparisonView(CheckStationsMixin, NavigationView):
             [int(route_data[vehicle].co2) for vehicle in chart_order]
         )
         context["info_table"] = widgets.InfoTable()
+        if "first_time" not in self.request.session:
+            context["first_time"] = True
         return context
 
 
