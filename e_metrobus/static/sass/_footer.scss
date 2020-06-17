@@ -3,9 +3,11 @@ $footer-height: 3.8rem;
 section.footer {
 	height: $footer-height;
   	bottom: 0;
-	  width: 100%;
-	  background-color: $gray-1;
-	  z-index: 9999999999; // fix horizontal scroll-bar from data table on info page overlapping footer
+	width: 100%;
+	background-color: $gray-1;
+	border-top: 1px solid $white;
+
+	z-index: 9999999999; // fix horizontal scroll-bar from data table on info page overlapping footer
 
 	.footer__item {
 	  box-sizing: border-box;
@@ -21,7 +23,7 @@ section.footer {
 	  }
 
 	  .footer__item--selected {
-		  color: $gray-2;
+		  color: $white;
 	  }
 
 	  .footer__item--not-selected {
@@ -33,13 +35,13 @@ section.footer {
 		width: 1.55rem;
 		vertical-align: sub;
 		margin: 0 auto;
-		transform: translateY(8px);
+		transform: translateY(10px);
 	  }
 
 	  span {
 		display: block;
 		font-size: .75rem;
-		transform: translateY(-8px);
+		transform: translateY(-9px);
 
 		@media screen and (max-width: 340px) {
 			font-size: .7rem;
