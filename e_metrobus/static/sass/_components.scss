@@ -14,6 +14,12 @@ button, button:hover, button:active, button:focus, button:visited, .button, .but
 	&.button--margin-small {
 		margin-top: .25rem;
 		margin-bottom: .25rem;
+  }
+  
+  &.button--small {
+    width: 8rem !important;
+    height: 2.325rem !important;
+    margin-bottom: 0;
 	}
 }
 
