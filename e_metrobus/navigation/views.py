@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, Http404, get_object_or_404
+from django.shortcuts import redirect, Http404, get_object_or_404, HttpResponse
 from django.views.generic import TemplateView
 
 from e_metrobus.navigation import chart
@@ -395,6 +395,8 @@ class LandingPageView(TemplateView):
         context = super(LandingPageView, self).get_context_data(**kwargs)
         if "visited" in self.request.GET:
             context["visited"] = True
+        if "privacy" in self.request.session:
+            context["privacy_accepted"] = True
         return context
 
 
@@ -435,3 +437,8 @@ class TourView(NavigationView):
     def get_context_data(self, **kwargs):
         context = super(TourView, self).get_context_data(**kwargs)
         return context
+
+
+def accept_privacy_policy(request):
+    request.session["privacy"] = True
+    return HttpResponse()
