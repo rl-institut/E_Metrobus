@@ -78,12 +78,13 @@ $tab-border-radius: 8px;
     padding: 1rem .5rem;
   }
 
-  .tabs-title--100-width {
+  li.tabs-title--100-width {
     width: 100%;
 
     a {
       border-bottom-left-radius: $tab-border-radius;
       border-bottom-right-radius: $tab-border-radius;
+      border-right: $tab-border;
     }
   }
 
