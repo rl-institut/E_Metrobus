@@ -16,7 +16,7 @@
    y="0px"
    version="1.1"
    id="svg12"
-   sodipodi:docname="i_pin_gray.svg"
+   sodipodi:docname="i_flash_gray.svg"
    inkscape:version="0.92.3 (2405546, 2018-03-11)">
   <sodipodi:namedview
      pagecolor="#ffffff"
@@ -29,7 +29,7 @@
      inkscape:pageshadow="2"
      inkscape:window-width="1853"
      inkscape:window-height="1025"
-     id="namedview11"
+     id="namedview9"
      showgrid="false"
      inkscape:zoom="2.36"
      inkscape:cx="50"
@@ -51,34 +51,20 @@
     </rdf:RDF>
   </metadata>
   <defs
-     id="defs16">
-    <style
-       type="text/css"
-       id="style928">
-   
-    .fil0 {fill:#000000;fill-rule:nonzero}
-   
-  </style>
-  </defs>
+     id="defs16" />
   <title
      id="title2">79</title>
   <g
-     transform="matrix(0.17202671,0,0,0.17202671,7.696348,0.78657365)"
-     id="g948"
-     style="clip-rule:evenodd;fill:#ffffff;fill-rule:evenodd;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision;fill-opacity:1">
+     transform="matrix(-0.85375687,0,0,0.85375687,77.109661,-6.3585649)"
+     id="g827"
+     style="fill:#ffffff;fill-opacity:1">
     <g
        style="fill:#ffffff;fill-opacity:1"
-       id="g936">
+       id="g4">
       <path
-         style="fill:#ffffff;fill-rule:nonzero;fill-opacity:1"
-         class="fil0"
-         d="m 137,0 c 78,0 137,66 137,142 0,51 -53,134 -79,180 l -50,87 c -4,5 -12,5 -15,0 L 80,322 C 53,276 0,193 0,142 0,66 59,0 137,0 Z m 0,20 C 71,20 20,77 20,142 c 0,45 53,127 77,169 l 40,70 40,-70 C 201,269 254,187 254,142 254,77 204,20 137,20 Z"
-         id="path932" />
-      <path
-         style="fill:#ffffff;fill-rule:nonzero;fill-opacity:1"
-         class="fil0"
-         d="m 137,73 c 37,0 67,29 67,66 0,37 -30,66 -67,66 -37,0 -66,-29 -66,-66 0,-37 30,-66 66,-66 z m 0,20 c -25,0 -46,20 -46,46 0,26 21,46 46,46 26,0 46,-20 46,-46 0,-26 -20,-46 -46,-46 z"
-         id="path934" />
+         style="fill:#ffffff;fill-opacity:1"
+         id="path2"
+         d="M 71,51.9 67.1,10.2 c -0.1,-1 -1,-1.8 -2,-1.8 H 37.3 c -0.6,0 -1.2,0.3 -1.6,0.8 -0.4,0.5 -0.5,1.2 -0.3,1.8 l 7.5,25.9 H 31 c -0.7,0 -1.4,0.4 -1.7,1 -0.3,0.6 -0.3,1.4 0,2 l 31.2,50.7 c 0.4,0.6 1,1 1.7,1 0.2,0 0.5,0 0.7,-0.1 0.9,-0.3 1.4,-1.2 1.3,-2.2 L 58.6,54.2 H 69 c 0.6,0 1.1,-0.2 1.5,-0.7 0.4,-0.4 0.6,-1 0.5,-1.6 z M 56.2,50.1 c -0.6,0 -1.1,0.3 -1.5,0.7 -0.4,0.4 -0.5,1 -0.5,1.6 L 58.6,80 34.5,40.9 h 11 c 0.6,0 1.2,-0.3 1.6,-0.8 0.4,-0.5 0.5,-1.2 0.3,-1.8 L 40,12.4 h 23.3 l 3.6,37.7 z" />
     </g>
   </g>
 </svg>

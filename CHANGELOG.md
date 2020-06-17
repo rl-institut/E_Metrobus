@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project tries to adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.11.0] - 2020-06-17
+### Added
+- bug reports can be send
+- single page tour after comparison page
+- privacy policy banner on landing page
+
+### Changed 
+- progress bar/cirle shows correct and wrong answers
+- added share link on navigation bar
+- used tabs in favor of accordion on questions-as-text page
+- footer icons and added labels
+- legal page uses tabs
+ 
 ## [0.10.0] - 2020-06-09
 ### Added
 - Data for E-PKW

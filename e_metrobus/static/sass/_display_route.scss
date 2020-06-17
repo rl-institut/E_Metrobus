@@ -11,6 +11,15 @@
     padding-bottom: .5rem;
   }
 
+  &__start,
+  &__end {
+    font-size: 1.35rem;
+
+    @media screen and (max-width: 340px) {
+      font-size: 1.25rem;
+    }
+  }
+
   &__wrap {
     position: relative;
 
@@ -155,4 +164,84 @@
   height: 100%; 
   width: 100%; 
   z-index: -1;
+}
+
+// Animations
+
+#display-route-line {
+  animation: display-route-line-animation 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation-delay: .5s;
+}
+
+#display-route-start {
+  animation: display-route-start-animation 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation-delay: .85s;
+}
+
+#display-route-end {
+  animation: display-route-end-animation 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation-delay: 1s;
+}
+
+.display-route-number {
+  animation: display-route-number-animation 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+.display-route-small-number {
+  animation: display-route-small-number-animation 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation-delay: .45s;
+}
+
+@keyframes display-route-line-animation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes display-route-start-animation {
+  0% {
+    opacity: 0;
+    letter-spacing: -.5rem;
+    transform: translateY(-200px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes display-route-end-animation {
+  0% {
+    opacity: 0;
+    letter-spacing: -.5rem;
+    transform: translateY(200px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes display-route-number-animation {
+  0% {
+    opacity: 0;
+    letter-spacing: -.5rem;
+    transform: translateY(200px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes display-route-small-number-animation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }

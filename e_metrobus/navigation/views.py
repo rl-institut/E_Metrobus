@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, Http404, get_object_or_404
+from django.shortcuts import redirect, Http404, get_object_or_404, HttpResponse
 from django.views.generic import TemplateView
 
 from e_metrobus.navigation import chart
@@ -73,9 +73,6 @@ class DashboardView(CheckStationsMixin, NavigationView):
     def get(self, request, *args, **kwargs):
         if questions.all_questions_answered(request.session):
             return redirect("navigation:finished_quiz")
-        if "first_time" not in request.session:
-            request.session["first_time"] = False
-            kwargs["first_time"] = True
         return super(DashboardView, self).get(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
@@ -84,16 +81,20 @@ class DashboardView(CheckStationsMixin, NavigationView):
         if self.request.session.get("score_at_last_visit", 0) < current_score:
             self.request.session["score_at_last_visit"] = current_score
             context["top_bar"].score_changed = True
-        context["categories"] = [
-            (
-                cat_name,
-                category,
-                constants.Ellipse(
-                    questions.get_category_done_share(cat_name, self.request.session)
-                ),
+
+        categories = []
+        for cat_name, category in questions.QUESTIONS.items():
+            shares = questions.get_category_shares(cat_name, self.request.session)
+            categories.append(
+                (
+                    cat_name,
+                    category,
+                    constants.Ellipse(shares.correct),
+                    constants.Ellipse(shares.done),
+                )
             )
-            for cat_name, category in questions.QUESTIONS.items()
-        ]
+        context["categories"] = categories
+
         return context
 
 
@@ -163,6 +164,9 @@ class ComparisonView(CheckStationsMixin, NavigationView):
             [int(route_data[vehicle].co2) for vehicle in chart_order]
         )
         context["info_table"] = widgets.InfoTable()
+        if "first_time" not in self.request.session:
+            self.request.session["first_time"] = False
+            context["first_time"] = True
         return context
 
 
@@ -219,12 +223,11 @@ class QuestionView(NavigationView):
         self.title_icon = questions.QUESTIONS[kwargs["category"]].small_icon
 
         context = super(QuestionView, self).get_context_data(**kwargs)
-        context["category_percentage"] = round(
-            questions.get_category_done_share(
-                category=kwargs["category"], session=self.request.session
-            )
-            * 100
+        shares = questions.get_category_shares(
+            category=kwargs["category"], session=self.request.session
         )
+        context["category_percentage_done"] = round(shares.done * 100)
+        context["category_percentage_correct"] = round(shares.correct * 100)
         return context
 
     def get(self, request, *args, **kwargs):
@@ -339,9 +342,7 @@ class ShareScoreView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(ShareScoreView, self).get_context_data(**kwargs)
-        context["points"] = get_object_or_404(
-            models.Score, hash=kwargs["hash"]
-        ).score
+        context["points"] = get_object_or_404(models.Score, hash=kwargs["hash"]).score
         return context
 
 
@@ -357,7 +358,18 @@ class LegalView(NavigationView):
     def get_context_data(self, **kwargs):
         context = super(LegalView, self).get_context_data(**kwargs)
         context["info_table"] = widgets.InfoTable()
+        context["bug"] = kwargs.get(
+            "bug", forms.BugForm(initial={"type": models.Bug.TECHNICAL}),
+        )
         return context
+
+    def post(self, request, **kwargs):
+        bug = forms.BugForm(request.POST)
+        if bug.is_valid():
+            bug.save()
+        else:
+            return self.render_to_response(self.get_context_data(bug=bug))
+        return redirect("navigation:legal")
 
 
 class QuestionsAsTextView(NavigationView):
@@ -383,17 +395,13 @@ class LandingPageView(TemplateView):
         context = super(LandingPageView, self).get_context_data(**kwargs)
         if "visited" in self.request.GET:
             context["visited"] = True
+        if "privacy" in self.request.session:
+            context["privacy_accepted"] = True
         return context
 
 
-class FeedbackView(NavigationView):
+class FeedbackView(TemplateView):
     template_name = "navigation/feedback.html"
-    footer_links = {
-        "info": {"enabled": True},
-        "dashboard": {"enabled": True},
-        "leaf": {"enabled": True},
-        "results": {"enabled": True},
-    }
 
     def get_context_data(self, **kwargs):
         context = super(FeedbackView, self).get_context_data(**kwargs)
@@ -421,3 +429,16 @@ class FeedbackView(NavigationView):
         else:
             return self.render_to_response(self.get_context_data(feedback=feedback))
         return redirect("navigation:finished_quiz")
+
+
+class TourView(NavigationView):
+    template_name = "navigation/tour.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(TourView, self).get_context_data(**kwargs)
+        return context
+
+
+def accept_privacy_policy(request):
+    request.session["privacy"] = True
+    return HttpResponse()

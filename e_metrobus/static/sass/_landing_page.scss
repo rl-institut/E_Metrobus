@@ -414,3 +414,20 @@ and (orientation: landscape) {
     }
   }
 }
+
+.privacypop {
+  position: absolute;
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
+  bottom: 0;
+  background-color: rgba(37, 36, 36, .8);
+  color: $white;
+  font-size: .85rem;
+  z-index: 999;
+
+  #pricacyButton {
+    padding: .25rem;
+    background-color: $primary-color-2;
+  }
+}

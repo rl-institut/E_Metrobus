@@ -64,4 +64,40 @@
       </div>
     </div>
   </div>
-{% endblock %}
+
+  {% if not privacy_accepted %}
+    <div class="privacypop pop" id="privacy_popup">
+      <p>Hinweis: Unsere Website sammelt keine personenbezogenen Daten.</p>
+      <button id="pricacyButton" class="button button--small button--yellow close" onclick="privacy_policy_accepted();">{% trans 'Okay' %}</button>
+    </div>
+  {% endif %}
+{% endblock content %}
+
+{% block javascript %}
+  {{block.super}}
+  <script>
+    function deselect(e) {
+      $('.pop').slideFadeToggle(function() {
+        e.removeClass('selected');
+      });
+    }
+
+    $(function() {
+      $('.close').on('click', function() {
+        deselect($('#contact'));
+        return false;
+      });
+    });
+
+    $.fn.slideFadeToggle = function(easing, callback) {
+      return this.animate({ opacity: 'toggle', height: 'toggle' }, 'fast', easing, callback);
+    };
+
+    function privacy_policy_accepted() {
+      $.ajax({
+        url: "/accept_privacy_policy/",
+        dataType: "html"
+      });
+    }
+  </script>
+{% endblock javascript %}

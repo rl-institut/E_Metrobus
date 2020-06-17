@@ -17,11 +17,15 @@
     <div class="cell comparison__chart">
       {{plotly.div|safe}}
     </div>
-    
+
     <div class="cell comparison__btn">
       <div id="next">
         <div class="landing__bottom-btn comparison__btn--next">
-          <a href="{% url 'navigation:dashboard' %}"><button id="animateComparisonBtn" class="button">{% trans "Mehr entdecken!" %}</button></a>
+          {% if first_time %}
+            <a href="{% url 'navigation:tour' %}"><button id="animateComparisonBtn" class="button">{% trans "Mehr entdecken!" %}</button></a>
+          {% else %}
+            <a href="{% url 'navigation:dashboard' %}"><button id="animateComparisonBtn" class="button">{% trans "Mehr entdecken!" %}</button></a>
+          {% endif %}
         </div>
       </div>
       <div class="text-center data-source-button" data-open="comparisonData">
