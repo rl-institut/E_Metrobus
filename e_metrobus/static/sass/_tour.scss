@@ -1,0 +1,58 @@
+.pattern-bg--blue {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: $primary-color-2;
+  background-image: url(../images/Dashboard_Pattern_blue_v2.svg);
+  background-size: 12rem;
+
+  @media only screen and (min-width: 600px) {
+    background-size: 18rem;
+  }
+}
+
+.tour {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  z-index: 9;
+  padding: 1rem;
+
+  @media screen and (min-width: 600px) {
+    padding: 2rem;
+  }
+
+  .tour__text p {
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  .tour__icon img {
+    width: 1.75rem;
+    transform: translateY(.25rem);
+  }
+
+  .tour__btn {
+    text-align: center;
+  }
+
+  @media screen and (min-width: 600px) {
+    .tour__text p {
+      font-size: 1.5rem;
+    }
+
+    .tour__icon {
+      text-align: center;
+    }
+  
+    .tour__icon img {
+      width: 2rem;
+    }
+
+    .tour__feature {
+      font-size: 1.25rem;
+    }
+  }
+}

@@ -13,6 +13,7 @@ urlpatterns = [
     path("quiz/<str:category>/", view=views.QuestionView.as_view(), name="question"),
     path("answer/", view=views.AnswerView.as_view(), name="answer"),
     path("answer_score/", view=views.AnswerScoreView.as_view(), name="answer_score"),
+    path("tour/", view=views.TourView.as_view(), name="tour"),
     path(
         "finished/<str:category>/",
         view=views.CategoryFinishedView.as_view(),
@@ -35,5 +36,5 @@ urlpatterns = [
     ),
     path("legal/", view=views.LegalView.as_view(), name="legal"),
     path("feedback/", view=views.FeedbackView.as_view(), name="feedback"),
-    path("bug/", view=views.BugView.as_view(), name="bug"),
+    path("accept_privacy_policy/", views.accept_privacy_policy),
 ]
