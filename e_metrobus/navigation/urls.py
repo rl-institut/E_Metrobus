@@ -36,5 +36,4 @@ urlpatterns = [
     ),
     path("legal/", view=views.LegalView.as_view(), name="legal"),
     path("feedback/", view=views.FeedbackView.as_view(), name="feedback"),
-    path("bug/", view=views.BugView.as_view(), name="bug"),
 ]
