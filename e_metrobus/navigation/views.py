@@ -73,9 +73,6 @@ class DashboardView(CheckStationsMixin, NavigationView):
     def get(self, request, *args, **kwargs):
         if questions.all_questions_answered(request.session):
             return redirect("navigation:finished_quiz")
-        if "first_time" not in request.session:
-            request.session["first_time"] = False
-            kwargs["first_time"] = True
         return super(DashboardView, self).get(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
@@ -168,6 +165,7 @@ class ComparisonView(CheckStationsMixin, NavigationView):
         )
         context["info_table"] = widgets.InfoTable()
         if "first_time" not in self.request.session:
+            self.request.session["first_time"] = False
             context["first_time"] = True
         return context
 
