@@ -8,6 +8,7 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 ### Added
 - bug reports can be send
 - single page tour after comparison page
+- privacy policy banner on landing page
 
 ### Changed 
 - progress bar/cirle shows correct and wrong answers
