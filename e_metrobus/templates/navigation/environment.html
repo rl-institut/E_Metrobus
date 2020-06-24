@@ -3,103 +3,72 @@
 {% load static %}
 {% load i18n %}
 
+{% block header %}
+  <script src="{% static 'js/plotly.min.js' %}"></script>
+{% endblock %}
+
 {% block content %}
 
 <div class="cell">
-  <div class="grid-x text-center leaf">
-    <div class="cell small-6 medium-6 leaf__header">
-      <span>{% trans "Deine Fahrt" %}</span>
-    </div>
-    <div class="cell small-6 medium-6 leaf__header">
-      <span>{% trans "E-Bus Flotte" %}</span>
-    </div>
-    <div class="cell small-6 medium-6 leaf__dist-wrap">
-      <div class="grid-x ">
-        <div class="cell leaf__distance">
-          <span class="leaf__data--value">{{user.distance}}</span><br>
-          <span class="leaf__data--unit">km</span>
-        </div>
-        <div class="cell leaf__distance--circle">
-          <svg height="150" width="150" viewbox="0 0 4 4">
-            <circle cx="2" cy="2" r="2" fill="#F0D722"/>
-          </svg>
-        </div>
-      </div>
-    </div>
-    <div class="cell small-6 medium-6 leaf__dist-wrap">
-      <div class="grid-x ">
-        <div class="cell leaf__distance">
-          <span class="leaf__data--value">{{fleet.distance}}</span><br>
-          <span class="leaf__data--unit">km</span>
-        </div>
-        <div class="cell leaf__distance--circle">
-          <svg height="150" width="150" viewbox="0 0 4 4">
-            <circle cx="2" cy="2" r="2" fill="#17BEBB"/>
-          </svg>
-        </div>
-      </div>
-    </div>
-    <div class="cell leaf__icon">
-      <img src="{% static 'images/icons/i_fuel_black.svg' %}" alt="Diesel Icon">
-    </div>
-    <div class="cell small-6 medium-6 own leaf__data">
-      <span class="leaf__data--value">{{user.fuel}}</span><br>
-      <span class="leaf__data--unit">{% trans "Liter Diesel" %}</span>
-    </div>
-    <div class="cell small-6 medium-6 fleet leaf__data">
-      <span class="leaf__data--value">{{fleet.fuel}}</span><br>
-      <span class="leaf__data--unit">{% trans "Liter Diesel" %}</span>
-    </div>
-    <div class="cell leaf__resources">
-      <span class="leaf__data--value">= {{comparison.fuel|floatformat:"1"}} % {% trans "weniger" %} {% trans "Diesel" %}</span><br>
-      <span class="leaf__data--unit">{% trans "als konventionelle Busse" %}</span>
-    </div>
-    <div class="cell leaf__icon">
-      <img src="{% static 'images/icons/i_co2_black.svg' %}" alt="CO2 Icon">
-    </div>
-    <div class="cell small-6 medium-6 own leaf__data">
-      <span class="leaf__data--value">{{user.co2}}</span><br>
-      <span class="leaf__data--unit">{% trans "Tonnen" %} CO<sub>2</sub></span>
-    </div>
-    <div class="cell small-6 medium-6 fleet leaf__data">
-      <span class="leaf__data--value">{{fleet.co2}}</span><br>
-      <span class="leaf__data--unit">{% trans "Tonnen" %} CO<sub>2</sub></span>
-    </div>
-    <div class="cell leaf__resources">
-      <span class="leaf__data--value">= {{comparison.co2|floatformat:"1"}} % {% trans "weniger" %} {% trans "CO<sub>2</sub>" %}</span><br>
-      <span class="leaf__data--unit">{% trans "als konventionelle Busse" %}</span>
-    </div>
-    <div class="cell leaf__icon">
-      <img src="{% static 'images/icons/i_nox_black.svg' %}" alt="Stickoxide Icon">
-    </div>
-    <div class="cell small-6 medium-6 own leaf__data">
-      <span class="leaf__data--value">{{user.nitrogen}}</span><br>
-      <span class="leaf__data--unit">kg {% trans "Stickoxide" %}</span>
-    </div>
-    <div class="cell small-6 medium-6 fleet leaf__data">
-      <span class="leaf__data--value">{{fleet.nitrogen}}</span><br>
-      <span class="leaf__data--unit">kg {% trans "Stickoxide" %}</span>
-    </div>
-    <div class="cell leaf__resources">
-      <span class="leaf__data--value">= {{comparison.nitrogen|floatformat:"1"}} % {% trans "weniger" %} {% trans "Stickoxide" %}</span><br>
-      <span class="leaf__data--unit">{% trans "als konventionelle Busse" %}</span>
-    </div>
-    <div class="cell leaf__icon">
-      <img src="{% static 'images/icons/i_gas_black.svg' %}" alt="Feinstaub Icon">
-    </div>
-    <div class="cell small-6 medium-6 own leaf__data">
-      <span class="leaf__data--value">{{user.fine_dust}}</span><br>
-      <span class="leaf__data--unit">kg {% trans "Feinstaub" %}</span>
-    </div>
-    <div class="cell small-6 medium-6 fleet leaf__data">
-      <span class="leaf__data--value">{{fleet.fine_dust}}</span><br>
-      <span class="leaf__data--unit">kg {% trans "Feinstaub" %}</span>
-    </div>
-    <div class="cell leaf__resources">
-      <span class="leaf__data--value">= {{comparison.fine_dust|floatformat:"1"}} % {% trans "weniger" %} {% trans "Feinstaub" %}</span><br>
-      <span class="leaf__data--unit">{% trans "als konventionelle Busse" %}</span>
-    </div>
-  </div>
+  Meine Strecke:
+  {{stations.0}} - {{stations.1}}
+  <a href="{% url 'navigation:route' %}">{% trans 'Ändern' %}</a>
 </div>
 
-{% endblock %}
+<div class="cell" id="route_distance">
+  {% blocktrans with distance=route_distance %}Impakt meiner Strecke ({{distance}} km) im Vergleich zu anderen Verkehrsmitteln{% endblocktrans %}
+</div>
+<div class="cell" id="fleet_distance" hidden>
+  {% blocktrans with distance=fleet_distance %}Impakt der E-Bus Flotte ({{distance}} km) im Vergleich zu anderen Verkehrsmitteln{% endblocktrans %}
+</div>
+
+<button onclick="select_route('route');">{% trans 'Meine Strecke' %}</button>
+<button onclick="select_route('fleet');">{% trans 'E-Bus Flotte' %}</button>
+<button onclick="compare('co2');">{% trans 'CO<sub>2</sub>' %}</button>
+<button onclick="compare('nitrogen');">{% trans 'NOx' %}</button>
+<button onclick="compare('fine_dust');">{% trans 'Feinstaub' %}</button>
+
+{% for chart_id, chart in charts.items %}
+  <div class="cell chart" id="{{chart_id}}" hidden>
+    {{chart.div|safe}}
+  </div>
+{% endfor %}
+
+{% endblock content %}
+
+{% block javascript %}
+  {{block.super}}
+  <script>
+    let route = "route";
+    let comparison = "co2";
+
+    function select_route(value) {
+      route = value;
+      if (route == "route") {
+        $("#route_distance").show();
+        $("#fleet_distance").hide();
+      } else {
+        $("#route_distance").hide();
+        $("#fleet_distance").show();
+      }
+      show_selection();
+    };
+
+    function compare(value) {
+      comparison = value;
+      show_selection();
+    }
+
+    function show_selection() {
+      selected_chart = "#" + route + "_" + comparison;
+      $(".chart").hide();
+      $(selected_chart).show();
+    }
+
+    {% for chart in charts.values %}
+      {{chart.script|safe}}
+    {% endfor %}
+
+    show_selection();
+  </script>
+{% endblock javascript %}

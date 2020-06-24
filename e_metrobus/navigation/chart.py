@@ -41,10 +41,16 @@ def get_sizes(max_value):
     return Sizes(*map(lambda x: x / 50 * max_value, [MARGIN, OFFSET, SIZE, TEXTSIZE]))
 
 
-def get_mobility_figure(values):
+def get_mobility_figure(values, title):
     colors = [DEFAULT_COLOR] * 5
     colors[1] = E_BUS_COLOR
-    mobiles = [_("Zu Fuß/<br>Fahrrad"), _("E-Bus"), _("E-Pkw"), _("Dieselbus"), _("Pkw")]
+    mobiles = [
+        _("Zu Fuß/<br>Fahrrad"),
+        _("E-Bus"),
+        _("E-Pkw"),
+        _("Dieselbus"),
+        _("Pkw"),
+    ]
 
     max_value = max(values)
     sizes = get_sizes(max_value)
@@ -75,7 +81,7 @@ def get_mobility_figure(values):
     fig.add_annotation(
         x=0.5,
         y=max_value,
-        text=_("CO<sub>2</sub> Emissionen [in g]<br>nach Verkehrsmittel"),
+        text=title,
         font={"size": 15, "color": FONT_COLOR},
         align="left",
         showarrow=False,
@@ -111,6 +117,21 @@ def get_mobility_figure(values):
             )
         )
     fig.update_layout_images(
-        {"xref": "x", "yref": "y", "xanchor": "center", "yanchor": "top",}
+        {"xref": "x", "yref": "y", "xanchor": "center", "yanchor": "top"}
     )
     return DjangoFigure(fig, displayModeBar=False, staticPlot=True)
+
+
+def get_co2_figure(values):
+    title = _("CO<sub>2</sub> Emissionen [in g]<br>nach Verkehrsmittel")
+    return get_mobility_figure(list(map(int, values)), title)
+
+
+def get_nitrogen_figure(values):
+    title = _("Stickoxid Emissionen [in g]<br>nach Verkehrsmittel")
+    return get_mobility_figure(values, title)
+
+
+def get_fine_dust_figure(values):
+    title = _("Stickoxid Emissionen [in g]<br>nach Verkehrsmittel")
+    return get_mobility_figure(values, title)

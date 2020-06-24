@@ -1,13 +1,17 @@
-from django.shortcuts import redirect, Http404, get_object_or_404, HttpResponse
+from django.shortcuts import get_object_or_404, Http404, HttpResponse, redirect
+from django.http.response import JsonResponse
+from django.utils.translation import gettext as _
 from django.views.generic import TemplateView
 
-from e_metrobus.navigation import chart
-from e_metrobus.navigation import constants
-from e_metrobus.navigation import widgets
-from e_metrobus.navigation import questions
-from e_metrobus.navigation import models
-from e_metrobus.navigation import stations
-from e_metrobus.navigation import forms
+from e_metrobus.navigation import (
+    chart,
+    constants,
+    forms,
+    models,
+    questions,
+    stations,
+    widgets,
+)
 
 
 class CheckStationsMixin:
@@ -161,7 +165,8 @@ class ComparisonView(CheckStationsMixin, NavigationView):
         route_data = stations.STATIONS.get_route_data(*current_stations)
         chart_order = ("pedestrian", "e-bus", "e-pkw", "bus", "car")
         context["plotly"] = chart.get_mobility_figure(
-            [int(route_data[vehicle].co2) for vehicle in chart_order]
+            [int(route_data[vehicle].co2) for vehicle in chart_order],
+            title=_("CO<sub>2</sub> Emissionen [in g]<br>nach Verkehrsmittel"),
         )
         context["info_table"] = widgets.InfoTable()
         if "first_time" not in self.request.session:
@@ -181,30 +186,35 @@ class EnvironmentView(CheckStationsMixin, NavigationView):
 
     def get_context_data(self, **kwargs):
         context = super(EnvironmentView, self).get_context_data(**kwargs)
-
+        chart_order = ("pedestrian", "e-bus", "e-pkw", "bus", "car")
         current_stations = [
             stations.STATIONS[station] for station in self.request.session["stations"]
         ]
-        e_bus_data = stations.STATIONS.get_route_data_for_vehicle(
-            *current_stations, vehicle="e-bus"
-        )
-        user_consumption = constants.Consumption(
-            distance=stations.STATIONS.get_distance(*current_stations),
-            **e_bus_data.__dict__
-        )
-        bus_data = stations.STATIONS.get_route_data_for_vehicle(
-            *current_stations, vehicle="bus"
-        )
-        bus_consumption = constants.Consumption(distance=1, **bus_data.__dict__)
-        fleet_consumption = constants.FLEET_CONSUMPTION
-        context["user"] = user_consumption
-        context["fleet"] = fleet_consumption
-        context["comparison"] = constants.Consumption(
-            *(
-                (x - y) / x * 100 if x != 0 else 0
-                for x, y in zip(bus_consumption, user_consumption)
+        route_data = stations.STATIONS.get_route_data(*current_stations)
+        fleet_data = stations.STATIONS.get_fleet_data()
+        context["charts"] = {
+            "route_co2": chart.get_co2_figure(
+                [route_data[vehicle].co2 for vehicle in chart_order],
+            ),
+            "route_nitrogen": chart.get_nitrogen_figure(
+                [route_data[vehicle].nitrogen for vehicle in chart_order],
+            ),
+            "route_fine_dust": chart.get_fine_dust_figure(
+                [route_data[vehicle].fine_dust for vehicle in chart_order],
+            ),
+            "fleet_co2": chart.get_co2_figure(
+                [fleet_data[vehicle].co2 for vehicle in chart_order],
+            ),
+            "fleet_nitrogen": chart.get_nitrogen_figure(
+                [fleet_data[vehicle].nitrogen for vehicle in chart_order],
+            ),
+            "fleet_fine_dust": chart.get_fine_dust_figure(
+                [fleet_data[vehicle].fine_dust for vehicle in chart_order],
             )
-        )
+        }
+        context["stations"] = current_stations
+        context["route_distance"] = stations.STATIONS.get_distance(*current_stations)
+        context["fleet_distance"] = constants.FLEET_CONSUMPTION.distance
         return context
 
 
@@ -442,3 +452,16 @@ class TourView(NavigationView):
 def accept_privacy_policy(request):
     request.session["privacy"] = True
     return HttpResponse()
+
+
+def get_comparison_chart(request):
+    current_stations = [
+        stations.STATIONS[station] for station in request.session["stations"]
+    ]
+    route_data = stations.STATIONS.get_route_data(*current_stations)
+    chart_order = ("pedestrian", "e-bus", "e-pkw", "bus", "car")
+    plotly_chart = chart.get_mobility_figure(
+        [int(route_data[vehicle].co2) for vehicle in chart_order],
+        title=_("CO<sub>2</sub> Emissionen [in g]<br>nach Verkehrsmittel"),
+    )
+    return JsonResponse({"div": plotly_chart.div, "script": plotly_chart.script})
