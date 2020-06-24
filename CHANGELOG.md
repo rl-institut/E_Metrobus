@@ -6,7 +6,7 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 
 ## [Unreleased]
 ### Added
-- posthog for anonymous session trecking
+- posthog for anonymous session tracking
 
 ## [0.11.0] - 2020-06-17
 ### Added

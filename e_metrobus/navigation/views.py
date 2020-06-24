@@ -1,4 +1,5 @@
 import posthog
+import copy
 
 from django.shortcuts import redirect, Http404, get_object_or_404, HttpResponse
 from django.views.generic import TemplateView
@@ -24,10 +25,12 @@ class PosthogMixin:
         if not request.session.session_key:
             request.session.save()
 
+        data = copy.deepcopy(request.session._session)
+        data["session_id"] = request.session.session_key
         posthog.capture(
             request.session.session_key,
             request.path,
-            properties=request.session._session,
+            properties=data,
         )
         return super(PosthogMixin, self).dispatch(request, *args, **kwargs)
 
