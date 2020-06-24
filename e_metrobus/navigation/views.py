@@ -213,7 +213,7 @@ class QuestionView(NavigationView):
     back_url = "navigation:dashboard"
     footer_links = {
         "info": {"enabled": True},
-        "dashboard": {"selected": True, "enabled": True},
+        "dashboard": {"selected": True},
         "leaf": {"enabled": True},
         "results": {"enabled": True},
     }
