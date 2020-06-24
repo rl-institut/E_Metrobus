@@ -42,21 +42,20 @@
               <div class="grid-x align-center text-center">
                 <div class="cell">
                   <button class="button--yellow" type="submit" style= "cursor:pointer">{% trans 'Meinung schicken' %}</button>
+                  <a data-open="bug_reveal" class="feedback__bug-link"><img src="{% static 'images/icons/i_next_black_large.svg' %}" alt="Bug melden">{% trans 'Fehler melden' %}</a>
                 </div>
               </div>
             </div>
-
           </form>
         </div>
       </div>
-      <a data-open="bug_reveal">{% trans 'Fehler melden' %}</a>
       <div class="reveal" id="bug_reveal" data-reveal>
         <button class="close-button" data-close aria-label="Close modal" type="button">
           <span aria-hidden="true">&times;</span>
         </button>
 
         <div class="cell bug__question">
-          <p>Hast du ein Bug gefunden oder willst du uns ein Feedback über die App schicken? Dann melde dich gerne bei uns!</p>
+          <p>Hast du ein Bug oder inhaltliche Fehler gefunden? Dann melde dich gerne bei uns!</p>
         </div>
 
         <div class="cell bug__form">
