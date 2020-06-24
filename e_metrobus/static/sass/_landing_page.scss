@@ -277,22 +277,57 @@ background: none;
   }
 
 
-  &__footer .grid-x {
-    border-top: 1px solid #c7c7c7;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-  }
-  &__logo {
-    padding-left: 1rem;
-    padding-right: 1rem;
-    font-size: .875rem;
-  }
-  &__logo img {
-    width: 8rem;
-    max-height: 7rem;
+  &__footer  {
+    padding: 2rem 1rem 1rem;
   }
   &__logo--BVG img{
     width: 6rem;
+  }
+  &__logo--BMWI {
+    display: flex;
+    justify-content: center;
+    img {
+      display: block;
+    }
+  }
+
+  &__logos {
+    display: flex;
+    flex-direction: row nowrap;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    .desktop__logo {
+      display: inline-block;
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+
+    .desktop__logo > div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .desktop__logo > div > a {
+      display: inline-block;
+    }
+
+    .desktop__logo--BVG img {
+      width: 5rem;
+    }
+    .desktop__logo--RLI img {
+      width: 6rem;
+    }
+    .desktop__logo--TUB img {
+      width: 6rem;
+    }
+    .desktop__logo--BMWI img {
+      width: 23rem;
+      margin-top: 1rem;
+    }
   }
 }
 
