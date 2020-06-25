@@ -15,7 +15,7 @@
 
   &__category {
     margin-bottom: 2rem;
-    height: 10rem;
+    height: 11.5rem;
     position: relative;
 
     @media screen and (min-height: 650px) {
@@ -82,5 +82,28 @@
 
   @media only screen and (min-width: 600px) {
     background-size: 18rem;
+  }
+}
+
+.flash-icons {
+  display: flex;
+  flex-direction: row nowrap;
+  justify-content: center;
+
+  .flash-icons__item {
+    display: inline-block;
+    height: 1.75rem;
+    width: 1.75rem;
+    background-size: cover;
+
+    &--correct {
+      background-image: url(../images/icons/i_flash_correct.svg);
+    }
+    &--wrong {
+      background-image: url(../images/icons/i_flash_wrong.svg);
+    }
+    &--empty {
+      background-image: url(../images/icons/i_flash_empty.svg);
+    }
   }
 }
