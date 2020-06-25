@@ -24,14 +24,41 @@
     padding: 2rem;
   }
 
-  .tour__text p {
-    font-size: 1.25rem;
-    font-weight: 700;
+  .tour__text {
+    background-color: $primary-color-1;
+    border-radius: $border-radius;
+    padding: 2rem 1rem;
+    p {
+      text-align: center;
+      font-size: 1.25rem;
+      margin-bottom: 0;
+    }
   }
 
-  .tour__icon img {
-    width: 1.75rem;
-    transform: translateY(.25rem);
+  .tour__icon {
+    & > div {
+      background-color: $primary-color-1;
+      border-radius: 100px;
+      width: 3rem;
+      height: 3rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    img {
+      width: 1.75rem;
+      display: block;
+    }
+  }
+
+  .tour__feature {
+    padding-left: 1rem;
+    font-weight: 700;
+
+    &--nopadding {
+      padding-left: 0;
+    }
   }
 
   .tour__btn {
@@ -45,14 +72,14 @@
 
     .tour__icon {
       text-align: center;
-    }
-  
-    .tour__icon img {
-      width: 2rem;
+      & > div {
+        margin: 0 auto;
+      }
     }
 
     .tour__feature {
       font-size: 1.25rem;
+      padding-bottom: 1rem;
     }
   }
 }
