@@ -22,22 +22,29 @@
       margin-top: 3vh;
       margin-bottom: 7vh;
     }
+
+    a {
+      display: inline-block;
+      margin: 0 auto;
+    }
   }
 
   &__img {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    height: 8.5rem;
+    width: 8.5rem;
+    border-radius: 1000px;
+    background-color: $primary-color-1;
+    display: flex;
+    justify-content: center;
   }
 
   &__img img {
-    height: 5rem;
+    max-width: 6rem;
   }
 
   &__header {
-    transform: translateY(-.5rem);
     font-weight: 700;
+    margin-bottom: .5rem;
   }
   &__info {
     position: absolute;
