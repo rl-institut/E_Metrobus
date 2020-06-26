@@ -7,6 +7,7 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 ## [Unreleased]
 ### Changed
 - welcome tour design (added animation)
+- moved feedback and bug report to legal page
 
 ##[0.12.0] - 2020-06-26
 ### Added
