@@ -77,17 +77,64 @@
   }
 }
 //CSS for answer texts
-.answer {
-  &__text {
-    margin: 1.5rem 1rem 0;
-    font-weight: 700;
+@mixin answer-top-box ($answer-top-box-font-color) {
+  text-align: center;
+  color: $answer-top-box-font-color;
+  font-weight: 700;
+  padding-bottom: 1rem;
+}
 
-    &--more {
-      font-weight: 300;
-      margin-bottom: 7rem;
-      img {
-        margin: 2rem 0;
+@mixin answer-top-box-icon ($answer-top-box-icon) {
+  content: '';
+  position: absolute;
+  background-image: url(../images/icons/i_flash_white.svg);
+  background-size: 60%;
+  background-color: $answer-top-box-icon;
+  background-position: center center;
+  background-repeat: no-repeat;
+  transform: translateY(-1px);
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 100px;
+  margin-left: -2rem;
+}
+
+.answer__text {
+  margin: 1.5rem 1rem 0;
+
+  &--top {
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+
+  &--correct {
+    background-color: $primary-color-2-light;
+
+    .answer__text-icon {
+      @include answer-top-box ($primary-color-2-dark);
+
+      &::before {
+        @include answer-top-box-icon ($primary-color-2-dark);
       }
+    }
+  }
+
+  &--wrong {
+    background-color: $error-color-light;
+
+    .answer__text-icon {
+      @include answer-top-box ($error-color);
+
+      &::before {
+        @include answer-top-box-icon ($error-color);
+      }
+    }
+  }
+
+  &--more {
+    margin-bottom: 7rem;
+    img {
+      margin: 2rem 0;
     }
   }
 }
