@@ -18,15 +18,6 @@ class Score(models.Model):
 
 
 class Feedback(models.Model):
-    question1 = models.IntegerField(
-        validators=[MinValueValidator(1), MaxValueValidator(5)]
-    )
-    question2 = models.IntegerField(
-        validators=[MinValueValidator(1), MaxValueValidator(5)]
-    )
-    question3 = models.IntegerField(
-        validators=[MinValueValidator(1), MaxValueValidator(5)]
-    )
     comment = models.TextField(null=True, blank=True)
 
 
