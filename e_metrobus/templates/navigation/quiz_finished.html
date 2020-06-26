@@ -47,15 +47,6 @@
 {% block javascript %}
   {{block.super}}
   <script>
-    {% if feedback_given is False %}
-      setTimeout(
-        function () {
-          window.location.replace("{% url 'navigation:feedback' %}");
-        },
-        2000
-      );
-    {% endif %}
-
     function shareLink() {
       var text = "{{request.scheme}}://{{request.get_host}}{% url 'navigation:score' hash=hash %}";
       var input = document.createElement('input');
