@@ -8,13 +8,6 @@
 {% block content %}
   <div class="cell">
     <div class="grid-x align-center text-center landpage">
-      <div class="cell landpage__ebus">
-        <div class="grid-x">
-          <div class="cell landpage__logo landpage__logo--embus">
-            <img id="animateBus" src="{%static 'images/icons/Icon_E_Bus_BVG.svg' %}" alt="E-Bus Icon" {% if visited %}style="animation: none"{% endif %}>
-          </div>
-        </div>
-      </div>
       <div class="cell landpage__button" {% if visited %}style="animation: none"{% endif %}>
         <div class="grid-x">
           <div id="animateLPText" class="cell landpage__button-text">
@@ -59,6 +52,9 @@
             <a href="https://reiner-lemoine-institut.de/">
               <img src="{% static 'images/logos/RLi_logo.png' %}" alt="RLI Logo">
             </a>
+          </div>
+          <div class="cell landpage__logo landpage__logo--bmwi" {% if visited %}style="animation: none"{% endif %}>
+            <img src="{% static 'images/logos/Logokombi_gefoerdert-durch-BMVI-koordiniert-durch-NOW_de.png' %}" alt="BMWI und NOW Logo">
           </div>
         </div>
       </div>

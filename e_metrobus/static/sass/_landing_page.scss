@@ -36,64 +36,49 @@
 
 .landpage {
   height: 100%;
+  margin: 1rem 1rem 0;
 
     &__logo {
-    margin: 1rem 0;
+    margin: .25rem 0;
 
     @media screen and (max-height: 600px) {
-      margin: 1rem 0;
+      margin: .25rem 0;
     }
     @media screen and (max-height: 640px) {
-      margin-bottom: 1rem;
-    }
-
-    &--embus {
-      margin-top: 6vh;
-      margin-bottom: 6vh;
-
-      @media screen and (min-height: 700px) {
-        margin-top: 7vh;
-        margin-bottom: 8vh;
-      }
-
-      #animateBus {
-        animation: animateBus;
-        animation-duration: 1.25s;
-        animation-timing-function: ease-in-out;
-      }
-
-      img {
-        width: 70%;
-
-        @media screen and (min-width: 400px) {
-          width: 60%;
-        }
-      }
+      margin-bottom: .35rem;
     }
     &--bvg {
       animation: fadein 2s;
-      animation-delay: 3s;
+      animation-delay: 2s;
       animation-fill-mode: backwards;
       img {
-        max-width: 9vh;
+        max-width: 3.5rem;
       }
     }
     &--tu {
       animation: fadein 2s;
-      animation-delay: 3.15s;
+      animation-delay: 2.15s;
       animation-fill-mode: backwards;
       img {
         margin-top: 0.3rem;
-        max-width: 10.75vh;
+        max-width: 4rem;
       }
     }
     &--rli {
       animation: fadein 2s;
-      animation-delay: 3.3s;
+      animation-delay: 2.3s;
       animation-fill-mode: backwards;
       img {
         margin-top: 0.5rem;
-        max-width: 10vh;
+        max-width: 4rem;
+      }
+    }
+    &--bmwi {
+      animation: fadein 2s;
+      animation-delay: 2.45s;
+      animation-fill-mode: backwards;
+      img {
+        max-width: 14rem;
       }
     }
   }
@@ -101,14 +86,15 @@
   #animateLPButton {
     animation: animateLPButton;
     animation-fill-mode: backwards;
-    animation-delay: 2s;
+    animation-delay: 1s;
     animation-duration: .5s;
     animation-timing-function: linear;
   }
 
   &__button {
     background-color: $primary-color-1;
-    padding: 2rem .5rem;
+    padding: 2rem 1rem;
+    border-radius: 1rem;
     height: 20rem;
     >.grid-x {
       height: 100%;
@@ -146,7 +132,7 @@
     &--switch {
       animation: fadein 1.5s;
       animation-fill-mode: backwards;
-      animation-delay: 3.5s;
+      animation-delay: 2.6s;
       img {
         height: 1.25rem;
         margin: 0.5rem;
@@ -177,9 +163,6 @@
         margin: 1rem;
       }
     }
-  }
-  &__ebus {
-    //height: 25vh;
   }
   &__bottom {
     padding: 0 .5rem 0;
@@ -294,22 +277,57 @@ background: none;
   }
 
 
-  &__footer .grid-x {
-    border-top: 1px solid #c7c7c7;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-  }
-  &__logo {
-    padding-left: 1rem;
-    padding-right: 1rem;
-    font-size: .875rem;
-  }
-  &__logo img {
-    width: 8rem;
-    max-height: 7rem;
+  &__footer  {
+    padding: 2rem 1rem 1rem;
   }
   &__logo--BVG img{
     width: 6rem;
+  }
+  &__logo--BMWI {
+    display: flex;
+    justify-content: center;
+    img {
+      display: block;
+    }
+  }
+
+  &__logos {
+    display: flex;
+    flex-direction: row nowrap;
+    justify-content: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    .desktop__logo {
+      display: inline-block;
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
+
+    .desktop__logo > div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .desktop__logo > div > a {
+      display: inline-block;
+    }
+
+    .desktop__logo--BVG img {
+      width: 5rem;
+    }
+    .desktop__logo--RLI img {
+      width: 6rem;
+    }
+    .desktop__logo--TUB img {
+      width: 6rem;
+    }
+    .desktop__logo--BMWI img {
+      width: 23rem;
+      margin-top: 1rem;
+    }
   }
 }
 
