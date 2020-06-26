@@ -21,7 +21,7 @@
               <div class="cell small-10 landpage__language--switch" {% if visited %}style="animation: none"{% endif %}>
                 {% get_current_language as LANGUAGE_CODE %}
                 {% if LANGUAGE_CODE == "de" %}
-                  <a href="en/?visited" data-open="language_popup">
+                  <a href="en/?visited" data-open="language_popup" onclick="send_posthog_event('english');">
                     <img src="{% static 'images/icons/i_flag_uk.svg' %}" alt="uk_flag">
                     <span>Switch to English</span>
                   </a>

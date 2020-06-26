@@ -1,5 +1,4 @@
 import posthog
-import copy
 
 from django.shortcuts import redirect, Http404, get_object_or_404, HttpResponse
 from django.views.generic import TemplateView
@@ -11,6 +10,7 @@ from e_metrobus.navigation import questions
 from e_metrobus.navigation import models
 from e_metrobus.navigation import stations
 from e_metrobus.navigation import forms
+from e_metrobus.navigation import utils
 
 
 class CheckStationsMixin:
@@ -25,13 +25,7 @@ class PosthogMixin:
         if not request.session.session_key:
             request.session.save()
 
-        data = copy.deepcopy(request.session._session)
-        data["session_id"] = request.session.session_key
-        posthog.capture(
-            request.session.session_key,
-            request.path,
-            properties=data,
-        )
+        utils.posthog_event(request)
         return super(PosthogMixin, self).dispatch(request, *args, **kwargs)
 
 
@@ -436,4 +430,9 @@ class TourView(NavigationView):
 
 def accept_privacy_policy(request):
     request.session["privacy"] = True
+    return HttpResponse()
+
+
+def send_posthog_event(request):
+    utils.posthog_event(request, event=request.GET["event"])
     return HttpResponse()
