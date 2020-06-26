@@ -138,6 +138,41 @@
     }
   }
 }
+
+.a-answer-text-top {
+  animation: a-answer-text-top 1s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+}
+
+.a-answer-text {
+  animation: a-answer-text 1s cubic-bezier(0.470, 0.000, 0.745, 0.715) 1.5s both;
+}
+
+.a-answer-btn {
+  animation: a-answer-text 1s cubic-bezier(0.470, 0.000, 0.745, 0.715) 2s both;
+}
+
+@keyframes a-answer-text-top {
+  0% {
+    opacity: 0;
+    transform: translateY(100rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes a-answer-text {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
 //Button for next question
 .question {
   &__next {
