@@ -84,13 +84,11 @@ class DashboardView(CheckStationsMixin, NavigationView):
 
         categories = []
         for cat_name, category in questions.QUESTIONS.items():
-            shares = questions.get_category_shares(cat_name, self.request.session)
             categories.append(
                 (
                     cat_name,
                     category,
-                    constants.Ellipse(shares.correct),
-                    constants.Ellipse(shares.done),
+                    questions.get_category_answers(cat_name, self.request.session)
                 )
             )
         context["categories"] = categories

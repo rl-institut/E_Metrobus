@@ -2,6 +2,7 @@ import os
 from collections import namedtuple
 from dataclasses import dataclass
 from typing import Dict, List, Union
+from enum import Enum
 
 from configobj import ConfigObj
 from django.conf import settings
@@ -15,6 +16,18 @@ SCORE_CORRECT = 10
 SCORE_CATEGORY_COMPLETE = 11
 
 Shares = namedtuple("Shares", ["done", "correct"])
+
+
+class Answer(Enum):
+    Wrong = "wrong"
+    Correct = "correct"
+    Unanswered = "empty"
+
+    @classmethod
+    def get(cls, value):
+        return {False: cls.Wrong, True: cls.Correct, None: cls.Unanswered}.get(
+            value, cls.Unanswered
+        )
 
 
 @dataclass
@@ -122,6 +135,16 @@ def get_category_shares(category, session):
             done += 1
             correct += session["questions"][category][question]
     return Shares(done / total, correct / total)
+
+
+def get_category_answers(category, session):
+    """Returns list of correct/wrong/unanswered questions for category"""
+    if "questions" not in session or category not in session["questions"]:
+        return [Answer.Unanswered for question in QUESTIONS[category].questions]
+    return [
+        Answer.get(session["questions"][category].get(question))
+        for question in QUESTIONS[category].questions
+    ]
 
 
 def get_next_question(category, session):
