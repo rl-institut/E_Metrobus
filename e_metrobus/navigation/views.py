@@ -398,9 +398,14 @@ class QuestionsAsTextView(NavigationView):
 class LandingPageView(TemplateView):
     template_name = "navigation/landing_page.html"
     footer_links = {"dashboard": {"selected": True}}
+    non_bus_user = False
 
     def get_context_data(self, **kwargs):
         context = super(LandingPageView, self).get_context_data(**kwargs)
+        context["non_bus_user"] = self.non_bus_user
+        if self.non_bus_user:
+            # Set default route:
+            self.request.session["stations"] = stations.DEFAULT_STATIONS
         if "visited" in self.request.GET:
             context["visited"] = True
         if "privacy" in self.request.session:

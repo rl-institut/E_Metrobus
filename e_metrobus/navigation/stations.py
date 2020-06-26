@@ -57,7 +57,4 @@ class Stations:
 
 
 STATIONS = Stations(STATIONS_FILE)
-
-
-if __name__ == "__main__":
-    print(STATIONS.get_route_data("Station C", "Station A"))
+DEFAULT_STATIONS = [0, len(STATIONS.stations) - 1]
