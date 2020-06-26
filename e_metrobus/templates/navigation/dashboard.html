@@ -9,7 +9,7 @@
 <div class="pattern-bg"></div>
 <div class="cell dashboard">
   <div class="grid-x align-center align-middle text-center">
-    {% for cat_name, category, ellipse_correct, ellipse_done in categories %}
+    {% for cat_name, category, answers in categories %}
 
       <div class="cell small-6 dashboard__category">
         <div class="dashboard__header">{{category.get_label}}</div>
@@ -20,10 +20,9 @@
           </div>
         </a>
         <div class="flash-icons">
-          <div class="flash-icons__item flash-icons__item--correct"></div>
-          <div class="flash-icons__item flash-icons__item--correct"></div>
-          <div class="flash-icons__item flash-icons__item--wrong"></div>
-          <div class="flash-icons__item flash-icons__item--empty"></div>
+          {% for answer in answers %}
+            <div class="flash-icons__item flash-icons__item--{{answer.value}}"></div>
+          {% endfor %}
         </div>
       </div>
     {% endfor %}
