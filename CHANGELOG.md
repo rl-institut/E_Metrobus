@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project tries to adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added 
+- landing page and default route for non-bus-users
+
 ### Changed
 - welcome tour design (added animation)
 - moved feedback and bug report to legal page
