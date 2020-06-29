@@ -26,13 +26,12 @@
       <span class="my-route__station--1">{{stations.1}}</span>
     </div>
   </div>
-  
 </div>
 
-<div class="cell" id="route_distance">
+<div class="cell my-route-heading" id="route_distance">
   {% blocktrans with distance=route_distance %}Impakt meiner Strecke ({{distance}} km) im Vergleich zu anderen Verkehrsmitteln{% endblocktrans %}
 </div>
-<div class="cell" id="fleet_distance" hidden>
+<div class="cell my-route-heading" id="fleet_distance" hidden>
   {% blocktrans with distance=fleet_distance %}Impakt der E-Bus Flotte ({{distance}} km) im Vergleich zu anderen Verkehrsmitteln{% endblocktrans %}
 </div>
 
@@ -41,6 +40,7 @@
 <button onclick="compare('co2');">{% trans 'CO<sub>2</sub>' %}</button>
 <button onclick="compare('nitrogen');">{% trans 'NOx' %}</button>
 <button onclick="compare('fine_dust');">{% trans 'Feinstaub' %}</button>
+
 
 {% for chart_id, chart in charts.items %}
   <div class="cell chart" id="{{chart_id}}" hidden>
