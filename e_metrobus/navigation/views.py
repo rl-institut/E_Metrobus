@@ -1,5 +1,3 @@
-import posthog
-
 from django.shortcuts import redirect, Http404, get_object_or_404, HttpResponse
 from django.views.generic import TemplateView
 
@@ -248,43 +246,6 @@ class QuestionView(NavigationView):
         context = self.get_context_data(**kwargs, question=next_question)
         return self.render_to_response(context)
 
-
-class AnswerView(NavigationView):
-    template_name = "navigation/answer.html"
-    back_url = "navigation:dashboard"
-    footer_links = {
-        "info": {"enabled": True},
-        "dashboard": {"selected": True},
-        "leaf": {"enabled": True},
-        "results": {"enabled": True},
-    }
-
-    def get_context_data(self, question, **kwargs):
-        self.title = questions.QUESTIONS[question.category].label
-        self.title_icon = questions.QUESTIONS[question.category].small_icon
-        context = super(AnswerView, self).get_context_data(**kwargs)
-        context["question"] = question
-        return context
-
-    def get(self, request, **kwargs):
-        question_name = request.session.get("last_answered_question")
-        if question_name is None:
-            raise ValueError("No question answered yet!")
-        question = questions.get_question_from_name(question_name)
-        context = self.get_context_data(question=question, **kwargs)
-        return self.render_to_response(context)
-
-
-class AnswerScoreView(PosthogMixin, TemplateView):
-    template_name = "navigation/answer_score.html"
-
-    def get_context_data(self, question, answer, **kwargs):
-        context = super(AnswerScoreView, self).get_context_data(**kwargs)
-        context["answer"] = answer
-        context["question"] = question
-        context["points"] = questions.SCORE_CORRECT if answer else questions.SCORE_WRONG
-        return context
-
     def post(self, request, **kwargs):
         question = questions.get_question_from_name(request.POST["question"])
         if isinstance(question.correct, list):
@@ -305,7 +266,35 @@ class AnswerScoreView(PosthogMixin, TemplateView):
             request.session["last_answered_question"] = question.name
         request.session.save()
 
-        context = self.get_context_data(question=question, answer=answer, **kwargs)
+        return redirect("navigation:answer")
+
+
+class AnswerView(NavigationView):
+    template_name = "navigation/answer.html"
+    back_url = "navigation:dashboard"
+    footer_links = {
+        "info": {"enabled": True},
+        "dashboard": {"selected": True},
+        "leaf": {"enabled": True},
+        "results": {"enabled": True},
+    }
+
+    def get_context_data(self, question, **kwargs):
+        self.title = questions.QUESTIONS[question.category].label
+        self.title_icon = questions.QUESTIONS[question.category].small_icon
+        context = super(AnswerView, self).get_context_data(**kwargs)
+        context["question"] = question
+        context["answer"] = self.request.session["questions"][question.category][
+            question.name
+        ]
+        return context
+
+    def get(self, request, **kwargs):
+        question_name = request.session.get("last_answered_question")
+        if question_name is None:
+            raise ValueError("No question answered yet!")
+        question = questions.get_question_from_name(question_name)
+        context = self.get_context_data(question=question, **kwargs)
         return self.render_to_response(context)
 
 
