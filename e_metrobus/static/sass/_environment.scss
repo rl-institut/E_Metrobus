@@ -67,8 +67,7 @@
 
   .my-route__text {
     display: table-cell;
-    vertical-align: middle;
-    transform: translateY(2px);
+    vertical-align: baseline;
     font-weight: 700;
   }
 
@@ -108,12 +107,41 @@
 .my-route-heading {
   text-align: center;
   font-weight: 700;
-  padding-top: 2rem;
-  padding-bottom: 1.5rem;
+  padding: 2rem 1rem 1.5rem;
 }
 
-.my-route-btns {
-  button {
-    
+.my-route-tabs {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-bottom: 1rem;
+
+  .tabs {
+    border: none;
   }
+
+  .tabs-title {
+    text-align: center;
+
+    div {
+      margin: 2px;
+      background-color: $gray-1;
+      padding: .5rem 0;
+    }
+    &--33 {
+      width: 33.33%;
+    }
+    &--50 {
+      width: 50%;
+    }
+    &--emissions.active div {
+      background-color: $primary-color-1;
+    }
+    &--bus.active div {
+      background-color: $primary-color-2;
+    }
+  }
+}
+
+.my-route__chart {
+  margin-bottom: 1rem;
 }

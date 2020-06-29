@@ -35,15 +35,29 @@
   {% blocktrans with distance=fleet_distance %}Impakt der E-Bus Flotte ({{distance}} km) im Vergleich zu anderen Verkehrsmitteln{% endblocktrans %}
 </div>
 
-<button onclick="select_route('route');">{% trans 'Meine Strecke' %}</button>
-<button onclick="select_route('fleet');">{% trans 'E-Bus Flotte' %}</button>
-<button onclick="compare('co2');">{% trans 'CO<sub>2</sub>' %}</button>
-<button onclick="compare('nitrogen');">{% trans 'NOx' %}</button>
-<button onclick="compare('fine_dust');">{% trans 'Feinstaub' %}</button>
+<div class="cell my-route-tabs">
+  <ul class="tabs" data-tabs>
+    <li class="tabs-title tabs-title--emissions tabs-title--33 active">
+      <div onclick="compare('co2');">{% trans 'CO<sub>2</sub>' %}</div>
+    </li>
+    <li class="tabs-title tabs-title--emissions tabs-title--33">
+      <div onclick="compare('nitrogen');">{% trans 'NOx' %}</div>
+    </li>
+    <li class="tabs-title tabs-title--emissions tabs-title--33">
+      <div onclick="compare('fine_dust');">{% trans 'Feinstaub' %}</div>
+    </li>
+    <li class="tabs-title tabs-title--bus tabs-title--50 active">
+      <div onclick="select_route('route');">{% trans 'Meine Strecke' %}</div>
+    </li>
+    <li class="tabs-title tabs-title--bus tabs-title--50">
+      <div onclick="select_route('fleet');">{% trans 'E-Bus Flotte' %}</div>
+    </li>
+  </ul>
+</div>
 
 
 {% for chart_id, chart in charts.items %}
-  <div class="cell chart" id="{{chart_id}}" hidden>
+  <div class="cell chart my-route__chart" id="{{chart_id}}" hidden>
     {{chart.div|safe}}
   </div>
 {% endfor %}
