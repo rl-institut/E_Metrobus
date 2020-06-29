@@ -88,13 +88,11 @@ class DashboardView(CheckStationsMixin, NavigationView):
 
         categories = []
         for cat_name, category in questions.QUESTIONS.items():
-            shares = questions.get_category_shares(cat_name, self.request.session)
             categories.append(
                 (
                     cat_name,
                     category,
-                    constants.Ellipse(shares.correct),
-                    constants.Ellipse(shares.done),
+                    questions.get_category_answers(cat_name, self.request.session)
                 )
             )
         context["categories"] = categories
@@ -324,7 +322,6 @@ class QuizFinishedView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(QuizFinishedView, self).get_context_data(**kwargs)
-        context["feedback_given"] = self.request.session.get("feedback_given", False)
         context["points"] = questions.get_total_score(self.request.session)
         return context
 
@@ -368,17 +365,28 @@ class LegalView(NavigationView):
     def get_context_data(self, **kwargs):
         context = super(LegalView, self).get_context_data(**kwargs)
         context["info_table"] = widgets.InfoTable()
+        context["feedback"] = kwargs.get(
+            "feedback",
+            forms.FeedbackForm(),
+        )
         context["bug"] = kwargs.get(
             "bug", forms.BugForm(initial={"type": models.Bug.TECHNICAL}),
         )
         return context
 
     def post(self, request, **kwargs):
-        bug = forms.BugForm(request.POST)
-        if bug.is_valid():
-            bug.save()
-        else:
-            return self.render_to_response(self.get_context_data(bug=bug))
+        if "bug" in request.POST:
+            bug = forms.BugForm(request.POST)
+            if bug.is_valid():
+                bug.save()
+            else:
+                return self.render_to_response(self.get_context_data(bug=bug))
+        elif "feedback" in request.POST:
+            feedback = forms.FeedbackForm(request.POST)
+            if feedback.is_valid():
+                feedback.save()
+            else:
+                return self.render_to_response(self.get_context_data(feedback=feedback))
         return redirect("navigation:legal")
 
 
@@ -408,37 +416,6 @@ class LandingPageView(TemplateView):
         if "privacy" in self.request.session:
             context["privacy_accepted"] = True
         return context
-
-
-class FeedbackView(TemplateView):
-    template_name = "navigation/feedback.html"
-
-    def get_context_data(self, **kwargs):
-        context = super(FeedbackView, self).get_context_data(**kwargs)
-        context["feedback"] = kwargs.get(
-            "feedback",
-            forms.FeedbackForm(
-                initial={"question1": 3, "question2": 3, "question3": 3}
-            ),
-        )
-        return context
-
-    def get(self, request, *args, **kwargs):
-        if request.session.get("feedback_given", False):
-            return redirect("navigation:finished_quiz")
-        request.session["feedback_given"] = True
-        return super(FeedbackView, self).get(request, *args, **kwargs)
-
-    def post(self, request, **kwargs):
-        if "skip" in request.POST:
-            return redirect("navigation:finished_quiz")
-
-        feedback = forms.FeedbackForm(request.POST)
-        if feedback.is_valid():
-            feedback.save()
-        else:
-            return self.render_to_response(self.get_context_data(feedback=feedback))
-        return redirect("navigation:finished_quiz")
 
 
 class TourView(NavigationView):

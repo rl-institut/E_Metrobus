@@ -35,7 +35,6 @@ urlpatterns = [
         name="questions_as_text",
     ),
     path("legal/", view=views.LegalView.as_view(), name="legal"),
-    path("feedback/", view=views.FeedbackView.as_view(), name="feedback"),
     path("accept_privacy_policy/", views.accept_privacy_policy),
     path("get_comparison_chart/", views.get_comparison_chart),
 ]

@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project tries to adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+### Changed
+- welcome tour design (added animation)
+- moved feedback and bug report to legal page
+- dashboard circles to flashes
+
+##[0.12.0] - 2020-06-26
+### Added
+- BMWI and NOW logo to landing page (desktop & mobile)
+
 ## [0.11.0] - 2020-06-17
 ### Added
 - bug reports can be send

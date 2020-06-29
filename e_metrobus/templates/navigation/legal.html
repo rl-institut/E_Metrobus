@@ -8,7 +8,7 @@
   <ul class="tabs custom-tabs__tabs" data-tabs id="question_tabs">
     <li class="tabs-title is-active"><a href="#partners" aria-selected="true">{% trans "Projektpartner" %}</a></li>
     <li class="tabs-title"><a href="#data" aria-selected="true">{% trans "Quellen" %}</a></li>
-    <li class="tabs-title tabs-title--100-width"><a href="#bugs" aria-selected="true">{% trans "Fehler melden" %}</a></li>
+    <li class="tabs-title tabs-title--100-width"><a href="#feedback" aria-selected="true">{% trans "Feedback geben" %}</a></li>
   </ul>
 
   <div class="tabs-content" data-tabs-content="question_tabs">
@@ -30,25 +30,50 @@
       {{info_table}}
     </div>
 
-    <div class="tabs-panel" id="bugs">
-      <div class="cell bug__question">
-        <p>Hast du ein Bug gefunden oder willst du uns ein Feedback über die App schicken? Dann melde dich gerne bei uns!</p>
-      </div>
-
-      <div class="cell bug__form">
+    <div class="tabs-panel" id="feedback">
+      <div class="cell feedback">
         <div class="grid-x">
           <form method="post" class="feedback__form">
             {% csrf_token %}
-            {{bug}}
-            <div class="cell">
+
+            {{feedback}}
+            <input type="hidden" name="feedback">
+            <div class="cell feedback__btn">
               <div class="grid-x align-center text-center">
                 <div class="cell">
-                  <button class="button" type="submit" style= "cursor:pointer">{% trans 'Senden' %}</button>
+                  <button class="button--yellow" type="submit" style= "cursor:pointer">{% trans 'Meinung schicken' %}</button>
+                  <a data-open="bug_reveal" class="feedback__bug-link"><img src="{% static 'images/icons/i_next_black_large.svg' %}" alt="Bug melden">{% trans 'Fehler melden' %}</a>
                 </div>
               </div>
             </div>
-
           </form>
+        </div>
+      </div>
+      <div class="reveal" id="bug_reveal" data-reveal>
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+        <div class="cell bug__question">
+          <p>Hast du ein Bug oder inhaltliche Fehler gefunden? Dann melde dich gerne bei uns!</p>
+        </div>
+
+        <div class="cell bug__form">
+          <div class="grid-x">
+            <form method="post" class="feedback__form">
+              {% csrf_token %}
+              {{bug}}
+              <input type="hidden" name="bug">
+              <div class="cell">
+                <div class="grid-x align-center text-center">
+                  <div class="cell">
+                    <button class="button" type="submit" style= "cursor:pointer">{% trans 'Senden' %}</button>
+                  </div>
+                </div>
+              </div>
+
+            </form>
+          </div>
         </div>
       </div>
     </div>
