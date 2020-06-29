@@ -1,23 +1,5 @@
 .quiz-fin {
   position: relative;
-
-  &__text {
-    margin: 5rem 0 3rem;
-
-    p {
-      font-size: 1.3rem;
-      font-weight: 700;
-    }
-    span {
-      color: $primary-color-2;
-      font-size: 2.25rem;
-    }
-  }
-  &__img {
-    img {
-      height: 7.5rem;
-    }
-  }
   &__bottom {
     position: absolute;
     bottom: 1rem;
@@ -61,3 +43,42 @@
   background-color: rgba(0, 0, 0, .05);
   border-radius: 8px;
 }
+
+.quiz-finished {
+  padding: 1rem;
+
+  &__heading {
+    font-size: 1.25rem;
+    font-weight: 700;
+    padding: 2rem 1rem 3rem;
+  }
+
+  &__wrap {
+    background-color: $primary-color-1;
+    border-radius: $border-radius;
+    font-size: 1.25rem;
+    font-weight: 700;
+    padding: 1rem 1rem 1.5rem;
+
+    p {
+      padding-top: 1rem;
+    }
+  }
+
+  &__flash {
+    padding-bottom: .5rem;
+    img {
+      height: 1.5rem;
+    }
+  }
+
+  &__slogan {
+    position: absolute;
+    top: 60%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+
+

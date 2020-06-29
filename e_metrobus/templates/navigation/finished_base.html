@@ -8,11 +8,38 @@
 {% block body_class %}class="l-scroll l-scroll--nonav"{% endblock %}
 
 {% block content %}
-<div class="cell"></div>
-<div class="cell">
+<div class="category__bg"></div>
+
+<div class="cell quiz-finished">
   <div class="grid-x text-center align-center">
-    <div class="cell small-10 medium-6 quiz-fin__text">
-      <p>{% blocktrans with score="<span>{}</span>"|format_text:points %}Glückwunsch!<br>Du hast das Quiz mit {{score}} Punkten abgeschlossen!{% endblocktrans %}</p>
+    <div class="cell quiz-finished__heading">
+      {% trans 'Quiz erledigt!' %}
+    </div>
+    <div class="cell quiz-finished__wrap">
+      <p>{% blocktrans with score="<span>{}</span>"|format_text:points %}43% richtig beantwortet{% endblocktrans %}</p>
+      <div class="quiz-finished__flash">
+        <img src="{% static 'images/icons/i_flash_correct.svg' %}" alt="Flash">
+        <img src="{% static 'images/icons/i_flash_correct.svg' %}" alt="Flash">
+        <img src="{% static 'images/icons/i_flash_correct.svg' %}" alt="Flash">
+        <img src="{% static 'images/icons/i_flash_correct.svg' %}" alt="Flash">
+        <img src="{% static 'images/icons/i_flash_correct.svg' %}" alt="Flash">
+        <img src="{% static 'images/icons/i_flash_correct.svg' %}" alt="Flash">
+        <img src="{% static 'images/icons/i_flash_white.svg' %}" alt="Flash">
+        <img src="{% static 'images/icons/i_flash_white.svg' %}" alt="Flash">
+      </div>
+      <div class="quiz-finished__flash">
+        <img src="{% static 'images/icons/i_flash_white.svg' %}" alt="Flash">
+        <img src="{% static 'images/icons/i_flash_white.svg' %}" alt="Flash">
+        <img src="{% static 'images/icons/i_flash_white.svg' %}" alt="Flash">
+        <img src="{% static 'images/icons/i_flash_white.svg' %}" alt="Flash">
+        <img src="{% static 'images/icons/i_flash_white.svg' %}" alt="Flash">
+        <img src="{% static 'images/icons/i_flash_white.svg' %}" alt="Flash">
+        <img src="{% static 'images/icons/i_flash_white.svg' %}" alt="Flash">
+        <img src="{% static 'images/icons/i_flash_white.svg' %}" alt="Flash">
+      </div>
+    </div>
+    <div class="cell quiz-finished__slogan">
+      Ich bin ein lustiger BVG Spruch zu meinen Puntken
     </div>
     <div class="cell quiz-fin__bottom">
       <div class="grid-x">

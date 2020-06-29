@@ -7,17 +7,14 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   height="100px"
-   width="100px"
-   fill="#000000"
+   height="100.08535"
+   width="77.09256"
    xml:space="preserve"
    version="1.1"
-   style="shape-rendering:geometricPrecision;text-rendering:geometricPrecision;image-rendering:optimizeQuality;"
-   viewBox="0 0 163 284"
+   style="clip-rule:evenodd;fill:#000000;fill-rule:evenodd;image-rendering:optimizeQuality;shape-rendering:geometricPrecision;text-rendering:geometricPrecision"
+   viewBox="0 0 125.66087 284.24239"
    x="0px"
    y="0px"
-   fill-rule="evenodd"
-   clip-rule="evenodd"
    id="svg10"
    sodipodi:docname="i_flash_white.svg"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"><metadata
@@ -37,12 +34,16 @@
      id="namedview12"
      showgrid="false"
      inkscape:zoom="2.36"
-     inkscape:cx="50"
-     inkscape:cy="50"
+     inkscape:cx="-73.889055"
+     inkscape:cy="50.085347"
      inkscape:window-x="67"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg10" /><defs
+     inkscape:current-layer="svg10"
+     fit-margin-left="10"
+     fit-margin-right="10"
+     fit-margin-top="0"
+     fit-margin-bottom="0" /><defs
      id="defs4"><style
        type="text/css"
        id="style2">
@@ -51,8 +52,10 @@
    
   </style></defs><g
      id="g8"
-     style="fill:#ffffff;fill-opacity:1"><path
+     style="fill:#ffffff;fill-opacity:1"
+     transform="translate(-18.505934)"><path
        class="fil0"
-       d="M8 158l32 2 -28 110c-3,11 10,19 18,11l125 -146c5,-6 1,-17 -8,-17l-39 0 53 -102c4,-7 -1,-16 -9,-16l-96 0c-5,0 -9,3 -10,7l-45 138c-2,5 0,13 7,13z"
+       d="m 8,158 32,2 -28,110 c -3,11 10,19 18,11 L 155,135 c 5,-6 1,-17 -8,-17 H 108 L 161,16 C 165,9 160,0 152,0 H 56 C 51,0 47,3 46,7 L 1,145 c -2,5 0,13 7,13 z"
        id="path6"
-       style="fill:#ffffff;fill-opacity:1" /></g></svg>
+       style="fill:#ffffff;fill-opacity:1"
+       inkscape:connector-curvature="0" /></g></svg>
