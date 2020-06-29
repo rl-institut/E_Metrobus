@@ -1,12 +1,14 @@
 import copy
 
 import posthog
+from e_metrobus import __version__
 from e_metrobus.navigation import constants
 
 
 def posthog_event(request, event=None):
     data = copy.deepcopy(request.session._session)
     data["session_id"] = request.session.session_key
+    data["version"] = __version__
     if event is None:
         event = request.path
     else:
