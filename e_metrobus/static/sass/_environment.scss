@@ -56,17 +56,51 @@
   .my-route__top {
     display: flex;
     justify-content: space-between;
+    padding-bottom: 1rem;
+    padding-left: .5rem;
+
+    & > div {
+      display: table;
+      width: 100%;
+    }
   }
 
   .my-route__text {
     display: table-cell;
     vertical-align: middle;
+    transform: translateY(2px);
+    font-weight: 700;
   }
 
   .my-route__btn {
+    float: right;
     img {
       height: 1rem;
       transform: translateY(-2px);
+      padding-right: .25rem;
+    }
+  }
+
+  .my-route__icon {
+    text-align: center;
+
+    img {
+      height: 3rem;
+    }
+  }
+
+  .my-route__stations {
+    padding-left: .5rem;
+
+    span {
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      &.my-route__station--0 {
+        padding-bottom: .5rem;
+      }
     }
   }
 }
