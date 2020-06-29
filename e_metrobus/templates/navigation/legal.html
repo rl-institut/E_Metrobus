@@ -7,7 +7,7 @@
 <div class="cell custom-tabs">
   <ul class="tabs custom-tabs__tabs" data-tabs id="question_tabs">
     <li class="tabs-title is-active"><a href="#partners" aria-selected="true">{% trans "Projektpartner" %}</a></li>
-    <li class="tabs-title"><a href="#data" aria-selected="true">{% trans "Quellen" %}</a></li>
+    <li class="tabs-title"><a href="#data" aria-selected="true" onclick="send_posthog_event('sources');">{% trans "Quellen" %}</a></li>
     <li class="tabs-title tabs-title--100-width"><a href="#feedback" aria-selected="true">{% trans "Feedback geben" %}</a></li>
   </ul>
 

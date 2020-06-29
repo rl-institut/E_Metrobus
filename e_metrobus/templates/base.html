@@ -101,6 +101,15 @@
             );
           }
         {% endif %}
+
+        function send_posthog_event(event) {
+          $.ajax({
+            url: "/send_posthog_event/",
+            async: false,
+            dataType: "html",
+            data: {"event": event}
+          });
+        }
       </script>
     {% endblock javascript %}
   </body>

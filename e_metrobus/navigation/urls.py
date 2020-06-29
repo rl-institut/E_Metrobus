@@ -35,4 +35,5 @@ urlpatterns = [
     ),
     path("legal/", view=views.LegalView.as_view(), name="legal"),
     path("accept_privacy_policy/", views.accept_privacy_policy),
+    path("send_posthog_event/", views.send_posthog_event),
 ]
