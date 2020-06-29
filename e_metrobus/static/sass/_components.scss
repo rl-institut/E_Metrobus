@@ -9,6 +9,11 @@ button, button:hover, button:active, button:focus, button:visited, .button, .but
 	&.button--yellow {
 		background-color: $primary-color-1 !important;
 		color: $secondary-color;
+  }
+  
+  &.button--white {
+		background-color: $white !important;
+		color: $secondary-color;
 	}
 
 	&.button--margin-small {
@@ -20,7 +25,7 @@ button, button:hover, button:active, button:focus, button:visited, .button, .but
     width: 8rem !important;
     height: 2.325rem !important;
     margin-bottom: 0;
-	}
+  }
 }
 
 :focus {

@@ -46,3 +46,27 @@
     margin: 0.5rem 0;
   }
 }
+
+.my-route .grid-x {
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: $border-radius;
+  background-color: $gray-1;
+
+  .my-route__top {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .my-route__text {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .my-route__btn {
+    img {
+      height: 1rem;
+      transform: translateY(-2px);
+    }
+  }
+}

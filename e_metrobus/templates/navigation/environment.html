@@ -9,10 +9,20 @@
 
 {% block content %}
 
-<div class="cell">
-  Meine Strecke:
-  {{stations.0}} - {{stations.1}}
-  <a href="{% url 'navigation:route' %}">{% trans 'Ändern' %}</a>
+<div class="cell my-route">
+  <div class="grid-x">
+    <div class="cell small-1"></div>
+    <div class="cell small-11 my-route__top">
+      <span class="my-route__text">Meine Strecke</span>
+      <a href="{% url 'navigation:route' %}" class="button button--small button--white my-route__btn"><img src="{% static 'images/icons/i_next_black_large.svg' %}" alt="">{% trans 'Ändern' %}</a>
+    </div>
+    <div class="cell small-1 my-route__icon"></div>
+    <div class="cell small-11 my-route__stations">
+      <span class="my-route__station--0">{{stations.0}}</span>
+      <span class="my-route__station--1">{{stations.1}}</span>
+    </div>
+  </div>
+  
 </div>
 
 <div class="cell" id="route_distance">
