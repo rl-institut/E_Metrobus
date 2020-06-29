@@ -80,5 +80,47 @@
   }
 }
 
+.a-quiz-finished {
+  animation: a-quiz-finished 1.5s $cubic-bezier-ease-out .5s both;
+}
 
+.a-quiz-finished-slogan {
+  animation: a-quiz-finished-slogan 1s $cubic-bezier-ease-out 1.5s both;
+}
 
+.a-quiz-finished-btn {
+  animation: a-quiz-finished-btn 1s $cubic-bezier-ease-in 3s both;;
+}
+
+@keyframes a-quiz-finished {
+  0% {
+    transform: translateY(-100rem);
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes a-quiz-finished-slogan {
+  0% {
+    opacity: 0;
+    transform: translateX(-100rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes a-quiz-finished-btn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
