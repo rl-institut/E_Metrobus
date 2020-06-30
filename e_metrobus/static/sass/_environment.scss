@@ -147,11 +147,12 @@
 }
 
 .loader {
-  border: 16px solid #f3f3f3; /* Light grey */
-  border-top: 16px solid #3498db; /* Blue */
+  border: .75rem solid $gray-1;
+  border-top: .75rem solid $primary-color-1;
   border-radius: 50%;
-  width: 120px;
-  height: 120px;
+  width: 5rem;
+  height: 5rem;
+  margin: 1rem auto 0;
   animation: spin 2s linear infinite;
 }
 
