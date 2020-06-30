@@ -147,6 +147,13 @@ def get_category_answers(category, session):
     ]
 
 
+def get_all_answers(session):
+    answers = []
+    for category in QUESTIONS:
+        answers.extend(get_category_answers(category, session))
+    return answers
+
+
 def get_next_question(category, session):
     if category not in QUESTIONS:
         raise KeyError("Invalid category")

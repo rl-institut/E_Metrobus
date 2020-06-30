@@ -16,26 +16,15 @@
       {% trans 'Quiz erledigt!' %}
     </div>
     <div class="cell quiz-finished__wrap a-quiz-finished">
-      <p>{% blocktrans with score="<span>{}</span>"|format_text:points %}43% richtig beantwortet{% endblocktrans %}</p>
+      <p>{% blocktrans with score="<span>{}</span>"|format_text:score %}{{score}}% richtig beantwortet{% endblocktrans %}</p>
       <div class="quiz-finished__flash">
-        <img src="{% static 'images/icons/i_flash_correct.svg' %}" alt="Flash">
-        <img src="{% static 'images/icons/i_flash_correct.svg' %}" alt="Flash">
-        <img src="{% static 'images/icons/i_flash_correct.svg' %}" alt="Flash">
-        <img src="{% static 'images/icons/i_flash_correct.svg' %}" alt="Flash">
-        <img src="{% static 'images/icons/i_flash_correct.svg' %}" alt="Flash">
-        <img src="{% static 'images/icons/i_flash_correct.svg' %}" alt="Flash">
-        <img src="{% static 'images/icons/i_flash_white.svg' %}" alt="Flash">
-        <img src="{% static 'images/icons/i_flash_white.svg' %}" alt="Flash">
-      </div>
-      <div class="quiz-finished__flash">
-        <img src="{% static 'images/icons/i_flash_white.svg' %}" alt="Flash">
-        <img src="{% static 'images/icons/i_flash_white.svg' %}" alt="Flash">
-        <img src="{% static 'images/icons/i_flash_white.svg' %}" alt="Flash">
-        <img src="{% static 'images/icons/i_flash_white.svg' %}" alt="Flash">
-        <img src="{% static 'images/icons/i_flash_white.svg' %}" alt="Flash">
-        <img src="{% static 'images/icons/i_flash_white.svg' %}" alt="Flash">
-        <img src="{% static 'images/icons/i_flash_white.svg' %}" alt="Flash">
-        <img src="{% static 'images/icons/i_flash_white.svg' %}" alt="Flash">
+        {% for answer in answers %}
+          {% if answer.value == "correct" %}
+            <img src="{% static 'images/icons/i_flash_correct.svg' %}" alt="Flash">
+          {% else %}
+            <img src="{% static 'images/icons/i_flash_white.svg' %}" alt="Flash">
+          {% endif %}
+        {% endfor %}
       </div>
     </div>
     <div class="cell quiz-finished__slogan a-quiz-finished-slogan">

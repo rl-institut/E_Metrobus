@@ -98,7 +98,7 @@ class DashboardView(CheckStationsMixin, NavigationView):
                 (
                     cat_name,
                     category,
-                    questions.get_category_answers(cat_name, self.request.session)
+                    questions.get_category_answers(cat_name, self.request.session),
                 )
             )
         context["categories"] = categories
@@ -313,7 +313,14 @@ class QuizFinishedView(PosthogMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(QuizFinishedView, self).get_context_data(**kwargs)
-        context["points"] = questions.get_total_score(self.request.session)
+        answers = questions.get_all_answers(self.request.session)
+        answers = sorted(answers, key=lambda x: x.value)
+        context["answers"] = answers
+        context["score"] = round(
+            len([answer for answer in answers if answer == questions.Answer.Correct])
+            / len(answers)
+            * 100
+        )
         return context
 
     def get(self, request, *args, **kwargs):
@@ -356,10 +363,7 @@ class LegalView(NavigationView):
     def get_context_data(self, **kwargs):
         context = super(LegalView, self).get_context_data(**kwargs)
         context["info_table"] = widgets.InfoTable()
-        context["feedback"] = kwargs.get(
-            "feedback",
-            forms.FeedbackForm(),
-        )
+        context["feedback"] = kwargs.get("feedback", forms.FeedbackForm(),)
         context["bug"] = kwargs.get(
             "bug", forms.BugForm(initial={"type": models.Bug.TECHNICAL}),
         )
