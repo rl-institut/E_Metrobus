@@ -1,11 +1,18 @@
-
 from django.http.response import JsonResponse
 from django.shortcuts import get_object_or_404, Http404, HttpResponse, redirect
 from django.utils.translation import gettext as _
 from django.views.generic import TemplateView
 
-from e_metrobus.navigation import (chart, constants, forms, models, questions, stations,
-                                   utils, widgets)
+from e_metrobus.navigation import (
+    chart,
+    constants,
+    forms,
+    models,
+    questions,
+    stations,
+    utils,
+    widgets,
+)
 
 
 class CheckStationsMixin:
@@ -95,7 +102,7 @@ class DashboardView(CheckStationsMixin, NavigationView):
                 (
                     cat_name,
                     category,
-                    questions.get_category_answers(cat_name, self.request.session)
+                    questions.get_category_answers(cat_name, self.request.session),
                 )
             )
         context["categories"] = categories
@@ -187,33 +194,15 @@ class EnvironmentView(CheckStationsMixin, NavigationView):
 
     def get_context_data(self, **kwargs):
         context = super(EnvironmentView, self).get_context_data(**kwargs)
-        chart_order = ("pedestrian", "e-bus", "e-pkw", "bus", "car")
         current_stations = [
             stations.STATIONS[station] for station in self.request.session["stations"]
         ]
-        route_data = stations.STATIONS.get_route_data(*current_stations)
-        fleet_data = stations.STATIONS.get_fleet_data()
-        context["charts"] = {
-            "route_co2": chart.get_co2_figure(
-                [route_data[vehicle].co2 for vehicle in chart_order],
-            ),
-            "route_nitrogen": chart.get_nitrogen_figure(
-                [route_data[vehicle].nitrogen for vehicle in chart_order],
-            ),
-            "route_fine_dust": chart.get_fine_dust_figure(
-                [route_data[vehicle].fine_dust for vehicle in chart_order],
-            ),
-            "fleet_co2": chart.get_co2_figure(
-                [fleet_data[vehicle].co2 for vehicle in chart_order],
-            ),
-            "fleet_nitrogen": chart.get_nitrogen_figure(
-                [fleet_data[vehicle].nitrogen for vehicle in chart_order],
-            ),
-            "fleet_fine_dust": chart.get_fine_dust_figure(
-                [fleet_data[vehicle].fine_dust for vehicle in chart_order],
-            )
-        }
         context["stations"] = current_stations
+        context["charts"] = [
+            f"{route}_{emission}"
+            for route in ("route", "fleet")
+            for emission in ("co2", "nitrogen", "fine_dust")
+        ]
         context["route_distance"] = stations.STATIONS.get_distance(*current_stations)
         context["fleet_distance"] = constants.FLEET_CONSUMPTION.distance
         return context
@@ -359,10 +348,7 @@ class LegalView(NavigationView):
     def get_context_data(self, **kwargs):
         context = super(LegalView, self).get_context_data(**kwargs)
         context["info_table"] = widgets.InfoTable()
-        context["feedback"] = kwargs.get(
-            "feedback",
-            forms.FeedbackForm(),
-        )
+        context["feedback"] = kwargs.get("feedback", forms.FeedbackForm(),)
         context["bug"] = kwargs.get(
             "bug", forms.BugForm(initial={"type": models.Bug.TECHNICAL}),
         )
@@ -431,13 +417,31 @@ def send_posthog_event(request):
 
 
 def get_comparison_chart(request):
-    current_stations = [
-        stations.STATIONS[station] for station in request.session["stations"]
-    ]
-    route_data = stations.STATIONS.get_route_data(*current_stations)
     chart_order = ("pedestrian", "e-bus", "e-pkw", "bus", "car")
-    plotly_chart = chart.get_mobility_figure(
-        [int(route_data[vehicle].co2) for vehicle in chart_order],
-        title=_("CO<sub>2</sub> Emissionen [in g]<br>nach Verkehrsmittel"),
-    )
+    route = request.GET["route"]
+    if route == "route":
+        current_stations = [
+            stations.STATIONS[station] for station in request.session["stations"]
+        ]
+        route_data = stations.STATIONS.get_route_data(*current_stations)
+
+    elif route == "fleet":
+        route_data = stations.STATIONS.get_fleet_data()
+    else:
+        raise ValueError("Unknown route")
+
+    if request.GET["emission"] == "co2":
+        plotly_chart = chart.get_co2_figure(
+            [route_data[vehicle].co2 for vehicle in chart_order]
+        )
+    elif request.GET["emission"] == "nitrogen":
+        plotly_chart = chart.get_nitrogen_figure(
+            [route_data[vehicle].nitrogen for vehicle in chart_order]
+        )
+    elif request.GET["emission"] == "fine_dust":
+        plotly_chart = chart.get_fine_dust_figure(
+            [route_data[vehicle].fine_dust for vehicle in chart_order]
+        )
+    else:
+        raise ValueError("Unknown emission")
     return JsonResponse({"div": plotly_chart.div, "script": plotly_chart.script})

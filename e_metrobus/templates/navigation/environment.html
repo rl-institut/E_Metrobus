@@ -56,9 +56,9 @@
 </div>
 
 
-{% for chart_id, chart in charts.items %}
+{% for chart_id in charts %}
   <div class="cell chart my-route__chart" id="{{chart_id}}" hidden>
-    {{chart.div|safe}}
+    <div class="loader"></div>
   </div>
 {% endfor %}
 
@@ -94,14 +94,22 @@
       selected_chart = "#" + route + "_" + emission;
       $(".chart").hide();
       $(selected_chart).show();
+
+      if ($(selected_chart).find(".loader").length) {
+        $.ajax({
+          type: "GET",
+          url: "/get_comparison_chart",
+          dataType: 'json',
+          data: {"route": route, "emission": emission},
+          success: function(json)
+          {
+            $(selected_chart).html(json.div);
+            eval(json.script);
+          }
+        });
+      }
     }
 
-    $(document).ready(function(){
-      {% for chart in charts.values %}
-        {{chart.script|safe}}
-      {% endfor %}
-
-      show_selection();
-    });
+    show_selection();
   </script>
 {% endblock javascript %}
