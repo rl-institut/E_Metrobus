@@ -1,11 +1,3 @@
-.quiz-fin {
-  position: relative;
-  &__bottom {
-    position: absolute;
-    bottom: 1rem;
-  }
-}
-
 #share-reveal {
   top: 0!important;
 
@@ -74,9 +66,14 @@
 
   &__slogan {
     position: absolute;
-    top: 60%;
+    top: 56%;
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+
+  &__btn {
+    position: absolute;
+    bottom: 5rem;
   }
 }
 

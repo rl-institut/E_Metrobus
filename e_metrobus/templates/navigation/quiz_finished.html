@@ -5,7 +5,7 @@
 {% load i18n %}
 {% load translation %}
 
-{% block body_class %}class="l-scroll l-scroll--nonav"{% endblock %}
+{% block body_class %}l-scroll finished-page{% endblock %}
 
 {% block share %}
   <div class="cell">
@@ -60,7 +60,7 @@
         function () {
           $('#link_copied').fadeOut();
         },
-        200000000
+        2000
       );
     }
   </script>
