@@ -3,7 +3,13 @@
 {% block title %}Page not found{% endblock %}
 
 {% block content %}
-<h1>Page not found</h1>
-
-<p>This is not the page you were looking for.</p>
+<div class="error-layout">
+  <div class="error-layout__content">
+    <h1>Page not found</h1>
+    <p>This is not the page you were looking for.</p>
+  </div>
+  <div class="error-layout__img">
+    <img class="project-content__img" src="/static/images/icons/Icon_E_Bus_BVG_empty_battery.svg" alt="Elektrischer Bus ohne Strom">
+  </div>
+</div>
 {% endblock content %}
