@@ -28,29 +28,29 @@
   </div>
 </div>
 
-<div class="cell my-route-heading" id="route_distance">
+<div class="cell my-route-heading">
   {% blocktrans with distance=route_distance %}Impakt meiner Strecke ({{distance}} km) im Vergleich zu anderen Verkehrsmitteln{% endblocktrans %}
 </div>
-<div class="cell my-route-heading" id="fleet_distance" hidden>
+<div class="cell my-route-heading" hidden>
   {% blocktrans with distance=fleet_distance %}Impakt der E-Bus Flotte ({{distance}} km) im Vergleich zu anderen Verkehrsmitteln{% endblocktrans %}
 </div>
 
 <div class="cell my-route-tabs">
-  <ul class="tabs" data-tabs>
-    <li class="tabs-title tabs-title--emissions tabs-title--33 active">
-      <div onclick="compare('co2');">{% trans 'CO<sub>2</sub>' %}</div>
+  <ul class="tabs">
+    <li class="tabs-title tabs-title--emissions tabs-title--33 active" id="co2">
+      <div onclick="select_emission(this);">{% trans 'CO<sub>2</sub>' %}</div>
     </li>
-    <li class="tabs-title tabs-title--emissions tabs-title--33">
-      <div onclick="compare('nitrogen');">{% trans 'NOx' %}</div>
+    <li class="tabs-title tabs-title--emissions tabs-title--33" id="nitrogen">
+      <div onclick="select_emission(this);">{% trans 'NOx' %}</div>
     </li>
-    <li class="tabs-title tabs-title--emissions tabs-title--33">
-      <div onclick="compare('fine_dust');">{% trans 'Feinstaub' %}</div>
+    <li class="tabs-title tabs-title--emissions tabs-title--33" id="fine_dust">
+      <div onclick="select_emission(this);">{% trans 'Feinstaub' %}</div>
     </li>
-    <li class="tabs-title tabs-title--bus tabs-title--50 active">
-      <div onclick="select_route('route');">{% trans 'Meine Strecke' %}</div>
+    <li class="tabs-title tabs-title--bus tabs-title--50 active" id="route">
+      <div onclick="select_route(this);">{% trans 'Meine Strecke' %}</div>
     </li>
-    <li class="tabs-title tabs-title--bus tabs-title--50">
-      <div onclick="select_route('fleet');">{% trans 'E-Bus Flotte' %}</div>
+    <li class="tabs-title tabs-title--bus tabs-title--50" id="fleet">
+      <div onclick="select_route(this);">{% trans 'E-Bus Flotte' %}</div>
     </li>
   </ul>
 </div>
@@ -68,35 +68,40 @@
   {{block.super}}
   <script>
     let route = "route";
-    let comparison = "co2";
+    let emission = "co2";
 
-    function select_route(value) {
-      route = value;
-      if (route == "route") {
-        $("#route_distance").show();
-        $("#fleet_distance").hide();
-      } else {
-        $("#route_distance").hide();
-        $("#fleet_distance").show();
+    function select_route(selection) {
+      selected_route = $(selection).parent().attr("id");
+      if (route != selected_route) {
+        $(".tabs-title--bus").toggleClass("active");
+        $(".my-route-heading").toggle();
+        route = selected_route;
+        show_selection();
       }
-      show_selection();
     };
 
-    function compare(value) {
-      comparison = value;
-      show_selection();
+    function select_emission(selection) {
+      selected_emission = $(selection).parent().attr("id");
+      if (emission != selected_emission) {
+        $(".tabs-title--emissions").removeClass("active");
+        $(selection).parent().addClass("active");
+        emission = selected_emission;
+        show_selection();
+      }
     }
 
     function show_selection() {
-      selected_chart = "#" + route + "_" + comparison;
+      selected_chart = "#" + route + "_" + emission;
       $(".chart").hide();
       $(selected_chart).show();
     }
 
-    {% for chart in charts.values %}
-      {{chart.script|safe}}
-    {% endfor %}
+    $(document).ready(function(){
+      {% for chart in charts.values %}
+        {{chart.script|safe}}
+      {% endfor %}
 
-    show_selection();
+      show_selection();
+    });
   </script>
 {% endblock javascript %}
