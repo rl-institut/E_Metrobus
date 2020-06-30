@@ -11,6 +11,7 @@ OFFSET = 1
 SIZE = MARGIN - 2 * OFFSET
 TEXTSIZE = 5
 TROPHY_OFFSET = 10
+ICON_SIZE = 40
 
 DEFAULT_COLOR = "Gainsboro"
 FONT_COLOR = "#B0B0B0"
@@ -51,13 +52,13 @@ def get_mobility_figure(values, title):
         _("Dieselbus"),
         _("Pkw"),
     ]
-
-    max_value = max(values)
+    scaled_values = [(v + min(values)) / max(values) * 100 for v in values]
+    max_value = max(scaled_values)
     sizes = get_sizes(max_value)
 
     bar = go.Bar(
         x=mobiles,
-        y=values,
+        y=scaled_values,
         marker_color=colors,
         text=values,
         textposition="outside",
@@ -107,7 +108,7 @@ def get_mobility_figure(values, title):
             go.layout.Image(
                 source=f"/static/images/icons/i_trophy_{i+1}_{'black' if i == 1 else 'gray'}.svg",
                 x=i,
-                y=values[i]
+                y=scaled_values[i]
                 + sizes.textsize
                 + sizes.size
                 + sizes.offset
@@ -124,14 +125,14 @@ def get_mobility_figure(values, title):
 
 def get_co2_figure(values):
     title = _("CO<sub>2</sub> Emissionen [in g]<br>nach Verkehrsmittel")
-    return get_mobility_figure(list(map(int, values)), title)
+    return get_mobility_figure(list(map(lambda x: round(x, 2), values)), title)
 
 
 def get_nitrogen_figure(values):
     title = _("Stickoxid Emissionen [in g]<br>nach Verkehrsmittel")
-    return get_mobility_figure(values, title)
+    return get_mobility_figure(list(map(lambda x: round(x, 2), values)), title)
 
 
 def get_fine_dust_figure(values):
-    title = _("Stickoxid Emissionen [in g]<br>nach Verkehrsmittel")
-    return get_mobility_figure(values, title)
+    title = _("Feinstaub Emissionen [in g]<br>nach Verkehrsmittel")
+    return get_mobility_figure(list(map(lambda x: round(x, 2), values)), title)

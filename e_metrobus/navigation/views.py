@@ -1,18 +1,11 @@
-from django.shortcuts import get_object_or_404, Http404, HttpResponse, redirect
+
 from django.http.response import JsonResponse
+from django.shortcuts import get_object_or_404, Http404, HttpResponse, redirect
 from django.utils.translation import gettext as _
 from django.views.generic import TemplateView
 
-from e_metrobus.navigation import (
-    chart,
-    constants,
-    forms,
-    models,
-    questions,
-    stations,
-    widgets,
-    utils
-)
+from e_metrobus.navigation import (chart, constants, forms, models, questions, stations,
+                                   utils, widgets)
 
 
 class CheckStationsMixin:
