@@ -15,7 +15,7 @@
   <div class="cell small-2 top-bar--language">
     {% get_current_language as LANGUAGE_CODE %}
     {% if LANGUAGE_CODE == 'de' %}
-      <a href="{% translate_url 'en' %}">
+      <a href="{% translate_url 'en' %}" onclick="send_posthog_event('english');">
         <img src="{% static 'images/icons/i_flag_uk.svg' %}" alt="uk_flag">
       </a>
     {% else %}
@@ -29,7 +29,7 @@
     <span>{{title}}</span>
   </div>
   <div class="cell small-2 top-bar--share">
-    <a data-open="share-reveal">
+    <a data-open="share-reveal" onclick="send_posthog_event('shared');">
       <img src="{% static 'images/icons/i_share.svg' %}" alt="App teilen">
     </a>
   </div>

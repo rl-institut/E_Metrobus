@@ -3,6 +3,7 @@ Base settings to build other settings files upon.
 """
 
 import environ
+import posthog
 
 ROOT_DIR = (
     environ.Path(__file__) - 3
@@ -236,3 +237,5 @@ COMPRESS_CACHEABLE_PRECOMPILERS = (("text/x-scss", "django_libsass.SassCompiler"
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+posthog.api_key = env.str("POSTHOG_KEY", default=None)
+posthog.host = env.str("POSTHOG_URL", default=None)

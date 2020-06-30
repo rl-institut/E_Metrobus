@@ -5,7 +5,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project tries to adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- posthog for anonymous session tracking
+
+## [0.13.0] - 2020-06-29
 ### Changed
+- Removed answer score page; correct/wrong answer is showed on answer page
 - welcome tour design (added animation)
 - moved feedback and bug report to legal page
 - dashboard circles to flashes
