@@ -5,29 +5,31 @@
 <div class="cell project custom-tabs">
   <ul class="tabs custom-tabs__tabs" data-tabs id="question_tabs">
     {% for cat_name, category in categories.items %}
-      <li class="tabs-title{% if forloop.first %} is-active{% endif %}"><a href="#{{cat_name}}" aria-selected="true">{{category.get_label}}</a></li>
+      <li class="tabs-title {% if forloop.first %}is-active{% endif %}"><a href="#{{cat_name}}" aria-selected="true">{{category.get_label}}</a></li>
     {% endfor %}
   </ul>
 </div>
 <div class="cell project-content">
   <div class="tabs-content" data-tabs-content="question_tabs">
     {% for cat_name, category in categories.items %}
-      <ul class="accordion" data-accordion data-allow-all-closed="true" id="{{cat_name}}">
-        {% for q_name, question in category.questions.items %}
-            {% if q_name != "route" %}
-            <li class="accordion-item" data-accordion-item>
-              <a href="#" class="questionstext__questlabel accordion-title">
-                <img class="project-content__img" src="/static/images/questions/pantograph.png">
-                <span class="project-content__icon"></span>
-                <span class="project-content__heading">{{question.get_label}}</span>
-              </a>
-              <div class="accordion-content project__question" data-tab-content>
-                {% include question.template %}
-              </div>
-            </li>
-            {% endif %}
-          {% endfor %}
-        </ul>
+      <div class="tabs-panel {% if forloop.first %}is-active{% endif %}" id="{{cat_name}}">
+        <ul class="accordion" data-accordion data-allow-all-closed="true">
+          {% for q_name, question in category.questions.items %}
+              {% if q_name != "route" %}
+              <li class="accordion-item" data-accordion-item>
+                <a href="#" class="questionstext__questlabel accordion-title">
+                  <img class="project-content__img" src="/static/images/questions/pantograph.png">
+                  <span class="project-content__icon"></span>
+                  <span class="project-content__heading">{{question.get_label}}</span>
+                </a>
+                <div class="accordion-content project__question" data-tab-content>
+                  {% include question.template %}
+                </div>
+              </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+      </div>
     {% endfor %}
   </div>
 </div>
