@@ -98,7 +98,7 @@ class DashboardView(CheckStationsMixin, NavigationView):
                 (
                     cat_name,
                     category,
-                    questions.get_category_answers(cat_name, self.request.session)
+                    questions.get_category_answers(cat_name, self.request.session),
                 )
             )
         context["categories"] = categories
@@ -231,11 +231,9 @@ class QuestionView(NavigationView):
         self.title_icon = questions.QUESTIONS[kwargs["category"]].small_icon
 
         context = super(QuestionView, self).get_context_data(**kwargs)
-        shares = questions.get_category_shares(
-            category=kwargs["category"], session=self.request.session
+        context["answers"] = questions.get_category_answers(
+            kwargs["category"], self.request.session
         )
-        context["category_percentage_done"] = round(shares.done * 100)
-        context["category_percentage_correct"] = round(shares.correct * 100)
         return context
 
     def get(self, request, *args, **kwargs):
@@ -356,10 +354,7 @@ class LegalView(NavigationView):
     def get_context_data(self, **kwargs):
         context = super(LegalView, self).get_context_data(**kwargs)
         context["info_table"] = widgets.InfoTable()
-        context["feedback"] = kwargs.get(
-            "feedback",
-            forms.FeedbackForm(),
-        )
+        context["feedback"] = kwargs.get("feedback", forms.FeedbackForm(),)
         context["bug"] = kwargs.get(
             "bug", forms.BugForm(initial={"type": models.Bug.TECHNICAL}),
         )

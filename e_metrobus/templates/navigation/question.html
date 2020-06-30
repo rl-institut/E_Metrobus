@@ -1,6 +1,7 @@
 
 {% extends "base.html" %}
 
+{% load static %}
 {% load i18n %}
 
 {% block content %}
@@ -9,10 +10,11 @@
     <input type="hidden" name="question" value="{{question.name}}">
     <div class="grid-x align-center">
       <div class="cell top-flash">
-        <img src="/static/images/icons/i_flash_correct.svg" alt="">
-        <img src="/static/images/icons/i_flash_correct.svg" alt="">
-        <img src="/static/images/icons/i_flash_wrong.svg" alt="">
-        <img src="/static/images/icons/i_flash_empty.svg" alt="">
+        {% for answer in answers %}
+          {% with "images/icons/i_flash_"|add:answer.value|add:".svg" as flash %}
+            <img src="{% static flash %}" alt="">
+          {% endwith %}
+        {% endfor %}
       </div>
       <div class="cell small-10 question__text">
         {% csrf_token %}
