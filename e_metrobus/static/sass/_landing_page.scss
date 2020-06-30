@@ -353,6 +353,27 @@ background: none;
     display: none!important;
   }
 }
+
+@media only screen and (orientation: landscape) {
+  .landscape {
+    background-image: url(/static/images/Dashboard_Pattern.svg);
+    background-size: 13rem;
+    height: 100%;
+
+    &__header {
+      font-size: 1.55rem;
+    }
+    &__subheader {
+      font-size: 1rem;
+      color: $gray-4;
+    }
+    &__text {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+  }
+}
+
 @media only screen
 and (max-width: 1024px)
 and (orientation: landscape) {
@@ -362,15 +383,11 @@ and (orientation: landscape) {
     &__header {
       padding-top: 1rem;
     }
-    &__subheader {
-      color: #8d8d8d;
-    }
     &__img {
       padding-top: 2.5rem;
     }
     &__text {
       padding-top: 2.5rem;
-      font-size: 1.5rem;
     }
     &__img img {
       height: 3rem;
