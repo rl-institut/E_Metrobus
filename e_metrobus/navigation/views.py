@@ -310,11 +310,18 @@ class CategoryFinishedView(PosthogMixin, TemplateView):
 
 class QuizFinishedView(PosthogMixin, TemplateView):
     template_name = "navigation/quiz_finished.html"
+    footer_links = {
+                "info": {"enabled": True},
+                "dashboard": {"selected": True},
+                "leaf": {"enabled": True},
+                "results": {"enabled": True},
+            }
 
     def get_context_data(self, **kwargs):
         context = super(QuizFinishedView, self).get_context_data(**kwargs)
         answers = questions.get_all_answers(self.request.session)
         answers = sorted(answers, key=lambda x: x.value)
+        context["footer"] = widgets.FooterWidget(links=self.footer_links)
         context["answers"] = answers
         context["score"] = round(
             len([answer for answer in answers if answer == questions.Answer.Correct])
