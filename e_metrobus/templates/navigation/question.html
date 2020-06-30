@@ -4,14 +4,16 @@
 {% load i18n %}
 
 {% block content %}
-<div class="cell progress-bar">
-  <div class="progress-bar__fill" style="background-color: #E46C6C; width: {{category_percentage_done}}%;"></div>
-  <div class="progress-bar__fill progress-bar__fill--correct" style="width: {{category_percentage_correct}}%;"></div>
-</div>
 <div class="cell question">
   <form method="post" action="{% url 'navigation:question' category=question.category %}" id="question">
     <input type="hidden" name="question" value="{{question.name}}">
     <div class="grid-x align-center">
+      <div class="cell top-flash">
+        <img src="/static/images/icons/i_flash_correct.svg" alt="">
+        <img src="/static/images/icons/i_flash_correct.svg" alt="">
+        <img src="/static/images/icons/i_flash_wrong.svg" alt="">
+        <img src="/static/images/icons/i_flash_empty.svg" alt="">
+      </div>
       <div class="cell small-10 question__text">
         {% csrf_token %}
         <h2>{% trans question.question %}</h2>
