@@ -10,6 +10,7 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 
 ### Changed 
 - Implemented tabs on summary page
+- Replaced progress bar on question page with flashes
 
 ## [0.13.0] - 2020-06-29
 ### Changed
