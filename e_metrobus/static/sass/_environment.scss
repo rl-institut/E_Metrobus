@@ -46,3 +46,117 @@
     margin: 0.5rem 0;
   }
 }
+
+.my-route .grid-x {
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: $border-radius;
+  background-color: $gray-1;
+
+  .my-route__top {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    padding-left: .5rem;
+
+    & > div {
+      display: table;
+      width: 100%;
+    }
+  }
+
+  .my-route__text {
+    display: table-cell;
+    vertical-align: baseline;
+    font-weight: 700;
+  }
+
+  .my-route__btn {
+    float: right;
+    img {
+      height: 1rem;
+      transform: translateY(-2px);
+      padding-right: .25rem;
+    }
+  }
+
+  .my-route__icon {
+    text-align: center;
+
+    img {
+      height: 3rem;
+    }
+  }
+
+  .my-route__stations {
+    padding-left: .5rem;
+
+    span {
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      &.my-route__station--0 {
+        padding-bottom: .5rem;
+      }
+    }
+  }
+}
+
+.my-route-heading {
+  text-align: center;
+  font-weight: 700;
+  padding: 2rem 1rem 1.5rem;
+}
+
+.my-route-tabs {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-bottom: 1rem;
+
+  .tabs {
+    border: none;
+  }
+
+  .tabs-title {
+    text-align: center;
+
+    div {
+      margin: 2px;
+      background-color: $gray-1;
+      padding: .5rem 0;
+    }
+    &--33 {
+      width: 33.33%;
+    }
+    &--50 {
+      width: 50%;
+    }
+    &--emissions.active div {
+      background-color: $primary-color-1;
+    }
+    &--bus.active div {
+      background-color: $primary-color-2;
+    }
+  }
+}
+
+.my-route__chart {
+  margin-bottom: 1rem;
+}
+
+.loader {
+  border: .75rem solid $gray-1;
+  border-top: .75rem solid $primary-color-1;
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+  margin: 1rem auto 0;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
