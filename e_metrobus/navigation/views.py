@@ -34,10 +34,10 @@ class FeedbackMixin:
                 feedback.save()
             else:
                 kwargs["feedback"] = feedback
+            return self.get(request, kwargs)
         return super(FeedbackMixin, self).dispatch(request, **kwargs)
 
 
-class NavigationView(TemplateView):
 class PosthogMixin:
     def dispatch(self, request, *args, **kwargs):
         if not request.session.session_key:
@@ -406,7 +406,7 @@ class QuestionsAsTextView(NavigationView):
         return context
 
 
-class LandingPageView(PosthogMixin, TemplateView):
+class LandingPageView(PosthogMixin, FeedbackMixin, TemplateView):
     template_name = "navigation/landing_page.html"
     footer_links = {"dashboard": {"selected": True}}
 
