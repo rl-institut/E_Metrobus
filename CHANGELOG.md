@@ -19,7 +19,7 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 - moved feedback and bug report to legal page
 - dashboard circles to flashes
 
-##[0.12.0] - 2020-06-26
+## [0.12.0] - 2020-06-26
 ### Added
 - BMWI and NOW logo to landing page (desktop & mobile)
 
