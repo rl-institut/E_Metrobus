@@ -312,7 +312,7 @@ class QuizFinishedView(PosthogMixin, TemplateView):
     template_name = "navigation/quiz_finished.html"
     footer_links = {
                 "info": {"enabled": True},
-                "dashboard": {"selected": True},
+                "dashboard": {"enabled": True},
                 "leaf": {"enabled": True},
                 "results": {"enabled": True},
             }
