@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 
-{% block title %}Forbidden (403){% endblock %}
+{% block title %}{% trans 'Verboten' %} (403){% endblock %}
 
 {% block content %}
 <div class="error-layout">
   <div class="error-layout__content">
-    <h1>Forbidden (403)</h1>
-    <p>CSRF verification failed. Request aborted.</p>
+    <h1>{% trans 'Verboten' %} (403)</h1>
+    <p>{% trans 'CSRF Verifizierung fehlgeschlagen. Anfrage wurde abgewiesen. %}</p>
   </div>
   <div class="error-layout__img">
-    <img class="project-content__img" src="/static/images/icons/Icon_E_Bus_BVG_empty_battery.svg" alt="Elektrischer Bus ohne Strom">
+    <img class="project-content__img" src="/static/images/icons/Icon_E_Bus_BVG_empty_battery.svg" alt="{% trans 'Elektrischer Bus ohne Strom' %}">
   </div>
 </div>
 
