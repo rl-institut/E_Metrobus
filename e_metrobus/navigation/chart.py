@@ -1,5 +1,7 @@
 from collections import namedtuple
 
+import math
+from decimal import Decimal
 import plotly
 import plotly.graph_objects as go
 
@@ -43,6 +45,11 @@ def get_sizes(max_value):
 
 
 def get_mobility_figure(values, title):
+    rounding = get_rounding(max(values))
+    if rounding == 0:
+        rounded_values = [int(v) for v in values]
+    else:
+        rounded_values = [round(v, rounding) for v in values]
     colors = [DEFAULT_COLOR] * 5
     colors[1] = E_BUS_COLOR
     mobiles = [
@@ -52,7 +59,9 @@ def get_mobility_figure(values, title):
         _("Dieselbus"),
         _("Pkw"),
     ]
-    scaled_values = [(v + min(values)) / max(values) * 100 for v in values]
+    scaled_values = [
+        (v + min(rounded_values)) / max(rounded_values) * 100 for v in rounded_values
+    ]
     max_value = max(scaled_values)
     sizes = get_sizes(max_value)
 
@@ -60,7 +69,7 @@ def get_mobility_figure(values, title):
         x=mobiles,
         y=scaled_values,
         marker_color=colors,
-        text=values,
+        text=rounded_values,
         textposition="outside",
         width=0.6,
     )
@@ -103,10 +112,13 @@ def get_mobility_figure(values, title):
             )
         )
     # Trophy Icons:
+    trophy_number = 1
     for i in range(3):
+        if i > 0 and scaled_values[i] > scaled_values[i - 1]:
+            trophy_number += 1
         fig.add_layout_image(
             go.layout.Image(
-                source=f"/static/images/icons/i_trophy_{i+1}_{'black' if i == 1 else 'gray'}.svg",
+                source=f"/static/images/icons/i_trophy_{trophy_number}_{'black' if i == 1 else 'gray'}.svg",
                 x=i,
                 y=scaled_values[i]
                 + sizes.textsize
@@ -125,14 +137,29 @@ def get_mobility_figure(values, title):
 
 def get_co2_figure(values):
     title = _("CO<sub>2</sub> Emissionen [in g]<br>nach Verkehrsmittel")
-    return get_mobility_figure(list(map(lambda x: round(x, 2), values)), title)
+    return get_mobility_figure(values, title)
 
 
 def get_nitrogen_figure(values):
     title = _("Stickoxid Emissionen [in g]<br>nach Verkehrsmittel")
-    return get_mobility_figure(list(map(lambda x: round(x, 2), values)), title)
+    return get_mobility_figure(values, title)
 
 
 def get_fine_dust_figure(values):
     title = _("Feinstaub Emissionen [in g]<br>nach Verkehrsmittel")
-    return get_mobility_figure(list(map(lambda x: round(x, 2), values)), title)
+    return get_mobility_figure(values, title)
+
+
+def get_rounding(max_value):
+    if max_value >= 10:
+        return 0
+    str_value = str(max_value).split(".")
+    if len(str_value) == 1:
+        return 0
+    dec = str_value[1]
+    i = 0
+    while len(dec) > i and dec[i] == "0":
+        i += 1
+    if len(dec) == i + 1:
+        return i + 1
+    return i + 2
