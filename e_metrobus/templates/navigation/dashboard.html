@@ -16,7 +16,7 @@
         <a href="{% url 'navigation:question' cat_name %}">
           <!-- Question 1/5 -->
           <div class="dashboard__img">
-            <img src="{% static category.icon %}">
+            <img src="{% static category.icon %}" alt="{% trans 'Bild für Kategorie' %} {{category.get_label}}">
           </div>
         </a>
         <div class="flash-icons">
