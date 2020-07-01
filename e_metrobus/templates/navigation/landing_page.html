@@ -8,13 +8,6 @@
 {% block content %}
   <div class="cell">
     <div class="grid-x align-center text-center landpage">
-      <div class="cell landpage__ebus">
-        <div class="grid-x">
-          <div class="cell landpage__logo landpage__logo--embus">
-            <img id="animateBus" src="{%static 'images/icons/Icon_E_Bus_BVG.svg' %}" alt="E-Bus Icon" {% if visited %}style="animation: none"{% endif %}>
-          </div>
-        </div>
-      </div>
       <div class="cell landpage__button" {% if visited %}style="animation: none"{% endif %}>
         <div class="grid-x">
           <div id="animateLPText" class="cell landpage__button-text">
@@ -28,7 +21,7 @@
               <div class="cell small-10 landpage__language--switch" {% if visited %}style="animation: none"{% endif %}>
                 {% get_current_language as LANGUAGE_CODE %}
                 {% if LANGUAGE_CODE == "de" %}
-                  <a href="en/?visited" data-open="language_popup">
+                  <a href="en/?visited" data-open="language_popup" onclick="send_posthog_event('english');">
                     <img src="{% static 'images/icons/i_flag_uk.svg' %}" alt="uk_flag">
                     <span>Switch to English</span>
                   </a>
@@ -60,8 +53,47 @@
               <img src="{% static 'images/logos/RLi_logo.png' %}" alt="RLI Logo">
             </a>
           </div>
+          <div class="cell landpage__logo landpage__logo--bmwi" {% if visited %}style="animation: none"{% endif %}>
+            <img src="{% static 'images/logos/Logokombi_gefoerdert-durch-BMVI-koordiniert-durch-NOW_de.png' %}" alt="BMWI und NOW Logo">
+          </div>
         </div>
       </div>
     </div>
   </div>
-{% endblock %}
+
+  {% if not privacy_accepted %}
+    <div class="privacypop pop" id="privacy_popup">
+      <p>Hinweis: Unsere Website sammelt keine personenbezogenen Daten.</p>
+      <button id="pricacyButton" class="button button--small button--yellow close" onclick="privacy_policy_accepted();">{% trans 'Okay' %}</button>
+    </div>
+  {% endif %}
+{% endblock content %}
+
+{% block javascript %}
+  {{block.super}}
+  <script>
+    function deselect(e) {
+      $('.pop').slideFadeToggle(function() {
+        e.removeClass('selected');
+      });
+    }
+
+    $(function() {
+      $('.close').on('click', function() {
+        deselect($('#contact'));
+        return false;
+      });
+    });
+
+    $.fn.slideFadeToggle = function(easing, callback) {
+      return this.animate({ opacity: 'toggle', height: 'toggle' }, 'fast', easing, callback);
+    };
+
+    function privacy_policy_accepted() {
+      $.ajax({
+        url: "/accept_privacy_policy/",
+        dataType: "html"
+      });
+    }
+  </script>
+{% endblock javascript %}

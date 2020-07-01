@@ -4,24 +4,93 @@
 {% load i18n %}
 
 {% block content %}
-<div class="grid-container legal__wrap">
-  <div class="grid-x text-center">
-    <div class="cell legal__header">
-      <span>{% trans "Verantwortliche und Quellen" %}</span>
+<div class="cell custom-tabs">
+  <ul class="tabs custom-tabs__tabs" data-tabs id="question_tabs">
+    <li class="tabs-title is-active"><a href="#partners" aria-selected="true">{% trans "Projektpartner" %}</a></li>
+    <li class="tabs-title"><a href="#data" aria-selected="true" onclick="send_posthog_event('sources');">{% trans "Quellen" %}</a></li>
+    <li class="tabs-title tabs-title--100-width"><a href="#feedback" aria-selected="true">{% trans "Feedback geben" %}</a></li>
+  </ul>
+
+  <div class="tabs-content" data-tabs-content="question_tabs">
+    <div class="tabs-panel is-active" id="partners">
+      <div class="grid-x text-center">
+        <div class="cell legal__logo">
+          <img src="{% static 'images/logos/Logo_Nationale_Organisation_Wasserstoff-_und_Brennstoffzellentechnologie.svg.png' %}" alt="NOW GmbH Logo">
+        </div>
+        <div class="cell legal__logo">
+          <img src="{% static 'images/logos/Bundesministerium_für_Verkehr_und_digitale_Infrastruktur_Logo.svg.png' %}" alt="BMVI Logo">
+        </div>
+        <div class="cell legal__logo">
+          <img src="{% static 'images/logos/ptj_logo.jpg' %}" alt="PTJ Jülich Logo">
+        </div>
+      </div>
     </div>
-    <div class="cell legal__logo">
-      <img src="{% static 'images/logos/Logo_Nationale_Organisation_Wasserstoff-_und_Brennstoffzellentechnologie.svg.png' %}" alt="NOW GmbH Logo">
+
+    <div class="tabs-panel" id="data">
+      {{info_table}}
     </div>
-    <div class="cell legal__logo">
-      <img src="{% static 'images/logos/Bundesministerium_für_Verkehr_und_digitale_Infrastruktur_Logo.svg.png' %}" alt="BMVI Logo">
-    </div>
-    <div class="cell legal__logo">
-      <img src="{% static 'images/logos/ptj_logo.jpg' %}" alt="PTJ Jülich Logo">
-    </div>
-    <div class="cell legal__header legal__header--data">
-      <span>Daten</span>
+
+    <div class="tabs-panel" id="feedback">
+      <div class="cell feedback">
+        <div class="grid-x">
+          <form method="post" class="feedback__form">
+            {% csrf_token %}
+
+            {{feedback}}
+            <input type="hidden" name="feedback">
+            <div class="cell feedback__btn">
+              <div class="grid-x align-center text-center">
+                <div class="cell">
+                  <button class="button--yellow" type="submit" style= "cursor:pointer">{% trans 'Meinung schicken' %}</button>
+                  <a data-open="bug_reveal" class="feedback__bug-link"><img src="{% static 'images/icons/i_next_black_large.svg' %}" alt="Bug melden">{% trans 'Fehler melden' %}</a>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="reveal" id="bug_reveal" data-reveal>
+        <button class="close-button" data-close aria-label="Close modal" type="button">
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+        <div class="cell bug__question">
+          <p>Hast du ein Bug oder inhaltliche Fehler gefunden? Dann melde dich gerne bei uns!</p>
+        </div>
+
+        <div class="cell bug__form">
+          <div class="grid-x">
+            <form method="post" class="feedback__form">
+              {% csrf_token %}
+              {{bug}}
+              <input type="hidden" name="bug">
+              <div class="cell">
+                <div class="grid-x align-center text-center">
+                  <div class="cell">
+                    <button class="button" type="submit" style= "cursor:pointer">{% trans 'Senden' %}</button>
+                  </div>
+                </div>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  {{info_table}}
 </div>
 {% endblock %}
+
+{% block javascript %}
+  {{block.super}}
+  <script>
+    var descriptions = {{bug.descriptions}};
+    $("#id_description").attr("placeholder", descriptions["technical"]);
+
+    $("#id_type").change(function() {
+      type = $(this).val();
+      $("#id_description").attr("placeholder", descriptions[type]);
+    });
+
+  </script>
+{% endblock javascript %}

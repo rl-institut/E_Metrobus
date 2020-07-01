@@ -6,6 +6,7 @@ from django.template.context_processors import csrf
 from django.templatetags.static import static
 from django.utils.html import format_html
 from django.utils.safestring import mark_safe
+from django.utils.translation import gettext as _
 
 from e_metrobus.navigation import constants
 
@@ -81,32 +82,37 @@ class TopBarWidget(CustomWidget):
         self.score = score
         self.score_changed = False
         self.request = request
+        self.share_link_js = True
 
 
 class FooterWidget(CustomWidget):
     template_name = "widgets/footer.html"
     default_links = {
-        "info": {
-            "name": "info",
-            "url": "navigation:legal",
+        "dashboard": {
+            "name": "quiz",
+            "label": _("Quiz"),
+            "url": "navigation:dashboard",
             "enabled": False,
             "selected": False,
         },
         "leaf": {
-            "name": "leaf",
+            "name": "pin",
+            "label": _("Meine Strecke"),
             "url": "navigation:environment",
             "enabled": False,
             "selected": False,
         },
         "results": {
-            "name": "results",
+            "name": "flash",
+            "label": _("E-MetroBus"),
             "url": "navigation:questions_as_text",
             "enabled": False,
             "selected": False,
         },
-        "dashboard": {
-            "name": "quiz",
-            "url": "navigation:dashboard",
+        "info": {
+            "name": "info",
+            "label": _("Infos"),
+            "url": "navigation:legal",
             "enabled": False,
             "selected": False,
         },

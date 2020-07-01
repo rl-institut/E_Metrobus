@@ -5,9 +5,37 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project tries to adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- posthog for anonymous session tracking
+- finished quiz includes link back to dashboard 
+
+### Changed 
+- Implemented tabs on summary page
+- Replaced progress bar on question page with flashes
+
+## [0.13.0] - 2020-06-29
+### Changed
+- Removed answer score page; correct/wrong answer is showed on answer page
+- welcome tour design (added animation)
+- moved feedback and bug report to legal page
+- dashboard circles to flashes
+
+## [0.12.0] - 2020-06-26
+### Added
+- BMWI and NOW logo to landing page (desktop & mobile)
+
+## [0.11.0] - 2020-06-17
+### Added
+- bug reports can be send
+- single page tour after comparison page
+- privacy policy banner on landing page
+
 ### Changed 
 - progress bar/cirle shows correct and wrong answers
-- finished quiz includes link back to dashboard 
+- added share link on navigation bar
+- used tabs in favor of accordion on questions-as-text page
+- footer icons and added labels
+- legal page uses tabs
  
 ## [0.10.0] - 2020-06-09
 ### Added

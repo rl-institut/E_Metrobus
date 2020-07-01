@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, Http404, get_object_or_404
+from django.shortcuts import redirect, Http404, get_object_or_404, HttpResponse
 from django.views.generic import TemplateView
 
 from e_metrobus.navigation import chart
@@ -8,6 +8,7 @@ from e_metrobus.navigation import questions
 from e_metrobus.navigation import models
 from e_metrobus.navigation import stations
 from e_metrobus.navigation import forms
+from e_metrobus.navigation import utils
 
 
 class CheckStationsMixin:
@@ -17,7 +18,16 @@ class CheckStationsMixin:
         return super(CheckStationsMixin, self).get(request, *args, **kwargs)
 
 
-class NavigationView(TemplateView):
+class PosthogMixin:
+    def dispatch(self, request, *args, **kwargs):
+        if not request.session.session_key:
+            request.session.save()
+
+        utils.posthog_event(request)
+        return super(PosthogMixin, self).dispatch(request, *args, **kwargs)
+
+
+class NavigationView(PosthogMixin, TemplateView):
     title = "E-MetroBus"
     title_icon = "images/icons/i_ebus_black_fill.svg"
     title_alt = None
@@ -41,7 +51,7 @@ class NavigationView(TemplateView):
         return context
 
 
-class RouteView(TemplateView):
+class RouteView(PosthogMixin, TemplateView):
     template_name = "navigation/route_dropdown.html"
 
     def get(self, request, *args, **kwargs):
@@ -76,9 +86,6 @@ class DashboardView(CheckStationsMixin, NavigationView):
             and "hashed_score" not in request.session
         ):
             return redirect("navigation:finished_quiz")
-        if "first_time" not in request.session:
-            request.session["first_time"] = False
-            kwargs["first_time"] = True
         return super(DashboardView, self).get(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
@@ -88,17 +95,13 @@ class DashboardView(CheckStationsMixin, NavigationView):
             self.request.session["score_at_last_visit"] = current_score
             context["top_bar"].score_changed = True
 
-        context["quiz_finished"] = "hashed_score" in self.request.session
-
         categories = []
         for cat_name, category in questions.QUESTIONS.items():
-            shares = questions.get_category_shares(cat_name, self.request.session)
             categories.append(
                 (
                     cat_name,
                     category,
-                    constants.Ellipse(shares.correct),
-                    constants.Ellipse(shares.done),
+                    questions.get_category_answers(cat_name, self.request.session),
                 )
             )
         context["categories"] = categories
@@ -172,6 +175,9 @@ class ComparisonView(CheckStationsMixin, NavigationView):
             [int(route_data[vehicle].co2) for vehicle in chart_order]
         )
         context["info_table"] = widgets.InfoTable()
+        if "first_time" not in self.request.session:
+            self.request.session["first_time"] = False
+            context["first_time"] = True
         return context
 
 
@@ -218,7 +224,7 @@ class QuestionView(NavigationView):
     back_url = "navigation:dashboard"
     footer_links = {
         "info": {"enabled": True},
-        "dashboard": {"selected": True, "enabled": True},
+        "dashboard": {"selected": True},
         "leaf": {"enabled": True},
         "results": {"enabled": True},
     }
@@ -228,11 +234,9 @@ class QuestionView(NavigationView):
         self.title_icon = questions.QUESTIONS[kwargs["category"]].small_icon
 
         context = super(QuestionView, self).get_context_data(**kwargs)
-        shares = questions.get_category_shares(
-            category=kwargs["category"], session=self.request.session
+        context["answers"] = questions.get_category_answers(
+            kwargs["category"], self.request.session
         )
-        context["category_percentage_done"] = round(shares.done * 100)
-        context["category_percentage_correct"] = round(shares.correct * 100)
         return context
 
     def get(self, request, *args, **kwargs):
@@ -242,43 +246,6 @@ class QuestionView(NavigationView):
 
         context = self.get_context_data(**kwargs, question=next_question)
         return self.render_to_response(context)
-
-
-class AnswerView(NavigationView):
-    template_name = "navigation/answer.html"
-    back_url = "navigation:dashboard"
-    footer_links = {
-        "info": {"enabled": True},
-        "dashboard": {"selected": True, "enabled": True},
-        "leaf": {"enabled": True},
-        "results": {"enabled": True},
-    }
-
-    def get_context_data(self, question, **kwargs):
-        self.title = questions.QUESTIONS[question.category].label
-        self.title_icon = questions.QUESTIONS[question.category].small_icon
-        context = super(AnswerView, self).get_context_data(**kwargs)
-        context["question"] = question
-        return context
-
-    def get(self, request, **kwargs):
-        question_name = request.session.get("last_answered_question")
-        if question_name is None:
-            raise ValueError("No question answered yet!")
-        question = questions.get_question_from_name(question_name)
-        context = self.get_context_data(question=question, **kwargs)
-        return self.render_to_response(context)
-
-
-class AnswerScoreView(TemplateView):
-    template_name = "navigation/answer_score.html"
-
-    def get_context_data(self, question, answer, **kwargs):
-        context = super(AnswerScoreView, self).get_context_data(**kwargs)
-        context["answer"] = answer
-        context["question"] = question
-        context["points"] = questions.SCORE_CORRECT if answer else questions.SCORE_WRONG
-        return context
 
     def post(self, request, **kwargs):
         question = questions.get_question_from_name(request.POST["question"])
@@ -300,11 +267,39 @@ class AnswerScoreView(TemplateView):
             request.session["last_answered_question"] = question.name
         request.session.save()
 
-        context = self.get_context_data(question=question, answer=answer, **kwargs)
+        return redirect("navigation:answer")
+
+
+class AnswerView(NavigationView):
+    template_name = "navigation/answer.html"
+    back_url = "navigation:dashboard"
+    footer_links = {
+        "info": {"enabled": True},
+        "dashboard": {"selected": True},
+        "leaf": {"enabled": True},
+        "results": {"enabled": True},
+    }
+
+    def get_context_data(self, question, **kwargs):
+        self.title = questions.QUESTIONS[question.category].label
+        self.title_icon = questions.QUESTIONS[question.category].small_icon
+        context = super(AnswerView, self).get_context_data(**kwargs)
+        context["question"] = question
+        context["answer"] = self.request.session["questions"][question.category][
+            question.name
+        ]
+        return context
+
+    def get(self, request, **kwargs):
+        question_name = request.session.get("last_answered_question")
+        if question_name is None:
+            raise ValueError("No question answered yet!")
+        question = questions.get_question_from_name(question_name)
+        context = self.get_context_data(question=question, **kwargs)
         return self.render_to_response(context)
 
 
-class CategoryFinishedView(TemplateView):
+class CategoryFinishedView(PosthogMixin, TemplateView):
     template_name = "navigation/category_finished.html"
 
     def get_context_data(self, **kwargs):
@@ -314,12 +309,11 @@ class CategoryFinishedView(TemplateView):
         }
 
 
-class QuizFinishedView(TemplateView):
+class QuizFinishedView(PosthogMixin, TemplateView):
     template_name = "navigation/quiz_finished.html"
 
     def get_context_data(self, **kwargs):
         context = super(QuizFinishedView, self).get_context_data(**kwargs)
-        context["feedback_given"] = self.request.session.get("feedback_given", False)
         context["points"] = questions.get_total_score(self.request.session)
         return context
 
@@ -342,7 +336,7 @@ class QuizFinishedView(TemplateView):
             return redirect("navigation:landing_page")
 
 
-class ShareScoreView(TemplateView):
+class ShareScoreView(PosthogMixin, TemplateView):
     template_name = "navigation/finished_base.html"
 
     def get_context_data(self, **kwargs):
@@ -363,7 +357,26 @@ class LegalView(NavigationView):
     def get_context_data(self, **kwargs):
         context = super(LegalView, self).get_context_data(**kwargs)
         context["info_table"] = widgets.InfoTable()
+        context["feedback"] = kwargs.get("feedback", forms.FeedbackForm(),)
+        context["bug"] = kwargs.get(
+            "bug", forms.BugForm(initial={"type": models.Bug.TECHNICAL}),
+        )
         return context
+
+    def post(self, request, **kwargs):
+        if "bug" in request.POST:
+            bug = forms.BugForm(request.POST)
+            if bug.is_valid():
+                bug.save()
+            else:
+                return self.render_to_response(self.get_context_data(bug=bug))
+        elif "feedback" in request.POST:
+            feedback = forms.FeedbackForm(request.POST)
+            if feedback.is_valid():
+                feedback.save()
+            else:
+                return self.render_to_response(self.get_context_data(feedback=feedback))
+        return redirect("navigation:legal")
 
 
 class QuestionsAsTextView(NavigationView):
@@ -381,7 +394,7 @@ class QuestionsAsTextView(NavigationView):
         return context
 
 
-class LandingPageView(TemplateView):
+class LandingPageView(PosthogMixin, TemplateView):
     template_name = "navigation/landing_page.html"
     footer_links = {"dashboard": {"selected": True}}
 
@@ -389,42 +402,24 @@ class LandingPageView(TemplateView):
         context = super(LandingPageView, self).get_context_data(**kwargs)
         if "visited" in self.request.GET:
             context["visited"] = True
+        if "privacy" in self.request.session:
+            context["privacy_accepted"] = True
         return context
 
 
-class FeedbackView(NavigationView):
-    template_name = "navigation/feedback.html"
-    back_url = "navigation:finished_quiz"
-    footer_links = {
-        "info": {"enabled": True},
-        "dashboard": {"enabled": True},
-        "leaf": {"enabled": True},
-        "results": {"enabled": True},
-    }
+class TourView(NavigationView):
+    template_name = "navigation/tour.html"
 
     def get_context_data(self, **kwargs):
-        context = super(FeedbackView, self).get_context_data(**kwargs)
-        context["feedback"] = kwargs.get(
-            "feedback",
-            forms.FeedbackForm(
-                initial={"question1": 3, "question2": 3, "question3": 3}
-            ),
-        )
+        context = super(TourView, self).get_context_data(**kwargs)
         return context
 
-    def get(self, request, *args, **kwargs):
-        if request.session.get("feedback_given", False):
-            return redirect("navigation:finished_quiz")
-        request.session["feedback_given"] = True
-        return super(FeedbackView, self).get(request, *args, **kwargs)
 
-    def post(self, request, **kwargs):
-        if "skip" in request.POST:
-            return redirect("navigation:finished_quiz")
+def accept_privacy_policy(request):
+    request.session["privacy"] = True
+    return HttpResponse()
 
-        feedback = forms.FeedbackForm(request.POST)
-        if feedback.is_valid():
-            feedback.save()
-        else:
-            return self.render_to_response(self.get_context_data(feedback=feedback))
-        return redirect("navigation:finished_quiz")
+
+def send_posthog_event(request):
+    utils.posthog_event(request, event=request.GET["event"])
+    return HttpResponse()

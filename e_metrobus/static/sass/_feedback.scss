@@ -1,8 +1,8 @@
 .feedback {
-
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-top: 1rem;
+  position: relative;
+  top: -1rem;
+  padding-left: 2px;
+  padding-right: 2px;
   padding-bottom: 2.5rem;
 
   &__form {
@@ -69,5 +69,37 @@
     @include breakpoint(medium only) {
       text-align: center;
     }
+  }
+}
+
+.bug__form {
+  padding-top: 1rem;
+
+  select {
+    background-image: none;
+  }
+}
+
+#bug_reveal {
+  padding-top: 3rem;
+}
+
+a.feedback__bug-link,
+a.feedback__bug-link:link,
+a.feedback__bug-link:hover,
+a.feedback__bug-link:active,
+a.feedback__bug-link:visited,
+a.feedback__bug-link:focus {
+  color: #252424;
+}
+
+a.feedback__bug-link {
+  display: block;
+  padding-top: 1.75rem;
+  font-weight: 700;
+
+  img {
+    height: 1rem;
+    transform: translateY(-2px);
   }
 }

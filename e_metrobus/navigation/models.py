@@ -1,5 +1,6 @@
 import uuid
 from django.db import models
+from django.utils.translation import gettext as _
 from django.core.validators import MinValueValidator, MaxValueValidator
 
 from e_metrobus.navigation import questions
@@ -17,13 +18,31 @@ class Score(models.Model):
 
 
 class Feedback(models.Model):
-    question1 = models.IntegerField(
-        validators=[MinValueValidator(1), MaxValueValidator(5)]
-    )
-    question2 = models.IntegerField(
-        validators=[MinValueValidator(1), MaxValueValidator(5)]
-    )
-    question3 = models.IntegerField(
-        validators=[MinValueValidator(1), MaxValueValidator(5)]
-    )
     comment = models.TextField(null=True, blank=True)
+
+
+class Bug(models.Model):
+    TECHNICAL = "technical"
+    USAGE = "usage"
+    CONTENT = "content"
+    OTHER = "other"
+    BUG_TYPES = (
+        (TECHNICAL, _("Technisches Problem")),
+        (USAGE, _("Schwierigkeit bei der Nutzung der App")),
+        (CONTENT, _("Inkorrekter oder unverständlicher Inhalt")),
+        (OTHER, _("Anderes")),
+    )
+    initial_descriptions = {
+        TECHNICAL: _(
+            "Etwas funktioniert nicht? Ein Link ist kaputt?"
+        ),
+        USAGE: _(
+            "Ist etwas schwierig oder frustrierend zu nutzen?"
+        ),
+        CONTENT: _("Um welchen Inhalt geht es?"),
+        OTHER: _("Kannst du uns dein Problem beschreiben?"),
+    }
+    type = models.CharField(
+        max_length=20, default=None, choices=BUG_TYPES, verbose_name=_("Problem")
+    )
+    description = models.TextField(verbose_name=_("Beschreibung"))
