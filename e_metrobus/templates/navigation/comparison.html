@@ -15,7 +15,7 @@
   <div class="grid-y comparison__wrap">
 
     <div class="cell comparison__chart">
-      {{plotly.div|safe}}
+      <div class="loader"></div>
     </div>
 
     <div class="cell comparison__btn">
@@ -50,6 +50,16 @@
 {% block javascript %}
   {{block.super}}
   <script>
-    {{plotly.script|safe}}
+    $.ajax({
+      type: "GET",
+      url: "/get_comparison_chart",
+      dataType: 'json',
+      data: {"route": "route", "emission": "co2"},
+      success: function(json)
+      {
+        $(".comparison__chart").html(json.div);
+        eval(json.script);
+      }
+    });
   </script>
 {% endblock %}
