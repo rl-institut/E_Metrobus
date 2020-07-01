@@ -14,15 +14,25 @@
     text-align: left;
   }
   &__logo {
+    position: relative;
+    height: 50vh;
     width: 100%;
     margin: 1rem 0 1rem;
     img {
-      height: 3rem;
-
+      position: absolute;
+      left: 0;
+      top: 35%;
+      width: 100%;
+      max-width: 25rem;
     }
   }
 }
 
 .grid-container.legal__wrap {
   margin-left: .5rem;
+}
+
+.tabs-panel#partners {
+  padding-left: 0;
+  padding-right: 0;
 }
