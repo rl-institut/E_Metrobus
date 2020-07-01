@@ -8,6 +8,7 @@ from e_metrobus.navigation import questions
 from e_metrobus.navigation import models
 from e_metrobus.navigation import stations
 from e_metrobus.navigation import forms
+from e_metrobus.navigation import utils
 
 
 class CheckStationsMixin:
@@ -37,6 +38,16 @@ class FeedbackMixin:
 
 
 class NavigationView(TemplateView):
+class PosthogMixin:
+    def dispatch(self, request, *args, **kwargs):
+        if not request.session.session_key:
+            request.session.save()
+
+        utils.posthog_event(request)
+        return super(PosthogMixin, self).dispatch(request, *args, **kwargs)
+
+
+class NavigationView(PosthogMixin, TemplateView):
     title = "E-MetroBus"
     title_icon = "images/icons/i_ebus_black_fill.svg"
     title_alt = None
@@ -60,7 +71,7 @@ class NavigationView(TemplateView):
         return context
 
 
-class RouteView(TemplateView):
+class RouteView(PosthogMixin, TemplateView):
     template_name = "navigation/route_dropdown.html"
 
     def get(self, request, *args, **kwargs):
@@ -107,7 +118,7 @@ class DashboardView(CheckStationsMixin, NavigationView):
                 (
                     cat_name,
                     category,
-                    questions.get_category_answers(cat_name, self.request.session)
+                    questions.get_category_answers(cat_name, self.request.session),
                 )
             )
         context["categories"] = categories
@@ -240,11 +251,9 @@ class QuestionView(NavigationView):
         self.title_icon = questions.QUESTIONS[kwargs["category"]].small_icon
 
         context = super(QuestionView, self).get_context_data(**kwargs)
-        shares = questions.get_category_shares(
-            category=kwargs["category"], session=self.request.session
+        context["answers"] = questions.get_category_answers(
+            kwargs["category"], self.request.session
         )
-        context["category_percentage_done"] = round(shares.done * 100)
-        context["category_percentage_correct"] = round(shares.correct * 100)
         return context
 
     def get(self, request, *args, **kwargs):
@@ -254,43 +263,6 @@ class QuestionView(NavigationView):
 
         context = self.get_context_data(**kwargs, question=next_question)
         return self.render_to_response(context)
-
-
-class AnswerView(NavigationView):
-    template_name = "navigation/answer.html"
-    back_url = "navigation:dashboard"
-    footer_links = {
-        "info": {"enabled": True},
-        "dashboard": {"selected": True},
-        "leaf": {"enabled": True},
-        "results": {"enabled": True},
-    }
-
-    def get_context_data(self, question, **kwargs):
-        self.title = questions.QUESTIONS[question.category].label
-        self.title_icon = questions.QUESTIONS[question.category].small_icon
-        context = super(AnswerView, self).get_context_data(**kwargs)
-        context["question"] = question
-        return context
-
-    def get(self, request, **kwargs):
-        question_name = request.session.get("last_answered_question")
-        if question_name is None:
-            raise ValueError("No question answered yet!")
-        question = questions.get_question_from_name(question_name)
-        context = self.get_context_data(question=question, **kwargs)
-        return self.render_to_response(context)
-
-
-class AnswerScoreView(TemplateView):
-    template_name = "navigation/answer_score.html"
-
-    def get_context_data(self, question, answer, **kwargs):
-        context = super(AnswerScoreView, self).get_context_data(**kwargs)
-        context["answer"] = answer
-        context["question"] = question
-        context["points"] = questions.SCORE_CORRECT if answer else questions.SCORE_WRONG
-        return context
 
     def post(self, request, **kwargs):
         question = questions.get_question_from_name(request.POST["question"])
@@ -312,11 +284,39 @@ class AnswerScoreView(TemplateView):
             request.session["last_answered_question"] = question.name
         request.session.save()
 
-        context = self.get_context_data(question=question, answer=answer, **kwargs)
+        return redirect("navigation:answer")
+
+
+class AnswerView(NavigationView):
+    template_name = "navigation/answer.html"
+    back_url = "navigation:dashboard"
+    footer_links = {
+        "info": {"enabled": True},
+        "dashboard": {"selected": True},
+        "leaf": {"enabled": True},
+        "results": {"enabled": True},
+    }
+
+    def get_context_data(self, question, **kwargs):
+        self.title = questions.QUESTIONS[question.category].label
+        self.title_icon = questions.QUESTIONS[question.category].small_icon
+        context = super(AnswerView, self).get_context_data(**kwargs)
+        context["question"] = question
+        context["answer"] = self.request.session["questions"][question.category][
+            question.name
+        ]
+        return context
+
+    def get(self, request, **kwargs):
+        question_name = request.session.get("last_answered_question")
+        if question_name is None:
+            raise ValueError("No question answered yet!")
+        question = questions.get_question_from_name(question_name)
+        context = self.get_context_data(question=question, **kwargs)
         return self.render_to_response(context)
 
 
-class CategoryFinishedView(TemplateView):
+class CategoryFinishedView(PosthogMixin, TemplateView):
     template_name = "navigation/category_finished.html"
 
     def get_context_data(self, **kwargs):
@@ -326,7 +326,7 @@ class CategoryFinishedView(TemplateView):
         }
 
 
-class QuizFinishedView(TemplateView):
+class QuizFinishedView(PosthogMixin, TemplateView):
     template_name = "navigation/quiz_finished.html"
 
     def get_context_data(self, **kwargs):
@@ -353,7 +353,7 @@ class QuizFinishedView(TemplateView):
             return redirect("navigation:landing_page")
 
 
-class ShareScoreView(TemplateView):
+class ShareScoreView(PosthogMixin, TemplateView):
     template_name = "navigation/finished_base.html"
 
     def get_context_data(self, **kwargs):
@@ -406,7 +406,7 @@ class QuestionsAsTextView(NavigationView):
         return context
 
 
-class LandingPageView(TemplateView):
+class LandingPageView(PosthogMixin, TemplateView):
     template_name = "navigation/landing_page.html"
     footer_links = {"dashboard": {"selected": True}}
 
@@ -429,4 +429,9 @@ class TourView(NavigationView):
 
 def accept_privacy_policy(request):
     request.session["privacy"] = True
+    return HttpResponse()
+
+
+def send_posthog_event(request):
+    utils.posthog_event(request, event=request.GET["event"])
     return HttpResponse()

@@ -12,7 +12,6 @@ urlpatterns = [
     path("dashboard/", view=views.DashboardView.as_view(), name="dashboard"),
     path("quiz/<str:category>/", view=views.QuestionView.as_view(), name="question"),
     path("answer/", view=views.AnswerView.as_view(), name="answer"),
-    path("answer_score/", view=views.AnswerScoreView.as_view(), name="answer_score"),
     path("tour/", view=views.TourView.as_view(), name="tour"),
     path(
         "finished/<str:category>/",
@@ -36,4 +35,5 @@ urlpatterns = [
     ),
     path("legal/", view=views.LegalView.as_view(), name="legal"),
     path("accept_privacy_policy/", views.accept_privacy_policy),
+    path("send_posthog_event/", views.send_posthog_event),
 ]
