@@ -52,7 +52,7 @@
       animation-delay: 2s;
       animation-fill-mode: backwards;
       img {
-        max-width: 3.5rem;
+        max-width: 2.75rem;
       }
     }
     &--tu {
@@ -61,7 +61,7 @@
       animation-fill-mode: backwards;
       img {
         margin-top: 0.3rem;
-        max-width: 4rem;
+        max-width: 3.25rem;
       }
     }
     &--rli {
@@ -70,7 +70,7 @@
       animation-fill-mode: backwards;
       img {
         margin-top: 0.5rem;
-        max-width: 4rem;
+        max-width: 3.25rem;
       }
     }
     &--bmwi {
@@ -78,7 +78,8 @@
       animation-delay: 2.45s;
       animation-fill-mode: backwards;
       img {
-        max-width: 14rem;
+        width: 100%;
+        max-width: 22rem;
       }
     }
   }
