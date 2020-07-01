@@ -187,7 +187,7 @@ $desktop-padding-small: 2.25rem;
 $desktop-padding-xsmall: 1.125rem;
 
 .grid-x.grid-width--large {
-  max-width: 62.5rem;
+  max-width: 75rem;
   padding-right: $desktop-padding-xsmall;
   padding-left: $desktop-padding-xsmall;
 }
@@ -197,14 +197,15 @@ $desktop-padding-xsmall: 1.125rem;
   flex-direction: row;
   justify-content: center;
   padding-top: $desktop-padding-medium;
+  padding-bottom: $desktop-padding-large;  
+}
 
-  .desktop-header {
-    &__frame {
-      background-color: $primary-color-1;
-      border-radius: $border-radius;
-      padding: $desktop-padding-medium;
-      text-align: center;
-    }
+.desktop-header {
+  &__frame {
+    background-color: $primary-color-1;
+    border-radius: $border-radius;
+    padding: $desktop-padding-medium;
+    text-align: center;
   }
 
   h1 {
@@ -215,6 +216,65 @@ $desktop-padding-xsmall: 1.125rem;
   span {
     font-size: 2rem;
     font-weight: 300;
+  }
+}
+
+.desktop-app {
+  
+  .desktop-app__text {
+    padding-left: $desktop-padding-medium;
+
+    & > div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .heading {
+
+      h2 {
+        font-size: 1.55rem;
+        font-weight: 700;
+        padding-bottom: $desktop-padding-medium;
+      }
+
+      h2 .heading--highlight {
+        color: $white;
+        background-color: $secondary-color;
+        padding: .75rem;
+      }
+    }
+
+    .icons {
+      padding-bottom: $desktop-padding-medium;
+
+      .icons--1 {
+        background-image: url(../images/icons/i_quiz_black.svg);
+      }
+      .icons--2 {
+        background-image: url(../images/icons/i_pin_black.svg);
+      }
+      .icons--3 {
+        background-image: url(../images/icons/i_flash_black.svg);
+      }
+      & > div {
+        height: 3.25rem;
+        width: 3.25rem;
+        margin-right: $desktop-padding-small;
+        display: inline-block;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+    }
+
+    .benefits p {
+      font-size: 1.25rem;
+      line-height: 1.875rem;
+      text-align: left;
+      margin-bottom: $desktop-padding-xsmall;
+    }
   }
 }
 

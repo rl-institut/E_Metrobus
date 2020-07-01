@@ -2,12 +2,39 @@
 {% load static %}
 {% load i18n %}
 
-<div class="desktop show-for-large">
+<div class="show-for-large">
 
-  <section class="grid-x align-center grid-width--large desktop-header">
-    <div class="cell large-10 desktop-header__frame">
-      <h1>{% trans 'E-Metrobus Berlin' %}</h1>
-      <span>{% trans 'Elektrifizierung von Gelenkbussen im Berliner ÖPNV mit Schnellladeinfrastruktur' %}</span>
+  <section class="desktop desktop-header">
+    <div class="grid-x align-center grid-width--large">
+      <div class="cell large-9 desktop-header__frame">
+        <h1>{% trans 'E-Metrobus Berlin' %}</h1>
+        <span>{% trans 'Elektrifizierung von Gelenkbussen im Berliner ÖPNV mit Schnellladeinfrastruktur' %}</span>
+      </div>
+    </div>
+  </section>
+  
+  <section class="desktop desktop-app">
+    <div class="grid-x align-center grid-width--large">
+      <div class="cell large-3 desktop-app__img">
+        <img src="/static/images/LP_Device_v2.png" alt="E-MetroBus App auf einem Smartphone">
+      </div>
+      <div class="cell large-9 desktop-app__text">
+        <div>
+          <div class="heading">
+            <h2>Auf Smartphones unter <span class="heading--highlight">e-metrobus.berlin</span> verfügbar</h2>
+          </div>
+          <div class="icons">
+            <div class="icons--1"></div>
+            <div class="icons--2"></div>
+            <div class="icons--3"></div>
+          </div>
+          <div class="benefits">
+            <p>Teste deine Kenntnisse über E-Mobilität mit einem Quiz</p>
+            <p>Erfahre wie viel CO2, NOx und Feinstaub du im Vergleich zu anderen Verkerhsmitteln sparst</p>
+            <p>Lerne über das E-MetroBus Projekt</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
