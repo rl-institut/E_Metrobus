@@ -29,9 +29,15 @@
     <span>{{title}}</span>
   </div>
   <div class="cell small-2 top-bar--share">
-    <a data-open="share-reveal" onclick="send_posthog_event('shared');">
-      <img src="{% static 'images/icons/i_share.svg' %}" alt="App teilen">
-    </a>
+    {% if quiz_finished %}
+      <a href="{% url 'navigation:finished_quiz' %}">
+        <img src="{% static 'images/icons/i_share.svg' %}" alt="App teilen">
+      </a>
+    {% else %}
+      <a data-open="share-reveal" onclick="send_posthog_event('shared');">
+        <img src="{% static 'images/icons/i_share.svg' %}" alt="App teilen">
+      </a>
+    {% endif %}
   </div>
 </section>
 

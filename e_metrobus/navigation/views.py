@@ -105,6 +105,8 @@ class DashboardView(CheckStationsMixin, NavigationView):
                 )
             )
         context["categories"] = categories
+        if "hashed_score" in self.request.session:
+            context["top_bar"].quiz_finished = True
 
         return context
 
