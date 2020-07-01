@@ -81,7 +81,10 @@ class DashboardView(CheckStationsMixin, NavigationView):
     back_url = None
 
     def get(self, request, *args, **kwargs):
-        if questions.all_questions_answered(request.session):
+        if (
+            questions.all_questions_answered(request.session)
+            and "hashed_score" not in request.session
+        ):
             return redirect("navigation:finished_quiz")
         return super(DashboardView, self).get(request, *args, **kwargs)
 
@@ -231,11 +234,9 @@ class QuestionView(NavigationView):
         self.title_icon = questions.QUESTIONS[kwargs["category"]].small_icon
 
         context = super(QuestionView, self).get_context_data(**kwargs)
-        shares = questions.get_category_shares(
-            category=kwargs["category"], session=self.request.session
+        context["answers"] = questions.get_category_answers(
+            kwargs["category"], self.request.session
         )
-        context["category_percentage_done"] = round(shares.done * 100)
-        context["category_percentage_correct"] = round(shares.correct * 100)
         return context
 
     def get(self, request, *args, **kwargs):
