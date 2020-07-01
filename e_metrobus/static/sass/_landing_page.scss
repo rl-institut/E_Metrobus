@@ -185,8 +185,10 @@ $desktop-padding-large: 9rem;
 $desktop-padding-medium: 4.5rem;
 $desktop-padding-small: 2.25rem;
 $desktop-padding-xsmall: 1.125rem;
+$desktop-padding-xxsmall: .6rem;
 
 .grid-x.grid-width--large {
+  width: 100%;
   max-width: 75rem;
   padding-right: $desktop-padding-xsmall;
   padding-left: $desktop-padding-xsmall;
@@ -220,6 +222,7 @@ $desktop-padding-xsmall: 1.125rem;
 }
 
 .desktop-app {
+  padding-bottom: $desktop-padding-large;  
   
   .desktop-app__text {
     padding-left: $desktop-padding-medium;
@@ -274,6 +277,67 @@ $desktop-padding-xsmall: 1.125rem;
       line-height: 1.875rem;
       text-align: left;
       margin-bottom: $desktop-padding-xsmall;
+    }
+  }
+}
+
+.desktop-project {
+
+  &__heading {
+    padding-bottom: $desktop-padding-medium;
+
+    h2 {
+      text-align: center;
+      font-size: 1.55rem;
+      font-weight: 700;
+    }
+  }
+
+  &__item {
+    padding-bottom: $desktop-padding-medium;
+
+    &:nth-of-type(2n) {
+      padding-right: $desktop-padding-small;
+    }
+
+    &:nth-of-type(2n - 1) {
+      padding-left: $desktop-padding-small;
+    }
+
+    & > div {
+      display: flex;
+      flex-direction: row;
+      justify-content: left;
+      padding-bottom: $desktop-padding-xsmall;
+    }
+    .icon {
+      height: 3.25rem;
+      width: 3.25rem;
+      display: inline-block;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .icon--1 {
+      background-image: url(../images/icons/i_time_black_line.svg);
+    }
+    .icon--2 {
+      background-image: url(../images/icons/i_government_black_line.svg);
+    }
+    .icon--3 {
+      background-image: url(../images/icons/i_ebus_black_line.svg);
+    }
+    .icon--4 {
+      background-image: url(../images/icons/i_electricity_black_line.svg);
+    }
+    .heading {
+      display: inline-block;
+      padding-left: $desktop-padding-xxsmall;
+    }
+    .heading h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      line-height: 3.25rem;
     }
   }
 }

@@ -21,7 +21,7 @@
       <div class="cell large-9 desktop-app__text">
         <div>
           <div class="heading">
-            <h2>Auf Smartphones unter <span class="heading--highlight">e-metrobus.berlin</span> verfügbar</h2>
+            <h2>{% trans 'Auf Smartphones unter <span class="heading--highlight">e-metrobus.berlin</span> verfügbar' %}</h2>
           </div>
           <div class="icons">
             <div class="icons--1"></div>
@@ -29,10 +29,62 @@
             <div class="icons--3"></div>
           </div>
           <div class="benefits">
-            <p>Teste deine Kenntnisse über E-Mobilität mit einem Quiz</p>
-            <p>Erfahre wie viel CO2, NOx und Feinstaub du im Vergleich zu anderen Verkerhsmitteln sparst</p>
-            <p>Lerne über das E-MetroBus Projekt</p>
+            <p>{% trans 'Teste deine Kenntnisse über E-Mobilität mit einem Quiz' %}</p>
+            <p>{% trans 'Erfahre wie viel CO2, NOx und Feinstaub du im Vergleich zu anderen Verkerhsmitteln sparst' %}</p>
+            <p>{% trans 'Lerne über das E-MetroBus Projekt' %}</p>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="desktop desktop-project">
+    <div class="grid-x align-center grid-width--large">
+      <div class="cell desktop-project__heading">
+        <h2>{% trans 'Über das Projekt' %}</h2>
+      </div>
+      <div class="cell large-6 desktop-project__item">
+        <div>
+          <div class="icon icon--1"></div>
+          <div class="heading">
+            <h3>{% trans 'Laufzeit' %}</h3>
+          </div>
+        </div>
+        <div class="text">
+          {% trans 'Das E-MetroBus Projekt läuft für einen Zeitraum von Januar 2019 bis Januar 2023' %}
+        </div>
+      </div>
+      <div class="cell large-6 desktop-project__item">
+        <div>
+          <div class="icon icon--2"></div>
+          <div class="heading">
+            <h3>{% trans 'Förderung' %}</h3>
+          </div>
+        </div>
+        <div class="text">
+          {% trans 'Die Förderung erfolgt als ein Forschungs- und Entwicklungsvorhaben im Rahmen der Förderrichtlinie Elektromobilität des Bundesministeriums für Verkehr und digitale Infrastruktur' %}
+        </div>
+      </div>
+      <div class="cell large-6 desktop-project__item">
+        <div>
+          <div class="icon icon--3"></div>
+          <div class="heading">
+            <h3>{% trans 'Busse' %}</h3>
+          </div>
+        </div>
+        <div class="text">
+          {% trans 'Um möglichst lange ladungsbedingte Standzeiten zu vermeiden, müssen die Busse in der Lage sein, mit einer hohen Leistung geladen zu werden' %}
+        </div>
+      </div>
+      <div class="cell large-6 desktop-project__item">
+        <div>
+          <div class="icon icon--4"></div>
+          <div class="heading">
+            <h3>{% trans 'Ladeinfrastruktur' %}</h3>
+          </div>
+        </div>
+        <div class="text">
+          {% trans 'Eine Ladeinfrastruktur von über 300kW soll erprobt werden. Der resultierende Bedarf soll sowohl mit den eigens aus Erneuerbaren Energien produziertem Strom als auch aus dem Versorgungsnetz bereitgestellt werden' %}
         </div>
       </div>
     </div>
