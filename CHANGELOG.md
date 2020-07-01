@@ -8,6 +8,10 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 ### Added
 - posthog for anonymous session tracking
 
+### Changed 
+- Implemented tabs on summary page
+- Replaced progress bar on question page with flashes
+
 ## [0.13.0] - 2020-06-29
 ### Changed
 - Removed answer score page; correct/wrong answer is showed on answer page
@@ -15,7 +19,7 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 - moved feedback and bug report to legal page
 - dashboard circles to flashes
 
-##[0.12.0] - 2020-06-26
+## [0.12.0] - 2020-06-26
 ### Added
 - BMWI and NOW logo to landing page (desktop & mobile)
 

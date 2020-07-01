@@ -11,29 +11,11 @@
 
 <div class="category__bg"></div>
 
-<div class="cell">
-  <div class="grid-x text-center align-center cat_fin" id="cat_fin">
-    <div class="cell cat_fin__congrats">
-      <span>{% trans 'Glückwunsch!' %}</span>
-    </div>
-    <div class="cell cat_fin__text">
-      <span>
-        {% blocktrans with cat_label='<br> <span id="cat_fin_name">{0}</span> <br>'|format_text:category.get_label %}Du hast die Kategorie {{cat_label}} abgeschlossen!{% endblocktrans %}
-      </span>
-    </div>
-    <div class="cell animate_answer__points" id="cat_fin_points">
-      <div class="grid-x align-center">
-        <div class="cell small-1 animate_answer__points--star">
-          <img src="{% static 'images/icons/i_star_turkis.svg' %}" alt="star">
-        </div>
-        <div class="cell small-1 animate_answer__points--star">
-          <span>{{points}}</span>
-        </div>
-      </div>
-    </div>
-    <div class="cell cat_fin__icon">
-      <img src="{% static category.icon %}">
-    </div>
+
+<div class="category-finished">
+  <div class="a-category-finished">
+    <div class="category-finished__text">{% blocktrans with cat_label=' <span id="cat_fin_name">{0}</span> '|format_text:category.get_label %}Kategorie {{cat_label}} abgeschlossen!{% endblocktrans %}</div>
+    <img src="{% static category.icon %}">
   </div>
 </div>
 {% endblock %}
