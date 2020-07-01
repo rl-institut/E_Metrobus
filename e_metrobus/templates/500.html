@@ -9,7 +9,10 @@
 		<h3>{% trans 'Etwas ist schief gelaufen' %}</h3>
 	</div>
 	<div class="error-layout__img">
-    <img class="project-content__img" src="/static/images/icons/Icon_E_Bus_BVG_empty_battery.svg" alt="{% trans 'Elektrischer Bus ohne Strom' %}">
+    	<img class="project-content__img" src="/static/images/icons/Icon_E_Bus_BVG_empty_battery.svg" alt="{% trans 'Elektrischer Bus ohne Strom' %}">
+  </div>
+  <div class="error-layout__btn">
+	<a href="{% url 'navigation:dashboard' %}"><button class="button">{% trans "Zurück zum App" %}</button></a>
   </div>
 </div>
 {% endblock content %}
