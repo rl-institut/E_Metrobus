@@ -167,15 +167,6 @@ class ComparisonView(CheckStationsMixin, NavigationView):
 
     def get_context_data(self, **kwargs):
         context = super(ComparisonView, self).get_context_data(**kwargs)
-        current_stations = [
-            stations.STATIONS[station] for station in self.request.session["stations"]
-        ]
-        route_data = stations.STATIONS.get_route_data(*current_stations)
-        chart_order = ("pedestrian", "e-bus", "e-pkw", "bus", "car")
-        context["plotly"] = chart.get_mobility_figure(
-            [int(route_data[vehicle].co2) for vehicle in chart_order],
-            title=_("CO<sub>2</sub> Emissionen [in g]<br>nach Verkehrsmittel"),
-        )
         context["info_table"] = widgets.InfoTable()
         if "first_time" not in self.request.session:
             self.request.session["first_time"] = False

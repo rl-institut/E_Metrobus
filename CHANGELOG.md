@@ -9,6 +9,7 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 - posthog for anonymous session tracking
 
 ### Changed 
+- comparison chart is loaded dynamically (ajax)
 - Implemented tabs on summary page
 - Replaced progress bar on question page with flashes
 - environment/my_route page to show comparison charts
