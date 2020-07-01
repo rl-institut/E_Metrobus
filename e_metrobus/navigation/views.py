@@ -52,7 +52,7 @@ class NavigationView(PosthogMixin, TemplateView):
 
 
 class RouteView(PosthogMixin, TemplateView):
-    template_name = "navigation/route_dropdown.html"
+    template_name = "navigation/route.html"
 
     def get(self, request, *args, **kwargs):
         context = self.get_context_data(**kwargs)

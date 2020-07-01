@@ -4,6 +4,8 @@
 {% load static %}
 {% load i18n %}
 
+{% block subtitle %} - {% trans 'Frage' %}{% endblock %}
+
 {% block content %}
 <div class="cell question">
   <form method="post" action="{% url 'navigation:question' category=question.category %}" id="question">
