@@ -1,4 +1,8 @@
+
+from django.conf import settings
+from django.http import Http404
 from django.urls import path
+from django.views.defaults import page_not_found, permission_denied, server_error
 
 from e_metrobus.navigation import views
 
@@ -13,7 +17,6 @@ urlpatterns = [
     path("dashboard/", view=views.DashboardView.as_view(), name="dashboard"),
     path("quiz/<str:category>/", view=views.QuestionView.as_view(), name="question"),
     path("answer/", view=views.AnswerView.as_view(), name="answer"),
-    path("answer_score/", view=views.AnswerScoreView.as_view(), name="answer_score"),
     path("tour/", view=views.TourView.as_view(), name="tour"),
     path(
         "finished/<str:category>/",
@@ -37,4 +40,13 @@ urlpatterns = [
     ),
     path("legal/", view=views.LegalView.as_view(), name="legal"),
     path("accept_privacy_policy/", views.accept_privacy_policy),
+    path("send_posthog_event/", views.send_posthog_event),
+    path("get_comparison_chart/", views.get_comparison_chart),
 ]
+
+if settings.DEBUG:
+    urlpatterns += [
+        path('500/', server_error),
+        path('404/', page_not_found, {'exception': Http404()}),
+        path('403/', permission_denied, {'exception': Http404()}),
+    ]

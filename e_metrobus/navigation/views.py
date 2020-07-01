@@ -1,13 +1,18 @@
-from django.shortcuts import redirect, Http404, get_object_or_404, HttpResponse
+from django.http.response import JsonResponse
+from django.shortcuts import get_object_or_404, Http404, HttpResponse, redirect
+from django.utils.translation import gettext as _
 from django.views.generic import TemplateView
 
-from e_metrobus.navigation import chart
-from e_metrobus.navigation import constants
-from e_metrobus.navigation import widgets
-from e_metrobus.navigation import questions
-from e_metrobus.navigation import models
-from e_metrobus.navigation import stations
-from e_metrobus.navigation import forms
+from e_metrobus.navigation import (
+    chart,
+    constants,
+    forms,
+    models,
+    questions,
+    stations,
+    utils,
+    widgets,
+)
 
 
 class CheckStationsMixin:
@@ -17,7 +22,16 @@ class CheckStationsMixin:
         return super(CheckStationsMixin, self).get(request, *args, **kwargs)
 
 
-class NavigationView(TemplateView):
+class PosthogMixin:
+    def dispatch(self, request, *args, **kwargs):
+        if not request.session.session_key:
+            request.session.save()
+
+        utils.posthog_event(request)
+        return super(PosthogMixin, self).dispatch(request, *args, **kwargs)
+
+
+class NavigationView(PosthogMixin, TemplateView):
     title = "E-MetroBus"
     title_icon = "images/icons/i_ebus_black_fill.svg"
     title_alt = None
@@ -41,7 +55,7 @@ class NavigationView(TemplateView):
         return context
 
 
-class RouteView(TemplateView):
+class RouteView(PosthogMixin, TemplateView):
     template_name = "navigation/route_dropdown.html"
 
     def get(self, request, *args, **kwargs):
@@ -88,7 +102,7 @@ class DashboardView(CheckStationsMixin, NavigationView):
                 (
                     cat_name,
                     category,
-                    questions.get_category_answers(cat_name, self.request.session)
+                    questions.get_category_answers(cat_name, self.request.session),
                 )
             )
         context["categories"] = categories
@@ -153,14 +167,6 @@ class ComparisonView(CheckStationsMixin, NavigationView):
 
     def get_context_data(self, **kwargs):
         context = super(ComparisonView, self).get_context_data(**kwargs)
-        current_stations = [
-            stations.STATIONS[station] for station in self.request.session["stations"]
-        ]
-        route_data = stations.STATIONS.get_route_data(*current_stations)
-        chart_order = ("pedestrian", "e-bus", "e-pkw", "bus", "car")
-        context["plotly"] = chart.get_mobility_figure(
-            [int(route_data[vehicle].co2) for vehicle in chart_order]
-        )
         context["info_table"] = widgets.InfoTable()
         if "first_time" not in self.request.session:
             self.request.session["first_time"] = False
@@ -179,30 +185,17 @@ class EnvironmentView(CheckStationsMixin, NavigationView):
 
     def get_context_data(self, **kwargs):
         context = super(EnvironmentView, self).get_context_data(**kwargs)
-
         current_stations = [
             stations.STATIONS[station] for station in self.request.session["stations"]
         ]
-        e_bus_data = stations.STATIONS.get_route_data_for_vehicle(
-            *current_stations, vehicle="e-bus"
-        )
-        user_consumption = constants.Consumption(
-            distance=stations.STATIONS.get_distance(*current_stations),
-            **e_bus_data.__dict__
-        )
-        bus_data = stations.STATIONS.get_route_data_for_vehicle(
-            *current_stations, vehicle="bus"
-        )
-        bus_consumption = constants.Consumption(distance=1, **bus_data.__dict__)
-        fleet_consumption = constants.FLEET_CONSUMPTION
-        context["user"] = user_consumption
-        context["fleet"] = fleet_consumption
-        context["comparison"] = constants.Consumption(
-            *(
-                (x - y) / x * 100 if x != 0 else 0
-                for x, y in zip(bus_consumption, user_consumption)
-            )
-        )
+        context["stations"] = current_stations
+        context["charts"] = [
+            f"{route}_{emission}"
+            for route in ("route", "fleet")
+            for emission in ("co2", "nitrogen", "fine_dust")
+        ]
+        context["route_distance"] = stations.STATIONS.get_distance(*current_stations)
+        context["fleet_distance"] = constants.FLEET_CONSUMPTION.distance
         return context
 
 
@@ -221,11 +214,9 @@ class QuestionView(NavigationView):
         self.title_icon = questions.QUESTIONS[kwargs["category"]].small_icon
 
         context = super(QuestionView, self).get_context_data(**kwargs)
-        shares = questions.get_category_shares(
-            category=kwargs["category"], session=self.request.session
+        context["answers"] = questions.get_category_answers(
+            kwargs["category"], self.request.session
         )
-        context["category_percentage_done"] = round(shares.done * 100)
-        context["category_percentage_correct"] = round(shares.correct * 100)
         return context
 
     def get(self, request, *args, **kwargs):
@@ -235,43 +226,6 @@ class QuestionView(NavigationView):
 
         context = self.get_context_data(**kwargs, question=next_question)
         return self.render_to_response(context)
-
-
-class AnswerView(NavigationView):
-    template_name = "navigation/answer.html"
-    back_url = "navigation:dashboard"
-    footer_links = {
-        "info": {"enabled": True},
-        "dashboard": {"selected": True},
-        "leaf": {"enabled": True},
-        "results": {"enabled": True},
-    }
-
-    def get_context_data(self, question, **kwargs):
-        self.title = questions.QUESTIONS[question.category].label
-        self.title_icon = questions.QUESTIONS[question.category].small_icon
-        context = super(AnswerView, self).get_context_data(**kwargs)
-        context["question"] = question
-        return context
-
-    def get(self, request, **kwargs):
-        question_name = request.session.get("last_answered_question")
-        if question_name is None:
-            raise ValueError("No question answered yet!")
-        question = questions.get_question_from_name(question_name)
-        context = self.get_context_data(question=question, **kwargs)
-        return self.render_to_response(context)
-
-
-class AnswerScoreView(TemplateView):
-    template_name = "navigation/answer_score.html"
-
-    def get_context_data(self, question, answer, **kwargs):
-        context = super(AnswerScoreView, self).get_context_data(**kwargs)
-        context["answer"] = answer
-        context["question"] = question
-        context["points"] = questions.SCORE_CORRECT if answer else questions.SCORE_WRONG
-        return context
 
     def post(self, request, **kwargs):
         question = questions.get_question_from_name(request.POST["question"])
@@ -293,11 +247,39 @@ class AnswerScoreView(TemplateView):
             request.session["last_answered_question"] = question.name
         request.session.save()
 
-        context = self.get_context_data(question=question, answer=answer, **kwargs)
+        return redirect("navigation:answer")
+
+
+class AnswerView(NavigationView):
+    template_name = "navigation/answer.html"
+    back_url = "navigation:dashboard"
+    footer_links = {
+        "info": {"enabled": True},
+        "dashboard": {"selected": True},
+        "leaf": {"enabled": True},
+        "results": {"enabled": True},
+    }
+
+    def get_context_data(self, question, **kwargs):
+        self.title = questions.QUESTIONS[question.category].label
+        self.title_icon = questions.QUESTIONS[question.category].small_icon
+        context = super(AnswerView, self).get_context_data(**kwargs)
+        context["question"] = question
+        context["answer"] = self.request.session["questions"][question.category][
+            question.name
+        ]
+        return context
+
+    def get(self, request, **kwargs):
+        question_name = request.session.get("last_answered_question")
+        if question_name is None:
+            raise ValueError("No question answered yet!")
+        question = questions.get_question_from_name(question_name)
+        context = self.get_context_data(question=question, **kwargs)
         return self.render_to_response(context)
 
 
-class CategoryFinishedView(TemplateView):
+class CategoryFinishedView(PosthogMixin, TemplateView):
     template_name = "navigation/category_finished.html"
 
     def get_context_data(self, **kwargs):
@@ -307,7 +289,7 @@ class CategoryFinishedView(TemplateView):
         }
 
 
-class QuizFinishedView(TemplateView):
+class QuizFinishedView(PosthogMixin, TemplateView):
     template_name = "navigation/quiz_finished.html"
 
     def get_context_data(self, **kwargs):
@@ -334,7 +316,7 @@ class QuizFinishedView(TemplateView):
             return redirect("navigation:landing_page")
 
 
-class ShareScoreView(TemplateView):
+class ShareScoreView(PosthogMixin, TemplateView):
     template_name = "navigation/finished_base.html"
 
     def get_context_data(self, **kwargs):
@@ -355,10 +337,7 @@ class LegalView(NavigationView):
     def get_context_data(self, **kwargs):
         context = super(LegalView, self).get_context_data(**kwargs)
         context["info_table"] = widgets.InfoTable()
-        context["feedback"] = kwargs.get(
-            "feedback",
-            forms.FeedbackForm(),
-        )
+        context["feedback"] = kwargs.get("feedback", forms.FeedbackForm(),)
         context["bug"] = kwargs.get(
             "bug", forms.BugForm(initial={"type": models.Bug.TECHNICAL}),
         )
@@ -395,7 +374,7 @@ class QuestionsAsTextView(NavigationView):
         return context
 
 
-class LandingPageView(TemplateView):
+class LandingPageView(PosthogMixin, TemplateView):
     template_name = "navigation/landing_page.html"
     footer_links = {"dashboard": {"selected": True}}
     non_bus_user = False
@@ -430,3 +409,39 @@ class TourView(NavigationView):
 def accept_privacy_policy(request):
     request.session["privacy"] = True
     return HttpResponse()
+
+
+def send_posthog_event(request):
+    utils.posthog_event(request, event=request.GET["event"])
+    return HttpResponse()
+
+
+def get_comparison_chart(request):
+    chart_order = ("pedestrian", "e-bus", "e-pkw", "bus", "car")
+    route = request.GET["route"]
+    if route == "route":
+        current_stations = [
+            stations.STATIONS[station] for station in request.session["stations"]
+        ]
+        route_data = stations.STATIONS.get_route_data(*current_stations)
+
+    elif route == "fleet":
+        route_data = stations.STATIONS.get_fleet_data()
+    else:
+        raise ValueError("Unknown route")
+
+    if request.GET["emission"] == "co2":
+        plotly_chart = chart.get_co2_figure(
+            [route_data[vehicle].co2 for vehicle in chart_order]
+        )
+    elif request.GET["emission"] == "nitrogen":
+        plotly_chart = chart.get_nitrogen_figure(
+            [route_data[vehicle].nitrogen for vehicle in chart_order]
+        )
+    elif request.GET["emission"] == "fine_dust":
+        plotly_chart = chart.get_fine_dust_figure(
+            [route_data[vehicle].fine_dust for vehicle in chart_order]
+        )
+    else:
+        raise ValueError("Unknown emission")
+    return JsonResponse({"div": plotly_chart.div, "script": plotly_chart.script})

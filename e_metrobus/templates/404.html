@@ -1,9 +1,20 @@
 {% extends "base.html" %}
 
-{% block title %}Page not found{% endblock %}
+{% load i18n %}
+
+{% block title %}{% trans 'Seite nicht gefunden' %}{% endblock %}
 
 {% block content %}
-<h1>Page not found</h1>
-
-<p>This is not the page you were looking for.</p>
+<div class="error-layout">
+  <div class="error-layout__content">
+    <h1>{% trans 'Seite nicht gefunden' %}</h1>
+    <p>{% trans 'Dies ist nicht die gewünschte Seite.' %}</p>
+  </div>
+  <div class="error-layout__img">
+    <img class="project-content__img" src="/static/images/icons/Icon_E_Bus_BVG_empty_battery.svg" alt="{% trans 'Elektrischer Bus ohne Strom' %}">
+  </div>
+  <div class="error-layout__btn">
+    <a href="{% url 'navigation:dashboard' %}"><button class="button">{% trans "Zurück zur App" %}</button></a>
+  </div>
+</div>
 {% endblock content %}

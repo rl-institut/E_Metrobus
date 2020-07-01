@@ -5,15 +5,24 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project tries to adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-### Added 
+### Added
+- posthog for anonymous session tracking
 - landing page and default route for non-bus-users
 
+### Changed 
+- comparison chart is loaded dynamically (ajax)
+- Implemented tabs on summary page
+- Replaced progress bar on question page with flashes
+- environment/my_route page to show comparison charts
+
+## [0.13.0] - 2020-06-29
 ### Changed
+- Removed answer score page; correct/wrong answer is showed on answer page
 - welcome tour design (added animation)
 - moved feedback and bug report to legal page
 - dashboard circles to flashes
 
-##[0.12.0] - 2020-06-26
+## [0.12.0] - 2020-06-26
 ### Added
 - BMWI and NOW logo to landing page (desktop & mobile)
 

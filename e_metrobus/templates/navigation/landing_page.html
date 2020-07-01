@@ -21,7 +21,7 @@
               <div class="cell small-10 landpage__language--switch" {% if visited %}style="animation: none"{% endif %}>
                 {% get_current_language as LANGUAGE_CODE %}
                 {% if LANGUAGE_CODE == "de" %}
-                  <a href="/en/{% if non_bus_user %}welcome/{% endif %}?visited" data-open="language_popup">
+                  <a href="/en/{% if non_bus_user %}welcome/{% endif %}?visited" data-open="language_popup" onclick="send_posthog_event('english');">
                     <img src="{% static 'images/icons/i_flag_uk.svg' %}" alt="uk_flag">
                     <span>Switch to English</span>
                   </a>
@@ -54,7 +54,7 @@
             </a>
           </div>
           <div class="cell landpage__logo landpage__logo--bmwi" {% if visited %}style="animation: none"{% endif %}>
-            <img src="{% static 'images/logos/Logokombi_gefoerdert-durch-BMVI-koordiniert-durch-NOW_de.png' %}" alt="BMWI und NOW Logo">
+            <img src="{% static 'images/logos/Logokombi.jpg' %}" alt="Elektromobilität vor Ort, BMWI, NOW und PTJ Logo">
           </div>
         </div>
       </div>

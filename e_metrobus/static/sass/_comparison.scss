@@ -86,3 +86,10 @@ button.close-button:hover {
         padding-top: 5rem;
     }
 }
+
+.comparison__chart {
+    height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

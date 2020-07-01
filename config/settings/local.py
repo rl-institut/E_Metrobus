@@ -1,3 +1,5 @@
+import posthog
+
 from .base import *  # noqa
 from .base import env
 
@@ -60,3 +62,5 @@ INSTALLED_APPS += ["django_extensions"]  # noqa F405
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+# Disable Posthog in local mode
+posthog.disabled = True
