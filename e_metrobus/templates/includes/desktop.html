@@ -10,6 +10,18 @@
         <h1>{% trans 'E-Metrobus Berlin' %}</h1>
         <span>{% trans 'Elektrifizierung von Gelenkbussen im Berliner ÖPNV mit Schnellladeinfrastruktur' %}</span>
       </div>
+      <div class="language-flag">
+        {% get_current_language as LANGUAGE_CODE %}
+        {% if LANGUAGE_CODE == "de" %}
+          <a href="en/?visited" data-open="language_popup">
+            <img src="{% static 'images/icons/i_flag_uk.svg' %}" alt="UK Flagge">
+          </a>
+        {% else %}
+          <a href="/?visited" data-open="language_popup">
+            <img src="{% static 'images/icons/i_flag_de.svg' %}" alt="Deutschland Flagge">
+          </a>
+        {% endif %}
+      </div>
     </div>
   </section>
   

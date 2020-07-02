@@ -204,6 +204,19 @@ $desktop-padding-xxsmall: .6rem;
 }
 
 .desktop-header {
+
+  & > div {
+    position: relative;
+  }
+
+  .language-flag {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
   &__frame {
     background-color: $primary-color-1;
     border-radius: $border-radius;
