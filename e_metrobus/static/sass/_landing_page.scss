@@ -52,7 +52,7 @@
       animation-delay: 2s;
       animation-fill-mode: backwards;
       img {
-        max-width: 3.5rem;
+        max-width: 2.75rem;
       }
     }
     &--tu {
@@ -61,7 +61,7 @@
       animation-fill-mode: backwards;
       img {
         margin-top: 0.3rem;
-        max-width: 4rem;
+        max-width: 3.25rem;
       }
     }
     &--rli {
@@ -70,7 +70,7 @@
       animation-fill-mode: backwards;
       img {
         margin-top: 0.5rem;
-        max-width: 4rem;
+        max-width: 3.25rem;
       }
     }
     &--bmwi {
@@ -78,7 +78,8 @@
       animation-delay: 2.45s;
       animation-fill-mode: backwards;
       img {
-        max-width: 14rem;
+        width: 100%;
+        max-width: 22rem;
       }
     }
   }
@@ -348,6 +349,27 @@ $desktop-padding-xxsmall: .6rem;
     display: none!important;
   }
 }
+
+@media only screen and (orientation: landscape) {
+  .landscape {
+    background-image: url(/static/images/Dashboard_Pattern.svg);
+    background-size: 13rem;
+    height: 100%;
+
+    &__header {
+      font-size: 1.55rem;
+    }
+    &__subheader {
+      font-size: 1rem;
+      color: $gray-4;
+    }
+    &__text {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+  }
+}
+
 @media only screen
 and (max-width: 1024px)
 and (orientation: landscape) {
@@ -357,15 +379,11 @@ and (orientation: landscape) {
     &__header {
       padding-top: 1rem;
     }
-    &__subheader {
-      color: #8d8d8d;
-    }
     &__img {
       padding-top: 2.5rem;
     }
     &__text {
       padding-top: 2.5rem;
-      font-size: 1.5rem;
     }
     &__img img {
       height: 3rem;

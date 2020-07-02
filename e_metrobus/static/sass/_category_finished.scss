@@ -12,11 +12,13 @@
   display: flex;
   padding: 30% 1rem;
   text-align: center;
+  width: 100%;
 
   & > div {
     background-color: $primary-color-1;
     border-radius: $border-radius;
     padding: 1rem;
+    width: 100%;
   }
 
   &__text {
