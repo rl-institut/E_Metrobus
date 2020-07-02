@@ -38,6 +38,7 @@ class NavigationView(PosthogMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super(NavigationView, self).get_context_data(**kwargs)
         score = questions.get_total_score(self.request.session)
+        answers = questions.get_all_answers(self.request.session)
         context["footer"] = widgets.FooterWidget(links=self.footer_links)
         context["top_bar"] = widgets.TopBarWidget(
             title=self.title,
@@ -45,6 +46,7 @@ class NavigationView(PosthogMixin, TemplateView):
             title_alt=self.title_alt,
             back_url=self.back_url,
             score=score,
+            answers=answers,
             template=self.top_bar_template,
             request=self.request,
         )
@@ -322,15 +324,9 @@ class QuizFinishedView(PosthogMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(QuizFinishedView, self).get_context_data(**kwargs)
-        answers = questions.get_all_answers(self.request.session)
-        answers = sorted(answers, key=lambda x: x.value)
         context["footer"] = widgets.FooterWidget(links=self.footer_links)
-        context["answers"] = answers
-        context["score"] = round(
-            len([answer for answer in answers if answer == questions.Answer.Correct])
-            / len(answers)
-            * 100
-        )
+        context["answers"] = questions.get_all_answers(self.request.session)
+        context["score"] = questions.get_total_score(self.request.session)
         return context
 
     def get(self, request, *args, **kwargs):
@@ -357,7 +353,7 @@ class ShareScoreView(PosthogMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(ShareScoreView, self).get_context_data(**kwargs)
-        context["points"] = get_object_or_404(models.Score, hash=kwargs["hash"]).score
+        context["score"] = get_object_or_404(models.Score, hash=kwargs["hash"]).score
         return context
 
 

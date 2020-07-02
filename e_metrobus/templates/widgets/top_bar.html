@@ -29,35 +29,53 @@
     <span>{{title}}</span>
   </div>
   <div class="cell small-2 top-bar--share">
-    {% if quiz_finished %}
-      <a href="{% url 'navigation:finished_quiz' %}">
-        <img src="{% static 'images/icons/i_share.svg' %}" alt="App teilen">
-      </a>
-    {% else %}
-      <a data-open="share-reveal" onclick="send_posthog_event('shared');">
-        <img src="{% static 'images/icons/i_share.svg' %}" alt="App teilen">
-      </a>
-    {% endif %}
+    <a data-open="share-reveal" onclick="send_posthog_event('shared');">
+      <img src="{% static 'images/icons/i_share.svg' %}" alt="App teilen">
+    </a>
   </div>
 </section>
 
 <div class="reveal" id="share-reveal" data-reveal>
+  {% if quiz_finished %}
+    <div class="cell quiz-finished">
+      <div class="grid-x text-center align-center">
+        <div class="cell quiz-finished__heading">
+          {% trans 'Quiz erledigt!' %}
+        </div>
+        <div class="cell quiz-finished__wrap a-quiz-finished">
+          <p>{% blocktrans with score="<span>{}</span>"|format_text:score %}{{score}}% richtig beantwortet{% endblocktrans %}</p>
+          <div class="quiz-finished__flash">
+            {% for answer in answers %}
+              {% if answer.value == "correct" %}
+                <img src="{% static 'images/icons/i_flash_correct.svg' %}" alt="Flash">
+              {% else %}
+                <img src="{% static 'images/icons/i_flash_white.svg' %}" alt="Flash">
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        <div class="cell quiz-finished__slogan a-quiz-finished-slogan">
+          Ich bin ein lustiger BVG Spruch zu meinen Puntken
+        </div>
+      </div>
+    </div>
+  {% endif %}
   <div class="grid-x share-reveal" id="share-buttons">
     <div class="cell share-reveal__title">
       <span><img src="{% static 'images/icons/i_share.svg' %}" alt="App teilen" class="share-reveal__icon">App teilen</span>
     </div>
     <div class="cell small-4 share-reveal__icon">
-      <a href="http://www.facebook.com/sharer.php?u={{request.scheme}}://{{request.get_host}}{% url 'navigation:landing_page' %}" target="_blank">
+      <a href="http://www.facebook.com/sharer.php?u={{share_url}}" target="_blank">
         <img src="{% static 'images/icons/i_fb.png' %}" alt="Facebook Icon">
       </a>
     </div>
     <div class="cell small-4 share-reveal__icon">
-      <a href="whatsapp://send?text=text%20{{request.scheme}}://{{request.get_host}}{% url 'navigation:landing_page' %}">
+      <a href="whatsapp://send?text=text%20{{share_url}}">
         <img src="{% static 'images/icons/i_whatsapp.png' %}" alt="Whatsapp Icon">
       </a>
     </div>
     <div class="cell small-4 share-reveal__icon">
-      <a href="tg://msg_url?url={{request.scheme}}://{{request.get_host}}{% url 'navigation:landing_page' %}&amp;text=text">
+      <a href="tg://msg_url?url={{share_url}}&amp;text=text">
         <img src="{% static 'images/icons/i_telegram.png' %}" alt="Telegram Icon">
       </a>
     </div>
