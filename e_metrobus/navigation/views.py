@@ -22,6 +22,26 @@ class CheckStationsMixin:
         return super(CheckStationsMixin, self).get(request, *args, **kwargs)
 
 
+class FeedbackMixin:
+    def get_context_data(self, **kwargs):
+        context = super(FeedbackMixin, self).get_context_data(**kwargs)
+        context["feedback"] = kwargs.get(
+            "feedback",
+            forms.FeedbackForm(),
+        )
+        return context
+
+    def dispatch(self, request, *args, **kwargs):
+        if request.method == "POST" and "feedback" in request.POST:
+            feedback = forms.FeedbackForm(request.POST)
+            if feedback.is_valid():
+                feedback.save()
+            else:
+                kwargs["feedback"] = feedback
+            return self.get(request, kwargs)
+        return super(FeedbackMixin, self).dispatch(request, **kwargs)
+
+
 class PosthogMixin:
     def dispatch(self, request, *args, **kwargs):
         if not request.session.session_key:
@@ -325,7 +345,7 @@ class ShareScoreView(PosthogMixin, TemplateView):
         return context
 
 
-class LegalView(NavigationView):
+class LegalView(FeedbackMixin, NavigationView):
     template_name = "navigation/legal.html"
     footer_links = {
         "info": {"selected": True},
@@ -337,7 +357,6 @@ class LegalView(NavigationView):
     def get_context_data(self, **kwargs):
         context = super(LegalView, self).get_context_data(**kwargs)
         context["info_table"] = widgets.InfoTable()
-        context["feedback"] = kwargs.get("feedback", forms.FeedbackForm(),)
         context["bug"] = kwargs.get(
             "bug", forms.BugForm(initial={"type": models.Bug.TECHNICAL}),
         )
@@ -350,12 +369,8 @@ class LegalView(NavigationView):
                 bug.save()
             else:
                 return self.render_to_response(self.get_context_data(bug=bug))
-        elif "feedback" in request.POST:
-            feedback = forms.FeedbackForm(request.POST)
-            if feedback.is_valid():
-                feedback.save()
-            else:
-                return self.render_to_response(self.get_context_data(feedback=feedback))
+        if "feedback" in request.POST:
+            return self.render_to_response(self.get_context_data(**kwargs))
         return redirect("navigation:legal")
 
 
@@ -374,7 +389,7 @@ class QuestionsAsTextView(NavigationView):
         return context
 
 
-class LandingPageView(PosthogMixin, TemplateView):
+class LandingPageView(PosthogMixin, FeedbackMixin, TemplateView):
     template_name = "navigation/landing_page.html"
     footer_links = {"dashboard": {"selected": True}}
 
