@@ -6,6 +6,7 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 
 ## [Unreleased]
 ### Added
+- feedback form on landing page
 - posthog for anonymous session tracking
 
 ### Changed 
