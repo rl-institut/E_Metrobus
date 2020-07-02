@@ -146,7 +146,7 @@
     <div class="grid-x align-center grid-width--large">
       <div class="desktop-contact__frame">
         <p>{% trans 'Möchtest du Feedback zum Projekt geben?' %}</p>
-        <button class="button">{% trans 'Kontaktiere uns' %}</button>
+        <button class="button" data-open="feedback_reveal">{% trans 'Kontaktiere uns' %}</button>
       </div>
     </div>
   </section>
@@ -175,6 +175,24 @@
       </div>
     </div>
   </section>
+
+  <div class="reveal" id="feedback_reveal" data-reveal>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <form method="post" class="feedback__form">
+      {% csrf_token %}
+      {{feedback}}
+      <input type="hidden" name="feedback">
+      <div class="cell feedback__btn">
+        <div class="grid-x align-center text-center">
+          <div class="cell">
+            <button class="button--yellow" type="submit" style= "cursor:pointer">{% trans 'Meinung schicken' %}</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
 
 </div>
 
