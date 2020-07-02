@@ -188,6 +188,13 @@ $desktop-padding-small: 2.25rem;
 $desktop-padding-xsmall: 1.125rem;
 $desktop-padding-xxsmall: .6rem;
 
+@mixin yellow-card($padding) {
+  background-color: $primary-color-1;
+  border-radius: $border-radius;
+  padding: $padding;
+  text-align: center;
+}
+
 .grid-x.grid-width--large {
   width: 100%;
   max-width: 75rem;
@@ -199,11 +206,11 @@ $desktop-padding-xxsmall: .6rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding-top: $desktop-padding-medium;
   padding-bottom: $desktop-padding-large;  
 }
 
 .desktop-header {
+  padding-top: $desktop-padding-medium;
 
   & > div {
     position: relative;
@@ -218,10 +225,7 @@ $desktop-padding-xxsmall: .6rem;
   }
 
   &__frame {
-    background-color: $primary-color-1;
-    border-radius: $border-radius;
-    padding: $desktop-padding-medium;
-    text-align: center;
+    @include yellow-card($desktop-padding-medium);
   }
 
   h1 {
@@ -357,7 +361,6 @@ $desktop-padding-xxsmall: .6rem;
 }
 
 .desktop-partners {
-
   &__heading {
     padding-bottom: $desktop-padding-medium;
 
@@ -387,6 +390,17 @@ $desktop-padding-xxsmall: .6rem;
     }
     .desktop-partners__text {
       padding-bottom: $desktop-padding-medium;
+    }
+  }
+}
+
+.desktop-contact {
+  &__frame {
+    @include yellow-card($desktop-padding-small);
+
+    p {
+      font-size: 1.25rem;
+      font-weight: 700;
     }
   }
 }
