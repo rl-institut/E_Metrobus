@@ -202,11 +202,16 @@ $desktop-padding-xxsmall: .6rem;
   padding-left: $desktop-padding-xsmall;
 }
 
+.grid-x.grid-width--100 {
+  width: 100%;
+}
+
 .desktop {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding-bottom: $desktop-padding-large;  
+  padding-bottom: 0;
+  margin-bottom: $desktop-padding-large;  
 }
 
 .desktop-header {
@@ -239,8 +244,7 @@ $desktop-padding-xxsmall: .6rem;
   }
 }
 
-.desktop-app {
-  padding-bottom: $desktop-padding-large;  
+.desktop-app { 
   
   .desktop-app__text {
     padding-left: $desktop-padding-medium;
@@ -408,6 +412,18 @@ $desktop-padding-xxsmall: .6rem;
       font-size: 1.25rem;
       font-weight: 700;
     }
+  }
+}
+
+.desktop-img {
+  height: 30rem;
+  padding-bottom: 0;
+  .img {
+    width: 100%;
+    background-image: url(../images/E_bus_img.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 }
 
