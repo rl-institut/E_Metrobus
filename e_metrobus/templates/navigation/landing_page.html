@@ -18,7 +18,7 @@
             <span>{% trans 'Toll, dass du mit einem E-Bus fährst!' %}</span>
           </div>
           <div class="landpage__button-btn">
-            <a href="{% url 'navigation:route' %}"><button id="animateLPButton" name="boarding" class="button" {% if visited %}style="animation: none"{% endif %}>{% trans 'Zeig mir warum!' %}</button></a>
+            <a href="{% url 'navigation:route' %}"><button name="boarding" class="button a-lp-btn" {% if visited %}style="animation: none"{% endif %}>{% trans 'Zeig mir warum!' %}</button></a>
           </div>
           <div class="landpage__language">
             <div class="grid-x align-center text-center">

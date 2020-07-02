@@ -18,25 +18,14 @@
   }
 }
 
-@keyframes animateLPButton {
+@keyframes a-lp-btn {
   0% {
-    transform: scale(1, 1) translateY(-150px);
+    transform: translateY(-150px);
     opacity: 0;
   }
-  50% {
-    opacity: 1;
-  }
-  60% {
-    transform: scale(1, 1) translateY(0);
-  }
-  73% {
-    transform: scale(1.15, .85) translateY(0);
-  }
-  87% {
-    transform: scale(1, 1) translateY(-10px);
-  }
   100% {
-    transform: scale(1, 1) translateY(0);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -60,10 +49,14 @@
 
 .landpage {
   height: 100%;
-  margin: 2rem 1rem 0;
+  margin: 1.5rem 1rem 0;
 
-  @media only screen and (max-height: 666px) {
-    margin: 1rem 1rem 0;
+  @media only screen and (min-height: 667px) {
+    margin: 15% 1rem 0;
+  }
+
+  @media only screen and (min-height: 800px) {
+    margin: 20% 1rem 0;
   }
 
   &__text {
@@ -118,12 +111,8 @@
     }
   }
 
-  #animateLPButton {
-    animation: animateLPButton;
-    animation-fill-mode: backwards;
-    animation-delay: 1s;
-    animation-duration: .5s;
-    animation-timing-function: linear;
+  .a-lp-btn {
+    animation: a-lp-btn .75s $cubic-bezier-ease-out 1s both;
   }
 
   &__button {
