@@ -223,10 +223,28 @@ $desktop-padding-xxsmall: .6rem;
 
   .language-flag {
     position: absolute;
+    text-align: left;
     top: 0;
     right: 0;
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 8rem;
+
+    a, a:link, a:hover, a:visited, a:active, a:focus {
+      color: $secondary-color;
+    }
+
+    img {
+      display: inline-block;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+
+    span {
+      display: inline-block;
+      font-size: 1rem;
+      font-weight: 400;
+      padding-left: .25rem;
+      transform: translateY(2px);
+    }
   }
 
   &__frame {

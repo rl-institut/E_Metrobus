@@ -15,10 +15,12 @@
         {% if LANGUAGE_CODE == "de" %}
           <a href="en/?visited" data-open="language_popup">
             <img src="{% static 'images/icons/i_flag_uk.svg' %}" alt="UK Flagge">
+            <span>English</span>
           </a>
         {% else %}
           <a href="/?visited" data-open="language_popup">
             <img src="{% static 'images/icons/i_flag_de.svg' %}" alt="Deutschland Flagge">
+            <span>Deutsch</span>
           </a>
         {% endif %}
       </div>
