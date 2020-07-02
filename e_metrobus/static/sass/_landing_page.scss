@@ -140,6 +140,10 @@
       animation: fadein 1.5s;
       animation-fill-mode: backwards;
       animation-delay: 2.6s;
+      a {
+        padding-top: .5rem;
+        padding-bottom: .5rem;
+      }
       img {
         height: 1.25rem;
         margin: 0.5rem;
@@ -147,7 +151,7 @@
       span {
         vertical-align: middle;
         color: $secondary-color;
-        font-size: 1rem;
+        font-size: .8rem;
       }
     }
     &--popup {
@@ -175,6 +179,7 @@
     font-size: .64rem;
     text-align: left;
     padding: 0 .5rem;
+    color: $gray-4;
     p {
     margin-bottom: 0;
       @media only screen and (min-height: 650px) {
