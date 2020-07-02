@@ -417,13 +417,34 @@ $desktop-padding-xxsmall: .6rem;
 
 .desktop-img {
   height: 30rem;
-  padding-bottom: 0;
+  
   .img {
     width: 100%;
     background-image: url(../images/E_bus_img.png);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+  }
+}
+
+.desktop-footer {
+  margin-bottom: $desktop-padding-medium;
+
+  .cell {
+    text-align: center;
+  }
+
+  ul {
+    li {
+      display: inline-block;
+    }
+    a, a:link, a:hover, a:visited, a:active, a:focus {
+      color: $secondary-color;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
   }
 }
 
