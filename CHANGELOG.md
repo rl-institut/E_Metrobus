@@ -6,12 +6,15 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 
 ## [Unreleased]
 ### Added
+- feedback form on landing page
 - posthog for anonymous session tracking
 - finished quiz includes link back to dashboard 
 
 ### Changed 
+- comparison chart is loaded dynamically (ajax)
 - Implemented tabs on summary page
 - Replaced progress bar on question page with flashes
+- environment/my_route page to show comparison charts
 
 ## [0.13.0] - 2020-06-29
 ### Changed

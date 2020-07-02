@@ -125,5 +125,26 @@
         </div>
       </div>
     </div>
+
+    <button class="button--yellow" data-open="feedback_reveal">{% trans 'Feedback geben' %}</button>
+    <div class="reveal" id="feedback_reveal" data-reveal>
+      <button class="close-button" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+      </button>
+
+      <form method="post" class="feedback__form">
+        {% csrf_token %}
+        {{feedback}}
+        <input type="hidden" name="feedback">
+        <div class="cell feedback__btn">
+          <div class="grid-x align-center text-center">
+            <div class="cell">
+              <button class="button--yellow" type="submit" style= "cursor:pointer">{% trans 'Meinung schicken' %}</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
   </div>
 </div>

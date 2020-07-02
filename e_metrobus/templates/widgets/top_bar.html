@@ -4,15 +4,15 @@
 
 <section class="grid-x top-bar">
   {% if back_url %}
-    <div class="cell small-1 top-bar--back">
+    <div class="top-bar--back">
       <a href="{% url back_url %}">
         <div>
-          <img src="{% static 'images/icons/i_back_black.svg' %}" alt="Zurück">
+          <img src="{% static 'images/icons/i_previous_black_large.svg' %}" alt="Zurück">
         </div>
       </a>
     </div>
   {% endif %}
-  <div class="cell small-2 top-bar--language">
+  <div class="top-bar--language">
     {% get_current_language as LANGUAGE_CODE %}
     {% if LANGUAGE_CODE == 'de' %}
       <a href="{% translate_url 'en' %}" onclick="send_posthog_event('english');">
@@ -24,11 +24,11 @@
       </a>
     {% endif %}
   </div>
-  <div class="cell small-5 top-bar--header">
+  <div class="top-bar--header">
     <img src="{% static title_icon %}" alt="{{title_alt}}">
     <span>{{title}}</span>
   </div>
-  <div class="cell small-2 top-bar--share">
+  <div class="top-bar--share">
     <a data-open="share-reveal" onclick="send_posthog_event('shared');">
       <img src="{% static 'images/icons/i_share.svg' %}" alt="App teilen">
     </a>
