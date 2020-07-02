@@ -356,6 +356,41 @@ $desktop-padding-xxsmall: .6rem;
   }
 }
 
+.desktop-partners {
+
+  &__heading {
+    padding-bottom: $desktop-padding-medium;
+
+    h2 {
+      text-align: center;
+      font-size: 1.55rem;
+      font-weight: 700;
+    }
+  }
+
+  &__item {
+    .desktop-partners__logo {
+      text-align: center;
+      padding-bottom: $desktop-padding-small;
+
+      &--BVG img {
+        height: 5rem;
+      }
+
+      &--RLI img {
+        height: 4rem;
+      }
+
+      &--TUB img {
+        height: 4rem;
+      }
+    }
+    .desktop-partners__text {
+      padding-bottom: $desktop-padding-medium;
+    }
+  }
+}
+
 // CSS for Landscape only
 @media only screen and (min-width: 1024px) {
   .grid-container.landscape {
