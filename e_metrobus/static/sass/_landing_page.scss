@@ -38,6 +38,12 @@
   height: 100%;
   margin: 1rem 1rem 0;
 
+  &__text {
+    animation: fadein 2s;
+    animation-delay: 2s;
+    animation-fill-mode: backwards;
+  }
+
     &__logo {
     margin: .25rem 0;
 
@@ -49,7 +55,7 @@
     }
     &--bvg {
       animation: fadein 2s;
-      animation-delay: 2s;
+      animation-delay: 2.15s;
       animation-fill-mode: backwards;
       img {
         max-width: 2.75rem;
@@ -57,7 +63,7 @@
     }
     &--tu {
       animation: fadein 2s;
-      animation-delay: 2.15s;
+      animation-delay: 2.3s;
       animation-fill-mode: backwards;
       img {
         margin-top: 0.3rem;
@@ -66,7 +72,7 @@
     }
     &--rli {
       animation: fadein 2s;
-      animation-delay: 2.3s;
+      animation-delay: 2.45s;
       animation-fill-mode: backwards;
       img {
         margin-top: 0.5rem;
@@ -162,6 +168,17 @@
       img {
         height: 1.5rem;
         margin: 1rem;
+      }
+    }
+  }
+  &__text {
+    font-size: .64rem;
+    text-align: left;
+    padding: 0 .5rem;
+    p {
+    margin-bottom: 0;
+      @media only screen and (min-height: 650px) {
+        margin-bottom: 1rem;
       }
     }
   }
