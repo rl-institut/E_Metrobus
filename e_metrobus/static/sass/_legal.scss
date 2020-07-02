@@ -32,6 +32,18 @@
   margin-left: .5rem;
 }
 
+@media screen and (min-width: 600px) {
+  .custom-tabs.legal li {
+    width: 33.33%;
+
+    &:last-of-type a {
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+  }
+}
+
+
 .tabs-panel#partners {
   padding-left: 0;
   padding-right: 0;
