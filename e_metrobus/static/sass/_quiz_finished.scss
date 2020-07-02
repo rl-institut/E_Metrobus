@@ -13,6 +13,7 @@
     font-size: 1.25rem;
     text-align: center;  
     margin-bottom: 2rem;
+    margin-top: 3rem;
   }
   &__icon {
     text-align: center;
@@ -74,6 +75,21 @@
   &__btn {
     position: absolute;
     bottom: 5rem;
+  }
+
+  &__reveal-wrap {
+    background-color: $primary-color-1;
+    border-radius: $border-radius;
+    font-size: 1rem;
+    padding: 1.5rem 1rem 1.5rem;
+
+    .highlight {
+      font-weight: 700;
+    }
+
+    .sub {
+      margin-bottom: 0;
+    }
   }
 }
 
