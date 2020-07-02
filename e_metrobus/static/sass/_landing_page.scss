@@ -318,8 +318,12 @@ $desktop-padding-xxsmall: .6rem;
       padding-right: $desktop-padding-small;
     }
 
-    &:nth-of-type(2n - 1) {
+    &:nth-of-type(2n-1) {
       padding-left: $desktop-padding-small;
+    }
+
+    &:nth-last-of-type(-n+2) {
+      padding-bottom: 0;
     }
 
     & > div {
@@ -372,6 +376,8 @@ $desktop-padding-xxsmall: .6rem;
   }
 
   &__item {
+    padding-bottom: $desktop-padding-medium;
+
     .desktop-partners__logo {
       text-align: center;
       padding-bottom: $desktop-padding-small;
@@ -388,8 +394,8 @@ $desktop-padding-xxsmall: .6rem;
         height: 4rem;
       }
     }
-    .desktop-partners__text {
-      padding-bottom: $desktop-padding-medium;
+    &:last-of-type {
+      padding-bottom: 0;
     }
   }
 }
