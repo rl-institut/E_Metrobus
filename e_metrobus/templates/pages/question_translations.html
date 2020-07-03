@@ -95,6 +95,24 @@
     [[[advantages]]]
       label = {% trans "Vorteile" %}
       question = {% trans "Was sind Vorteile einer elektrifizierten Buslinie? (Mehrfachauswahl noch nicht möglich)" %}
-      answers = {% trans "Weniger CO<sub>2</sub>-Belastung", "Weniger Lärmbelastung", "Kürzere Fahrzeiten", "Günstigere Fahrkarten" %}
+      answers = {% trans "Weniger CO<sub>2</sub>-Belastung" %}, {% trans "Weniger Lärmbelastung" %}, {% trans "Kürzere Fahrzeiten" %}, {% trans "Günstigere Fahrkarten" %}
       correct = 0
       short_answer = {% trans "Vorteile sind unte anderem eine geringere CO<sub>2</sub>- und Lärm-Belastung" %}
+    [[[footprint]]]
+      label = {% trans "Wahl des Verkehrsmittels" %}
+      question = {% trans "Warum solltest auch du bei der Wahl deiner Verkehrsmittel auf den Umweltaspekt achten?" %}
+      answers = {% trans "Energieeffizienz von Bussen" %}, {% trans "Individualverkehr ggü. ÖPNV" %}, {% trans "Volle Straßen" %}, {% trans "Egal" %}
+      correct = 0, 1
+      short_answer = {% trans "Vorteile sind unter anderem eine geringere CO<sub>2</sub>- und Lärmbelastung." %}
+    [[[e_bus]]]
+      label = {% trans "E-Bus" %}
+      question = {% trans "Woran erkennt man einen E-Bus?" %}
+      answers = {% trans "Der E-Bus produziert keine Abgase während des Fahrbetriebs." %}, {% trans "Der E-Bus hat einen sichtbaren Aufbau auf dem Dach." %}, {% trans "Der E-Bus ist leiser als ein konventioneller Bus." %}, {% trans "Der E-Bus ermöglicht kürzer Fahrzeiten." %}
+      correct = 0, 1, 2
+      short_answer = {% trans "Leider schaffen E-Busse noch keine Zeitreisen, die Fahrzeit wird also nicht kürzer. Aber alle anderen Antworten sind richtig." %}
+    [[[lines]]]
+      label = {% trans "E-Bus Linien" %}
+      question = {% trans "Auf welchen Linien (neben der Linie 200) ist jetzt schon eine Fahrt mit einem E-Bus möglich?" %}
+      answers = {% trans "Innenstadtlinien" %}, {% trans "Nachtlinien" %}, {% trans "Metrobus-Linien" %}, {% trans "Umland-Linien" %}
+      correct = 0, 1
+      short_answer = {% trans "Bis Ende 2020 wird die BVG insgesamt 120 Elektrobusse (von der Standard-Größe Eindecker) in ihrer Flotte haben. Diese sind zum Beispiel auf den Linien 142, 147, 155, 250, 294, N50 und 300 unterwegs." %}
