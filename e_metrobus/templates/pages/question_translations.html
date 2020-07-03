@@ -7,33 +7,57 @@
   [[questions]]
     [[[loading_time]]]
       label = {% trans "Ladezeiten" %}
-      question = {% trans "Wie lange muss dieser Bus an der Endhaltestelle laden?" %}
-      answers = {% trans "27-33 Minuten" %}, {% trans "1 Stunde" %}, {% trans "Wenige Minuten" %}, {% trans "30 Sekunden" %}
+      question = {% trans "Wie lange müssen die E-Gelenkbusse der 200 an den Endhaltestellen laden?" %}
+      answers = {% trans "Halbe Stunde" %}, {% trans "Eine Stunde" %}, {% trans "Wenige Minuten" %}, {% trans "Wenige Sekunden" %}
       correct = 2
-      short_answer = {% trans "Der Bus muss nur wenige Minuten laden!" %}
-    [[[line_200]]]
-      label = {% trans "Linie 200" %}
-      question = {% trans "Wann sollen E-Busse auf Linie 200 zum Einsatz kommen?" %}
-      answers = "2020", "2021", "2022", "2025"
-      correct = 0
-      short_answer = {% trans "Linie 200 soll ab dem Jahr 2020 unterwegs sein!" %}
+      short_answer = {% trans "Die Ladezeiten betragen in der Regel wenige Minuten." %}
     [[[loading]]]
       label = {% trans "Ladevorgang" %}
-      question = {% trans "Wie wird die Buslinie 200 geladen?" %}
-      answers = {% trans "Stecker", "Pantograph", "Berührungslos mittels Induktion", "Batterie wird gewechselt" %}
+      question = {% trans "Wie werden die E-Gelenkbusse auf der Linie 200 geladen?" %}
+      answers = {% trans "Stecker von der Seite" %}, {% trans "Pantograph von oben" %}, {% trans "Berührungslos mittels Induktion von unten" %}, {% trans "Batterie wird gewechselt" %}
       correct = 1
-      short_answer = {% trans "Der Bus wird mittels eines Pantographen geladen" %}
+      short_answer = {% trans "Der Bus wird an den Endhaltestellen Hertzallee und Michelangelostraße sowie im Betriebshof mit einem Pantographen aufgeladen." %}
+    [[[batteries]]]
+      label = {% trans "Batterien" %}
+      question = {% trans "Wo befinden sich die Batterien der E-Gelenkbusse der Linie 200?" %}
+      answers = {% trans "Im Boden" %}, {% trans "Am Heck" %}, {% trans "Auf dem Dach" %}, {% trans "An den Seiten" %}
+      correct = 2
+      short_answer = {% trans "Die Batterien der Elektro-Gelenkbusse, die auf der Linie 200 eingesetzt werden, sich auf dem Dach angebracht." %}
+    [[[costs]]]
+      label = {% trans "Kosten" %}
+      question = {% trans "Wie viel mehr kostet ein E-Bus als ein konventioneller Diesel-Bus?" %}
+      answers = {% trans "Doppelt" %}, {% trans "Dreifach" %}, {% trans "Zehnfach" %}, {% trans "Genauso" %}
+      correct = 0
+      short_answer = {% trans "E-Busse kosten aktuell noch etwa doppelt so viel wie konventionelle Diesel-Busse der gleichen Größenklasse." %}
 
 [environment]
   label = {% trans "Umwelt" %}
   icon = "images/icons/i_earth_black.svg"
   [[questions]]
-    [[[co2_reduction]]]
-      label = {% trans "CO<sub>2</sub> Reduktion" %}
-      question = {% trans "Wie viel CO<sub>2</sub> werden durch den Einsatz der Elektrobusse auf der Linie 200 jährlich eingespart?" %}
-      answers = "444 t", "111 t", "759 kg", "50 t"
+    [[[energy]]]
+      label = {% trans "Energie" %}
+      question = {% trans "Wieviel Energie ist für die jährliche Stromversorgung der E-Busse auf der Linie 200 notwendig?" %}
+      answers = {% trans "2.044 MWh pro Jahr" %}, {% trans "500.000 kWh pro Jahr" %}, {% trans "1 MWh pro Jahr" %}, {% trans "530 MWh pro Jahr" %}
       correct = 0
-      short_answer = {% trans "444 t CO<sub>2</sub> können durch die Elektrifizierung der Linie 200 pro Jahr eongespart werden" %}
+      short_answer = {% trans "Der jährliche Stromverbrauch der gesamten Buslinie 200 mit allen im Betrieb befindlichen E-Bussen liegt bei etwa 2.044.000 kWh." %}
+    [[[weather]]]
+      label = {% trans "Wettereinfluss" %}
+      question = {% trans "Welche Wetterbedingungen haben einen Einfluss auf die Nutzung des Pantographen (Ladung von oben) zur Ladung der E-Gelenkbusse?" %}
+      answers = {% trans "Hitze" %}, {% trans "Schnee/Eis" %}, {% trans "Regen" %}, {% trans "Wind" %}, {% trans "Keine der genannten" %}
+      correct = 4
+      short_answer = {% trans "Der Betrieb des Pantographen ist weitgehend wetterunabhängig möglich." %}
+    [[[reach]]]
+      label = {% trans "Reichweite" %}
+      question = {% trans "Die Reichweite aktueller Busse reicht noch nicht für die Elektrifizierung aller Linien in Berlin. Was sind geeignete technologische Ansätze für die Vollelektrifizierung?" %}
+      answers = {% trans "Busse leichter machen" %}, {% trans "Verschiedene Ladestrategien im Mix (Depot- und Gelegenheitsladung)" %}, {% trans "Mehr Busse" %}, {% trans "Wasserstoff" %}, {% trans "Oberleitung (Hybrid-Oberleitungsbusse)" %}, {% trans "Förderung des motorisierten Individualverkehrs" %}
+      correct = 1, 2, 3, 4
+      short_answer = {% trans "Alle außer leichter machen" %}
+    [[[windturbines]]]
+      label = {% trans "Windräder" %}
+      question = {% trans "Wie viele Windenergieanlagen sind bilanziell für den Betrieb der E-Gelenkbusse auf der Linie 200 im Jahr notwendig?" %}
+      answers = "0,2", "1", "5", "20"
+      correct = 0
+      short_answer = {% trans "Es werden etwa 0,2 Windräder mit einer Leistung von je 3 MW benötigt, um die E-Busse der Linie rein aus Windstrom zu besorgen." %}
 
 [politics]
   label = {% trans "Politk" %}
