@@ -1,9 +1,21 @@
 {% extends "base.html" %}
 
-{% block title %}Forbidden (403){% endblock %}
+{% load i18n %}
+
+{% block title %}{% trans 'Verboten' %} (403){% endblock %}
 
 {% block content %}
-<h1>Forbidden (403)</h1>
+<div class="error-layout">
+  <div class="error-layout__content">
+    <h1>{% trans 'Verboten' %} (403)</h1>
+    <p>{% trans 'CSRF Verifizierung fehlgeschlagen. Anfrage wurde abgewiesen.' %}</p>
+  </div>
+  <div class="error-layout__img">
+    <img class="project-content__img" src="/static/images/icons/Icon_E_Bus_BVG_empty_battery.svg" alt="{% trans 'Elektrischer Bus ohne Strom' %}">
+  </div>
+  <div class="error-layout__btn">
+    <a href="{% url 'navigation:dashboard' %}"><button class="button">{% trans "Zurück zur App" %}</button></a>
+  </div>
+</div>
 
-<p>CSRF verification failed. Request aborted.</p>
 {% endblock content %}

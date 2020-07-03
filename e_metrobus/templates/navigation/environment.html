@@ -5,103 +5,113 @@
 
 {% block subtitle %} - {% trans 'Umwelteinfluss der E-Busse' %}{% endblock %}
 
+{% block header %}
+  <script src="{% static 'js/plotly.min.js' %}"></script>
+{% endblock %}
+
 {% block content %}
 
-<div class="cell">
-  <div class="grid-x text-center leaf">
-    <div class="cell small-6 medium-6 leaf__header">
-      <span>{% trans "Deine Fahrt" %}</span>
-    </div>
-    <div class="cell small-6 medium-6 leaf__header">
-      <span>{% trans "E-Bus Flotte" %}</span>
-    </div>
-    <div class="cell small-6 medium-6 leaf__dist-wrap">
-      <div class="grid-x ">
-        <div class="cell leaf__distance">
-          <span class="leaf__data--value">{{user.distance}}</span><br>
-          <span class="leaf__data--unit">km</span>
-        </div>
-        <div class="cell leaf__distance--circle">
-          <svg height="150" width="150" viewbox="0 0 4 4">
-            <circle cx="2" cy="2" r="2" fill="#F0D722"/>
-          </svg>
-        </div>
+<div class="cell my-route">
+  <div class="grid-x">
+    <div class="cell small-1"></div>
+    <div class="cell small-11 my-route__top">
+      <div>
+        <span class="my-route__text">Meine Strecke</span>
+        <a href="{% url 'navigation:route' %}" class="button button--xsmall button--white my-route__btn"><img src="{% static 'images/icons/i_next_black_large.svg' %}" alt="">{% trans 'Ändern' %}</a>
       </div>
     </div>
-    <div class="cell small-6 medium-6 leaf__dist-wrap">
-      <div class="grid-x ">
-        <div class="cell leaf__distance">
-          <span class="leaf__data--value">{{fleet.distance}}</span><br>
-          <span class="leaf__data--unit">km</span>
-        </div>
-        <div class="cell leaf__distance--circle">
-          <svg height="150" width="150" viewbox="0 0 4 4">
-            <circle cx="2" cy="2" r="2" fill="#17BEBB"/>
-          </svg>
-        </div>
-      </div>
+    <div class="cell small-1 my-route__icon">
+      <img src="{% static 'images/icons/i_route_black.svg' %}" alt="Strecke">
     </div>
-    <div class="cell leaf__icon">
-      <img src="{% static 'images/icons/i_fuel_black.svg' %}" alt="Diesel Icon">
-    </div>
-    <div class="cell small-6 medium-6 own leaf__data">
-      <span class="leaf__data--value">{{user.fuel}}</span><br>
-      <span class="leaf__data--unit">{% trans "Liter Diesel" %}</span>
-    </div>
-    <div class="cell small-6 medium-6 fleet leaf__data">
-      <span class="leaf__data--value">{{fleet.fuel}}</span><br>
-      <span class="leaf__data--unit">{% trans "Liter Diesel" %}</span>
-    </div>
-    <div class="cell leaf__resources">
-      <span class="leaf__data--value">= {{comparison.fuel|floatformat:"1"}} % {% trans "weniger" %} {% trans "Diesel" %}</span><br>
-      <span class="leaf__data--unit">{% trans "als konventionelle Busse" %}</span>
-    </div>
-    <div class="cell leaf__icon">
-      <img src="{% static 'images/icons/i_co2_black.svg' %}" alt="CO2 Icon">
-    </div>
-    <div class="cell small-6 medium-6 own leaf__data">
-      <span class="leaf__data--value">{{user.co2}}</span><br>
-      <span class="leaf__data--unit">{% trans "Tonnen" %} CO<sub>2</sub></span>
-    </div>
-    <div class="cell small-6 medium-6 fleet leaf__data">
-      <span class="leaf__data--value">{{fleet.co2}}</span><br>
-      <span class="leaf__data--unit">{% trans "Tonnen" %} CO<sub>2</sub></span>
-    </div>
-    <div class="cell leaf__resources">
-      <span class="leaf__data--value">= {{comparison.co2|floatformat:"1"}} % {% trans "weniger" %} {% trans "CO<sub>2</sub>" %}</span><br>
-      <span class="leaf__data--unit">{% trans "als konventionelle Busse" %}</span>
-    </div>
-    <div class="cell leaf__icon">
-      <img src="{% static 'images/icons/i_nox_black.svg' %}" alt="Stickoxide Icon">
-    </div>
-    <div class="cell small-6 medium-6 own leaf__data">
-      <span class="leaf__data--value">{{user.nitrogen}}</span><br>
-      <span class="leaf__data--unit">kg {% trans "Stickoxide" %}</span>
-    </div>
-    <div class="cell small-6 medium-6 fleet leaf__data">
-      <span class="leaf__data--value">{{fleet.nitrogen}}</span><br>
-      <span class="leaf__data--unit">kg {% trans "Stickoxide" %}</span>
-    </div>
-    <div class="cell leaf__resources">
-      <span class="leaf__data--value">= {{comparison.nitrogen|floatformat:"1"}} % {% trans "weniger" %} {% trans "Stickoxide" %}</span><br>
-      <span class="leaf__data--unit">{% trans "als konventionelle Busse" %}</span>
-    </div>
-    <div class="cell leaf__icon">
-      <img src="{% static 'images/icons/i_gas_black.svg' %}" alt="Feinstaub Icon">
-    </div>
-    <div class="cell small-6 medium-6 own leaf__data">
-      <span class="leaf__data--value">{{user.fine_dust}}</span><br>
-      <span class="leaf__data--unit">kg {% trans "Feinstaub" %}</span>
-    </div>
-    <div class="cell small-6 medium-6 fleet leaf__data">
-      <span class="leaf__data--value">{{fleet.fine_dust}}</span><br>
-      <span class="leaf__data--unit">kg {% trans "Feinstaub" %}</span>
-    </div>
-    <div class="cell leaf__resources">
-      <span class="leaf__data--value">= {{comparison.fine_dust|floatformat:"1"}} % {% trans "weniger" %} {% trans "Feinstaub" %}</span><br>
-      <span class="leaf__data--unit">{% trans "als konventionelle Busse" %}</span>
+    <div class="cell small-11 my-route__stations">
+      <span class="my-route__station--0">{{stations.0}}</span>
+      <span class="my-route__station--1">{{stations.1}}</span>
     </div>
   </div>
 </div>
 
-{% endblock %}
+<div class="cell my-route-heading">
+  {% blocktrans with distance=route_distance %}Impakt meiner Strecke ({{distance}} km) im Vergleich zu anderen Verkehrsmitteln{% endblocktrans %}
+</div>
+<div class="cell my-route-heading" hidden>
+  {% blocktrans with distance=fleet_distance %}Impakt der E-Bus Flotte ({{distance}} km) im Vergleich zu anderen Verkehrsmitteln{% endblocktrans %}
+</div>
+
+<div class="cell my-route-tabs">
+  <ul class="tabs">
+    <li class="tabs-title tabs-title--emissions tabs-title--33 active" id="co2">
+      <div onclick="select_emission(this);">{% trans 'CO<sub>2</sub>' %}</div>
+    </li>
+    <li class="tabs-title tabs-title--emissions tabs-title--33" id="nitrogen">
+      <div onclick="select_emission(this);">{% trans 'NOx' %}</div>
+    </li>
+    <li class="tabs-title tabs-title--emissions tabs-title--33" id="fine_dust">
+      <div onclick="select_emission(this);">{% trans 'Feinstaub' %}</div>
+    </li>
+    <li class="tabs-title tabs-title--bus tabs-title--50 active" id="route">
+      <div onclick="select_route(this);">{% trans 'Meine Strecke' %}</div>
+    </li>
+    <li class="tabs-title tabs-title--bus tabs-title--50" id="fleet">
+      <div onclick="select_route(this);">{% trans 'E-Bus Flotte' %}</div>
+    </li>
+  </ul>
+</div>
+
+
+{% for chart_id in charts %}
+  <div class="cell chart my-route__chart" id="{{chart_id}}" hidden>
+    <div class="loader"></div>
+  </div>
+{% endfor %}
+
+{% endblock content %}
+
+{% block javascript %}
+  {{block.super}}
+  <script>
+    let route = "route";
+    let emission = "co2";
+
+    function select_route(selection) {
+      selected_route = $(selection).parent().attr("id");
+      if (route != selected_route) {
+        $(".tabs-title--bus").toggleClass("active");
+        $(".my-route-heading").toggle();
+        route = selected_route;
+        show_selection();
+      }
+    };
+
+    function select_emission(selection) {
+      selected_emission = $(selection).parent().attr("id");
+      if (emission != selected_emission) {
+        $(".tabs-title--emissions").removeClass("active");
+        $(selection).parent().addClass("active");
+        emission = selected_emission;
+        show_selection();
+      }
+    }
+
+    function show_selection() {
+      selected_chart = "#" + route + "_" + emission;
+      $(".chart").hide();
+      $(selected_chart).show();
+
+      if ($(selected_chart).find(".loader").length) {
+        $.ajax({
+          type: "GET",
+          url: "/get_comparison_chart",
+          dataType: 'json',
+          data: {"route": route, "emission": emission},
+          success: function(json)
+          {
+            $(selected_chart).html(json.div);
+            eval(json.script);
+          }
+        });
+      }
+    }
+
+    show_selection();
+  </script>
+{% endblock javascript %}

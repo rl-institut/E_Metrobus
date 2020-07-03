@@ -36,26 +36,36 @@
 </section>
 
 <div class="reveal" id="share-reveal" data-reveal>
-  <div class="grid-x share-reveal" id="share-buttons">
-    <div class="cell share-reveal__title">
-      <span><img src="{% static 'images/icons/i_share.svg' %}" alt="App teilen" class="share-reveal__icon">App teilen</span>
+  <div class="cell share-reveal__title">
+    <span><img src="{% static 'images/icons/i_share.svg' %}" alt="App teilen" class="share-reveal__icon">App teilen</span>
+  </div>
+  {% if quiz_finished %}
+    <div class="cell quiz-finished">
+      <div class="grid-x text-center align-center">
+        <div class="cell quiz-finished__reveal-wrap">
+          <p class="highlight">{% blocktrans with score="<span>{}</span>"|format_text:score %}{{score}}% richtig beantwortet{% endblocktrans %}</p>
+          <p class="sub">Ich bin ein lustiger BVG Spruch zu meinen Punkten</p>
+        </div>
+      </div>
     </div>
-    <div class="cell small-4 share-reveal__icon">
-      <a href="http://www.facebook.com/sharer.php?u={{request.scheme}}://{{request.get_host}}{% url 'navigation:landing_page' %}" target="_blank">
+  {% endif %}
+  <div class="grid-x share-reveal" id="share-buttons">
+    <div class="cell small-3 share-reveal__icon">
+      <a href="http://www.facebook.com/sharer.php?u={{share_url}}" target="_blank">
         <img src="{% static 'images/icons/i_fb.png' %}" alt="Facebook Icon">
       </a>
     </div>
-    <div class="cell small-4 share-reveal__icon">
-      <a href="whatsapp://send?text=text%20{{request.scheme}}://{{request.get_host}}{% url 'navigation:landing_page' %}">
+    <div class="cell small-3 share-reveal__icon">
+      <a href="whatsapp://send?text=text%20{{share_url}}">
         <img src="{% static 'images/icons/i_whatsapp.png' %}" alt="Whatsapp Icon">
       </a>
     </div>
-    <div class="cell small-4 share-reveal__icon">
-      <a href="tg://msg_url?url={{request.scheme}}://{{request.get_host}}{% url 'navigation:landing_page' %}&amp;text=text">
+    <div class="cell small-3 share-reveal__icon">
+      <a href="tg://msg_url?url={{share_url}}&amp;text=text">
         <img src="{% static 'images/icons/i_telegram.png' %}" alt="Telegram Icon">
       </a>
     </div>
-    <div class="cell small-4 share-reveal__icon">
+    <div class="cell small-3 share-reveal__icon">
       <img src="{% static 'images/icons/i_copy.svg' %}" alt="Copy Icon" onclick="shareLink();">
       <div id="link_copied" hidden>
         {% trans 'Link wurde kopiert' %}

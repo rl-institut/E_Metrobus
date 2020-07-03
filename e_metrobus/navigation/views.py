@@ -1,14 +1,18 @@
-from django.shortcuts import redirect, Http404, get_object_or_404, HttpResponse
+from django.http.response import JsonResponse
+from django.shortcuts import get_object_or_404, Http404, HttpResponse, redirect
+from django.utils.translation import gettext as _
 from django.views.generic import TemplateView
 
-from e_metrobus.navigation import chart
-from e_metrobus.navigation import constants
-from e_metrobus.navigation import widgets
-from e_metrobus.navigation import questions
-from e_metrobus.navigation import models
-from e_metrobus.navigation import stations
-from e_metrobus.navigation import forms
-from e_metrobus.navigation import utils
+from e_metrobus.navigation import (
+    chart,
+    constants,
+    forms,
+    models,
+    questions,
+    stations,
+    utils,
+    widgets,
+)
 
 
 class CheckStationsMixin:
@@ -16,6 +20,26 @@ class CheckStationsMixin:
         if "stations" not in request.session:
             return redirect("navigation:route")
         return super(CheckStationsMixin, self).get(request, *args, **kwargs)
+
+
+class FeedbackMixin:
+    def get_context_data(self, **kwargs):
+        context = super(FeedbackMixin, self).get_context_data(**kwargs)
+        context["feedback"] = kwargs.get(
+            "feedback",
+            forms.FeedbackForm(),
+        )
+        return context
+
+    def dispatch(self, request, *args, **kwargs):
+        if request.method == "POST" and "feedback" in request.POST:
+            feedback = forms.FeedbackForm(request.POST)
+            if feedback.is_valid():
+                feedback.save()
+            else:
+                kwargs["feedback"] = feedback
+            return self.get(request, kwargs)
+        return super(FeedbackMixin, self).dispatch(request, **kwargs)
 
 
 class PosthogMixin:
@@ -38,6 +62,7 @@ class NavigationView(PosthogMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super(NavigationView, self).get_context_data(**kwargs)
         score = questions.get_total_score(self.request.session)
+        answers = questions.get_all_answers(self.request.session)
         context["footer"] = widgets.FooterWidget(links=self.footer_links)
         context["top_bar"] = widgets.TopBarWidget(
             title=self.title,
@@ -45,6 +70,7 @@ class NavigationView(PosthogMixin, TemplateView):
             title_alt=self.title_alt,
             back_url=self.back_url,
             score=score,
+            answers=answers,
             template=self.top_bar_template,
             request=self.request,
         )
@@ -81,7 +107,10 @@ class DashboardView(CheckStationsMixin, NavigationView):
     back_url = None
 
     def get(self, request, *args, **kwargs):
-        if questions.all_questions_answered(request.session):
+        if (
+            questions.all_questions_answered(request.session)
+            and "hashed_score" not in request.session
+        ):
             return redirect("navigation:finished_quiz")
         return super(DashboardView, self).get(request, *args, **kwargs)
 
@@ -102,6 +131,8 @@ class DashboardView(CheckStationsMixin, NavigationView):
                 )
             )
         context["categories"] = categories
+        if "hashed_score" in self.request.session:
+            context["top_bar"].quiz_finished = True
 
         return context
 
@@ -163,14 +194,6 @@ class ComparisonView(CheckStationsMixin, NavigationView):
 
     def get_context_data(self, **kwargs):
         context = super(ComparisonView, self).get_context_data(**kwargs)
-        current_stations = [
-            stations.STATIONS[station] for station in self.request.session["stations"]
-        ]
-        route_data = stations.STATIONS.get_route_data(*current_stations)
-        chart_order = ("pedestrian", "e-bus", "e-pkw", "bus", "car")
-        context["plotly"] = chart.get_mobility_figure(
-            [int(route_data[vehicle].co2) for vehicle in chart_order]
-        )
         context["info_table"] = widgets.InfoTable()
         if "first_time" not in self.request.session:
             self.request.session["first_time"] = False
@@ -189,30 +212,17 @@ class EnvironmentView(CheckStationsMixin, NavigationView):
 
     def get_context_data(self, **kwargs):
         context = super(EnvironmentView, self).get_context_data(**kwargs)
-
         current_stations = [
             stations.STATIONS[station] for station in self.request.session["stations"]
         ]
-        e_bus_data = stations.STATIONS.get_route_data_for_vehicle(
-            *current_stations, vehicle="e-bus"
-        )
-        user_consumption = constants.Consumption(
-            distance=stations.STATIONS.get_distance(*current_stations),
-            **e_bus_data.__dict__
-        )
-        bus_data = stations.STATIONS.get_route_data_for_vehicle(
-            *current_stations, vehicle="bus"
-        )
-        bus_consumption = constants.Consumption(distance=1, **bus_data.__dict__)
-        fleet_consumption = constants.FLEET_CONSUMPTION
-        context["user"] = user_consumption
-        context["fleet"] = fleet_consumption
-        context["comparison"] = constants.Consumption(
-            *(
-                (x - y) / x * 100 if x != 0 else 0
-                for x, y in zip(bus_consumption, user_consumption)
-            )
-        )
+        context["stations"] = current_stations
+        context["charts"] = [
+            f"{route}_{emission}"
+            for route in ("route", "fleet")
+            for emission in ("co2", "nitrogen", "fine_dust")
+        ]
+        context["route_distance"] = stations.STATIONS.get_distance(*current_stations)
+        context["fleet_distance"] = constants.FLEET_CONSUMPTION.distance
         return context
 
 
@@ -308,10 +318,18 @@ class CategoryFinishedView(PosthogMixin, TemplateView):
 
 class QuizFinishedView(PosthogMixin, TemplateView):
     template_name = "navigation/quiz_finished.html"
+    footer_links = {
+                "info": {"enabled": True},
+                "dashboard": {"enabled": True},
+                "leaf": {"enabled": True},
+                "results": {"enabled": True},
+            }
 
     def get_context_data(self, **kwargs):
         context = super(QuizFinishedView, self).get_context_data(**kwargs)
-        context["points"] = questions.get_total_score(self.request.session)
+        context["footer"] = widgets.FooterWidget(links=self.footer_links)
+        context["answers"] = questions.get_all_answers(self.request.session)
+        context["score"] = questions.get_total_score(self.request.session)
         return context
 
     def get(self, request, *args, **kwargs):
@@ -338,11 +356,11 @@ class ShareScoreView(PosthogMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(ShareScoreView, self).get_context_data(**kwargs)
-        context["points"] = get_object_or_404(models.Score, hash=kwargs["hash"]).score
+        context["score"] = get_object_or_404(models.Score, hash=kwargs["hash"]).score
         return context
 
 
-class LegalView(NavigationView):
+class LegalView(FeedbackMixin, NavigationView):
     template_name = "navigation/legal.html"
     footer_links = {
         "info": {"selected": True},
@@ -354,7 +372,6 @@ class LegalView(NavigationView):
     def get_context_data(self, **kwargs):
         context = super(LegalView, self).get_context_data(**kwargs)
         context["info_table"] = widgets.InfoTable()
-        context["feedback"] = kwargs.get("feedback", forms.FeedbackForm(),)
         context["bug"] = kwargs.get(
             "bug", forms.BugForm(initial={"type": models.Bug.TECHNICAL}),
         )
@@ -367,12 +384,8 @@ class LegalView(NavigationView):
                 bug.save()
             else:
                 return self.render_to_response(self.get_context_data(bug=bug))
-        elif "feedback" in request.POST:
-            feedback = forms.FeedbackForm(request.POST)
-            if feedback.is_valid():
-                feedback.save()
-            else:
-                return self.render_to_response(self.get_context_data(feedback=feedback))
+        if "feedback" in request.POST:
+            return self.render_to_response(self.get_context_data(**kwargs))
         return redirect("navigation:legal")
 
 
@@ -391,7 +404,7 @@ class QuestionsAsTextView(NavigationView):
         return context
 
 
-class LandingPageView(PosthogMixin, TemplateView):
+class LandingPageView(PosthogMixin, FeedbackMixin, TemplateView):
     template_name = "navigation/landing_page.html"
     footer_links = {"dashboard": {"selected": True}}
 
@@ -420,3 +433,34 @@ def accept_privacy_policy(request):
 def send_posthog_event(request):
     utils.posthog_event(request, event=request.GET["event"])
     return HttpResponse()
+
+
+def get_comparison_chart(request):
+    chart_order = ("pedestrian", "e-bus", "e-pkw", "bus", "car")
+    route = request.GET["route"]
+    if route == "route":
+        current_stations = [
+            stations.STATIONS[station] for station in request.session["stations"]
+        ]
+        route_data = stations.STATIONS.get_route_data(*current_stations)
+
+    elif route == "fleet":
+        route_data = stations.STATIONS.get_fleet_data()
+    else:
+        raise ValueError("Unknown route")
+
+    if request.GET["emission"] == "co2":
+        plotly_chart = chart.get_co2_figure(
+            [route_data[vehicle].co2 for vehicle in chart_order]
+        )
+    elif request.GET["emission"] == "nitrogen":
+        plotly_chart = chart.get_nitrogen_figure(
+            [route_data[vehicle].nitrogen for vehicle in chart_order]
+        )
+    elif request.GET["emission"] == "fine_dust":
+        plotly_chart = chart.get_fine_dust_figure(
+            [route_data[vehicle].fine_dust for vehicle in chart_order]
+        )
+    else:
+        raise ValueError("Unknown emission")
+    return JsonResponse({"div": plotly_chart.div, "script": plotly_chart.script})

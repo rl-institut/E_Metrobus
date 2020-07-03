@@ -7,12 +7,12 @@
 
 {% block content %}
 <div class="cell">
-  <div class="grid-x">
-    <div class="cell small-11 medium-11 answer__text answer__text--top answer__text--{%if answer %}correct{% else %}wrong{% endif %} a-answer-text-top">
+  <div class="grid-x align-center">
+    <div class="cell small-11 medium-10 answer__text answer__text--top answer__text--{%if answer %}correct{% else %}wrong{% endif %} a-answer-text-top">
       <div class="answer__text-icon">{%if answer %}{% trans 'Korrekt' %}{% else %}{% trans 'Falsch' %}{% endif %}</div>
       {% trans question.short_answer %}
     </div>
-    <div class="cell small-11 medium-11 answer__text answer__text--more a-answer-text">
+    <div class="cell small-11 medium-10 answer__text answer__text--more a-answer-text">
       {% include question.template %}
     </div>
     <div class="cell text-center question__next a-answer-btn">
