@@ -4,6 +4,8 @@
 {% load static %}
 {% load i18n %}
 
+{% block subtitle %} - {% trans 'Frage' %}{% endblock %}
+
 {% block content %}
 <div class="cell question">
   <form method="post" action="{% url 'navigation:question' category=question.category %}" id="question">
@@ -25,6 +27,7 @@
       </div>
       <div class="cell small-10 question__answer">
         <fieldset name="answer">
+          <legend hidden>Antwortmöglichkeiten</legend>
           {% for answer in question.answers %}
             {% if question.is_multiple_choice %}
               <input type="checkbox" class="checkbox" name="answer" value="{{answer}}" id="answer{{forloop.counter}}"/>

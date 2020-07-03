@@ -10,6 +10,7 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 - posthog for anonymous session tracking
 - implemented flashes at finished page
 - finished quiz includes link back to dashboard 
+- titles and alternative texts to minder barriers
 
 ### Changed 
 - redesigned landing page
