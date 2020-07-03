@@ -12,7 +12,7 @@ class FeedbackForm(forms.ModelForm):
         model = Feedback
         fields = ("comment",)
         labels = {
-            "comment": "Schreib uns Deine Meinung/Kritik:",
+            "comment": "Schreib uns deine Meinung/Kritik:",
         }
         widgets = {
             "comment": FeedbackCommentWidget
