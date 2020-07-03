@@ -6,29 +6,33 @@
 {% block body_class %}class="l-scroll l-scroll--nonav"{% endblock %}
 
 {% block content %}
+  <div class="cell landpage__bus a-lp-bus" {% if visited %}style="animation: none"{% endif %}>
+    <img src="{% static 'images/icons/Icon_E_Bus_BVG.svg' %}" alt="E-Bus als Icon">
+  </div>
+
   <div class="cell">
     <div class="grid-x align-center text-center landpage">
       <div class="cell landpage__button" {% if visited %}style="animation: none"{% endif %}>
-        <div class="grid-x">
-          <div id="animateLPText" class="cell landpage__button-text">
+        <div class="frame">
+          <div id="animateLPText" class="landpage__button-text">
             <span>{% trans 'Toll, dass du mit einem E-Bus fährst!' %}</span>
           </div>
-          <div class="cell landing__button-btn">
-            <a href="{% url 'navigation:route' %}"><button id="animateLPButton" name="boarding" class="button" {% if visited %}style="animation: none"{% endif %}>{% trans 'Zeig mir warum!' %}</button></a>
+          <div class="landpage__button-btn">
+            <a href="{% url 'navigation:route' %}"><button name="boarding" class="button a-lp-btn" {% if visited %}style="animation: none"{% endif %}>{% trans 'Zeig mir warum!' %}</button></a>
           </div>
-          <div class="cell landpage__language">
+          <div class="landpage__language">
             <div class="grid-x align-center text-center">
-              <div class="cell small-10 landpage__language--switch" {% if visited %}style="animation: none"{% endif %}>
+              <div class="cell landpage__language--switch" {% if visited %}style="animation: none"{% endif %}>
                 {% get_current_language as LANGUAGE_CODE %}
                 {% if LANGUAGE_CODE == "de" %}
                   <a href="en/?visited" data-open="language_popup" onclick="send_posthog_event('english');">
                     <img src="{% static 'images/icons/i_flag_uk.svg' %}" alt="uk_flag">
-                    <span>Switch to English</span>
+                    <p>Switch to English</p>
                   </a>
                 {% else %}
                   <a href="/?visited" data-open="language_popup">
                     <img src="{% static 'images/icons/i_flag_de.svg' %}" alt="uk_flag">
-                    <span>Zu Deutsch wechseln</span>
+                    <p>Zu Deutsch wechseln</p>
                   </a>
                 {% endif %}
               </div>
@@ -38,6 +42,13 @@
       </div>
       <div class="cell landpage__bottom">
         <div class="grid-x">
+
+          <!-- SHOW WHEN TEXT IS THERE
+          <div class="cell landpage__text" {% if visited %}style="animation: none"{% endif %}>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+          </div>
+          -->
+
           <div class="cell small-4 landpage__logo landpage__logo--bvg" {% if visited %}style="animation: none"{% endif %}>
             <a href="https://www.bvg.de/de">
               <img src="{% static 'images/logos/Logo_BVG.png' %}" alt="BVG Logo">
