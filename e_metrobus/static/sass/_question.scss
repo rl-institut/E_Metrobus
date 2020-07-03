@@ -7,6 +7,7 @@
 }
 
 .question{
+  margin-bottom: 8rem;
 
   &__text {
     margin: 1rem 1rem .5rem;
@@ -20,14 +21,14 @@
     min-width: 100%;
     background-color: $gray-1;
     border-radius: 50px;
-    height: 2rem;
-    padding: .3rem 0 0 1rem;
+    padding: .3rem 0 .25rem 1rem;
     margin: 1rem 0 0 0 !important;
   }
   &__answer input:checked + label {
     background-color: $primary-color-1;
   }
   &__btn {
+    background-color: rgba(255, 255, 255, .75);
     position: fixed;
     bottom: 0;
   }
@@ -127,7 +128,7 @@
   }
 
   &--more {
-    margin-bottom: 7rem;
+    margin-bottom: 8rem;
     img {
       margin: 2rem 0;
     }
