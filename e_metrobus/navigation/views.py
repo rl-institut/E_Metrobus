@@ -62,6 +62,7 @@ class NavigationView(PosthogMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super(NavigationView, self).get_context_data(**kwargs)
         score = questions.get_total_score(self.request.session)
+        answers = questions.get_all_answers(self.request.session)
         context["footer"] = widgets.FooterWidget(links=self.footer_links)
         context["top_bar"] = widgets.TopBarWidget(
             title=self.title,
@@ -69,6 +70,7 @@ class NavigationView(PosthogMixin, TemplateView):
             title_alt=self.title_alt,
             back_url=self.back_url,
             score=score,
+            answers=answers,
             template=self.top_bar_template,
             request=self.request,
         )
@@ -105,7 +107,10 @@ class DashboardView(CheckStationsMixin, NavigationView):
     back_url = None
 
     def get(self, request, *args, **kwargs):
-        if questions.all_questions_answered(request.session):
+        if (
+            questions.all_questions_answered(request.session)
+            and "hashed_score" not in request.session
+        ):
             return redirect("navigation:finished_quiz")
         return super(DashboardView, self).get(request, *args, **kwargs)
 
@@ -126,6 +131,8 @@ class DashboardView(CheckStationsMixin, NavigationView):
                 )
             )
         context["categories"] = categories
+        if "hashed_score" in self.request.session:
+            context["top_bar"].quiz_finished = True
 
         return context
 
@@ -311,10 +318,18 @@ class CategoryFinishedView(PosthogMixin, TemplateView):
 
 class QuizFinishedView(PosthogMixin, TemplateView):
     template_name = "navigation/quiz_finished.html"
+    footer_links = {
+                "info": {"enabled": True},
+                "dashboard": {"enabled": True},
+                "leaf": {"enabled": True},
+                "results": {"enabled": True},
+            }
 
     def get_context_data(self, **kwargs):
         context = super(QuizFinishedView, self).get_context_data(**kwargs)
-        context["points"] = questions.get_total_score(self.request.session)
+        context["footer"] = widgets.FooterWidget(links=self.footer_links)
+        context["answers"] = questions.get_all_answers(self.request.session)
+        context["score"] = questions.get_total_score(self.request.session)
         return context
 
     def get(self, request, *args, **kwargs):
@@ -341,7 +356,7 @@ class ShareScoreView(PosthogMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(ShareScoreView, self).get_context_data(**kwargs)
-        context["points"] = get_object_or_404(models.Score, hash=kwargs["hash"]).score
+        context["score"] = get_object_or_404(models.Score, hash=kwargs["hash"]).score
         return context
 
 

@@ -92,35 +92,27 @@ for cat in question_config:
 
 
 def get_score_for_category(category: str, session):
+    """Score is percent of correct answers"""
     if category not in QUESTIONS:
         raise KeyError(f'No such category "{category}"')
 
-    if "questions" not in session or category not in session["questions"]:
-        return 0
-
-    score = 0
-    for question_name in session["questions"][category]:
-        if question_name not in QUESTIONS[category].questions:
-            continue
-        if session["questions"][category][question_name]:
-            score += SCORE_CORRECT
-        else:
-            score += SCORE_WRONG
-    if all(
-        [
-            question in session["questions"][category]
-            for question in QUESTIONS[category].questions
-        ]
-    ):
-        score += SCORE_CATEGORY_COMPLETE
-    return score
+    answers = get_category_answers(category, session)
+    return round(
+        len([answer for answer in answers if answer == Answer.Correct])
+        / len(answers)
+        * 100
+    )
 
 
 def get_total_score(session):
-    score = 0
+    answers = []
     for category in QUESTIONS:
-        score += get_score_for_category(category, session)
-    return score
+        answers += get_category_answers(category, session)
+    return round(
+        len([answer for answer in answers if answer == Answer.Correct])
+        / len(answers)
+        * 100
+    )
 
 
 def get_category_shares(category, session):
@@ -145,6 +137,16 @@ def get_category_answers(category, session):
         Answer.get(session["questions"][category].get(question))
         for question in QUESTIONS[category].questions
     ]
+
+
+def get_all_answers(session, sort=True):
+    answers = []
+    for category in QUESTIONS:
+        answers.extend(get_category_answers(category, session))
+    if sort:
+        return sorted(answers, key=lambda x: x.value)
+    else:
+        return answers
 
 
 def get_next_question(category, session):

@@ -8,6 +8,12 @@ $top-bar-height: 2.8rem;
 .l-no-scroll {
 	position: relative;
 	height: 100%;
+
+	&.finished-page {
+		section.footer {
+			position: fixed;
+		}
+	}
 }
 
 .l-no-scroll {

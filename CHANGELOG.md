@@ -8,6 +8,8 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 ### Added
 - feedback form on landing page
 - posthog for anonymous session tracking
+- implemented flashes at finished page
+- finished quiz includes link back to dashboard 
 
 ### Changed 
 - comparison chart is loaded dynamically (ajax)

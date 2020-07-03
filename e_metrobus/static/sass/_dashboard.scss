@@ -94,7 +94,9 @@
     display: inline-block;
     height: 1.75rem;
     width: 1.75rem;
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 
     &--correct {
       background-image: url(../images/icons/i_flash_correct.svg);

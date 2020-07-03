@@ -7,8 +7,9 @@ from django.templatetags.static import static
 from django.utils.html import format_html
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext as _
+from django.urls import reverse
 
-from e_metrobus.navigation import constants
+from e_metrobus.navigation import constants, questions
 
 
 class CustomWidget:
@@ -69,6 +70,7 @@ class TopBarWidget(CustomWidget):
         title_icon,
         back_url,
         score,
+        answers,
         title_alt=None,
         template=None,
         request=None,
@@ -80,9 +82,26 @@ class TopBarWidget(CustomWidget):
         self.title_alt = title if title_alt is None else title_alt
         self.back_url = back_url
         self.score = score
+        self.answers = answers
         self.score_changed = False
         self.request = request
         self.share_link_js = True
+
+    def get_context(self, **kwargs):
+        context = super(TopBarWidget, self).get_context(**kwargs)
+        context["share_url"] = self.share_url()
+        return context
+
+    def share_url(self):
+        host = f"{self.request.scheme}://{self.request.get_host()}"
+        if "hashed_score" in self.request.session:
+            score_url = reverse(
+                "navigation:score",
+                kwargs={"hash": self.request.session["hashed_score"]},
+            )
+            return f"{host}{score_url}"
+        else:
+            return f"{host}{reverse('navigation:landing_page')}"
 
 
 class FooterWidget(CustomWidget):
@@ -142,7 +161,4 @@ class InfoTable(CustomWidget):
     template_name = "widgets/info_table.html"
 
     def get_context(self, **kwargs):
-        return {
-            "vehicles": constants.VEHICLES,
-            "sources": constants.DATA_SOURCES
-        }
+        return {"vehicles": constants.VEHICLES, "sources": constants.DATA_SOURCES}
