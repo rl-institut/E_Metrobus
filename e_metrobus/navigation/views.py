@@ -407,9 +407,15 @@ class QuestionsAsTextView(NavigationView):
 class LandingPageView(PosthogMixin, FeedbackMixin, TemplateView):
     template_name = "navigation/landing_page.html"
     footer_links = {"dashboard": {"selected": True}}
+    non_bus_user = False
 
     def get_context_data(self, **kwargs):
         context = super(LandingPageView, self).get_context_data(**kwargs)
+        context["non_bus_user"] = self.non_bus_user
+        if self.non_bus_user:
+            # Set default route:
+            self.request.session["non_bus_user"] = True
+            self.request.session["stations"] = stations.DEFAULT_STATIONS
         if "visited" in self.request.GET:
             context["visited"] = True
         if "privacy" in self.request.session:
@@ -423,6 +429,11 @@ class TourView(NavigationView):
     def get_context_data(self, **kwargs):
         context = super(TourView, self).get_context_data(**kwargs)
         return context
+
+    def get(self, request, *args, **kwargs):
+        if "non_bus_user" in request.session:
+            self.template_name = "navigation/tour_non_bus_users.html"
+        return self.render_to_response(self.get_context_data(**kwargs))
 
 
 def accept_privacy_policy(request):

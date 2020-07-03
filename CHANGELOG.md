@@ -8,6 +8,7 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 ### Added
 - feedback form on landing page
 - posthog for anonymous session tracking
+- landing page and default route for non-bus-users
 - implemented flashes at finished page
 - finished quiz includes link back to dashboard 
 - titles and alternative texts to minder barriers
