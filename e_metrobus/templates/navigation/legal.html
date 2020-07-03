@@ -4,7 +4,7 @@
 {% load i18n %}
 
 {% block content %}
-<div class="cell custom-tabs">
+<div class="cell custom-tabs legal">
   <ul class="tabs custom-tabs__tabs" data-tabs id="question_tabs">
     <li class="tabs-title is-active"><a href="#partners" aria-selected="true">{% trans "Projektpartner" %}</a></li>
     <li class="tabs-title"><a href="#data" aria-selected="true" onclick="send_posthog_event('sources');">{% trans "Quellen" %}</a></li>
@@ -16,7 +16,7 @@
       <div class="grid-x text-center">
         <div class="cell legal__logo">
           <img src="{% static 'images/logos/Logokombi.jpg' %}" alt="Elektromobilität vor Ort, BMWI, NOW und PTJ Logo">
-        </div>
+        </div> 
       </div>
     </div>
 
@@ -43,7 +43,7 @@
           </form>
         </div>
       </div>
-      <div class="reveal" id="bug_reveal" data-reveal>
+      <div class="reveal" id="bug_reveal" data-reveal data-v-offset="0px">
         <button class="close-button" data-close aria-label="Close modal" type="button">
           <span aria-hidden="true">&times;</span>
         </button>

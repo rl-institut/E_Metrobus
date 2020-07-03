@@ -1,42 +1,69 @@
+.a-lp-bus {
+  animation: a-lp-bus 1.5s $cubic-bezier-ease-out both;
+}
+
 @keyframes fadein {
   0% {opacity: 0;}
   100%   { opacity: 1; }
 }
 
-@keyframes animateBus {
+@keyframes a-lp-bus {
   0% {
+    opacity: 0;
     transform: translateX(-150%);
   }
   100% {
+    opacity: 1;
     transform: translateX(0);
   }
 }
 
-@keyframes animateLPButton {
+@keyframes a-lp-btn {
   0% {
-    transform: scale(1, 1) translateY(-150px);
+    transform: translateY(-150px);
     opacity: 0;
   }
-  50% {
-    opacity: 1;
-  }
-  60% {
-    transform: scale(1, 1) translateY(0);
-  }
-  73% {
-    transform: scale(1.15, .85) translateY(0);
-  }
-  87% {
-    transform: scale(1, 1) translateY(-10px);
-  }
   100% {
-    transform: scale(1, 1) translateY(0);
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.landpage__bus {
+  margin-top: 2rem;
+  text-align: center;
+  img {
+    height: 2.5rem;
+  }
+}
+
+@media only screen and (max-height: 666px) {
+  .landpage__bus {
+    margin-top: 1rem;
+    text-align: center;
+    img {
+      height: 1.5rem;
+    }
   }
 }
 
 .landpage {
   height: 100%;
-  margin: 1rem 1rem 0;
+  margin: 1.5rem 1rem 0;
+
+  @media only screen and (min-height: 667px) {
+    margin: 15% 1rem 0;
+  }
+
+  @media only screen and (min-height: 800px) {
+    margin: 20% 1rem 0;
+  }
+
+  &__text {
+    animation: fadein 2s;
+    animation-delay: 2s;
+    animation-fill-mode: backwards;
+  }
 
     &__logo {
     margin: .25rem 0;
@@ -49,7 +76,7 @@
     }
     &--bvg {
       animation: fadein 2s;
-      animation-delay: 2s;
+      animation-delay: 2.15s;
       animation-fill-mode: backwards;
       img {
         max-width: 2.75rem;
@@ -57,7 +84,7 @@
     }
     &--tu {
       animation: fadein 2s;
-      animation-delay: 2.15s;
+      animation-delay: 2.3s;
       animation-fill-mode: backwards;
       img {
         margin-top: 0.3rem;
@@ -66,7 +93,7 @@
     }
     &--rli {
       animation: fadein 2s;
-      animation-delay: 2.3s;
+      animation-delay: 2.45s;
       animation-fill-mode: backwards;
       img {
         margin-top: 0.5rem;
@@ -84,64 +111,57 @@
     }
   }
 
-  #animateLPButton {
-    animation: animateLPButton;
-    animation-fill-mode: backwards;
-    animation-delay: 1s;
-    animation-duration: .5s;
-    animation-timing-function: linear;
+  .a-lp-btn {
+    animation: a-lp-btn .75s $cubic-bezier-ease-out 1s both;
   }
 
   &__button {
-    background-color: $primary-color-1;
-    padding: 2rem 1rem;
-    border-radius: 1rem;
-    height: 20rem;
-    >.grid-x {
-      height: 100%;
-      padding-top: 20%;
-      @media screen and ( min-height: 850px ) {
-        padding-top: 0;
-      }
+    .frame {
+      background-color: $primary-color-1;
+      padding: 2rem 1rem;
+      border-radius: 1rem;
     }
-    &-text {
-      position: relative;
-    }
+
     &-text span {
-      position: absolute;
-      width: 100%;
-      right: 0;
-      bottom: 0;
       font-size: 1.5rem;
       font-weight: bold;
       line-height: 1.85rem;
     }
-    button {
+    &-btn {
       margin: 1rem 0;
-      margin-bottom: 0;
+
+      button {
+        margin-bottom: 0;
+      }
     }
   }
 
   &__language {
-    position: relative;
-    & > .grid-x {
-      position: absolute;
-      width: 100%;
-      bottom: 0;
-      right: 0;
-    }
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     &--switch {
       animation: fadein 1.5s;
       animation-fill-mode: backwards;
       animation-delay: 2.6s;
-      img {
-        height: 1.25rem;
-        margin: 0.5rem;
+      a {
+        display: flex;
+        flex-direction: row;
+        padding-top: .5rem;
+        padding-bottom: .5rem;
       }
-      span {
+      img {
+        display: inline-block;
+        height: 1.25rem;
+        margin: 0 0.5rem 0 0;
+      }
+      p {
+        display: inline-block;
         vertical-align: middle;
         color: $secondary-color;
-        font-size: 1rem;
+        font-size: .8rem;
+        white-space: nowrap;
+        margin-bottom: 0;
       }
     }
     &--popup {
@@ -165,6 +185,18 @@
       }
     }
   }
+  &__text {
+    font-size: .64rem;
+    text-align: left;
+    padding: 0 .5rem;
+    color: $gray-4;
+    p {
+    margin-bottom: 0;
+      @media only screen and (min-height: 650px) {
+        margin-bottom: 1rem;
+      }
+    }
+  }
   &__bottom {
     padding: 0 .5rem 0;
     position: fixed;
@@ -182,169 +214,290 @@ background: none;
 }
 
 // CSS for desktop only
-.desktop {
+$desktop-padding-large: 9rem;
+$desktop-padding-medium: 4.5rem;
+$desktop-padding-small: 2.25rem;
+$desktop-padding-xsmall: 1.125rem;
+$desktop-padding-xxsmall: .6rem;
 
-  &__header h1 {
-    padding-top: 10rem;
+@mixin yellow-card($padding) {
+  background-color: $primary-color-1;
+  border-radius: $border-radius;
+  padding: $padding;
+  text-align: center;
+}
+
+.grid-x.grid-width--large {
+  width: 100%;
+  max-width: 75rem;
+  padding-right: $desktop-padding-xsmall;
+  padding-left: $desktop-padding-xsmall;
+}
+
+.grid-x.grid-width--100 {
+  width: 100%;
+}
+
+.desktop {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-bottom: 0;
+  margin-bottom: $desktop-padding-large;  
+}
+
+.desktop-header {
+  padding-top: $desktop-padding-medium;
+
+  & > div {
+    position: relative;
+  }
+
+  .language-flag {
+    position: absolute;
+    text-align: left;
+    top: 0;
+    right: 0;
+    width: 8rem;
+
+    a, a:link, a:hover, a:visited, a:active, a:focus {
+      color: $secondary-color;
+    }
+
+    img {
+      display: inline-block;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+
+    span {
+      display: inline-block;
+      font-size: 1rem;
+      font-weight: 400;
+      padding-left: .25rem;
+      transform: translateY(2px);
+    }
+  }
+
+  &__frame {
+    @include yellow-card($desktop-padding-medium);
+  }
+
+  h1 {
+    font-size: 3rem;
     font-weight: 700;
   }
-  &__subheader {
+
+  span {
+    font-size: 2rem;
     font-weight: 300;
-    font-size: 1.25rem;
   }
-  &__link {
-    width: 100%;
-    height: 100%;
-    background-color: $primary-color-1;
+}
 
-    &--img {
-      margin: 4rem 0 4rem 4rem;
-      img {
-        height: 30rem;
-      }
-    }
-    &--text {
-      margin-top: 10rem;
-      height: 5rem;
-      font-size: 1.75rem;
-    }
-    &--qr {
-      margin-top: 6.5rem;
-      margin-bottom: 2rem;
-      height: 8.5rem!important;
-      width: 8.5rem!important;
-      border-color: $secondary-color;
-    }
-    &--link {
-      font-weight: 700;
-      font-size: 1.5rem;
-    }
-  }
-  &__appinfo {
+.desktop-app { 
+  
+  .desktop-app__text {
+    padding-left: $desktop-padding-medium;
 
-    padding-top: 8rem;
-    padding-bottom: 6rem;
-
-    &--header {
-      margin: 6rem 0 3rem 0;
-      color: $primary-color-2;
-      span {
-        font-weight: bold;
-        font-size: 1.2rem;
-      }
-    }
-    &--img {
-      margin-bottom: 4rem;
-      padding: 0 1rem;
-      @media screen and (min-width: 1200px) {
-        padding: 0 3rem;
-      }
-      @media screen and (min-width: 1440px) {
-        padding: 0 5rem;
-      }
-      img {
-        width: 3rem;
-        margin-bottom: .75rem;
-      }
-      h2 {
-        font-size: 1rem;
-        font-weight: 700;
-      }
-    }
-    &--img--bus img {
-      width: 3.75rem;
-    }
-  }
-  &__info {
-    margin: 10rem 0;
-    padding: 4rem 2rem 4rem;
-    background-color: $gray-1;
-
-    &--header {
-      margin: 0 0 4rem 0;
-      span{
-        font-size: 1.2rem;
-        font-weight: bold;
-      }
-    }
-    &--text {
-      padding: 0 2rem 0 0;
-      width: 50%;
-    }
-    &--img {
-      height: 15rem;
-      background-color: grey;
-    }
-  }
-
-
-  &__footer  {
-    padding: 2rem 1rem 1rem;
-  }
-  &__logo--BVG img{
-    width: 6rem;
-  }
-  &__logo--BMWI {
-    display: flex;
-    justify-content: center;
-    img {
-      display: block;
-    }
-  }
-
-  &__logos {
-    display: flex;
-    flex-direction: row nowrap;
-    justify-content: center;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-
-    .desktop__logo {
-      display: inline-block;
-      margin-left: 1rem;
-      margin-right: 1rem;
-    }
-
-    .desktop__logo > div {
+    & > div {
       display: flex;
       flex-direction: column;
       justify-content: center;
       height: 100%;
     }
 
-    .desktop__logo > div > a {
-      display: inline-block;
+    .heading {
+
+      h2 {
+        font-size: 1.55rem;
+        font-weight: 700;
+        padding-bottom: $desktop-padding-medium;
+      }
+
+      h2 .heading--highlight {
+        color: $white;
+        background-color: $secondary-color;
+        padding: .75rem;
+      }
     }
 
-    .desktop__logo--BVG img {
-      width: 5rem;
+    .icons {
+      padding-bottom: $desktop-padding-medium;
+
+      .icons--1 {
+        background-image: url(../images/icons/i_quiz_black.svg);
+      }
+      .icons--2 {
+        background-image: url(../images/icons/i_pin_black.svg);
+      }
+      .icons--3 {
+        background-image: url(../images/icons/i_flash_black.svg);
+      }
+      & > div {
+        height: 3.25rem;
+        width: 3.25rem;
+        margin-right: $desktop-padding-small;
+        display: inline-block;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+      }
     }
-    .desktop__logo--RLI img {
-      width: 6rem;
-    }
-    .desktop__logo--TUB img {
-      width: 6rem;
-    }
-    .desktop__logo--BMWI img {
-      width: 23rem;
-      margin-top: 1rem;
+
+    .benefits p {
+      font-size: 1.25rem;
+      line-height: 1.875rem;
+      text-align: left;
+      margin-bottom: $desktop-padding-xsmall;
+      width: 80%;
     }
   }
 }
 
-.desktop-objectives {
-  &__text {
-    background-color: $primary-color-1;
-    padding: 3rem;
-    @media only screen and (min-width: 1440px) {
-      padding: 5rem;
+.desktop-project {
+
+  &__heading {
+    padding-bottom: $desktop-padding-medium;
+
+    h2 {
+      text-align: center;
+      font-size: 1.55rem;
+      font-weight: 700;
     }
   }
-  &__img {
-    background-image: url(../images/Emetrobus_LP_img.png);
-    background-position: top right;
-    background-repeat: no-repeat;
+
+  &__item {
+    padding-bottom: $desktop-padding-medium;
+
+    &:nth-of-type(2n) {
+      padding-right: $desktop-padding-small;
+    }
+
+    &:nth-of-type(2n-1) {
+      padding-left: $desktop-padding-small;
+    }
+
+    &:nth-last-of-type(-n+2) {
+      padding-bottom: 0;
+    }
+
+    & > div {
+      display: flex;
+      flex-direction: row;
+      justify-content: left;
+      padding-bottom: $desktop-padding-xsmall;
+      font-size: 1.25rem;
+      line-height: 2rem;
+    }
+    .icon {
+      height: 3.25rem;
+      width: 3.25rem;
+      display: inline-block;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .icon--1 {
+      background-image: url(../images/icons/i_time_black_line.svg);
+    }
+    .icon--2 {
+      background-image: url(../images/icons/i_government_black_line.svg);
+    }
+    .icon--3 {
+      background-image: url(../images/icons/i_ebus_black_line_v2.svg);
+    }
+    .icon--4 {
+      background-image: url(../images/icons/i_electricity_black_line_v2.svg);
+    }
+    .heading {
+      display: inline-block;
+      padding-left: $desktop-padding-xxsmall;
+    }
+    .heading h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      line-height: 3.25rem;
+    }
+  }
+}
+
+.desktop-partners {
+  &__heading {
+    padding-bottom: $desktop-padding-medium;
+
+    h2 {
+      text-align: center;
+      font-size: 1.55rem;
+      font-weight: 700;
+    }
+  }
+
+  &__item {
+    padding-bottom: $desktop-padding-medium;
+
+    .desktop-partners__logo {
+      text-align: center;
+      padding-bottom: $desktop-padding-small;
+
+      &--BVG img {
+        height: 5rem;
+      }
+
+      &--RLI img {
+        height: 4rem;
+      }
+
+      &--TUB img {
+        height: 4rem;
+      }
+    }
+    &:last-of-type {
+      padding-bottom: 0;
+    }
+  }
+}
+
+.desktop-contact {
+  &__frame {
+    @include yellow-card($desktop-padding-small);
+
+    p {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+  }
+}
+
+.desktop-img {
+  height: 30rem;
+  
+  .img {
+    width: 100%;
+    background-image: url(../images/E_bus_img.png);
     background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+.desktop-footer {
+  margin-bottom: $desktop-padding-medium;
+
+  .cell {
+    text-align: center;
+  }
+
+  ul {
+    li {
+      display: inline-block;
+    }
+    a, a:link, a:hover, a:visited, a:active, a:focus {
+      color: $secondary-color;
+      font-weight: 700;
+      font-size: 1rem;
+      margin-left: 1rem;
+      margin-right: 1rem;
+    }
   }
 }
 

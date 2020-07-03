@@ -22,6 +22,26 @@ class CheckStationsMixin:
         return super(CheckStationsMixin, self).get(request, *args, **kwargs)
 
 
+class FeedbackMixin:
+    def get_context_data(self, **kwargs):
+        context = super(FeedbackMixin, self).get_context_data(**kwargs)
+        context["feedback"] = kwargs.get(
+            "feedback",
+            forms.FeedbackForm(),
+        )
+        return context
+
+    def dispatch(self, request, *args, **kwargs):
+        if request.method == "POST" and "feedback" in request.POST:
+            feedback = forms.FeedbackForm(request.POST)
+            if feedback.is_valid():
+                feedback.save()
+            else:
+                kwargs["feedback"] = feedback
+            return self.get(request, kwargs)
+        return super(FeedbackMixin, self).dispatch(request, **kwargs)
+
+
 class PosthogMixin:
     def dispatch(self, request, *args, **kwargs):
         if not request.session.session_key:
@@ -42,6 +62,7 @@ class NavigationView(PosthogMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super(NavigationView, self).get_context_data(**kwargs)
         score = questions.get_total_score(self.request.session)
+        answers = questions.get_all_answers(self.request.session)
         context["footer"] = widgets.FooterWidget(links=self.footer_links)
         context["top_bar"] = widgets.TopBarWidget(
             title=self.title,
@@ -49,6 +70,7 @@ class NavigationView(PosthogMixin, TemplateView):
             title_alt=self.title_alt,
             back_url=self.back_url,
             score=score,
+            answers=answers,
             template=self.top_bar_template,
             request=self.request,
         )
@@ -85,7 +107,10 @@ class DashboardView(CheckStationsMixin, NavigationView):
     back_url = None
 
     def get(self, request, *args, **kwargs):
-        if questions.all_questions_answered(request.session):
+        if (
+            questions.all_questions_answered(request.session)
+            and "hashed_score" not in request.session
+        ):
             return redirect("navigation:finished_quiz")
         return super(DashboardView, self).get(request, *args, **kwargs)
 
@@ -106,6 +131,8 @@ class DashboardView(CheckStationsMixin, NavigationView):
                 )
             )
         context["categories"] = categories
+        if "hashed_score" in self.request.session:
+            context["top_bar"].quiz_finished = True
 
         return context
 
@@ -291,10 +318,18 @@ class CategoryFinishedView(PosthogMixin, TemplateView):
 
 class QuizFinishedView(PosthogMixin, TemplateView):
     template_name = "navigation/quiz_finished.html"
+    footer_links = {
+                "info": {"enabled": True},
+                "dashboard": {"enabled": True},
+                "leaf": {"enabled": True},
+                "results": {"enabled": True},
+            }
 
     def get_context_data(self, **kwargs):
         context = super(QuizFinishedView, self).get_context_data(**kwargs)
-        context["points"] = questions.get_total_score(self.request.session)
+        context["footer"] = widgets.FooterWidget(links=self.footer_links)
+        context["answers"] = questions.get_all_answers(self.request.session)
+        context["score"] = questions.get_total_score(self.request.session)
         return context
 
     def get(self, request, *args, **kwargs):
@@ -321,11 +356,11 @@ class ShareScoreView(PosthogMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(ShareScoreView, self).get_context_data(**kwargs)
-        context["points"] = get_object_or_404(models.Score, hash=kwargs["hash"]).score
+        context["score"] = get_object_or_404(models.Score, hash=kwargs["hash"]).score
         return context
 
 
-class LegalView(NavigationView):
+class LegalView(FeedbackMixin, NavigationView):
     template_name = "navigation/legal.html"
     footer_links = {
         "info": {"selected": True},
@@ -337,7 +372,6 @@ class LegalView(NavigationView):
     def get_context_data(self, **kwargs):
         context = super(LegalView, self).get_context_data(**kwargs)
         context["info_table"] = widgets.InfoTable()
-        context["feedback"] = kwargs.get("feedback", forms.FeedbackForm(),)
         context["bug"] = kwargs.get(
             "bug", forms.BugForm(initial={"type": models.Bug.TECHNICAL}),
         )
@@ -350,12 +384,8 @@ class LegalView(NavigationView):
                 bug.save()
             else:
                 return self.render_to_response(self.get_context_data(bug=bug))
-        elif "feedback" in request.POST:
-            feedback = forms.FeedbackForm(request.POST)
-            if feedback.is_valid():
-                feedback.save()
-            else:
-                return self.render_to_response(self.get_context_data(feedback=feedback))
+        if "feedback" in request.POST:
+            return self.render_to_response(self.get_context_data(**kwargs))
         return redirect("navigation:legal")
 
 
@@ -374,7 +404,7 @@ class QuestionsAsTextView(NavigationView):
         return context
 
 
-class LandingPageView(PosthogMixin, TemplateView):
+class LandingPageView(PosthogMixin, FeedbackMixin, TemplateView):
     template_name = "navigation/landing_page.html"
     footer_links = {"dashboard": {"selected": True}}
     non_bus_user = False

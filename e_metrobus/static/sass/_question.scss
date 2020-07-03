@@ -96,6 +96,10 @@
   &--top {
     padding: 1rem;
     border-radius: 1rem;
+
+    @include breakpoint(medium) {
+      text-align: center;
+    }
   }
 
   &--correct {

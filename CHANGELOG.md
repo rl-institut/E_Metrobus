@@ -6,10 +6,14 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 
 ## [Unreleased]
 ### Added
+- feedback form on landing page
 - posthog for anonymous session tracking
 - landing page and default route for non-bus-users
+- implemented flashes at finished page
+- finished quiz includes link back to dashboard 
 
 ### Changed 
+- redesigned landing page
 - comparison chart is loaded dynamically (ajax)
 - Implemented tabs on summary page
 - Replaced progress bar on question page with flashes
