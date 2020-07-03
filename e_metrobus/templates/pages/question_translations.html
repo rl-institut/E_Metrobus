@@ -40,11 +40,29 @@
   icon = "images/icons/i_info_black.svg"
   [[questions]]
     [[[ebus_time]]]
-      label = {% trans "Zeitplan" %}
+      label = {% trans "Erster E-Bus" %}
       question = {% trans "Seit wann fahren Elektrobusse in Berlin?" %}
       answers = "2014", "2015", "2016", "2019"
       correct = 1
-      short_answer = {% trans "Elektrobusse fahren seit dem Jahr 2015 in Berlin" %}
+      short_answer = {% trans "Die erste Linie mit E-Bussen war im Jahr 2015 die Linie 204." %}
+    [[[full_electrification]]]
+      label = {% trans "Vollelektrifizierung" %}
+      question = {% trans "Wie viele E-Busse werden für eine Vollelektrifizierung des Berliner Busnetzes erwartet?" %}
+      answers = {% trans "Ca. 1000" %}, {% trans "Ca. 1450 (aktuelle Busflotte)" %}, {% trans "Ca. 1800" %}, {% trans "Ca. 2300" %}
+      correct = 2
+      short_answer = {% trans "Die geschätzte Anzahl liegt zwischen ca. 1700 und 1900 Bussen bei einer vollständigen Elektrifizierung." %}
+    [[[schedule]]]
+      label = {% trans "Zeitplan" %}
+      question = {% trans "Bis wann sollen ausschließlich E-Busse auf Berlins Straßen fahren?" %}
+      answers = "2025", "2030", "2050", "2080"
+      correct = 1
+      short_answer = {% trans "Berlins Mobilitätsgesetz, nach wie vor einzigartig in Deutschland, gibt in Berlin den Zeitrahmen für den vollständigen Umstieg von Diesel auf alternative Antriebe vor: Das entscheidende Jahr ist 2030." %}
+    [[[neutral]]]
+      label = {% trans "Klimaneutral" %}
+      question = {% trans "Bis wann soll Berlin klimaneutral sein?" %}
+      answers = "2025", "2030", "2050", "2080"
+      correct = 2
+      short_answer = {% trans "Bis 2050 will die Stadt klimaneutral werden und die Kohlendioxidemissionen um mindestens 85 % (bezogen auf 1990) reduzieren." %}
 
 [personal]
   label = {% trans "Ich" %}
