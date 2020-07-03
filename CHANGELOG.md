@@ -12,6 +12,7 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 - finished quiz includes link back to dashboard 
 
 ### Changed 
+- redesigned landing page
 - comparison chart is loaded dynamically (ajax)
 - Implemented tabs on summary page
 - Replaced progress bar on question page with flashes
