@@ -64,8 +64,26 @@ $tab-border-half: 1px solid $white;
   }
 }
 
-#mobile-imprint {
+#mobile-imprint,
+#mobile-privacy {
+  h2 {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  h3, h4 {
+    font-size: .8rem;
+    font-weight: 700;
+  }
   p {
     font-size: .8rem;
+  }
+  table {
+    font-size: .8rem;
+  }
+  ol li {
+    font-size: .8rem;
+    width: 100%;
+    text-align: left;
+    padding-bottom: 1rem;
   }
 }
