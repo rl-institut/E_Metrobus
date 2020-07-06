@@ -65,6 +65,10 @@
 
   &__header {
     font-weight: 700;
+
+    @media screen and (min-height: 600px) {
+      margin-bottom: .25rem;
+    }
   }
   &__info {
     position: absolute;
@@ -111,13 +115,22 @@
   justify-content: center;
   margin-top: .25rem;
 
+  @media only screen and (min-height: 600px) {
+    margin-top: .5rem;
+  }
+
   .flash-icons__item {
     display: inline-block;
-    height: 1.5rem;
-    width: 1.5rem;
+    height: 1.15rem;
+    width: 1.15rem;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+
+    @media only screen and (min-height: 600px) {
+      height: 1.5rem;
+      width: 1.5rem;
+    }
 
     &--correct {
       background-image: url(../images/icons/i_flash_correct.svg);
