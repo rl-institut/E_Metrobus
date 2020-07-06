@@ -1,7 +1,9 @@
 
+{% load static %}
 {% load i18n %}
 
 {% blocktrans %}
-Die Ladezeiten betragen in der Regel wenige Minuten. Damit hat der Bus wieder so viel Energie geladen, wie er auf der Strecke verbraucht hat. Allgemein ist der Verbrauch und damit auch die benötigte Ladezeit von vielen Faktoren abhängig (Anzahl der Fahrgäste, Verkehrsaufkommen, Stau, Wetter, Fahrweise etc.). Dementsprechend sind auch kürzere oder längere Ladezeiten möglich.
+Damit hat der Bus wieder so viel Energie geladen, wie er auf der Strecke verbraucht hat. Allgemein sind der Verbrauch und damit auch die benötigte Ladezeit von vielen Faktoren abhängig (Anzahl der Fahrgäste, Verkehrsaufkommen, Stau, Wetter, Fahrweise etc.). Dementsprechend sind auch kürzere oder längere Ladezeiten möglich.
 {% endblocktrans %}
 
+<img src="{% static 'images/questions/loading_time.jpg' %}" alt="{% trans 'Bild eines E-Busses an einer Ladesäule' %}">

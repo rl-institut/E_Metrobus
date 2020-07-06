@@ -3,6 +3,8 @@
 {% load static %}
 {% load i18n %}
 
+{% block subtitle %} - {% trans 'CO2 Emissionen im Vergleich' %}{% endblock %}
+
 {% block body_class %}l-scroll l-scroll--nav l-scroll--nofooter{% endblock %}
 
 {% block header %}
@@ -15,7 +17,7 @@
   <div class="grid-y comparison__wrap">
 
     <div class="cell comparison__chart">
-      {{plotly.div|safe}}
+      <div class="loader"></div>
     </div>
 
     <div class="cell comparison__btn">
@@ -36,7 +38,7 @@
   </div>
 </div>
 
-<div class="full reveal" id="comparisonData" data-reveal>
+<div class="full reveal" id="comparisonData" data-reveal data-v-offset="0px">
   <p class="data__title">Die Daten hinter der Zahlen</p>
   {{info_table}}
   <button class="close-button" data-close aria-label="Close modal" type="button">
@@ -50,6 +52,16 @@
 {% block javascript %}
   {{block.super}}
   <script>
-    {{plotly.script|safe}}
+    $.ajax({
+      type: "GET",
+      url: "/get_comparison_chart",
+      dataType: 'json',
+      data: {"route": "route", "emission": "co2"},
+      success: function(json)
+      {
+        $(".comparison__chart").html(json.div);
+        eval(json.script);
+      }
+    });
   </script>
 {% endblock %}

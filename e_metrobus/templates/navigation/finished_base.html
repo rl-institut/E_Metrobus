@@ -5,36 +5,40 @@
 {% load i18n %}
 {% load translation %}
 
+{% block subtitle %} - {% trans 'Quiz abgeschlossen' %}{% endblock %}
+
 {% block body_class %}class="l-scroll l-scroll--nonav"{% endblock %}
 
 {% block content %}
-<div class="cell" id="confetti" xmlns="http://www.w3.org/1999/html"></div>
-<div class="cell">
+<div class="category__bg"></div>
+
+<div class="cell quiz-finished">
   <div class="grid-x text-center align-center">
-    <div class="cell small-10 medium-6 quiz-fin__text">
-      <p>{% blocktrans with score="<span>{}</span>"|format_text:points %}Glückwunsch!<br>Du hast das Quiz mit {{score}} Punkten abgeschlossen!{% endblocktrans %}</p>
+    <div class="cell quiz-finished__heading">
+      {% trans 'Quiz erledigt!' %}
     </div>
-    <div class="cell quiz-fin__img">
-      <img src="{% static 'images/icons/i_badge_yellow.svg' %}" alt="badge">
+    <div class="cell quiz-finished__wrap a-quiz-finished">
+      <p>{% blocktrans with score="<span>{}</span>"|format_text:score %}{{score}}% richtig beantwortet{% endblocktrans %}</p>
+      <div class="quiz-finished__flash">
+        {% for answer in answers %}
+          {% if answer.value == "correct" %}
+            <img src="{% static 'images/icons/i_flash_correct.svg' %}" alt="Flash">
+          {% else %}
+            <img src="{% static 'images/icons/i_flash_white.svg' %}" alt="Flash">
+          {% endif %}
+        {% endfor %}
+      </div>
     </div>
-    <div class="cell quiz-fin__bottom">
+    <div class="cell quiz-finished__slogan a-quiz-finished-slogan">
+      Ich bin ein lustiger BVG Spruch zu meinen Punkten
+    </div>
+    <div class="cell quiz-finished__btn a-quiz-finished-btn">
       <div class="grid-x">
         {% block share %}
 
         {% endblock %}
-        <div class="cell">
-          <form method="post">
-              {% csrf_token %}
-              <input type="submit" class="btn button" name="reset" value="{% trans 'Quiz neu starten' %}">
-            </form>
-        </div>
       </div>
     </div>
   </div>
 </div>
 {% endblock %}
-
-{% block javascript %}
-  {{block.super}}
-  <script type="text/javascript" src="{% static 'js/confetti.js' %}"></script>
-{% endblock %}

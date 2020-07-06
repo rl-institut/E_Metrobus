@@ -1,24 +1,20 @@
-.progress-bar {
-  height: .75rem;
-  width: 100%;
-  background-color: $gray-3;
-  position: relative;
-
-  &__fill {
-    background-color: $primary-color-2;
-    height: 100%;
-
-    &--correct {
-      position: absolute;
-      top: 0;
-    }
+.top-flash {
+  padding-top: 1.5rem;
+  text-align: center;
+  img {
+    height: 1.25rem;
   }
 }
 
 .question{
+  margin-bottom: 2rem;
+
+  &__multiple-choice {
+    padding-bottom: 6rem;
+  }
 
   &__text {
-    margin: 1.5rem 1rem .5rem;
+    margin: 1rem 1rem .5rem;
   }
   &__answer input {
     margin: 0;
@@ -29,14 +25,14 @@
     min-width: 100%;
     background-color: $gray-1;
     border-radius: 50px;
-    height: 2rem;
-    padding: .3rem 0 0 1rem;
+    padding: .3rem 0 .25rem 1rem;
     margin: 1rem 0 0 0 !important;
   }
   &__answer input:checked + label {
     background-color: $primary-color-1;
   }
   &__btn {
+    background-color: rgba(255, 255, 255, .75);
     position: fixed;
     bottom: 0;
   }
@@ -77,20 +73,106 @@
   }
 }
 //CSS for answer texts
-.answer {
-  &__text {
-    margin: 1.5rem 1rem 0;
-    font-weight: 700;
+@mixin answer-top-box ($answer-top-box-font-color) {
+  text-align: center;
+  color: $answer-top-box-font-color;
+  font-weight: 700;
+  padding-bottom: 1rem;
+}
 
-    &--more {
-      font-weight: 300;
-      margin-bottom: 7rem;
-      img {
-        margin: 2rem 0;
+@mixin answer-top-box-icon ($answer-top-box-icon) {
+  content: '';
+  position: absolute;
+  background-image: url(../images/icons/i_flash_white.svg);
+  background-size: 60%;
+  background-color: $answer-top-box-icon;
+  background-position: center center;
+  background-repeat: no-repeat;
+  transform: translateY(-1px);
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 100px;
+  margin-left: -2rem;
+}
+
+.answer__text {
+  margin: 1.5rem 1rem 0;
+
+  &--top {
+    padding: 1rem;
+    border-radius: 1rem;
+
+    @include breakpoint(medium) {
+      text-align: center;
+    }
+  }
+
+  &--correct {
+    background-color: $primary-color-2-light;
+
+    .answer__text-icon {
+      @include answer-top-box ($primary-color-2-dark);
+
+      &::before {
+        @include answer-top-box-icon ($primary-color-2-dark);
       }
     }
   }
+
+  &--wrong {
+    background-color: $error-color-light;
+
+    .answer__text-icon {
+      @include answer-top-box ($error-color);
+
+      &::before {
+        @include answer-top-box-icon ($error-color);
+      }
+    }
+  }
+
+  &--more {
+    margin-bottom: 8rem;
+    img {
+      margin: 2rem 0;
+    }
+  }
 }
+
+.a-answer-text-top {
+  animation: a-answer-text-top 1s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+}
+
+.a-answer-text {
+  animation: a-answer-text 1s cubic-bezier(0.470, 0.000, 0.745, 0.715) 1.5s both;
+}
+
+.a-answer-btn {
+  animation: a-answer-text 1s cubic-bezier(0.470, 0.000, 0.745, 0.715) 2s both;
+}
+
+@keyframes a-answer-text-top {
+  0% {
+    opacity: 0;
+    transform: translateY(100rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes a-answer-text {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
 //Button for next question
 .question {
   &__next {

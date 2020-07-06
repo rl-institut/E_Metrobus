@@ -14,15 +14,41 @@
     text-align: left;
   }
   &__logo {
+    position: relative;
+    height: 50vh;
     width: 100%;
     margin: 1rem 0 1rem;
     img {
-      height: 3rem;
-
+      position: absolute;
+      left: 0;
+      top: 35%;
+      width: 100%;
+      max-width: 25rem;
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 }
 
 .grid-container.legal__wrap {
   margin-left: .5rem;
+}
+
+@media screen and (min-width: 600px) {
+  .custom-tabs.legal li {
+    width: 33.33%;
+
+    &:last-of-type a {
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+  }
+}
+
+
+.tabs-panel#partners {
+  padding-left: 0;
+  padding-right: 0;
 }

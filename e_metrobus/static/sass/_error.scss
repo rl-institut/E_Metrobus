@@ -1,0 +1,26 @@
+.error-layout {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+
+  .error-layout__content {
+    text-align: center;
+  }
+
+  .error-layout__img {
+    padding-top: 5rem;
+    text-align: center;
+
+    img {
+      width: 12rem;
+    }
+  }
+
+  .error-layout__btn {
+    text-align: center;
+    padding-top: 5.5rem;
+  }
+}

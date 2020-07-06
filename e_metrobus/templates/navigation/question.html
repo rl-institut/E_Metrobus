@@ -1,17 +1,23 @@
 
 {% extends "base.html" %}
 
+{% load static %}
 {% load i18n %}
 
+{% block subtitle %} - {% trans 'Frage' %}{% endblock %}
+
 {% block content %}
-<div class="cell progress-bar">
-  <div class="progress-bar__fill" style="background-color: #E46C6C; width: {{category_percentage_done}}%;"></div>
-  <div class="progress-bar__fill progress-bar__fill--correct" style="width: {{category_percentage_correct}}%;"></div>
-</div>
-<div class="cell question">
-  <form method="post" action="{% url 'navigation:answer_score' %}" id="question">
+<div class="cell question {% if question.is_multiple_choice %}question__multiple-choice{% endif %}">
+  <form method="post" action="{% url 'navigation:question' category=question.category %}" id="question">
     <input type="hidden" name="question" value="{{question.name}}">
     <div class="grid-x align-center">
+      <div class="cell top-flash">
+        {% for answer in answers %}
+          {% with "images/icons/i_flash_"|add:answer.value|add:".svg" as flash %}
+            <img src="{% static flash %}" alt="">
+          {% endwith %}
+        {% endfor %}
+      </div>
       <div class="cell small-10 question__text">
         {% csrf_token %}
         <h2>{% trans question.question %}</h2>
@@ -21,6 +27,7 @@
       </div>
       <div class="cell small-10 question__answer">
         <fieldset name="answer">
+          <legend hidden>Antwortmöglichkeiten</legend>
           {% for answer in question.answers %}
             {% if question.is_multiple_choice %}
               <input type="checkbox" class="checkbox" name="answer" value="{{answer}}" id="answer{{forloop.counter}}"/>

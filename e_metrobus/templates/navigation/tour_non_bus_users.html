@@ -1,0 +1,55 @@
+
+{% extends "base.html" %}
+
+{% load static %}
+{% load i18n %}
+
+{% block body_class %}l-scroll l-scroll--nonav l-scroll--nofooter{% endblock %}
+
+{% block content %}
+
+<div class="tour">
+
+  <div class="cell tour__text a-tour-top">
+    <p>{% trans 'Willkommen in der App des E-MetroBus Projekts!' %}</p>
+  </div>
+
+  <div class="cell tour__features">
+    <div class="grid-x">
+      <div class="cell">
+        <p class="tour__feature tour__feature--nopadding a-tour-text-top">{% trans 'Hier kannst du...' %}</p>
+      </div>
+      <div class="cell small-2 tour__icon a-tour-icon a-tour-icon--1">
+        <div>
+          <img src="{% static 'images/icons/i_quiz_black.svg' %}" alt="Quiz">
+        </div>
+      </div>
+      <div class="cell small-10 tour__feature a-tour-text-left a-tour-text-left--1">
+        <p>{% trans '... deine Kenntnisse über E-Mobilität mit einem Quiz testen!' %}</p>
+      </div>
+      <div class="cell small-2 tour__icon a-tour-icon a-tour-icon--2">
+        <div>
+          <img src="{% static 'images/icons/i_pin_black.svg' %}" alt="Pin">
+        </div>
+      </div>
+      <div class="cell small-10 tour__feature a-tour-text-left a-tour-text-left--2">
+        <p>{% trans '... Daten zur Umwelt-Bilanz der neuen E-Busse lesen' %}</p>
+      </div>
+      <div class="cell small-2 tour__icon a-tour-icon a-tour-icon--3">
+        <div>
+          <img src="{% static 'images/icons/i_flash_black.svg' %}" alt="Blitz">
+        </div>
+      </div>
+      <div class="cell small-10 tour__feature a-tour-text-left a-tour-text-left--3">
+        <p>{% trans '... mehr über das E-MetroBus Projekt erfahren' %}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cell tour__btn a-tour-btn">
+    <a href="{% url 'navigation:dashboard' %}"><button id="" name="" class="button">{% trans 'Alles klar!' %}</button></a>
+  </div>
+</div>
+
+{% endblock %}
+

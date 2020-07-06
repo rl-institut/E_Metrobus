@@ -4,7 +4,7 @@ from typing import Dict
 import pandas
 from django.conf import settings
 
-from e_metrobus.navigation.constants import DataPerKilometer, VEHICLES
+from e_metrobus.navigation.constants import DataPerKilometer, VEHICLES, FLEET_CONSUMPTION
 
 STATIONS_FILE = os.path.join(settings.APPS_DIR, "navigation", "stations.csv")
 
@@ -41,6 +41,13 @@ class Stations:
             for vehicle in VEHICLES
         }
 
+    def get_fleet_data(self):
+        distance = FLEET_CONSUMPTION.distance
+        return {
+            vehicle.name: self.__calc_route_data(distance, vehicle)
+            for vehicle in VEHICLES
+        }
+
     def get_route_data_for_vehicle(
         self, from_station: str, to_station: str, vehicle: str
     ) -> DataPerKilometer:
@@ -57,7 +64,4 @@ class Stations:
 
 
 STATIONS = Stations(STATIONS_FILE)
-
-
-if __name__ == "__main__":
-    print(STATIONS.get_route_data("Station C", "Station A"))
+DEFAULT_STATIONS = [0, len(STATIONS.stations) - 1]

@@ -1,42 +1,51 @@
-#cat_fin_points {
-  margin: 2rem 0 1rem;
-}
-#cat_fin_name {
-  font-weight: bold;
-  text-transform: uppercase;
-  color: $primary-color-2;
-  font-size: 2.75rem;
-  padding-top: .75rem;
-  padding-bottom: .75rem;
-}
-.cat_fin {
-
-  &__congrats {
-    margin: 3rem 0 2rem;
-
-    span {
-      font-size: 1.9rem;
-      font-weight: bold;
-    }
-  }
-  &__text {
-    font-size: 1.1rem;
-  }
-  &__icon {
-
-    img {
-    height: 5rem;
-    }
-  }
-
-}
-
 .category__bg {
   position: absolute;
   top: 0;
   width: 100%;
   height: 100%;
-  background: url(../images/Dashboard_Pattern_blue.svg);
+  background: url(../images/Dashboard_Pattern.svg);
   background-size: 12rem;
   z-index: -1;
+}
+
+.category-finished {
+  display: flex;
+  padding: 30% 1rem;
+  text-align: center;
+  width: 100%;
+
+  & > div {
+    background-color: $primary-color-1;
+    border-radius: $border-radius;
+    padding: 1rem;
+    width: 100%;
+  }
+
+  &__text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  img {
+    padding: 1rem 0 2rem;
+  }
+}
+
+.a-category-finished {
+  animation: a-category-finished 1.5s $cubic-bezier-ease-out both;
+}
+
+@keyframes a-category-finished {
+  0% {
+    transform: translateY(-100rem);
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

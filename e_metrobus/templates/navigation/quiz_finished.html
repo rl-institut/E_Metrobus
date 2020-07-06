@@ -5,28 +5,28 @@
 {% load i18n %}
 {% load translation %}
 
-{% block body_class %}class="l-scroll l-scroll--nonav"{% endblock %}
+{% block body_class %}l-scroll finished-page{% endblock %}
 
 {% block share %}
   <div class="cell">
-    <input type="submit" class="btn button button--yellow" value="{% trans 'Ergebnis teilen' %}" data-open="share-reveal">
+    <input type="submit" class="btn button" value="{% trans 'Ergebnis teilen' %}" data-open="share-reveal">
     <div class="reveal" id="share-reveal" data-reveal>
       <div class="grid-x share-reveal" id="share-buttons">
         <div class="cell share-reveal__title">
           <span>Ergebnisse teilen</span>
         </div>
         <div class="cell small-4 share-reveal__icon">
-          <a href="http://www.facebook.com/sharer.php?u={{request.scheme}}://{{request.get_host}}{% url 'navigation:score' hash=hash %}" target="_blank">
+          <a href="http://www.facebook.com/sharer.php?u={{share_text}}{{share_url}}" target="_blank">
             <img src="{% static 'images/icons/i_fb.png' %}" alt="Facebook Icon">
           </a>
         </div>
         <div class="cell small-4 share-reveal__icon">
-          <a href="whatsapp://send?text=text%20{{request.scheme}}://{{request.get_host}}{% url 'navigation:score' hash=hash %}">
+          <a href="whatsapp://send?text={{share_text}}{{share_url}}">
             <img src="{% static 'images/icons/i_whatsapp.png' %}" alt="Whatsapp Icon">
           </a>
         </div>
         <div class="cell small-4 share-reveal__icon">
-          <a href="tg://msg_url?url={{request.scheme}}://{{request.get_host}}{% url 'navigation:score' hash=hash %}&amp;text=text">
+          <a href="tg://msg_url?url={{share_url}}&amp;text={{share_text}}">
             <img src="{% static 'images/icons/i_telegram.png' %}" alt="Telegram Icon">
           </a>
         </div>

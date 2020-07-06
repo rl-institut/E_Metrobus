@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{% block title %}E-MetroBus{% endblock title %}</title>
+    <title>{% block title %}E-MetroBus{% endblock title %}{% block subtitle %}{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -76,7 +76,6 @@
         function resetHeight(){
             // reset the body height to that of the inner browser
             document.body.style.height = window.innerHeight + "px";
-            console.log(document.body.style.height);
         }
         // reset the height whenever the window's resized
         window.addEventListener("resize", resetHeight);
@@ -85,7 +84,7 @@
 
         {% if top_bar.share_link_js %}
           function shareLink() {
-            var text = "{{request.scheme}}://{{request.get_host}}{% url 'navigation:landing_page' %}";
+            var text = "{{top_bar.share_url}}";
             var input = document.createElement('input');
             input.setAttribute('value', text);
             document.body.appendChild(input);
@@ -101,6 +100,15 @@
             );
           }
         {% endif %}
+
+        function send_posthog_event(event) {
+          $.ajax({
+            url: "/send_posthog_event/",
+            async: false,
+            dataType: "html",
+            data: {"event": event}
+          });
+        }
       </script>
     {% endblock javascript %}
   </body>

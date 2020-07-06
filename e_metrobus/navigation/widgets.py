@@ -8,7 +8,7 @@ from django.utils.html import format_html
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext as _
 
-from e_metrobus.navigation import constants
+from e_metrobus.navigation import constants, utils
 
 
 class CustomWidget:
@@ -69,6 +69,7 @@ class TopBarWidget(CustomWidget):
         title_icon,
         back_url,
         score,
+        answers,
         title_alt=None,
         template=None,
         request=None,
@@ -80,9 +81,16 @@ class TopBarWidget(CustomWidget):
         self.title_alt = title if title_alt is None else title_alt
         self.back_url = back_url
         self.score = score
+        self.answers = answers
         self.score_changed = False
         self.request = request
         self.share_link_js = True
+
+    def get_context(self, **kwargs):
+        context = super(TopBarWidget, self).get_context(**kwargs)
+        context["share_url"] = utils.share_url(self.request)
+        context["share_text"] = utils.share_text(self.request)
+        return context
 
 
 class FooterWidget(CustomWidget):
@@ -142,7 +150,4 @@ class InfoTable(CustomWidget):
     template_name = "widgets/info_table.html"
 
     def get_context(self, **kwargs):
-        return {
-            "vehicles": constants.VEHICLES,
-            "sources": constants.DATA_SOURCES
-        }
+        return {"vehicles": constants.VEHICLES, "sources": constants.DATA_SOURCES}

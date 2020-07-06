@@ -4,13 +4,32 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project tries to adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.14.0] - 2020-07-06
+### Added
+- new questions for all categories
+- feedback form on landing page
+- posthog for anonymous session tracking
+- landing page and default route for non-bus-users
+- implemented flashes at finished page
+- finished quiz includes link back to dashboard 
+- titles and alternative texts to minder barriers
+
+### Changed 
+- link (to welcome page) and text for sharing the app
+- redesigned landing page
+- comparison chart is loaded dynamically (ajax)
+- Implemented tabs on summary page
+- Replaced progress bar on question page with flashes
+- environment/my_route page to show comparison charts
+
 ## [0.13.0] - 2020-06-29
 ### Changed
+- Removed answer score page; correct/wrong answer is showed on answer page
 - welcome tour design (added animation)
 - moved feedback and bug report to legal page
 - dashboard circles to flashes
 
-##[0.12.0] - 2020-06-26
+## [0.12.0] - 2020-06-26
 ### Added
 - BMWI and NOW logo to landing page (desktop & mobile)
 
