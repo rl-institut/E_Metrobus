@@ -1,6 +1,5 @@
 from django.http.response import JsonResponse
 from django.shortcuts import get_object_or_404, Http404, HttpResponse, redirect
-from django.utils.translation import gettext as _
 from django.views.generic import TemplateView
 
 from e_metrobus.navigation import (
@@ -330,6 +329,8 @@ class QuizFinishedView(PosthogMixin, TemplateView):
         context["footer"] = widgets.FooterWidget(links=self.footer_links)
         context["answers"] = questions.get_all_answers(self.request.session)
         context["score"] = questions.get_total_score(self.request.session)
+        context["share_url"] = utils.share_url(self.request)
+        context["share_text"] = utils.share_text(self.request)
         return context
 
     def get(self, request, *args, **kwargs):

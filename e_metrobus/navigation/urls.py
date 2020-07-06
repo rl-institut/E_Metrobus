@@ -1,4 +1,3 @@
-
 from django.conf import settings
 from django.http import Http404
 from django.urls import path
@@ -9,7 +8,11 @@ from e_metrobus.navigation import views
 app_name = "navigation"
 urlpatterns = [
     path("", view=views.LandingPageView.as_view(), name="landing_page"),
-    path("welcome/", view=views.LandingPageView.as_view(non_bus_user=True), name="landing_page"),
+    path(
+        "welcome/",
+        view=views.LandingPageView.as_view(non_bus_user=True),
+        name="welcome",
+    ),
     path("route/", view=views.RouteView.as_view(), name="route"),
     path("display_route/", view=views.DisplayRouteView.as_view(), name="display_route"),
     path("comparison/", view=views.ComparisonView.as_view(), name="comparison"),
@@ -23,16 +26,8 @@ urlpatterns = [
         view=views.CategoryFinishedView.as_view(),
         name="category_finished",
     ),
-    path(
-        "finished/",
-        view=views.QuizFinishedView.as_view(),
-        name="finished_quiz",
-    ),
-    path(
-        "score/<str:hash>/",
-        view=views.ShareScoreView.as_view(),
-        name="score",
-    ),
+    path("finished/", view=views.QuizFinishedView.as_view(), name="finished_quiz",),
+    path("score/<str:hash>/", view=views.ShareScoreView.as_view(), name="score",),
     path(
         "questions_as_text/",
         view=views.QuestionsAsTextView.as_view(),
@@ -46,7 +41,7 @@ urlpatterns = [
 
 if settings.DEBUG:
     urlpatterns += [
-        path('500/', server_error),
-        path('404/', page_not_found, {'exception': Http404()}),
-        path('403/', permission_denied, {'exception': Http404()}),
+        path("500/", server_error),
+        path("404/", page_not_found, {"exception": Http404()}),
+        path("403/", permission_denied, {"exception": Http404()}),
     ]
