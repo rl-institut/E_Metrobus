@@ -15,6 +15,7 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 - titles and alternative texts to minder barriers
 
 ### Changed 
+- link (to welcome page) and text for sharing the app
 - redesigned landing page
 - comparison chart is loaded dynamically (ajax)
 - Implemented tabs on summary page
