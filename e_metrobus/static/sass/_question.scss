@@ -8,6 +8,10 @@
 
 .question{
 
+  &__multiple-choice {
+    padding-bottom: 8rem;
+  }
+
   &__text {
     margin: 1rem 1rem .5rem;
   }
