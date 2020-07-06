@@ -6,7 +6,6 @@
     <thead>
       <tr>
         <th>{% trans 'Fahrzeug' %}</th>
-        <th>{% trans 'Diesel' %} [l/km]</th>
         <th>{% trans 'CO<sub>2</sub>' %} [g/km]</th>
         <th>{% trans 'Stickoxide' %} [g/km]</th>
         <th>{% trans 'Feinstaub' %} [g/km]</th>
@@ -16,7 +15,6 @@
       {% for vehicle in vehicles %}
         <tr>
           <td>{{vehicle.label}}</td>
-          <td>{{vehicle.data.fuel}}</td>
           <td>{{vehicle.data.co2}}</td>
           <td>{{vehicle.data.nitrogen}}</td>
           <td>{{vehicle.data.fine_dust}}</td>
