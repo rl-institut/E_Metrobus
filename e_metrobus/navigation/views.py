@@ -177,10 +177,6 @@ class DisplayRouteView(CheckStationsMixin, NavigationView):
         # Set first question as "answered":
         if "questions" not in request.session:
             request.session["questions"] = {}
-        if "e_metrobus" not in request.session["questions"]:
-            request.session["questions"]["e_metrobus"] = {}
-        request.session["questions"]["e_metrobus"]["route"] = True
-        request.session["last_answered_question"] = "route"
         request.session.save()
         return super(DisplayRouteView, self).get(request, *args, **kwargs)
 
