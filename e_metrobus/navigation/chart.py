@@ -57,7 +57,7 @@ def get_mobility_figure(values, title):
         _("E-Bus"),
         _("E-Pkw"),
         _("Dieselbus"),
-        _("Pkw"),
+        _("Pkw (Diesel)"),
     ]
     scaled_values = [
         (v + min(rounded_values)) / max(rounded_values) * 100 for v in rounded_values

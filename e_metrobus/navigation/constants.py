@@ -63,7 +63,7 @@ class Vehicle:
 VEHICLES = [
     Vehicle(
         name="car",
-        label=_("PKW"),
+        label=_("PKW (Diesel)"),
         data=DataPerKilometer(co2=147, nitrogen=0.43, fine_dust=0.004),
     ),
     Vehicle(
