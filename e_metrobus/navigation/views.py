@@ -390,7 +390,7 @@ class LegalView(FeedbackMixin, NavigationView):
         return redirect("navigation:legal")
 
 
-class QuestionsAsTextView(NavigationView):
+class QuestionsAsTextView(CheckStationsMixin, NavigationView):
     template_name = "navigation/questions_as_text.html"
     footer_links = {
         "info": {"enabled": True},
