@@ -92,6 +92,8 @@ class RouteView(PosthogMixin, TemplateView):
             return station_list.index(start), station_list.index(end)
 
         request.session["stations"] = get_stations()
+        if "next" in request.GET:
+            return redirect(f"navigation:{request.GET['next']}")
         return redirect("navigation:display_route")
 
 
