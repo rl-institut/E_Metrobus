@@ -31,11 +31,21 @@
         {% endfor %}
       </fieldset>
     </div>
-    <div class="cell answer__text">
-      {% trans question.short_answer %}
-    </div>
-    <div class="cell answer__text answer__text--more a-answer-text">
-      {% include question.template %}
+    <div class="cell answer__text answer__text-more a-accordion-more">
+      <ul class="accordion" data-accordion data-allow-all-closed="true">
+        <li class="accordion-item" data-accordion-item>
+          <a href="#" class="accordion-title">
+            <div>
+              <div class="icon"></div>
+              {% trans 'Mehr sehen' %}
+            </div>
+          </a>
+          <div class="accordion-content" data-tab-content>
+            {% trans question.short_answer %}
+            {% include question.template %}
+          </div>
+        </li>
+      </ul>
     </div>
     <div class="cell text-center question__next a-answer-btn">
       <a href="{% url 'navigation:question' question.category %}" class="button">{% trans "Zur nächsten Frage" %}</a>

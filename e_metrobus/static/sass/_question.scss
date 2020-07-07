@@ -121,69 +121,68 @@
 .answer__text {
   margin: 1.5rem 0 0;
   @include question-padding;
+}
 
-  &--top {
-    padding: 1rem;
-    border-radius: 1rem;
+.answer__text-more {
+  margin-bottom: 8rem;
 
-    @include breakpoint(medium) {
-      text-align: center;
+  .accordion-content,
+  :last-child > .accordion-content:last-child {
+    border: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .accordion-title:hover,
+  .accordion-title:focus {
+    background-color: $white;
+  }
+
+  .accordion-item .icon {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    transform: translateY(2px);
+    background-image: url(../images/icons/i_next_black_large.svg);
+    background-size: cover;
+  }
+
+  .accordion-item.is-active .icon {
+    background-image: url(../images/icons/i_previous_black_large.svg);
+  }
+  img {
+    margin: 2rem 0;
+  }
+
+  .accordion-title {
+    padding-top: .25rem;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    & > div {
+      display: inline-block;
+    }
+
+    &::before {
+      content: "";
     }
   }
 
-  &--correct {
-    background-color: $primary-color-2-light;
-
-    .answer__text-icon {
-      @include answer-top-box ($primary-color-2-dark);
-
-      &::before {
-        @include answer-top-box-icon ($primary-color-2-dark);
-      }
-    }
-  }
-
-  &--wrong {
-    background-color: $error-color-light;
-
-    .answer__text-icon {
-      @include answer-top-box ($error-color);
-
-      &::before {
-        @include answer-top-box-icon ($error-color);
-      }
-    }
-  }
-
-  &--more {
-    margin-bottom: 8rem;
-    img {
-      margin: 2rem 0;
+  .accordion-item.is-active .accordion-title {
+    &::before {
+      content: "";
     }
   }
 }
 
-.a-answer-text-top {
-  animation: a-answer-text-top 1s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
-}
-
-.a-answer-text {
+.a-accordion-more {
   animation: a-answer-text 1s cubic-bezier(0.470, 0.000, 0.745, 0.715) 1.5s both;
 }
 
 .a-answer-btn {
   animation: a-answer-text 1s cubic-bezier(0.470, 0.000, 0.745, 0.715) 2s both;
-}
-
-@keyframes a-answer-text-top {
-  0% {
-    opacity: 0;
-    transform: translateY(100rem);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 @keyframes a-answer-text {
