@@ -89,7 +89,7 @@ def get_mobility_figure(values, title):
     fig.layout.yaxis.visible = False
     fig.layout.yaxis.range = [-sizes.margin, max_value + sizes.margin]
     fig.add_annotation(
-        x=0.5,
+        x=1.2,
         y=max_value,
         text=title,
         font={"size": 15, "color": FONT_COLOR},
