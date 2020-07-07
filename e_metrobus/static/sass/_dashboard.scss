@@ -14,9 +14,14 @@
     }
 
   &__category {
-    margin-bottom: 2rem;
-    height: 11.5rem;
+    margin-bottom: .5rem;
+    height: 10rem;
     position: relative;
+
+    @media screen and (min-height: 600px) {
+      height: 11.5rem;
+      margin-bottom: 2rem;
+    }
 
     @media screen and (min-height: 650px) {
       margin-top: 3vh;
@@ -30,21 +35,40 @@
   }
 
   &__img {
-    height: 8.5rem;
-    width: 8.5rem;
+    height: 7rem;
+    width: 7rem;
     border-radius: 1000px;
     background-color: $primary-color-1;
     display: flex;
+    flex-direction: column;
     justify-content: center;
   }
 
   &__img img {
-    max-width: 6rem;
+    display: block;
+    margin: 0 auto;
+    max-height: 4.5rem;
+    max-width: 4.5rem;
+  }
+
+  @media screen and (min-height: 600px) {
+    &__img {
+      height: 8.5rem;
+      width: 8.5rem;
+    }
+  
+    &__img img {
+      max-height: 6rem;
+      max-width: 6rem;
+    }
   }
 
   &__header {
     font-weight: 700;
-    margin-bottom: .5rem;
+
+    @media screen and (min-height: 600px) {
+      margin-bottom: .25rem;
+    }
   }
   &__info {
     position: absolute;
@@ -87,16 +111,26 @@
 
 .flash-icons {
   display: flex;
-  flex-direction: row nowrap;
+  flex-direction: row;
   justify-content: center;
+  margin-top: .25rem;
+
+  @media only screen and (min-height: 600px) {
+    margin-top: .5rem;
+  }
 
   .flash-icons__item {
     display: inline-block;
-    height: 1.75rem;
-    width: 1.75rem;
+    height: 1.15rem;
+    width: 1.15rem;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+
+    @media only screen and (min-height: 600px) {
+      height: 1.5rem;
+      width: 1.5rem;
+    }
 
     &--correct {
       background-image: url(../images/icons/i_flash_correct.svg);
