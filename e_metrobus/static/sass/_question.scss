@@ -1,3 +1,8 @@
+@mixin question-padding {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
 .top-flash {
   padding-top: 1.5rem;
   text-align: center;
@@ -14,7 +19,11 @@
   }
 
   &__text {
-    margin: 1rem 1rem .5rem;
+    margin: 1rem 0 .5rem;
+    @include question-padding;
+  }
+  &__answer {
+    @include question-padding;
   }
   &__answer input {
     margin: 0;
@@ -26,8 +35,9 @@
     background-color: $gray-1;
     color: $gray-4;
     border-radius: 50px;
-    padding: .3rem 0 .25rem 1rem;
+    padding: .3rem 1rem .25rem 1rem;
     margin: 1rem 0 0 0 !important;
+    line-height: 1.3rem;
   }
   &__answer input:checked + label {
     background-color: $primary-color-1;
@@ -109,7 +119,8 @@
 }
 
 .answer__text {
-  margin: 1.5rem 1rem 0;
+  margin: 1.5rem 0 0;
+  @include question-padding;
 
   &--top {
     padding: 1rem;
@@ -201,6 +212,6 @@
 }
 
 .question__hint {
-  font-size: 1rem;
+  font-size: .875rem;
   color: $gray-2;
 }

@@ -18,14 +18,14 @@
           {% endwith %}
         {% endfor %}
       </div>
-      <div class="cell small-10 question__text">
+      <div class="cell question__text">
         {% csrf_token %}
         <h2>{% trans question.question %}</h2>
         {% if question.is_multiple_choice %}
           <span class="question__hint">({% trans 'Mehrere Antworten möglich' %})</span>
         {% endif %}
       </div>
-      <div class="cell small-10 question__answer">
+      <div class="cell question__answer">
         <fieldset name="answer">
           <legend hidden>Antwortmöglichkeiten</legend>
           {% for answer in question.answers %}

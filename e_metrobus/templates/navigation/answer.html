@@ -18,7 +18,7 @@
         {% endif %}
       {% endfor %}
     </div>
-    <div class="cell small-10 question__answer">
+    <div class="cell question__answer">
       <fieldset name="answer">
         <legend hidden>Antwortmöglichkeiten und Anwort</legend>
         {% for answer in question.answers %}
@@ -31,10 +31,10 @@
         {% endfor %}
       </fieldset>
     </div>
-    <div class="cell">
+    <div class="cell answer__text">
       {% trans question.short_answer %}
     </div>
-    <div class="cell small-11 medium-10 answer__text answer__text--more a-answer-text">
+    <div class="cell answer__text answer__text--more a-answer-text">
       {% include question.template %}
     </div>
     <div class="cell text-center question__next a-answer-btn">
