@@ -24,12 +24,25 @@
   &__answer label {
     min-width: 100%;
     background-color: $gray-1;
+    color: $gray-4;
     border-radius: 50px;
     padding: .3rem 0 .25rem 1rem;
     margin: 1rem 0 0 0 !important;
   }
   &__answer input:checked + label {
     background-color: $primary-color-1;
+  }
+  &__answer input.answered + label {
+    background-color: $error-color-light;
+    color: $error-color-darker;
+  }
+  &__answer input.correct + label,
+  &__answer input.correct.answered + label {
+    background-color: $primary-color-2;
+    color: $primary-color-2-darker;
+  }
+  .question__answer label {
+    color: #252424;
   }
   &__btn {
     background-color: rgba(255, 255, 255, .75);
