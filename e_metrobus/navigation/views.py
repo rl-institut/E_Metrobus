@@ -252,11 +252,9 @@ class QuestionView(NavigationView):
     def post(self, request, **kwargs):
         question = questions.get_question_from_name(request.POST["question"])
         if isinstance(question.correct, list):
-            answer = request.POST.getlist("answer") == [
-                question.answers[i] for i in map(int, question.correct)
-            ]
+            answer = request.POST.getlist("answer")
         else:
-            answer = request.POST["answer"] == question.answers[int(question.correct)]
+            answer = request.POST["answer"]
 
         if "questions" not in request.session:
             request.session["questions"] = {}
