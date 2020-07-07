@@ -30,9 +30,9 @@
           <legend hidden>Antwortmöglichkeiten</legend>
           {% for answer in question.answers %}
             {% if question.is_multiple_choice %}
-              <input type="checkbox" class="checkbox" name="answer" value="{{answer}}" id="answer{{forloop.counter}}"/>
+              <input type="checkbox" class="checkbox" name="answer" value="{{forloop.counter0}}" id="answer{{forloop.counter}}"/>
             {% else %}
-              <input type="radio" class="radio" name="answer" value="{{answer}}" id="answer{{forloop.counter}}"/>
+              <input type="radio" class="radio" name="answer" value="{{forloop.counter0}}" id="answer{{forloop.counter}}"/>
             {% endif %}
             <label for="answer{{forloop.counter}}">{% trans answer %}</label>
           {% endfor %}

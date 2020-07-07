@@ -183,6 +183,12 @@ def all_questions_answered(session):
 
 def check_answer(question, answer):
     if isinstance(question.correct, list):
-        return answer == [question.answers[i] for i in map(int, question.correct)]
+        return answer == question.correct
     else:
-        return answer == question.answers[int(question.correct)]
+        return answer == question.correct
+
+
+def get_question_number(question):
+    return list(QUESTIONS[question.category].questions.keys()).index(question.name)
+
+

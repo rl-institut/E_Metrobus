@@ -24,10 +24,7 @@ class CheckStationsMixin:
 class FeedbackMixin:
     def get_context_data(self, **kwargs):
         context = super(FeedbackMixin, self).get_context_data(**kwargs)
-        context["feedback"] = kwargs.get(
-            "feedback",
-            forms.FeedbackForm(),
-        )
+        context["feedback"] = kwargs.get("feedback", forms.FeedbackForm(),)
         return context
 
     def dispatch(self, request, *args, **kwargs):
@@ -285,9 +282,13 @@ class AnswerView(NavigationView):
         self.title_icon = questions.QUESTIONS[question.category].small_icon
         context = super(AnswerView, self).get_context_data(**kwargs)
         context["question"] = question
-        context["answer"] = self.request.session["questions"][question.category][
-            question.name
-        ]
+        answer = self.request.session["questions"][question.category][question.name]
+        context["given_answer"] = list(map(int, answer))
+        context["correct_answer"] = list(map(int, question.correct))
+        context["flashes"] = questions.get_category_answers(
+            question.category, self.request.session
+        )
+        context["current_flash"] = questions.get_question_number(question)
         return context
 
     def get(self, request, **kwargs):
@@ -312,11 +313,11 @@ class CategoryFinishedView(PosthogMixin, TemplateView):
 class QuizFinishedView(PosthogMixin, TemplateView):
     template_name = "navigation/quiz_finished.html"
     footer_links = {
-                "info": {"enabled": True},
-                "dashboard": {"enabled": True},
-                "leaf": {"enabled": True},
-                "results": {"enabled": True},
-            }
+        "info": {"enabled": True},
+        "dashboard": {"enabled": True},
+        "leaf": {"enabled": True},
+        "results": {"enabled": True},
+    }
 
     def get_context_data(self, **kwargs):
         context = super(QuizFinishedView, self).get_context_data(**kwargs)
