@@ -1,11 +1,11 @@
+
 from collections import namedtuple
 
-import math
-from decimal import Decimal
 import plotly
 import plotly.graph_objects as go
-
 from django.utils.translation import gettext as _
+
+from e_metrobus.navigation.utils import set_separators
 
 # at max_value = 50
 MARGIN = 10
@@ -69,7 +69,7 @@ def get_mobility_figure(values, title):
         x=mobiles,
         y=scaled_values,
         marker_color=colors,
-        text=rounded_values,
+        text=[set_separators(v) for v in rounded_values],
         textposition="outside",
         width=0.6,
     )
