@@ -13,7 +13,7 @@ from exchangelib import (
     Account,
     Message,
     Mailbox,
-)  # pylint: disable=import-error
+)
 from django.conf import settings
 
 
@@ -61,25 +61,35 @@ def set_separators(value):
     return svalue.replace(".", "_").replace(",", ".").replace("_", ",")
 
 
-def send_feedback(message):
+def send_mail(subject, message, recipients):
     """Send E-mail via MS Exchange Server using credentials from settings"""
     try:
-        credentials = Credentials(settings.EXCHANGE_ACCOUNT, settings.EXCHANGE_PWo)
+        credentials = Credentials(settings.EXCHANGE_ACCOUNT, settings.EXCHANGE_PW)
         account = Account(
             settings.EXCHANGE_EMAIL, credentials=credentials, autodiscover=True
         )
-        recipients = [
-            Mailbox(email_address=recipient)
-            for recipient in settings.FEEDBACK_RECIPIENTS
-        ]
 
         m = Message(
             account=account,
             folder=account.sent,
-            subject=FEEDBACK_SUBJECT,
+            subject=subject,
             body=message,
             to_recipients=recipients,
         )
         m.send_and_save()
     except Exception as e:
         logging.error(e)
+
+
+def send_feedback(message):
+    recipients = [
+        Mailbox(email_address=recipient) for recipient in settings.FEEDBACK_RECIPIENTS
+    ]
+    send_mail(FEEDBACK_SUBJECT, message, recipients)
+
+
+def send_bug_report(subject, message):
+    recipients = [
+        Mailbox(email_address=recipient) for recipient in settings.BUG_RECIPIENTS
+    ]
+    send_mail(subject, message, recipients)
