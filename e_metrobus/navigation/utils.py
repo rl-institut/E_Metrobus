@@ -64,7 +64,7 @@ def set_separators(value):
 def send_feedback(message):
     """Send E-mail via MS Exchange Server using credentials from settings"""
     try:
-        credentials = Credentials(settings.EXCHANGE_ACCOUNT, settings.EXCHANGE_PWo)
+        credentials = Credentials(settings.EXCHANGE_ACCOUNT, settings.EXCHANGE_PW)
         account = Account(
             settings.EXCHANGE_EMAIL, credentials=credentials, autodiscover=True
         )
