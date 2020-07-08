@@ -1,6 +1,7 @@
 import copy
 
 import posthog
+import logging
 from django.urls import reverse
 from django.utils.translation import gettext as _
 
@@ -62,20 +63,23 @@ def set_separators(value):
 
 def send_feedback(message):
     """Send E-mail via MS Exchange Server using credentials from settings"""
+    try:
+        credentials = Credentials(settings.EXCHANGE_ACCOUNT, settings.EXCHANGE_PWo)
+        account = Account(
+            settings.EXCHANGE_EMAIL, credentials=credentials, autodiscover=True
+        )
+        recipients = [
+            Mailbox(email_address=recipient)
+            for recipient in settings.FEEDBACK_RECIPIENTS
+        ]
 
-    credentials = Credentials(settings.EXCHANGE_ACCOUNT, settings.EXCHANGE_PW)
-    account = Account(
-        settings.EXCHANGE_EMAIL, credentials=credentials, autodiscover=True
-    )
-    recipients = [
-        Mailbox(email_address=recipient) for recipient in settings.FEEDBACK_RECIPIENTS
-    ]
-
-    m = Message(
-        account=account,
-        folder=account.sent,
-        subject=FEEDBACK_SUBJECT,
-        body=message,
-        to_recipients=recipients,
-    )
-    m.send_and_save()
+        m = Message(
+            account=account,
+            folder=account.sent,
+            subject=FEEDBACK_SUBJECT,
+            body=message,
+            to_recipients=recipients,
+        )
+        m.send_and_save()
+    except Exception as e:
+        logging.error(e)
