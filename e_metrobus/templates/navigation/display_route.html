@@ -72,7 +72,7 @@
     <div class="cell display-route__wrap">
       <img id="onboardingAnimateIcon2" src="{% static 'images/icons/Icon_E_Car.svg' %}" alt="E-PKW Icon">
       <div class="display-route__text">
-        <p class="display-route__sentence">{% trans "Im Vergleich zum <span>E-PKW</span> sparst du" %}</p>
+        <p class="display-route__sentence">{% trans "Im Vergleich zum <span>E-PKW</span> sparst du auf dieser Strecke" %}</p>
         <p class="display-route__number display-route-number">{{co2.e_pkw.percent|floatformat:"0"}} % CO<sub>2</sub></p>
         <p class="display-route__number display-route__number--small display-route-small-number">({{co2.e_pkw.gram|floatformat:"0"}} g CO<sub>2</sub>)</p>
       </div>
@@ -91,7 +91,7 @@
     <div class="cell display-route__wrap">
       <img id="onboardingAnimateIcon3" src="{% static 'images/icons/Icon_Conventional_Bus.svg' %}" alt="Conventional Bus Icon">
       <div class="display-route__text">
-        <p class="display-route__sentence">{% trans "Im Vergleich zum <span>Dieselbus</span> sparst du" %}</p>
+        <p class="display-route__sentence">{% trans "Im Vergleich zum <span>Dieselbus</span> sparst du auf dieser Strecke" %}</p>
         <p class="display-route__number display-route-number">{{co2.bus.percent|floatformat:"0"}} % CO<sub>2</sub></p>
         <p class="display-route__number display-route__number--small display-route-small-number">({{co2.bus.gram|floatformat:"0"}} g CO<sub>2</sub>)</p>
       </div>
@@ -110,7 +110,7 @@
     <div class="cell display-route__wrap">
       <img id="onboardingAnimateIcon5" src="{% static 'images/icons/Icon_Conventional_Car.svg' %}" alt="Conventional Car Icon">
       <div class="display-route__text">
-        <p class="display-route__sentence">{% trans "Im Vergleich zum <span>Pkw</span> sparst du" %}</p>
+        <p class="display-route__sentence">{% trans "Im Vergleich zum <span>Pkw (Diesel)</span> sparst du auf dieser Strecke" %}</p>
         <p class="display-route__number display-route-number">{{co2.car.percent|floatformat:"0"}} % CO<sub>2</sub></p>
         <p class="display-route__number display-route__number--small display-route-small-number">({{co2.car.gram|floatformat:"0"}} g CO<sub>2</sub>)</p>
       </div>

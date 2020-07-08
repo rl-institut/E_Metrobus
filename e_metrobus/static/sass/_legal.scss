@@ -13,21 +13,29 @@
     font-weight: lighter;
     text-align: left;
   }
-  &__logo {
-    position: relative;
-    height: 50vh;
+  &__logos {
     width: 100%;
     margin: 1rem 0 1rem;
-    img {
-      position: absolute;
-      left: 0;
-      top: 35%;
-      width: 100%;
-      max-width: 25rem;
-      left: 0;
-      right: 0;
-      margin-left: auto;
-      margin-right: auto;
+  }
+  &__logo {
+    width: 100%;
+    margin: 1rem 0 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    a {
+      display: block;
+    }
+
+    &--bvg img {
+      height: 3rem;
+    }
+    &--tu img {
+      height: 2.75rem;
+    }
+    &--rli img {
+      height: 2.75rem;
     }
   }
 }

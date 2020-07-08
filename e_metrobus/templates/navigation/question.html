@@ -7,7 +7,7 @@
 {% block subtitle %} - {% trans 'Frage' %}{% endblock %}
 
 {% block content %}
-<div class="cell question">
+<div class="cell question {% if question.is_multiple_choice %}question__multiple-choice{% endif %}">
   <form method="post" action="{% url 'navigation:question' category=question.category %}" id="question">
     <input type="hidden" name="question" value="{{question.name}}">
     <div class="grid-x align-center">

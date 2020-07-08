@@ -17,7 +17,7 @@
     <div class="cell small-11 my-route__top">
       <div>
         <span class="my-route__text">Meine Strecke</span>
-        <a href="{% url 'navigation:route' %}" class="button button--xsmall button--white my-route__btn"><img src="{% static 'images/icons/i_next_black_large.svg' %}" alt="">{% trans 'Ändern' %}</a>
+        <a href="{% url 'navigation:route' %}?next=environment" class="button button--xsmall button--white my-route__btn"><img src="{% static 'images/icons/i_next_black_large.svg' %}" alt="">{% trans 'Ändern' %}</a>
       </div>
     </div>
     <div class="cell small-1 my-route__icon">
@@ -31,10 +31,10 @@
 </div>
 
 <div class="cell my-route-heading">
-  {% blocktrans with distance=route_distance %}Impakt meiner Strecke ({{distance}} km) im Vergleich zu anderen Verkehrsmitteln{% endblocktrans %}
+  {% blocktrans with distance=route_distance %}Einfluss meiner Strecke ({{distance}} km) auf die Umwelt im Vergleich zu anderen Verkehrsmitteln{% endblocktrans %}
 </div>
 <div class="cell my-route-heading" hidden>
-  {% blocktrans with distance=fleet_distance %}Impakt der E-Bus Flotte ({{distance}} km) im Vergleich zu anderen Verkehrsmitteln{% endblocktrans %}
+  {% blocktrans with distance=fleet_distance %}Einfluss der E-Bus Flotte ({{distance}} km) auf die Umwelt im Vergleich zu anderen Verkehrsmitteln{% endblocktrans %}
 </div>
 
 <div class="cell my-route-tabs">

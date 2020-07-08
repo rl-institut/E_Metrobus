@@ -1,3 +1,7 @@
+#feedback {
+  padding-bottom: 2.5rem;
+}
+
 .feedback {
   position: relative;
   top: -1rem;
@@ -74,6 +78,7 @@
 
 .bug__form {
   padding-top: 1rem;
+  padding-bottom: 8rem;
 
   select {
     background-image: none;
@@ -101,5 +106,6 @@ a.feedback__bug-link {
   img {
     height: 1rem;
     transform: translateY(-2px);
+    padding-right: .25rem;
   }
 }

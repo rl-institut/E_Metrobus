@@ -9,11 +9,11 @@ ELLIPSE_X_OFFSET = 7
 ELLIPSE_Y_OFFSET = 7
 
 Consumption = namedtuple(
-    "Consumption", ["distance", "fuel", "co2", "nitrogen", "fine_dust"]
+    "Consumption", ["distance", "co2", "nitrogen", "fine_dust"]
 )
 
 FLEET_CONSUMPTION = Consumption(
-    distance=3000, fuel=200000, co2=300000, nitrogen=20000, fine_dust=10000
+    distance=3000, co2=300000, nitrogen=20000, fine_dust=10000
 )
 
 
@@ -38,7 +38,6 @@ class Ellipse:
 
 @dataclass
 class DataPerKilometer:
-    fuel: float
     co2: float
     nitrogen: float
     fine_dust: float
@@ -64,18 +63,18 @@ class Vehicle:
 VEHICLES = [
     Vehicle(
         name="car",
-        label=_("PKW"),
-        data=DataPerKilometer(fuel=0, co2=147, nitrogen=0.43, fine_dust=0.004),
+        label=_("PKW (Diesel)"),
+        data=DataPerKilometer(co2=147, nitrogen=0.43, fine_dust=0.004),
     ),
     Vehicle(
         name="bus",
         label=_("Dieselbus"),
-        data=DataPerKilometer(fuel=0, co2=80, nitrogen=0.32, fine_dust=0.003),
+        data=DataPerKilometer(co2=80, nitrogen=0.32, fine_dust=0.003),
     ),
-    Vehicle(name="e-pkw", label=_("Elektro-PKW"), data=DataPerKilometer(0, 53, 0, 0),),
-    Vehicle(name="e-bus", label=_("Elektrobus"), data=DataPerKilometer(0, 42, 0, 0),),
-    Vehicle(name="bicycle", label=_("Fahrrad"), data=DataPerKilometer(0, 0, 0, 0),),
-    Vehicle(name="pedestrian", label=_("zu Fuß"), data=DataPerKilometer(0, 0, 0, 0),),
+    Vehicle(name="e-pkw", label=_("Elektro-PKW"), data=DataPerKilometer(53, 0, 0),),
+    Vehicle(name="e-bus", label=_("Elektrobus"), data=DataPerKilometer(42, 0, 0),),
+    Vehicle(name="bicycle", label=_("Fahrrad"), data=DataPerKilometer(0, 0, 0),),
+    Vehicle(name="pedestrian", label=_("zu Fuß"), data=DataPerKilometer(0, 0, 0),),
 ]
 
 DATA_SOURCES = [

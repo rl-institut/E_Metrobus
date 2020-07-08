@@ -7,9 +7,8 @@ from django.templatetags.static import static
 from django.utils.html import format_html
 from django.utils.safestring import mark_safe
 from django.utils.translation import gettext as _
-from django.urls import reverse
 
-from e_metrobus.navigation import constants, questions
+from e_metrobus.navigation import constants, utils
 
 
 class CustomWidget:
@@ -89,19 +88,9 @@ class TopBarWidget(CustomWidget):
 
     def get_context(self, **kwargs):
         context = super(TopBarWidget, self).get_context(**kwargs)
-        context["share_url"] = self.share_url()
+        context["share_url"] = utils.share_url(self.request)
+        context["share_text"] = utils.share_text(self.request)
         return context
-
-    def share_url(self):
-        host = f"{self.request.scheme}://{self.request.get_host()}"
-        if "hashed_score" in self.request.session:
-            score_url = reverse(
-                "navigation:score",
-                kwargs={"hash": self.request.session["hashed_score"]},
-            )
-            return f"{host}{score_url}"
-        else:
-            return f"{host}{reverse('navigation:landing_page')}"
 
 
 class FooterWidget(CustomWidget):

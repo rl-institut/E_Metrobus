@@ -18,6 +18,25 @@
   <div class="tabs-content" data-tabs-content="question_tabs">
     <div class="tabs-panel is-active" id="partners">
       <div class="grid-x text-center">
+        <div class="cell">
+          <div class="grid-x">
+            <div class="cell small-4 legal__logo legal__logo--bvg" {% if visited %}style="animation: none"{% endif %}>
+              <a href="https://www.bvg.de/de">
+                <img src="{% static 'images/logos/Logo_BVG.png' %}" alt="BVG Logo">
+              </a>
+            </div>
+            <div class="cell small-4 legal__logo legal__logo--tu" {% if visited %}style="animation: none"{% endif %}>
+              <a href="https://www.mpm.tu-berlin.de/menue/home/">
+                <img src="{% static 'images/logos/TU-Berlin_logo.png' %}" alt="TU Berlin Logo">
+              </a>
+            </div>
+            <div class="cell small-4 legal__logo legal__logo--rli" {% if visited %}style="animation: none"{% endif %}>
+              <a href="https://reiner-lemoine-institut.de/">
+                <img src="{% static 'images/logos/RLi_logo.png' %}" alt="RLI Logo">
+              </a>
+            </div>
+          </div>
+        </div>
         <div class="cell legal__logo">
           <img src="{% static 'images/logos/Logokombi.jpg' %}" alt="Elektromobilität vor Ort, BMWI, NOW und PTJ Logo">
         </div>

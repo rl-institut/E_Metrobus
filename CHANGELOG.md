@@ -5,7 +5,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project tries to adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- changing route from environment returns to environment page
+
+### Fixed
+- server errors due to missing/wrong image sources
+ 
+## [0.14.0] - 2020-07-06
 ### Added
+- new questions for all categories
 - feedback form on landing page
 - posthog for anonymous session tracking
 - landing page and default route for non-bus-users
@@ -14,6 +22,7 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 - titles and alternative texts to minder barriers
 
 ### Changed 
+- link (to welcome page) and text for sharing the app
 - redesigned landing page
 - comparison chart is loaded dynamically (ajax)
 - Implemented tabs on summary page

@@ -4,6 +4,10 @@ $top-bar-height: 2.8rem;
 	overflow: hidden;
 }
 
+.l-scroll {
+	overflow: scroll;
+}
+
 .l-scroll,
 .l-no-scroll {
 	position: relative;
