@@ -34,6 +34,7 @@ class FeedbackMixin:
         if request.method == "POST" and "feedback" in request.POST:
             feedback = forms.FeedbackForm(request.POST)
             if feedback.is_valid():
+                utils.send_feedback(feedback.cleaned_data["comment"])
                 feedback.save()
             else:
                 kwargs["feedback"] = feedback
