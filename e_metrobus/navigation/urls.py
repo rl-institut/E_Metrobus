@@ -30,7 +30,7 @@ urlpatterns = [
     path("score/<str:hash>/", view=views.ShareScoreView.as_view(), name="score",),
     path(
         "questions_as_text/",
-        view=views.QuestionsAsTextView.as_view(),
+        view=views.SummaryView.as_view(),
         name="questions_as_text",
     ),
     path("legal/", view=views.LegalView.as_view(), name="legal"),
