@@ -1,7 +1,4 @@
-from django.conf import settings
-from django.http import Http404
 from django.urls import path
-from django.views.defaults import page_not_found, permission_denied, server_error
 
 from e_metrobus.navigation import views
 
@@ -38,10 +35,3 @@ urlpatterns = [
     path("send_posthog_event/", views.send_posthog_event),
     path("get_comparison_chart/", views.get_comparison_chart),
 ]
-
-if settings.DEBUG:
-    urlpatterns += [
-        path("500/", server_error),
-        path("404/", page_not_found, {"exception": Http404()}),
-        path("403/", permission_denied, {"exception": Http404()}),
-    ]
