@@ -14,23 +14,23 @@
         {% get_current_language as LANGUAGE_CODE %}
         {% if LANGUAGE_CODE == "de" %}
           <a href="en/?visited" data-open="language_popup">
-            <img src="{% static 'images/icons/i_flag_uk.svg' %}" alt="UK Flagge">
+            <img src="{% static 'images/icons/i_flag_uk.svg' %}" alt="{% trans 'UK Flagge' %}">
             <span>English</span>
           </a>
         {% else %}
           <a href="/?visited" data-open="language_popup">
-            <img src="{% static 'images/icons/i_flag_de.svg' %}" alt="Deutschland Flagge">
+            <img src="{% static 'images/icons/i_flag_de.svg' %}" alt="{% trans 'Deutschland Flagge' %}">
             <span>Deutsch</span>
           </a>
         {% endif %}
       </div>
     </div>
   </section>
-  
+
   <section class="desktop desktop-app">
     <div class="grid-x align-center grid-width--large">
       <div class="cell large-3 desktop-app__img">
-        <img src="/static/images/LP_Device_v3.svg" alt="E-MetroBus App auf einem Smartphone">
+        <img src="/static/images/LP_Device_v3.svg" alt="{% trans 'E-MetroBus App auf einem Smartphone' %}">
       </div>
       <div class="cell large-9 desktop-app__text">
         <div>
@@ -111,7 +111,7 @@
       </div>
       <div class="cell large-8 desktop-partners__item">
         <div class="desktop-partners__logo desktop-partners__logo--BVG">
-          <a href="https://www.bvg.de/de" target="_blank" rel="noopener noreferrer" title="Zur Website">
+          <a href="https://www.bvg.de/de" target="_blank" rel="noopener noreferrer" title="{% trans 'Zur Website' %}">
             <img src="{% static 'images/logos/Logo_BVG.png' %}" alt="BVG Logo">
           </a>
         </div>
@@ -121,7 +121,7 @@
       </div>
       <div class="cell large-8 desktop-partners__item">
         <div class="desktop-partners__logo desktop-partners__logo--RLI">
-          <a href="https://reiner-lemoine-institut.de/" target="_blank" rel="noopener noreferrer" title="Zur Website">
+          <a href="https://reiner-lemoine-institut.de/" target="_blank" rel="noopener noreferrer" title="{% trans 'Zur Website' %}">
             <img src="{% static 'images/RLi_logo.png' %}" alt="RLI Logo">
           </a>
         </div>
@@ -131,7 +131,7 @@
       </div>
       <div class="cell large-8 desktop-partners__item">
         <div class="desktop-partners__logo desktop-partners__logo--TUB">
-          <a href="https://www.mpm.tu-berlin.de/menue/home/" target="_blank" rel="noopener noreferrer" title="Zur Website">
+          <a href="https://www.mpm.tu-berlin.de/menue/home/" target="_blank" rel="noopener noreferrer" title="{% trans 'Zur Website' %}">
             <img src="{% static 'images/logos/TU-Berlin_logo.png' %}" alt="TUB Logo">
           </a>
         </div>

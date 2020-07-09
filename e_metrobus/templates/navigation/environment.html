@@ -16,12 +16,12 @@
     <div class="cell small-1"></div>
     <div class="cell small-11 my-route__top">
       <div>
-        <span class="my-route__text">Meine Strecke</span>
+        <span class="my-route__text">{% trans 'Meine Strecke' %}</span>
         <a href="{% url 'navigation:route' %}?next=environment" class="button button--xsmall button--white my-route__btn"><img src="{% static 'images/icons/i_next_black_large.svg' %}" alt="">{% trans 'Ändern' %}</a>
       </div>
     </div>
     <div class="cell small-1 my-route__icon">
-      <img src="{% static 'images/icons/i_route_black.svg' %}" alt="Strecke">
+      <img src="{% static 'images/icons/i_route_black.svg' %}" alt="{% trans 'Strecke' %}">
     </div>
     <div class="cell small-11 my-route__stations">
       <span class="my-route__station--0">{{stations.0}}</span>
