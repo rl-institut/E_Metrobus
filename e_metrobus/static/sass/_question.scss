@@ -175,23 +175,27 @@
     width: 1rem;
     height: 1rem;
     transform: translateY(2px);
-    background-image: url(../images/icons/i_next_black_large.svg);
+    background-image: url(../images/icons/i_next_gray.svg);
     background-size: cover;
+    margin-right: .25rem;
   }
 
   .accordion-item.is-active .icon {
-    background-image: url(../images/icons/i_previous_black_large.svg);
+    background-image: url(../images/icons/i_back_gray.svg);
   }
   img {
     margin: 2rem 0;
   }
 
-  .accordion-title {
+  .accordion-title,
+  .accordion-title:visited,
+  .accordion-title:focus,
+  .accordion-title:active,
+  .accordion-title:hover {
     padding-top: .25rem;
+    padding-left: 0;
     font-size: 1rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+    color: $gray-4;
 
     & > div {
       display: inline-block;
