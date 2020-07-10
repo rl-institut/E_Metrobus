@@ -327,8 +327,16 @@ class QuizFinishedView(PosthogMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super(QuizFinishedView, self).get_context_data(**kwargs)
         context["footer"] = widgets.FooterWidget(links=self.footer_links)
-        context["answers"] = questions.get_all_answers(self.request.session)
-        context["score"] = questions.get_total_score(self.request.session)
+        answers = questions.get_all_answers(self.request.session)
+        context["answers"] = answers
+        correct = len(
+            [answer for answer in answers if answer == questions.Answer.Correct]
+        )
+        total = len(answers)
+        percent = questions.get_total_score(self.request.session)
+        context["score"] = percent
+        context["score_text"] = utils.get_score_text(correct, total)
+        context["slogan"] = utils.get_slogan(percent)
         context["share_url"] = utils.share_url(self.request)
         context["share_text"] = utils.share_text(self.request)
         return context

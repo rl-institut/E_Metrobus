@@ -93,3 +93,18 @@ def send_bug_report(subject, message):
         Mailbox(email_address=recipient) for recipient in settings.BUG_RECIPIENTS
     ]
     send_mail(subject, message, recipients)
+
+
+def get_score_text(correct, total):
+    return _("Du hast %(correct)s / %(total)s Fragen richtig beantwortet.") % {
+        "correct": correct, "total": total
+    }
+
+
+def get_slogan(percent):
+    if percent < 33:
+        return constants.FINISHED_SLOGANS[0]
+    elif percent < 66:
+        return constants.FINISHED_SLOGANS[1]
+    else:
+        return constants.FINISHED_SLOGANS[2]

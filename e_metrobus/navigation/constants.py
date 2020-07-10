@@ -83,3 +83,9 @@ DATA_SOURCES = [
 ]
 
 POSTHOG_EVENTS = ("shared", "sources", "english")
+
+FINISHED_SLOGANS = (
+    _("Oha, da ist noch Luft nach oben! Macht aber nichts. In unserem Info-Bereich findest du Antworten auf all deine Fragen zu E-Bussen, die du nie zu stellen gewagt hast."),
+    _("Nicht schlecht, aber das geht noch besser! Alle Fakten zum Nachlesen und Aufschlauen findest du in unserem Info-Bereich."),
+    _("Wow! Wir können dir kaum noch etwas beibringen. Alle Fakten zum Nachlesen findest du nochmal in unserem Info-Bereich.")
+)

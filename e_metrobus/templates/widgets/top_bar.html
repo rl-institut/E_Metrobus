@@ -44,7 +44,7 @@
       <div class="grid-x text-center align-center">
         <div class="cell quiz-finished__reveal-wrap">
           <p class="highlight">{% blocktrans with score="<span>{}</span>"|format_text:score %}{{score}}% richtig beantwortet{% endblocktrans %}</p>
-          <p class="sub">{% trans 'Ich bin ein lustiger BVG Spruch zu meinen Punkten' %}</p>
+          <p class="sub">{{score_text}} {{slogan}}</p>
         </div>
       </div>
     </div>
