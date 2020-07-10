@@ -239,3 +239,10 @@ COMPRESS_CACHEABLE_PRECOMPILERS = (("text/x-scss", "django_libsass.SassCompiler"
 # ------------------------------------------------------------------------------
 posthog.api_key = env.str("POSTHOG_KEY", default=None)
 posthog.host = env.str("POSTHOG_URL", default=None)
+
+EXCHANGE_ACCOUNT = env.str("EXCHANGE_ACCOUNT", default=None)
+EXCHANGE_EMAIL = env.str("EXCHANGE_EMAIL", default=None)
+EXCHANGE_PW = env.str("EXCHANGE_PW", default=None)
+
+FEEDBACK_RECIPIENTS = env.list("FEEDBACK_RECIPIENTS", default=[])
+BUG_RECIPIENTS = env.list("FEEDBACK_RECIPIENTS", default=[])

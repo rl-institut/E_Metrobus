@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block title %}{% trans 'Ungültige Anfrage' %}{% endblock %}
+
+{% block content %}
+<div class="error-layout">
+  <div class="error-layout__content">
+    <h1>{% trans 'Ungültige Anfrage' %}</h1>
+    <p>{% trans 'Die Anfrage für diese Seite ist ungültig.' %}</p>
+  </div>
+  <div class="error-layout__img">
+    <img class="project-content__img" src="/static/images/icons/Icon_E_Bus_BVG_empty_battery.svg" alt="{% trans 'Elektrischer Bus ohne Strom' %}">
+  </div>
+  <div class="error-layout__btn">
+    <a href="{% url 'navigation:dashboard' %}"><button class="button">{% trans "Zurück zur App" %}</button></a>
+  </div>
+</div>
+{% endblock content %}

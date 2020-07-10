@@ -24,16 +24,14 @@ class CheckStationsMixin:
 class FeedbackMixin:
     def get_context_data(self, **kwargs):
         context = super(FeedbackMixin, self).get_context_data(**kwargs)
-        context["feedback"] = kwargs.get(
-            "feedback",
-            forms.FeedbackForm(),
-        )
+        context["feedback"] = kwargs.get("feedback", forms.FeedbackForm(),)
         return context
 
     def dispatch(self, request, *args, **kwargs):
         if request.method == "POST" and "feedback" in request.POST:
             feedback = forms.FeedbackForm(request.POST)
             if feedback.is_valid():
+                utils.send_feedback(feedback.cleaned_data["comment"])
                 feedback.save()
             else:
                 kwargs["feedback"] = feedback
@@ -92,6 +90,8 @@ class RouteView(PosthogMixin, TemplateView):
             return station_list.index(start), station_list.index(end)
 
         request.session["stations"] = get_stations()
+        if "next" in request.GET:
+            return redirect(f"navigation:{request.GET['next']}")
         return redirect("navigation:display_route")
 
 
@@ -318,11 +318,11 @@ class CategoryFinishedView(PosthogMixin, TemplateView):
 class QuizFinishedView(PosthogMixin, TemplateView):
     template_name = "navigation/quiz_finished.html"
     footer_links = {
-                "info": {"enabled": True},
-                "dashboard": {"enabled": True},
-                "leaf": {"enabled": True},
-                "results": {"enabled": True},
-            }
+        "info": {"enabled": True},
+        "dashboard": {"enabled": True},
+        "leaf": {"enabled": True},
+        "results": {"enabled": True},
+    }
 
     def get_context_data(self, **kwargs):
         context = super(QuizFinishedView, self).get_context_data(**kwargs)
@@ -382,6 +382,10 @@ class LegalView(FeedbackMixin, NavigationView):
         if "bug" in request.POST:
             bug = forms.BugForm(request.POST)
             if bug.is_valid():
+                utils.send_bug_report(
+                    f"E-MetroBus Bug found - {bug.cleaned_data['type']}",
+                    bug.cleaned_data["description"],
+                )
                 bug.save()
             else:
                 return self.render_to_response(self.get_context_data(bug=bug))
