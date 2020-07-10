@@ -106,7 +106,36 @@ $tab-border-half: 1px solid $white;
   }
 
   h1 {
-    padding-top: 2rem;
-    padding-bottom: 1rem;
+    padding-top: 5rem;
+    padding-bottom: 4rem;
+  }
+}
+
+.reveal.legal {
+  position: relative;
+  button.close-button {
+    left: 2rem;
+    top: 2rem;
+    font-size: 1rem !important;
+    width: auto !important;
+
+    .icon {
+      display: inline-block;
+      height: 1rem;
+      width: 1rem;
+      background-image: url(../images/icons/i_back_gray_darker.svg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      transform: translateY(2px) translateX(-2px);
+    }
+
+    span {
+      display: inline-block;
+      color: $gray-4;
+      &:hover {
+        color: $gray-4;
+      }
+    }
   }
 }

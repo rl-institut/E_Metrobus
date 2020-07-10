@@ -194,17 +194,19 @@
     </form>
   </div>
 
-  <div class="full reveal" id="imprint_reveal" data-reveal>
+  <div class="full reveal legal" id="imprint_reveal" data-reveal>
     {% include 'includes/imprint.html' %}
     <button class="close-button" data-close aria-label="Close modal" type="button">
-      <span aria-hidden="true">&times;</span>
+      <div class="icon"></div>
+      <span aria-hidden="true">{% trans 'Zurück zur Startseite' %}</span>
     </button>
   </div>
 
-  <div class="full reveal" id="privacy_reveal" data-reveal>
+  <div class="full reveal legal" id="privacy_reveal" data-reveal>
     {% include 'includes/privacy.html' %}
     <button class="close-button" data-close aria-label="Close modal" type="button">
-      <span aria-hidden="true">&times;</span>
+      <div class="icon"></div>
+      <span aria-hidden="true">{% trans 'Zurück zur Startseite' %}</span>
     </button>
   </div>
 
