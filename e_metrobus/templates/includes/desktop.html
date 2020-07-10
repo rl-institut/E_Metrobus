@@ -194,12 +194,18 @@
     </form>
   </div>
 
-  <div class="reveal" id="imprint_reveal" data-reveal>
+  <div class="full reveal" id="imprint_reveal" data-reveal>
     {% include 'includes/imprint.html' %}
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
 
-  <div class="reveal" id="privacy_reveal" data-reveal>
+  <div class="full reveal" id="privacy_reveal" data-reveal>
     {% include 'includes/privacy.html' %}
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
 
 </div>
