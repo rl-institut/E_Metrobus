@@ -22,7 +22,7 @@
         <p class="tour__feature tour__feature--nopadding a-tour-text-top">{% trans 'Jetzt kannst du...' %}</p>
       </div>
       <div class="cell small-2 tour__icon a-tour-icon a-tour-icon--1">
-        <a href="">
+        <a href="{% url 'navigation:dashboard' %}">
           <div>
             <img src="{% static 'images/icons/i_quiz_black.svg' %}" alt="Quiz">
           </div>
@@ -32,7 +32,7 @@
         <p>{% trans '... deine Kenntnisse über E-Mobilität mit einem Quiz testen!' %}</p>
       </div>
       <div class="cell small-2 tour__icon a-tour-icon a-tour-icon--2">
-        <a href="">
+        <a href="{% url 'navigation:environment' %}">
           <div>
             <img src="{% static 'images/icons/i_pin_black.svg' %}" alt="Pin">
           </div>
@@ -42,7 +42,7 @@
         <p>{% trans '... noch mehr Daten zu deiner Strecke und der Umwelt-Bilanz lesen' %}</p>
       </div>
       <div class="cell small-2 tour__icon a-tour-icon a-tour-icon--3">
-        <a href="">
+        <a href="{% url 'navigation:questions_as_text' %}">
           <div>
             <img src="{% static 'images/icons/i_flash_black.svg' %}" alt="{% trans 'Blitz' %}">
           </div>
