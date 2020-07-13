@@ -4,7 +4,7 @@ from django import forms
 from django.utils.safestring import mark_safe
 
 from e_metrobus.navigation.models import Bug, Feedback
-from e_metrobus.navigation.widgets import FeedbackCommentWidget, FeedbackStarsWidget
+from e_metrobus.navigation.widgets import FeedbackCommentWidget
 
 
 class FeedbackForm(forms.ModelForm):

@@ -44,13 +44,9 @@
       </div>
       <div class="cell landpage__bottom">
         <div class="grid-x">
-
-          <!-- SHOW WHEN TEXT IS THERE
-          <div class="cell landpage__text" {% if visited %}style="animation: none"{% endif %}>
-            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+          <div class="cell landpage__text">
+            <p>{% trans 'Die App ist Teil des Forschungsprojektes E-MetroBus der folgenden Partner:' %}</p>
           </div>
-          -->
-
           <div class="cell small-4 landpage__logo landpage__logo--bvg" {% if visited %}style="animation: none"{% endif %}>
             <a href="https://www.bvg.de/de">
               <img src="{% static 'images/logos/Logo_BVG.png' %}" alt="BVG Logo">
@@ -67,7 +63,7 @@
             </a>
           </div>
           <div class="cell landpage__logo landpage__logo--bmwi" {% if visited %}style="animation: none"{% endif %}>
-            <img src="{% static 'images/logos/Logokombi.jpg' %}" alt="Elektromobilität vor Ort, BMWI, NOW und PTJ Logo">
+            <img src="{% static 'images/logos/Logokombi.jpg' %}" alt="{% trans 'Elektromobilität vor Ort, BMWI, NOW und PTJ Logo' %}">
           </div>
         </div>
       </div>
@@ -76,7 +72,7 @@
 
   {% if not privacy_accepted %}
     <div class="privacypop pop" id="privacy_popup">
-      <p>Hinweis: Unsere Website sammelt keine personenbezogenen Daten.</p>
+      <p>{% trans 'Hinweis: Unsere Website sammelt keine personenbezogenen Daten.' %}</p>
       <button id="pricacyButton" class="button button--small button--yellow close" onclick="privacy_policy_accepted();">{% trans 'Okay' %}</button>
     </div>
   {% endif %}
