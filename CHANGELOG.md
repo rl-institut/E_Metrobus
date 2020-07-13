@@ -14,6 +14,7 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 
 ### Fixed
 - server errors due to missing/wrong image sources
+- soft keyboard activating landscape view
  
 ## [0.14.0] - 2020-07-06
 ### Added

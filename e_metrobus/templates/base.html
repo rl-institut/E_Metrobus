@@ -41,7 +41,7 @@
       {% include "includes/desktop.html" %}
     </div>
     {% include "includes/landscape.html" %}
-    <div class="grid-container full hide-for-large show-for-portrait">
+    <div class="grid-container portrait full hide-for-large show-for-portrait">
 
       {{top_bar}}
 
@@ -110,6 +110,17 @@
             dataType: "html",
             data: {"event": event}
           });
+        }
+
+        function disable_landscape() {
+          $(".landscape").removeClass("show-for-landscape");
+          $(".landscape").hide();
+          $(".portrait").removeClass("show-for-portrait");
+        }
+
+        function enable_landscape() {
+          $(".landscape").addClass("show-for-landscape");
+          $(".portrait").addClass("show-for-portrait");
         }
       </script>
     {% endblock javascript %}
