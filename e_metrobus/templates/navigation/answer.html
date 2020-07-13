@@ -23,7 +23,7 @@
           <span class="question__hint">({% trans 'Mehrere Antworten möglich' %})</span>
         {% endif %}
       </div>
-      <div class="cell question__answer">
+      <div class="cell question__answer" id="answers-view">
         <fieldset name="answer">
           <legend hidden>Antwortmöglichkeiten und Anwort</legend>
           {% for answer in question.answers %}

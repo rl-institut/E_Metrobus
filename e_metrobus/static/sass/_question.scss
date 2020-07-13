@@ -20,7 +20,8 @@
 
   &__text {
     margin: 1rem 0 .5rem;
-    @include question-padding;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
   &__answer {
     @include question-padding;
@@ -41,8 +42,7 @@
     line-height: 1.3rem;
   }
   &__answer input:checked + label {
-    background-color: $gray-5;
-    color: $gray-2;
+    background-color: $primary-color-1;
   }
   &__answer input.answered + label {
     background-color: $gray-5;
@@ -99,8 +99,14 @@
     background-color: #252424;
   }
 }
+
+#answers-view.question__answer input:not(.correct) + label {
+  background-color: $gray-5;
+  color: $gray-2;
+}
+
 .answer--ready {
-  background-color: $primary-color-1;
+  background-color: rgba(255, 255, 255, .75);
   input {
     background-color: #252424 !important;
   }
