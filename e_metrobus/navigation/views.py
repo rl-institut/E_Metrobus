@@ -335,7 +335,6 @@ class QuizFinishedView(PosthogMixin, TemplateView):
         total = len(answers)
         percent = questions.get_total_score(self.request.session)
         context["score"] = percent
-        context["score_text"] = utils.get_score_text(correct, total)
         context["slogan"] = utils.get_slogan(percent)
         context["share_url"] = utils.share_url(self.request)
         context["share_text"] = utils.share_text(self.request)

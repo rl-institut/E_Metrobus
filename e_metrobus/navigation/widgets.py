@@ -96,7 +96,6 @@ class TopBarWidget(CustomWidget):
         total = len(self.answers)
         percent = questions.get_total_score(self.request.session)
         context["score"] = percent
-        context["score_text"] = utils.get_score_text(correct, total)
         context["slogan"] = utils.get_slogan(percent)
         return context
 
