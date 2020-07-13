@@ -184,12 +184,6 @@
     text-align: left;
     padding: 0 .5rem;
     color: $gray-4;
-    p {
-    margin-bottom: 0;
-      @media only screen and (min-height: 650px) {
-        margin-bottom: 1rem;
-      }
-    }
   }
   &__bottom {
     padding: 0 .5rem 0;
