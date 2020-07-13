@@ -102,3 +102,12 @@ def send_bug_report(subject, message):
         m.send_and_save()
     except Exception as e:
         logging.error(e)
+
+
+def get_slogan(percent):
+    if percent < 33:
+        return constants.FINISHED_SLOGANS[0]
+    elif percent < 66:
+        return constants.FINISHED_SLOGANS[1]
+    else:
+        return constants.FINISHED_SLOGANS[2]
