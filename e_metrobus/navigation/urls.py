@@ -1,7 +1,4 @@
-from django.conf import settings
-from django.http import Http404
 from django.urls import path
-from django.views.defaults import page_not_found, permission_denied, server_error
 
 from e_metrobus.navigation import views
 
@@ -9,39 +6,32 @@ app_name = "navigation"
 urlpatterns = [
     path("", view=views.LandingPageView.as_view(), name="landing_page"),
     path(
-        "welcome/",
+        "willkommen/",
         view=views.LandingPageView.as_view(non_bus_user=True),
         name="welcome",
     ),
-    path("route/", view=views.RouteView.as_view(), name="route"),
-    path("display_route/", view=views.DisplayRouteView.as_view(), name="display_route"),
-    path("comparison/", view=views.ComparisonView.as_view(), name="comparison"),
-    path("environment/", view=views.EnvironmentView.as_view(), name="environment"),
-    path("dashboard/", view=views.DashboardView.as_view(), name="dashboard"),
+    path("strecke/", view=views.RouteView.as_view(), name="route"),
+    path("meine-strecke/", view=views.DisplayRouteView.as_view(), name="display_route"),
+    path("mein-fussabdruck/", view=views.ComparisonView.as_view(), name="comparison"),
+    path("umweltbilanz/", view=views.EnvironmentView.as_view(), name="environment"),
+    path("quiz/", view=views.DashboardView.as_view(), name="dashboard"),
     path("quiz/<str:category>/", view=views.QuestionView.as_view(), name="question"),
-    path("answer/", view=views.AnswerView.as_view(), name="answer"),
+    path("antwort/", view=views.AnswerView.as_view(), name="answer"),
     path("tour/", view=views.TourView.as_view(), name="tour"),
     path(
-        "finished/<str:category>/",
+        "abgeschlossen/<str:category>/",
         view=views.CategoryFinishedView.as_view(),
         name="category_finished",
     ),
-    path("finished/", view=views.QuizFinishedView.as_view(), name="finished_quiz",),
-    path("score/<str:hash>/", view=views.ShareScoreView.as_view(), name="score",),
+    path("abgeschlossen/", view=views.QuizFinishedView.as_view(), name="finished_quiz",),
+    path("punkte/<str:hash>/", view=views.ShareScoreView.as_view(), name="score",),
     path(
-        "questions_as_text/",
+        "zusammenfassung/",
         view=views.SummaryView.as_view(),
         name="questions_as_text",
     ),
-    path("legal/", view=views.LegalView.as_view(), name="legal"),
+    path("informationen/", view=views.LegalView.as_view(), name="legal"),
     path("accept_privacy_policy/", views.accept_privacy_policy),
     path("send_posthog_event/", views.send_posthog_event),
     path("get_comparison_chart/", views.get_comparison_chart),
 ]
-
-if settings.DEBUG:
-    urlpatterns += [
-        path("500/", server_error),
-        path("404/", page_not_found, {"exception": Http404()}),
-        path("403/", permission_denied, {"exception": Http404()}),
-    ]
