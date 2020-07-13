@@ -186,9 +186,3 @@ def check_answer(question, answer):
         return answer == question.correct
     else:
         return answer == question.correct
-
-
-def get_question_number(question):
-    return list(QUESTIONS[question.category].questions.keys()).index(question.name)
-
-

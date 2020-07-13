@@ -14,9 +14,6 @@
           {% with "images/icons/i_flash_"|add:flash.value|add:".svg" as flash_icon %}
             <img src="{% static flash_icon %}" alt="">
           {% endwith %}
-          {% if forloop.counter0 == current_flash %}
-            !
-          {% endif %}
         {% endfor %}
       </div>
       <div class="cell question__text">

@@ -288,7 +288,6 @@ class AnswerView(NavigationView):
         context["flashes"] = questions.get_category_answers(
             question.category, self.request.session
         )
-        context["current_flash"] = questions.get_question_number(question)
         return context
 
     def get(self, request, **kwargs):
