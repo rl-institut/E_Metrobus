@@ -169,8 +169,8 @@
     <div class="grid-x align-center grid-width--large">
       <div class="cell">
         <ul>
-          <li><a href="#">{% trans 'Impressum' %}</a></li>
-          <li><a href="#">{% trans 'Datenschutz' %}</a></li>
+          <li><a data-open="imprint_reveal">{% trans 'Impressum' %}</a></li>
+          <li><a data-open="privacy_reveal"> {% trans 'Datenschutz' %}</a></li>
         </ul>
       </div>
     </div>
@@ -192,6 +192,22 @@
         </div>
       </div>
     </form>
+  </div>
+
+  <div class="full reveal legal" id="imprint_reveal" data-reveal>
+    {% include 'includes/imprint.html' %}
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <div class="icon"></div>
+      <span aria-hidden="true">{% trans 'Zurück zur Startseite' %}</span>
+    </button>
+  </div>
+
+  <div class="full reveal legal" id="privacy_reveal" data-reveal>
+    {% include 'includes/privacy.html' %}
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <div class="icon"></div>
+      <span aria-hidden="true">{% trans 'Zurück zur Startseite' %}</span>
+    </button>
   </div>
 
 </div>
