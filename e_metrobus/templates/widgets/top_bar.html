@@ -44,24 +44,24 @@
       <div class="grid-x text-center align-center">
         <div class="cell quiz-finished__reveal-wrap">
           <p class="highlight">{% blocktrans with score="<span>{}</span>"|format_text:score %}{{score}}% richtig beantwortet{% endblocktrans %}</p>
-          <p class="sub">{% trans 'Ich bin ein lustiger BVG Spruch zu meinen Punkten' %}</p>
+          <p class="sub">{{slogan}}</p>
         </div>
       </div>
     </div>
   {% endif %}
   <div class="grid-x share-reveal" id="share-buttons">
     <div class="cell small-3 share-reveal__icon">
-      <a href="http://www.facebook.com/sharer.php?u={{share_text}}{{share_url}}" target="_blank">
+      <a href="http://www.facebook.com/sharer.php?u={{share_url}}&amp;title={{share_text}}" target="_blank">
         <img src="{% static 'images/icons/i_fb.png' %}" alt="Facebook Icon">
       </a>
     </div>
     <div class="cell small-3 share-reveal__icon">
-      <a href="whatsapp://send?text={{share_text}}{{share_url}}">
+      <a href="whatsapp://send?text={{share_text}}:%0D%0A{{share_url}}">
         <img src="{% static 'images/icons/i_whatsapp.png' %}" alt="Whatsapp Icon">
       </a>
     </div>
     <div class="cell small-3 share-reveal__icon">
-      <a href="tg://msg_url?url={{share_url}}&amp;text={{share_text}}">
+      <a href="tg://msg_url?url={{share_url}}&amp;text={{share_text}}.">
         <img src="{% static 'images/icons/i_telegram.png' %}" alt="Telegram Icon">
       </a>
     </div>

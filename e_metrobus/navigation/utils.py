@@ -37,7 +37,7 @@ def share_url(request):
 def share_text(request):
     if "non_bus_user" in request.session:
         text = _(
-            "Ich bin gerade in einem E-Bus auf der Linie 200 gefahren. Schau mal hier:"
+            "Ich bin gerade in einem E-Bus auf der Linie 200 gefahren. Schau mal hier"
         )
     else:
         current_stations = [
@@ -46,7 +46,7 @@ def share_text(request):
         route_data = stations.STATIONS.get_route_data(*current_stations)
         co2 = route_data["bus"].co2 - route_data["e-bus"].co2
         text = _(
-            "Ich bin gerade in einem E-Bus auf der Linie 200 gefahren und habe der Welt dabei %(co2)s g CO2-Emissionen erspart. Schau mal hier:"
+            "Ich bin gerade in einem E-Bus auf der Linie 200 gefahren und habe der Welt dabei %(co2)s g CO2-Emissionen erspart. Schau mal hier"
         ) % {"co2": round(co2, 2)}
     return text
 
@@ -102,3 +102,12 @@ def send_bug_report(subject, message):
         m.send_and_save()
     except Exception as e:
         logging.error(e)
+
+
+def get_slogan(percent):
+    if percent < 33:
+        return constants.FINISHED_SLOGANS[0]
+    elif percent < 66:
+        return constants.FINISHED_SLOGANS[1]
+    else:
+        return constants.FINISHED_SLOGANS[2]

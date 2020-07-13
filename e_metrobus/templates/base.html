@@ -2,12 +2,18 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Link previews -->
+    <meta property="og:title" content="E-MetroBus App" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://e-metrobus.berlin" />
+    <meta property="og:image:secure_url" itemprop="image" content="{{request.scheme}}://{{request.get_host}}{% static 'images/Icon_E_Bus_BVG.svg' %}" />
+
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{% block title %}E-MetroBus{% endblock title %}{% block subtitle %}{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="E-MetroBus Projekt">
+    <meta name="author" content="Reiner Lemoine Institut gGmbH">
 
     <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
@@ -37,9 +43,11 @@
   -->
   <body class="{% block body_class %}l-scroll l-scroll--nav{% endblock %}">
 
-    {% include "includes/desktop.html" %}
+    <div class="show-for-large">
+      {% include "includes/desktop.html" %}
+    </div>
     {% include "includes/landscape.html" %}
-    <div class="grid-container full hide-for-large show-for-portrait">
+    <div class="grid-container portrait full hide-for-large show-for-portrait">
 
       {{top_bar}}
 
@@ -108,6 +116,17 @@
             dataType: "html",
             data: {"event": event}
           });
+        }
+
+        function disable_landscape() {
+          $(".landscape").removeClass("show-for-landscape");
+          $(".landscape").hide();
+          $(".portrait").removeClass("show-for-portrait");
+        }
+
+        function enable_landscape() {
+          $(".landscape").addClass("show-for-landscape");
+          $(".portrait").addClass("show-for-portrait");
         }
       </script>
     {% endblock javascript %}

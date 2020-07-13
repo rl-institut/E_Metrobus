@@ -324,8 +324,15 @@ class QuizFinishedView(PosthogMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super(QuizFinishedView, self).get_context_data(**kwargs)
         context["footer"] = widgets.FooterWidget(links=self.footer_links)
-        context["answers"] = questions.get_all_answers(self.request.session)
-        context["score"] = questions.get_total_score(self.request.session)
+        answers = questions.get_all_answers(self.request.session)
+        context["answers"] = answers
+        correct = len(
+            [answer for answer in answers if answer == questions.Answer.Correct]
+        )
+        total = len(answers)
+        percent = questions.get_total_score(self.request.session)
+        context["score"] = percent
+        context["slogan"] = utils.get_slogan(percent)
         context["share_url"] = utils.share_url(self.request)
         context["share_text"] = utils.share_text(self.request)
         return context
@@ -391,19 +398,14 @@ class LegalView(FeedbackMixin, NavigationView):
         return redirect("navigation:legal")
 
 
-class QuestionsAsTextView(CheckStationsMixin, NavigationView):
-    template_name = "navigation/questions_as_text.html"
+class SummaryView(CheckStationsMixin, NavigationView):
+    template_name = "navigation/summary.html"
     footer_links = {
         "info": {"enabled": True},
         "dashboard": {"enabled": True},
         "leaf": {"enabled": True},
         "results": {"selected": True},
     }
-
-    def get_context_data(self, **kwargs):
-        context = super(QuestionsAsTextView, self).get_context_data(**kwargs)
-        context["categories"] = questions.QUESTIONS
-        return context
 
 
 class LandingPageView(PosthogMixin, FeedbackMixin, TemplateView):
