@@ -329,10 +329,6 @@ class QuizFinishedView(PosthogMixin, TemplateView):
         context["footer"] = widgets.FooterWidget(links=self.footer_links)
         answers = questions.get_all_answers(self.request.session)
         context["answers"] = answers
-        correct = len(
-            [answer for answer in answers if answer == questions.Answer.Correct]
-        )
-        total = len(answers)
         percent = questions.get_total_score(self.request.session)
         context["score"] = percent
         context["slogan"] = utils.get_slogan(percent)
@@ -341,8 +337,8 @@ class QuizFinishedView(PosthogMixin, TemplateView):
         return context
 
     def get(self, request, *args, **kwargs):
-        if not questions.all_questions_answered(request.session):
-            raise Http404("Not all questions answered. Please go back to quiz.")
+        # if not questions.all_questions_answered(request.session):
+        #     raise Http404("Not all questions answered. Please go back to quiz.")
         if "hashed_score" not in request.session:
             score = models.Score.save_score(request.session)
             request.session["hashed_score"] = score.hash

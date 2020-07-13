@@ -70,6 +70,7 @@
       <script src="{% static 'js/jquery.min.js' %}"></script>
       <script src="{% static 'libs/what-input/what-input.min.js' %}"></script>
       <script src="{% static 'js/foundation.min.js' %}"></script>
+      <script src="{% static 'js/clipboard.min.js' %}"></script>
 
       <!-- place project specific Javascript in this file -->
       {% compress js %}
@@ -91,14 +92,9 @@
         resetHeight();
 
         {% if top_bar.share_link_js %}
-          function shareLink() {
-            var text = "{{top_bar.share_url}}";
-            var input = document.createElement('input');
-            input.setAttribute('value', text);
-            document.body.appendChild(input);
-            input.select();
-            var result = document.execCommand('copy');
-            document.body.removeChild(input);
+          new ClipboardJS('#share_link');
+
+          function link_copied() {
             $('#link_copied').fadeIn();
             setTimeout(
               function () {
