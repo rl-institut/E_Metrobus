@@ -207,7 +207,7 @@ border: none;
 background: none;
 }
 
-// CSS for desktop only
+// CSS for desktop LP and mobile SUMMARY
 $desktop-padding-large: 9rem;
 $desktop-padding-medium: 4.5rem;
 $desktop-padding-small: 2.25rem;
@@ -237,11 +237,18 @@ $desktop-padding-xxsmall: .6rem;
   flex-direction: row;
   justify-content: center;
   padding-bottom: 0;
-  margin-bottom: $desktop-padding-large;  
+  margin-bottom: $desktop-padding-medium;
+
+  @media screen and (min-width: 1024px) {
+    margin-bottom: $desktop-padding-large;
+  }
 }
 
 .desktop-header {
-  padding-top: $desktop-padding-medium;
+  padding-top: $desktop-padding-small;
+  @media screen and (min-width: 1024px) {
+    padding-top: $desktop-padding-medium;
+  }
 
   & > div {
     position: relative;
@@ -274,24 +281,37 @@ $desktop-padding-xxsmall: .6rem;
   }
 
   &__frame {
-    @include yellow-card($desktop-padding-medium);
+    @include yellow-card(1rem);
+    @media screen and (min-width: 1024px) {
+      @include yellow-card($desktop-padding-medium);
+    }
   }
 
   h1 {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 700;
+    @media screen and (min-width: 1024px) {
+      font-size: 3rem;
+    }
   }
 
   span {
-    font-size: 2rem;
+    font-size: 1.25rem;
     font-weight: 300;
+    @media screen and (min-width: 1024px) {
+      font-size: 2rem;
+    }
   }
 }
 
 .desktop-app { 
   
   .desktop-app__text {
-    padding-left: $desktop-padding-medium;
+    padding-top: $desktop-padding-medium;
+    @media screen and (min-width: 1024px) {
+      padding-top: 0;
+      padding-left: $desktop-padding-medium;
+    }
 
     & > div {
       display: flex;
@@ -303,20 +323,36 @@ $desktop-padding-xxsmall: .6rem;
     .heading {
 
       h2 {
-        font-size: 1.55rem;
+        font-size: 1.25rem;
         font-weight: 700;
-        padding-bottom: $desktop-padding-medium;
+        text-align: center;
+        padding-bottom: $desktop-padding-xsmall;
+        @media screen and (min-width: 1024px) {
+          text-align: left;
+          font-size: 1.55rem;
+          padding-bottom: $desktop-padding-medium;
+        }
       }
 
       h2 .heading--highlight {
-        color: $white;
-        background-color: $secondary-color;
-        padding: .75rem;
+        white-space: nowrap;
+        @media screen and (min-width: 1024px) {
+          color: $white;
+          background-color: $secondary-color;
+          padding: .75rem;
+        }
       }
     }
 
     .icons {
-      padding-bottom: $desktop-padding-medium;
+      padding-bottom: $desktop-padding-small;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      @media screen and (min-width: 1024px) {
+        display: block;
+        padding-bottom: $desktop-padding-medium
+      }
 
       .icons--1 {
         background-image: url(../images/icons/i_quiz_black.svg);
@@ -328,22 +364,31 @@ $desktop-padding-xxsmall: .6rem;
         background-image: url(../images/icons/i_flash_black.svg);
       }
       & > div {
-        height: 3.25rem;
-        width: 3.25rem;
-        margin-right: $desktop-padding-small;
+        height: 2rem;
+        width: 2rem;
         display: inline-block;
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
+        @media screen and (min-width: 1024px) {
+          height: 3.25rem;
+          width: 3.25rem;
+          margin-right: $desktop-padding-small;
+        }
       }
     }
 
     .benefits p {
-      font-size: 1.25rem;
-      line-height: 1.875rem;
+      font-size: 1rem;
+      line-height: 1.5rem;
       text-align: left;
       margin-bottom: $desktop-padding-xsmall;
-      width: 80%;
+
+      @media screen and (min-width: 1024px) {
+        font-size: 1.25rem;
+        line-height: 1.875rem;
+        width: 80%;
+      }
     }
   }
 }
@@ -351,45 +396,63 @@ $desktop-padding-xxsmall: .6rem;
 .desktop-project {
 
   &__heading {
-    padding-bottom: $desktop-padding-medium;
+    padding-bottom: $desktop-padding-xsmall;
+    @media screen and (min-width: 1024px) {
+      padding-bottom: $desktop-padding-medium;
+    }
 
     h2 {
       text-align: center;
-      font-size: 1.55rem;
+      font-size: 1.25rem;
       font-weight: 700;
+      @media screen and (min-width: 1024px) {
+        font-size: 1.55rem;
+      }
     }
   }
 
   &__item {
-    padding-bottom: $desktop-padding-medium;
+    padding-bottom: $desktop-padding-xsmall;
 
-    &:nth-of-type(2n) {
-      padding-right: $desktop-padding-small;
-    }
+    @media screen and (min-width: 1024px) {
+      padding-bottom: $desktop-padding-medium;
 
-    &:nth-of-type(2n-1) {
-      padding-left: $desktop-padding-small;
-    }
-
-    &:nth-last-of-type(-n+2) {
-      padding-bottom: 0;
+      &:nth-of-type(2n) {
+        padding-right: $desktop-padding-small;
+      }
+  
+      &:nth-of-type(2n-1) {
+        padding-left: $desktop-padding-small;
+      }
+  
+      &:nth-last-of-type(-n+2) {
+        padding-bottom: 0;
+      }
     }
 
     & > div {
       display: flex;
       flex-direction: row;
       justify-content: left;
-      padding-bottom: $desktop-padding-xsmall;
-      font-size: 1.25rem;
-      line-height: 2rem;
+      font-size: 1rem;
+      padding-bottom: $desktop-padding-xxsmall;
+      @media screen and (min-width: 1024px) {
+        padding-bottom: $desktop-padding-xsmall;
+        font-size: 1.25rem;
+        line-height: 2rem;
+      }
     }
     .icon {
-      height: 3.25rem;
-      width: 3.25rem;
+      height: 2rem;
+      width: 2rem;
       display: inline-block;
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
+      @media screen and (min-width: 1024px) {
+        height: 3.25rem;
+        width: 3.25rem;
+      }
     }
     .icon--1 {
       background-image: url(../images/icons/i_time_black_line.svg);
@@ -408,30 +471,48 @@ $desktop-padding-xxsmall: .6rem;
       padding-left: $desktop-padding-xxsmall;
     }
     .heading h3 {
-      font-size: 1.25rem;
+      font-size: 1rem;
       font-weight: 700;
-      line-height: 3.25rem;
+      line-height: 2rem;
+
+      @media screen and (min-width: 1024px) {
+        font-size: 1.25rem;
+        line-height: 3.25rem;
+      }
     }
   }
 }
 
 .desktop-partners {
   &__heading {
-    padding-bottom: $desktop-padding-medium;
+    padding-bottom: $desktop-padding-xsmall;
+
+    @media screen and (min-width: 1024px) {
+      padding-bottom: $desktop-padding-medium;
+    }
 
     h2 {
       text-align: center;
-      font-size: 1.55rem;
+      font-size: 1.25rem;
       font-weight: 700;
+      @media screen and (min-width: 1024px) {
+        font-size: 1.55rem;
+      }
     }
   }
 
   &__item {
-    padding-bottom: $desktop-padding-medium;
+    padding-bottom: $desktop-padding-small;
+    @media screen and (min-width: 1024px) {
+      padding-bottom: $desktop-padding-medium;
+    }
 
     .desktop-partners__logo {
       text-align: center;
-      padding-bottom: $desktop-padding-small;
+      padding-bottom: $desktop-padding-xsmall;
+      @media screen and (min-width: 1024px) {
+        padding-bottom: $desktop-padding-small;
+      }
 
       &--BVG img {
         height: 5rem;
@@ -452,8 +533,18 @@ $desktop-padding-xxsmall: .6rem;
 }
 
 .desktop-contact {
+  padding-bottom: $desktop-padding-small;
+
+  @media screen and (min-width: 1024px) {
+    padding-bottom: 0;
+  }
+
   &__frame {
-    @include yellow-card($desktop-padding-small);
+    @include yellow-card(1rem);
+
+    @media screen and (min-width: 1024px) {
+      @include yellow-card($desktop-padding-small);
+    }
 
     p {
       font-size: 1.25rem;
@@ -463,7 +554,12 @@ $desktop-padding-xxsmall: .6rem;
 }
 
 .desktop-img {
-  height: 30rem;
+  height: 12rem;
+  width: 100%;
+
+  @media screen and (min-width: 1024px) {
+    height: 30rem;
+  }
   
   .img {
     width: 100%;

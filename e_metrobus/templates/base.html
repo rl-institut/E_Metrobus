@@ -37,7 +37,9 @@
   -->
   <body class="{% block body_class %}l-scroll l-scroll--nav{% endblock %}">
 
-    {% include "includes/desktop.html" %}
+    <div class="show-for-large">
+      {% include "includes/desktop.html" %}
+    </div>
     {% include "includes/landscape.html" %}
     <div class="grid-container full hide-for-large show-for-portrait">
 

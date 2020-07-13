@@ -27,7 +27,7 @@ urlpatterns = [
     path("punkte/<str:hash>/", view=views.ShareScoreView.as_view(), name="score",),
     path(
         "zusammenfassung/",
-        view=views.QuestionsAsTextView.as_view(),
+        view=views.SummaryView.as_view(),
         name="questions_as_text",
     ),
     path("informationen/", view=views.LegalView.as_view(), name="legal"),

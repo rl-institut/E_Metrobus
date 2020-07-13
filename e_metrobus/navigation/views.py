@@ -401,19 +401,14 @@ class LegalView(FeedbackMixin, NavigationView):
         return redirect("navigation:legal")
 
 
-class QuestionsAsTextView(CheckStationsMixin, NavigationView):
-    template_name = "navigation/questions_as_text.html"
+class SummaryView(CheckStationsMixin, NavigationView):
+    template_name = "navigation/summary.html"
     footer_links = {
         "info": {"enabled": True},
         "dashboard": {"enabled": True},
         "leaf": {"enabled": True},
         "results": {"selected": True},
     }
-
-    def get_context_data(self, **kwargs):
-        context = super(QuestionsAsTextView, self).get_context_data(**kwargs)
-        context["categories"] = questions.QUESTIONS
-        return context
 
 
 class LandingPageView(PosthogMixin, FeedbackMixin, TemplateView):
