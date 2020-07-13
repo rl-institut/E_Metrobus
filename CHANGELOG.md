@@ -7,6 +7,7 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 ## [Unreleased]
 ### Added 
 - slogan to finished and share link
+- imprint and privacy infos on desktop and legal page
 
 ### Changed
 - changing route from environment returns to environment page

@@ -43,7 +43,6 @@ button, button:hover, button:active, button:focus, button:visited, .button, .but
 $secondary-color: #252424;
 $tab-border: 2px solid $white;
 $tab-border-half: 1px solid $white;
-$tab-border-radius: 8px;
 
 .custom-tabs {
 
@@ -57,28 +56,24 @@ $tab-border-radius: 8px;
     text-align: center;
 
     &:nth-child(1) a {
-      border-top-left-radius: $tab-border-radius;
       border: $tab-border;
       border-bottom: $tab-border-half;
       border-right: $tab-border-half;
     }
 
     &:nth-child(2) a {
-      border-top-right-radius: $tab-border-radius;
       border: $tab-border;
       border-bottom: $tab-border-half;
       border-left: $tab-border-half;
     }
 
     &:nth-child(3) a {
-      border-bottom-left-radius: $tab-border-radius;
       border: $tab-border;
       border-top: $tab-border-half;
       border-right: $tab-border-half;
     }
 
     &:nth-child(4) a {
-      border-bottom-right-radius: $tab-border-radius;
       border: $tab-border;
       border-top: $tab-border-half;
       border-left: $tab-border-half;
@@ -86,7 +81,7 @@ $tab-border-radius: 8px;
   }
 
   li a {
-    font-size: 1rem;
+    font-size: .8rem;
     font-weight: 700;
     padding: 1rem .5rem;
   }
@@ -95,8 +90,6 @@ $tab-border-radius: 8px;
     width: 100%;
 
     a {
-      border-bottom-left-radius: $tab-border-radius;
-      border-bottom-right-radius: $tab-border-radius;
       border-right: $tab-border;
     }
   }
@@ -117,23 +110,18 @@ $tab-border-radius: 8px;
       width: 25%;
 
       &:nth-child(1) a {
-        border-bottom-left-radius: $tab-border-radius;
-        border-top-left-radius: $tab-border-radius;
         border: $tab-border;
         border-right: $tab-border-half;
       }
   
       &:nth-child(2) a,
       &:nth-child(3) a {
-        border-radius: 0;
         border: $tab-border;
         border-right: $tab-border-half;
         border-left: $tab-border-half;
       }
   
       &:nth-child(4) a {
-        border-top-right-radius: $tab-border-radius;
-        border-bottom-right-radius: $tab-border-radius;
         border: $tab-border;
         border-left: $tab-border-half;
       }
