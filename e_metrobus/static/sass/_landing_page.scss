@@ -184,6 +184,13 @@
     text-align: left;
     padding: 0 .5rem;
     color: $gray-4;
+    animation: fadein 2s;
+    animation-delay: 2s;
+    animation-fill-mode: backwards;
+
+    p {
+      text-align: center;
+    }
 
     @media (orientation: landscape) {
       padding-top: 2rem;
