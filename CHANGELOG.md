@@ -6,6 +6,8 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 
 ## [Unreleased]
 ### Changed
+- merged landscape view into portrait view
+- app checks for mobile/desktop view and shows only related parts
 - major redesign of answer page (question form is shown with correct/wrong answers)
 
 ### Fixed
