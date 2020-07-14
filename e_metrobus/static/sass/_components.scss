@@ -27,6 +27,10 @@ button, button:hover, button:active, button:focus, button:visited, .button, .but
     margin-bottom: 0;
   }
 
+  &.button--question {
+    width: 10rem !important;
+  }
+
   &.button--xsmall {
     width: 6rem !important;
     padding-left: .25rem!important;

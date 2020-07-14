@@ -177,10 +177,6 @@ class DisplayRouteView(CheckStationsMixin, NavigationView):
         # Set first question as "answered":
         if "questions" not in request.session:
             request.session["questions"] = {}
-        if "e_metrobus" not in request.session["questions"]:
-            request.session["questions"]["e_metrobus"] = {}
-        request.session["questions"]["e_metrobus"]["route"] = True
-        request.session["last_answered_question"] = "route"
         request.session.save()
         return super(DisplayRouteView, self).get(request, *args, **kwargs)
 
@@ -256,11 +252,9 @@ class QuestionView(NavigationView):
     def post(self, request, **kwargs):
         question = questions.get_question_from_name(request.POST["question"])
         if isinstance(question.correct, list):
-            answer = request.POST.getlist("answer") == [
-                question.answers[i] for i in map(int, question.correct)
-            ]
+            answer = request.POST.getlist("answer")
         else:
-            answer = request.POST["answer"] == question.answers[int(question.correct)]
+            answer = request.POST["answer"]
 
         if "questions" not in request.session:
             request.session["questions"] = {}
@@ -291,9 +285,12 @@ class AnswerView(NavigationView):
         self.title_icon = questions.QUESTIONS[question.category].small_icon
         context = super(AnswerView, self).get_context_data(**kwargs)
         context["question"] = question
-        context["answer"] = self.request.session["questions"][question.category][
-            question.name
-        ]
+        answer = self.request.session["questions"][question.category][question.name]
+        context["given_answer"] = list(map(int, answer))
+        context["correct_answer"] = list(map(int, question.correct))
+        context["flashes"] = questions.get_category_answers(
+            question.category, self.request.session
+        )
         return context
 
     def get(self, request, **kwargs):
