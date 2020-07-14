@@ -137,7 +137,11 @@ $station-font-line-height: 1rem;
 		padding-bottom: 1rem;
 		position: absolute;
     	bottom: 0;
-    	width: 100%;
+		width: 100%;
+		
+		@media (orientation: landscape) {
+			position: relative;
+		}
 		
 		.landing__bottom-btn {
 			text-align: center;
@@ -153,6 +157,11 @@ $station-font-line-height: 1rem;
 	transform: translateX(-50%);
 	min-height: 0 !important;
 	text-align: center;
+
+	@media (orientation: landscape) {
+		left: 0 !important;
+		transform: none;
+	  }
 
 	.same-stations__img {
 		display: block;

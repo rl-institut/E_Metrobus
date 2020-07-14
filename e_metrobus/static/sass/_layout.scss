@@ -13,15 +13,27 @@ $top-bar-height: 2.8rem;
 	position: relative;
 	height: 100%;
 
+	@media (orientation: landscape) {
+		height: auto;
+	}
+
 	&.finished-page {
 		section.footer {
 			position: fixed;
+
+			@media (orientation: landscape) {
+				position: relative;
+			}
 		}
 	}
 }
 
 .l-no-scroll {
 	overflow: hidden;
+
+	@media (orientation: landscape) {
+		overflow: scroll;
+	}
 }
 
 .l-scroll--nonav {
@@ -59,10 +71,18 @@ $top-bar-height: 2.8rem;
 	.top-bar,
 	.footer {
 		position: fixed;
+
+		@media (orientation: landscape) {
+			position: relative;
+		}
 	}
 	.main-content {
 		margin-top: $top-bar-height;
-		height: calc(100vh - #{$top-bar-height} - #{$footer-height})
+		height: calc(100vh - #{$top-bar-height} - #{$footer-height});
+
+		@media (orientation: landscape) {
+			height: auto;
+		}
 	}
 }
 
@@ -75,6 +95,10 @@ $top-bar-height: 2.8rem;
 		margin-top: 0;
 		margin-bottom: 0;
 		height: 100vh;
+
+		@media (orientation: landscape) {
+			height: auto;
+		}
 	}
 }
 
