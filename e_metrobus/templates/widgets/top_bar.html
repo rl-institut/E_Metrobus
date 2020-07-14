@@ -66,7 +66,7 @@
       </a>
     </div>
     <div class="cell small-3 share-reveal__icon">
-      <img src="{% static 'images/icons/i_copy.svg' %}" alt="Copy Icon" onclick="shareLink();">
+      <img id="share_link" src="{% static 'images/icons/i_copy.svg' %}" alt="Copy Icon" data-clipboard-text="{{share_url}}" onclick="link_copied();">
       <div id="link_copied" hidden>
         {% trans 'Link wurde kopiert' %}
       </div>
