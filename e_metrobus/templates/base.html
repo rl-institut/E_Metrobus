@@ -43,7 +43,7 @@
   -->
   <body class="{% block body_class %}l-scroll l-scroll--nav{% endblock %}">
 
-    <div id="desktop">
+    <div id="desktop" hidden>
       {% include "includes/desktop.html" %}
     </div>
     <div id="landscape" class="grid-container landscape">
@@ -142,6 +142,7 @@
           $("#landscape").addClass("show-for-landscape");
           $("#portrait").addClass("show-for-portrait");
         } else {
+          $("#desktop").show();
           $("#landscape").hide();
           $("#portrait").hide();
         }
