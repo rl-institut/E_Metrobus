@@ -7,6 +7,10 @@
   height: 100%; 
   background-color: $primary-color-1;
 
+  @media (orientation: landscape) {
+    top: 30%;
+  }
+
   &__start {
     padding-bottom: .5rem;
   }

@@ -96,4 +96,8 @@ button.close-button:hover {
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    @media (orientation: landscape) {
+        height: auto;
+    }
 }

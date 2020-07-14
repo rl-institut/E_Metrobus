@@ -6,6 +6,10 @@
   background: url(../images/Dashboard_Pattern.svg);
   background-size: 12rem;
   z-index: -1;
+
+  @media (orientation: landscape) {
+    display: none;
+  }
 }
 
 .category-finished {
@@ -13,6 +17,10 @@
   padding: 30% 1rem;
   text-align: center;
   width: 100%;
+
+  @media (orientation: landscape) {
+    padding: 10% 1rem;
+  }
 
   & > div {
     background-color: $primary-color-1;

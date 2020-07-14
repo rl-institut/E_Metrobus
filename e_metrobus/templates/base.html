@@ -46,10 +46,7 @@
     <div id="desktop" hidden>
       {% include "includes/desktop.html" %}
     </div>
-    <div id="landscape" class="grid-container landscape" hidden>
-      {% include "includes/landscape.html" %}
-    </div>
-    <div id="portrait" class="grid-container full">
+    <div id="portrait" class="grid-container portrait full">
 
       {{top_bar}}
 
@@ -122,28 +119,8 @@
           return check;
         };
 
-        function disable_landscape() {
-          if (check_mobile()) {
-            $("#landscape").removeClass("show-for-landscape");
-            $("#landscape").hide();
-            $("#portrait").removeClass("show-for-portrait");
-          }
-        }
-
-        function enable_landscape() {
-          if (check_mobile()) {
-            $("#landscape").addClass("show-for-landscape");
-            $("#portrait").addClass("show-for-portrait");
-          }
-        }
-
-        if (check_mobile()) {
-          $("#desktop").hide();
-          $("#landscape").addClass("show-for-landscape");
-          $("#portrait").addClass("show-for-portrait");
-        } else {
+        if (!check_mobile()) {
           $("#desktop").show();
-          $("#landscape").hide();
           $("#portrait").hide();
         }
       </script>
