@@ -64,6 +64,10 @@
   </div>
 {% endfor %}
 
+<div id="co2_info" class="data__source data__source--chart">
+  <sup>*</sup> {% trans 'Wert berechnet sich auf Grundlage des deutschen Strommixes. Da der aktuelle Strommix nicht CO<sub>2</sub>-neutral ist, sind auch Elektrofahrzeuge für CO<sub>2</sub> Austoß verantwortlich.' %}
+</div>
+
 {% endblock content %}
 
 {% block javascript %}
@@ -96,6 +100,12 @@
       selected_chart = "#" + route + "_" + emission;
       $(".chart").hide();
       $(selected_chart).show();
+
+      if (emission == "co2") {
+        $("#co2_info").show();
+      } else {
+        $("#co2_info").hide();
+      }
 
       if ($(selected_chart).find(".loader").length) {
         $.ajax({
