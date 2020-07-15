@@ -19,21 +19,7 @@
         <div class="cell display-route__start" id="display-route-start">
           {{stations.0}}
         </div>
-        <div class="cell show-for-portrait" id="display-route-line">
-          <svg width="52" height="250">
-            <title>{% trans 'Symbolisierte Strecke' %}</title>
-            <circle cx="26" cy="6" r="6"/>
-            <rect x="20" y="7" width="12" height="236" />
-            <circle cx="26" cy="244" r="6"/>
-            <circle cx="26" cy="6" r="4" fill="#fff"/>
-            <circle cx="26" cy="244" r="4" fill="#fff"/>
-            <rect x="20" y="105" width="20" height="2" style="fill:#F0D722" />
-            <rect x="20" y="115" width="20" height="4" style="fill:#F0D722" />
-            <rect x="20" y="125" width="20" height="10" style="fill:#F0D722" />
-            <rect x="20" y="141" width="20" height="4" style="fill:#F0D722" />
-            <rect x="20" y="153" width="20" height="2" style="fill:#F0D722" />
-          </svg>
-        </div>
+        <img class="show-for-portrait display-route__img" src="{% static 'images/icons/route.svg' %}" alt="{% trans 'Bild der Strecke' %}">
         <div class="cell display-route__end" id="display-route-end">
           {{stations.1}}
         </div>
