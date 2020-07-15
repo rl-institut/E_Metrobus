@@ -184,12 +184,26 @@
     text-align: left;
     padding: 0 .5rem;
     color: $gray-4;
+    animation: fadein 2s;
+    animation-delay: 2s;
+    animation-fill-mode: backwards;
+
+    p {
+      text-align: center;
+    }
+
+    @media (orientation: landscape) {
+      padding-top: 2rem;
+    }
   }
   &__bottom {
     padding: 0 .5rem 0;
     position: fixed;
     bottom: 0;
-    //height: 15vh;
+
+    @media (orientation: landscape) {
+      position: relative;
+    }
   }
 }
 #language_popup {
@@ -585,85 +599,6 @@ $desktop-padding-xxsmall: .6rem;
   }
 }
 
-// CSS for Landscape only
-@media only screen and (min-width: 1024px) {
-  .grid-container.landscape {
-    display: none!important;
-  }
-}
-
-@media only screen and (orientation: landscape) {
-  .landscape {
-    background-image: url(/static/images/Dashboard_Pattern.svg);
-    background-size: 13rem;
-    height: 100%;
-
-    &__header {
-      font-size: 1.55rem;
-    }
-    &__subheader {
-      font-size: 1rem;
-      color: $gray-4;
-    }
-    &__text {
-      font-size: 1.25rem;
-      font-weight: 700;
-    }
-  }
-}
-
-@media only screen
-and (max-width: 1024px)
-and (orientation: landscape) {
-
-  .landscape {
-
-    &__header {
-      padding-top: 1rem;
-    }
-    &__img {
-      padding-top: 2.5rem;
-    }
-    &__text {
-      padding-top: 2.5rem;
-    }
-    &__img img {
-      height: 3rem;
-    }
-  }
-}
-@media only screen and (min-height: 370px)
-and (max-height: 450px)
-and (max-width: 1024px)
-and (orientation: landscape) {
-  .landscape {
-
-    &__header {
-      padding-top: 2rem;
-    }
-  }
-}
-@media only screen and (min-height: 450px)
-and (max-height: 580px)
-and (max-width: 1024px)
-and (orientation: landscape) {
-  .landscape {
-
-    &__header {
-      padding-top: 4rem;
-    }
-  }
-}
-@media only screen and (min-height: 580px)
-and (max-width: 1024px)
-and (orientation: landscape) {
-  .landscape {
-
-    &__header {
-      padding-top: 9rem;
-    }
-  }
-}
 
 .desktop__top-right {
   position: relative;

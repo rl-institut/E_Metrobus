@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project tries to adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.16.0] - 2020-07-15
+### Added
+- answered questions of finished category can be re-seen
+
+### Changed
+- merged landscape view into portrait view
+- app checks for mobile/desktop view and shows only related parts
+- major redesign of answer page (question form is shown with correct/wrong answers)
+
+### Fixed
+- share links
+
 ## [0.15.0] - 2020-07-13
 ### Added 
 - slogan to finished and share link

@@ -6,18 +6,73 @@
 {% block subtitle %} - {% trans 'Antwort' %}{% endblock %}
 
 {% block content %}
-<div class="cell">
-  <div class="grid-x align-center">
-    <div class="cell small-11 medium-10 answer__text answer__text--top answer__text--{%if answer %}correct{% else %}wrong{% endif %} a-answer-text-top">
-      <div class="answer__text-icon">{%if answer %}{% trans 'Korrekt' %}{% else %}{% trans 'Falsch' %}{% endif %}</div>
-      {% trans question.short_answer %}
-    </div>
-    <div class="cell small-11 medium-10 answer__text answer__text--more a-answer-text">
-      {% include question.template %}
-    </div>
-    <div class="cell text-center question__next a-answer-btn">
-      <a href="{% url 'navigation:question' question.category %}" class="button">{% trans "Zur nächsten Frage" %}</a>
+<div class="cell question {% if question.is_multiple_choice %}question__multiple-choice{% endif %}">
+  <div id="question">
+    <div class="grid-x align-center">
+      <div class="cell top-flash">
+        {% for flash in flashes %}
+          {% with "images/icons/i_flash_"|add:flash.value|add:".svg" as flash_icon %}
+            <img src="{% static flash_icon %}" alt="">
+          {% endwith %}
+        {% endfor %}
+      </div>
+      <div class="cell question__text">
+        {% csrf_token %}
+        <h2>{% trans question.question %}</h2>
+        {% if question.is_multiple_choice %}
+          <span class="question__hint">({% trans 'Mehrere Antworten möglich' %})</span>
+        {% endif %}
+      </div>
+      <div class="cell question__answer" id="answers-view">
+        <fieldset name="answer">
+          <legend hidden>Antwortmöglichkeiten und Anwort</legend>
+          {% for answer in question.answers %}
+            {% if question.is_multiple_choice %}
+              <input type="checkbox" class="checkbox {% if forloop.counter0 in correct_answer %}correct{% endif %} {% if forloop.counter0 in given_answer %}answered{% endif %}" name="answer" value="{{forloop.counter0}}" id="answer{{forloop.counter}}"/>
+            {% else %}
+              <input type="radio" class="radio {% if forloop.counter0 in correct_answer %}correct{% endif %} {% if forloop.counter0 in given_answer %}answered{% endif %}" name="answer" value="{{forloop.counter0}}" id="answer{{forloop.counter}}"/>
+            {% endif %}
+            <label for="answer{{forloop.counter}}">{% trans answer %}</label>
+          {% endfor %}
+        </fieldset>
+      </div>
+      <div class="cell answer__text answer__text-more {% if not category_finished %}a-accordion-more{% endif %}">
+        <ul class="accordion" data-accordion data-allow-all-closed="true">
+          <li class="accordion-item" data-accordion-item>
+            <a href="#" class="accordion-title" onclick="more_clicked(this)">
+              <div>
+                <span class="icon"></span><span id="more">{% trans 'Mehr sehen' %}</span>
+              </div>
+            </a>
+            <div class="accordion-content" data-tab-content>
+              {% trans question.short_answer %}
+              {% include question.template %}
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="cell text-center question__next {% if not category_finished %}a-answer-btn{% endif %}">
+        {% if category_finished %}
+          <a href="{% url 'navigation:answer' question.category %}" class="button button--question">{% trans "Weiter" %}</a>
+        {% else %}
+          <a href="{% url 'navigation:question' question.category %}" class="button button--question">{% trans "Weiter" %}</a>
+        {% endif %}
+      </div>
     </div>
   </div>
 </div>
 {% endblock content %}
+
+{% block javascript %}
+  {{block.super}}
+  <script>
+    function more_clicked(accordion) {
+      expanded = $(accordion).attr("aria-expanded");
+      if (expanded == "true") {
+        $("#more").html("{% trans 'Mehr sehen' %}");
+      } else {
+        $("#more").html("{% trans 'Weniger sehen' %}");
+      }
+    }
+  </script>
+{% endblock javascript %}

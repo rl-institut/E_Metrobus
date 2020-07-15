@@ -177,10 +177,6 @@ class DisplayRouteView(CheckStationsMixin, NavigationView):
         # Set first question as "answered":
         if "questions" not in request.session:
             request.session["questions"] = {}
-        if "e_metrobus" not in request.session["questions"]:
-            request.session["questions"]["e_metrobus"] = {}
-        request.session["questions"]["e_metrobus"]["route"] = True
-        request.session["last_answered_question"] = "route"
         request.session.save()
         return super(DisplayRouteView, self).get(request, *args, **kwargs)
 
@@ -246,8 +242,20 @@ class QuestionView(NavigationView):
         return context
 
     def get(self, request, *args, **kwargs):
+        if kwargs["category"] in request.session["questions"] and request.session[
+            "questions"
+        ][kwargs["category"]].get("finished", False):
+            next_answer = questions.get_next_answer(kwargs["category"])
+            if next_answer is None:
+                return redirect("navigation:dashboard")
+            else:
+                request.session["last_answered_question"] = next_answer
+                return redirect("navigation:answer", category=kwargs["category"])
+
         next_question = questions.get_next_question(kwargs["category"], request.session)
         if next_question is None:
+            request.session["questions"][kwargs["category"]]["finished"] = True
+            request.session.save()
             return redirect("navigation:category_finished", category=kwargs["category"])
 
         context = self.get_context_data(**kwargs, question=next_question)
@@ -256,11 +264,9 @@ class QuestionView(NavigationView):
     def post(self, request, **kwargs):
         question = questions.get_question_from_name(request.POST["question"])
         if isinstance(question.correct, list):
-            answer = request.POST.getlist("answer") == [
-                question.answers[i] for i in map(int, question.correct)
-            ]
+            answer = request.POST.getlist("answer")
         else:
-            answer = request.POST["answer"] == question.answers[int(question.correct)]
+            answer = request.POST["answer"]
 
         if "questions" not in request.session:
             request.session["questions"] = {}
@@ -291,15 +297,25 @@ class AnswerView(NavigationView):
         self.title_icon = questions.QUESTIONS[question.category].small_icon
         context = super(AnswerView, self).get_context_data(**kwargs)
         context["question"] = question
-        context["answer"] = self.request.session["questions"][question.category][
-            question.name
-        ]
+        answer = self.request.session["questions"][question.category][question.name]
+        context["given_answer"] = list(map(int, answer))
+        context["correct_answer"] = list(map(int, question.correct))
+        context["flashes"] = questions.get_category_answers(
+            question.category, self.request.session
+        )
+        if "category" in kwargs and self.request.session["questions"][
+            kwargs["category"]
+        ].get("finished", False):
+            self.request.session["last_answered_question"] = questions.get_next_answer(
+                kwargs["category"], self.request.session["last_answered_question"]
+            )
+            context["category_finished"] = True
         return context
 
     def get(self, request, **kwargs):
         question_name = request.session.get("last_answered_question")
         if question_name is None:
-            raise ValueError("No question answered yet!")
+            return redirect("navigation:dashboard")
         question = questions.get_question_from_name(question_name)
         context = self.get_context_data(question=question, **kwargs)
         return self.render_to_response(context)
@@ -329,10 +345,6 @@ class QuizFinishedView(PosthogMixin, TemplateView):
         context["footer"] = widgets.FooterWidget(links=self.footer_links)
         answers = questions.get_all_answers(self.request.session)
         context["answers"] = answers
-        correct = len(
-            [answer for answer in answers if answer == questions.Answer.Correct]
-        )
-        total = len(answers)
         percent = questions.get_total_score(self.request.session)
         context["score"] = percent
         context["slogan"] = utils.get_slogan(percent)
@@ -341,8 +353,8 @@ class QuizFinishedView(PosthogMixin, TemplateView):
         return context
 
     def get(self, request, *args, **kwargs):
-        if not questions.all_questions_answered(request.session):
-            raise Http404("Not all questions answered. Please go back to quiz.")
+        # if not questions.all_questions_answered(request.session):
+        #     raise Http404("Not all questions answered. Please go back to quiz.")
         if "hashed_score" not in request.session:
             score = models.Score.save_score(request.session)
             request.session["hashed_score"] = score.hash

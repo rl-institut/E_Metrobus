@@ -145,6 +145,10 @@
 .my-route__chart {
   margin-bottom: 1rem;
   height: 55vh;
+
+  @media (orientation: landscape) {
+    height: 100vh;
+  }
 }
 
 .loader {

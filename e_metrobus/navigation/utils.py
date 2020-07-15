@@ -37,7 +37,7 @@ def share_url(request):
 def share_text(request):
     if "non_bus_user" in request.session:
         text = _(
-            "Ich bin gerade in einem E-Bus auf der Linie 200 gefahren. Schau mal hier:"
+            "Ich bin gerade in einem E-Bus auf der Linie 200 gefahren. Schau mal hier"
         )
     else:
         current_stations = [
@@ -46,7 +46,7 @@ def share_text(request):
         route_data = stations.STATIONS.get_route_data(*current_stations)
         co2 = route_data["bus"].co2 - route_data["e-bus"].co2
         text = _(
-            "Ich bin gerade in einem E-Bus auf der Linie 200 gefahren und habe der Welt dabei %(co2)s g CO2-Emissionen erspart. Schau mal hier:"
+            "Ich bin gerade in einem E-Bus auf der Linie 200 gefahren und habe der Welt dabei %(co2)s g CO2-Emissionen erspart. Schau mal hier"
         ) % {"co2": round(co2, 2)}
     return text
 

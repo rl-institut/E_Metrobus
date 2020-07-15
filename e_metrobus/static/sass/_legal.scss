@@ -37,6 +37,12 @@
     &--rli img {
       height: 2.75rem;
     }
+    &--bvdi {
+      @media (orientation: landscape) {
+        max-width: 27rem;
+        margin: 0 auto;
+      }
+    }
   }
 }
 

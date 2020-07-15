@@ -8,6 +8,15 @@
     left: 50%;
     transform: translateY(-50%) translateX(-50%);
 
+    @media (orientation: landscape) {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: none;
+    }
+
     @media only screen and (min-width: 600px) {
       width: 60%!important;
       margin: 0 auto;
@@ -106,6 +115,10 @@
 
   @media only screen and (min-width: 600px) {
     background-size: 18rem;
+  }
+
+  @media (orientation: landscape) {
+    display: none;
   }
 }
 
