@@ -64,6 +64,10 @@
   </div>
 {% endfor %}
 
+<div id="co2_info" class="data__source data__source--chart">
+  <sup>*</sup> {% trans 'Wert berechnet sich auf Grundlage des deutschen Strommixes. Da der aktuelle Strommix nicht CO<sub>2</sub>-neutral ist, sind auch Elektrofahrzeuge für CO<sub>2</sub> Austoß verantwortlich.' %}
+</div>
+
 {% endblock content %}
 
 {% block javascript %}
@@ -71,8 +75,6 @@
   <script>
     let route = "route";
     let emission = "co2";
-
-    let co2_info = "<div class='data__source data__source--chart'><sup>*</sup> {% trans 'Wert berechnet sich auf Grundlage des deutschen Strommixes. Da der aktuelle Strommix nicht CO<sub>2</sub>-neutral ist, sind auch Elektrofahrzeuge für CO<sub>2</sub> Austoß verantwortlich.' %}</div>";
 
     function select_route(selection) {
       selected_route = $(selection).parent().attr("id");
@@ -99,6 +101,12 @@
       $(".chart").hide();
       $(selected_chart).show();
 
+      if (emission == "co2") {
+        $("#co2_info").show();
+      } else {
+        $("#co2_info").hide();
+      }
+
       if ($(selected_chart).find(".loader").length) {
         $.ajax({
           type: "GET",
@@ -107,11 +115,7 @@
           data: {"route": route, "emission": emission},
           success: function(json)
           {
-            if (emission == "co2") {
-              $(selected_chart).html(json.div + co2_info);
-            } else {
-              $(selected_chart).html(json.div);
-            }
+            $(selected_chart).html(json.div);
             eval(json.script);
           }
         });
