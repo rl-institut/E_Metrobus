@@ -242,7 +242,9 @@ class QuestionView(NavigationView):
         return context
 
     def get(self, request, *args, **kwargs):
-        if request.session["questions"][kwargs["category"]].get("finished", False):
+        if kwargs["category"] in request.session["questions"] and request.session[
+            "questions"
+        ][kwargs["category"]].get("finished", False):
             next_answer = questions.get_next_answer(kwargs["category"])
             if next_answer is None:
                 return redirect("navigation:dashboard")
