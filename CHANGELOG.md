@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project tries to adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- answered questions of finished category can be re-seen
+
 ### Changed
 - merged landscape view into portrait view
 - app checks for mobile/desktop view and shows only related parts
