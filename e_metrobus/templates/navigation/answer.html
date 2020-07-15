@@ -36,7 +36,7 @@
           {% endfor %}
         </fieldset>
       </div>
-      <div class="cell answer__text answer__text-more a-accordion-more">
+      <div class="cell answer__text answer__text-more {% if not category_finished %}a-accordion-more{% endif %}">
         <ul class="accordion" data-accordion data-allow-all-closed="true">
           <li class="accordion-item" data-accordion-item>
             <a href="#" class="accordion-title" onclick="more_clicked(this)">
@@ -51,7 +51,7 @@
           </li>
         </ul>
       </div>
-      <div class="cell text-center question__next a-answer-btn">
+      <div class="cell text-center question__next {% if not category_finished %}a-answer-btn{% endif %}">
         {% if category_finished %}
           <a href="{% url 'navigation:answer' question.category %}" class="button button--question">{% trans "Weiter" %}</a>
         {% else %}
