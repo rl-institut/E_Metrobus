@@ -37,7 +37,7 @@ class DjangoFigure:
         div_id_end = plotly_div.find('"', div_id_start + 9)
         self.div_id = plotly_div[div_id_start + 9 : div_id_end]
 
-        self.div = f'<div id="{self.div_id}" class="plotly-graph-div" style="height:55vh; width:100vw;"></div>'
+        self.div = f'<div id="{self.div_id}" class="plotly-graph-div"></div>'
 
 
 def get_sizes(max_value):
