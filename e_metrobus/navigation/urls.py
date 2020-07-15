@@ -17,6 +17,7 @@ urlpatterns = [
     path("quiz/", view=views.DashboardView.as_view(), name="dashboard"),
     path("quiz/<str:category>/", view=views.QuestionView.as_view(), name="question"),
     path("antwort/", view=views.AnswerView.as_view(), name="answer"),
+    path("antwort/<str:category>/", view=views.AnswerView.as_view(), name="answer"),
     path("tour/", view=views.TourView.as_view(), name="tour"),
     path(
         "abgeschlossen/<str:category>/",
