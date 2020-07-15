@@ -145,7 +145,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Stecker"
 msgid "Meine Strecke"
-msgstr "Plug"
+msgstr "My route"
 
 #: e_metrobus/navigation/widgets.py:115
 #, fuzzy
