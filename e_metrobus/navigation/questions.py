@@ -167,6 +167,21 @@ def get_next_question(category, session):
     return None
 
 
+def get_next_answer(category, current_answer=None):
+    if category not in QUESTIONS:
+        raise KeyError("Invalid category")
+    if current_answer is None:
+        return list(QUESTIONS[category].questions.keys())[0]
+    questions_iterator = iter(QUESTIONS[category].questions)
+    question = None
+    try:
+        while question != current_answer:
+            question = next(questions_iterator)
+        return next(questions_iterator)
+    except StopIteration:
+        return None
+
+
 def get_question_from_name(question_name):
     for category in QUESTIONS.values():
         if question_name in category.questions:
