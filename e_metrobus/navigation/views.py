@@ -177,10 +177,6 @@ class DisplayRouteView(CheckStationsMixin, NavigationView):
         # Set first question as "answered":
         if "questions" not in request.session:
             request.session["questions"] = {}
-        if "e_metrobus" not in request.session["questions"]:
-            request.session["questions"]["e_metrobus"] = {}
-        request.session["questions"]["e_metrobus"]["route"] = True
-        request.session["last_answered_question"] = "route"
         request.session.save()
         return super(DisplayRouteView, self).get(request, *args, **kwargs)
 
@@ -256,11 +252,9 @@ class QuestionView(NavigationView):
     def post(self, request, **kwargs):
         question = questions.get_question_from_name(request.POST["question"])
         if isinstance(question.correct, list):
-            answer = request.POST.getlist("answer") == [
-                question.answers[i] for i in map(int, question.correct)
-            ]
+            answer = request.POST.getlist("answer")
         else:
-            answer = request.POST["answer"] == question.answers[int(question.correct)]
+            answer = request.POST["answer"]
 
         if "questions" not in request.session:
             request.session["questions"] = {}
@@ -291,9 +285,12 @@ class AnswerView(NavigationView):
         self.title_icon = questions.QUESTIONS[question.category].small_icon
         context = super(AnswerView, self).get_context_data(**kwargs)
         context["question"] = question
-        context["answer"] = self.request.session["questions"][question.category][
-            question.name
-        ]
+        answer = self.request.session["questions"][question.category][question.name]
+        context["given_answer"] = list(map(int, answer))
+        context["correct_answer"] = list(map(int, question.correct))
+        context["flashes"] = questions.get_category_answers(
+            question.category, self.request.session
+        )
         return context
 
     def get(self, request, **kwargs):
@@ -327,15 +324,18 @@ class QuizFinishedView(PosthogMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super(QuizFinishedView, self).get_context_data(**kwargs)
         context["footer"] = widgets.FooterWidget(links=self.footer_links)
-        context["answers"] = questions.get_all_answers(self.request.session)
-        context["score"] = questions.get_total_score(self.request.session)
+        answers = questions.get_all_answers(self.request.session)
+        context["answers"] = answers
+        percent = questions.get_total_score(self.request.session)
+        context["score"] = percent
+        context["slogan"] = utils.get_slogan(percent)
         context["share_url"] = utils.share_url(self.request)
         context["share_text"] = utils.share_text(self.request)
         return context
 
     def get(self, request, *args, **kwargs):
-        if not questions.all_questions_answered(request.session):
-            raise Http404("Not all questions answered. Please go back to quiz.")
+        # if not questions.all_questions_answered(request.session):
+        #     raise Http404("Not all questions answered. Please go back to quiz.")
         if "hashed_score" not in request.session:
             score = models.Score.save_score(request.session)
             request.session["hashed_score"] = score.hash
@@ -394,19 +394,14 @@ class LegalView(FeedbackMixin, NavigationView):
         return redirect("navigation:legal")
 
 
-class QuestionsAsTextView(CheckStationsMixin, NavigationView):
-    template_name = "navigation/questions_as_text.html"
+class SummaryView(CheckStationsMixin, NavigationView):
+    template_name = "navigation/summary.html"
     footer_links = {
         "info": {"enabled": True},
         "dashboard": {"enabled": True},
         "leaf": {"enabled": True},
         "results": {"selected": True},
     }
-
-    def get_context_data(self, **kwargs):
-        context = super(QuestionsAsTextView, self).get_context_data(**kwargs)
-        context["categories"] = questions.QUESTIONS
-        return context
 
 
 class LandingPageView(PosthogMixin, FeedbackMixin, TemplateView):

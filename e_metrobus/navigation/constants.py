@@ -78,8 +78,14 @@ VEHICLES = [
 ]
 
 DATA_SOURCES = [
-    'Umweltbundesamt, "Vergleich der durchschnittlicher Emissionen einzelner Verkehrsmittel im Personenverkehr in Deutschland - Bezugsjahr 2018", 01/2020',
+    'Umweltbundesamt, "Vergleich der durchschnittlichen Emissionen einzelner Verkehrsmittel im Personenverkehr in Deutschland - Bezugsjahr 2018", 01/2020',
     'Umweltbundesamt, "Entwicklung der spezifischen Kohlendioxid-Emissionen des deutschen Strommix in den Jahren 1990 - 2019", 13/2020',
 ]
 
 POSTHOG_EVENTS = ("shared", "sources", "english")
+
+FINISHED_SLOGANS = (
+    _("Oha, da ist noch Luft nach oben! Macht aber nichts. In unserem Info-Bereich findest du Antworten auf all deine Fragen zu E-Bussen, die du nie zu stellen gewagt hast."),
+    _("Nicht schlecht, aber das geht noch besser! Alle Fakten zum Nachlesen und Aufschlauen findest du in unserem Info-Bereich."),
+    _("Wow! Wir können dir kaum noch etwas beibringen. Alle Fakten zum Nachlesen findest du nochmal in unserem Info-Bereich.")
+)

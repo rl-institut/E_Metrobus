@@ -7,6 +7,10 @@
   height: 100%; 
   background-color: $primary-color-1;
 
+  @media (orientation: landscape) {
+    top: 30%;
+  }
+
   &__start {
     padding-bottom: .5rem;
   }
@@ -24,6 +28,8 @@
     position: relative;
 
     img {
+      margin-left: auto;
+      margin-right: auto;
       height: 3rem;
       margin-top: 6rem;
     }
@@ -164,6 +170,17 @@
   height: 100%; 
   width: 100%; 
   z-index: -1;
+}
+
+.plotly-graph-div {
+  height:55vh;
+  width:100vw;
+
+  @media (orientation: landscape) {
+    height: 100vh;
+    width: 80vw;
+    margin: 0 auto;
+  }
 }
 
 // Animations

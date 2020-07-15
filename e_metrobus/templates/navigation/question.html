@@ -18,21 +18,21 @@
           {% endwith %}
         {% endfor %}
       </div>
-      <div class="cell small-10 question__text">
+      <div class="cell question__text">
         {% csrf_token %}
         <h2>{% trans question.question %}</h2>
         {% if question.is_multiple_choice %}
           <span class="question__hint">({% trans 'Mehrere Antworten möglich' %})</span>
         {% endif %}
       </div>
-      <div class="cell small-10 question__answer">
+      <div class="cell question__answer">
         <fieldset name="answer">
           <legend hidden>{% trans 'Antwortmöglichkeiten' %}</legend>
           {% for answer in question.answers %}
             {% if question.is_multiple_choice %}
-              <input type="checkbox" class="checkbox" name="answer" value="{{answer}}" id="answer{{forloop.counter}}"/>
+              <input type="checkbox" class="checkbox" name="answer" value="{{forloop.counter0}}" id="answer{{forloop.counter}}"/>
             {% else %}
-              <input type="radio" class="radio" name="answer" value="{{answer}}" id="answer{{forloop.counter}}"/>
+              <input type="radio" class="radio" name="answer" value="{{forloop.counter0}}" id="answer{{forloop.counter}}"/>
             {% endif %}
             <label for="answer{{forloop.counter}}">{% trans answer %}</label>
           {% endfor %}
@@ -40,7 +40,7 @@
       </div>
       {% if question.is_multiple_choice %}
       <div class="cell text-center question__btn">
-        <input class="button" type="submit" value="{% trans 'Antworten' %}">
+        <input class="button button--question" type="submit" value="{% trans 'Antworten' %}">
       </div>
       {% endif %}
     </div>

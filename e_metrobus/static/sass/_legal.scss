@@ -37,6 +37,12 @@
     &--rli img {
       height: 2.75rem;
     }
+    &--bvdi {
+      @media (orientation: landscape) {
+        max-width: 27rem;
+        margin: 0 auto;
+      }
+    }
   }
 }
 
@@ -44,19 +50,98 @@
   margin-left: .5rem;
 }
 
-@media screen and (min-width: 600px) {
-  .custom-tabs.legal li {
+.tabs-panel#partners {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+$tab-border: 2px solid $white;
+$tab-border-half: 1px solid $white;
+
+.custom-tabs.legal{
+  li.tabs-title {
+    width: 50%;
+    &:nth-of-type(1) a {
+      border-right: $tab-border-half;
+    }
+    &:nth-of-type(2) a {
+      border-left: $tab-border-half;
+      border-right: 0;
+    }
+  }
+  li.tabs-title.tabs-title--33-width {
     width: 33.33%;
 
     &:last-of-type a {
-      border-top-right-radius: 8px;
-      border-bottom-right-radius: 8px;
+      border-top: $tab-border-half;
     }
   }
 }
 
+#mobile-imprint,
+#mobile-privacy {
+  h2 {
+    font-size: 1rem;
+    font-weight: 700;
+  }
+  h3, h4 {
+    font-size: .8rem;
+    font-weight: 700;
+  }
+  p {
+    font-size: .8rem;
+  }
+  table {
+    font-size: .8rem;
+  }
+  ol li {
+    font-size: .8rem;
+    width: 100%;
+    text-align: left;
+    padding-bottom: 1rem;
+  }
+}
 
-.tabs-panel#partners {
-  padding-left: 0;
-  padding-right: 0;
+// Desktop
+.legal__wrap {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  
+  & > .cell {
+    max-width: 75rem;
+  }
+
+  h1 {
+    padding-top: 5rem;
+    padding-bottom: 4rem;
+  }
+}
+
+.reveal.legal {
+  position: relative;
+  button.close-button {
+    left: 2rem;
+    top: 2rem;
+    font-size: 1rem !important;
+    width: auto !important;
+
+    .icon {
+      display: inline-block;
+      height: 1rem;
+      width: 1rem;
+      background-image: url(../images/icons/i_back_gray_darker.svg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      transform: translateY(2px) translateX(-2px);
+    }
+
+    span {
+      display: inline-block;
+      color: $gray-4;
+      &:hover {
+        color: $gray-4;
+      }
+    }
+  }
 }

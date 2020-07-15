@@ -1,21 +1,16 @@
 import copy
+import logging
+import operator
+from functools import reduce
 
 import posthog
-import logging
+from django.conf import settings
 from django.urls import reverse
 from django.utils.translation import gettext as _
+from exchangelib import Account, Credentials, Mailbox, Message
 
 from e_metrobus import __version__
 from e_metrobus.navigation import constants, stations
-
-from exchangelib import (
-    Credentials,
-    Account,
-    Message,
-    Mailbox,
-)
-from django.conf import settings
-
 
 FEEDBACK_SUBJECT = "E-MetroBus App Feedback"
 
@@ -42,7 +37,7 @@ def share_url(request):
 def share_text(request):
     if "non_bus_user" in request.session:
         text = _(
-            "Ich bin gerade in einem E-Bus auf der Linie 200 gefahren. Schau mal hier:"
+            "Ich bin gerade in einem E-Bus auf der Linie 200 gefahren. Schau mal hier"
         )
     else:
         current_stations = [
@@ -51,7 +46,7 @@ def share_text(request):
         route_data = stations.STATIONS.get_route_data(*current_stations)
         co2 = route_data["bus"].co2 - route_data["e-bus"].co2
         text = _(
-            "Ich bin gerade in einem E-Bus auf der Linie 200 gefahren und habe der Welt dabei %(co2)s g CO2-Emissionen erspart. Schau mal hier:"
+            "Ich bin gerade in einem E-Bus auf der Linie 200 gefahren und habe der Welt dabei %(co2)s g CO2-Emissionen erspart. Schau mal hier"
         ) % {"co2": round(co2, 2)}
     return text
 
@@ -61,14 +56,42 @@ def set_separators(value):
     return svalue.replace(".", "_").replace(",", ".").replace("_", ",")
 
 
-def send_mail(subject, message, recipients):
-    """Send E-mail via MS Exchange Server using credentials from settings"""
-    try:
-        credentials = Credentials(settings.EXCHANGE_ACCOUNT, settings.EXCHANGE_PW)
-        account = Account(
-            settings.EXCHANGE_EMAIL, credentials=credentials, autodiscover=True
-        )
+def get_exchange_account():
+    credentials = Credentials(settings.EXCHANGE_ACCOUNT, settings.EXCHANGE_PW)
+    account = Account(
+        settings.EXCHANGE_EMAIL, credentials=credentials, autodiscover=True
+    )
+    return account
 
+
+def send_feedback(message):
+    """Store feedback in exchange public folder"""
+    if settings.FEEDBACK_FOLDER is None:
+        return
+
+    account = get_exchange_account()
+    try:
+        public_folder = reduce(
+            operator.truediv, settings.FEEDBACK_FOLDER, account.public_folders_root
+        )
+        m = Message(
+            account=account,
+            folder=public_folder,
+            subject=FEEDBACK_SUBJECT,
+            body=message,
+        )
+        m.save()
+    except Exception as e:
+        logging.error(e)
+
+
+def send_bug_report(subject, message):
+    """Send Bug-Report via MS Exchange Server"""
+    account = get_exchange_account()
+    recipients = [
+        Mailbox(email_address=recipient) for recipient in settings.BUG_RECIPIENTS
+    ]
+    try:
         m = Message(
             account=account,
             folder=account.sent,
@@ -81,15 +104,10 @@ def send_mail(subject, message, recipients):
         logging.error(e)
 
 
-def send_feedback(message):
-    recipients = [
-        Mailbox(email_address=recipient) for recipient in settings.FEEDBACK_RECIPIENTS
-    ]
-    send_mail(FEEDBACK_SUBJECT, message, recipients)
-
-
-def send_bug_report(subject, message):
-    recipients = [
-        Mailbox(email_address=recipient) for recipient in settings.BUG_RECIPIENTS
-    ]
-    send_mail(subject, message, recipients)
+def get_slogan(percent):
+    if percent < 33:
+        return constants.FINISHED_SLOGANS[0]
+    elif percent < 66:
+        return constants.FINISHED_SLOGANS[1]
+    else:
+        return constants.FINISHED_SLOGANS[2]

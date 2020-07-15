@@ -16,22 +16,22 @@
           <span>{% trans 'Ergebnisse teilen' %}</span>
         </div>
         <div class="cell small-4 share-reveal__icon">
-          <a href="http://www.facebook.com/sharer.php?u={{share_text}}{{share_url}}" target="_blank">
+          <a href="http://www.facebook.com/sharer.php?u={{share_url}}&amp;title={{share_text}}" target="_blank">
             <img src="{% static 'images/icons/i_fb.png' %}" alt="Facebook Icon">
           </a>
         </div>
         <div class="cell small-4 share-reveal__icon">
-          <a href="whatsapp://send?text={{share_text}}{{share_url}}">
+          <a href="whatsapp://send?text={{share_text}}:%0D%0A{{share_url}}">
             <img src="{% static 'images/icons/i_whatsapp.png' %}" alt="Whatsapp Icon">
           </a>
         </div>
         <div class="cell small-4 share-reveal__icon">
-          <a href="tg://msg_url?url={{share_url}}&amp;text={{share_text}}">
+          <a href="tg://msg_url?url={{share_url}}&amp;text={{share_text}}.">
             <img src="{% static 'images/icons/i_telegram.png' %}" alt="Telegram Icon">
           </a>
         </div>
         <div class="cell small-4 share-reveal__icon">
-          <img src="{% static 'images/icons/i_copy.svg' %}" alt="Copy Icon" onclick="shareLink();">
+          <img id="share_link" src="{% static 'images/icons/i_copy.svg' %}" alt="Copy Icon" data-clipboard-text="{{share_url}}" onclick="link_copied();">
           <div id="link_copied" hidden>
             {% trans 'Link wurde kopiert' %}
           </div>
@@ -47,14 +47,9 @@
 {% block javascript %}
   {{block.super}}
   <script>
-    function shareLink() {
-      var text = "{{request.scheme}}://{{request.get_host}}{% url 'navigation:score' hash=hash %}";
-      var input = document.createElement('input');
-      input.setAttribute('value', text);
-      document.body.appendChild(input);
-      input.select();
-      var result = document.execCommand('copy');
-      document.body.removeChild(input);
+    new ClipboardJS('#share_link');
+
+    function link_copied() {
       $('#link_copied').fadeIn();
       setTimeout(
         function () {

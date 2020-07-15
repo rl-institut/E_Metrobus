@@ -1,16 +1,3 @@
-.pattern-bg--blue {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: $primary-color-2;
-  background-image: url(../images/Dashboard_Pattern_blue_v2.svg);
-  background-size: 12rem;
-
-  @media only screen and (min-width: 600px) {
-    background-size: 18rem;
-  }
-}
-
 .tour {
   position: absolute;
   display: flex;
@@ -36,7 +23,7 @@
   }
 
   .tour__icon {
-    & > div {
+    & > a > div {
       background-color: $primary-color-1;
       border-radius: 100px;
       width: 3rem;

@@ -244,5 +244,5 @@ EXCHANGE_ACCOUNT = env.str("EXCHANGE_ACCOUNT", default=None)
 EXCHANGE_EMAIL = env.str("EXCHANGE_EMAIL", default=None)
 EXCHANGE_PW = env.str("EXCHANGE_PW", default=None)
 
-FEEDBACK_RECIPIENTS = env.list("FEEDBACK_RECIPIENTS", default=[])
+FEEDBACK_FOLDER = env.list("FEEDBACK_FOLDER", default=None)
 BUG_RECIPIENTS = env.list("FEEDBACK_RECIPIENTS", default=[])

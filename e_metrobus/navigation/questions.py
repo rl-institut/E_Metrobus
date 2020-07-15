@@ -121,11 +121,14 @@ def get_category_shares(category, session):
     correct = 0
     if "questions" not in session or category not in session["questions"]:
         return Shares(0, 0)
-    for question in QUESTIONS[category].questions:
+    for question_name, question in QUESTIONS[category].questions.items():
         total += 1
-        if question in session["questions"][category]:
+        if question_name in session["questions"][category]:
             done += 1
-            correct += session["questions"][category][question]
+            correct += check_answer(
+                question,
+                session["questions"][category][question_name],
+            )
     return Shares(done / total, correct / total)
 
 
@@ -133,10 +136,14 @@ def get_category_answers(category, session):
     """Returns list of correct/wrong/unanswered questions for category"""
     if "questions" not in session or category not in session["questions"]:
         return [Answer.Unanswered for question in QUESTIONS[category].questions]
-    return [
-        Answer.get(session["questions"][category].get(question))
-        for question in QUESTIONS[category].questions
-    ]
+    answers = []
+    for question_name, question in QUESTIONS[category].questions.items():
+        answer = session["questions"][category].get(question_name)
+        if answer is None:
+            answers.append(Answer.Unanswered)
+        else:
+            answers.append(Answer.get(check_answer(question, answer)))
+    return answers
 
 
 def get_all_answers(session, sort=True):
@@ -172,3 +179,10 @@ def all_questions_answered(session):
         if get_category_shares(category, session).done != 1.0:
             return False
     return True
+
+
+def check_answer(question, answer):
+    if isinstance(question.correct, list):
+        return answer == question.correct
+    else:
+        return answer == question.correct

@@ -67,14 +67,26 @@
 
   &__slogan {
     position: absolute;
-    top: 56%;
+    top: 50%;
     padding-left: 1rem;
     padding-right: 1rem;
+
+    @media (orientation: landscape) {
+      position: relative;
+      top: 0;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+    }
   }
 
   &__btn {
     position: absolute;
     bottom: 5rem;
+
+    @media (orientation: landscape) {
+      position: relative;
+      bottom: 0;
+    }
   }
 
   &__reveal-wrap {
@@ -89,6 +101,15 @@
 
     .sub {
       margin-bottom: 0;
+    }
+  }
+
+  @media screen and (max-height: 599px) {
+    &__heading {
+      padding: 0 1rem 1rem;
+    }
+    &__slogan {
+      top: 45%;
     }
   }
 }

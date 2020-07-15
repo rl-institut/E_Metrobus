@@ -6,10 +6,24 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 
 ## [Unreleased]
 ### Changed
+- merged landscape view into portrait view
+- app checks for mobile/desktop view and shows only related parts
+- major redesign of answer page (question form is shown with correct/wrong answers)
+
+### Fixed
+- share links
+
+## [0.15.0] - 2020-07-13
+### Added 
+- slogan to finished and share link
+- imprint and privacy infos on desktop and legal page
+
+### Changed
 - changing route from environment returns to environment page
 
 ### Fixed
 - server errors due to missing/wrong image sources
+- soft keyboard activating landscape view
  
 ## [0.14.0] - 2020-07-06
 ### Added
