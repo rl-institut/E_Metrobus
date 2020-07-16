@@ -5,48 +5,6 @@
   background-color: $primary-color-2;
 }
 
-.leaf {
-  padding: 0 1rem;
-  &__header {
-    margin: 1rem 0;
-
-    span {
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-  }
-  &__dist-wrap {
-    position: relative;
-    z-index: -3;
-  }
-  &__distance {
-    position: absolute;
-    top: 3rem;
-  }
-  &__icon {
-    margin: 1.6rem 0 0.2rem;
-    img {
-      height: 3rem;
-    }
-  }
-  &__data {
-    margin: 0.5rem 0;
-    padding: 1rem 0;
-
-    &--value {
-      font-weight: bold;
-      font-size: 1.5rem;
-    }
-    &--unit {
-      font-size: 1.1rem;
-      font-weight: lighter;
-    }
-  }
-  &__resources {
-    margin: 0.5rem 0;
-  }
-}
-
 .my-route .grid-x {
   padding: 1rem;
   font-size: .8rem;
@@ -61,7 +19,8 @@
     text-align: center;
 
     img {
-      height: 3rem;
+      height: 2.5rem;
+      transform: translateY(5px);
     }
   }
 
