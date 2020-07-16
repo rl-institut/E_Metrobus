@@ -10,7 +10,7 @@
   padding-bottom: 2.5rem;
 
   @media screen and (max-width: 767px) {
-    font-size: .8rem;
+    font-size: .875rem;
     letter-spacing: .01rem;
   }
 
@@ -20,7 +20,7 @@
     label {
       color: $gray-4;
       @media screen and (max-width: 767px) {
-        font-size: .8rem;
+        font-size: .875rem;
         letter-spacing: .01rem;
       }
     }
@@ -92,7 +92,7 @@
 .bug__question p {
   margin-top: 1rem;
   @media screen and (max-width: 767px) {
-    font-size: .8rem;
+    font-size: .875rem;
     letter-spacing: .01rem;
   }
 }
@@ -110,13 +110,13 @@
     select,
     textarea {
       @media screen and (max-width: 767px) {
-        font-size: .8rem;
+        font-size: .875rem;
         letter-spacing: .01rem;
       }
     }
   }
   @media screen and (max-width: 767px) {
-    font-size: .8rem;
+    font-size: .875rem;
     letter-spacing: .01rem;
   }
 }
@@ -140,7 +140,7 @@ a.feedback__bug-link {
   font-weight: 700;
 
   img {
-    height: .8rem;
+    height: .875rem;
     letter-spacing: .01rem;
     transform: translateY(-1px);
     padding-right: .25rem;

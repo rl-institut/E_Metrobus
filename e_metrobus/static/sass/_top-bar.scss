@@ -98,6 +98,7 @@ img.share-reveal__icon {
 		height: 100%;
 		padding-left: .5rem;
 		line-height: calc(#{$top-bar-height} - (#{$top-bar-top-bottom-padding} * 2));
+		transform: translateY(1px);
 	}
 
 	img {
