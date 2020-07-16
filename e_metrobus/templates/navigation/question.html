@@ -39,9 +39,9 @@
         </fieldset>
       </div>
       {% if question.is_multiple_choice %}
-      <div class="cell text-center question__btn">
-        <input class="button button--question" type="submit" value="{% trans 'Antworten' %}">
-      </div>
+        <div class="cell text-center question__btn answer--ready" hidden>
+          <input class="button button--question" type="submit" value="{% trans 'Antworten' %}">
+        </div>
       {% endif %}
     </div>
   </form>
@@ -61,9 +61,9 @@
     });
     $(".checkbox").change(function() {
       if ($('fieldset[name="answer"] input:checked').length > 0) {
-        $(".question__btn").addClass("answer--ready");
+        $(".question__btn").show();
       } else {
-        $(".question__btn").removeClass("answer--ready");
+        $(".question__btn").hide();
       };
     });
   </script>
