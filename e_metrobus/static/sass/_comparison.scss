@@ -42,6 +42,9 @@ button.close-button:hover {
 }
 
 .comparison-table {
+    @media screen and (max-width: 767px) {
+        font-size: .8rem;
+    }
     th {
         min-width: 80px;
     }

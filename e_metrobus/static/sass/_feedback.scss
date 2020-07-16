@@ -9,8 +9,19 @@
   padding-right: 2px;
   padding-bottom: 2.5rem;
 
-  &__form {
+  @media screen and (max-width: 767px) {
+    font-size: .8rem;
+  }
+
+  .feedback__form {
     width: 100%;
+    
+    label {
+      color: $gray-4;
+      @media screen and (max-width: 767px) {
+        font-size: .8rem;
+      }
+    }
   }
 
   &__quest {
@@ -76,12 +87,32 @@
   }
 }
 
+.bug__question p {
+  margin-top: 1rem;
+  @media screen and (max-width: 767px) {
+    font-size: .8rem;
+  }
+}
+
 .bug__form {
   padding-top: 1rem;
   padding-bottom: 8rem;
 
   select {
     background-image: none;
+  }
+
+  .feedback__form {
+    label,
+    select,
+    textarea {
+      @media screen and (max-width: 767px) {
+        font-size: .8rem;
+      }
+    }
+  }
+  @media screen and (max-width: 767px) {
+    font-size: .8rem;
   }
 }
 
