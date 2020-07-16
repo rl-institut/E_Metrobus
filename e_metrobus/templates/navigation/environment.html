@@ -11,41 +11,41 @@
 
 {% block content %}
 
-<div class="cell my-route">
-  <div class="grid-x">
-    <div class="cell small-1"></div>
-    <div class="cell small-11 my-route__top">
-      <div>
-        <span class="my-route__text">{% trans 'Meine Strecke' %}</span>
-        <a href="{% url 'navigation:route' %}?next=environment" class="button button--xsmall button--white my-route__btn"><img src="{% static 'images/icons/i_next_black_large.svg' %}" alt="">{% trans 'Ändern' %}</a>
-      </div>
-    </div>
-    <div class="cell small-1 my-route__icon">
-      <img src="{% static 'images/icons/i_route_black.svg' %}" alt="{% trans 'Strecke' %}">
-    </div>
-    <div class="cell small-11 my-route__stations">
-      <span class="my-route__station--0">{{stations.0}}</span>
-      <span class="my-route__station--1">{{stations.1}}</span>
-    </div>
+<div class="cell my-route-heading-wrap">
+  <div class="cell my-route-heading">
+    {% blocktrans with distance=route_distance %}Einfluss meiner Strecke ({{distance}} km) auf die Umwelt im Vergleich zu anderen Verkehrsmitteln{% endblocktrans %}
+  </div>
+  <div class="cell my-route-heading" hidden>
+    {% blocktrans with distance=fleet_distance %}Einfluss der E-Bus Flotte ({{distance}} km) auf die Umwelt im Vergleich zu anderen Verkehrsmitteln{% endblocktrans %}
   </div>
 </div>
 
-<div class="cell my-route-heading">
-  {% blocktrans with distance=route_distance %}Einfluss meiner Strecke ({{distance}} km) auf die Umwelt im Vergleich zu anderen Verkehrsmitteln{% endblocktrans %}
-</div>
-<div class="cell my-route-heading" hidden>
-  {% blocktrans with distance=fleet_distance %}Einfluss der E-Bus Flotte ({{distance}} km) auf die Umwelt im Vergleich zu anderen Verkehrsmitteln{% endblocktrans %}
+
+<div class="cell my-route">
+  <div class="grid-x">
+    <div class="cell small-1 my-route__icon">
+      <img src="{% static 'images/icons/i_route_black.svg' %}" alt="{% trans 'Strecke' %}">
+    </div>
+    <div class="cell small-8 my-route__stations">
+      <span class="my-route__station--0">{{stations.0}}</span>
+      <span class="my-route__station--1">{{stations.1}}</span>
+    </div>
+    <div class="cell small-3 my-route__change">
+      <a href="{% url 'navigation:route' %}?next=environment">{% trans 'Ändern' %}</a>
+    </div>
+    <div class="cell separator"></div>
+  </div>
 </div>
 
 <div class="cell my-route-tabs">
   <ul class="tabs">
-    <li class="tabs-title tabs-title--emissions tabs-title--33 active" id="co2">
+    <li class="tabs-title tabs-title--emissions tabs-title--30 active" id="co2">
       <div onclick="select_emission(this);">{% trans 'CO<sub>2</sub>' %}</div>
     </li>
-    <li class="tabs-title tabs-title--emissions tabs-title--33" id="nitrogen">
+    <li class="tabs-title tabs-title--emissions tabs-title--30" id="nitrogen">
       <div onclick="select_emission(this);">{% trans 'NOx' %}</div>
     </li>
-    <li class="tabs-title tabs-title--emissions tabs-title--33" id="fine_dust">
+    <li class="tabs-title tabs-title--emissions tabs-title--40" id="fine_dust">
       <div onclick="select_emission(this);">{% trans 'Feinstaub' %}</div>
     </li>
     <li class="tabs-title tabs-title--bus tabs-title--50 active" id="route">

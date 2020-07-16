@@ -48,36 +48,13 @@
 }
 
 .my-route .grid-x {
-  margin: 1rem;
   padding: 1rem;
-  border-radius: $border-radius;
-  background-color: $gray-1;
-
-  .my-route__top {
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 1rem;
-    padding-left: .5rem;
-
-    & > div {
-      display: table;
-      width: 100%;
-    }
-  }
+  font-size: .8rem;
 
   .my-route__text {
     display: table-cell;
     vertical-align: baseline;
     font-weight: 700;
-  }
-
-  .my-route__btn {
-    float: right;
-    img {
-      height: 1rem;
-      transform: translateY(-2px);
-      padding-right: .25rem;
-    }
   }
 
   .my-route__icon {
@@ -96,24 +73,46 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      color: $gray-4;
 
       &.my-route__station--0 {
         padding-bottom: .5rem;
       }
     }
   }
+
+  .my-route__change {
+    text-align: right;
+    a {
+      color: $secondary-color;
+      font-weight: 700;
+    }
+  }
+
+  .separator {
+    padding: 1.75rem 1rem 0;
+    border-bottom: 1px solid $gray-1;
+  }
 }
 
-.my-route-heading {
-  text-align: center;
-  font-weight: 700;
-  padding: 2rem 1rem 1.5rem;
+.my-route-heading-wrap {
+  padding: 1rem;
+
+  .my-route-heading {
+    background-color: $primary-color-1;
+    border-radius: $border-radius;
+    padding: 2rem 1rem;
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+  }
 }
 
 .my-route-tabs {
   padding-left: 1rem;
   padding-right: 1rem;
   margin-bottom: 1rem;
+  margin-top: 1rem;
 
   .tabs {
     border: none;
@@ -121,23 +120,39 @@
 
   .tabs-title {
     text-align: center;
+    border-radius: 100px;
 
     div {
+      border-radius: 100px;
       margin: 2px;
       background-color: $gray-1;
-      padding: .5rem 0;
+      padding: .5rem .5rem;
+      font-size: .8rem;
+      font-weight: 700;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
-    &--33 {
-      width: 33.33%;
+    &--25 {
+      width: 25%;
+    }
+    &--30 {
+      width: 30%;
+    }
+    &--40 {
+      width: 40%;
     }
     &--50 {
       width: 50%;
+      padding-top: .125rem;
     }
     &--emissions.active div {
-      background-color: $primary-color-1;
+      background-color: $secondary-color;
+      color: $white;
     }
     &--bus.active div {
-      background-color: $primary-color-2;
+      background-color: $gray-4;
+      color: $white;
     }
   }
 }
