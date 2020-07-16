@@ -104,23 +104,25 @@ $tab-border-half: 1px solid $white;
 
 // Desktop
 .legal__wrap {
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
   
   & > .cell {
     max-width: 75rem;
   }
 
   h1 {
-    padding-top: 5rem;
+    padding-bottom: 1rem;
+
+    @media screen and (min-width: 767px) {
+      padding-top: 5rem;
     padding-bottom: 4rem;
+    }
   }
 }
 
 .reveal.legal {
   position: relative;
   button.close-button {
-    left: 2rem;
+    left: 1rem;
     top: 2rem;
     font-size: 1rem !important;
     width: auto !important;
