@@ -11,6 +11,7 @@
 
   @media screen and (max-width: 767px) {
     font-size: .8rem;
+    letter-spacing: .01rem;
   }
 
   .feedback__form {
@@ -20,6 +21,7 @@
       color: $gray-4;
       @media screen and (max-width: 767px) {
         font-size: .8rem;
+        letter-spacing: .01rem;
       }
     }
   }
@@ -91,6 +93,7 @@
   margin-top: 1rem;
   @media screen and (max-width: 767px) {
     font-size: .8rem;
+    letter-spacing: .01rem;
   }
 }
 
@@ -108,11 +111,13 @@
     textarea {
       @media screen and (max-width: 767px) {
         font-size: .8rem;
+        letter-spacing: .01rem;
       }
     }
   }
   @media screen and (max-width: 767px) {
     font-size: .8rem;
+    letter-spacing: .01rem;
   }
 }
 
@@ -135,8 +140,9 @@ a.feedback__bug-link {
   font-weight: 700;
 
   img {
-    height: 1rem;
-    transform: translateY(-2px);
+    height: .8rem;
+    letter-spacing: .01rem;
+    transform: translateY(-1px);
     padding-right: .25rem;
   }
 }

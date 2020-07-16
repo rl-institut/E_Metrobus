@@ -1,6 +1,7 @@
 .my-route .grid-x {
   padding: 1rem;
   font-size: .8rem;
+  letter-spacing: .01rem;
 
   .my-route__text {
     display: table-cell;
@@ -80,6 +81,7 @@
       background-color: $gray-1;
       padding: .5rem .5rem;
       font-size: .8rem;
+      letter-spacing: .01rem;
       font-weight: 700;
       overflow: hidden;
       text-overflow: ellipsis;

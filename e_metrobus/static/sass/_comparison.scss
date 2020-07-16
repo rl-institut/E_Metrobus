@@ -45,6 +45,7 @@ button.close-button:hover {
 .comparison-table {
     @media screen and (max-width: 767px) {
         font-size: .8rem;
+        letter-spacing: .01rem;
     }
     th {
         min-width: 80px;
@@ -54,6 +55,7 @@ button.close-button:hover {
 .data__source {
     color: $gray-4;
     font-size: .8rem;
+    letter-spacing: .01rem;
     margin-right: .5rem;
 
     &--chart {

@@ -6,6 +6,7 @@ button, button:hover, button:active, button:focus, button:visited, .button, .but
 	font-weight: 700;
   font-size: 1rem !important;
   border-radius: 100px !important;
+  letter-spacing: .03rem;
 
 	&.button--yellow {
 		background-color: $primary-color-1 !important;
@@ -29,6 +30,7 @@ button, button:hover, button:active, button:focus, button:visited, .button, .but
     padding: 0 1rem;
     margin-bottom: 0;
     font-size: .8rem !important;
+    letter-spacing: .01rem;
   }
 
   &.button--question {
@@ -90,6 +92,7 @@ $tab-border-half: 1px solid $white;
 
   li a {
     font-size: .8rem;
+    letter-spacing: .01rem;
     font-weight: 700;
     padding: 1rem .5rem;
   }
