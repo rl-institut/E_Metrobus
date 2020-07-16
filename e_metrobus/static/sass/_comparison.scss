@@ -30,10 +30,11 @@ button.close-button:hover {
     button:hover,
     button:active,
     button:focus {
+        width: auto!important;
 	    background-color: transparent !important;
-      color: $gray-2;
-      outline-color: transparent;
-      cursor: pointer;
+        color: $gray-2;
+        outline-color: transparent;
+        cursor: pointer;
     }
 }
 
