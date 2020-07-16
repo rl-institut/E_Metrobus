@@ -11,7 +11,7 @@
 
 {% block content %}
 
-<div class="cell my-route-heading-wrap">
+<div class="cell my-route-heading-wrap a-environment-frame">
   <div class="cell my-route-heading">
     {% blocktrans with distance=route_distance %}Einfluss meiner Strecke ({{distance}} km) auf die Umwelt im Vergleich zu anderen Verkehrsmitteln{% endblocktrans %}
   </div>
@@ -21,7 +21,7 @@
 </div>
 
 
-<div class="cell my-route">
+<div class="cell my-route a-environment-route">
   <div class="grid-x">
     <div class="cell small-1 my-route__icon">
       <img src="{% static 'images/icons/i_route_gray.svg' %}" alt="{% trans 'Strecke' %}">
@@ -37,7 +37,7 @@
   </div>
 </div>
 
-<div class="cell my-route-tabs">
+<div class="cell my-route-tabs a-environment-tabs">
   <ul class="tabs">
     <li class="tabs-title tabs-title--emissions tabs-title--30 active" id="co2">
       <div onclick="select_emission(this);">{% trans 'CO<sub>2</sub>' %}</div>

@@ -1,10 +1,3 @@
-.own {
-  background-color: $primary-color-1;
-}
-.fleet {
-  background-color: $primary-color-2;
-}
-
 .my-route .grid-x {
   padding: 1rem;
   font-size: .8rem;
@@ -138,4 +131,36 @@
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+.a-environment-frame {
+  animation: a-environment-frame 1.5s $cubic-bezier-ease-out both;
+}
+.a-environment-route {
+  animation: a-environment-fade-in 1s $cubic-bezier-ease-in .5s both;
+}
+.a-environment-tabs {
+  animation: a-environment-fade-in 1s $cubic-bezier-ease-in .65s both;
+}
+
+@keyframes a-environment-frame {
+  0% {
+    transform: translateY(-100rem);
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes a-environment-fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
