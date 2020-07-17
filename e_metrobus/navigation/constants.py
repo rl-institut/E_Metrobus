@@ -1,4 +1,5 @@
 import math
+import datetime as dt
 from collections import namedtuple
 from dataclasses import dataclass, fields
 
@@ -12,9 +13,14 @@ Consumption = namedtuple(
     "Consumption", ["distance", "co2", "nitrogen", "fine_dust"]
 )
 
-FLEET_CONSUMPTION = Consumption(
-    distance=3000, co2=300000, nitrogen=20000, fine_dust=10000
-)
+FLEET_START_DATE = dt.date(2020, 8, 12)
+FLEET_DISTANCE_PER_DAY = 2800
+
+
+def get_fleet_distance():
+    days = (dt.date.today() - FLEET_START_DATE).days + 1
+    distance = FLEET_DISTANCE_PER_DAY * days
+    return max(distance, FLEET_DISTANCE_PER_DAY)
 
 
 class Ellipse:

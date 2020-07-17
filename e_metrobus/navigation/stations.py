@@ -4,7 +4,7 @@ from typing import Dict
 import pandas
 from django.conf import settings
 
-from e_metrobus.navigation.constants import DataPerKilometer, VEHICLES, FLEET_CONSUMPTION
+from e_metrobus.navigation.constants import DataPerKilometer, VEHICLES, get_fleet_distance
 
 STATIONS_FILE = os.path.join(settings.APPS_DIR, "navigation", "stations.csv")
 
@@ -42,7 +42,7 @@ class Stations:
         }
 
     def get_fleet_data(self):
-        distance = FLEET_CONSUMPTION.distance
+        distance = get_fleet_distance()
         return {
             vehicle.name: self.__calc_route_data(distance, vehicle)
             for vehicle in VEHICLES
