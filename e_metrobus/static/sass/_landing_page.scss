@@ -258,6 +258,9 @@ $desktop-padding-xxsmall: .6rem;
   @media screen and (min-width: 1024px) {
     padding-top: $desktop-padding-medium;
   }
+  @media screen and (orientation: landscape) {
+    padding: 1rem 10vw;
+  }
 
   & > div {
     position: relative;
