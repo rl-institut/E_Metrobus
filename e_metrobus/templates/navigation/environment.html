@@ -16,7 +16,7 @@
     {% blocktrans with distance=route_distance %}Einfluss meiner Strecke ({{distance}} km) auf die Umwelt im Vergleich zu anderen Verkehrsmitteln{% endblocktrans %}
   </div>
   <div class="cell my-route-heading" hidden>
-    {% blocktrans with distance=fleet_distance %}Einfluss der E-Bus Flotte ({{distance}} km) auf die Umwelt im Vergleich zu anderen Verkehrsmitteln{% endblocktrans %}<span class="my-route-heading--small">({% blocktrans start=fleet_start %}seit offiziellem Projektstart am {{start}}{% endblocktrans %})</span>
+    {% blocktrans with distance=fleet_distance %}Einfluss der E-Bus Flotte ({{distance}} km) auf die Umwelt im Vergleich zu anderen Verkehrsmitteln{% endblocktrans %}<span class="my-route-heading--small">({% blocktrans with start=fleet_start %}seit offiziellem Projektstart am {{start}}{% endblocktrans %})</span>
   </div>
 </div>
 
