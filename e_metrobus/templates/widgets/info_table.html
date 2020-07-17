@@ -23,9 +23,11 @@
     </tbody>
   </table>
   <p class="data__source">
-    {% trans 'Quellen' %}:<br>
-    {% for source in sources %}
-      {{source}}<br>
-    {% endfor %}
+    {% trans 'Quellen' %}:
+    <ul class="list">
+      {% for source in sources %}
+        <li>{{source}}</li>
+      {% endfor %}
+    </ul>
   </p>
 </div>

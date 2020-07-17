@@ -217,7 +217,8 @@ class EnvironmentView(CheckStationsMixin, NavigationView):
             for emission in ("co2", "nitrogen", "fine_dust")
         ]
         context["route_distance"] = stations.STATIONS.get_distance(*current_stations)
-        context["fleet_distance"] = constants.FLEET_CONSUMPTION.distance
+        context["fleet_distance"] = utils.set_separators(constants.get_fleet_distance())
+        context["fleet_start"] = constants.FLEET_START_DATE
         return context
 
 
@@ -242,8 +243,20 @@ class QuestionView(NavigationView):
         return context
 
     def get(self, request, *args, **kwargs):
+        if kwargs["category"] in request.session["questions"] and request.session[
+            "questions"
+        ][kwargs["category"]].get("finished", False):
+            next_answer = questions.get_next_answer(kwargs["category"])
+            if next_answer is None:
+                return redirect("navigation:dashboard")
+            else:
+                request.session["last_answered_question"] = next_answer
+                return redirect("navigation:answer", category=kwargs["category"])
+
         next_question = questions.get_next_question(kwargs["category"], request.session)
         if next_question is None:
+            request.session["questions"][kwargs["category"]]["finished"] = True
+            request.session.save()
             return redirect("navigation:category_finished", category=kwargs["category"])
 
         context = self.get_context_data(**kwargs, question=next_question)
@@ -291,12 +304,19 @@ class AnswerView(NavigationView):
         context["flashes"] = questions.get_category_answers(
             question.category, self.request.session
         )
+        if "category" in kwargs and self.request.session["questions"][
+            kwargs["category"]
+        ].get("finished", False):
+            self.request.session["last_answered_question"] = questions.get_next_answer(
+                kwargs["category"], self.request.session["last_answered_question"]
+            )
+            context["category_finished"] = True
         return context
 
     def get(self, request, **kwargs):
         question_name = request.session.get("last_answered_question")
         if question_name is None:
-            raise ValueError("No question answered yet!")
+            return redirect("navigation:dashboard")
         question = questions.get_question_from_name(question_name)
         context = self.get_context_data(question=question, **kwargs)
         return self.render_to_response(context)

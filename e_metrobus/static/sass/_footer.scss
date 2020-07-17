@@ -43,7 +43,7 @@ section.footer {
 		font-size: .75rem;
 		transform: translateY(-9px);
 
-		@media screen and (max-width: 340px) {
+		@media only screen and (max-width: 340px) {
 			font-size: .7rem;
 		}
 	  }
