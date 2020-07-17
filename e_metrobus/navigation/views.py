@@ -217,7 +217,8 @@ class EnvironmentView(CheckStationsMixin, NavigationView):
             for emission in ("co2", "nitrogen", "fine_dust")
         ]
         context["route_distance"] = stations.STATIONS.get_distance(*current_stations)
-        context["fleet_distance"] = constants.FLEET_CONSUMPTION.distance
+        context["fleet_distance"] = utils.set_separators(constants.get_fleet_distance())
+        context["fleet_start"] = constants.FLEET_START_DATE
         return context
 
 

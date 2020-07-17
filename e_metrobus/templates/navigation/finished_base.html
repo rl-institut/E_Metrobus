@@ -22,9 +22,9 @@
       <div class="quiz-finished__flash">
         {% for answer in answers %}
           {% if answer.value == "correct" %}
-            <img src="{% static 'images/icons/i_flash_correct.svg' %}" alt="{% trans 'Blitz-Abbildung' %}">
+            <img src="{% static 'images/icons/i_flash_correct.svg' %}" alt="">
           {% else %}
-            <img src="{% static 'images/icons/i_flash_white.svg' %}" alt="{% trans 'Blitz-Abbildung' %}">
+            <img src="{% static 'images/icons/i_flash_white.svg' %}" alt="">
           {% endif %}
         {% endfor %}
       </div>

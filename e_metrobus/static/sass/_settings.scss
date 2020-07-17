@@ -70,7 +70,7 @@ $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 $foundation-palette: (
   primary: #1779ba,
-  secondary: #767676,
+  secondary: #252424,
   success: #3adb76,
   warning: #ffae00,
   alert: #cc4b37,
@@ -451,7 +451,7 @@ $label-background: $primary-color;
 $label-color: $white;
 $label-color-alt: $black;
 $label-palette: $foundation-palette;
-$label-font-size: 0.8rem;
+$label-font-size: 1rem;
 $label-padding: 0.33333rem 0.5rem;
 $label-radius: $global-radius;
 

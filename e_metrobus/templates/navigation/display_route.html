@@ -19,21 +19,7 @@
         <div class="cell display-route__start" id="display-route-start">
           {{stations.0}}
         </div>
-        <div class="cell show-for-portrait" id="display-route-line">
-          <svg width="52" height="250">
-            <title>{% trans 'Symbolisierte Strecke' %}</title>
-            <circle cx="26" cy="6" r="6"/>
-            <rect x="20" y="7" width="12" height="236" />
-            <circle cx="26" cy="244" r="6"/>
-            <circle cx="26" cy="6" r="4" fill="#fff"/>
-            <circle cx="26" cy="244" r="4" fill="#fff"/>
-            <rect x="20" y="105" width="20" height="2" style="fill:#F0D722" />
-            <rect x="20" y="115" width="20" height="4" style="fill:#F0D722" />
-            <rect x="20" y="125" width="20" height="10" style="fill:#F0D722" />
-            <rect x="20" y="141" width="20" height="4" style="fill:#F0D722" />
-            <rect x="20" y="153" width="20" height="2" style="fill:#F0D722" />
-          </svg>
-        </div>
+        <img class="show-for-portrait display-route__img" src="{% static 'images/icons/route.svg' %}" alt="{% trans 'Bild der Strecke' %}">
         <div class="cell display-route__end" id="display-route-end">
           {{stations.1}}
         </div>
@@ -70,7 +56,7 @@
 <div class="cell display-route" id="onboardingAnimate3" style="display: none;">
   <div class="grid-x display-route__grid text-center align-center">
     <div class="cell display-route__wrap">
-      <img class="show-for-portrait" id="onboardingAnimateIcon2" src="{% static 'images/icons/Icon_E_Car.svg' %}" alt="E-PKW Icon">
+      <img class="show-for-portrait" id="onboardingAnimateIcon2" src="{% static 'images/icons/Icon_E_Car.svg' %}" alt="{% trans 'E-Pkw' %}">
       <div class="display-route__text">
         <p class="display-route__sentence">{% trans "Im Vergleich zum <span>E-PKW</span> sparst du auf dieser Strecke" %}</p>
         <p class="display-route__number display-route-number">{{co2.e_pkw.percent|floatformat:"0"}} % CO<sub>2</sub></p>
@@ -89,7 +75,7 @@
 <div class="cell display-route" id="onboardingAnimate4" style="display: none;">
   <div class="grid-x display-route__grid text-center align-center">
     <div class="cell display-route__wrap">
-      <img class="show-for-portrait" id="onboardingAnimateIcon3" src="{% static 'images/icons/Icon_Conventional_Bus.svg' %}" alt="{% trans 'Konventioneller Bus Icon' %}">
+      <img class="show-for-portrait" id="onboardingAnimateIcon3" src="{% static 'images/icons/Icon_Conventional_Bus.svg' %}" alt="{% trans 'Dieselbus' %}">
       <div class="display-route__text">
         <p class="display-route__sentence">{% trans "Im Vergleich zum <span>Dieselbus</span> sparst du auf dieser Strecke" %}</p>
         <p class="display-route__number display-route-number">{{co2.bus.percent|floatformat:"0"}} % CO<sub>2</sub></p>
@@ -108,7 +94,7 @@
 <div class="cell display-route" id="onboardingAnimate5" style="display: none;">
   <div class="grid-x display-route__grid text-center align-center">
     <div class="cell display-route__wrap">
-      <img class="show-for-portrait" id="onboardingAnimateIcon5" src="{% static 'images/icons/Icon_Conventional_Car.svg' %}" alt="{% trans 'Konventioneller PKW Icon' %}">
+      <img class="show-for-portrait" id="onboardingAnimateIcon5" src="{% static 'images/icons/Icon_Conventional_Car.svg' %}" alt="{% trans 'Pkw (Diesel)' %}">
       <div class="display-route__text">
         <p class="display-route__sentence">{% trans "Im Vergleich zum <span>Pkw (Diesel)</span> sparst du auf dieser Strecke" %}</p>
         <p class="display-route__number display-route-number">{{co2.car.percent|floatformat:"0"}} % CO<sub>2</sub></p>
@@ -127,7 +113,7 @@
 <div class="cell display-route" id="onboardingAnimate6" style="display: none;">
   <div class="grid-x display-route__grid text-center align-center">
     <div class="cell display-route__wrap">
-      <img class="show-for-portrait" id="onboardingAnimateIcon4" src="{% static 'images/icons/Icon_Pedestrian_Bike.svg' %}" alt="{% trans 'Fussgänger und Fahrrad Icon' %}">
+      <img class="show-for-portrait" id="onboardingAnimateIcon4" src="{% static 'images/icons/Icon_Pedestrian_Bike.svg' %}" alt="{% trans 'Fussgänger und Fahrrad' %}">
       <div class="display-route__text">
         <p class="display-route__sentence">{% trans "Nur noch <span>zu Fuß</span> oder mit dem <span>Fahrrad</span> kannst du es besser machen!" %}</p>
       </div>

@@ -1,4 +1,5 @@
 import math
+import datetime as dt
 from collections import namedtuple
 from dataclasses import dataclass, fields
 
@@ -12,9 +13,14 @@ Consumption = namedtuple(
     "Consumption", ["distance", "co2", "nitrogen", "fine_dust"]
 )
 
-FLEET_CONSUMPTION = Consumption(
-    distance=3000, co2=300000, nitrogen=20000, fine_dust=10000
-)
+FLEET_START_DATE = dt.date(2020, 8, 12)
+FLEET_DISTANCE_PER_DAY = 2800
+
+
+def get_fleet_distance():
+    days = (dt.date.today() - FLEET_START_DATE).days + 1
+    distance = FLEET_DISTANCE_PER_DAY * days
+    return max(distance, FLEET_DISTANCE_PER_DAY)
 
 
 class Ellipse:
@@ -64,12 +70,12 @@ VEHICLES = [
     Vehicle(
         name="car",
         label=_("PKW (Diesel)"),
-        data=DataPerKilometer(co2=147, nitrogen=0.43, fine_dust=0.004),
+        data=DataPerKilometer(co2=147, nitrogen=0.43, fine_dust=0.007),
     ),
     Vehicle(
         name="bus",
         label=_("Dieselbus"),
-        data=DataPerKilometer(co2=80, nitrogen=0.32, fine_dust=0.003),
+        data=DataPerKilometer(co2=80, nitrogen=0.32, fine_dust=0.005),
     ),
     Vehicle(name="e-pkw", label=_("Elektro-PKW"), data=DataPerKilometer(53, 0, 0),),
     Vehicle(name="e-bus", label=_("Elektrobus"), data=DataPerKilometer(42, 0, 0),),
@@ -78,8 +84,10 @@ VEHICLES = [
 ]
 
 DATA_SOURCES = [
-    'Umweltbundesamt, "Vergleich der durchschnittlichen Emissionen einzelner Verkehrsmittel im Personenverkehr in Deutschland - Bezugsjahr 2018", 01/2020',
+    'Umweltbundesamt, "Vergleich der durchschnittlichen Emissionen einzelner Verkehrsmittel im Personenverkehr in Deutschland - Bezugsjahr 2018", 01/2020, TREMOD 6.03',
     'Umweltbundesamt, "Entwicklung der spezifischen Kohlendioxid-Emissionen des deutschen Strommix in den Jahren 1990 - 2019", 13/2020',
+    _("Annahmen zum Energieverbrauch der E-PKWs und E-Busse: Reiner Lemoine Institut"),
+    _("Annahmen zur Personenzahl eines Linienbusses: BVG")
 ]
 
 POSTHOG_EVENTS = ("shared", "sources", "english")

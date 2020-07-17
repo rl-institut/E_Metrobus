@@ -8,7 +8,7 @@
   background-color: $primary-color-1;
 
   @media (orientation: landscape) {
-    top: 30%;
+    top: 40%;
   }
 
   &__start {
@@ -19,7 +19,7 @@
   &__end {
     font-size: 1.35rem;
 
-    @media screen and (max-width: 340px) {
+    @media only screen and (max-width: 340px) {
       font-size: 1.25rem;
     }
   }
@@ -66,11 +66,23 @@
   &__text {
     transform: translateY(-7vh);
     z-index: 2;
+
+    @media only screen and (orientation: landscape) {
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__img {
+    height: 10rem;
+    margin: 0 auto;
   }
 
   &__sentence {
     font-weight: 400;
     font-size: 1.35rem;
+    line-height: 2rem;
     padding: 0 4rem;
 
     @media (max-width: 360px) {
@@ -91,7 +103,7 @@
       font-size: 1rem;
     }
 
-    @media screen and ( min-width: 350px ) {
+    @media only screen and ( min-width: 350px ) {
       font-size: 3rem;
 
       &--small {

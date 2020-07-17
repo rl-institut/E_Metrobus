@@ -44,12 +44,21 @@ def get_sizes(max_value):
     return Sizes(*map(lambda x: x / 50 * max_value, [MARGIN, OFFSET, SIZE, TEXTSIZE]))
 
 
-def get_mobility_figure(values, title):
+def get_mobility_figure(values, title, e_asterisk=False):
     rounding = get_rounding(max(values))
     if rounding == 0:
         rounded_values = [int(v) for v in values]
     else:
         rounded_values = [round(v, rounding) for v in values]
+    separated_values = [set_separators(v) for v in rounded_values]
+    # add asterisk to E-Pkw and E-bus for information
+    if e_asterisk:
+        separated_values[1] = separated_values[1] + "<sup>*</sup>"
+        separated_values[2] = separated_values[2] + "<sup>*</sup>"
+    scaled_values = [
+        (v + min(rounded_values)) / max(rounded_values) * 100 for v in rounded_values
+    ]
+
     colors = [DEFAULT_COLOR] * 5
     colors[1] = E_BUS_COLOR
     mobiles = [
@@ -59,9 +68,6 @@ def get_mobility_figure(values, title):
         _("Dieselbus"),
         _("Pkw (Diesel)"),
     ]
-    scaled_values = [
-        (v + min(rounded_values)) / max(rounded_values) * 100 for v in rounded_values
-    ]
     max_value = max(scaled_values)
     sizes = get_sizes(max_value)
 
@@ -69,7 +75,7 @@ def get_mobility_figure(values, title):
         x=mobiles,
         y=scaled_values,
         marker_color=colors,
-        text=[set_separators(v) for v in rounded_values],
+        text=separated_values,
         textposition="outside",
         width=0.6,
     )
@@ -137,7 +143,7 @@ def get_mobility_figure(values, title):
 
 def get_co2_figure(values):
     title = _("CO<sub>2</sub> Emissionen [in g]<br>nach Verkehrsmittel")
-    return get_mobility_figure(values, title)
+    return get_mobility_figure(values, title, e_asterisk=True)
 
 
 def get_nitrogen_figure(values):

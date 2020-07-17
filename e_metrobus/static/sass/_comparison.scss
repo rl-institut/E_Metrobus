@@ -30,18 +30,37 @@ button.close-button:hover {
     button:hover,
     button:active,
     button:focus {
+        width: auto!important;
 	    background-color: transparent !important;
-      color: $gray-2;
-      outline-color: transparent;
-      cursor: pointer;
+        color: $gray-2;
+        outline-color: transparent;
+        cursor: pointer;
+    }
+    img {
+        height: 1rem;
+        width: 1rem;
+        transform: translateY(-2px);
+        padding-right: .25rem;
     }
 }
 
 .data__table {
     padding-bottom: 2.5rem;
+
+    ul li {
+        width: 100%;
+        text-align: left;
+        font-size: .875rem;
+        color: $gray-4;
+        padding-bottom: .5rem;
+    }
 }
 
 .comparison-table {
+    @media only screen and (max-width: 767px) {
+        font-size: .875rem;
+        letter-spacing: .01rem;
+    }
     th {
         min-width: 80px;
     }
@@ -50,13 +69,19 @@ button.close-button:hover {
 .data__source {
     color: $gray-4;
     font-size: .875rem;
+    letter-spacing: .01rem;
     margin-right: .5rem;
+
+    &--chart {
+        margin-right: 0;
+        padding: 1rem 1rem 2rem;
+    }
 }
 
 .data__title {
     font-weight: 700;
     color: $gray-4;
-    padding: 0 0 3.5rem;
+    padding: 0 0 1rem;
 }
 
 @keyframes animateComparisonBtn {
@@ -80,13 +105,13 @@ button.close-button:hover {
 
 .comparison__btn--next {
     padding-top: 1rem;
-    @media screen and (min-height: 600px) {
+    @media only screen and (min-height: 600px) {
         padding-top: 2rem;
     }
-    @media screen and (min-height: 700px) {
+    @media only screen and (min-height: 700px) {
         padding-top: 3rem;
     }
-    @media screen and (min-height: 900px) {
+    @media only screen and (min-height: 900px) {
         padding-top: 5rem;
     }
 }
