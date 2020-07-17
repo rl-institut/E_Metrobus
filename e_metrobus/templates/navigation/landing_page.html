@@ -44,7 +44,7 @@
       </div>
       <div class="cell landpage__bottom">
         <div class="grid-x">
-          <div class="cell landpage__text">
+          <div class="cell landpage__text" {% if visited %}style="animation: none"{% endif %}>
             <p>{% trans 'Die App ist Teil des Forschungsprojektes E-MetroBus der folgenden Partner:' %}</p>
           </div>
           <div class="cell small-4 landpage__logo landpage__logo--bvg" {% if visited %}style="animation: none"{% endif %}>
