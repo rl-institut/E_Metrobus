@@ -7,11 +7,11 @@
   z-index: 9;
   padding: 1rem;
 
-  @media screen and (orientation: landscape) {
+  @media only screen and (orientation: landscape) {
     position: relative;
   }
 
-  @media screen and (min-width: 600px) {
+  @media only screen and (min-width: 600px) {
     padding: 2rem;
   }
 
@@ -25,7 +25,7 @@
       margin-bottom: 0;
     }
 
-    @media screen and (orientation: landscape) {
+    @media only screen and (orientation: landscape) {
       margin-bottom: 1rem;
     }
   }
@@ -40,7 +40,7 @@
       justify-content: center;
       align-items: center;
 
-      @media screen and (orientation: landscape) {
+      @media only screen and (orientation: landscape) {
         margin-bottom: 1rem;
       }
     }
@@ -64,7 +64,7 @@
     text-align: center;
   }
 
-  @media screen and (min-width: 600px) {
+  @media only screen and (min-width: 600px) {
     .tour__text p {
       font-size: 1.5rem;
     }

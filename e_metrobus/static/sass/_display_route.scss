@@ -19,7 +19,7 @@
   &__end {
     font-size: 1.35rem;
 
-    @media screen and (max-width: 340px) {
+    @media only screen and (max-width: 340px) {
       font-size: 1.25rem;
     }
   }
@@ -67,7 +67,7 @@
     transform: translateY(-7vh);
     z-index: 2;
 
-    @media screen and (orientation: landscape) {
+    @media only screen and (orientation: landscape) {
       p {
         margin-bottom: 0;
       }
@@ -103,7 +103,7 @@
       font-size: 1rem;
     }
 
-    @media screen and ( min-width: 350px ) {
+    @media only screen and ( min-width: 350px ) {
       font-size: 3rem;
 
       &--small {

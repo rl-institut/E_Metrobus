@@ -132,7 +132,7 @@ $station-font-line-height: 1rem;
 		height: 3rem;
 		width: 100%;
 
-		@media screen and (max-height: 599px) {
+		@media only screen and (max-height: 599px) {
 			display: none;
 		}
 	}
