@@ -115,10 +115,11 @@ $tab-border-half: 1px solid $white;
 
   h1 {
     padding-bottom: 1rem;
+    font-size: 1.25rem;
 
     @media screen and (min-width: 767px) {
       padding-top: 5rem;
-    padding-bottom: 4rem;
+      padding-bottom: 4rem;
     }
   }
 }
