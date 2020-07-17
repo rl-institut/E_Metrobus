@@ -26,6 +26,7 @@ def posthog_event(request, event=None):
             raise ValueError("Not a valid posthog event!")
         else:
             event = f"{request.get_host()}/{event}/"
+    data["event"] = event
     posthog.capture(
         request.session.session_key, event, properties=data,
     )
