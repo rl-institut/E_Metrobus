@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-15 10:36+0000\n"
+"POT-Creation-Date: 2020-07-17 12:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,85 +18,97 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: e_metrobus/navigation/chart.py:56
+#: e_metrobus/navigation/chart.py:65
 msgid "Zu Fuß/<br>Fahrrad"
 msgstr ""
 
-#: e_metrobus/navigation/chart.py:57
+#: e_metrobus/navigation/chart.py:66
 #: e_metrobus/templates/pages/question_translations.html:108
 msgid "E-Bus"
 msgstr "E-bus"
 
-#: e_metrobus/navigation/chart.py:58
+#: e_metrobus/navigation/chart.py:67
+#: e_metrobus/templates/navigation/display_route.html:59
 msgid "E-Pkw"
 msgstr ""
 
-#: e_metrobus/navigation/chart.py:59 e_metrobus/navigation/constants.py:71
+#: e_metrobus/navigation/chart.py:68 e_metrobus/navigation/constants.py:77
+#: e_metrobus/templates/navigation/display_route.html:78
 msgid "Dieselbus"
 msgstr "Diesel"
 
-#: e_metrobus/navigation/chart.py:60
+#: e_metrobus/navigation/chart.py:69
+#: e_metrobus/templates/navigation/display_route.html:97
 #, fuzzy
 #| msgid "Diesel"
 msgid "Pkw (Diesel)"
 msgstr "Diesel"
 
-#: e_metrobus/navigation/chart.py:139
+#: e_metrobus/navigation/chart.py:145
 #, fuzzy
 #| msgid "CO2 Emissionen [in g]<br>nach Verkehrsmittel"
 msgid "CO<sub>2</sub> Emissionen [in g]<br>nach Verkehrsmittel"
 msgstr "CO2 emissions [in g]<br>per vehicle"
 
-#: e_metrobus/navigation/chart.py:144
+#: e_metrobus/navigation/chart.py:150
 #, fuzzy
 #| msgid "CO2 Emissionen [in g]<br>nach Verkehrsmittel"
 msgid "Stickoxid Emissionen [in g]<br>nach Verkehrsmittel"
 msgstr "CO2 emissions [in g]<br>per vehicle"
 
-#: e_metrobus/navigation/chart.py:149
+#: e_metrobus/navigation/chart.py:155
 #, fuzzy
 #| msgid "CO2 Emissionen [in g]<br>nach Verkehrsmittel"
 msgid "Feinstaub Emissionen [in g]<br>nach Verkehrsmittel"
 msgstr "CO2 emissions [in g]<br>per vehicle"
 
-#: e_metrobus/navigation/constants.py:66
+#: e_metrobus/navigation/constants.py:72
 #, fuzzy
 #| msgid "Diesel"
 msgid "PKW (Diesel)"
 msgstr "Diesel"
 
-#: e_metrobus/navigation/constants.py:74
+#: e_metrobus/navigation/constants.py:80
 #, fuzzy
 #| msgid "Elektrobus"
 msgid "Elektro-PKW"
 msgstr "E-Bus"
 
-#: e_metrobus/navigation/constants.py:75
+#: e_metrobus/navigation/constants.py:81
 msgid "Elektrobus"
 msgstr "E-Bus"
 
-#: e_metrobus/navigation/constants.py:76
+#: e_metrobus/navigation/constants.py:82
 msgid "Fahrrad"
 msgstr "Bike"
 
-#: e_metrobus/navigation/constants.py:77
+#: e_metrobus/navigation/constants.py:83
 msgid "zu Fuß"
 msgstr "On foot"
 
-#: e_metrobus/navigation/constants.py:88
+#: e_metrobus/navigation/constants.py:89
+msgid ""
+"Annahmen zum Energieverbrauch der E-PKWs und E-Busse: Reiner Lemoine Institut"
+msgstr ""
+
+#: e_metrobus/navigation/constants.py:90
+msgid "Annahmen zur Personenzahl eines Linienbusses: BVG"
+msgstr ""
+
+#: e_metrobus/navigation/constants.py:96
 msgid ""
 "Oha, da ist noch Luft nach oben! Macht aber nichts. In unserem Info-Bereich "
 "findest du Antworten auf all deine Fragen zu E-Bussen, die du nie zu stellen "
 "gewagt hast."
 msgstr ""
 
-#: e_metrobus/navigation/constants.py:89
+#: e_metrobus/navigation/constants.py:97
 msgid ""
 "Nicht schlecht, aber das geht noch besser! Alle Fakten zum Nachlesen und "
 "Aufschlauen findest du in unserem Info-Bereich."
 msgstr ""
 
-#: e_metrobus/navigation/constants.py:90
+#: e_metrobus/navigation/constants.py:98
 msgid ""
 "Wow! Wir können dir kaum noch etwas beibringen. Alle Fakten zum Nachlesen "
 "findest du nochmal in unserem Info-Bereich."
@@ -142,12 +154,12 @@ msgstr ""
 msgid "Beschreibung"
 msgstr ""
 
-#: e_metrobus/navigation/utils.py:40
+#: e_metrobus/navigation/utils.py:43
 msgid ""
 "Ich bin gerade in einem E-Bus auf der Linie 200 gefahren. Schau mal hier"
 msgstr ""
 
-#: e_metrobus/navigation/utils.py:49
+#: e_metrobus/navigation/utils.py:52
 #, python-format
 msgid ""
 "Ich bin gerade in einem E-Bus auf der Linie 200 gefahren und habe der Welt "
@@ -159,7 +171,6 @@ msgid "Quiz"
 msgstr ""
 
 #: e_metrobus/navigation/widgets.py:115
-#: e_metrobus/templates/navigation/environment.html:19
 #: e_metrobus/templates/navigation/environment.html:52
 msgid "Meine Strecke"
 msgstr "My route"
@@ -436,17 +447,18 @@ msgid "Mehrere Antworten möglich"
 msgstr "Multiple answers possible"
 
 #: e_metrobus/templates/navigation/answer.html:44
-#: e_metrobus/templates/navigation/answer.html:68
+#: e_metrobus/templates/navigation/answer.html:72
 #, fuzzy
 #| msgid "Busse"
 msgid "Mehr sehen"
 msgstr "Buses"
 
-#: e_metrobus/templates/navigation/answer.html:55
+#: e_metrobus/templates/navigation/answer.html:56
+#: e_metrobus/templates/navigation/answer.html:58
 msgid "Weiter"
 msgstr ""
 
-#: e_metrobus/templates/navigation/answer.html:70
+#: e_metrobus/templates/navigation/answer.html:74
 #, fuzzy
 #| msgid "30 Sekunden"
 msgid "Weniger sehen"
@@ -473,6 +485,28 @@ msgstr ""
 msgid "Mehr entdecken!"
 msgstr "Discover more!"
 
+#: e_metrobus/templates/navigation/comparison.html:34
+#: e_metrobus/templates/widgets/top_bar.html:10
+#: e_metrobus/templates/widgets/top_bar_route.html:9
+msgid "Zurück"
+msgstr ""
+
+#: e_metrobus/templates/navigation/comparison.html:34
+msgid "Woher kommen die Zahlen?"
+msgstr ""
+
+#: e_metrobus/templates/navigation/comparison.html:39
+#: e_metrobus/templates/navigation/environment.html:68
+msgid ""
+"Wert berechnet sich auf Grundlage des deutschen Strommixes. Da der aktuelle "
+"Strommix nicht CO<sub>2</sub>-neutral ist, sind auch Elektrofahrzeuge für "
+"CO<sub>2</sub> Austoß verantwortlich."
+msgstr ""
+
+#: e_metrobus/templates/navigation/comparison.html:46
+msgid "Die Daten hinter den Zahlen"
+msgstr ""
+
 #: e_metrobus/templates/navigation/dashboard.html:6
 msgid "Quiz Übersicht"
 msgstr ""
@@ -487,72 +521,59 @@ msgstr ""
 msgid "Daten zu deiner Strecke"
 msgstr "Plug"
 
-#: e_metrobus/templates/navigation/display_route.html:24
-msgid "Symbolisierte Strecke"
-msgstr ""
-
-#: e_metrobus/templates/navigation/display_route.html:44
-#: e_metrobus/templates/navigation/display_route.html:66
-#: e_metrobus/templates/navigation/display_route.html:85
-#: e_metrobus/templates/navigation/display_route.html:104
-#: e_metrobus/templates/navigation/display_route.html:123
-#: e_metrobus/templates/navigation/display_route.html:140
-#, fuzzy
-#| msgid "Zur nächsten Frage"
-msgid "Zur nächsten Seite"
-msgstr "To the next question"
-
-#: e_metrobus/templates/navigation/display_route.html:51
+#: e_metrobus/templates/navigation/display_route.html:22
+#: e_metrobus/templates/navigation/display_route.html:37
 #, fuzzy
 #| msgid "Stecker"
 msgid "Bild der Strecke"
 msgstr "Plug"
 
-#: e_metrobus/templates/navigation/display_route.html:53
+#: e_metrobus/templates/navigation/display_route.html:30
+#: e_metrobus/templates/navigation/display_route.html:52
+#: e_metrobus/templates/navigation/display_route.html:71
+#: e_metrobus/templates/navigation/display_route.html:90
+#: e_metrobus/templates/navigation/display_route.html:109
+#: e_metrobus/templates/navigation/display_route.html:126
+#, fuzzy
+#| msgid "Zur nächsten Frage"
+msgid "Zur nächsten Seite"
+msgstr "To the next question"
+
+#: e_metrobus/templates/navigation/display_route.html:39
 msgid "Deine Strecke mit dem <span>E-Bus</span> beträgt"
 msgstr "Your route with the <span>E-Bus</span> is"
 
-#: e_metrobus/templates/navigation/display_route.html:63
-#: e_metrobus/templates/navigation/display_route.html:82
-#: e_metrobus/templates/navigation/display_route.html:101
-#: e_metrobus/templates/navigation/display_route.html:120
-#: e_metrobus/templates/navigation/display_route.html:137
+#: e_metrobus/templates/navigation/display_route.html:49
+#: e_metrobus/templates/navigation/display_route.html:68
+#: e_metrobus/templates/navigation/display_route.html:87
+#: e_metrobus/templates/navigation/display_route.html:106
+#: e_metrobus/templates/navigation/display_route.html:123
 msgid "Zur vorherigen Seite"
 msgstr ""
 
-#: e_metrobus/templates/navigation/display_route.html:75
+#: e_metrobus/templates/navigation/display_route.html:61
 #, fuzzy
 #| msgid "Im Vergleich zum <span>Pkw</span> sparst Du"
 msgid "Im Vergleich zum <span>E-PKW</span> sparst du auf dieser Strecke"
 msgstr "In comparison to a <span>passenger car</span> you are saving"
 
-#: e_metrobus/templates/navigation/display_route.html:92
-#, fuzzy
-#| msgid "als konventionelle Busse"
-msgid "Konventioneller Bus Icon"
-msgstr "than conventional buses"
-
-#: e_metrobus/templates/navigation/display_route.html:94
+#: e_metrobus/templates/navigation/display_route.html:80
 #, fuzzy
 #| msgid "Im Vergleich zum <span>Dieselbus</span> sparst Du"
 msgid "Im Vergleich zum <span>Dieselbus</span> sparst du auf dieser Strecke"
 msgstr "In comparison to a <span>diesel bus</span> you are saving"
 
-#: e_metrobus/templates/navigation/display_route.html:111
-msgid "Konventioneller PKW Icon"
-msgstr ""
-
-#: e_metrobus/templates/navigation/display_route.html:113
+#: e_metrobus/templates/navigation/display_route.html:99
 #, fuzzy
 #| msgid "Im Vergleich zum <span>Dieselbus</span> sparst Du"
 msgid "Im Vergleich zum <span>Pkw (Diesel)</span> sparst du auf dieser Strecke"
 msgstr "In comparison to a <span>diesel bus</span> you are saving"
 
-#: e_metrobus/templates/navigation/display_route.html:130
-msgid "Fussgänger und Fahrrad Icon"
+#: e_metrobus/templates/navigation/display_route.html:116
+msgid "Fussgänger und Fahrrad"
 msgstr ""
 
-#: e_metrobus/templates/navigation/display_route.html:132
+#: e_metrobus/templates/navigation/display_route.html:118
 #, fuzzy
 #| msgid ""
 #| "Nur noch <span>zu Fuß</span> oder mit dem <span>Fahrrad</span> kannst Du "
@@ -567,28 +588,33 @@ msgstr ""
 msgid "Umwelteinfluss der E-Busse"
 msgstr ""
 
-#: e_metrobus/templates/navigation/environment.html:20
-msgid "Ändern"
-msgstr ""
-
-#: e_metrobus/templates/navigation/environment.html:24
-#, fuzzy
-#| msgid "Stecker"
-msgid "Strecke"
-msgstr "Plug"
-
-#: e_metrobus/templates/navigation/environment.html:34
+#: e_metrobus/templates/navigation/environment.html:16
 #, python-format
 msgid ""
 "Einfluss meiner Strecke (%(distance)s km) auf die Umwelt im Vergleich zu "
 "anderen Verkehrsmitteln"
 msgstr ""
 
-#: e_metrobus/templates/navigation/environment.html:37
+#: e_metrobus/templates/navigation/environment.html:19
 #, python-format
 msgid ""
 "Einfluss der E-Bus Flotte (%(distance)s km) auf die Umwelt im Vergleich zu "
 "anderen Verkehrsmitteln"
+msgstr ""
+
+#: e_metrobus/templates/navigation/environment.html:19
+#, python-format
+msgid "seit offiziellem Projektstart am %(start)s"
+msgstr ""
+
+#: e_metrobus/templates/navigation/environment.html:27
+#, fuzzy
+#| msgid "Stecker"
+msgid "Strecke"
+msgstr "Plug"
+
+#: e_metrobus/templates/navigation/environment.html:34
+msgid "Ändern"
 msgstr ""
 
 #: e_metrobus/templates/navigation/environment.html:43
@@ -621,11 +647,6 @@ msgstr ""
 #: e_metrobus/templates/widgets/top_bar.html:46
 #, python-format
 msgid "%(score)s%% richtig beantwortet"
-msgstr ""
-
-#: e_metrobus/templates/navigation/finished_base.html:25
-#: e_metrobus/templates/navigation/finished_base.html:27
-msgid "Blitz-Abbildung"
 msgstr ""
 
 #: e_metrobus/templates/navigation/landing_page.html:6
@@ -675,6 +696,7 @@ msgid "Feedback geben"
 msgstr ""
 
 #: e_metrobus/templates/navigation/legal.html:13
+#: e_metrobus/templates/questions/umwelt/windturbines.html:9
 #: e_metrobus/templates/widgets/info_table.html:26
 msgid "Quellen"
 msgstr ""
@@ -748,6 +770,10 @@ msgstr "Confirm route"
 #| msgid "Elektrischer Bus ohne Strom"
 msgid "Bus ohne Strom"
 msgstr "E-Bus without electricity"
+
+#: e_metrobus/templates/navigation/route.html:59
+msgid "Ups!"
+msgstr ""
 
 #: e_metrobus/templates/navigation/route.html:60
 msgid "Ein- und Ausstieg müssen verschieden sein."
@@ -1420,7 +1446,13 @@ msgid ""
 "8,8 Tonnen. Der Verkehrssektor verursacht ein knappes Drittel dieser "
 "Emissionen, ebenso wie Haushalte, Gewerbe, Handel und Dienstleistungen. Mit "
 "deutlich über 40 Prozent ist der „Umwandlungssektor“, also die "
-"Energiebereitstellung in Kraftwerken, der größte Emittent. \n"
+"Energiebereitstellung in Kraftwerken, der größte Emittent.\n"
+msgstr ""
+
+#: e_metrobus/templates/questions/ich/footprint.html:7
+#: e_metrobus/templates/questions/politik/neutral.html:8
+#: e_metrobus/templates/questions/politik/schedule.html:10
+msgid "Quelle"
 msgstr ""
 
 #: e_metrobus/templates/questions/ich/lines.html:4
@@ -1497,7 +1529,7 @@ msgid ""
 "\n"
 "Derzeit bieten batterie-elektrische Busse die passendste Lösung für den "
 "Umstieg. Andere Technologien werden weiterhin beobachtet, um auch auf neue "
-"Angebote reagieren zu können. \n"
+"Angebote reagieren zu können.\n"
 msgstr ""
 
 #: e_metrobus/templates/questions/umwelt/energy.html:7
@@ -1554,6 +1586,10 @@ msgid ""
 "Fünffache dieser Energiemenge pro Jahr.\n"
 msgstr ""
 
+#: e_metrobus/templates/questions/umwelt/windturbines.html:11
+msgid "Liste von Windkraftanlagen in Berlin und Brandenburg"
+msgstr ""
+
 #: e_metrobus/templates/widgets/info_table.html:8
 msgid "Fahrzeug"
 msgstr ""
@@ -1566,11 +1602,6 @@ msgstr "Nitrogen oxide"
 msgid "Bitte gib Deine Strecke ein!"
 msgstr "Please enter your route!"
 
-#: e_metrobus/templates/widgets/top_bar.html:10
-#: e_metrobus/templates/widgets/top_bar_route.html:9
-msgid "Zurück"
-msgstr ""
-
 #: e_metrobus/templates/widgets/top_bar.html:40
 msgid "App teilen"
 msgstr ""
@@ -1578,6 +1609,11 @@ msgstr ""
 #: e_metrobus/templates/widgets/top_bar_route.html:10
 msgid "Strecke ändern"
 msgstr "Change route"
+
+#, fuzzy
+#~| msgid "als konventionelle Busse"
+#~ msgid "Konventioneller Bus Icon"
+#~ msgstr "than conventional buses"
 
 #~ msgid "Zur nächsten Frage"
 #~ msgstr "To the next question"
