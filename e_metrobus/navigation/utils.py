@@ -20,10 +20,12 @@ def posthog_event(request, event=None):
     data["session_id"] = request.session.session_key
     data["version"] = __version__
     if event is None:
-        event = request.path
+        event = request.get_host() + request.path
     else:
         if event not in constants.POSTHOG_EVENTS:
             raise ValueError("Not a valid posthog event!")
+        else:
+            event = f"{request.get_host()}/{event}/"
     posthog.capture(
         request.session.session_key, event, properties=data,
     )
