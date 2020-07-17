@@ -9,8 +9,7 @@
     transform: translateY(-50%) translateX(-50%);
 
     @media (orientation: landscape) {
-      padding-top: 1rem;
-      padding-bottom: 1rem;
+      padding: 1rem 10vw;
       position: relative;
       top: 0;
       left: 0;
