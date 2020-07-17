@@ -9,8 +9,21 @@
   padding-right: 2px;
   padding-bottom: 2.5rem;
 
-  &__form {
+  @media screen and (max-width: 767px) {
+    font-size: .875rem;
+    letter-spacing: .01rem;
+  }
+
+  .feedback__form {
     width: 100%;
+    
+    label {
+      color: $gray-4;
+      @media screen and (max-width: 767px) {
+        font-size: .875rem;
+        letter-spacing: .01rem;
+      }
+    }
   }
 
   &__quest {
@@ -76,12 +89,35 @@
   }
 }
 
+.bug__question p {
+  margin-top: 1rem;
+  @media screen and (max-width: 767px) {
+    font-size: .875rem;
+    letter-spacing: .01rem;
+  }
+}
+
 .bug__form {
   padding-top: 1rem;
   padding-bottom: 8rem;
 
   select {
     background-image: none;
+  }
+
+  .feedback__form {
+    label,
+    select,
+    textarea {
+      @media screen and (max-width: 767px) {
+        font-size: .875rem;
+        letter-spacing: .01rem;
+      }
+    }
+  }
+  @media screen and (max-width: 767px) {
+    font-size: .875rem;
+    letter-spacing: .01rem;
   }
 }
 
@@ -104,8 +140,9 @@ a.feedback__bug-link {
   font-weight: 700;
 
   img {
-    height: 1rem;
-    transform: translateY(-2px);
+    height: .875rem;
+    letter-spacing: .01rem;
+    transform: translateY(-1px);
     padding-right: .25rem;
   }
 }

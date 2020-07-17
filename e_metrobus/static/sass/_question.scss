@@ -162,11 +162,22 @@
 
 .answer__text {
   margin: 1.5rem 0 0;
-  @include question-padding;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  font-size: .875rem;
 }
 
 .answer__text-more {
   margin-bottom: 8rem;
+
+  #more {
+    font-size: .875rem;
+    letter-spacing: .01rem;
+  }
+
+  .accordion-content {
+    padding-top: 0;
+  }
 
   .accordion-content,
   :last-child > .accordion-content:last-child {
@@ -182,8 +193,8 @@
 
   .accordion-item .icon {
     display: inline-block;
-    width: 1rem;
-    height: 1rem;
+    width: .875rem;
+    height: .875rem;
     transform: translateY(2px);
     background-image: url(../images/icons/i_next_gray.svg);
     background-size: cover;
