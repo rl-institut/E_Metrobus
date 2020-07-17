@@ -7,6 +7,10 @@
   z-index: 9;
   padding: 1rem;
 
+  @media screen and (orientation: landscape) {
+    position: relative;
+  }
+
   @media screen and (min-width: 600px) {
     padding: 2rem;
   }
@@ -20,6 +24,10 @@
       font-size: 1.25rem;
       margin-bottom: 0;
     }
+
+    @media screen and (orientation: landscape) {
+      margin-bottom: 1rem;
+    }
   }
 
   .tour__icon {
@@ -31,6 +39,10 @@
       display: flex;
       justify-content: center;
       align-items: center;
+
+      @media screen and (orientation: landscape) {
+        margin-bottom: 1rem;
+      }
     }
     
     img {
