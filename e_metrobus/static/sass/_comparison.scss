@@ -46,6 +46,14 @@ button.close-button:hover {
 
 .data__table {
     padding-bottom: 2.5rem;
+
+    ul li {
+        width: 100%;
+        text-align: left;
+        font-size: .875rem;
+        color: $gray-4;
+        padding-bottom: .5rem;
+    }
 }
 
 .comparison-table {
