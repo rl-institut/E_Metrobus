@@ -142,17 +142,17 @@ def get_mobility_figure(values, title, e_asterisk=False):
 
 
 def get_co2_figure(values):
-    title = _("CO<sub>2</sub> Emissionen [in g]<br>nach Verkehrsmittel")
+    title = _("CO<sub>2</sub> Emissionen<br>pro Person [in g]<br>nach Verkehrsmittel")
     return get_mobility_figure(values, title, e_asterisk=True)
 
 
 def get_nitrogen_figure(values):
-    title = _("Stickoxid Emissionen [in g]<br>nach Verkehrsmittel")
+    title = _("Stickoxid Emissionen<br>pro Person [in g]<br>nach Verkehrsmittel")
     return get_mobility_figure(values, title)
 
 
 def get_fine_dust_figure(values):
-    title = _("Feinstaub Emissionen [in g]<br>nach Verkehrsmittel")
+    title = _("Feinstaub Emissionen<br>pro Person [in g]<br>nach Verkehrsmittel")
     return get_mobility_figure(values, title)
 
 
