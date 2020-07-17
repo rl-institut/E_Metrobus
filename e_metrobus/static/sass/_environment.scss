@@ -48,8 +48,18 @@
   }
 }
 
+.my-route__route {
+  @media only screen and (orientation: landscape) {
+    padding: 1rem 10vw;
+  }
+}
+
 .my-route-heading-wrap {
   padding: 1rem;
+
+  @media only screen and (orientation: landscape) {
+    padding: 1rem 10vw;
+  }
 
   .my-route-heading {
     background-color: $primary-color-1;

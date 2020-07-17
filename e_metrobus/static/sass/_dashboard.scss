@@ -9,8 +9,7 @@
     transform: translateY(-50%) translateX(-50%);
 
     @media (orientation: landscape) {
-      padding-top: 1rem;
-      padding-bottom: 1rem;
+      padding: 1rem 10vw;
       position: relative;
       top: 0;
       left: 0;
@@ -27,12 +26,12 @@
     height: 10rem;
     position: relative;
 
-    @media screen and (min-height: 600px) {
+    @media only screen and (min-height: 600px) {
       height: 11.5rem;
       margin-bottom: 2rem;
     }
 
-    @media screen and (min-height: 650px) {
+    @media only screen and (min-height: 650px) {
       margin-top: 3vh;
       margin-bottom: 7vh;
     }
@@ -60,7 +59,7 @@
     max-width: 4.5rem;
   }
 
-  @media screen and (min-height: 600px) {
+  @media only screen and (min-height: 600px) {
     &__img {
       height: 8.5rem;
       width: 8.5rem;
@@ -76,7 +75,7 @@
     font-weight: 700;
     letter-spacing: .03rem;
 
-    @media screen and (min-height: 600px) {
+    @media only screen and (min-height: 600px) {
       margin-bottom: .25rem;
     }
   }
