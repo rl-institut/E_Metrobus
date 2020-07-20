@@ -142,28 +142,6 @@
   }
 }
 //CSS for answer texts
-@mixin answer-top-box ($answer-top-box-font-color) {
-  text-align: center;
-  color: $answer-top-box-font-color;
-  font-weight: 700;
-  padding-bottom: 1rem;
-}
-
-@mixin answer-top-box-icon ($answer-top-box-icon) {
-  content: '';
-  position: absolute;
-  background-image: url(../images/icons/i_flash_white.svg);
-  background-size: 60%;
-  background-color: $answer-top-box-icon;
-  background-position: center center;
-  background-repeat: no-repeat;
-  transform: translateY(-1px);
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 100px;
-  margin-left: -2rem;
-}
-
 .answer__text {
   margin: 1.5rem 0 0;
   padding-right: 1rem;
