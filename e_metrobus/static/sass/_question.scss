@@ -92,7 +92,7 @@
     margin: auto;
   }
   .question__answer label {
-    color: #252424;
+    color: $secondary-color;
   }
   &__btn {
     background-color: rgba(255, 255, 255, .75);
@@ -104,7 +104,7 @@
     background-color: $gray-1 !important;
   }
   &__btn input:hover {
-    background-color: #252424;
+    background-color: $secondary-color;
   }
 }
 
@@ -116,7 +116,7 @@
 .answer--ready {
   background-color: rgba(255, 255, 255, .75);
   input {
-    background-color: #252424 !important;
+    background-color: $secondary-color !important;
   }
 }
 //CSS for correct/wrong-answer
@@ -137,7 +137,7 @@
     background-color: $primary-color-1;
   }
   &__wrong {
-    background-color: #252424;
+    background-color: $secondary-color;
     color: $white;
   }
 }

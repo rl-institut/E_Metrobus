@@ -50,7 +50,6 @@ button, button:hover, button:active, button:focus, button:visited, .button, .but
 	outline-width: 0!important;
 }
 
-$secondary-color: #252424;
 $tab-border: 2px solid $white;
 $tab-border-half: 1px solid $white;
 
@@ -106,7 +105,7 @@ $tab-border-half: 1px solid $white;
   }
 
   .tabs-title > a {
-    background-color: #EFEFEF;
+    background-color: $gray-1;
     color: $secondary-color;
   }
 
