@@ -193,7 +193,7 @@
       text-align: center;
     }
 
-    @media (orientation: landscape) {
+    @media (orientation: landscape) and (max-width: 1023px) {
       padding-top: 2rem;
     }
   }
@@ -202,7 +202,7 @@
     position: fixed;
     bottom: 0;
 
-    @media (orientation: landscape) {
+    @media (orientation: landscape) and (max-width: 1023px) {
       position: relative;
     }
   }
@@ -258,7 +258,7 @@ $desktop-padding-xxsmall: .6rem;
   @media only screen and (min-width: 1024px) {
     padding-top: $desktop-padding-medium;
   }
-  @media only screen and (orientation: landscape) {
+  @media only screen and (orientation: landscape) and (max-width: 1023px) {
     padding: 1rem 10vw;
   }
 
