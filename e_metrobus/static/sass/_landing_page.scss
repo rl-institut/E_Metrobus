@@ -308,6 +308,7 @@ $desktop-padding-xxsmall: .6rem;
   }
 
   span {
+    display: block;
     font-size: 1.25rem;
     font-weight: 300;
     @media only screen and (min-width: 1024px) {
@@ -639,5 +640,121 @@ $desktop-padding-xxsmall: .6rem;
   #pricacyButton {
     padding: .25rem;
     background-color: $primary-color-2;
+  }
+}
+
+// Animating destkop LP
+
+.animate-desktop {
+  opacity: 0;
+}
+
+.a-desktop.a-desktop--frame {
+  animation: desktop-animation-opacity 1.25s $cubic-bezier-ease-in both;
+}
+
+.a-desktop.a-desktop--header {
+  animation: desktop-animation-bottom 1.25s $cubic-bezier-ease-out .5s both;
+}
+
+.a-desktop.a-desktop--subheader {
+  animation: desktop-animation-bottom 1.25s $cubic-bezier-ease-out 1s both;
+}
+
+.a-desktop.a-desktop--lang {
+  animation: desktop-animation-opacity 1.25s $cubic-bezier-ease-in 1.25s both;
+}
+
+.a-desktop.a-desktop--device {
+  animation: desktop-animation-opacity 1.25s $cubic-bezier-ease-in 1.75s both;
+}
+
+.a-desktop.a-desktop--app-heading {
+  animation: desktop-animation-opacity 1.25s $cubic-bezier-ease-in 2s both;
+}
+
+.a-desktop.a-desktop--app-icons {
+  animation: desktop-animation-opacity 1.25s $cubic-bezier-ease-in 2.25s both;
+}
+
+.a-desktop.a-desktop--app-text {
+  animation: desktop-animation-opacity 1.25s $cubic-bezier-ease-in 2.5s both;
+}
+
+.animate-desktop.animate-desktop--bottom.triggeredCSS3 {
+  animation: desktop-animation-bottom 1.25s $cubic-bezier-ease-out .25s both;
+}
+
+.animate-desktop.animate-desktop--left.triggeredCSS3 {
+  animation: desktop-animation-left 1.25s $cubic-bezier-ease-out .25s both;
+}
+
+.animate-desktop.animate-desktop--right.triggeredCSS3 {
+  animation: desktop-animation-right 1.25s $cubic-bezier-ease-out .25s both;
+}
+
+.animate-desktop.animate-desktop--opacity.triggeredCSS3 {
+  animation: desktop-animation-opacity 1.25s $cubic-bezier-ease-in .25s both;
+}
+
+.summary--mobile { // hinder animation on mobile summary page
+  .a-desktop.a-desktop--frame,
+  .a-desktop.a-desktop--header,
+  .a-desktop.a-desktop--subheader,
+  .a-desktop.a-desktop--lang,
+  .a-desktop.a-desktop--device,
+  .a-desktop.a-desktop--app-heading,
+  .a-desktop.a-desktop--app-icons,
+  .a-desktop.a-desktop--app-text,
+  .animate-desktop.animate-desktop--bottom.triggeredCSS3,
+  .animate-desktop.animate-desktop--left.triggeredCSS3,
+  .animate-desktop.animate-desktop--right.triggeredCSS3,
+  .animate-desktop.animate-desktop--opacity.triggeredCSS3 {
+    animation: none;
+  }
+  .animate-desktop {
+    opacity: 1;
+  }
+}
+
+@keyframes desktop-animation-opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes desktop-animation-bottom {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes desktop-animation-left {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes desktop-animation-right {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
   }
 }
