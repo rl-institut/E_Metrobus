@@ -1,22 +1,4 @@
 .legal {
-  &__header {
-    margin: 1rem 0;
-    font-size: 1.1rem;
-    font-weight: bold;
-    &--data {
-      margin-top: 4rem;
-      margin-bottom: 1rem;
-    }
-  }
-  &__text {
-    font-size: 0.9rem;
-    font-weight: lighter;
-    text-align: left;
-  }
-  &__logos {
-    width: 100%;
-    margin: 1rem 0 1rem;
-  }
   &__logo {
     width: 100%;
     margin: 1rem 0 1rem;
@@ -44,15 +26,6 @@
       }
     }
   }
-}
-
-.grid-container.legal__wrap {
-  margin-left: .5rem;
-}
-
-.tabs-panel#partners {
-  padding-left: 0;
-  padding-right: 0;
 }
 
 $tab-border: 2px solid $white;
