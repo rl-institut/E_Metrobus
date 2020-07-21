@@ -20,7 +20,6 @@
 @import 'sass/category_finished';
 @import 'sass/environment';
 @import 'sass/quiz_finished';
-@import 'sass/confetti';
 @import 'sass/feedback';
 @import 'sass/tour';
 @import 'sass/error';
@@ -71,17 +70,6 @@
 @include foundation-float-classes;
 @include foundation-flex-classes;
 // @include foundation-prototype-classes;
-
-
-/********* Project Scss **************/
-
-.top-bar
-{
-  li.menu-text{color: $white;}
-  a {color: $white;}
-  a:hover {color: $white;}
-  li a:hover{background-color: get-color(secondary);}
-}
 
 /******** Colouring for messages from Django messages framework **********/
 
