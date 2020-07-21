@@ -89,24 +89,19 @@
 }
 
 .a-tour-text-top {
-  animation: a-tour-text-top 1s $cubic-bezier-ease-out 1.75s both;
+  animation: a-tour-to-right 1s $cubic-bezier-ease-out 1.75s both;
 }
 
 .a-tour-icon {
-  animation: a-tour-icon 1s $cubic-bezier-ease-out both;
-  &--1 {
-    animation-delay: 2.75s;
-  }
-  &--2 {
-    animation-delay: 2.9s;
-  }
-  &--3 {
-    animation-delay: 3.05s;
-  }
+  animation: a-tour-to-right 1s $cubic-bezier-ease-out both;
 }
 
 .a-tour-text-left {
   animation: a-tour-text-left 1s $cubic-bezier-ease-out both;
+}
+
+.a-tour-icon,
+.a-tour-text-left {
   &--1 {
     animation-delay: 2.75s;
   }
@@ -133,18 +128,7 @@
   }
 }
 
-@keyframes a-tour-text-top {
-  0% {
-    opacity: 0;
-    transform: translateX(-100rem);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes a-tour-icon {
+@keyframes a-tour-to-right {
   0% {
     opacity: 0;
     transform: translateX(-100rem);
