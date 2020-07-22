@@ -9,9 +9,12 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 
 ### Changed
 - removed bottom space from multiple choice layout
+- reduced vertical margins on share reveal for smaller screens
+- updated image on route page
 
 ### Fixed
 - removed CSS for lanscape mobile from desktop LP CSS
+- adjusted LP for tablet screens
 
 ## [0.17.1] - 2020-07-17
 ### Fixed
