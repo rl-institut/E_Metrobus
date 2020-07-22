@@ -294,6 +294,9 @@ $desktop-padding-xxsmall: .6rem;
 
   &__frame {
     @include yellow-card(1rem);
+    @media only screen and (min-width: 640px) {
+      @include yellow-card($desktop-padding-small);
+    }
     @media only screen and (min-width: 1024px) {
       @include yellow-card($desktop-padding-medium);
     }
@@ -318,6 +321,15 @@ $desktop-padding-xxsmall: .6rem;
 }
 
 .desktop-app { 
+
+  .desktop-app__img  {
+    @media only screen and (min-width: 640px) and (max-width: 1023px) {
+      text-align: center;
+      img {
+        height: 30rem;
+      }
+    }
+  }
   
   .desktop-app__text {
     padding-top: $desktop-padding-medium;
@@ -552,7 +564,9 @@ $desktop-padding-xxsmall: .6rem;
 
   &__frame {
     @include yellow-card(1rem);
-
+    @media only screen and (min-width: 640px) {
+      @include yellow-card($desktop-padding-small);
+    }
     @media only screen and (min-width: 1024px) {
       @include yellow-card($desktop-padding-small);
     }
