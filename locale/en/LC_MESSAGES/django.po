@@ -598,7 +598,7 @@ msgstr "Quiz over!"
 #: e_metrobus/templates/widgets/top_bar.html:46
 #, python-format
 msgid "%(score)s%% richtig beantwortet"
-msgstr "%(score)s%%% answered correctly"
+msgstr "%(score)s%% answered correctly"
 
 #: e_metrobus/templates/navigation/finished_base.html:25
 #: e_metrobus/templates/navigation/finished_base.html:27
@@ -895,8 +895,8 @@ msgid ""
 "Die Batterien der Elektro-Gelenkbusse, die auf der Linie 200 eingesetzt "
 "werden, sich auf dem Dach angebracht."
 msgstr ""
-"The batteries of the electric articulated buses that will be used
-on Line 200 are mounted on the roof."
+"The batteries of the electric articulated buses that will be used"
+"on Line 200 are mounted on the roof."
 
 #: e_metrobus/templates/pages/question_translations.html:27
 msgid "Kosten"
@@ -1176,7 +1176,7 @@ msgid ""
 "um mindestens 85 %% (bezogen auf 1990) reduzieren."
 msgstr ""
 "By 2050, the city wants to become climate-neutral and reduce carbon "
-"dioxide emissions by at least 85% (compared to 1990)."
+"dioxide emissions by at least 85%% (compared to 1990)."
 
 #: e_metrobus/templates/pages/question_translations.html:92
 msgid "Ich"
@@ -1351,8 +1351,9 @@ msgid ""
 "Die Batterien der Elektro-Gelenkbusse, die auf der Linie 200 eingesetzt "
 "werden, sind auf dem Dach angebracht.\n"
 msgstr ""
+"\n"
 "The batteries of the articulated electric buses used on Line 200 are "
-"mounted on the roof."
+"mounted on the roof.\n"
 
 #: e_metrobus/templates/questions/e_metrobus/batteries.html:9
 #: e_metrobus/templates/questions/e_metrobus/loading_time.html:9
@@ -1367,7 +1368,8 @@ msgid ""
 "hoch. Mit zunehmender Serienfertigung können durch Skaleneffekte "
 "Preissenkungen erzielt werden. \n"
 msgstr ""
-""As is the case with many technologies, the production figures for electric "
+"\n"
+"As is the case with many technologies, the production figures for electric "
 "buses are low at the beginning of a market penetration and therefore the unit "
 "costs are high. With increasing series production, price reductions can be "
 "achieved through economies of scale. \n"
@@ -1447,12 +1449,12 @@ msgstr ""
 "fuel consumption. Electric buses also cause fewer CO2 emissions compared to "
 "diesel buses. \n"
 "As a passenger you benefit from a much quieter driving experience. "
-Electric\n
+"Electric\n"
 "Buses are quieter than diesel buses, especially when starting up, and vibrate less. "
 "However, to increase safety for other road users, an acoustic signal is emitted "
 "when the bus starts up using the AVAS (Acousitic Vehicle Alerting System). As a "
-"frequent user of the 200 bus route, you can look forward to a considerably lower 
-exhaust emission level.\n".
+"frequent user of the 200 bus route, you can look forward to a considerably lower "
+"exhaust emission level.\n"
 
 #: e_metrobus/templates/questions/ich/e_bus.html:4
 msgid ""
@@ -1490,11 +1492,12 @@ msgid ""
 "Gewerbe, Handel und Dienstleistungen. Mit deutlich über 40 Prozent ist der "
 "„Umwandlungssektor“, also die Kraftwerke, der größte Emittent. \n"
 msgstr ""
+"\n"
 "Statistically speaking, every Berliner is responsible for 4.8 tons of CO2 per "
 "year. The national average is 8.8 tons. The transport sector causes almost a third "
 "of the emissions, as do households, trade, commerce and services. With well over "
-"40 percent of the total contribution, the "conversion sector", i.e. power plants, "
-"is the largest emitter.  \n"
+"40 percent of the total contribution, the &quot;conversion sector&quot;, i.e. power plants, "
+"is the largest emitter. \n"
 
 #: e_metrobus/templates/questions/ich/lines.html:4
 msgid ""
@@ -1552,12 +1555,12 @@ msgstr ""
 "electrification, but is bringing different bus types and strategies for charging "
 "(currently depot and occasional charging) into regular service. This is because the "
 "Berlin bus network has a wide variety of line types. The lines range from "
-"neighbourhood bus lines to city-crossing "cross-country" lines with a high "
+"neighbourhood bus lines to city-crossing &quot;cross-country&quot; lines with a high "
 "passenger volume.\n"
 
 #: e_metrobus/templates/questions/politik/ebus_time.html:9
 msgid "Bild eines E-Busses mit der Aufschrift Hab den Wagen voll geladen"
-msgstr "Picture of an E-Bus with the inscription "Have the car fully loaded""
+msgstr "Picture of an E-Bus with the inscription &quot;Have the car fully loaded&quot;"
 
 #: e_metrobus/templates/questions/politik/full_electrification.html:5
 msgid ""
@@ -1596,12 +1599,13 @@ msgid ""
 "eine tragende Rolle spielen werden. So soll der Primärenergieverbrauch bis "
 "2050 um 80 %% gegenüber 2010 gesenkt werden.\n"
 msgstr ""
-""Berlin has declared climate neutrality to be one of its goals for the future "
+"\n"
+"Berlin has declared climate neutrality to be one of its goals for the future "
 "and has made this binding in the Berlin Energy Turnaround Act. The public sector "
 "wants to and must set a good example:  For example, it is planned that Berlin's "
 "senate and district administrations will be CO2-neutral from 2030, with comprehensive "
 "building refurbishments, among other things, playing a key role. For example, primary "
-"energy consumption is to be reduced by 80 % by 2050 compared to 2010.\n"
+"energy consumption is to be reduced by 80 %% by 2050 compared to 2010.\n"
 
 #: e_metrobus/templates/questions/politik/schedule.html:5
 msgid ""
@@ -1641,7 +1645,7 @@ msgstr ""
 "conventionally powered bus consumes about 480,340 liters of diesel per year. "
 "Converted to the amount of energy, this corresponds to an additional demand of "
 "a factor of 2.3, because combustion engines are significantly more inefficient "
-"than electric motors: they bring less of the energy "on the road".\n"
+"than electric motors: they bring less of the energy &quot;on the road&quot;.\n"
 
 #: e_metrobus/templates/questions/umwelt/reach.html:5
 msgid ""
@@ -1691,6 +1695,7 @@ msgid ""
 "Extrem starke Winde sind allerdings bei der Positionierung des Fahrzeuges am "
 "Lademast vom Fahrpersonal zu berücksichtigen. \n"
 msgstr ""
+"\n"
 "However, extremely strong winds must be taken into account by the driving personnel "
 "when positioning the vehicle on the loading mast. \n"
 
