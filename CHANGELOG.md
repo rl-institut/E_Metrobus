@@ -11,6 +11,9 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 - removed bottom space from multiple choice layout
 - reduced vertical margins on share reveal for smaller screens
 - updated image on route page
+- remove upper part from summary page
+- update wording
+- switch buttons order on my route page
 
 ### Fixed
 - removed CSS for lanscape mobile from desktop LP CSS
