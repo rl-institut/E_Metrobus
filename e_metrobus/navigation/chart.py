@@ -63,8 +63,8 @@ def get_mobility_figure(values, title, e_asterisk=False):
     colors[1] = E_BUS_COLOR
     mobiles = [
         _("Zu Fuß/<br>Fahrrad"),
-        _("E-Bus"),
-        _("E-Pkw"),
+        _("Elektrobus"),
+        _("Elektro-Pkw"),
         _("Dieselbus"),
         _("Pkw (Diesel)"),
     ]

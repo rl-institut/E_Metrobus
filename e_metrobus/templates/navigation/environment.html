@@ -13,10 +13,10 @@
 
 <div class="cell my-route-heading-wrap a-environment-frame">
   <div class="cell my-route-heading">
-    {% blocktrans with distance=route_distance %}Einfluss meiner Strecke ({{distance}} km) auf die Umwelt im Vergleich zu anderen Verkehrsmitteln{% endblocktrans %}
+    {% blocktrans with distance=route_distance %}Einfluss meiner Strecke mit dem Elektrobus ({{distance}} km) auf die Umwelt im Vergleich zu anderen Verkehrsmitteln{% endblocktrans %}
   </div>
   <div class="cell my-route-heading" hidden>
-    {% blocktrans with distance=fleet_distance %}Einfluss der E-Bus Flotte ({{distance}} km) auf die Umwelt im Vergleich zu anderen Verkehrsmitteln{% endblocktrans %}<span class="my-route-heading--small">({% blocktrans with start=fleet_start %}seit offiziellem Projektstart am {{start}}{% endblocktrans %})</span>
+    {% blocktrans with distance=fleet_distance %}Einfluss der gesamten Elektrobusflotte der Linie 200 ({{distance}} km) auf die Umwelt im Vergleich zu anderen Verkehrsmitteln{% endblocktrans %}<span class="my-route-heading--small">({% blocktrans with start=fleet_start %}Fahrleistung nach Fahrplan seit offiziellem Projektstart am {{start}}{% endblocktrans %})</span>
   </div>
 </div>
 
@@ -39,6 +39,12 @@
 
 <div class="cell my-route-tabs a-environment-tabs">
   <ul class="tabs">
+    <li class="tabs-title tabs-title--bus tabs-title--50 active" id="route">
+      <div onclick="select_route(this);">{% trans 'Meine Strecke' %}</div>
+    </li>
+    <li class="tabs-title tabs-title--bus tabs-title--50" id="fleet">
+      <div onclick="select_route(this);">{% trans 'Elektrobusflotte' %}</div>
+    </li>
     <li class="tabs-title tabs-title--emissions tabs-title--30 active" id="co2">
       <div onclick="select_emission(this);">{% trans 'CO<sub>2</sub>' %}</div>
     </li>
@@ -47,12 +53,6 @@
     </li>
     <li class="tabs-title tabs-title--emissions tabs-title--40" id="fine_dust">
       <div onclick="select_emission(this);">{% trans 'Feinstaub' %}</div>
-    </li>
-    <li class="tabs-title tabs-title--bus tabs-title--50 active" id="route">
-      <div onclick="select_route(this);">{% trans 'Meine Strecke' %}</div>
-    </li>
-    <li class="tabs-title tabs-title--bus tabs-title--50" id="fleet">
-      <div onclick="select_route(this);">{% trans 'E-Bus Flotte' %}</div>
     </li>
   </ul>
 </div>
