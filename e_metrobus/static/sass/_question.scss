@@ -12,14 +12,9 @@
 }
 
 .question{
-  margin-bottom: 2rem;
 
   @media only screen and (orientation: landscape) {
     padding: 0 10vw;
-  }
-
-  &__multiple-choice {
-    padding-bottom: 6rem;
   }
 
   &__text {

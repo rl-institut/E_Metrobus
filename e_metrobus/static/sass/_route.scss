@@ -70,10 +70,12 @@ $station-font-line-height: 1rem;
 	width: 100%;
 
 	.route-drop__top {
+		background-color: $gray-1;
 		height: 7rem;
-		background-image: url(../images/Route_top_img_v2.svg);
+		background-image: url(../images/Route_top_img_v3.svg);
 		background-position: center center;
-		background-size: cover;
+		background-size: contain;
+		background-repeat: no-repeat;
 
 		@media only screen and (min-width: 500px) {
 			height: 12rem;

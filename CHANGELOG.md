@@ -4,6 +4,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project tries to adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.18.0] - 2020-07-29
+### Added
+- added scroll animation to desktop LP
+
+### Changed
+- removed bottom space from multiple choice layout
+- reduced vertical margins on share reveal for smaller screens
+- updated image on route page
+- remove upper part from summary page
+- update wording
+- switch buttons order on my route page
+
+### Fixed
+- removed CSS for lanscape mobile from desktop LP CSS
+- adjusted LP for tablet screens
+
 ## [0.17.1] - 2020-07-17
 ### Fixed
 - blocktrans error on environment page
