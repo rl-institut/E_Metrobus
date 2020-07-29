@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-29 14:22+0000\n"
+"POT-Creation-Date: 2020-07-29 15:10+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -159,6 +159,8 @@ msgid "Quiz"
 msgstr "Quiz"
 
 #: e_metrobus/navigation/widgets.py:115
+#: e_metrobus/templates/navigation/display_route.html:22
+#: e_metrobus/templates/navigation/display_route.html:37
 #: e_metrobus/templates/navigation/environment.html:43
 msgid "Meine Strecke"
 msgstr "My route"
@@ -499,11 +501,6 @@ msgstr "Image for category"
 msgid "Daten zu deiner Strecke"
 msgstr ""
 
-#: e_metrobus/templates/navigation/display_route.html:22
-#: e_metrobus/templates/navigation/display_route.html:37
-msgid "Meine Strecke"
-msgstr "My route"
-
 #: e_metrobus/templates/navigation/display_route.html:30
 #: e_metrobus/templates/navigation/display_route.html:52
 #: e_metrobus/templates/navigation/display_route.html:71
@@ -568,8 +565,9 @@ msgstr ""
 "Impact of my route (%(distance)s km) on the environment compared to other "
 "means of transport"
 
-#: e_metrobus/templates/navigation/environment.html:19
 # python-format
+#: e_metrobus/templates/navigation/environment.html:19
+#, python-format
 msgid ""
 "Einfluss der gesamten Elektrobusflotte der Linie 200 (%(distance)s km) auf "
 "die Umwelt im Vergleich zu anderen Verkehrsmitteln"
@@ -799,7 +797,8 @@ msgstr "Charging times"
 msgid ""
 "Wie lange müssen die Elektro-Gelenkbusse der 200 an den Endhaltestellen "
 "laden?"
-msgstr "How long does it take to charge the bus?"
+msgstr ""
+"How long does it take to charge the bus?"
 
 #: e_metrobus/templates/pages/question_translations.html:11
 msgid "Eine halbe Stunde"
@@ -1380,9 +1379,7 @@ msgid ""
 "Ladezeit von vielen Faktoren abhängig (Anzahl der Fahrgäste, "
 "Verkehrsaufkommen, Stau, Wetter, Fahrweise etc.). Dementsprechend sind auch "
 "kürzere oder längere Ladezeiten möglich.\n"
-msgstr ""
-"\n"
-""
+msgstr "\n"
 
 #: e_metrobus/templates/questions/ich/advantages.html:4
 msgid ""
@@ -1546,6 +1543,7 @@ msgstr ""
 "larger bus fleet.\n"
 
 #: e_metrobus/templates/questions/politik/neutral.html:5
+#, python-format
 msgid ""
 "\n"
 "Berlin hat Klimaneutralität zu einem seiner Ziele für die Zukunft erklärt "
@@ -1560,10 +1558,10 @@ msgstr ""
 "Berlin has declared climate neutrality to be one of its goals for the future "
 "and has made this binding in the Berlin Energy Turnaround Act. The public "
 "sector wants to and must set a good example:  For example, it is planned "
-"that Berlin's senate and district administrations will be CO<sub>2</sub>-neutral from "
-"2030, with comprehensive building refurbishments, among other things, "
-"playing a key role. For example, primary energy consumption is to be reduced "
-"by 80 %% by 2050 compared to 2010.\n"
+"that Berlin's senate and district administrations will be CO<sub>2</sub>-"
+"neutral from 2030, with comprehensive building refurbishments, among other "
+"things, playing a key role. For example, primary energy consumption is to be "
+"reduced by 80 %% by 2050 compared to 2010.\n"
 
 #: e_metrobus/templates/questions/politik/schedule.html:5
 #: e_metrobus/templates/questions/umwelt/energy.html:5
