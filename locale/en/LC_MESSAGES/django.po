@@ -53,16 +53,12 @@ msgid "Feinstaub Emissionen [in g]<br>nach Verkehrsmittel"
 msgstr "Particulate matter emissions [in g]<br>per vehicle"
 
 #: e_metrobus/navigation/constants.py:72
-#, fuzzy
-#| msgid "Diesel"
 msgid "PKW (Diesel)"
-msgstr "Diesel"
+msgstr "Car (diesel)"
 
 #: e_metrobus/navigation/constants.py:80
-#, fuzzy
-#| msgid "Elektrobus"
 msgid "Elektro-PKW"
-msgstr "E-Bus"
+msgstr "Electric bus"
 
 #: e_metrobus/navigation/constants.py:82
 msgid "Fahrrad"
@@ -1022,8 +1018,6 @@ msgstr ""
 "occasional charging)"
 
 #: e_metrobus/templates/pages/question_translations.html:52
-#, fuzzy
-#| msgid "Busse"
 msgid "Mehr Busse"
 msgstr "More buses"
 
@@ -1218,26 +1212,18 @@ msgstr ""
 "year?"
 
 #: e_metrobus/templates/pages/question_translations.html:104
-#, fuzzy
-#| msgid "Tonnen"
 msgid "0,5 Tonnen"
 msgstr "0.5 tonnes"
 
 #: e_metrobus/templates/pages/question_translations.html:104
-#, fuzzy
-#| msgid "Tonnen"
 msgid "4,8 Tonnen"
 msgstr "4.8 tonnes"
 
 #: e_metrobus/templates/pages/question_translations.html:104
-#, fuzzy
-#| msgid "Tonnen"
 msgid "8 Tonnen"
 msgstr "8 tonnes"
 
 #: e_metrobus/templates/pages/question_translations.html:104
-#, fuzzy
-#| msgid "Tonnen"
 msgid "2 Tonnen"
 msgstr "2 tonnes"
 
