@@ -72,10 +72,13 @@ msgstr "On foot"
 msgid ""
 "Annahmen zum Energieverbrauch der E-PKWs und E-Busse: Reiner Lemoine Institut"
 msgstr ""
+"Assumptions on the energy consumption of electric cars and electric "
+"buses: Reiner Lemoine Institut"
 
 #: e_metrobus/navigation/constants.py:90
 msgid "Annahmen zur Personenzahl eines Linienbusses: BVG"
 msgstr ""
+"Assumptions on the number of passengers on a regular bus: BVG"
 
 #: e_metrobus/navigation/constants.py:96
 msgid ""
@@ -83,18 +86,25 @@ msgid ""
 "findest du Antworten auf all deine Fragen zu E-Bussen, die du nie zu stellen "
 "gewagt hast."
 msgstr ""
+"Oh, the peak is not reached yet! No problem though, in our info section "
+"you will find answers to all of your questions about E-buses that you "
+"never dared to ask before."
 
 #: e_metrobus/navigation/constants.py:97
 msgid ""
 "Nicht schlecht, aber das geht noch besser! Alle Fakten zum Nachlesen und "
 "Aufschlauen findest du in unserem Info-Bereich."
 msgstr ""
+"Not bad, but it still could be better! You can find all the facts in our "
+"info section to learn more."
 
 #: e_metrobus/navigation/constants.py:98
 msgid ""
 "Wow! Wir können dir kaum noch etwas beibringen. Alle Fakten zum Nachlesen "
 "findest du nochmal in unserem Info-Bereich."
 msgstr ""
+"Wow! We can hardly teach you anything anymore. You can find all of the "
+"facts again in our info section."
 
 #: e_metrobus/navigation/models.py:30
 msgid "Technisches Problem"
@@ -456,7 +466,7 @@ msgstr "You finished category %(cat_label)s!"
 
 #: e_metrobus/templates/navigation/comparison.html:6
 msgid "CO<sub>2</sub> Emissionen im Vergleich"
-msgstr ""
+msgstr "CO<sub>2</sub> emissions in comparison"
 
 #: e_metrobus/templates/navigation/comparison.html:27
 #: e_metrobus/templates/navigation/comparison.html:29
@@ -471,7 +481,7 @@ msgstr "Go back"
 
 #: e_metrobus/templates/navigation/comparison.html:34
 msgid "Woher kommen die Zahlen?"
-msgstr ""
+msgstr "Where do the numbers come from?"
 
 #: e_metrobus/templates/navigation/comparison.html:39
 #: e_metrobus/templates/navigation/environment.html:68
@@ -480,10 +490,13 @@ msgid ""
 "Strommix nicht CO<sub>2</sub>-neutral ist, sind auch Elektrofahrzeuge für "
 "CO<sub>2</sub> Austoß verantwortlich."
 msgstr ""
+"Value calculated on the basis of the German electricity mix. "
+"Since the current electricity mix is not CO<sub>2</sub>-neutral, electric "
+"vehicles are also responsible for CO<sub>2</sub> emissions."
 
 #: e_metrobus/templates/navigation/comparison.html:46
 msgid "Die Daten hinter den Zahlen"
-msgstr ""
+msgstr "The data behind the numbers"
 
 #: e_metrobus/templates/navigation/dashboard.html:6
 msgid "Quiz Übersicht"
@@ -495,7 +508,7 @@ msgstr "Image for category"
 
 #: e_metrobus/templates/navigation/display_route.html:6
 msgid "Daten zu deiner Strecke"
-msgstr ""
+msgstr "Data concerning your route"
 
 #: e_metrobus/templates/navigation/display_route.html:30
 #: e_metrobus/templates/navigation/display_route.html:52
@@ -574,7 +587,7 @@ msgstr ""
 #: e_metrobus/templates/navigation/environment.html:19
 #, python-format
 msgid "Fahrleistung nach Fahrplan seit offiziellem Projektstart am %(start)s"
-msgstr ""
+msgstr "Mileage according to timetable since official project start on %(start)s"
 
 #: e_metrobus/templates/navigation/environment.html:27
 msgid "Strecke"
@@ -622,7 +635,7 @@ msgstr "Start"
 
 #: e_metrobus/templates/navigation/landing_page.html:20
 msgid "Toll, dass du dich für den E-Bus interessierst!"
-msgstr ""
+msgstr "It's great that you are interested in the E-bus!"
 
 #: e_metrobus/templates/navigation/landing_page.html:20
 msgid "Toll, dass du mit einem E-Bus fährst!"
@@ -636,6 +649,7 @@ msgstr "Let&#39;s start!"
 msgid ""
 "Die App ist Teil des Forschungsprojektes E-MetroBus der folgenden Partner:"
 msgstr ""
+"The app is part of the research project E-MetroBus of the following partners:"
 
 #: e_metrobus/templates/navigation/landing_page.html:66
 #: e_metrobus/templates/navigation/legal.html:41
@@ -1349,12 +1363,13 @@ msgid ""
 "Wasserkochern.\n"
 msgstr ""
 "\n"
-"The bus is charged using a pantograph at the final stops - Hertzallee and "
-"Michelangelostraße. This is integrated in the charging station. When the bus "
-"stands under the charging station, the pantograph is lowered and connects to "
-"the rails on the roof of the bus. Charging is completed in a few minutes "
-"with 450 kW. If the power is compared with a standard kettle (approx. 2kW "
-"power), the charging capacity is equivalent to 225 kettles.\n"
+"A pantograph is a current collector that transfers electrical energy from "
+"from the charging station to the bus. The pantograph is integrated in the "
+"charging station. When the bus is in the right position, the pantograph "
+"is shut down and connects to the contact points on the roof of the bus "
+"within a few seconds, charging up to 450 kW in a few minutes. If the "
+"power is compared with a standard kettle (approx. 2 kW power), the charging "
+"capacity is equivalent to 225 kettles.\n"
 
 #: e_metrobus/templates/questions/e_metrobus/loading_time.html:7
 msgid ""
@@ -1364,7 +1379,12 @@ msgid ""
 "Ladezeit von vielen Faktoren abhängig (Anzahl der Fahrgäste, "
 "Verkehrsaufkommen, Stau, Wetter, Fahrweise etc.). Dementsprechend sind auch "
 "kürzere oder längere Ladezeiten möglich.\n"
-msgstr "\n"
+msgstr ""
+"\n"
+""With this, the bus has recharged as much energy as it consumed on the route. "
+"In general, consumption and thus the required charging time depends on many factors "
+"(number of passengers, traffic volume, congestion, weather, driving style, etc.) "
+"Accordingly, shorter or longer charging times are also possible.\n"
 
 #: e_metrobus/templates/questions/ich/advantages.html:4
 msgid ""
@@ -1379,16 +1399,12 @@ msgid ""
 "freuen. \n"
 msgstr ""
 "\n"
-"Electric buses contribute to a more liveable city because they are locally "
-"emission-free and therefore do not emit nitrogen oxides or fine dust through "
-"fuel consumption. Electric buses also cause fewer CO2 emissions compared to "
-"diesel buses. \n"
-"As a passenger you benefit from a much quieter driving experience. Electric\n"
-"Buses are quieter than diesel buses, especially when starting up, and "
-"vibrate less. However, to increase safety for other road users, an acoustic "
-"signal is emitted when the bus starts up using the AVAS (Acousitic Vehicle "
-"Alerting System). As a frequent user of the 200 bus route, you can look "
-"forward to a considerably lower exhaust emission level.\n"
+"The reduction of pollutant emissions is accompanied by less noise. As a passenger "
+"you benefit from a much quieter driving experience. Electric buses are quieter "
+"than diesel buses, especially when starting up, and vibrate less. To increase "
+"safety for other road users, however, an acoustic signal is emitted when starting "
+"off by means of the AVAS (Acousitic Vehicle Alerting System). As a resident of the "
+"200 bus route, you can enjoy a considerably lower exhaust emission level. \n"
 
 #: e_metrobus/templates/questions/ich/e_bus.html:4
 msgid ""
@@ -1427,11 +1443,11 @@ msgid ""
 "Energiebereitstellung in Kraftwerken, der größte Emittent.\n"
 msgstr ""
 "\n"
-"Statistically speaking, every Berliner is responsible for 4.8 tons of CO2 "
-"per year. The national average is 8.8 tons. The transport sector causes "
-"almost a third of the emissions, as do households, trade, commerce and "
-"services. With well over 40 percent of the total contribution, the &quot;"
-"conversion sector&quot;, i.e. power plants, is the largest emitter. \n"
+"On a national average, the CO<sub>2</sub> footprint per capita is even 8.8 "
+"tonnes. The transport sector causes almost a third of the emissions, as do "
+"households, trade, commerce and services. With well over 40 percent of the "
+"total contribution, the &quot; conversion sector&quot;, i.e. power plants, "
+"is the largest emitter. \n"
 
 #: e_metrobus/templates/questions/ich/footprint.html:7
 #: e_metrobus/templates/questions/politik/neutral.html:8
@@ -1489,17 +1505,13 @@ msgstr ""
 "\n"
 "The pilot project, with 4 prototypes of the Solaris Urbino 12 electric type "
 "with induction charging technology, was successfully completed and these "
-"buses are now no longer in regular service after the end of the project. The "
-"conversion of BVG buses to alternative propulsion systems started in 2019 "
-"with the operation of electric buses ready for series production. With the "
+"buses are now no longer in regular service after the end of the project. With the "
 "electrification of line 200, there are currently 78 electric buses at BVG. "
 "By the end of 2020, this number will rise to 138 electric buses. BVG is not "
 "relying on just one type of technology for electrification, but is bringing "
 "different bus types and strategies for charging (currently depot and "
 "occasional charging) into regular service. This is because the Berlin bus "
-"network has a wide variety of line types. The lines range from neighbourhood "
-"bus lines to city-crossing &quot;cross-country&quot; lines with a high "
-"passenger volume.\n"
+"network has a wide variety of line types.\n"
 
 #: e_metrobus/templates/questions/politik/full_electrification.html:5
 msgid "Bild mehrerer E-Busse an Ladesäulen"
@@ -1658,7 +1670,7 @@ msgstr ""
 
 #: e_metrobus/templates/questions/umwelt/windturbines.html:11
 msgid "Liste von Windkraftanlagen in Berlin und Brandenburg"
-msgstr ""
+msgstr "List of wind turbines in Berlin and Brandenburg"
 
 #: e_metrobus/templates/widgets/info_table.html:8
 msgid "Fahrzeug"
@@ -1674,7 +1686,7 @@ msgstr "Please enter your route!"
 
 #: e_metrobus/templates/widgets/top_bar.html:40
 msgid "App teilen"
-msgstr "Share the App"
+msgstr "Share the app"
 
 #: e_metrobus/templates/widgets/top_bar_route.html:10
 msgid "Strecke ändern"
@@ -1707,7 +1719,7 @@ msgstr "Change route"
 #~ msgstr "Flash image"
 
 #~ msgid "Ich bin ein lustiger BVG Spruch zu meinen Punkten"
-#~ msgstr "I'm a funny BVG saying about my points"
+#~ msgstr "I'm a funny BVG slogan about my points"
 
 #~ msgid "Zeig mir warum!"
 #~ msgstr "Show me why!"
