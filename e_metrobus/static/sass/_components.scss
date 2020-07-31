@@ -95,6 +95,9 @@ $tab-border-half: 1px solid $white;
     letter-spacing: .01rem;
     font-weight: 700;
     padding: 1rem .5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   li.tabs-title--100-width {
