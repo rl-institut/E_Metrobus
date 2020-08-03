@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-31 10:37+0000\n"
+"POT-Creation-Date: 2020-08-03 13:35+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -250,9 +250,13 @@ msgid "E-MetroBus App auf einem Smartphone"
 msgstr "E-MetroBus app on a smartphone"
 
 #: e_metrobus/templates/includes/desktop.html:37
+#, fuzzy
+#| msgid ""
+#| "Auf Smartphones unter <span class=\"heading--highlight\">e-metrobus."
+#| "berlin</span> verfügbar"
 msgid ""
-"Auf Smartphones unter <span class=\"heading--highlight\">e-metrobus.berlin</"
-"span> verfügbar"
+"Auf <span class=\"heading--highlight\">Smartphones</span> unter <span class="
+"\"heading--italic\">e-metrobus.berlin</span> verfügbar"
 msgstr ""
 "On smartphones under <span class=\"heading--highlight\">e-metrobus.berlin</"
 "span> available"
@@ -1275,7 +1279,7 @@ msgid "Der Elektrobus ist leiser als ein konventioneller Bus."
 msgstr "The electric bus has a visible structure on the roof."
 
 #: e_metrobus/templates/pages/question_translations.html:110
-msgid "Der Elektrobus ermöglicht kürzer Fahrzeiten."
+msgid "Der Elektrobus ermöglicht kürzere Fahrzeiten."
 msgstr "The electric bus enables shorter travel times."
 
 #: e_metrobus/templates/pages/question_translations.html:112
