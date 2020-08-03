@@ -263,7 +263,7 @@ $desktop-padding-xxsmall: .6rem;
     padding-top: $desktop-padding-medium;
   }
   @media only screen and (orientation: landscape) and (max-width: 1023px) {
-    padding: 1rem 10vw;
+    padding: 1rem 5vw;
   }
 
   & > div {
@@ -283,8 +283,8 @@ $desktop-padding-xxsmall: .6rem;
 
     img {
       display: inline-block;
-      width: 1.5rem;
-      height: 1.5rem;
+      width: 1.25rem;
+      height: 1.25rem;
     }
 
     span {
@@ -365,10 +365,16 @@ $desktop-padding-xxsmall: .6rem;
 
       h2 .heading--highlight {
         white-space: nowrap;
-        @media only screen and (min-width: 1024px) {
+        @media only screen and (min-width: 640px) {
           color: $white;
           background-color: $secondary-color;
           padding: .75rem;
+          line-height: 2.75rem;
+        }
+      }
+      h2 .heading--italic {
+        @media only screen and (min-width: 640px) {
+          font-weight: 300;
         }
       }
     }
