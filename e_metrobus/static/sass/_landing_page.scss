@@ -391,28 +391,6 @@ $desktop-padding-xxsmall: .6rem;
       .icons--3::before {
         background-image: url(../images/icons/i_flash_black.svg);
       }
-<<<<<<< HEAD
-      & > div {
-        height: 2rem;
-        width: 2rem;
-        display: inline-block;
-        @include desktop-imgs();
-
-        @media only screen and (min-width: 1024px) {
-          height: 3.25rem;
-          width: 3.25rem;
-          margin-right: $desktop-padding-small;
-        }
-      }
-    }
-
-    .benefits p {
-      font-size: 1rem;
-      line-height: 1.5rem;
-      text-align: left;
-      margin-bottom: $desktop-padding-xsmall;
-=======
->>>>>>> dev
 
       @media only screen and (min-width: 1024px) {
         font-size: 1.25rem;
