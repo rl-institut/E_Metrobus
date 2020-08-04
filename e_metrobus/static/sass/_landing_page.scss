@@ -250,7 +250,7 @@ $desktop-padding-xxsmall: .6rem;
     padding-top: $desktop-padding-medium;
   }
   @media only screen and (orientation: landscape) and (max-width: 1023px) {
-    padding: 1rem 10vw;
+    padding: 1rem 5vw;
   }
 
   & > div {
@@ -270,8 +270,8 @@ $desktop-padding-xxsmall: .6rem;
 
     img {
       display: inline-block;
-      width: 1.5rem;
-      height: 1.5rem;
+      width: 1.25rem;
+      height: 1.25rem;
     }
 
     span {
@@ -340,8 +340,13 @@ $desktop-padding-xxsmall: .6rem;
 
       h2 {
         @include desktop-h2();
+        line-height: 2.5rem;
+        font-weight: 700;
+        text-align: center;
         padding-bottom: $desktop-padding-xsmall;
-        @media only screen and (min-width: 1024px) {
+        font-size: 1.55rem;
+
+        @media screen and (min-width: 1024px) {
           text-align: left;
           padding-bottom: $desktop-padding-medium;
         }
@@ -349,33 +354,44 @@ $desktop-padding-xxsmall: .6rem;
 
       h2 .heading--highlight {
         white-space: nowrap;
-        @media only screen and (min-width: 1024px) {
-          color: $white;
-          background-color: $secondary-color;
-          padding: .75rem;
-        }
+        font-weight: 700;
+        color: $white;
+        background-color: $secondary-color;
+        padding: .75rem;
+        line-height: 2.75rem;
+      }
+      h2 .heading--bold {
+        text-decoration: underline;
       }
     }
 
-    .icons {
-      padding-bottom: $desktop-padding-small;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      @media only screen and (min-width: 1024px) {
-        display: block;
-        padding-bottom: $desktop-padding-medium
+    .benefits {
+      position: relative;
+      p {
+        font-size: 1.25rem;
+        line-height: 2rem;
+        text-align: left;
+        margin-bottom: $desktop-padding-small;
+        padding-left: 3rem;
       }
-
-      .icons--1 {
+      .icons::before {
+        content: '';
+        background-size: 2rem 2rem;
+        position: absolute;
+        width: 2rem;
+        height: 2rem;
+        left: 0;
+      }
+      .icons--1::before {
         background-image: url(../images/icons/i_quiz_black.svg);
       }
-      .icons--2 {
+      .icons--2::before {
         background-image: url(../images/icons/i_pin_black.svg);
       }
-      .icons--3 {
+      .icons--3::before {
         background-image: url(../images/icons/i_flash_black.svg);
       }
+<<<<<<< HEAD
       & > div {
         height: 2rem;
         width: 2rem;
@@ -395,6 +411,8 @@ $desktop-padding-xxsmall: .6rem;
       line-height: 1.5rem;
       text-align: left;
       margin-bottom: $desktop-padding-xsmall;
+=======
+>>>>>>> dev
 
       @media only screen and (min-width: 1024px) {
         font-size: 1.25rem;
