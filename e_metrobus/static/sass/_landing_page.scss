@@ -353,7 +353,7 @@ $desktop-padding-xxsmall: .6rem;
 
       h2 {
         font-size: 1.25rem;
-        font-weight: 700;
+        font-weight: 300;
         text-align: center;
         padding-bottom: $desktop-padding-xsmall;
         @media only screen and (min-width: 1024px) {
@@ -365,17 +365,14 @@ $desktop-padding-xxsmall: .6rem;
 
       h2 .heading--highlight {
         white-space: nowrap;
-        @media only screen and (min-width: 640px) {
-          color: $white;
-          background-color: $secondary-color;
-          padding: .75rem;
-          line-height: 2.75rem;
-        }
+        font-weight: 700;
+        color: $white;
+        background-color: $secondary-color;
+        padding: .75rem;
+        line-height: 2.75rem;
       }
-      h2 .heading--italic {
-        @media only screen and (min-width: 640px) {
-          font-weight: 300;
-        }
+      h2 .heading--bold {
+        font-weight: 700;
       }
     }
 
