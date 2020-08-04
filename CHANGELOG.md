@@ -11,6 +11,7 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 - increased small button height
 - highlicht "smartphones" on desktop LP instead of URL
 - changed to heart BVG logo
+- updated desktop LP text and images
 
 ## [0.18.0] - 2020-07-29
 ### Added
