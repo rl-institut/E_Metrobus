@@ -277,6 +277,10 @@ $desktop-padding-xxsmall: .6rem;
     right: 0;
     width: 8rem;
 
+    @media screen and (max-height: 640px) and (orientation: landscape) {
+      display: none;
+    }
+
     a, a:link, a:hover, a:visited, a:active, a:focus {
       color: $secondary-color;
     }
