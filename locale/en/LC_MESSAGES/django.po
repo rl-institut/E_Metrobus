@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-03 13:35+0000\n"
+"POT-Creation-Date: 2020-08-05 10:24+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -250,52 +250,52 @@ msgid "E-MetroBus App auf einem Smartphone"
 msgstr "E-MetroBus app on a smartphone"
 
 #: e_metrobus/templates/includes/desktop.html:37
-#, fuzzy
-#| msgid ""
-#| "Auf Smartphones unter <span class=\"heading--highlight\">e-metrobus."
-#| "berlin</span> verfügbar"
 msgid ""
 "Auf <span class=\"heading--highlight\">Smartphones</span> unter <span class="
-"\"heading--italic\">e-metrobus.berlin</span> verfügbar"
+"\"heading--bold\">e-metrobus.berlin</span> verfügbar"
 msgstr ""
-"On smartphones under <span class=\"heading--highlight\">e-metrobus.berlin</"
-"span> available"
+"On <span class=\"heading--highlight\">smartphones</span> under <span class="
+"\"heading--bold\">e-metrobus.berlin</span> available"
 
-#: e_metrobus/templates/includes/desktop.html:45
+#: e_metrobus/templates/includes/desktop.html:40
 msgid "Teste deine Kenntnisse über E-Mobilität mit einem Quiz"
 msgstr "Test your knowledge about e-mobility with a quiz"
 
-#: e_metrobus/templates/includes/desktop.html:46
+#: e_metrobus/templates/includes/desktop.html:41
+#, fuzzy
+#| msgid ""
+#| "Erfahre wie viel CO2, NOx und Feinstaub du im Vergleich zu anderen "
+#| "Verkehrsmitteln sparst"
 msgid ""
-"Erfahre wie viel CO2, NOx und Feinstaub du im Vergleich zu anderen "
-"Verkehrsmitteln sparst"
+"Erfahre wie viel CO<sub>2</sub>, NO<sub>x</sub> und Feinstaub du im "
+"Vergleich zu anderen Verkehrsmitteln sparst"
 msgstr ""
 "Discover how much CO2, NOx and particulate matter you savecompared to other "
 "means of transport"
 
-#: e_metrobus/templates/includes/desktop.html:47
+#: e_metrobus/templates/includes/desktop.html:42
 msgid "Lerne über das E-MetroBus Projekt"
 msgstr "Learn about the E-MetroBus project"
 
-#: e_metrobus/templates/includes/desktop.html:57
+#: e_metrobus/templates/includes/desktop.html:52
 msgid "Über das Projekt"
 msgstr "About the project"
 
-#: e_metrobus/templates/includes/desktop.html:63
+#: e_metrobus/templates/includes/desktop.html:58
 msgid "Laufzeit"
 msgstr "Project duration"
 
-#: e_metrobus/templates/includes/desktop.html:67
+#: e_metrobus/templates/includes/desktop.html:62
 msgid ""
 "Das E-MetroBus Projekt läuft für einen Zeitraum von Januar 2019 bis Januar "
 "2023"
 msgstr "The E-MetroBus project runs from January 2019 to January 2023"
 
-#: e_metrobus/templates/includes/desktop.html:74
+#: e_metrobus/templates/includes/desktop.html:69
 msgid "Förderung"
 msgstr "Funding"
 
-#: e_metrobus/templates/includes/desktop.html:78
+#: e_metrobus/templates/includes/desktop.html:73
 msgid ""
 "Die Förderung erfolgt als ein Forschungs- und Entwicklungsvorhaben im Rahmen "
 "der Förderrichtlinie Elektromobilität des Bundesministeriums für Verkehr und "
@@ -305,11 +305,11 @@ msgstr ""
 "framework of the Electromobility Funding Directive of the Federal Ministry "
 "of Transport and Digital Infrastructure"
 
-#: e_metrobus/templates/includes/desktop.html:85
+#: e_metrobus/templates/includes/desktop.html:80
 msgid "Busse"
 msgstr "Buses"
 
-#: e_metrobus/templates/includes/desktop.html:89
+#: e_metrobus/templates/includes/desktop.html:84
 msgid ""
 "Um möglichst lange ladungsbedingte Standzeiten zu vermeiden, müssen die "
 "Busse in der Lage sein, mit einer hohen Leistung geladen zu werden"
@@ -317,11 +317,11 @@ msgstr ""
 "In order to avoid charge-related downtimes for as long as possible, the "
 "buses must be able to be charge at high power"
 
-#: e_metrobus/templates/includes/desktop.html:96
+#: e_metrobus/templates/includes/desktop.html:91
 msgid "Ladeinfrastruktur"
 msgstr "Charging infrastructure"
 
-#: e_metrobus/templates/includes/desktop.html:100
+#: e_metrobus/templates/includes/desktop.html:95
 msgid ""
 "Eine Ladeinfrastruktur von über 300kW soll erprobt werden. Der resultierende "
 "Bedarf soll sowohl mit den eigens aus Erneuerbaren Energien produziertem "
@@ -331,40 +331,31 @@ msgstr ""
 "resulting demand is to be met with both electricity generated from renewable "
 "energy sources and from the supply network"
 
-#: e_metrobus/templates/includes/desktop.html:109
+#: e_metrobus/templates/includes/desktop.html:104
 msgid "Projektziele"
 msgstr "Project goals"
 
-#: e_metrobus/templates/includes/desktop.html:113
-#: e_metrobus/templates/includes/desktop.html:123
-#: e_metrobus/templates/includes/desktop.html:133
+#: e_metrobus/templates/includes/desktop.html:108
+#: e_metrobus/templates/includes/desktop.html:118
+#: e_metrobus/templates/includes/desktop.html:128
 msgid "Zur Website"
 msgstr "Visit the website"
 
-#: e_metrobus/templates/includes/desktop.html:118
-#: e_metrobus/templates/includes/desktop.html:138
+#: e_metrobus/templates/includes/desktop.html:113
 msgid ""
-"Im Projekt E-MetroBus werden 15 Gelenkbusse der Berliner Verkehrsbetriebe "
-"(BVG) elektrifiziert und so ausgerüstet, dass sie besonders schnell geladen "
-"werden können. Eine Umrüstung der Busse bringt einige technische und "
-"organisatorische Herausforderungen mit sich. Einerseits muss die Zeit, die "
-"die Busse zum Laden zur Verfügung haben, flexibel gestaltet werden, da sie "
-"durch verkehrsbedingte Verspätungen und Sperrungen stark variieren kann. "
-"Andererseits belastet die dafür infrage kommende Schnellladetechnologie das "
-"lokale Stromnetz – dies wird insbesondere dann deutlich, wenn alle 1400 "
-"Busse der BVG-Flotte in die Untersuchung mit einbezogen werden."
+"Elektrobusse fahren, wie die Erfahrungen in anderen Städten zeigen, stabil "
+"und machen bereits etliche Städte rund um die Welt ein großes Stück "
+"lebenswerter. Selbstverständlich möchte die BVG aber auch eigene Erfahrungen "
+"mit dem Betrieb von Elektrobussen und ihrer Ladeinfrastruktur sammeln. "
+"Deshalb hat sich die BVG für die Elektro-Gelenkbusse im Projekt E-MetroBus "
+"zu einer    Forschungskonstellation mit der TU Berlin und dem Reiner Lemoine "
+"Institut zusammengeschlossen. Die Erkenntnisse aus dem Projekt sollen in die "
+"nachfolgenden Elektrobusprojekte der BVG einfließen und auch anderen Städten "
+"bei der Elektrifizierung ihrer Busflotte helfen. Somit ist das Projekt E-"
+"MetroBus wegweisend für die zukünftige Elektromobilität."
 msgstr ""
-"In the E-MetroBus project, 15 articulated buses operated by the Berlin "
-"transport authority (BVG) will be electrified and equipped so that they can "
-"be charged particulary quickly. Retrofitting the buses, however, involves "
-"technical and organizational challenges. On the one hand, the time the buses "
-"have available for charging must be flexible, as it can vary greatly due to "
-"traffic-related delays and closures. On the other hand, the fast-charging "
-"technology in question puts a strain on the local power grid - this becomes "
-"particularly clear when all 1400 buses in the BVG fleet are included in the "
-"study"
 
-#: e_metrobus/templates/includes/desktop.html:128
+#: e_metrobus/templates/includes/desktop.html:123
 msgid ""
 "Das RLI entwickelt unterschiedliche Szenarien, wie eine lokale, "
 "netzdienliche Versorgung der Ladestationen erreicht werden kann. Dabei "
@@ -387,31 +378,43 @@ msgstr ""
 "transport and their transferability to transport companies of different "
 "sizes will then be examined"
 
-#: e_metrobus/templates/includes/desktop.html:147
+#: e_metrobus/templates/includes/desktop.html:133
+msgid ""
+"Die TU Berlin übernimmt im E-MetroBus Projekt einerseits aktuelle "
+"Anwendungsforschung, insbesondere die Entwicklung eines E-Bus-Leitsystems, "
+"die Machbarkeitsuntersuchung mobiler Schnellladestationen, sowie die "
+"energieeffiziente Klimatisierung und Heizung und die Umweltbilanz der zum "
+"Einsatz kommenden Elektrobusse. Andererseits führt die TU Berlin "
+"unterstützende, technische Aufgaben für die BVG durch, etwa bei der "
+"Entwicklung des Betriebs- und Störfallkonzeptes mittels Simulationen sowie "
+"beim Datenmonitoring und der Datenauswertung."
+msgstr ""
+
+#: e_metrobus/templates/includes/desktop.html:142
 msgid "Möchtest du Feedback zum Projekt geben?"
 msgstr "Would you like to give feedback on the project?"
 
-#: e_metrobus/templates/includes/desktop.html:148
+#: e_metrobus/templates/includes/desktop.html:143
 msgid "Kontaktiere uns"
 msgstr "Contact us"
 
-#: e_metrobus/templates/includes/desktop.html:171
+#: e_metrobus/templates/includes/desktop.html:166
 #: e_metrobus/templates/navigation/legal.html:14
 msgid "Impressum"
 msgstr "Imprint"
 
-#: e_metrobus/templates/includes/desktop.html:172
+#: e_metrobus/templates/includes/desktop.html:167
 #: e_metrobus/templates/navigation/legal.html:15
 msgid "Datenschutz"
 msgstr "Data protection"
 
-#: e_metrobus/templates/includes/desktop.html:189
+#: e_metrobus/templates/includes/desktop.html:184
 #: e_metrobus/templates/navigation/legal.html:61
 msgid "Meinung schicken"
 msgstr "Send feedback"
 
-#: e_metrobus/templates/includes/desktop.html:200
-#: e_metrobus/templates/includes/desktop.html:208
+#: e_metrobus/templates/includes/desktop.html:195
+#: e_metrobus/templates/includes/desktop.html:203
 msgid "Zurück zur Startseite"
 msgstr "Return to the homepage"
 
@@ -1702,6 +1705,28 @@ msgstr "Share the app"
 #: e_metrobus/templates/widgets/top_bar_route.html:10
 msgid "Strecke ändern"
 msgstr "Change route"
+
+#~ msgid ""
+#~ "Im Projekt E-MetroBus werden 15 Gelenkbusse der Berliner Verkehrsbetriebe "
+#~ "(BVG) elektrifiziert und so ausgerüstet, dass sie besonders schnell "
+#~ "geladen werden können. Eine Umrüstung der Busse bringt einige technische "
+#~ "und organisatorische Herausforderungen mit sich. Einerseits muss die "
+#~ "Zeit, die die Busse zum Laden zur Verfügung haben, flexibel gestaltet "
+#~ "werden, da sie durch verkehrsbedingte Verspätungen und Sperrungen stark "
+#~ "variieren kann. Andererseits belastet die dafür infrage kommende "
+#~ "Schnellladetechnologie das lokale Stromnetz – dies wird insbesondere dann "
+#~ "deutlich, wenn alle 1400 Busse der BVG-Flotte in die Untersuchung mit "
+#~ "einbezogen werden."
+#~ msgstr ""
+#~ "In the E-MetroBus project, 15 articulated buses operated by the Berlin "
+#~ "transport authority (BVG) will be electrified and equipped so that they "
+#~ "can be charged particulary quickly. Retrofitting the buses, however, "
+#~ "involves technical and organizational challenges. On the one hand, the "
+#~ "time the buses have available for charging must be flexible, as it can "
+#~ "vary greatly due to traffic-related delays and closures. On the other "
+#~ "hand, the fast-charging technology in question puts a strain on the local "
+#~ "power grid - this becomes particularly clear when all 1400 buses in the "
+#~ "BVG fleet are included in the study"
 
 #~ msgid "Korrekt"
 #~ msgstr "Correct"
