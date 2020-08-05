@@ -6,6 +6,7 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 
 ### Added
 - added ellpsis/nowrap to tabs
+- added space between long and short answers
 
 ### Changed
 - increased small button height
