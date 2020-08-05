@@ -3,6 +3,8 @@
 // Plugin @RokoCB :: Return the visible amount of px
 // of any element currently in viewport.
 // stackoverflow.com/questions/24768795/
+
+// display elements on scroll on tablet/desktop
 ;(function($, win) {
   $.fn.inViewport = function(cb) {
     return this.each(function(i,el){
@@ -17,5 +19,9 @@
 }(jQuery, window));
 
 $(".animate-desktop").inViewport(function(px){
-    if(px) $(this).addClass("triggeredCSS3") ;
+  // sure to target only devices that are above 640px width
+  // otherwise smaller tablets don't display all elements from landing page after loading
+    if(px && $(window).width() > 640) {
+      $(this).addClass("triggeredCSS3");
+    }
 });
