@@ -13,6 +13,7 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 - changed to heart BVG logo
 - updated desktop LP text and images
 - changed on scroll animations (desktop LP) to automatic animations for smaller screens
+- hid flag on small/landscape views on summary page
 
 ## [0.18.0] - 2020-07-29
 ### Added
