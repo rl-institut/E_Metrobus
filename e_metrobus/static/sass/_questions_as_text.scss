@@ -1,5 +1,9 @@
 .summary--mobile .desktop {
 
+  @media only screen and (orientation: landscape) {
+    padding: 1rem 10vw;
+  }
+
   .desktop-header__frame {
     h1 {
       font-size: 1.25rem;

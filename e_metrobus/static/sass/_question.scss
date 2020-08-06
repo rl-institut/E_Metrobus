@@ -216,6 +216,11 @@
   }
 }
 
+.long-answer {
+  display: block;
+  padding-top: 1rem;
+}
+
 .a-accordion-more {
   animation: a-answer-text 1s cubic-bezier(0.470, 0.000, 0.745, 0.715) 1.5s both;
 }

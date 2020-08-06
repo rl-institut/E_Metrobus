@@ -37,19 +37,8 @@
         </fieldset>
       </div>
       <div class="cell answer__text answer__text-more {% if not category_finished %}a-accordion-more{% endif %}">
-        <ul class="accordion" data-accordion data-allow-all-closed="true">
-          <li class="accordion-item" data-accordion-item>
-            <a href="#" class="accordion-title" onclick="more_clicked(this)">
-              <div>
-                <span class="icon"></span><span id="more">{% trans 'Mehr sehen' %}</span>
-              </div>
-            </a>
-            <div class="accordion-content" data-tab-content>
-              {% trans question.short_answer %}
-              {% include question.template %}
-            </div>
-          </li>
-        </ul>
+        {% trans question.short_answer %}
+        {% include question.template %}
       </div>
       <div class="cell text-center question__next {% if not category_finished %}a-answer-btn{% endif %}">
         {% if category_finished %}
@@ -62,17 +51,3 @@
   </div>
 </div>
 {% endblock content %}
-
-{% block javascript %}
-  {{block.super}}
-  <script>
-    function more_clicked(accordion) {
-      expanded = $(accordion).attr("aria-expanded");
-      if (expanded == "true") {
-        $("#more").html("{% trans 'Mehr sehen' %}");
-      } else {
-        $("#more").html("{% trans 'Weniger sehen' %}");
-      }
-    }
-  </script>
-{% endblock javascript %}

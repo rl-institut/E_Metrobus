@@ -75,6 +75,10 @@ button.close-button:hover {
     &--chart {
         margin-right: 0;
         padding: 1rem 1rem 2rem;
+
+        @media only screen and (orientation: landscape) {
+            padding: 1rem 10vw;
+        }
     }
 }
 
