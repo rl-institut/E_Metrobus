@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-05 10:24+0000\n"
+"POT-Creation-Date: 2020-08-06 12:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -262,16 +262,12 @@ msgid "Teste deine Kenntnisse über E-Mobilität mit einem Quiz"
 msgstr "Test your knowledge about e-mobility with a quiz"
 
 #: e_metrobus/templates/includes/desktop.html:41
-#, fuzzy
-#| msgid ""
-#| "Erfahre wie viel CO2, NOx und Feinstaub du im Vergleich zu anderen "
-#| "Verkehrsmitteln sparst"
 msgid ""
 "Erfahre wie viel CO<sub>2</sub>, NO<sub>x</sub> und Feinstaub du im "
 "Vergleich zu anderen Verkehrsmitteln sparst"
 msgstr ""
-"Discover how much CO2, NOx and particulate matter you savecompared to other "
-"means of transport"
+"Discover how much CO<sub>2</sub>, NO<sub>x</sub> and particulate matter you "
+"savecompared to other means of transport"
 
 #: e_metrobus/templates/includes/desktop.html:42
 msgid "Lerne über das E-MetroBus Projekt"
@@ -650,7 +646,7 @@ msgstr "It's great that you are taking an E-Bus!"
 
 #: e_metrobus/templates/navigation/landing_page.html:23
 msgid "Los geht&#39;s!"
-msgstr "Let&#39;s start!"
+msgstr "Let's start!"
 
 #: e_metrobus/templates/navigation/landing_page.html:48
 msgid ""
