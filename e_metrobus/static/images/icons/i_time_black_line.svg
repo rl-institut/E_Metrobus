@@ -5,18 +5,14 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   height="100px"
-   width="100px"
-   fill="#000000"
-   version="1.1"
-   x="0px"
-   y="0px"
-   viewBox="0 0 100 100"
    id="svg6"
-   sodipodi:docname="i_time_black_line.svg"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+   viewBox="0 0 100 100"
+   y="0px"
+   x="0px"
+   version="1.1"
+   fill="#000000"
+   width="100px"
+   height="100px">
   <metadata
      id="metadata12">
     <rdf:RDF>
@@ -25,41 +21,20 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <defs
      id="defs10" />
-  <sodipodi:namedview
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="1853"
-     inkscape:window-height="1025"
-     id="namedview8"
-     showgrid="false"
-     inkscape:zoom="4.2604681"
-     inkscape:cx="51.059322"
-     inkscape:cy="48.09322"
-     inkscape:window-x="67"
-     inkscape:window-y="27"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg6" />
   <circle
-     style="opacity:1;fill:none;fill-opacity:1;stroke:#252424;stroke-width:4;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:fill markers stroke"
-     id="path816"
-     cx="50.355175"
+     r="43.387867"
      cy="50.029053"
-     r="43.387867" />
+     cx="50.355175"
+     id="path816"
+     style="opacity:1;fill:none;fill-opacity:1;stroke:#252424;stroke-width:4;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:fill markers stroke" />
   <path
-     style="fill:none;stroke:#252424;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-     d="M 50.463939,19.375056 V 49.653419 H 74.874402"
      id="path818"
-     inkscape:connector-curvature="0" />
+     d="M 50.463939,19.375056 V 49.653419 H 74.874402"
+     style="fill:none;stroke:#252424;stroke-width:4;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
 </svg>
