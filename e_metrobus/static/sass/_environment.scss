@@ -85,6 +85,10 @@
   margin-bottom: 1rem;
   margin-top: 1rem;
 
+  @media only screen and (orientation: landscape) {
+    padding: 1rem 10vw;
+  }
+
   .tabs {
     border: none;
   }

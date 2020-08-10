@@ -6,6 +6,8 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 
 ### Added
 - added ellpsis/nowrap to tabs
+- added space between long and short answers
+- added right/left padding to mobile landscape view
 
 ### Changed
 - increased small button height
@@ -13,6 +15,8 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 - changed to heart BVG logo
 - updated desktop LP text and images
 - changed on scroll animations (desktop LP) to automatic animations for smaller screens
+- hid flag on small/landscape views on summary page
+- removed see more from answer view
 
 ## [0.18.0] - 2020-07-29
 ### Added
