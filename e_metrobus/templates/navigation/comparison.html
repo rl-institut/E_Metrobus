@@ -31,7 +31,7 @@
         </div>
       </div>
       <div class="text-center data-source-button" data-open="comparisonData">
-        <button><img src="{% static 'images/icons/i_next_gray.svg' %}" alt="{% trans 'Zurück' %}">{% trans "Woher kommen die Zahlen?" %}</button> 
+        <button><img src="{% static 'images/icons/i_next_gray.svg' %}" alt="{% trans 'Zurück' %}">{% trans "Woher kommen die Zahlen?" %}</button>
       </div>
     </div>
 
@@ -58,7 +58,7 @@
   <script>
     $.ajax({
       type: "GET",
-      url: "/get_comparison_chart",
+      url: "{% url 'navigation:get_comparison_chart' %}",
       dataType: 'json',
       data: {"route": "route", "emission": "co2"},
       success: function(json)
