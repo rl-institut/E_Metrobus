@@ -20,4 +20,4 @@ before_script:
 script:
   - "pytest"
 env:
-  - DATABASE_URL=None USE_DOCKER=no
+  - DATABASE_URL=postgres://user:password@localhost:5432/e_metrobus USE_DOCKER=no
