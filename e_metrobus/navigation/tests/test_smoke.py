@@ -224,3 +224,15 @@ def test_quiz_finished():
     test_category_ich(client)
     with pytest.raises(ImproperlyConfigured):
         client.get(url)
+
+
+def test_comparison_charts():
+    client = Client()
+    session = client.session
+    session["stations"] = (0, 3)
+    session.save()
+    url = "/get_comparison_chart/"
+    for route in ("route", "fleet"):
+        for emission in ("co2", "nitrogen", "fine_dust"):
+            response = client.get(url, data={"route": route, "emission": emission})
+            assert response.status_code == 200
