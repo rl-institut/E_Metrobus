@@ -16,5 +16,4 @@ install:
 script:
   - "pytest"
 env:
-  - DATABASE_URL=None
-  - USE_DOCKER=no
+  - DATABASE_URL=None USE_DOCKER=no
