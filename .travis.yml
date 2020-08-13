@@ -13,6 +13,10 @@ python:
   - "3.7"
 install:
   - pip install -r requirements/local.txt
+before_script:
+  - python manage.py collectstatic --noinput
+  - python manage.py compress --force
+  - python manage.py collectstatic --noinput
 script:
   - "pytest"
 env:
