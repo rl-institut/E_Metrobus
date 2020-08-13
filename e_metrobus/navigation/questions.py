@@ -1,5 +1,4 @@
 import os
-import pysnooper
 from collections import namedtuple
 from dataclasses import dataclass
 from typing import Dict, List, Union
@@ -92,7 +91,6 @@ for cat in question_config:
     )
 
 
-@pysnooper.snoop()
 def get_score_for_category(category: str, session):
     """Score is percent of correct answers"""
     if category not in QUESTIONS:
