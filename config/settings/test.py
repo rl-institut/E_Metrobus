@@ -18,6 +18,11 @@ SECRET_KEY = env(
 # https://docs.djangoproject.com/en/dev/ref/settings/#test-runner
 TEST_RUNNER = "django.test.runner.DiscoverRunner"
 
+# No database needed for tests
+del(DATABASES)
+# Session has to be stored elsewhere, because no DB
+SESSION_ENGINE = "django.contrib.sessions.backends.file"
+
 # CACHES
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#caches

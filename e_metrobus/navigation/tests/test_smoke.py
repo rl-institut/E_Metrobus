@@ -4,7 +4,6 @@ from django.test import Client
 from django.urls import reverse
 
 
-@pytest.mark.django_db
 def test_landing_page():
     client = Client()
     url = reverse('navigation:landing_page')
@@ -12,7 +11,6 @@ def test_landing_page():
     assert response.status_code == 200
 
 
-@pytest.mark.django_db
 def test_welcome_page():
     client = Client()
     url = reverse('navigation:welcome')
@@ -20,7 +18,6 @@ def test_welcome_page():
     assert response.status_code == 200
 
 
-@pytest.mark.django_db
 def test_route_redirect():
     client = Client()
     url = reverse('navigation:dashboard')
@@ -28,7 +25,6 @@ def test_route_redirect():
     assert response.status_code == 302
 
 
-@pytest.mark.django_db
 def test_route_page():
     client = Client()
     url = reverse('navigation:route')
@@ -36,7 +32,6 @@ def test_route_page():
     assert response.status_code == 200
 
 
-@pytest.mark.django_db
 def test_display_route_page():
     client = Client()
     session = client.session
@@ -47,7 +42,6 @@ def test_display_route_page():
     assert response.status_code == 200
 
 
-@pytest.mark.django_db
 def test_comparison_page():
     client = Client()
     session = client.session
@@ -58,7 +52,6 @@ def test_comparison_page():
     assert response.status_code == 200
 
 
-@pytest.mark.django_db
 def test_tour_page():
     client = Client()
     session = client.session
@@ -69,7 +62,6 @@ def test_tour_page():
     assert response.status_code == 200
 
 
-@pytest.mark.django_db
 def test_dashboard_page():
     client = Client()
     session = client.session
@@ -80,7 +72,6 @@ def test_dashboard_page():
     assert response.status_code == 200
 
 
-@pytest.mark.django_db
 def test_environment_page():
     client = Client()
     session = client.session
@@ -91,7 +82,6 @@ def test_environment_page():
     assert response.status_code == 200
 
 
-@pytest.mark.django_db
 def test_summary_page():
     client = Client()
     session = client.session
@@ -102,7 +92,6 @@ def test_summary_page():
     assert response.status_code == 200
 
 
-@pytest.mark.django_db
 def test_legal_page():
     client = Client()
     session = client.session
@@ -114,7 +103,6 @@ def test_legal_page():
 
 
 # TEST QUESTIONS
-@pytest.mark.django_db
 def test_category_e_metrobus():
     client = Client()
     session = client.session
