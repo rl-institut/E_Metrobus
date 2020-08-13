@@ -15,3 +15,6 @@ install:
   - pip install -r requirements/local.txt
 script:
   - "pytest"
+env:
+  - DATABASE_URL=None
+  - USE_DOCKER=no
