@@ -1,16 +1,8 @@
-from django.test import Client, SimpleTestCase
-from django.urls import reverse
+
+import pytest
 from django.core.exceptions import ImproperlyConfigured
-
-
-class LandingPageTestCase(SimpleTestCase):
-    def setUp(self):
-        self.client = Client()
-
-    def test_landing_page(self):
-        url = reverse("navigation:landing_page")
-        response = self.client.get(url)
-        assert response.status_code == 200
+from django.test import Client
+from django.urls import reverse
 
 
 def test_landing_page():
@@ -230,5 +222,5 @@ def test_quiz_finished():
     test_category_umwelt(client)
     test_category_politik(client)
     test_category_ich(client)
-    response = client.get(url)
-    assert response.status_code == 200
+    with pytest.raises(ImproperlyConfigured):
+        client.get(url)
