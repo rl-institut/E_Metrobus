@@ -19,7 +19,7 @@ SECRET_KEY = env(
 TEST_RUNNER = "django.test.runner.DiscoverRunner"
 
 # No database needed for tests
-del(DATABASES)
+del(DATABASES)  # noqa
 # Session has to be stored elsewhere, because no DB
 SESSION_ENGINE = "django.contrib.sessions.backends.file"
 

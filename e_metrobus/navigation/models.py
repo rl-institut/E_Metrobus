@@ -1,7 +1,6 @@
 import uuid
 from django.db import models
 from django.utils.translation import gettext as _
-from django.core.validators import MinValueValidator, MaxValueValidator
 
 from e_metrobus.navigation import questions
 
