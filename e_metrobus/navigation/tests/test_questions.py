@@ -1,10 +1,10 @@
-from django.test import TestCase, tag
+from django.test import SimpleTestCase, tag
 
 from e_metrobus.navigation import questions
 
 
 @tag("questions")
-class QuestionTestCase(TestCase):
+class QuestionTestCase(SimpleTestCase):
     def setUp(self):
         self.session = {
             "stations": (3, 4),
