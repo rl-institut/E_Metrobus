@@ -90,10 +90,6 @@ class TopBarWidget(CustomWidget):
         context = super(TopBarWidget, self).get_context(**kwargs)
         context["share_url"] = utils.share_url(self.request)
         context["share_text"] = utils.share_text(self.request)
-        correct = len(
-            [answer for answer in self.answers if answer == questions.Answer.Correct]
-        )
-        total = len(self.answers)
         percent = questions.get_total_score(self.request.session)
         context["score"] = percent
         context["slogan"] = utils.get_slogan(percent)

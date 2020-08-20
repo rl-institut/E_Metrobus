@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST=postgres
+POSTGRES_PORT=5432
+POSTGRES_DB=e_metrobus
+POSTGRES_USER=e_metrobus_user
+POSTGRES_PASSWORD=BrhhuuXP5qm2Jkbty5nY1Hw4sZiirRtOuN7v1PTgevZGar06emxyt7F4KIRaAe1g
