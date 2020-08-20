@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-10 08:37+0000\n"
+"POT-Creation-Date: 2020-08-20 11:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,7 +22,7 @@ msgstr ""
 msgid "Zu Fuß/<br>Fahrrad"
 msgstr "On foot/<br>bike"
 
-#: e_metrobus/navigation/chart.py:66 e_metrobus/navigation/constants.py:81
+#: e_metrobus/navigation/chart.py:66 e_metrobus/navigation/constants.py:79
 msgid "Elektrobus"
 msgstr "E-Bus"
 
@@ -30,7 +30,7 @@ msgstr "E-Bus"
 msgid "Elektro-Pkw"
 msgstr "Electric car"
 
-#: e_metrobus/navigation/chart.py:68 e_metrobus/navigation/constants.py:77
+#: e_metrobus/navigation/chart.py:68 e_metrobus/navigation/constants.py:75
 #: e_metrobus/templates/navigation/display_route.html:78
 msgid "Dieselbus"
 msgstr "Diesel bus"
@@ -41,45 +41,51 @@ msgid "Pkw (Diesel)"
 msgstr "Car (diesel)"
 
 #: e_metrobus/navigation/chart.py:145
-msgid "CO<sub>2</sub> Emissionen [in g]<br>nach Verkehrsmittel"
-msgstr "CO<sub>2</sub> emissions [in g]<br>per vehicle"
+#, fuzzy
+#| msgid "CO<sub>2</sub> Emissionen [in g]<br>nach Verkehrsmittel"
+msgid "CO<sub>2</sub> Emissionen<br>pro Person [in g]<br>nach Verkehrsmittel"
+msgstr "CO<sub>2</sub> emissions<br>per person [in g]<br>per vehicle"
 
 #: e_metrobus/navigation/chart.py:150
-msgid "Stickoxid Emissionen [in g]<br>nach Verkehrsmittel"
-msgstr "Nitrogen oxide emissions [in g]<br>per vehicle"
+#, fuzzy
+#| msgid "Stickoxid Emissionen [in g]<br>nach Verkehrsmittel"
+msgid "Stickoxid Emissionen<br>pro Person [in g]<br>nach Verkehrsmittel"
+msgstr "Nitrogen oxide emissions<br>per person [in g]<br>per vehicle"
 
 #: e_metrobus/navigation/chart.py:155
-msgid "Feinstaub Emissionen [in g]<br>nach Verkehrsmittel"
-msgstr "Particulate matter emissions [in g]<br>per vehicle"
+#, fuzzy
+#| msgid "Feinstaub Emissionen [in g]<br>nach Verkehrsmittel"
+msgid "Feinstaub Emissionen<br>pro Person [in g]<br>nach Verkehrsmittel"
+msgstr "Particulate matter emissions<br>per person [in g]<br>per vehicle"
 
-#: e_metrobus/navigation/constants.py:72
+#: e_metrobus/navigation/constants.py:70
 msgid "PKW (Diesel)"
 msgstr "Car (diesel)"
 
-#: e_metrobus/navigation/constants.py:80
+#: e_metrobus/navigation/constants.py:78
 msgid "Elektro-PKW"
 msgstr "Electric bus"
 
-#: e_metrobus/navigation/constants.py:82
+#: e_metrobus/navigation/constants.py:80
 msgid "Fahrrad"
 msgstr "Bike"
 
-#: e_metrobus/navigation/constants.py:83
+#: e_metrobus/navigation/constants.py:81
 msgid "zu Fuß"
 msgstr "On foot"
 
-#: e_metrobus/navigation/constants.py:89
+#: e_metrobus/navigation/constants.py:91
 msgid ""
 "Annahmen zum Energieverbrauch der E-PKWs und E-Busse: Reiner Lemoine Institut"
 msgstr ""
 "Assumptions on the energy consumption of electric cars and electric buses: "
 "Reiner Lemoine Institut"
 
-#: e_metrobus/navigation/constants.py:90
+#: e_metrobus/navigation/constants.py:92
 msgid "Annahmen zur Personenzahl eines Linienbusses: BVG"
 msgstr "Assumptions on the number of passengers on a regular bus: BVG"
 
-#: e_metrobus/navigation/constants.py:96
+#: e_metrobus/navigation/constants.py:99
 msgid ""
 "Oha, da ist noch Luft nach oben! Macht aber nichts. In unserem Info-Bereich "
 "findest du Antworten auf all deine Fragen zu E-Bussen, die du nie zu stellen "
@@ -89,7 +95,7 @@ msgstr ""
 "will find answers to all of your questions about E-buses that you never "
 "dared to ask before."
 
-#: e_metrobus/navigation/constants.py:97
+#: e_metrobus/navigation/constants.py:104
 msgid ""
 "Nicht schlecht, aber das geht noch besser! Alle Fakten zum Nachlesen und "
 "Aufschlauen findest du in unserem Info-Bereich."
@@ -97,7 +103,7 @@ msgstr ""
 "Not bad, but it still could be better! You can find all the facts in our "
 "info section to learn more."
 
-#: e_metrobus/navigation/constants.py:98
+#: e_metrobus/navigation/constants.py:108
 msgid ""
 "Wow! Wir können dir kaum noch etwas beibringen. Alle Fakten zum Nachlesen "
 "findest du nochmal in unserem Info-Bereich."
@@ -105,43 +111,43 @@ msgstr ""
 "Wow! We can hardly teach you anything anymore. You can find all of the facts "
 "again in our info section."
 
-#: e_metrobus/navigation/models.py:30
+#: e_metrobus/navigation/models.py:29
 msgid "Technisches Problem"
 msgstr "Technical problem"
 
-#: e_metrobus/navigation/models.py:31
+#: e_metrobus/navigation/models.py:30
 msgid "Schwierigkeit bei der Nutzung der App"
 msgstr "Difficulty using the app"
 
-#: e_metrobus/navigation/models.py:32
+#: e_metrobus/navigation/models.py:31
 msgid "Inkorrekter oder unverständlicher Inhalt"
 msgstr "Incorrect or incomprehensible content"
 
-#: e_metrobus/navigation/models.py:33
+#: e_metrobus/navigation/models.py:32
 msgid "Anderes"
 msgstr "Others"
 
-#: e_metrobus/navigation/models.py:37
+#: e_metrobus/navigation/models.py:36
 msgid "Etwas funktioniert nicht? Ein Link ist kaputt?"
 msgstr "Something is not working? A link is broken?"
 
-#: e_metrobus/navigation/models.py:40
+#: e_metrobus/navigation/models.py:39
 msgid "Ist etwas schwierig oder frustrierend zu nutzen?"
 msgstr "Is something difficult or frustrating to use"
 
-#: e_metrobus/navigation/models.py:42
+#: e_metrobus/navigation/models.py:41
 msgid "Um welchen Inhalt geht es?"
 msgstr "What is the content?"
 
-#: e_metrobus/navigation/models.py:43
+#: e_metrobus/navigation/models.py:42
 msgid "Kannst du uns dein Problem beschreiben?"
 msgstr "Can you describe your problem?"
 
-#: e_metrobus/navigation/models.py:46
+#: e_metrobus/navigation/models.py:45
 msgid "Problem"
 msgstr "Problem"
 
-#: e_metrobus/navigation/models.py:48
+#: e_metrobus/navigation/models.py:47
 msgid "Beschreibung"
 msgstr "Description"
 
@@ -159,22 +165,22 @@ msgstr ""
 "I just took an E-bus on the 200 line and saved the world %(co2)s g CO "
 "<sub>2</sub> emissions. Take a look here:"
 
-#: e_metrobus/navigation/widgets.py:108
+#: e_metrobus/navigation/widgets.py:104
 msgid "Quiz"
 msgstr "Quiz"
 
-#: e_metrobus/navigation/widgets.py:115
+#: e_metrobus/navigation/widgets.py:111
 #: e_metrobus/templates/navigation/display_route.html:22
 #: e_metrobus/templates/navigation/display_route.html:37
 #: e_metrobus/templates/navigation/environment.html:43
 msgid "Meine Strecke"
 msgstr "My route"
 
-#: e_metrobus/navigation/widgets.py:122
+#: e_metrobus/navigation/widgets.py:118
 msgid "E-MetroBus"
 msgstr "E-MetroBus"
 
-#: e_metrobus/navigation/widgets.py:129
+#: e_metrobus/navigation/widgets.py:125
 #: e_metrobus/templates/navigation/legal.html:6
 msgid "Infos"
 msgstr "Information"
@@ -327,17 +333,17 @@ msgstr ""
 "resulting demand is to be met with both electricity generated from renewable "
 "energy sources and from the supply network"
 
-#: e_metrobus/templates/includes/desktop.html:104
+#: e_metrobus/templates/includes/desktop.html:107
 msgid "Projektziele"
 msgstr "Project goals"
 
-#: e_metrobus/templates/includes/desktop.html:108
-#: e_metrobus/templates/includes/desktop.html:118
-#: e_metrobus/templates/includes/desktop.html:128
+#: e_metrobus/templates/includes/desktop.html:111
+#: e_metrobus/templates/includes/desktop.html:121
+#: e_metrobus/templates/includes/desktop.html:131
 msgid "Zur Website"
 msgstr "Visit the website"
 
-#: e_metrobus/templates/includes/desktop.html:113
+#: e_metrobus/templates/includes/desktop.html:116
 msgid ""
 "Elektrobusse fahren, wie die Erfahrungen in anderen Städten zeigen, stabil "
 "und machen bereits etliche Städte rund um die Welt ein großes Stück "
@@ -350,17 +356,17 @@ msgid ""
 "bei der Elektrifizierung ihrer Busflotte helfen. Somit ist das Projekt E-"
 "MetroBus wegweisend für die zukünftige Elektromobilität."
 msgstr ""
-"As experience in other cities shows, electric buses are stable and are already "
-"making many cities around the world a lot more liveable. Of course, BVG also "
-"wants to gain its own experience with the operation of electric buses and their "
-"charging infrastructure. For this reason, BVG has joined forces with TU Berlin "
-"and the Reiner Lemoine Institute in a research constellation for the electric "
-"articulated buses in the E-MetroBus project. The findings from the project are "
-"to be incorporated into BVG's subsequent electric bus projects and also help "
-"other cities to electrify their bus fleets. Thus, the E-MetroBus project is a "
-"pioneer for future electromobility."
+"As experience in other cities shows, electric buses are stable and are "
+"already making many cities around the world a lot more liveable. Of course, "
+"BVG also wants to gain its own experience with the operation of electric "
+"buses and their charging infrastructure. For this reason, BVG has joined "
+"forces with TU Berlin and the Reiner Lemoine Institute in a research "
+"constellation for the electric articulated buses in the E-MetroBus project. "
+"The findings from the project are to be incorporated into BVG's subsequent "
+"electric bus projects and also help other cities to electrify their bus "
+"fleets. Thus, the E-MetroBus project is a pioneer for future electromobility."
 
-#: e_metrobus/templates/includes/desktop.html:123
+#: e_metrobus/templates/includes/desktop.html:126
 msgid ""
 "Das RLI entwickelt unterschiedliche Szenarien, wie eine lokale, "
 "netzdienliche Versorgung der Ladestationen erreicht werden kann. Dabei "
@@ -383,7 +389,7 @@ msgstr ""
 "transport and their transferability to transport companies of different "
 "sizes will then be examined"
 
-#: e_metrobus/templates/includes/desktop.html:133
+#: e_metrobus/templates/includes/desktop.html:136
 msgid ""
 "Die TU Berlin übernimmt im E-MetroBus Projekt einerseits aktuelle "
 "Anwendungsforschung, insbesondere die Entwicklung eines E-Bus-Leitsystems, "
@@ -394,40 +400,41 @@ msgid ""
 "Entwicklung des Betriebs- und Störfallkonzeptes mittels Simulationen sowie "
 "beim Datenmonitoring und der Datenauswertung."
 msgstr ""
-"In the E-MetroBus project, the TU Berlin is responsible for current application "
-"research. In particular, the researched topics are the development of an E-bus "
-"control system, the feasibility study of mobile rapid charging stations, as "
-"well as the energy-efficient air-conditioning and heating, and the environmental "
-"balance of the electric buses used. On the other hand, the TU Berlin is carrying "
-"out the support of technical tasks for the BVG, for example in the development "
-"of the operating and incident concept by means of simulations as well as in data "
-"monitoring and data evaluation."
+"In the E-MetroBus project, the TU Berlin is responsible for current "
+"application research. In particular, the researched topics are the "
+"development of an E-bus control system, the feasibility study of mobile "
+"rapid charging stations, as well as the energy-efficient air-conditioning "
+"and heating, and the environmental balance of the electric buses used. On "
+"the other hand, the TU Berlin is carrying out the support of technical tasks "
+"for the BVG, for example in the development of the operating and incident "
+"concept by means of simulations as well as in data monitoring and data "
+"evaluation."
 
-#: e_metrobus/templates/includes/desktop.html:142
+#: e_metrobus/templates/includes/desktop.html:145
 msgid "Möchtest du Feedback zum Projekt geben?"
 msgstr "Would you like to give feedback on the project?"
 
-#: e_metrobus/templates/includes/desktop.html:143
+#: e_metrobus/templates/includes/desktop.html:146
 msgid "Kontaktiere uns"
 msgstr "Contact us"
 
-#: e_metrobus/templates/includes/desktop.html:166
+#: e_metrobus/templates/includes/desktop.html:169
 #: e_metrobus/templates/navigation/legal.html:14
 msgid "Impressum"
 msgstr "Imprint"
 
-#: e_metrobus/templates/includes/desktop.html:167
+#: e_metrobus/templates/includes/desktop.html:170
 #: e_metrobus/templates/navigation/legal.html:15
 msgid "Datenschutz"
 msgstr "Data protection"
 
-#: e_metrobus/templates/includes/desktop.html:184
+#: e_metrobus/templates/includes/desktop.html:187
 #: e_metrobus/templates/navigation/legal.html:61
 msgid "Meinung schicken"
 msgstr "Send feedback"
 
-#: e_metrobus/templates/includes/desktop.html:195
-#: e_metrobus/templates/includes/desktop.html:203
+#: e_metrobus/templates/includes/desktop.html:198
+#: e_metrobus/templates/includes/desktop.html:206
 msgid "Zurück zur Startseite"
 msgstr "Return to the homepage"
 
