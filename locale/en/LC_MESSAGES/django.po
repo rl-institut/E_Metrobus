@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-20 11:32+0000\n"
+"POT-Creation-Date: 2020-08-20 11:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,17 +41,14 @@ msgid "Pkw (Diesel)"
 msgstr "Car (diesel)"
 
 #: e_metrobus/navigation/chart.py:145
-#| msgid "CO<sub>2</sub> Emissionen [in g]<br>nach Verkehrsmittel"
 msgid "CO<sub>2</sub> Emissionen<br>pro Person [in g]<br>nach Verkehrsmittel"
 msgstr "CO<sub>2</sub> emissions<br>per person [in g]<br>per vehicle"
 
 #: e_metrobus/navigation/chart.py:150
-#| msgid "Stickoxid Emissionen [in g]<br>nach Verkehrsmittel"
 msgid "Stickoxid Emissionen<br>pro Person [in g]<br>nach Verkehrsmittel"
 msgstr "Nitrogen oxide emissions<br>per person [in g]<br>per vehicle"
 
 #: e_metrobus/navigation/chart.py:155
-#| msgid "Feinstaub Emissionen [in g]<br>nach Verkehrsmittel"
 msgid "Feinstaub Emissionen<br>pro Person [in g]<br>nach Verkehrsmittel"
 msgstr "Particulate matter emissions<br>per person [in g]<br>per vehicle"
 
@@ -1408,16 +1405,6 @@ msgstr ""
 "possible.\n"
 
 #: e_metrobus/templates/questions/ich/advantages.html:5
-#| msgid ""
-#| "\n"
-#| "Die Reduzierung der Schadstoffemissionen werden begleitet von weniger "
-#| "Lärm. Als Fahrgast profitierst Du von einem deutlich ruhigeren "
-#| "Fahrerlebnis. Elektrische Busse sind vor allem beim Anfahren leiser als "
-#| "Dieselbusse und vibrieren weniger. Zur Erhöhung der Sicherheit für andere "
-#| "Verkehrsteilnehmer*innen ertönt beim Anfahren allerdings ein akustisches "
-#| "Signal mittels des AVAS (Acousitic Vehicle Alerting System). Als Anwohner "
-#| "der Buslinie 200 darfst Du Dich über eine erheblich geringere "
-#| "Abgasbelastung freuen. \n"
 msgid ""
 "\n"
 "    Die Reduzierung der Schadstoffemissionen werden begleitet von weniger "
@@ -1438,6 +1425,7 @@ msgstr ""
 "is emitted when starting off by means of the AVAS (Acousitic Vehicle "
 "Alerting System). As a resident of the 200 bus route, you can enjoy a "
 "considerably lower exhaust emission level. \n"
+"    "
 
 #: e_metrobus/templates/questions/ich/e_bus.html:5
 msgid ""
@@ -1465,7 +1453,8 @@ msgstr ""
 "buses used on Line 200 have the batteries installed on the roof, which means "
 "that there are significantly more superstructures on the roof of the buses "
 "than on diesel buses, where only the air-conditioning units are installed "
-"there. \n"
+"there.\n"
+"    "
 
 #: e_metrobus/templates/questions/ich/footprint.html:5
 msgid ""
@@ -1483,6 +1472,7 @@ msgstr ""
 "households, trade, commerce and services. With well over 40 percent of the "
 "total contribution, the &quot; conversion sector&quot;, i.e. power plants, "
 "is the largest emitter. \n"
+"    "
 
 #: e_metrobus/templates/questions/ich/footprint.html:9
 #: e_metrobus/templates/questions/politik/neutral.html:10
@@ -1518,6 +1508,7 @@ msgstr ""
 "limited range. The electric bus fleet is currently still operating on the "
 "above-mentioned lines, in some cases alternating with conventional diesel "
 "buses, so that the use of the electric buses can be maximised.\n"
+"    "
 
 #: e_metrobus/templates/questions/politik/ebus_time.html:5
 msgid "Bild eines E-Busses mit der Aufschrift Hab den Wagen voll geladen"
@@ -1576,6 +1567,7 @@ msgstr ""
 "larger bus fleet.\n"
 
 #: e_metrobus/templates/questions/politik/neutral.html:6
+#, python-format
 msgid ""
 "\n"
 "    Berlin hat Klimaneutralität zu einem seiner Ziele für die Zukunft "
@@ -1596,6 +1588,7 @@ msgstr ""
 "neutral from 2030, with comprehensive building refurbishments, among other "
 "things, playing a key role. For example, primary energy consumption is to be "
 "reduced by 80 %% by 2050 compared to 2010.\n"
+"    "
 
 #: e_metrobus/templates/questions/politik/schedule.html:5
 #: e_metrobus/templates/questions/umwelt/energy.html:5
@@ -1676,6 +1669,7 @@ msgstr ""
 "can be used, questions of green production, supply and storage of hydrogen "
 "must be clarified. In the E-MetroBus research project, the application is "
 "being investigated with these issues in mind. \n"
+"    "
 
 #: e_metrobus/templates/questions/umwelt/weather.html:6
 msgid ""
@@ -1687,6 +1681,7 @@ msgstr ""
 "\n"
 "However, extremely strong winds must be taken into account by the driving "
 "personnel when positioning the vehicle on the loading mast. \n"
+"    "
 
 #: e_metrobus/templates/questions/umwelt/windturbines.html:5
 msgid ""
