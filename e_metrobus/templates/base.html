@@ -46,7 +46,7 @@
     <div id="desktop" hidden>
       {% include "includes/desktop.html" %}
     </div>
-    <div id="portrait" class="grid-container portrait full">
+    <div id="portrait" class="grid-container portrait full" hidden>
 
       {{top_bar}}
 
@@ -119,7 +119,10 @@
           return check;
         };
 
-        if (!check_mobile()) {
+        if (check_mobile()) {
+          $("#desktop").hide();
+          $("#portrait").show();
+        } else {
           $("#desktop").show();
           $("#portrait").hide();
         }
