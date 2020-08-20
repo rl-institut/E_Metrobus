@@ -61,6 +61,7 @@ class NavigationView(PosthogMixin, TemplateView):
         score = questions.get_total_score(self.request.session)
         answers = questions.get_all_answers(self.request.session)
         context["footer"] = widgets.FooterWidget(links=self.footer_links)
+
         context["top_bar"] = widgets.TopBarWidget(
             title=self.title,
             title_icon=self.title_icon,
@@ -70,6 +71,7 @@ class NavigationView(PosthogMixin, TemplateView):
             answers=answers,
             template=self.top_bar_template,
             request=self.request,
+            quiz_finished="hashed_score" in self.request.session
         )
         return context
 
@@ -130,8 +132,6 @@ class DashboardView(CheckStationsMixin, NavigationView):
                 )
             )
         context["categories"] = categories
-        if "hashed_score" in self.request.session:
-            context["top_bar"].quiz_finished = True
 
         return context
 

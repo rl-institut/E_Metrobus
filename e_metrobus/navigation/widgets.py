@@ -73,6 +73,7 @@ class TopBarWidget(CustomWidget):
         title_alt=None,
         template=None,
         request=None,
+        quiz_finished=False
     ):
         if template:
             self.template_name = template
@@ -85,6 +86,7 @@ class TopBarWidget(CustomWidget):
         self.score_changed = False
         self.request = request
         self.share_link_js = True
+        self.quiz_finished = quiz_finished
 
     def get_context(self, **kwargs):
         context = super(TopBarWidget, self).get_context(**kwargs)
