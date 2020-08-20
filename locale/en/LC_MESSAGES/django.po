@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-20 11:48+0000\n"
+"POT-Creation-Date: 2020-08-20 12:23+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -714,7 +714,7 @@ msgstr "Answer options"
 
 #: e_metrobus/templates/navigation/question.html:43
 msgid "Antworten"
-msgstr "Answers"
+msgstr "Submit"
 
 #: e_metrobus/templates/navigation/quiz_finished.html:12
 #: e_metrobus/templates/navigation/quiz_finished.html:16
@@ -955,8 +955,8 @@ msgstr "Energy"
 
 #: e_metrobus/templates/pages/question_translations.html:39
 msgid ""
-"Wieviel Energie ist für die jährliche Stromversorgung der Elektrobusse auf "
-"der Linie 200 notwendig? So viel wie ausreichen würde zur Versorgung von:"
+"Wie viel Energie ist für die jährliche Stromversorgung der Elektrobusse auf "
+"der Linie 200 notwendig? So viel wie der Jahresstromverbrauch von:"
 msgstr ""
 "How much energy is needed for the annual power supply of the electric buses "
 "on route 200? As much as would suffice to supply:"
@@ -1163,7 +1163,7 @@ msgstr ""
 msgid ""
 "Berlins Mobilitätsgesetz, nach wie vor einzigartig in Deutschland, gibt in "
 "Berlin den Zeitrahmen für den vollständigen Umstieg von Diesel auf "
-"alternative Antriebe vor: Das entscheidende Jahr ist 2030. "
+"alternative Antriebe vor: Das entscheidende Jahr ist 2030."
 msgstr ""
 "Berlin's mobility law, still unique in Germany, sets the timeframe in Berlin "
 "for the complete changeover from diesel to alternative drives: The decisive "
