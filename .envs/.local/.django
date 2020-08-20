@@ -1,0 +1,16 @@
+# General
+# ------------------------------------------------------------------------------
+USE_DOCKER=yes
+IPYTHONDIR=/app/.ipython
+
+# Posthog
+# ------------------------------------------------------------------------------
+POSTHOG_KEY=<posthog_key>
+POSTHOG_URL=<posthog_url>
+
+EXCHANGE_ACCOUNT=<exchange_account>
+EXCHANGE_EMAIL=<exchange_email>
+EXCHANGE_PW=<exchange_pwd>
+
+FEEDBACK_RECIPIENTS=<feedback_recipients>
+BUG_RECIPIENTS=<bug_recipients>

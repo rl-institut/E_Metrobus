@@ -30,12 +30,12 @@ class DjangoFigure:
 
         self.script = plotly_div[
             plotly_div.find("<script")
-            + len('<script type="text/javascript">') : plotly_div.find("</script>")
+            + len('<script type="text/javascript">'): plotly_div.find("</script>")
         ]
 
         div_id_start = plotly_div.find('<div id="')
         div_id_end = plotly_div.find('"', div_id_start + 9)
-        self.div_id = plotly_div[div_id_start + 9 : div_id_end]
+        self.div_id = plotly_div[div_id_start + 9:div_id_end]
 
         self.div = f'<div id="{self.div_id}" class="plotly-graph-div"></div>'
 
@@ -84,7 +84,7 @@ def get_mobility_figure(values, title, e_asterisk=False):
     fig = go.Figure([bar])
     fig.layout.margin.t = 0
     fig.layout.margin.b = 0
-    fig.layout.margin.l = 10
+    fig.layout.margin.l = 10  # noqa
     fig.layout.margin.r = 10
     fig.layout.autosize = True
     fig.layout.plot_bgcolor = "#fff"
