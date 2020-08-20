@@ -97,11 +97,8 @@ def get_score_for_category(category: str, session):
         raise KeyError(f'No such category "{category}"')
 
     answers = get_category_answers(category, session)
-    return round(
-        len([answer for answer in answers if answer == Answer.Correct])
-        / len(answers)
-        * 100
-    )
+    correct_answers = [answer for answer in answers if answer == Answer.Correct]
+    return round(len(correct_answers) / len(answers) * 100)
 
 
 def get_total_score(session):
@@ -135,7 +132,7 @@ def get_category_shares(category, session):
 def get_category_answers(category, session):
     """Returns list of correct/wrong/unanswered questions for category"""
     if "questions" not in session or category not in session["questions"]:
-        return [Answer.Unanswered for question in QUESTIONS[category].questions]
+        return [Answer.Unanswered] * len(QUESTIONS[category].questions)
     answers = []
     for question_name, question in QUESTIONS[category].questions.items():
         answer = session["questions"][category].get(question_name)
@@ -197,7 +194,4 @@ def all_questions_answered(session):
 
 
 def check_answer(question, answer):
-    if isinstance(question.correct, list):
-        return answer == question.correct
-    else:
-        return answer == question.correct
+    return answer == question.correct
