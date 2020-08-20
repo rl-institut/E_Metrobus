@@ -41,19 +41,16 @@ msgid "Pkw (Diesel)"
 msgstr "Car (diesel)"
 
 #: e_metrobus/navigation/chart.py:145
-#, fuzzy
 #| msgid "CO<sub>2</sub> Emissionen [in g]<br>nach Verkehrsmittel"
 msgid "CO<sub>2</sub> Emissionen<br>pro Person [in g]<br>nach Verkehrsmittel"
 msgstr "CO<sub>2</sub> emissions<br>per person [in g]<br>per vehicle"
 
 #: e_metrobus/navigation/chart.py:150
-#, fuzzy
 #| msgid "Stickoxid Emissionen [in g]<br>nach Verkehrsmittel"
 msgid "Stickoxid Emissionen<br>pro Person [in g]<br>nach Verkehrsmittel"
 msgstr "Nitrogen oxide emissions<br>per person [in g]<br>per vehicle"
 
 #: e_metrobus/navigation/chart.py:155
-#, fuzzy
 #| msgid "Feinstaub Emissionen [in g]<br>nach Verkehrsmittel"
 msgid "Feinstaub Emissionen<br>pro Person [in g]<br>nach Verkehrsmittel"
 msgstr "Particulate matter emissions<br>per person [in g]<br>per vehicle"
