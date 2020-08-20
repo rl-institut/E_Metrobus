@@ -113,19 +113,6 @@
   }
 }
 
-#onboardingAnimateRoute {
-  padding-top: 3rem;
-}
-
-#onboardingAnimateIcons {
-  padding-top: 5rem;
-  height: 3rem;
-
-  img {
-    height: 3rem;
-  }
-}
-
 .display-route__grid {
   height: 100%;
 }
@@ -167,14 +154,6 @@
   }
 }
 
-.onboarding-icon {
-  margin-top: 1.5rem;
-
-  img {
-    height: 2rem;
-  }
-}
-
 .display-route__bg {
   background-color: $primary-color-1; 
   position: absolute;
@@ -184,44 +163,29 @@
   z-index: -1;
 }
 
-.plotly-graph-div {
-  height:55vh;
-  width:100vw;
-
-  @media (orientation: landscape) {
-    height: 100vh;
-    width: 80vw;
-    margin: 0 auto;
-  }
-}
-
 // Animations
 
 #display-route-line {
-  animation: display-route-line-animation 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  animation-delay: .5s;
+  animation: display-route-opacity 0.5s $cubic-bezier-route .5s both;
 }
 
 #display-route-start {
-  animation: display-route-start-animation 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  animation-delay: .85s;
+  animation: display-route-start-animation 0.5s $cubic-bezier-route .85s both;
 }
 
 #display-route-end {
-  animation: display-route-end-animation 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  animation-delay: 1s;
+  animation: display-route-end-animation 0.5s $cubic-bezier-route 1s both;
 }
 
 .display-route-number {
-  animation: display-route-number-animation 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+  animation: display-route-number-animation 0.5s $cubic-bezier-route both;
 }
 
 .display-route-small-number {
-  animation: display-route-small-number-animation 0.85s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  animation-delay: .45s;
+  animation: display-route-opacity 0.85s $cubic-bezier-route .45s both;
 }
 
-@keyframes display-route-line-animation {
+@keyframes display-route-opacity {
   0% {
     opacity: 0;
   }
@@ -263,14 +227,5 @@
   100% {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes display-route-small-number-animation {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
   }
 }
