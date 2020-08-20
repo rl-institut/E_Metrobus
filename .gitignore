@@ -274,7 +274,7 @@ e_metrobus/media/
 
 .ipython/
 .env
-.envs/*
+.envs/.production
 /.envrc
 /os
 /.idea/
