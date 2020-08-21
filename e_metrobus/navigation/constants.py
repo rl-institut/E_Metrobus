@@ -3,7 +3,7 @@ import datetime as dt
 from collections import namedtuple
 from dataclasses import dataclass, fields
 
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 
 ELLIPSE_RADIUS = 43
 ELLIPSE_X_OFFSET = 7
