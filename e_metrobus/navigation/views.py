@@ -233,7 +233,7 @@ class QuestionView(NavigationView):
     }
 
     def get_context_data(self, **kwargs):
-        self.title = questions.QUESTIONS[kwargs["category"]].label
+        self.title = questions.QUESTIONS[kwargs["category"]].get_label()
         self.title_icon = questions.QUESTIONS[kwargs["category"]].small_icon
 
         context = super(QuestionView, self).get_context_data(**kwargs)
@@ -354,8 +354,8 @@ class QuizFinishedView(PosthogMixin, TemplateView):
         return context
 
     def get(self, request, *args, **kwargs):
-        # if not questions.all_questions_answered(request.session):
-        #     raise Http404("Not all questions answered. Please go back to quiz.")
+        if not questions.all_questions_answered(request.session):
+            raise Http404("Not all questions answered. Please go back to quiz.")
         if "hashed_score" not in request.session:
             score = models.Score.save_score(request.session)
             request.session["hashed_score"] = score.hash

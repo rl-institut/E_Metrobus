@@ -26,8 +26,8 @@ button, button:hover, button:active, button:focus, button:visited, .button, .but
   &.button--small {
     width: auto !important;
     min-width: 8rem;
-    height: 2.325rem !important;
-    padding: 0 1rem;
+    height: 2.75rem !important;
+    padding: .5rem 1rem;
     margin-bottom: 0;
     font-size: .875rem !important;
     letter-spacing: .01rem;
@@ -50,7 +50,6 @@ button, button:hover, button:active, button:focus, button:visited, .button, .but
 	outline-width: 0!important;
 }
 
-$secondary-color: #252424;
 $tab-border: 2px solid $white;
 $tab-border-half: 1px solid $white;
 
@@ -95,6 +94,9 @@ $tab-border-half: 1px solid $white;
     letter-spacing: .01rem;
     font-weight: 700;
     padding: 1rem .5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   li.tabs-title--100-width {
@@ -106,7 +108,7 @@ $tab-border-half: 1px solid $white;
   }
 
   .tabs-title > a {
-    background-color: #EFEFEF;
+    background-color: $gray-1;
     color: $secondary-color;
   }
 

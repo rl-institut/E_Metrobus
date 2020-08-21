@@ -4,6 +4,41 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project tries to adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+### Changed
+- blank page shown before siwch to mobile/desktop view
+
+## [0.19.0] - 2020-08-06
+### Added
+- added ellpsis/nowrap to tabs
+- added space between long and short answers
+- added right/left padding to mobile landscape view
+
+### Changed
+- increased small button height
+- highlicht "smartphones" on desktop LP instead of URL
+- changed to heart BVG logo
+- updated desktop LP text and images
+- changed on scroll animations (desktop LP) to automatic animations for smaller screens
+- hid flag on small/landscape views on summary page
+- removed see more from answer view
+
+## [0.18.0] - 2020-07-29
+### Added
+- added scroll animation to desktop LP
+
+### Changed
+- removed bottom space from multiple choice layout
+- reduced vertical margins on share reveal for smaller screens
+- updated image on route page
+- remove upper part from summary page
+- update wording
+- switch buttons order on my route page
+
+### Fixed
+- removed CSS for lanscape mobile from desktop LP CSS
+- adjusted LP for tablet screens
+
 ## [0.17.1] - 2020-07-17
 ### Fixed
 - blocktrans error on environment page

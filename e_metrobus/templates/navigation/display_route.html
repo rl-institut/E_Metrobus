@@ -19,7 +19,7 @@
         <div class="cell display-route__start" id="display-route-start">
           {{stations.0}}
         </div>
-        <img class="show-for-portrait display-route__img" src="{% static 'images/icons/route.svg' %}" alt="{% trans 'Bild der Strecke' %}">
+        <img class="show-for-portrait display-route__img" src="{% static 'images/icons/route.svg' %}" alt="{% trans 'Meine Strecke' %}">
         <div class="cell display-route__end" id="display-route-end">
           {{stations.1}}
         </div>
@@ -34,9 +34,9 @@
 <div class="cell display-route" id="onboardingAnimate2" style="display: none;">
   <div class="grid-x display-route__grid text-center align-center">
     <div class="cell display-route__wrap">
-      <img class="larger show-for-portrait" src="{% static 'images/icons/Icon_Route.svg' %}" alt="{% trans 'Bild der Strecke' %}">
+      <img class="larger show-for-portrait" src="{% static 'images/icons/Icon_Route.svg' %}" alt="{% trans 'Meine Strecke' %}">
       <div class="display-route__text">
-        <p class="display-route__sentence">{% trans "Deine Strecke mit dem <span>E-Bus</span> beträgt" %}</p>
+        <p class="display-route__sentence">{% trans "Deine Strecke mit dem <span>Elektrobus</span> beträgt" %}</p>
         {% if distance < 1 %}
           <p class="display-route__number display-route-number">{{distance_in_meter|floatformat:"0"}} m</p>
         {% else %}
@@ -58,7 +58,7 @@
     <div class="cell display-route__wrap">
       <img class="show-for-portrait" id="onboardingAnimateIcon2" src="{% static 'images/icons/Icon_E_Car.svg' %}" alt="{% trans 'E-Pkw' %}">
       <div class="display-route__text">
-        <p class="display-route__sentence">{% trans "Im Vergleich zum <span>E-PKW</span> sparst du auf dieser Strecke" %}</p>
+        <p class="display-route__sentence">{% trans "Im Vergleich zum <span>Elektro-Pkw</span> sparst du auf dieser Strecke" %}</p>
         <p class="display-route__number display-route-number">{{co2.e_pkw.percent|floatformat:"0"}} % CO<sub>2</sub></p>
         <p class="display-route__number display-route__number--small display-route-small-number">({{co2.e_pkw.gram|floatformat:"0"}} g CO<sub>2</sub>)</p>
       </div>

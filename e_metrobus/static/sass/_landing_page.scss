@@ -159,26 +159,6 @@
         margin-bottom: 0;
       }
     }
-    &--popup {
-      position: absolute;
-      top: 16rem;
-      background-color: $white;
-      padding: 1rem 0;
-
-      span {
-        color: $gray-2;
-      }
-      p {
-      margin-right: 2.5rem;
-      margin-left: 1rem;
-      margin-bottom: 0;
-      text-align: left;
-      }
-      img {
-        height: 1.5rem;
-        margin: 1rem;
-      }
-    }
   }
   &__text {
     font-size: .64rem;
@@ -193,7 +173,7 @@
       text-align: center;
     }
 
-    @media (orientation: landscape) {
+    @media (orientation: landscape) and (max-width: 1023px) {
       padding-top: 2rem;
     }
   }
@@ -202,18 +182,10 @@
     position: fixed;
     bottom: 0;
 
-    @media (orientation: landscape) {
+    @media (orientation: landscape) and (max-width: 1023px) {
       position: relative;
     }
   }
-}
-#language_popup {
-  height: 10rem;
-}
-#language_close {
-color: $secondary-color;
-border: none;
-background: none;
 }
 
 // CSS for desktop LP and mobile SUMMARY
@@ -228,6 +200,21 @@ $desktop-padding-xxsmall: .6rem;
   border-radius: $border-radius;
   padding: $padding;
   text-align: center;
+}
+
+@mixin desktop-h2 {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  @media only screen and (min-width: 1024px) {
+    font-size: 1.55rem;
+  }
+}
+
+@mixin desktop-imgs {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .grid-x.grid-width--large {
@@ -246,7 +233,11 @@ $desktop-padding-xxsmall: .6rem;
   flex-direction: row;
   justify-content: center;
   padding-bottom: 0;
-  margin-bottom: $desktop-padding-medium;
+  margin-bottom: $desktop-padding-small;
+
+  @media only screen and (min-width: 640px) {
+    margin-bottom: $desktop-padding-medium;
+  }
 
   @media only screen and (min-width: 1024px) {
     margin-bottom: $desktop-padding-large;
@@ -258,8 +249,8 @@ $desktop-padding-xxsmall: .6rem;
   @media only screen and (min-width: 1024px) {
     padding-top: $desktop-padding-medium;
   }
-  @media only screen and (orientation: landscape) {
-    padding: 1rem 10vw;
+  @media only screen and (orientation: landscape) and (max-width: 1023px) {
+    padding: 1rem 5vw;
   }
 
   & > div {
@@ -273,14 +264,23 @@ $desktop-padding-xxsmall: .6rem;
     right: 0;
     width: 8rem;
 
+    @media screen and (max-width: 800px) {
+      text-align: right;
+      padding-right: 1rem;
+    }
+
+    @media screen and (max-height: 640px) and (orientation: landscape) {
+      display: none;
+    }
+
     a, a:link, a:hover, a:visited, a:active, a:focus {
       color: $secondary-color;
     }
 
     img {
       display: inline-block;
-      width: 1.5rem;
-      height: 1.5rem;
+      width: 1.25rem;
+      height: 1.25rem;
     }
 
     span {
@@ -294,6 +294,9 @@ $desktop-padding-xxsmall: .6rem;
 
   &__frame {
     @include yellow-card(1rem);
+    @media only screen and (min-width: 640px) {
+      @include yellow-card($desktop-padding-small);
+    }
     @media only screen and (min-width: 1024px) {
       @include yellow-card($desktop-padding-medium);
     }
@@ -308,6 +311,7 @@ $desktop-padding-xxsmall: .6rem;
   }
 
   span {
+    display: block;
     font-size: 1.25rem;
     font-weight: 300;
     @media only screen and (min-width: 1024px) {
@@ -317,6 +321,19 @@ $desktop-padding-xxsmall: .6rem;
 }
 
 .desktop-app { 
+
+  @media only screen and (max-width: 639px) {
+    display: none;
+  }
+
+  .desktop-app__img  {
+    @media only screen and (min-width: 640px) and (max-width: 1023px) {
+      text-align: center;
+      img {
+        height: 30rem;
+      }
+    }
+  }
   
   .desktop-app__text {
     padding-top: $desktop-padding-medium;
@@ -335,66 +352,58 @@ $desktop-padding-xxsmall: .6rem;
     .heading {
 
       h2 {
-        font-size: 1.25rem;
+        line-height: 3.25rem;
         font-weight: 700;
         text-align: center;
-        padding-bottom: $desktop-padding-xsmall;
-        @media only screen and (min-width: 1024px) {
+        padding-bottom: $desktop-padding-small;
+        font-size: 1.55rem;
+
+        @media screen and (min-width: 1024px) {
           text-align: left;
-          font-size: 1.55rem;
           padding-bottom: $desktop-padding-medium;
         }
       }
 
       h2 .heading--highlight {
         white-space: nowrap;
-        @media only screen and (min-width: 1024px) {
-          color: $white;
-          background-color: $secondary-color;
-          padding: .75rem;
-        }
+        font-weight: 700;
+        color: $white;
+        background-color: $secondary-color;
+        padding: .75rem;
+        line-height: 2.75rem;
+      }
+      h2 .heading--bold {
+        border-bottom: 6px solid $primary-color-1;
+        white-space: nowrap;
       }
     }
 
-    .icons {
-      padding-bottom: $desktop-padding-small;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      @media only screen and (min-width: 1024px) {
-        display: block;
-        padding-bottom: $desktop-padding-medium
+    .benefits {
+      position: relative;
+      p {
+        font-size: 1.25rem;
+        line-height: 2rem;
+        text-align: left;
+        margin-bottom: $desktop-padding-small;
+        padding-left: 3rem;
       }
-
-      .icons--1 {
+      .icons::before {
+        content: '';
+        background-size: 2rem 2rem;
+        position: absolute;
+        width: 2rem;
+        height: 2rem;
+        left: 0;
+      }
+      .icons--1::before {
         background-image: url(../images/icons/i_quiz_black.svg);
       }
-      .icons--2 {
+      .icons--2::before {
         background-image: url(../images/icons/i_pin_black.svg);
       }
-      .icons--3 {
+      .icons--3::before {
         background-image: url(../images/icons/i_flash_black.svg);
       }
-      & > div {
-        height: 2rem;
-        width: 2rem;
-        display: inline-block;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        @media only screen and (min-width: 1024px) {
-          height: 3.25rem;
-          width: 3.25rem;
-          margin-right: $desktop-padding-small;
-        }
-      }
-    }
-
-    .benefits p {
-      font-size: 1rem;
-      line-height: 1.5rem;
-      text-align: left;
-      margin-bottom: $desktop-padding-xsmall;
 
       @media only screen and (min-width: 1024px) {
         font-size: 1.25rem;
@@ -414,12 +423,7 @@ $desktop-padding-xxsmall: .6rem;
     }
 
     h2 {
-      text-align: center;
-      font-size: 1.25rem;
-      font-weight: 700;
-      @media only screen and (min-width: 1024px) {
-        font-size: 1.55rem;
-      }
+      @include desktop-h2();
     }
   }
 
@@ -456,9 +460,8 @@ $desktop-padding-xxsmall: .6rem;
       height: 2rem;
       width: 2rem;
       display: inline-block;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
+      @include desktop-imgs();
+
       @media only screen and (min-width: 1024px) {
         height: 3.25rem;
         width: 3.25rem;
@@ -502,9 +505,8 @@ $desktop-padding-xxsmall: .6rem;
     }
 
     h2 {
-      text-align: center;
-      font-size: 1.25rem;
-      font-weight: 700;
+      @include desktop-h2();
+
       @media only screen and (min-width: 1024px) {
         font-size: 1.55rem;
       }
@@ -551,7 +553,9 @@ $desktop-padding-xxsmall: .6rem;
 
   &__frame {
     @include yellow-card(1rem);
-
+    @media only screen and (min-width: 640px) {
+      @include yellow-card($desktop-padding-small);
+    }
     @media only screen and (min-width: 1024px) {
       @include yellow-card($desktop-padding-small);
     }
@@ -574,9 +578,7 @@ $desktop-padding-xxsmall: .6rem;
   .img {
     width: 100%;
     background-image: url(../images/E_bus_img.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+    @include desktop-imgs();
   }
 }
 
@@ -639,5 +641,138 @@ $desktop-padding-xxsmall: .6rem;
   #pricacyButton {
     padding: .25rem;
     background-color: $primary-color-2;
+  }
+}
+
+// Animating destkop LP
+
+.animate-desktop {
+  opacity: 0;
+}
+
+.a-desktop.a-desktop--frame {
+  animation: desktop-animation-opacity 1.25s $cubic-bezier-ease-in both;
+}
+
+.a-desktop.a-desktop--header {
+  animation: desktop-animation-bottom 1.25s $cubic-bezier-ease-out .5s both;
+}
+
+.a-desktop.a-desktop--subheader {
+  animation: desktop-animation-bottom 1.25s $cubic-bezier-ease-out 1s both;
+}
+
+.a-desktop.a-desktop--lang {
+  animation: desktop-animation-opacity 1.25s $cubic-bezier-ease-in 1.25s both;
+}
+
+.a-desktop.a-desktop--device {
+  animation: desktop-animation-opacity 1.25s $cubic-bezier-ease-in 1.75s both;
+}
+
+.a-desktop.a-desktop--app-heading {
+  animation: desktop-animation-opacity 1.25s $cubic-bezier-ease-in 2s both;
+}
+
+.a-desktop.a-desktop--app-icons {
+  animation: desktop-animation-opacity 1.25s $cubic-bezier-ease-in 2.25s both;
+}
+
+.a-desktop.a-desktop--app-text {
+  animation: desktop-animation-opacity 1.25s $cubic-bezier-ease-in 2.5s both;
+}
+
+
+.animate-desktop.animate-desktop--bottom {
+  animation: desktop-animation-bottom 1.25s $cubic-bezier-ease-out 1.75s both;
+}
+.animate-desktop.animate-desktop--bottom.triggeredCSS3 {
+  animation: desktop-animation-bottom 1.25s $cubic-bezier-ease-out .25s both;
+}
+
+.animate-desktop.animate-desktop--left {
+  animation: desktop-animation-left 1.25s $cubic-bezier-ease-out 2s both;
+}
+.animate-desktop.animate-desktop--left.triggeredCSS3 {
+  animation: desktop-animation-left 1.25s $cubic-bezier-ease-out .25s both;
+}
+
+.animate-desktop.animate-desktop--right {
+  animation: desktop-animation-right 1.25s $cubic-bezier-ease-out 2s both;
+}
+.animate-desktop.animate-desktop--right.triggeredCSS3 {
+  animation: desktop-animation-right 1.25s $cubic-bezier-ease-out .25s both;
+}
+
+.animate-desktop.animate-desktop--opacity {
+  animation: desktop-animation-opacity 1.25s $cubic-bezier-ease-in 2s both;
+}
+.animate-desktop.animate-desktop--opacity.triggeredCSS3 {
+  animation: desktop-animation-opacity 1.25s $cubic-bezier-ease-in .25s both;
+}
+
+.summary--mobile { // hinder animation on mobile summary page
+  .a-desktop.a-desktop--frame,
+  .a-desktop.a-desktop--header,
+  .a-desktop.a-desktop--subheader,
+  .a-desktop.a-desktop--lang,
+  .a-desktop.a-desktop--device,
+  .a-desktop.a-desktop--app-heading,
+  .a-desktop.a-desktop--app-icons,
+  .a-desktop.a-desktop--app-text,
+  .animate-desktop.animate-desktop--bottom,
+  .animate-desktop.animate-desktop--left,
+  .animate-desktop.animate-desktop--right,
+  .animate-desktop.animate-desktop--opacity,
+  .animate-desktop.animate-desktop--bottom.triggeredCSS3,
+  .animate-desktop.animate-desktop--left.triggeredCSS3,
+  .animate-desktop.animate-desktop--right.triggeredCSS3,
+  .animate-desktop.animate-desktop--opacity.triggeredCSS3 {
+    animation: none;
+  }
+  .animate-desktop {
+    opacity: 1;
+  }
+}
+
+@keyframes desktop-animation-opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes desktop-animation-bottom {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes desktop-animation-left {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes desktop-animation-right {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
   }
 }

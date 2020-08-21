@@ -85,6 +85,10 @@
   margin-bottom: 1rem;
   margin-top: 1rem;
 
+  @media only screen and (orientation: landscape) {
+    padding: 1rem 10vw;
+  }
+
   .tabs {
     border: none;
   }
@@ -118,11 +122,11 @@
       width: 50%;
       padding-top: .125rem;
     }
-    &--emissions.active div {
+    &--bus.active div {
       background-color: $secondary-color;
       color: $white;
     }
-    &--bus.active div {
+    &--emissions.active div {
       background-color: $gray-4;
       color: $white;
     }

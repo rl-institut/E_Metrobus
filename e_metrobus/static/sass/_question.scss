@@ -12,14 +12,9 @@
 }
 
 .question{
-  margin-bottom: 2rem;
 
   @media only screen and (orientation: landscape) {
     padding: 0 10vw;
-  }
-
-  &__multiple-choice {
-    padding-bottom: 6rem;
   }
 
   &__text {
@@ -92,7 +87,7 @@
     margin: auto;
   }
   .question__answer label {
-    color: #252424;
+    color: $secondary-color;
   }
   &__btn {
     background-color: rgba(255, 255, 255, .75);
@@ -104,7 +99,7 @@
     background-color: $gray-1 !important;
   }
   &__btn input:hover {
-    background-color: #252424;
+    background-color: $secondary-color;
   }
 }
 
@@ -116,7 +111,7 @@
 .answer--ready {
   background-color: rgba(255, 255, 255, .75);
   input {
-    background-color: #252424 !important;
+    background-color: $secondary-color !important;
   }
 }
 //CSS for correct/wrong-answer
@@ -137,33 +132,11 @@
     background-color: $primary-color-1;
   }
   &__wrong {
-    background-color: #252424;
+    background-color: $secondary-color;
     color: $white;
   }
 }
 //CSS for answer texts
-@mixin answer-top-box ($answer-top-box-font-color) {
-  text-align: center;
-  color: $answer-top-box-font-color;
-  font-weight: 700;
-  padding-bottom: 1rem;
-}
-
-@mixin answer-top-box-icon ($answer-top-box-icon) {
-  content: '';
-  position: absolute;
-  background-image: url(../images/icons/i_flash_white.svg);
-  background-size: 60%;
-  background-color: $answer-top-box-icon;
-  background-position: center center;
-  background-repeat: no-repeat;
-  transform: translateY(-1px);
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 100px;
-  margin-left: -2rem;
-}
-
 .answer__text {
   margin: 1.5rem 0 0;
   padding-right: 1rem;
@@ -174,67 +147,8 @@
 .answer__text-more {
   margin-bottom: 8rem;
 
-  #more {
-    font-size: .875rem;
-    letter-spacing: .01rem;
-  }
-
-  .accordion-content {
-    padding-top: 0;
-  }
-
-  .accordion-content,
-  :last-child > .accordion-content:last-child {
-    border: none;
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .accordion-title:hover,
-  .accordion-title:focus {
-    background-color: $white;
-  }
-
-  .accordion-item .icon {
-    display: inline-block;
-    width: .875rem;
-    height: .875rem;
-    transform: translateY(2px);
-    background-image: url(../images/icons/i_next_gray.svg);
-    background-size: cover;
-    margin-right: .25rem;
-  }
-
-  .accordion-item.is-active .icon {
-    background-image: url(../images/icons/i_back_gray.svg);
-  }
   img {
     margin: 2rem 0;
-  }
-
-  .accordion-title,
-  .accordion-title:visited,
-  .accordion-title:focus,
-  .accordion-title:active,
-  .accordion-title:hover {
-    padding-top: .25rem;
-    padding-left: 0;
-    font-size: 1rem;
-    color: $gray-4;
-
-    & > div {
-      display: inline-block;
-    }
-
-    &::before {
-      content: "";
-    }
-  }
-
-  .accordion-item.is-active .accordion-title {
-    &::before {
-      content: "";
-    }
   }
 
   .answer__source {
@@ -243,7 +157,12 @@
   }
 }
 
-.a-accordion-more {
+.long-answer {
+  display: block;
+  padding-top: 1rem;
+}
+
+.a-answer-more {
   animation: a-answer-text 1s cubic-bezier(0.470, 0.000, 0.745, 0.715) 1.5s both;
 }
 

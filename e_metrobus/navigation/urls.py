@@ -24,15 +24,17 @@ urlpatterns = [
         view=views.CategoryFinishedView.as_view(),
         name="category_finished",
     ),
-    path("abgeschlossen/", view=views.QuizFinishedView.as_view(), name="finished_quiz",),
+    path(
+        "abgeschlossen/", view=views.QuizFinishedView.as_view(), name="finished_quiz",
+    ),
     path("punkte/<str:hash>/", view=views.ShareScoreView.as_view(), name="score",),
     path(
-        "zusammenfassung/",
-        view=views.SummaryView.as_view(),
-        name="questions_as_text",
+        "zusammenfassung/", view=views.SummaryView.as_view(), name="questions_as_text",
     ),
     path("informationen/", view=views.LegalView.as_view(), name="legal"),
     path("accept_privacy_policy/", views.accept_privacy_policy),
     path("send_posthog_event/", views.send_posthog_event),
-    path("get_comparison_chart/", views.get_comparison_chart),
+    path(
+        "get_comparison_chart/", views.get_comparison_chart, name="get_comparison_chart"
+    ),
 ]

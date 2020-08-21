@@ -20,7 +20,7 @@
             <span>{% if non_bus_user %}{% trans 'Toll, dass du dich für den E-Bus interessierst!' %}{% else %}{% trans 'Toll, dass du mit einem E-Bus fährst!' %}{% endif %}</span>
           </div>
           <div class="landpage__button-btn">
-            <a href="{% if non_bus_user %}{% url 'navigation:tour' %}{% else %}{% url 'navigation:route' %}{% endif %}"><button name="boarding" class="button a-lp-btn" {% if visited %}style="animation: none"{% endif %}>{% trans 'Zeig mir warum!' %}</button></a>
+            <a href="{% if non_bus_user %}{% url 'navigation:tour' %}{% else %}{% url 'navigation:route' %}{% endif %}"><button name="boarding" class="button a-lp-btn" {% if visited %}style="animation: none"{% endif %}>{% trans 'Los geht&#39;s!' %}</button></a>
           </div>
           <div class="landpage__language">
             <div class="grid-x align-center text-center">
@@ -49,7 +49,7 @@
           </div>
           <div class="cell small-4 landpage__logo landpage__logo--bvg" {% if visited %}style="animation: none"{% endif %}>
             <a href="https://www.bvg.de/de">
-              <img src="{% static 'images/logos/Logo_BVG.png' %}" alt="BVG Logo">
+              <img src="{% static 'images/logos/BVG_Herz_Gelb_RGB.png' %}" alt="BVG Logo">
             </a>
           </div>
           <div class="cell small-4 landpage__logo landpage__logo--tu" {% if visited %}style="animation: none"{% endif %}>
