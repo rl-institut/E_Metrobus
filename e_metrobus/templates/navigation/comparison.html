@@ -3,7 +3,7 @@
 {% load static %}
 {% load i18n %}
 
-{% block subtitle %} - {% trans 'CO2 Emissionen im Vergleich' %}{% endblock %}
+{% block subtitle %} - {% trans 'CO<sub>2</sub> Emissionen im Vergleich' %}{% endblock %}
 
 {% block body_class %}l-scroll l-scroll--nav l-scroll--nofooter{% endblock %}
 
@@ -58,7 +58,7 @@
   <script>
     $.ajax({
       type: "GET",
-      url: "/get_comparison_chart",
+      url: "{% url 'navigation:get_comparison_chart' %}",
       dataType: 'json',
       data: {"route": "route", "emission": "co2"},
       success: function(json)
