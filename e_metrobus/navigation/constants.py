@@ -3,7 +3,7 @@ import datetime as dt
 from collections import namedtuple
 from dataclasses import dataclass, fields
 
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 
 ELLIPSE_RADIUS = 43
 ELLIPSE_X_OFFSET = 7
@@ -11,7 +11,7 @@ ELLIPSE_Y_OFFSET = 7
 
 Consumption = namedtuple("Consumption", ["distance", "co2", "nitrogen", "fine_dust"])
 
-FLEET_START_DATE = dt.date(2020, 8, 12)
+FLEET_START_DATE = dt.date(2020, 8, 27)
 FLEET_DISTANCE_PER_DAY = 2800
 
 

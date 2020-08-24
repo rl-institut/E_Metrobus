@@ -110,7 +110,7 @@
       if ($(selected_chart).find(".loader").length) {
         $.ajax({
           type: "GET",
-          url: "/get_comparison_chart",
+          url: "{% url 'navigation:get_comparison_chart' %}",
           dataType: 'json',
           data: {"route": route, "emission": emission},
           success: function(json)
