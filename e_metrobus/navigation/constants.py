@@ -11,7 +11,7 @@ ELLIPSE_Y_OFFSET = 7
 
 Consumption = namedtuple("Consumption", ["distance", "co2", "nitrogen", "fine_dust"])
 
-FLEET_START_DATE = dt.date(2020, 8, 12)
+FLEET_START_DATE = dt.date(2020, 8, 27)
 FLEET_DISTANCE_PER_DAY = 2800
 
 
