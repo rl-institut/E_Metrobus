@@ -122,7 +122,7 @@
 
         function insert_desktop_page() {
           $.ajax({
-            url: "/get_desktop_page/",
+            url: "{% url 'navigation:get_desktop_page' %}",
             async: false,
             dataType: "html",
             success: function(response) {
