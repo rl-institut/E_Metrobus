@@ -127,6 +127,8 @@
             dataType: "html",
             success: function(response) {
               $("#desktop").html(response);
+              $(document).foundation();
+              $(document).foundation('reveal', 'reflow');
             }
           });
         }
