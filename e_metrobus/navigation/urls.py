@@ -35,5 +35,7 @@ urlpatterns = [
     path("get_desktop_page/", view=views.get_desktop_page),
     path("accept_privacy_policy/", views.accept_privacy_policy),
     path("send_posthog_event/", views.send_posthog_event),
-    path("get_comparison_chart/", views.get_comparison_chart),
+    path(
+        "get_comparison_chart/", views.get_comparison_chart, name="get_comparison_chart"
+    ),
 ]
