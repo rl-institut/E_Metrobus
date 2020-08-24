@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-20 12:23+0000\n"
+"POT-Creation-Date: 2020-08-24 11:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -41,15 +41,22 @@ msgid "Pkw (Diesel)"
 msgstr "Car (diesel)"
 
 #: e_metrobus/navigation/chart.py:145
-msgid "CO<sub>2</sub> Emissionen<br>pro Person [in g]<br>nach Verkehrsmittel"
+#, fuzzy
+#| msgid ""
+#| "CO<sub>2</sub> Emissionen<br>pro Person [in g]<br>nach Verkehrsmittel"
+msgid "CO<sub>2</sub>-Emissionen<br>pro Person [in g]<br>nach Verkehrsmittel"
 msgstr "CO<sub>2</sub> emissions<br>per person [in g]<br>per vehicle"
 
 #: e_metrobus/navigation/chart.py:150
-msgid "Stickoxid Emissionen<br>pro Person [in g]<br>nach Verkehrsmittel"
+#, fuzzy
+#| msgid "Stickoxid Emissionen<br>pro Person [in g]<br>nach Verkehrsmittel"
+msgid "Stickoxid-Emissionen<br>pro Person [in g]<br>nach Verkehrsmittel"
 msgstr "Nitrogen oxide emissions<br>per person [in g]<br>per vehicle"
 
 #: e_metrobus/navigation/chart.py:155
-msgid "Feinstaub Emissionen<br>pro Person [in g]<br>nach Verkehrsmittel"
+#, fuzzy
+#| msgid "Feinstaub Emissionen<br>pro Person [in g]<br>nach Verkehrsmittel"
+msgid "Feinstaub-Emissionen<br>pro Person [in g]<br>nach Verkehrsmittel"
 msgstr "Particulate matter emissions<br>per person [in g]<br>per vehicle"
 
 #: e_metrobus/navigation/constants.py:70
@@ -218,7 +225,9 @@ msgid "Server Fehler"
 msgstr "Server Error"
 
 #: e_metrobus/templates/500.html:10
-msgid "Oh - ein Server Fehler!"
+#, fuzzy
+#| msgid "Oh - ein Server Fehler!"
+msgid "Oh, ein Server-Fehler!"
 msgstr "Ooops!!! - Server Error"
 
 #: e_metrobus/templates/500.html:11
@@ -262,15 +271,21 @@ msgid "Teste deine Kenntnisse über E-Mobilität mit einem Quiz"
 msgstr "Test your knowledge about e-mobility with a quiz"
 
 #: e_metrobus/templates/includes/desktop.html:41
+#, fuzzy
+#| msgid ""
+#| "Erfahre wie viel CO<sub>2</sub>, NO<sub>x</sub> und Feinstaub du im "
+#| "Vergleich zu anderen Verkehrsmitteln sparst"
 msgid ""
-"Erfahre wie viel CO<sub>2</sub>, NO<sub>x</sub> und Feinstaub du im "
+"Erfahre, wie viel CO<sub>2</sub>, NO<sub>x</sub> und Feinstaub du im "
 "Vergleich zu anderen Verkehrsmitteln sparst"
 msgstr ""
 "Discover how much CO<sub>2</sub>, NO<sub>x</sub> and particulate matter you "
 "savecompared to other means of transport"
 
 #: e_metrobus/templates/includes/desktop.html:42
-msgid "Lerne über das E-MetroBus Projekt"
+#, fuzzy
+#| msgid "Lerne über das E-MetroBus Projekt"
+msgid "Finde weitere Infos zum E-MetroBus-Projekt"
 msgstr "Learn about the E-MetroBus project"
 
 #: e_metrobus/templates/includes/desktop.html:52
@@ -282,9 +297,11 @@ msgid "Laufzeit"
 msgstr "Project duration"
 
 #: e_metrobus/templates/includes/desktop.html:62
-msgid ""
-"Das E-MetroBus Projekt läuft für einen Zeitraum von Januar 2019 bis Januar "
-"2023"
+#, fuzzy
+#| msgid ""
+#| "Das E-MetroBus Projekt läuft für einen Zeitraum von Januar 2019 bis "
+#| "Januar 2023"
+msgid "Das E-MetroBus-Projekt läuft von Januar 2019 bis Januar 2023."
 msgstr "The E-MetroBus project runs from January 2019 to January 2023"
 
 #: e_metrobus/templates/includes/desktop.html:69
@@ -292,10 +309,15 @@ msgid "Förderung"
 msgstr "Funding"
 
 #: e_metrobus/templates/includes/desktop.html:73
+#, fuzzy
+#| msgid ""
+#| "Die Förderung erfolgt als ein Forschungs- und Entwicklungsvorhaben im "
+#| "Rahmen der Förderrichtlinie Elektromobilität des Bundesministeriums für "
+#| "Verkehr und digitale Infrastruktur"
 msgid ""
-"Die Förderung erfolgt als ein Forschungs- und Entwicklungsvorhaben im Rahmen "
-"der Förderrichtlinie Elektromobilität des Bundesministeriums für Verkehr und "
-"digitale Infrastruktur"
+"E-MetroBus ist ein Forschungs- und Entwicklungsvorhaben, das Fördermittel im "
+"Rahmen der Förderrichtlinie Elektromobilität des Bundesministeriums für "
+"Verkehr und digitale Infrastruktur erhält."
 msgstr ""
 "The funding is provided as a research and development project within the "
 "framework of the Electromobility Funding Directive of the Federal Ministry "
@@ -306,9 +328,13 @@ msgid "Busse"
 msgstr "Buses"
 
 #: e_metrobus/templates/includes/desktop.html:84
+#, fuzzy
+#| msgid ""
+#| "Um möglichst lange ladungsbedingte Standzeiten zu vermeiden, müssen die "
+#| "Busse in der Lage sein, mit einer hohen Leistung geladen zu werden"
 msgid ""
-"Um möglichst lange ladungsbedingte Standzeiten zu vermeiden, müssen die "
-"Busse in der Lage sein, mit einer hohen Leistung geladen zu werden"
+"Um lange ladungsbedingte Standzeiten zu vermeiden, müssen die Busse in der "
+"Lage sein, mit einer hohen Leistung geladen zu werden."
 msgstr ""
 "In order to avoid charge-related downtimes for as long as possible, the "
 "buses must be able to be charge at high power"
@@ -318,10 +344,16 @@ msgid "Ladeinfrastruktur"
 msgstr "Charging infrastructure"
 
 #: e_metrobus/templates/includes/desktop.html:95
+#, fuzzy
+#| msgid ""
+#| "Eine Ladeinfrastruktur von über 300kW soll erprobt werden. Der "
+#| "resultierende Bedarf soll sowohl mit den eigens aus Erneuerbaren Energien "
+#| "produziertem Strom als auch aus dem Versorgungsnetz bereitgestellt werden"
 msgid ""
-"Eine Ladeinfrastruktur von über 300kW soll erprobt werden. Der resultierende "
-"Bedarf soll sowohl mit den eigens aus Erneuerbaren Energien produziertem "
-"Strom als auch aus dem Versorgungsnetz bereitgestellt werden"
+"Die Ladeinfrastruktur, die in E-MetroBus erprobt wird, erbringt Leistungen "
+"von über 300kW. Der dafür benötigte Strom soll sowohl direkt mit "
+"Erneuerbaren Energien generiert als auch aus dem Versorgungsnetz "
+"bereitgestellt werden."
 msgstr ""
 "A charging infrastructure of over 300kW is to be tried and tested. The "
 "resulting demand is to be met with both electricity generated from renewable "
@@ -361,10 +393,22 @@ msgstr ""
 "fleets. Thus, the E-MetroBus project is a pioneer for future electromobility."
 
 #: e_metrobus/templates/includes/desktop.html:126
+#, fuzzy
+#| msgid ""
+#| "Das RLI entwickelt unterschiedliche Szenarien, wie eine lokale, "
+#| "netzdienliche Versorgung der Ladestationen erreicht werden kann. Dabei "
+#| "werden die Energiesysteme modelliert, simuliert und ihre Topologie "
+#| "anschließend unter ökonomischen und ökologischen Aspekten optimiert. Um "
+#| "das lokale Stromnetz zu entlasten, soll vor allem auch der Einsatz von "
+#| "Erneuerbare-Energie-Anlagen und die Einbindung in intelligente Netze, die "
+#| "je nach Energiebedarf Verbrauch und Erzeugung im Netz regulieren, im "
+#| "Detail betrachtet werden. Daraufhin werden Synergien zu anderen "
+#| "Verkehrsträgern und die Übertragbarkeit auf Verkehrsbetriebe "
+#| "unterschiedlicher Größenordnung untersucht."
 msgid ""
-"Das RLI entwickelt unterschiedliche Szenarien, wie eine lokale, "
-"netzdienliche Versorgung der Ladestationen erreicht werden kann. Dabei "
-"werden die Energiesysteme modelliert, simuliert und ihre Topologie "
+"Das RLI entwickelt für E-MetroBus unterschiedliche Szenarien, wie eine "
+"lokale, netzdienliche Versorgung der Ladestationen erreicht werden kann. "
+"Dabei werden die Energiesysteme modelliert, simuliert und ihre Topologie "
 "anschließend unter ökonomischen und ökologischen Aspekten optimiert. Um das "
 "lokale Stromnetz zu entlasten, soll vor allem auch der Einsatz von "
 "Erneuerbare-Energie-Anlagen und die Einbindung in intelligente Netze, die je "
@@ -496,10 +540,15 @@ msgstr "Where do the numbers come from?"
 
 #: e_metrobus/templates/navigation/comparison.html:39
 #: e_metrobus/templates/navigation/environment.html:68
+#, fuzzy
+#| msgid ""
+#| "Wert berechnet sich auf Grundlage des deutschen Strommixes. Da der "
+#| "aktuelle Strommix nicht CO<sub>2</sub>-neutral ist, sind auch "
+#| "Elektrofahrzeuge für CO<sub>2</sub> Austoß verantwortlich."
 msgid ""
 "Wert berechnet sich auf Grundlage des deutschen Strommixes. Da der aktuelle "
 "Strommix nicht CO<sub>2</sub>-neutral ist, sind auch Elektrofahrzeuge für "
-"CO<sub>2</sub> Austoß verantwortlich."
+"CO<sub>2</sub>-Austoß verantwortlich."
 msgstr ""
 "Value calculated on the basis of the German electricity mix. Since the "
 "current electricity mix is not CO<sub>2</sub>-neutral, electric vehicles are "
@@ -619,8 +668,10 @@ msgid "CO<sub>2</sub>"
 msgstr "CO<sub>2</sub>"
 
 #: e_metrobus/templates/navigation/environment.html:52
-msgid "NOx"
-msgstr "NOx"
+#, fuzzy
+#| msgid "CO<sub>2</sub>"
+msgid "NO<sub>x</sub>"
+msgstr "CO<sub>2</sub>"
 
 #: e_metrobus/templates/navigation/environment.html:55
 #: e_metrobus/templates/widgets/info_table.html:11
@@ -773,11 +824,15 @@ msgstr "Now you can..."
 
 #: e_metrobus/templates/navigation/tour.html:32
 #: e_metrobus/templates/navigation/tour_non_bus_users.html:30
-msgid "... deine Kenntnisse über E-Mobilität mit einem Quiz testen!"
+#, fuzzy
+#| msgid "... deine Kenntnisse über E-Mobilität mit einem Quiz testen!"
+msgid "... deine Kenntnisse über E-Mobilität mit einem Quiz testen"
 msgstr "... test your knowledge of e-mobility with a quiz!"
 
 #: e_metrobus/templates/navigation/tour.html:42
-msgid "... noch mehr Daten zu deiner Strecke und der Umwelt-Bilanz lesen"
+#, fuzzy
+#| msgid "... noch mehr Daten zu deiner Strecke und der Umwelt-Bilanz lesen"
+msgid "... noch mehr Daten zu deiner Strecke und der Umweltbilanz lesen"
 msgstr "... read further data about your route and the environmental balance"
 
 #: e_metrobus/templates/navigation/tour.html:47
@@ -787,7 +842,9 @@ msgstr "Flash"
 
 #: e_metrobus/templates/navigation/tour.html:52
 #: e_metrobus/templates/navigation/tour_non_bus_users.html:50
-msgid "... mehr über das E-MetroBus Projekt erfahren"
+#, fuzzy
+#| msgid "... mehr über das E-MetroBus Projekt erfahren"
+msgid "... mehr über das E-MetroBus-Projekt erfahren"
 msgstr "... learn more about the E-MetroBus project"
 
 #: e_metrobus/templates/navigation/tour.html:58
@@ -804,7 +861,9 @@ msgid "Hier kannst du..."
 msgstr "Here you can..."
 
 #: e_metrobus/templates/navigation/tour_non_bus_users.html:40
-msgid "... Daten zur Umwelt-Bilanz der neuen E-Busse lesen"
+#, fuzzy
+#| msgid "... Daten zur Umwelt-Bilanz der neuen E-Busse lesen"
+msgid "... Daten zur Umweltbilanz der neuen E-Busse lesen"
 msgstr "... Read data on the environmental balance of the new E-buses"
 
 #: e_metrobus/templates/pages/question_translations.html:5
@@ -1339,23 +1398,19 @@ msgstr ""
 msgid "Bild eines E-Busses an einer Ladesäule"
 msgstr "Picture of an E-bus at a charging station"
 
-#: e_metrobus/templates/questions/e_metrobus/batteries.html:7
-msgid ""
-"\n"
-"Die Batterien der Elektro-Gelenkbusse, die auf der Linie 200 eingesetzt "
-"werden, sind auf dem Dach angebracht.\n"
-msgstr ""
-"\n"
-"The batteries of the articulated electric buses used on Line 200 are mounted "
-"on the roof.\n"
-
-#: e_metrobus/templates/questions/e_metrobus/costs.html:5
+#: e_metrobus/templates/questions/e_metrobus/costs.html:6
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "Wie bei vielen Technologien sind auch bei Elektrobussen zu Beginn einer "
+#| "Marktdurchdringung die Fertigungszahlen gering und demnach die "
+#| "Stückkosten hoch. Mit zunehmender Serienfertigung können durch "
+#| "Skaleneffekte Preissenkungen erzielt werden. \n"
 msgid ""
 "\n"
 "Wie bei vielen Technologien sind auch bei Elektrobussen zu Beginn einer "
 "Marktdurchdringung die Fertigungszahlen gering und demnach die Stückkosten "
-"hoch. Mit zunehmender Serienfertigung können durch Skaleneffekte "
-"Preissenkungen erzielt werden. \n"
+"hoch. Mit zunehmender Serienfertigung werden die Busse günstiger.\n"
 msgstr ""
 "\n"
 "As is the case with many technologies, the production figures for electric "
@@ -1368,12 +1423,23 @@ msgid "Bild einer Ladestation mit Pantograf"
 msgstr "Picture of a charging station with pantograph"
 
 #: e_metrobus/templates/questions/e_metrobus/loading.html:7
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "Ein Pantograph ist ein Stromabnehmer zur Übertragung der elektrischen "
+#| "Energie von der Ladestation in den Bus. Der Pantograph ist in der "
+#| "Ladestation integriert. Wenn der Bus an der richtigen Stelle steht, wird "
+#| "der Pantograph heruntergefahren und verbindet sich in wenigen Sekunden "
+#| "mit den Kontaktpunkten auf dem Dach des Busses. Geladen wird in wenigen "
+#| "Minuten mit bis zu 450 kW. Wird die Leistung mit einem handelsüblichen "
+#| "Wasserkocher verglichen (etwa 2 kW Leistung) entspricht die Ladeleistung "
+#| "225 Wasserkochern.\n"
 msgid ""
 "\n"
-"Ein Pantograph ist ein Stromabnehmer zur Übertragung der elektrischen "
-"Energie von der Ladestation in den Bus. Der Pantograph ist in der "
-"Ladestation integriert. Wenn der Bus an der richtigen Stelle steht, wird der "
-"Pantograph heruntergefahren und verbindet sich in wenigen Sekunden mit den "
+"Ein Pantograf ist ein Stromabnehmer zur Übertragung der elektrischen Energie "
+"von der Ladestation in den Bus. Der Pantograf ist in der Ladestation "
+"integriert. Wenn der Bus an der richtigen Stelle steht, wird der Pantograf "
+"heruntergefahren und verbindet sich in wenigen Sekunden mit den "
 "Kontaktpunkten auf dem Dach des Busses. Geladen wird in wenigen Minuten mit "
 "bis zu 450 kW. Wird die Leistung mit einem handelsüblichen Wasserkocher "
 "verglichen (etwa 2 kW Leistung) entspricht die Ladeleistung 225 "
@@ -1405,16 +1471,28 @@ msgstr ""
 "possible.\n"
 
 #: e_metrobus/templates/questions/ich/advantages.html:5
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "    Die Reduzierung der Schadstoffemissionen werden begleitet von weniger "
+#| "Lärm. Als Fahrgast profitierst Du von einem deutlich ruhigeren "
+#| "Fahrerlebnis. Elektrische Busse sind vor allem beim Anfahren leiser als "
+#| "Dieselbusse und vibrieren weniger. Zur Erhöhung der Sicherheit für andere "
+#| "Verkehrsteilnehmer*innen ertönt beim Anfahren allerdings ein akustisches "
+#| "Signal mittels des AVAS (Acousitic Vehicle Alerting System). Als Anwohner "
+#| "der Buslinie 200 darfst Du Dich über eine erheblich geringere "
+#| "Abgasbelastung freuen. \n"
+#| "    "
 msgid ""
 "\n"
 "    Die Reduzierung der Schadstoffemissionen werden begleitet von weniger "
-"Lärm. Als Fahrgast profitierst Du von einem deutlich ruhigeren Fahrerlebnis. "
+"Lärm. Als Fahrgast profitierst du von einem deutlich ruhigeren Fahrerlebnis. "
 "Elektrische Busse sind vor allem beim Anfahren leiser als Dieselbusse und "
 "vibrieren weniger. Zur Erhöhung der Sicherheit für andere "
 "Verkehrsteilnehmer*innen ertönt beim Anfahren allerdings ein akustisches "
-"Signal mittels des AVAS (Acousitic Vehicle Alerting System). Als Anwohner "
-"der Buslinie 200 darfst Du Dich über eine erheblich geringere Abgasbelastung "
-"freuen. \n"
+"Signal mittels des AVAS (Acousitic Vehicle Alerting System). Als Anwohner*in "
+"der Buslinie 200 darfst du dich über eine erheblich geringere Abgasbelastung "
+"freuen.\n"
 "    "
 msgstr ""
 "\n"
@@ -1428,19 +1506,34 @@ msgstr ""
 "    "
 
 #: e_metrobus/templates/questions/ich/e_bus.html:5
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "    Elektrobusse zeichnen sich durch ihr nahezu geräuschloses Anfahren "
+#| "aus. Zur Erhöhung der Sicherheit für andere Verkehrsteilnehmer*innen "
+#| "ertönt beim Anfahren ein akustisches Signal mittels des AVAS (Acousitic "
+#| "Vehicle Alerting System). Außerdem weisen die Fahrzeuge keinerlei "
+#| "schädliche Abgase im Fahrbetrieb auf. Dadurch wird die Luftqualität "
+#| "direkt um den Bus sowie für die gesamte Stadt besser, sehr zur Freude von "
+#| "Fahrradfahrenden und Fußgängern, die bisher immer durch die Abgas-Wolke "
+#| "der Dieselbusse beeinträchtigt wurden. Die auf der Linie 200 eingesetzten "
+#| "E-Gelenkbusse haben die Batterien auf dem Dach verbaut, wodurch deutlich "
+#| "mehr Aufbauten auf dem Dach der Busse zu erkennen sind als bei "
+#| "Dieselbussen, bei denen dort lediglich die Klimageräte angebracht sind. \n"
+#| "    "
 msgid ""
 "\n"
 "    Elektrobusse zeichnen sich durch ihr nahezu geräuschloses Anfahren aus. "
 "Zur Erhöhung der Sicherheit für andere Verkehrsteilnehmer*innen ertönt beim "
 "Anfahren ein akustisches Signal mittels des AVAS (Acousitic Vehicle Alerting "
-"System). Außerdem weisen die Fahrzeuge keinerlei schädliche Abgase im "
-"Fahrbetrieb auf. Dadurch wird die Luftqualität direkt um den Bus sowie für "
+"System). Außerdem produzieren die Fahrzeuge im Fahrbetrieb keinerlei "
+"schädliche Abgase. Dadurch wird die Luftqualität direkt um den Bus sowie für "
 "die gesamte Stadt besser, sehr zur Freude von Fahrradfahrenden und "
-"Fußgängern, die bisher immer durch die Abgas-Wolke der Dieselbusse "
+"Fußgänger*innen, die bisher immer durch die Abgaswolke der Dieselbusse "
 "beeinträchtigt wurden. Die auf der Linie 200 eingesetzten E-Gelenkbusse "
 "haben die Batterien auf dem Dach verbaut, wodurch deutlich mehr Aufbauten "
 "auf dem Dach der Busse zu erkennen sind als bei Dieselbussen, bei denen dort "
-"lediglich die Klimageräte angebracht sind. \n"
+"lediglich die Klimageräte angebracht sind.\n"
 "    "
 msgstr ""
 "\n"
@@ -1481,6 +1574,22 @@ msgid "Quelle"
 msgstr "Source"
 
 #: e_metrobus/templates/questions/ich/lines.html:5
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "    Die Elektrobusse wurden zunächst auf Innenstadtlinien eingesetzt. "
+#| "Seit 2020 sind aber auch mehr und mehr Elektrobusse in Pankow und "
+#| "Lichtenberg unterwegs. Bei der Linienauswahl wurden durch "
+#| "Luftverschmutzung betroffene Gebiete besonders berücksichtigt. Die "
+#| "Elektro-Eindecker auf diesen Linien sind für die Depotladung ausgelegt, d."
+#| "h. sie laden meistens nur einmal täglich im Betriebshof ihre Batterien "
+#| "und haben keine Lademöglichkeiten auf der Strecke, wie bei den Elektro-"
+#| "Gelenkbussen der Linie 200. Dadurch sind diese Busse flexibel einsetzbar, "
+#| "haben aber eine begrenzte Reichweite. Die Elektrobusflotte ist auf den "
+#| "genannten Linien zur Zeit zum Teil noch abwechselnd im Mischverkehr mit "
+#| "konventionellen Dieselbussen unterwegs, der Einsatz der Elektrobusse wird "
+#| "sukzessive maximiert.\n"
+#| "    "
 msgid ""
 "\n"
 "    Die Elektrobusse wurden zunächst auf Innenstadtlinien eingesetzt. Seit "
@@ -1493,7 +1602,7 @@ msgid ""
 "diese Busse flexibel einsetzbar, haben aber eine begrenzte Reichweite. Die "
 "Elektrobusflotte ist auf den genannten Linien zur Zeit zum Teil noch "
 "abwechselnd im Mischverkehr mit konventionellen Dieselbussen unterwegs, der "
-"Einsatz der Elektrobusse wird sukzessive maximiert.\n"
+"Einsatz der Elektrobusse wird sukzessive ausgeweitet.\n"
 "    "
 msgstr ""
 "\n"
@@ -1608,10 +1717,22 @@ msgstr ""
 "able to react to new offers. \n"
 
 #: e_metrobus/templates/questions/umwelt/energy.html:7
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "Ein Elektrobus hat im Durchschnitt einen Verbrauch von 2 kWh/km. Bei "
+#| "einer Tagesfahrleistung von 200 km für jeden der Elektrobus auf der Linie "
+#| "200 ergibt sich damit ein Energiebedarf von etwa 2.044.000 kWh. Dies "
+#| "entspricht dem jährlichen Energiebedarf von ca. 584 "
+#| "Dreipersonenhaushalten. Zum Vergleich: Der konventionell angetriebene Bus "
+#| "verbraucht etwa 480.340 Liter Diesel im Jahr. Umgerechnet auf die "
+#| "Energiemenge, entspricht das einem Mehrbedarf vom Faktor 2,3, denn "
+#| "Verbrennungsmotoren sind deutlich ineffizienter als Elektromotoren: Sie "
+#| "bringen weniger der hineingesteckten Energie „auf die Straße“.\n"
 msgid ""
 "\n"
 "Ein Elektrobus hat im Durchschnitt einen Verbrauch von 2 kWh/km. Bei einer "
-"Tagesfahrleistung von 200 km für jeden der Elektrobus auf der Linie 200 "
+"Tagesfahrleistung von 200 km für jeden der Elektrobusse auf der Linie 200 "
 "ergibt sich damit ein Energiebedarf von etwa 2.044.000 kWh. Dies entspricht "
 "dem jährlichen Energiebedarf von ca. 584 Dreipersonenhaushalten. Zum "
 "Vergleich: Der konventionell angetriebene Bus verbraucht etwa 480.340 Liter "
@@ -1632,22 +1753,41 @@ msgstr ""
 "road&quot;.\n"
 
 #: e_metrobus/templates/questions/umwelt/reach.html:6
+#, fuzzy
+#| msgid ""
+#| "\n"
+#| "    Für den lokal emissionsfreien Betrieb kommen zuerst verschiedene "
+#| "Elektrobustypen im Mix (Depot- und Gelegenheitsladung) in Frage. Die "
+#| "Anwendung beider Technologien ist für Berlin sinnvoll, weil Depotlader-"
+#| "Busse am Flexibelsten sind, dafür aber eine begrenzte Reichweite haben. "
+#| "Gelegenheitslader wie auf der Linie 200 haben zwar eine nahezu "
+#| "unbegrenzte Reichweite durch die Nachladung auf der Strecke, sind jedoch "
+#| "von Ladeinfrastruktur im öffentlichen Raum abhängig. \n"
+#| "    Weitere Alternativen wie Hybrid-Oberleitungsbusse werden derzeit "
+#| "untersucht. Diese Fahrzeuge laden während der Fahrt, benötigen aber "
+#| "relativ viel Infrastruktur. Auch Wasserstoffbrennstoffzellen-Busse wären "
+#| "lokal emissionsfrei und hätten eine relativ große Reichweite. Bevor diese "
+#| "zum Einsatz kommen können, sind jedoch Fragen zur grünen Produktion, "
+#| "Versorgung und Lagerung von Wasserstoff zu klären. Im Forschungsprojekt E-"
+#| "MetroBus wird die Anwendung unter Berücksichtigung dieser Fragestellungen "
+#| "untersucht. \n"
+#| "    "
 msgid ""
 "\n"
 "    Für den lokal emissionsfreien Betrieb kommen zuerst verschiedene "
 "Elektrobustypen im Mix (Depot- und Gelegenheitsladung) in Frage. Die "
 "Anwendung beider Technologien ist für Berlin sinnvoll, weil Depotlader-Busse "
-"am Flexibelsten sind, dafür aber eine begrenzte Reichweite haben. "
+"am flexibelsten sind, dafür aber eine begrenzte Reichweite haben. "
 "Gelegenheitslader wie auf der Linie 200 haben zwar eine nahezu unbegrenzte "
 "Reichweite durch die Nachladung auf der Strecke, sind jedoch von "
-"Ladeinfrastruktur im öffentlichen Raum abhängig. \n"
+"Ladeinfrastruktur im öffentlichen Raum abhängig.\n"
 "    Weitere Alternativen wie Hybrid-Oberleitungsbusse werden derzeit "
 "untersucht. Diese Fahrzeuge laden während der Fahrt, benötigen aber relativ "
-"viel Infrastruktur. Auch Wasserstoffbrennstoffzellen-Busse wären lokal "
+"viel Infrastruktur. Auch Wasserstoff-Brennstoffzellen-Busse wären lokal "
 "emissionsfrei und hätten eine relativ große Reichweite. Bevor diese zum "
 "Einsatz kommen können, sind jedoch Fragen zur grünen Produktion, Versorgung "
 "und Lagerung von Wasserstoff zu klären. Im Forschungsprojekt E-MetroBus wird "
-"die Anwendung unter Berücksichtigung dieser Fragestellungen untersucht. \n"
+"die Anwendung unter Berücksichtigung dieser Fragestellungen untersucht.\n"
 "    "
 msgstr ""
 "\n"
@@ -1724,3 +1864,15 @@ msgstr "Share the app"
 #: e_metrobus/templates/widgets/top_bar_route.html:10
 msgid "Strecke ändern"
 msgstr "Change route"
+
+#~ msgid "NOx"
+#~ msgstr "NOx"
+
+#~ msgid ""
+#~ "\n"
+#~ "Die Batterien der Elektro-Gelenkbusse, die auf der Linie 200 eingesetzt "
+#~ "werden, sind auf dem Dach angebracht.\n"
+#~ msgstr ""
+#~ "\n"
+#~ "The batteries of the articulated electric buses used on Line 200 are "
+#~ "mounted on the roof.\n"
