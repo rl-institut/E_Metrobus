@@ -1,5 +1,6 @@
 from django.http.response import JsonResponse
 from django.shortcuts import get_object_or_404, Http404, HttpResponse, redirect
+from django.template.response import SimpleTemplateResponse
 from django.views.generic import TemplateView
 
 from e_metrobus.navigation import (
@@ -495,3 +496,7 @@ def get_comparison_chart(request):
     else:
         raise ValueError("Unknown emission")
     return JsonResponse({"div": plotly_chart.div, "script": plotly_chart.script})
+
+
+def get_desktop_page(request):
+    return SimpleTemplateResponse("includes/desktop.html")
