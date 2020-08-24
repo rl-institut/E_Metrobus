@@ -59,7 +59,9 @@
 
     </div>
 
-    {% block modal %}{% endblock modal %}
+    {% block modal %}
+      {{top_bar.reveal}}
+    {% endblock modal %}
 
     <!-- Le javascript
     ================================================== -->

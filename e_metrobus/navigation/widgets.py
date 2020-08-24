@@ -97,6 +97,12 @@ class TopBarWidget(CustomWidget):
         context["slogan"] = utils.get_slogan(percent)
         return context
 
+    def reveal(self, renderer=None):
+        template_name = "widgets/top_bar_reveal.html"
+        if renderer is None:
+            renderer = get_default_renderer()
+        return mark_safe(renderer.render(template_name, self.get_context()))
+
 
 class FooterWidget(CustomWidget):
     template_name = "widgets/footer.html"
