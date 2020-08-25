@@ -1,10 +1,10 @@
 
-from django.test import TestCase, tag
+from django.test import SimpleTestCase, tag
 from e_metrobus.navigation.chart import get_rounding
 
 
 @tag("chart")
-class ChartTestCase(TestCase):
+class ChartTestCase(SimpleTestCase):
     def test_rounding(self):
         self.assertEqual(get_rounding(10.4), 0)
 

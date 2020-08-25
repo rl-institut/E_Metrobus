@@ -6,7 +6,7 @@ from django.template.context_processors import csrf
 from django.templatetags.static import static
 from django.utils.html import format_html
 from django.utils.safestring import mark_safe
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 
 from e_metrobus.navigation import constants, utils, questions
 
@@ -73,6 +73,7 @@ class TopBarWidget(CustomWidget):
         title_alt=None,
         template=None,
         request=None,
+        quiz_finished=False
     ):
         if template:
             self.template_name = template
@@ -85,19 +86,22 @@ class TopBarWidget(CustomWidget):
         self.score_changed = False
         self.request = request
         self.share_link_js = True
+        self.quiz_finished = quiz_finished
 
     def get_context(self, **kwargs):
         context = super(TopBarWidget, self).get_context(**kwargs)
         context["share_url"] = utils.share_url(self.request)
         context["share_text"] = utils.share_text(self.request)
-        correct = len(
-            [answer for answer in self.answers if answer == questions.Answer.Correct]
-        )
-        total = len(self.answers)
         percent = questions.get_total_score(self.request.session)
         context["score"] = percent
         context["slogan"] = utils.get_slogan(percent)
         return context
+
+    def reveal(self, renderer=None):
+        template_name = "widgets/top_bar_reveal.html"
+        if renderer is None:
+            renderer = get_default_renderer()
+        return mark_safe(renderer.render(template_name, self.get_context()))
 
 
 class FooterWidget(CustomWidget):

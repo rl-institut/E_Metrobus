@@ -30,12 +30,12 @@ class DjangoFigure:
 
         self.script = plotly_div[
             plotly_div.find("<script")
-            + len('<script type="text/javascript">') : plotly_div.find("</script>")
+            + len('<script type="text/javascript">'): plotly_div.find("</script>")
         ]
 
         div_id_start = plotly_div.find('<div id="')
         div_id_end = plotly_div.find('"', div_id_start + 9)
-        self.div_id = plotly_div[div_id_start + 9 : div_id_end]
+        self.div_id = plotly_div[div_id_start + 9:div_id_end]
 
         self.div = f'<div id="{self.div_id}" class="plotly-graph-div"></div>'
 
@@ -84,7 +84,7 @@ def get_mobility_figure(values, title, e_asterisk=False):
     fig = go.Figure([bar])
     fig.layout.margin.t = 0
     fig.layout.margin.b = 0
-    fig.layout.margin.l = 10
+    fig.layout.margin.l = 10  # noqa
     fig.layout.margin.r = 10
     fig.layout.autosize = True
     fig.layout.plot_bgcolor = "#fff"
@@ -142,17 +142,17 @@ def get_mobility_figure(values, title, e_asterisk=False):
 
 
 def get_co2_figure(values):
-    title = _("CO<sub>2</sub> Emissionen [in g]<br>nach Verkehrsmittel")
+    title = _("CO<sub>2</sub>-Emissionen<br>pro Person [in g]<br>nach Verkehrsmittel")
     return get_mobility_figure(values, title, e_asterisk=True)
 
 
 def get_nitrogen_figure(values):
-    title = _("Stickoxid Emissionen [in g]<br>nach Verkehrsmittel")
+    title = _("Stickoxid-Emissionen<br>pro Person [in g]<br>nach Verkehrsmittel")
     return get_mobility_figure(values, title)
 
 
 def get_fine_dust_figure(values):
-    title = _("Feinstaub Emissionen [in g]<br>nach Verkehrsmittel")
+    title = _("Feinstaub-Emissionen<br>pro Person [in g]<br>nach Verkehrsmittel")
     return get_mobility_figure(values, title)
 
 

@@ -3,17 +3,15 @@ import datetime as dt
 from collections import namedtuple
 from dataclasses import dataclass, fields
 
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 
 ELLIPSE_RADIUS = 43
 ELLIPSE_X_OFFSET = 7
 ELLIPSE_Y_OFFSET = 7
 
-Consumption = namedtuple(
-    "Consumption", ["distance", "co2", "nitrogen", "fine_dust"]
-)
+Consumption = namedtuple("Consumption", ["distance", "co2", "nitrogen", "fine_dust"])
 
-FLEET_START_DATE = dt.date(2020, 8, 12)
+FLEET_START_DATE = dt.date(2020, 8, 27)
 FLEET_DISTANCE_PER_DAY = 2800
 
 
@@ -38,8 +36,8 @@ class Ellipse:
 
     def __str__(self):
         if self.share == 1:
-            return f"M {ELLIPSE_RADIUS + ELLIPSE_X_OFFSET} {ELLIPSE_Y_OFFSET} A {ELLIPSE_RADIUS} {ELLIPSE_RADIUS} 0 {self.large} 1 {ELLIPSE_X_OFFSET + ELLIPSE_RADIUS } {ELLIPSE_Y_OFFSET + 2 * ELLIPSE_RADIUS} A {ELLIPSE_RADIUS} {ELLIPSE_RADIUS} 0 {self.large} 1 {ELLIPSE_X_OFFSET + ELLIPSE_RADIUS } {ELLIPSE_Y_OFFSET}"
-        return f"M {ELLIPSE_RADIUS + ELLIPSE_X_OFFSET} {ELLIPSE_Y_OFFSET} A {ELLIPSE_RADIUS} {ELLIPSE_RADIUS} 0 {self.large} 1 {self.x} {self.y}"
+            return f"M {ELLIPSE_RADIUS + ELLIPSE_X_OFFSET} {ELLIPSE_Y_OFFSET} A {ELLIPSE_RADIUS} {ELLIPSE_RADIUS} 0 {self.large} 1 {ELLIPSE_X_OFFSET + ELLIPSE_RADIUS } {ELLIPSE_Y_OFFSET + 2 * ELLIPSE_RADIUS} A {ELLIPSE_RADIUS} {ELLIPSE_RADIUS} 0 {self.large} 1 {ELLIPSE_X_OFFSET + ELLIPSE_RADIUS } {ELLIPSE_Y_OFFSET}"  # noqa
+        return f"M {ELLIPSE_RADIUS + ELLIPSE_X_OFFSET} {ELLIPSE_Y_OFFSET} A {ELLIPSE_RADIUS} {ELLIPSE_RADIUS} 0 {self.large} 1 {self.x} {self.y}"  # noqa
 
 
 @dataclass
@@ -84,16 +82,30 @@ VEHICLES = [
 ]
 
 DATA_SOURCES = [
-    'Umweltbundesamt, "Vergleich der durchschnittlichen Emissionen einzelner Verkehrsmittel im Personenverkehr in Deutschland - Bezugsjahr 2018", 01/2020, TREMOD 6.03',
-    'Umweltbundesamt, "Entwicklung der spezifischen Kohlendioxid-Emissionen des deutschen Strommix in den Jahren 1990 - 2019", 13/2020',
+    'Umweltbundesamt, "Vergleich der durchschnittlichen Emissionen einzelner '
+    'Verkehrsmittel im Personenverkehr in Deutschland - '
+    'Bezugsjahr 2018", 01/2020, TREMOD 6.03',
+    'Umweltbundesamt, '
+    '"Entwicklung der spezifischen Kohlendioxid-Emissionen des deutschen Strommix in '
+    'den Jahren 1990 - 2019", 13/2020',
     _("Annahmen zum Energieverbrauch der E-PKWs und E-Busse: Reiner Lemoine Institut"),
-    _("Annahmen zur Personenzahl eines Linienbusses: BVG")
+    _("Annahmen zur Personenzahl eines Linienbusses: BVG"),
 ]
 
 POSTHOG_EVENTS = ("shared", "sources", "english")
 
 FINISHED_SLOGANS = (
-    _("Oha, da ist noch Luft nach oben! Macht aber nichts. In unserem Info-Bereich findest du Antworten auf all deine Fragen zu E-Bussen, die du nie zu stellen gewagt hast."),
-    _("Nicht schlecht, aber das geht noch besser! Alle Fakten zum Nachlesen und Aufschlauen findest du in unserem Info-Bereich."),
-    _("Wow! Wir können dir kaum noch etwas beibringen. Alle Fakten zum Nachlesen findest du nochmal in unserem Info-Bereich.")
+    _(
+        "Oha, da ist noch Luft nach oben! Macht aber nichts. "
+        "In unserem Info-Bereich findest du Antworten auf "
+        "all deine Fragen zu E-Bussen, die du nie zu stellen gewagt hast."
+    ),
+    _(
+        "Nicht schlecht, aber das geht noch besser! "
+        "Alle Fakten zum Nachlesen und Aufschlauen findest du in unserem Info-Bereich."
+    ),
+    _(
+        "Wow! Wir können dir kaum noch etwas beibringen. "
+        "Alle Fakten zum Nachlesen findest du nochmal in unserem Info-Bereich."
+    ),
 )

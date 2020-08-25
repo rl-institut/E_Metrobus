@@ -1,0 +1,24 @@
+
+{% load static %}
+{% load i18n %}
+{% load translation %}
+
+<div class="reveal" id="share-reveal" data-reveal>
+  <div class="cell share-reveal__title">
+    <span><img src="{% static 'images/icons/i_share.svg' %}" alt="App teilen" class="share-reveal__icon">{% trans 'App teilen' %}</span>
+  </div>
+  {% if quiz_finished %}
+    <div class="cell quiz-finished">
+      <div class="grid-x text-center align-center">
+        <div class="cell quiz-finished__reveal-wrap">
+          <p class="highlight">{% blocktrans with score="<span>{}</span>"|format_text:score %}{{score}}% richtig beantwortet{% endblocktrans %}</p>
+          <p class="sub">{{slogan}}</p>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  {% include 'includes/share_links.html' %}
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>

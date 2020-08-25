@@ -61,6 +61,7 @@ class NavigationView(PosthogMixin, TemplateView):
         score = questions.get_total_score(self.request.session)
         answers = questions.get_all_answers(self.request.session)
         context["footer"] = widgets.FooterWidget(links=self.footer_links)
+
         context["top_bar"] = widgets.TopBarWidget(
             title=self.title,
             title_icon=self.title_icon,
@@ -130,8 +131,6 @@ class DashboardView(CheckStationsMixin, NavigationView):
                 )
             )
         context["categories"] = categories
-        if "hashed_score" in self.request.session:
-            context["top_bar"].quiz_finished = True
 
         return context
 
@@ -233,7 +232,7 @@ class QuestionView(NavigationView):
     }
 
     def get_context_data(self, **kwargs):
-        self.title = questions.QUESTIONS[kwargs["category"]].label
+        self.title = questions.QUESTIONS[kwargs["category"]].get_label()
         self.title_icon = questions.QUESTIONS[kwargs["category"]].small_icon
 
         context = super(QuestionView, self).get_context_data(**kwargs)
@@ -294,7 +293,7 @@ class AnswerView(NavigationView):
     }
 
     def get_context_data(self, question, **kwargs):
-        self.title = questions.QUESTIONS[question.category].label
+        self.title = questions.QUESTIONS[question.category].get_label()
         self.title_icon = questions.QUESTIONS[question.category].small_icon
         context = super(AnswerView, self).get_context_data(**kwargs)
         context["question"] = question
@@ -354,8 +353,8 @@ class QuizFinishedView(PosthogMixin, TemplateView):
         return context
 
     def get(self, request, *args, **kwargs):
-        # if not questions.all_questions_answered(request.session):
-        #     raise Http404("Not all questions answered. Please go back to quiz.")
+        if not questions.all_questions_answered(request.session):
+            raise Http404("Not all questions answered. Please go back to quiz.")
         if "hashed_score" not in request.session:
             score = models.Score.save_score(request.session)
             request.session["hashed_score"] = score.hash
@@ -495,3 +494,7 @@ def get_comparison_chart(request):
     else:
         raise ValueError("Unknown emission")
     return JsonResponse({"div": plotly_chart.div, "script": plotly_chart.script})
+
+
+class DesktopPage(FeedbackMixin, TemplateView):
+    template_name = "includes/desktop.html"

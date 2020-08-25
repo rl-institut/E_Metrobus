@@ -43,10 +43,9 @@
   -->
   <body class="{% block body_class %}l-scroll l-scroll--nav{% endblock %}">
 
-    <div id="desktop" hidden>
-      {% include "includes/desktop.html" %}
+    <div id="desktop">
     </div>
-    <div id="portrait" class="grid-container portrait full">
+    <div id="portrait" class="grid-container portrait full" hidden>
 
       {{top_bar}}
 
@@ -59,7 +58,9 @@
 
     </div>
 
-    {% block modal %}{% endblock modal %}
+    {% block modal %}
+      {{top_bar.reveal}}
+    {% endblock modal %}
 
     <!-- Le javascript
     ================================================== -->
@@ -90,8 +91,10 @@
         // called to initially set the height.
         resetHeight();
 
+        ClipboardJS.isSupported()
+
         {% if top_bar.share_link_js %}
-          new ClipboardJS('#share_link');
+          new ClipboardJS('#share_link', {container: document.getElementById('share-reveal')})
 
           function link_copied() {
             $('#link_copied').fadeIn();
@@ -119,9 +122,25 @@
           return check;
         };
 
-        if (!check_mobile()) {
+        function insert_desktop_page() {
+          $.ajax({
+            url: "{% url 'navigation:get_desktop_page' %}",
+            async: false,
+            dataType: "html",
+            success: function(response) {
+              $("#desktop").html(response);
+              $(document).foundation();
+            }
+          });
+        }
+
+        if (check_mobile()) {
+          $("#desktop").remove();
+          $("#portrait").show();
+        } else {
+          insert_desktop_page();
           $("#desktop").show();
-          $("#portrait").hide();
+          $("#portrait").remove();
         }
       </script>
     {% endblock javascript %}

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-17 12:20+0000\n"
+"POT-Creation-Date: 2020-08-25 12:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,144 +20,139 @@ msgstr ""
 
 #: e_metrobus/navigation/chart.py:65
 msgid "Zu Fuß/<br>Fahrrad"
-msgstr ""
+msgstr "On foot/<br>bike"
 
-#: e_metrobus/navigation/chart.py:66
-#: e_metrobus/templates/pages/question_translations.html:108
-msgid "E-Bus"
-msgstr "E-bus"
-
-#: e_metrobus/navigation/chart.py:67
-#: e_metrobus/templates/navigation/display_route.html:59
-msgid "E-Pkw"
-msgstr ""
-
-#: e_metrobus/navigation/chart.py:68 e_metrobus/navigation/constants.py:77
-#: e_metrobus/templates/navigation/display_route.html:78
-msgid "Dieselbus"
-msgstr "Diesel"
-
-#: e_metrobus/navigation/chart.py:69
-#: e_metrobus/templates/navigation/display_route.html:97
-#, fuzzy
-#| msgid "Diesel"
-msgid "Pkw (Diesel)"
-msgstr "Diesel"
-
-#: e_metrobus/navigation/chart.py:145
-#, fuzzy
-#| msgid "CO2 Emissionen [in g]<br>nach Verkehrsmittel"
-msgid "CO<sub>2</sub> Emissionen [in g]<br>nach Verkehrsmittel"
-msgstr "CO2 emissions [in g]<br>per vehicle"
-
-#: e_metrobus/navigation/chart.py:150
-#, fuzzy
-#| msgid "CO2 Emissionen [in g]<br>nach Verkehrsmittel"
-msgid "Stickoxid Emissionen [in g]<br>nach Verkehrsmittel"
-msgstr "CO2 emissions [in g]<br>per vehicle"
-
-#: e_metrobus/navigation/chart.py:155
-#, fuzzy
-#| msgid "CO2 Emissionen [in g]<br>nach Verkehrsmittel"
-msgid "Feinstaub Emissionen [in g]<br>nach Verkehrsmittel"
-msgstr "CO2 emissions [in g]<br>per vehicle"
-
-#: e_metrobus/navigation/constants.py:72
-#, fuzzy
-#| msgid "Diesel"
-msgid "PKW (Diesel)"
-msgstr "Diesel"
-
-#: e_metrobus/navigation/constants.py:80
-#, fuzzy
-#| msgid "Elektrobus"
-msgid "Elektro-PKW"
-msgstr "E-Bus"
-
-#: e_metrobus/navigation/constants.py:81
+#: e_metrobus/navigation/chart.py:66 e_metrobus/navigation/constants.py:79
 msgid "Elektrobus"
 msgstr "E-Bus"
 
-#: e_metrobus/navigation/constants.py:82
+#: e_metrobus/navigation/chart.py:67
+msgid "Elektro-Pkw"
+msgstr "Electric car"
+
+#: e_metrobus/navigation/chart.py:68 e_metrobus/navigation/constants.py:75
+#: e_metrobus/templates/navigation/display_route.html:78
+msgid "Dieselbus"
+msgstr "Diesel bus"
+
+#: e_metrobus/navigation/chart.py:69
+#: e_metrobus/templates/navigation/display_route.html:97
+msgid "Pkw (Diesel)"
+msgstr "Car (diesel)"
+
+#: e_metrobus/navigation/chart.py:145
+msgid "CO<sub>2</sub>-Emissionen<br>pro Person [in g]<br>nach Verkehrsmittel"
+msgstr "CO<sub>2</sub> emissions<br>per person [in g]<br>per vehicle"
+
+#: e_metrobus/navigation/chart.py:150
+msgid "Stickoxid-Emissionen<br>pro Person [in g]<br>nach Verkehrsmittel"
+msgstr "Nitrogen oxide emissions<br>per person [in g]<br>per vehicle"
+
+#: e_metrobus/navigation/chart.py:155
+msgid "Feinstaub-Emissionen<br>pro Person [in g]<br>nach Verkehrsmittel"
+msgstr "Particulate matter emissions<br>per person [in g]<br>per vehicle"
+
+#: e_metrobus/navigation/constants.py:70
+msgid "PKW (Diesel)"
+msgstr "Car (diesel)"
+
+#: e_metrobus/navigation/constants.py:78
+msgid "Elektro-PKW"
+msgstr "Electric bus"
+
+#: e_metrobus/navigation/constants.py:80
 msgid "Fahrrad"
 msgstr "Bike"
 
-#: e_metrobus/navigation/constants.py:83
+#: e_metrobus/navigation/constants.py:81
 msgid "zu Fuß"
 msgstr "On foot"
 
-#: e_metrobus/navigation/constants.py:89
+#: e_metrobus/navigation/constants.py:91
 msgid ""
 "Annahmen zum Energieverbrauch der E-PKWs und E-Busse: Reiner Lemoine Institut"
 msgstr ""
+"Assumptions on the energy consumption of electric cars and electric buses: "
+"Reiner Lemoine Institut"
 
-#: e_metrobus/navigation/constants.py:90
+#: e_metrobus/navigation/constants.py:92
 msgid "Annahmen zur Personenzahl eines Linienbusses: BVG"
-msgstr ""
+msgstr "Assumptions on the number of passengers on a regular bus: BVG"
 
-#: e_metrobus/navigation/constants.py:96
+#: e_metrobus/navigation/constants.py:99
 msgid ""
 "Oha, da ist noch Luft nach oben! Macht aber nichts. In unserem Info-Bereich "
 "findest du Antworten auf all deine Fragen zu E-Bussen, die du nie zu stellen "
 "gewagt hast."
 msgstr ""
+"Oh, the peak is not reached yet! No problem though, in our info section you "
+"will find answers to all of your questions about E-buses that you never "
+"dared to ask before."
 
-#: e_metrobus/navigation/constants.py:97
+#: e_metrobus/navigation/constants.py:104
 msgid ""
 "Nicht schlecht, aber das geht noch besser! Alle Fakten zum Nachlesen und "
 "Aufschlauen findest du in unserem Info-Bereich."
 msgstr ""
+"Not bad, but it still could be better! You can find all the facts in our "
+"info section to learn more."
 
-#: e_metrobus/navigation/constants.py:98
+#: e_metrobus/navigation/constants.py:108
 msgid ""
 "Wow! Wir können dir kaum noch etwas beibringen. Alle Fakten zum Nachlesen "
 "findest du nochmal in unserem Info-Bereich."
 msgstr ""
+"Wow! We can hardly teach you anything anymore. You can find all of the facts "
+"again in our info section."
+
+#: e_metrobus/navigation/forms.py:15
+msgid "Schreib uns deine Meinung/Kritik:"
+msgstr "You can give us feedback:"
+
+#: e_metrobus/navigation/models.py:29
+msgid "Technisches Problem"
+msgstr "Technical problem"
 
 #: e_metrobus/navigation/models.py:30
-msgid "Technisches Problem"
-msgstr ""
+msgid "Schwierigkeit bei der Nutzung der App"
+msgstr "Difficulty using the app"
 
 #: e_metrobus/navigation/models.py:31
-msgid "Schwierigkeit bei der Nutzung der App"
-msgstr ""
+msgid "Inkorrekter oder unverständlicher Inhalt"
+msgstr "Incorrect or incomprehensible content"
 
 #: e_metrobus/navigation/models.py:32
-msgid "Inkorrekter oder unverständlicher Inhalt"
-msgstr ""
-
-#: e_metrobus/navigation/models.py:33
 msgid "Anderes"
-msgstr ""
+msgstr "Others"
 
-#: e_metrobus/navigation/models.py:37
+#: e_metrobus/navigation/models.py:36
 msgid "Etwas funktioniert nicht? Ein Link ist kaputt?"
-msgstr ""
+msgstr "Something is not working? A link is broken?"
 
-#: e_metrobus/navigation/models.py:40
+#: e_metrobus/navigation/models.py:39
 msgid "Ist etwas schwierig oder frustrierend zu nutzen?"
-msgstr ""
+msgstr "Is something difficult or frustrating to use?"
+
+#: e_metrobus/navigation/models.py:41
+msgid "Um welchen Inhalt geht es?"
+msgstr "What is the content?"
 
 #: e_metrobus/navigation/models.py:42
-msgid "Um welchen Inhalt geht es?"
-msgstr ""
-
-#: e_metrobus/navigation/models.py:43
 msgid "Kannst du uns dein Problem beschreiben?"
-msgstr ""
+msgstr "Can you describe your problem?"
 
-#: e_metrobus/navigation/models.py:46
+#: e_metrobus/navigation/models.py:45
 msgid "Problem"
-msgstr ""
+msgstr "Problem"
 
-#: e_metrobus/navigation/models.py:48
+#: e_metrobus/navigation/models.py:47
 msgid "Beschreibung"
-msgstr ""
+msgstr "Description"
 
 #: e_metrobus/navigation/utils.py:43
 msgid ""
 "Ich bin gerade in einem E-Bus auf der Linie 200 gefahren. Schau mal hier"
-msgstr ""
+msgstr "I just got on an E-bus on the 200 line. Look here:"
 
 #: e_metrobus/navigation/utils.py:52
 #, python-format
@@ -165,34 +160,36 @@ msgid ""
 "Ich bin gerade in einem E-Bus auf der Linie 200 gefahren und habe der Welt "
 "dabei %(co2)s g CO2-Emissionen erspart. Schau mal hier"
 msgstr ""
+"I just took an E-bus on the 200 line and saved the world %(co2)s g CO2 "
+"emissions. Take a look here:"
 
-#: e_metrobus/navigation/widgets.py:108
+#: e_metrobus/navigation/widgets.py:112
 msgid "Quiz"
-msgstr ""
+msgstr "Quiz"
 
-#: e_metrobus/navigation/widgets.py:115
-#: e_metrobus/templates/navigation/environment.html:52
+#: e_metrobus/navigation/widgets.py:119
+#: e_metrobus/templates/navigation/display_route.html:22
+#: e_metrobus/templates/navigation/display_route.html:37
+#: e_metrobus/templates/navigation/environment.html:43
 msgid "Meine Strecke"
 msgstr "My route"
 
-#: e_metrobus/navigation/widgets.py:122
-#, fuzzy
-#| msgid "E-Metrobus"
+#: e_metrobus/navigation/widgets.py:126
 msgid "E-MetroBus"
-msgstr "E-Metrobus"
+msgstr "E-MetroBus"
 
-#: e_metrobus/navigation/widgets.py:129
+#: e_metrobus/navigation/widgets.py:133
 #: e_metrobus/templates/navigation/legal.html:6
 msgid "Infos"
-msgstr ""
+msgstr "Information"
 
 #: e_metrobus/templates/400.html:5 e_metrobus/templates/400.html:10
 msgid "Ungültige Anfrage"
-msgstr ""
+msgstr "Invalid request"
 
 #: e_metrobus/templates/400.html:11
 msgid "Die Anfrage für diese Seite ist ungültig."
-msgstr ""
+msgstr "Invalid request"
 
 #: e_metrobus/templates/400.html:14 e_metrobus/templates/403.html:14
 #: e_metrobus/templates/404.html:14 e_metrobus/templates/500.html:14
@@ -202,7 +199,7 @@ msgstr "E-Bus without electricity"
 #: e_metrobus/templates/400.html:17 e_metrobus/templates/403.html:17
 #: e_metrobus/templates/404.html:17 e_metrobus/templates/500.html:17
 msgid "Zurück zur App"
-msgstr ""
+msgstr "Return to the app"
 
 #: e_metrobus/templates/403.html:5 e_metrobus/templates/403.html:10
 msgid "Verboten"
@@ -210,7 +207,7 @@ msgstr "Forbidden"
 
 #: e_metrobus/templates/403.html:11
 msgid "CSRF Verifizierung fehlgeschlagen. Anfrage wurde abgewiesen."
-msgstr ""
+msgstr "CSRF verification failed. Request was rejected."
 
 #: e_metrobus/templates/404.html:5 e_metrobus/templates/404.html:10
 msgid "Seite nicht gefunden"
@@ -225,23 +222,18 @@ msgid "Server Fehler"
 msgstr "Server Error"
 
 #: e_metrobus/templates/500.html:10
-msgid "Oh - ein Server Fehler!"
-msgstr "Ooops!!! - Server Error"
+msgid "Oh, ein Server-Fehler!"
+msgstr "Oops!!! - Server Error"
 
 #: e_metrobus/templates/500.html:11
 msgid "Etwas ist schief gelaufen"
 msgstr "Something went wrong."
 
 #: e_metrobus/templates/includes/desktop.html:9
-#: e_metrobus/templates/includes/landscape.html:6
-msgid "E-Metrobus Berlin"
-msgstr "E-Metrobus Berlin"
+msgid "E-MetroBus Berlin"
+msgstr "E-MetroBus Berlin"
 
 #: e_metrobus/templates/includes/desktop.html:10
-#, fuzzy
-#| msgid ""
-#| "Elektrifizierung von MetroBus-Linien im Berliner ÖPNV mit "
-#| "Schnellladeinfrastruktur"
 msgid ""
 "Elektrifizierung von Gelenkbussen im Berliner ÖPNV mit "
 "Schnellladeinfrastruktur"
@@ -249,130 +241,138 @@ msgstr ""
 "Electrification of MetroBus lines in Berlin public transport with fast-"
 "charging infrastructure"
 
-#: e_metrobus/templates/includes/desktop.html:16
+#: e_metrobus/templates/includes/desktop.html:17
 msgid "UK Flagge"
-msgstr ""
+msgstr "UK Flag"
 
-#: e_metrobus/templates/includes/desktop.html:21
+#: e_metrobus/templates/includes/desktop.html:22
 msgid "Deutschland Flagge"
-msgstr ""
+msgstr "German Flag"
 
-#: e_metrobus/templates/includes/desktop.html:32
+#: e_metrobus/templates/includes/desktop.html:34
 msgid "E-MetroBus App auf einem Smartphone"
-msgstr ""
+msgstr "E-MetroBus app on a smartphone"
 
-#: e_metrobus/templates/includes/desktop.html:37
+#: e_metrobus/templates/includes/desktop.html:39
 msgid ""
-"Auf Smartphones unter <span class=\"heading--highlight\">e-metrobus.berlin</"
-"span> verfügbar"
+"Auf <span class=\"heading--highlight\">Smartphones</span> unter <span class="
+"\"heading--bold\">e-metrobus.berlin</span> verfügbar"
 msgstr ""
+"Available on <span class=\"heading--highlight\">smartphones</span> under "
+"<span class=\"heading--bold\">e-metrobus.berlin</span>"
 
-#: e_metrobus/templates/includes/desktop.html:45
+#: e_metrobus/templates/includes/desktop.html:42
 msgid "Teste deine Kenntnisse über E-Mobilität mit einem Quiz"
-msgstr ""
+msgstr "Test your knowledge about e-mobility with a quiz"
 
-#: e_metrobus/templates/includes/desktop.html:46
+#: e_metrobus/templates/includes/desktop.html:43
 msgid ""
-"Erfahre wie viel CO2, NOx und Feinstaub du im Vergleich zu anderen "
-"Verkehrsmitteln sparst"
+"Erfahre, wie viel CO<sub>2</sub>, NO<sub>x</sub> und Feinstaub du im "
+"Vergleich zu anderen Verkehrsmitteln sparst"
 msgstr ""
+"Discover how much CO<sub>2</sub>, NO<sub>x</sub> and particulate matter you "
+"save compared to other means of transport"
 
-#: e_metrobus/templates/includes/desktop.html:47
-msgid "Lerne über das E-MetroBus Projekt"
-msgstr ""
+#: e_metrobus/templates/includes/desktop.html:44
+msgid "Finde weitere Infos zum E-MetroBus-Projekt"
+msgstr "Find out more about the E-MetroBus project"
 
-#: e_metrobus/templates/includes/desktop.html:57
+#: e_metrobus/templates/includes/desktop.html:54
 msgid "Über das Projekt"
-msgstr ""
+msgstr "About the project"
 
-#: e_metrobus/templates/includes/desktop.html:63
+#: e_metrobus/templates/includes/desktop.html:60
 msgid "Laufzeit"
 msgstr "Project duration"
 
-#: e_metrobus/templates/includes/desktop.html:67
-msgid ""
-"Das E-MetroBus Projekt läuft für einen Zeitraum von Januar 2019 bis Januar "
-"2023"
-msgstr "The E-MetroBus project runs from January 2019 to January 2023"
+#: e_metrobus/templates/includes/desktop.html:64
+msgid "Das E-MetroBus-Projekt läuft von Januar 2019 bis Januar 2023."
+msgstr "The E-MetroBus project runs from January 2019 to January 2023."
 
-#: e_metrobus/templates/includes/desktop.html:74
+#: e_metrobus/templates/includes/desktop.html:71
 msgid "Förderung"
 msgstr "Funding"
 
-#: e_metrobus/templates/includes/desktop.html:78
+#: e_metrobus/templates/includes/desktop.html:75
 msgid ""
-"Die Förderung erfolgt als ein Forschungs- und Entwicklungsvorhaben im Rahmen "
-"der Förderrichtlinie Elektromobilität des Bundesministeriums für Verkehr und "
-"digitale Infrastruktur"
+"E-MetroBus ist ein Forschungs- und Entwicklungsvorhaben, das Fördermittel im "
+"Rahmen der Förderrichtlinie Elektromobilität des Bundesministeriums für "
+"Verkehr und digitale Infrastruktur erhält."
 msgstr ""
-"The funding is provided as a research and development project within the "
-"framework of the Electromobility Funding Directive of the Federal Ministry "
-"of Transport and Digital Infrastructure"
+"E-MetroBus is a research and development project which receives funding "
+"within the framework of the Electromobility funding directive of the Federal "
+"Ministry of Transport and Digital Infrastructure."
 
-#: e_metrobus/templates/includes/desktop.html:85
+#: e_metrobus/templates/includes/desktop.html:82
 msgid "Busse"
 msgstr "Buses"
 
-#: e_metrobus/templates/includes/desktop.html:89
+#: e_metrobus/templates/includes/desktop.html:86
 msgid ""
-"Um möglichst lange ladungsbedingte Standzeiten zu vermeiden, müssen die "
-"Busse in der Lage sein, mit einer hohen Leistung geladen zu werden"
+"Um lange ladungsbedingte Standzeiten zu vermeiden, müssen die Busse in der "
+"Lage sein, mit einer hohen Leistung geladen zu werden."
 msgstr ""
-"In order to avoid charge-related downtimes for as long as possible, the "
-"buses must be able to be charge at high power"
+"In order to avoid long charging-related downtimes, the buses must be able to "
+"be charged at high power."
 
-#: e_metrobus/templates/includes/desktop.html:96
+#: e_metrobus/templates/includes/desktop.html:93
 msgid "Ladeinfrastruktur"
 msgstr "Charging infrastructure"
 
-#: e_metrobus/templates/includes/desktop.html:100
+#: e_metrobus/templates/includes/desktop.html:97
 msgid ""
-"Eine Ladeinfrastruktur von über 300kW soll erprobt werden. Der resultierende "
-"Bedarf soll sowohl mit den eigens aus Erneuerbaren Energien produziertem "
-"Strom als auch aus dem Versorgungsnetz bereitgestellt werden"
+"Die Ladeinfrastruktur, die in E-MetroBus erprobt wird, erbringt Leistungen "
+"von über 300kW. Der dafür benötigte Strom soll sowohl direkt mit "
+"Erneuerbaren Energien generiert als auch aus dem Versorgungsnetz "
+"bereitgestellt werden."
 msgstr ""
-"A charging infrastructure of over 300kW is to be tried and tested. The "
-"resulting demand is to be met with both electricity generated from renewable "
-"energy sources and from the supply network"
+"The charging infrastructure, which is being tested in E-MetroBus, provides "
+"power of over 300kW. The electricity required for this is to be generated "
+"directly from renewable energy sources as well as supplied from the supply "
+"network."
 
-#: e_metrobus/templates/includes/desktop.html:109
+#: e_metrobus/templates/includes/desktop.html:107
+msgid "Hier geht es zum Projekt-Flyer"
+msgstr "Download the project flyer"
+
+#: e_metrobus/templates/includes/desktop.html:117
 msgid "Projektziele"
 msgstr "Project goals"
 
-#: e_metrobus/templates/includes/desktop.html:113
-#: e_metrobus/templates/includes/desktop.html:123
-#: e_metrobus/templates/includes/desktop.html:133
+#: e_metrobus/templates/includes/desktop.html:121
+#: e_metrobus/templates/includes/desktop.html:131
+#: e_metrobus/templates/includes/desktop.html:141
 msgid "Zur Website"
-msgstr ""
+msgstr "Visit the website"
 
-#: e_metrobus/templates/includes/desktop.html:118
-#: e_metrobus/templates/includes/desktop.html:138
+#: e_metrobus/templates/includes/desktop.html:126
 msgid ""
-"Im Projekt E-MetroBus werden 15 Gelenkbusse der Berliner Verkehrsbetriebe "
-"(BVG) elektrifiziert und so ausgerüstet, dass sie besonders schnell geladen "
-"werden können. Eine Umrüstung der Busse bringt einige technische und "
-"organisatorische Herausforderungen mit sich. Einerseits muss die Zeit, die "
-"die Busse zum Laden zur Verfügung haben, flexibel gestaltet werden, da sie "
-"durch verkehrsbedingte Verspätungen und Sperrungen stark variieren kann. "
-"Andererseits belastet die dafür infrage kommende Schnellladetechnologie das "
-"lokale Stromnetz – dies wird insbesondere dann deutlich, wenn alle 1400 "
-"Busse der BVG-Flotte in die Untersuchung mit einbezogen werden."
+"Elektrobusse fahren, wie die Erfahrungen in anderen Städten zeigen, stabil "
+"und machen bereits etliche Städte rund um die Welt ein großes Stück "
+"lebenswerter. Selbstverständlich möchte die BVG aber auch eigene Erfahrungen "
+"mit dem Betrieb von Elektrobussen und ihrer Ladeinfrastruktur sammeln. "
+"Deshalb hat sich die BVG für die Elektro-Gelenkbusse im Projekt E-MetroBus "
+"zu einer    Forschungskonstellation mit der TU Berlin und dem Reiner Lemoine "
+"Institut zusammengeschlossen. Die Erkenntnisse aus dem Projekt sollen in die "
+"nachfolgenden Elektrobusprojekte der BVG einfließen und auch anderen Städten "
+"bei der Elektrifizierung ihrer Busflotte helfen. Somit ist das Projekt E-"
+"MetroBus wegweisend für die zukünftige Elektromobilität."
 msgstr ""
-"In the E-MetroBus project, 15 articulated buses operated by the Berlin "
-"transport authority (BVG) will be electrified and equipped so that they can "
-"be charged particulary quickly. Retrofitting the buses, however, involves "
-"technical and organizational challenges. On the one hand, the time the buses "
-"have available for charging must be flexible, as it can vary greatly due to "
-"traffic-related delays and closures. On the other hand, the fast-charging "
-"technology in question puts a strain on the local power grid - this becomes "
-"particularly clear when all 1400 buses in the BVG fleet are included in the "
-"study"
+"As experience in other cities shows, electric buses are stable and are "
+"already making many cities around the world a lot more liveable. Of course, "
+"BVG also wants to gain its own experience with the operation of electric "
+"buses and their charging infrastructure. For this reason, BVG has joined "
+"forces with TU Berlin and the Reiner Lemoine Institute in a research "
+"constellation for the electric articulated buses in the E-MetroBus project. "
+"The findings from the project are to be incorporated into BVG's subsequent "
+"electric bus projects and also help other cities to electrify their bus "
+"fleets. Thus, the E-MetroBus project is a pioneer for future electromobility."
 
-#: e_metrobus/templates/includes/desktop.html:128
+#: e_metrobus/templates/includes/desktop.html:136
 msgid ""
-"Das RLI entwickelt unterschiedliche Szenarien, wie eine lokale, "
-"netzdienliche Versorgung der Ladestationen erreicht werden kann. Dabei "
-"werden die Energiesysteme modelliert, simuliert und ihre Topologie "
+"Das RLI entwickelt für E-MetroBus unterschiedliche Szenarien, wie eine "
+"lokale, netzdienliche Versorgung der Ladestationen erreicht werden kann. "
+"Dabei werden die Energiesysteme modelliert, simuliert und ihre Topologie "
 "anschließend unter ökonomischen und ökologischen Aspekten optimiert. Um das "
 "lokale Stromnetz zu entlasten, soll vor allem auch der Einsatz von "
 "Erneuerbare-Energie-Anlagen und die Einbindung in intelligente Netze, die je "
@@ -381,43 +381,68 @@ msgid ""
 "die Übertragbarkeit auf Verkehrsbetriebe unterschiedlicher Größenordnung "
 "untersucht."
 msgstr ""
-"The RLI develops different scenarios of how a local, grid-compatible supply "
-"of the charging stations can be achieved. The energy systems are modeled, "
-"simulated and their topology is then optimised from an economic and "
-"ecological perspective. In order to relieve the local power grid, the use of "
-"renewable energy systems and their integration into smart grids, which "
-"regulate consumption and generation in the grid according to energy "
-"requirements, will be examined in detail. Synergies with other modes of "
-"transport and their transferability to transport companies of different "
+"The RLI is developing various scenarios for E-MetroBus of how a local, "
+"network-friendly supply of the charging stations can be achieved. The energy "
+"systems are modelled, simulated and their topology is then optimised from an "
+"economic and ecological perspective. In order to relieve the local power "
+"grid, the use of renewable energy systems and their integration into smart "
+"grids, which regulate consumption and generation in the grid according to "
+"energy requirements, will be examined in detail. Synergies with other modes "
+"of transport and their transferability to transport companies of different "
 "sizes will then be examined"
 
-#: e_metrobus/templates/includes/desktop.html:147
+#: e_metrobus/templates/includes/desktop.html:146
+msgid ""
+"Die TU Berlin übernimmt im E-MetroBus Projekt einerseits aktuelle "
+"Anwendungsforschung, insbesondere die Entwicklung eines E-Bus-Leitsystems, "
+"die Machbarkeitsuntersuchung mobiler Schnellladestationen, sowie die "
+"energieeffiziente Klimatisierung und Heizung und die Umweltbilanz der zum "
+"Einsatz kommenden Elektrobusse. Andererseits führt die TU Berlin "
+"unterstützende, technische Aufgaben für die BVG durch, etwa bei der "
+"Entwicklung des Betriebs- und Störfallkonzeptes mittels Simulationen sowie "
+"beim Datenmonitoring und der Datenauswertung."
+msgstr ""
+"In the E-MetroBus project, the TU Berlin is responsible for current "
+"application research. In particular, the researched topics are the "
+"development of an E-bus control system, the feasibility study of mobile "
+"rapid charging stations, as well as the energy-efficient air-conditioning "
+"and heating, and the environmental balance of the electric buses used. On "
+"the other hand, the TU Berlin is carrying out the support of technical tasks "
+"for the BVG, for example in the development of the operating and incident "
+"concept by means of simulations as well as in data monitoring and data "
+"evaluation."
+
+#: e_metrobus/templates/includes/desktop.html:156
 msgid "Möchtest du Feedback zum Projekt geben?"
-msgstr ""
+msgstr "Would you like to give feedback on the project?"
 
-#: e_metrobus/templates/includes/desktop.html:148
+#: e_metrobus/templates/includes/desktop.html:157
 msgid "Kontaktiere uns"
-msgstr ""
+msgstr "Contact us"
 
-#: e_metrobus/templates/includes/desktop.html:171
+#: e_metrobus/templates/includes/desktop.html:181
 #: e_metrobus/templates/navigation/legal.html:14
 msgid "Impressum"
-msgstr ""
+msgstr "Imprint"
 
-#: e_metrobus/templates/includes/desktop.html:172
+#: e_metrobus/templates/includes/desktop.html:182
 #: e_metrobus/templates/navigation/legal.html:15
 msgid "Datenschutz"
-msgstr ""
+msgstr "Data protection"
 
-#: e_metrobus/templates/includes/desktop.html:189
+#: e_metrobus/templates/includes/desktop.html:199
 #: e_metrobus/templates/navigation/legal.html:61
 msgid "Meinung schicken"
 msgstr "Send feedback"
 
-#: e_metrobus/templates/includes/desktop.html:200
-#: e_metrobus/templates/includes/desktop.html:208
+#: e_metrobus/templates/includes/desktop.html:210
+#: e_metrobus/templates/includes/desktop.html:218
 msgid "Zurück zur Startseite"
-msgstr ""
+msgstr "Return to the homepage"
+
+#: e_metrobus/templates/includes/landscape.html:6
+msgid "E-Metrobus Berlin"
+msgstr "E-Metrobus Berlin"
 
 #: e_metrobus/templates/includes/landscape.html:9
 msgid ""
@@ -435,9 +460,11 @@ msgstr ""
 "Please visit the page in portrait mode if you are interested in the E-"
 "Metrobus project."
 
+#: e_metrobus/templates/includes/share_links.html:24
+msgid "Link wurde kopiert"
+msgstr "Link has been copied"
+
 #: e_metrobus/templates/navigation/answer.html:6
-#, fuzzy
-#| msgid "Antworten"
 msgid "Antwort"
 msgstr "Answers"
 
@@ -446,39 +473,23 @@ msgstr "Answers"
 msgid "Mehrere Antworten möglich"
 msgstr "Multiple answers possible"
 
-#: e_metrobus/templates/navigation/answer.html:44
-#: e_metrobus/templates/navigation/answer.html:72
-#, fuzzy
-#| msgid "Busse"
-msgid "Mehr sehen"
-msgstr "Buses"
-
-#: e_metrobus/templates/navigation/answer.html:56
-#: e_metrobus/templates/navigation/answer.html:58
+#: e_metrobus/templates/navigation/answer.html:45
+#: e_metrobus/templates/navigation/answer.html:47
 msgid "Weiter"
-msgstr ""
-
-#: e_metrobus/templates/navigation/answer.html:74
-#, fuzzy
-#| msgid "30 Sekunden"
-msgid "Weniger sehen"
-msgstr "30 seconds"
+msgstr "Next"
 
 #: e_metrobus/templates/navigation/category_finished.html:8
-#, fuzzy
-#| msgid "Du hast die Kategorie %(cat_label)s abgeschlossen!"
 msgid "Kategorie abgeschlossen"
-msgstr "You finished category %(cat_label)s!"
+msgstr "Category finished"
 
 #: e_metrobus/templates/navigation/category_finished.html:19
-#, fuzzy, python-format
-#| msgid "Du hast die Kategorie %(cat_label)s abgeschlossen!"
+#, python-format
 msgid "Kategorie %(cat_label)s abgeschlossen!"
 msgstr "You finished category %(cat_label)s!"
 
 #: e_metrobus/templates/navigation/comparison.html:6
-msgid "CO2 Emissionen im Vergleich"
-msgstr ""
+msgid "CO2-Emissionen im Vergleich"
+msgstr "CO2 emissions in comparison"
 
 #: e_metrobus/templates/navigation/comparison.html:27
 #: e_metrobus/templates/navigation/comparison.html:29
@@ -489,44 +500,38 @@ msgstr "Discover more!"
 #: e_metrobus/templates/widgets/top_bar.html:10
 #: e_metrobus/templates/widgets/top_bar_route.html:9
 msgid "Zurück"
-msgstr ""
+msgstr "Go back"
 
 #: e_metrobus/templates/navigation/comparison.html:34
 msgid "Woher kommen die Zahlen?"
-msgstr ""
+msgstr "Where do the numbers come from?"
 
 #: e_metrobus/templates/navigation/comparison.html:39
 #: e_metrobus/templates/navigation/environment.html:68
 msgid ""
 "Wert berechnet sich auf Grundlage des deutschen Strommixes. Da der aktuelle "
 "Strommix nicht CO<sub>2</sub>-neutral ist, sind auch Elektrofahrzeuge für "
-"CO<sub>2</sub> Austoß verantwortlich."
+"CO<sub>2</sub>-Austoß verantwortlich."
 msgstr ""
+"Value calculated on the basis of the German electricity mix. Since the "
+"current electricity mix is not CO<sub>2</sub>-neutral, electric vehicles are "
+"also responsible for CO<sub>2</sub> emissions."
 
 #: e_metrobus/templates/navigation/comparison.html:46
 msgid "Die Daten hinter den Zahlen"
-msgstr ""
+msgstr "The data behind the numbers"
 
 #: e_metrobus/templates/navigation/dashboard.html:6
 msgid "Quiz Übersicht"
-msgstr ""
+msgstr "Quiz Overview"
 
 #: e_metrobus/templates/navigation/dashboard.html:19
 msgid "Bild für Kategorie"
-msgstr ""
+msgstr "Image for category"
 
 #: e_metrobus/templates/navigation/display_route.html:6
-#, fuzzy
-#| msgid "Stecker"
 msgid "Daten zu deiner Strecke"
-msgstr "Plug"
-
-#: e_metrobus/templates/navigation/display_route.html:22
-#: e_metrobus/templates/navigation/display_route.html:37
-#, fuzzy
-#| msgid "Stecker"
-msgid "Bild der Strecke"
-msgstr "Plug"
+msgstr "Data concerning your route"
 
 #: e_metrobus/templates/navigation/display_route.html:30
 #: e_metrobus/templates/navigation/display_route.html:52
@@ -534,14 +539,12 @@ msgstr "Plug"
 #: e_metrobus/templates/navigation/display_route.html:90
 #: e_metrobus/templates/navigation/display_route.html:109
 #: e_metrobus/templates/navigation/display_route.html:126
-#, fuzzy
-#| msgid "Zur nächsten Frage"
 msgid "Zur nächsten Seite"
-msgstr "To the next question"
+msgstr "To the next page"
 
 #: e_metrobus/templates/navigation/display_route.html:39
-msgid "Deine Strecke mit dem <span>E-Bus</span> beträgt"
-msgstr "Your route with the <span>E-Bus</span> is"
+msgid "Deine Strecke mit dem <span>Elektrobus</span> beträgt"
+msgstr "Your route with the <span>electric bus</span> is"
 
 #: e_metrobus/templates/navigation/display_route.html:49
 #: e_metrobus/templates/navigation/display_route.html:68
@@ -549,35 +552,32 @@ msgstr "Your route with the <span>E-Bus</span> is"
 #: e_metrobus/templates/navigation/display_route.html:106
 #: e_metrobus/templates/navigation/display_route.html:123
 msgid "Zur vorherigen Seite"
-msgstr ""
+msgstr "To the previous page"
+
+#: e_metrobus/templates/navigation/display_route.html:59
+msgid "E-Pkw"
+msgstr "Electric car"
 
 #: e_metrobus/templates/navigation/display_route.html:61
-#, fuzzy
-#| msgid "Im Vergleich zum <span>Pkw</span> sparst Du"
-msgid "Im Vergleich zum <span>E-PKW</span> sparst du auf dieser Strecke"
-msgstr "In comparison to a <span>passenger car</span> you are saving"
+msgid "Im Vergleich zum <span>Elektro-Pkw</span> sparst du auf dieser Strecke"
+msgstr ""
+"In comparison to a <span>passenger car</span> you are saving on this route"
 
 #: e_metrobus/templates/navigation/display_route.html:80
-#, fuzzy
-#| msgid "Im Vergleich zum <span>Dieselbus</span> sparst Du"
 msgid "Im Vergleich zum <span>Dieselbus</span> sparst du auf dieser Strecke"
-msgstr "In comparison to a <span>diesel bus</span> you are saving"
+msgstr ""
+"In comparison to a <span>diesel bus</span> you are saving on this route"
 
 #: e_metrobus/templates/navigation/display_route.html:99
-#, fuzzy
-#| msgid "Im Vergleich zum <span>Dieselbus</span> sparst Du"
 msgid "Im Vergleich zum <span>Pkw (Diesel)</span> sparst du auf dieser Strecke"
-msgstr "In comparison to a <span>diesel bus</span> you are saving"
+msgstr ""
+"In comparison to a <span>car (diesel)</span> you are saving on this route"
 
 #: e_metrobus/templates/navigation/display_route.html:116
 msgid "Fussgänger und Fahrrad"
-msgstr ""
+msgstr "Pedestrian and bicycle"
 
 #: e_metrobus/templates/navigation/display_route.html:118
-#, fuzzy
-#| msgid ""
-#| "Nur noch <span>zu Fuß</span> oder mit dem <span>Fahrrad</span> kannst Du "
-#| "es besser machen!"
 msgid ""
 "Nur noch <span>zu Fuß</span> oder mit dem <span>Fahrrad</span> kannst du es "
 "besser machen!"
@@ -586,179 +586,168 @@ msgstr ""
 
 #: e_metrobus/templates/navigation/environment.html:6
 msgid "Umwelteinfluss der E-Busse"
-msgstr ""
+msgstr "Environmental impact of E-buses"
 
 #: e_metrobus/templates/navigation/environment.html:16
 #, python-format
 msgid ""
-"Einfluss meiner Strecke (%(distance)s km) auf die Umwelt im Vergleich zu "
-"anderen Verkehrsmitteln"
+"Einfluss meiner Strecke mit dem Elektrobus (%(distance)s km) auf die Umwelt "
+"im Vergleich zu anderen Verkehrsmitteln"
 msgstr ""
+"Impact of my route (%(distance)s km) on the environment compared to other "
+"means of transport"
 
+# python-format
 #: e_metrobus/templates/navigation/environment.html:19
 #, python-format
 msgid ""
-"Einfluss der E-Bus Flotte (%(distance)s km) auf die Umwelt im Vergleich zu "
-"anderen Verkehrsmitteln"
+"Einfluss der gesamten Elektrobusflotte der Linie 200 (%(distance)s km) auf "
+"die Umwelt im Vergleich zu anderen Verkehrsmitteln"
 msgstr ""
+" Impact of the E-bus fleet (%(distance)s km) on the environment compared to "
+"other means of transport"
 
 #: e_metrobus/templates/navigation/environment.html:19
 #, python-format
-msgid "seit offiziellem Projektstart am %(start)s"
+msgid "Fahrleistung nach Fahrplan seit offiziellem Projektstart am %(start)s"
 msgstr ""
+"Mileage according to timetable since official project start on %(start)s"
 
 #: e_metrobus/templates/navigation/environment.html:27
-#, fuzzy
-#| msgid "Stecker"
 msgid "Strecke"
-msgstr "Plug"
+msgstr "Route"
 
 #: e_metrobus/templates/navigation/environment.html:34
 msgid "Ändern"
-msgstr ""
-
-#: e_metrobus/templates/navigation/environment.html:43
-#: e_metrobus/templates/widgets/info_table.html:9
-msgid "CO<sub>2</sub>"
-msgstr ""
+msgstr "Modify"
 
 #: e_metrobus/templates/navigation/environment.html:46
-msgid "NOx"
-msgstr ""
+msgid "Elektrobusflotte"
+msgstr "Electric bus fleet"
 
 #: e_metrobus/templates/navigation/environment.html:49
+#: e_metrobus/templates/widgets/info_table.html:9
+msgid "CO<sub>2</sub>"
+msgstr "CO<sub>2</sub>"
+
+#: e_metrobus/templates/navigation/environment.html:52
+msgid "NO<sub>x</sub>"
+msgstr "CO<sub>2</sub>"
+
+#: e_metrobus/templates/navigation/environment.html:55
 #: e_metrobus/templates/widgets/info_table.html:11
 msgid "Feinstaub"
 msgstr "Particulate matter"
 
-#: e_metrobus/templates/navigation/environment.html:55
-msgid "E-Bus Flotte"
-msgstr "E-Bus Fleet"
-
 #: e_metrobus/templates/navigation/finished_base.html:8
 msgid "Quiz abgeschlossen"
-msgstr ""
+msgstr "Quiz finished"
 
 #: e_metrobus/templates/navigation/finished_base.html:18
 msgid "Quiz erledigt!"
-msgstr ""
+msgstr "Quiz over!"
 
 #: e_metrobus/templates/navigation/finished_base.html:21
-#: e_metrobus/templates/widgets/top_bar.html:46
+#: e_metrobus/templates/widgets/top_bar_reveal.html:14
 #, python-format
 msgid "%(score)s%% richtig beantwortet"
-msgstr ""
+msgstr "%(score)s%% answered correctly"
 
 #: e_metrobus/templates/navigation/landing_page.html:6
 msgid "Start"
-msgstr ""
+msgstr "Start"
 
 #: e_metrobus/templates/navigation/landing_page.html:20
-#, fuzzy
-#| msgid "Toll, dass du mit einem E-Bus fährst!"
 msgid "Toll, dass du dich für den E-Bus interessierst!"
-msgstr "It's great that you are taking an E-Bus!"
+msgstr "It's great that you are interested in the E-bus!"
 
 #: e_metrobus/templates/navigation/landing_page.html:20
 msgid "Toll, dass du mit einem E-Bus fährst!"
 msgstr "It's great that you are taking an E-Bus!"
 
 #: e_metrobus/templates/navigation/landing_page.html:23
-msgid "Zeig mir warum!"
-msgstr "Show me why!"
+msgid "Los geht&#39;s!"
+msgstr "Let's start!"
 
 #: e_metrobus/templates/navigation/landing_page.html:48
 msgid ""
 "Die App ist Teil des Forschungsprojektes E-MetroBus der folgenden Partner:"
 msgstr ""
+"The app is part of the research project E-MetroBus of the following partners:"
 
 #: e_metrobus/templates/navigation/landing_page.html:66
 #: e_metrobus/templates/navigation/legal.html:41
 msgid "Elektromobilität vor Ort, BMWI, NOW und PTJ Logo"
-msgstr ""
+msgstr "Electric mobility on site, BMWI, NOW and PTJ logo"
 
 #: e_metrobus/templates/navigation/landing_page.html:75
 msgid "Hinweis: Unsere Website sammelt keine personenbezogenen Daten."
-msgstr ""
+msgstr "Note: Our website does not collect personal data."
 
 #: e_metrobus/templates/navigation/landing_page.html:76
 msgid "Okay"
-msgstr ""
+msgstr "Okay"
 
 #: e_metrobus/templates/navigation/legal.html:11
-#, fuzzy
-#| msgid "Projektziele"
 msgid "Projektpartner"
-msgstr "Project goals"
+msgstr "Project partners"
 
 #: e_metrobus/templates/navigation/legal.html:12
 msgid "Feedback geben"
-msgstr ""
+msgstr "Give feedback"
 
 #: e_metrobus/templates/navigation/legal.html:13
 #: e_metrobus/templates/questions/umwelt/windturbines.html:9
 #: e_metrobus/templates/widgets/info_table.html:26
 msgid "Quellen"
-msgstr ""
+msgstr "Sources"
 
 #: e_metrobus/templates/navigation/legal.html:62
 msgid "Fehler melden"
-msgstr ""
+msgstr "Report an error"
 
 #: e_metrobus/templates/navigation/legal.html:75
 msgid ""
 "Hast du ein Bug oder inhaltliche Fehler gefunden? Dann melde dich gerne bei "
 "uns!"
-msgstr ""
+msgstr "Did you find a bug or error in the content? Then please contact us!"
 
 #: e_metrobus/templates/navigation/legal.html:87
-#, fuzzy
-#| msgid "30 Sekunden"
 msgid "Senden"
-msgstr "30 seconds"
+msgstr "Send"
 
 #: e_metrobus/templates/navigation/question.html:7
 msgid "Frage"
-msgstr ""
+msgstr "Question"
 
 #: e_metrobus/templates/navigation/question.html:30
-#, fuzzy
-#| msgid "Mehrere Antworten möglich"
 msgid "Antwortmöglichkeiten"
-msgstr "Multiple answers possible"
+msgstr "Answer options"
 
 #: e_metrobus/templates/navigation/question.html:43
 msgid "Antworten"
-msgstr "Answers"
+msgstr "Submit"
 
 #: e_metrobus/templates/navigation/quiz_finished.html:12
 msgid "Ergebnis teilen"
 msgstr "Share the result"
 
-#: e_metrobus/templates/navigation/quiz_finished.html:16
-#, fuzzy
-#| msgid "Ergebnis teilen"
-msgid "Ergebnisse teilen"
-msgstr "Share the result"
-
-#: e_metrobus/templates/navigation/quiz_finished.html:36
-#: e_metrobus/templates/widgets/top_bar.html:71
-msgid "Link wurde kopiert"
-msgstr ""
+#: e_metrobus/templates/navigation/quiz_finished.html:15
+#: e_metrobus/templates/widgets/top_bar_reveal.html:8
+msgid "App teilen"
+msgstr "Share the app"
 
 #: e_metrobus/templates/navigation/route.html:7
-#, fuzzy
-#| msgid "Stecker"
 msgid "Deine Strecke"
-msgstr "Plug"
+msgstr "Your route"
 
 #: e_metrobus/templates/navigation/route.html:23
 msgid "Wo bist du eingestiegen?"
-msgstr ""
+msgstr "Where did you get on?"
 
 #: e_metrobus/templates/navigation/route.html:39
 msgid "Wo steigst du aus?"
-msgstr ""
+msgstr "Where are you getting off?"
 
 #: e_metrobus/templates/navigation/route.html:52
 #: e_metrobus/templates/widgets/stations.html:52
@@ -766,206 +755,206 @@ msgid "Strecke bestätigen"
 msgstr "Confirm route"
 
 #: e_metrobus/templates/navigation/route.html:58
-#, fuzzy
-#| msgid "Elektrischer Bus ohne Strom"
 msgid "Bus ohne Strom"
-msgstr "E-Bus without electricity"
+msgstr "Bus without electricity"
 
 #: e_metrobus/templates/navigation/route.html:59
 msgid "Ups!"
-msgstr ""
+msgstr "Oops"
 
 #: e_metrobus/templates/navigation/route.html:60
 msgid "Ein- und Ausstieg müssen verschieden sein."
-msgstr ""
+msgstr "Entry and exit must be different from one another."
 
 #: e_metrobus/templates/navigation/summary.html:6
 msgid "Zusammenfassung"
-msgstr ""
+msgstr "Summary"
 
 #: e_metrobus/templates/navigation/tour.html:7
 msgid "Einführung"
-msgstr ""
+msgstr "Introduction"
 
 #: e_metrobus/templates/navigation/tour.html:16
 msgid "Du weißt jetzt, wie viel CO<sub>2</sub> du auf dieser Strecke sparst!"
-msgstr ""
+msgstr "Now you know how much CO<sub>2</sub> you save on this route!"
 
 #: e_metrobus/templates/navigation/tour.html:22
 msgid "Jetzt kannst du..."
-msgstr ""
+msgstr "Now you can..."
 
 #: e_metrobus/templates/navigation/tour.html:32
 #: e_metrobus/templates/navigation/tour_non_bus_users.html:30
-msgid "... deine Kenntnisse über E-Mobilität mit einem Quiz testen!"
-msgstr ""
+msgid "... deine Kenntnisse über E-Mobilität mit einem Quiz testen"
+msgstr "... test your knowledge of e-mobility with a quiz"
 
 #: e_metrobus/templates/navigation/tour.html:42
-msgid "... noch mehr Daten zu deiner Strecke und der Umwelt-Bilanz lesen"
-msgstr ""
+msgid "... noch mehr Daten zu deiner Strecke und der Umweltbilanz lesen"
+msgstr "... read further data about your route and the environmental balance"
 
 #: e_metrobus/templates/navigation/tour.html:47
 #: e_metrobus/templates/navigation/tour_non_bus_users.html:45
 msgid "Blitz"
-msgstr ""
+msgstr "Flash"
 
 #: e_metrobus/templates/navigation/tour.html:52
 #: e_metrobus/templates/navigation/tour_non_bus_users.html:50
-msgid "... mehr über das E-MetroBus Projekt erfahren"
-msgstr ""
+msgid "... mehr über das E-MetroBus-Projekt erfahren"
+msgstr "... learn more about the E-MetroBus project"
 
 #: e_metrobus/templates/navigation/tour.html:58
 #: e_metrobus/templates/navigation/tour_non_bus_users.html:56
 msgid "Alles klar!"
-msgstr ""
+msgstr "All right!"
 
 #: e_metrobus/templates/navigation/tour_non_bus_users.html:14
 msgid "Willkommen in der App des E-MetroBus Projekts!"
-msgstr ""
+msgstr "Welcome to the app of the E-MetroBus project!"
 
 #: e_metrobus/templates/navigation/tour_non_bus_users.html:20
 msgid "Hier kannst du..."
-msgstr ""
+msgstr "Here you can..."
 
 #: e_metrobus/templates/navigation/tour_non_bus_users.html:40
-msgid "... Daten zur Umwelt-Bilanz der neuen E-Busse lesen"
-msgstr ""
+msgid "... Daten zur Umweltbilanz der neuen E-Busse lesen"
+msgstr "... Read data on the environmental balance of the new E-buses"
 
 #: e_metrobus/templates/pages/question_translations.html:5
 msgid "Technik"
-msgstr ""
+msgstr "Technology"
 
 #: e_metrobus/templates/pages/question_translations.html:9
 msgid "Ladezeiten"
 msgstr "Charging times"
 
 #: e_metrobus/templates/pages/question_translations.html:10
-#, fuzzy
-#| msgid "Wie lange muss dieser Bus an der Endhaltestelle laden?"
 msgid ""
-"Wie lange müssen die Elektro-Gelenkbusse der 200 an den Endhaltestellen "
-"laden?"
-msgstr "How long does it take to charge the bus?"
+"Wie lange müssen die Elektro-Gelenkbusse der Linie 200 an den "
+"Endhaltestellen laden?"
+msgstr ""
+"How long does it take to charge the electric articulated buses of line 200 "
+"at the terminal stops?"
 
 #: e_metrobus/templates/pages/question_translations.html:11
 msgid "Eine halbe Stunde"
-msgstr ""
+msgstr "Half an hour"
 
 #: e_metrobus/templates/pages/question_translations.html:11
-#, fuzzy
-#| msgid "1 Stunde"
 msgid "Eine Stunde"
-msgstr "1 hour"
+msgstr "One hour"
 
 #: e_metrobus/templates/pages/question_translations.html:11
 msgid "Wenige Minuten"
 msgstr "A few minutes"
 
 #: e_metrobus/templates/pages/question_translations.html:11
-#, fuzzy
-#| msgid "30 Sekunden"
 msgid "Wenige Sekunden"
-msgstr "30 seconds"
+msgstr "A few seconds"
 
 #: e_metrobus/templates/pages/question_translations.html:13
 msgid "Die Ladezeit beträgt in der Regel wenige Minuten."
-msgstr ""
+msgstr "The charging time is usually a few minutes."
 
 #: e_metrobus/templates/pages/question_translations.html:15
 msgid "Ladevorgang"
 msgstr "Charging"
 
 #: e_metrobus/templates/pages/question_translations.html:16
-#, fuzzy
-#| msgid "Wie wird die Buslinie 200 geladen?"
 msgid "Wie werden die Elektro-Gelenkbusse auf der Linie 200 geladen?"
 msgstr "How is the bus line 200 charged?"
 
 #: e_metrobus/templates/pages/question_translations.html:17
-#, fuzzy
-#| msgid "Strecke ändern"
 msgid "Stecker von der Seite"
-msgstr "Change route"
+msgstr "Plug on the side"
 
 #: e_metrobus/templates/pages/question_translations.html:17
-msgid "Pantograph von oben"
-msgstr ""
+msgid "Pantograf von oben"
+msgstr "Pantograph from above"
 
 #: e_metrobus/templates/pages/question_translations.html:17
 msgid "Berührungslos mittels Induktion von unten"
-msgstr ""
+msgstr "Contactless by induction from below"
 
 #: e_metrobus/templates/pages/question_translations.html:17
 msgid "Batterie wird gewechselt"
-msgstr ""
+msgstr "Changing the battery"
 
 #: e_metrobus/templates/pages/question_translations.html:19
 msgid ""
 "Der Bus wird an den Endhaltestellen Hertzallee und Michelangelostraße sowie "
-"im Betriebshof mit einem Pantographen aufgeladen."
+"im Betriebshof mit einem Pantografen aufgeladen."
 msgstr ""
+"The bus will be charged with a pantograph at the terminal stops Hertzallee "
+"and Michelangelostraße, as well as in the depot."
 
 #: e_metrobus/templates/pages/question_translations.html:21
 msgid "Batterien"
-msgstr ""
+msgstr "Batteries"
 
 #: e_metrobus/templates/pages/question_translations.html:22
-msgid "Wo befinden sich die Batterien der Elektro-Gelenkbusse der Linie 200?"
+msgid ""
+"Wo befinden sich die Batterien in den Elektro-Gelenkbussen der Linie 200?"
 msgstr ""
+"Where are the batteries of the electric articulated buses of line 200 "
+"located?"
 
 #: e_metrobus/templates/pages/question_translations.html:23
 msgid "Im Boden"
-msgstr ""
+msgstr "Below the floor"
 
 #: e_metrobus/templates/pages/question_translations.html:23
 msgid "Am Heck"
-msgstr ""
+msgstr "At the rear"
 
 #: e_metrobus/templates/pages/question_translations.html:23
 msgid "Auf dem Dach"
-msgstr ""
+msgstr "On the roof"
 
 #: e_metrobus/templates/pages/question_translations.html:23
-#, fuzzy
-#| msgid "Ladezeiten"
 msgid "An den Seiten"
-msgstr "Charging times"
+msgstr "On the sides"
 
 #: e_metrobus/templates/pages/question_translations.html:25
 msgid ""
 "Die Batterien der Elektro-Gelenkbusse, die auf der Linie 200 eingesetzt "
-"werden, sich auf dem Dach angebracht."
+"werden, sind auf dem Dach angebracht."
 msgstr ""
+"The batteries of the articulated electric buses used on Line 200 are mounted "
+"on the roof."
 
 #: e_metrobus/templates/pages/question_translations.html:27
 msgid "Kosten"
-msgstr ""
+msgstr "Costs"
 
 #: e_metrobus/templates/pages/question_translations.html:28
-msgid "Wie viel mehr kostet ein Elektrobus als ein konventioneller Dieselbus?"
+msgid ""
+"Wie viel mehr kostet ein Elektrobus im Vergleich zu einem konventionellen "
+"Dieselbus?"
 msgstr ""
+"How much more does an electric bus cost than a conventional diesel bus?"
 
 #: e_metrobus/templates/pages/question_translations.html:29
-msgid "Doppelt"
-msgstr ""
+msgid "Das Doppelte"
+msgstr "Double"
 
 #: e_metrobus/templates/pages/question_translations.html:29
-msgid "Dreifach"
-msgstr ""
+msgid "Das Dreifache"
+msgstr "Triple"
 
 #: e_metrobus/templates/pages/question_translations.html:29
-msgid "Zehnfach"
-msgstr ""
+msgid "Das Zehnfache"
+msgstr "Tenfold"
 
 #: e_metrobus/templates/pages/question_translations.html:29
-msgid "Genauso"
-msgstr ""
+msgid "Genau gleich viel"
+msgstr "Likewise"
 
 #: e_metrobus/templates/pages/question_translations.html:31
 msgid ""
 "Elektrobusse kosten aktuell noch etwa doppelt so viel wie konventionelle "
 "Dieselbusse der gleichen Größenklasse."
 msgstr ""
+"Electric buses currently still cost roughly twice as much as conventional "
+"diesel buses of the same size."
 
 #: e_metrobus/templates/pages/question_translations.html:34
 msgid "Umwelt"
@@ -973,29 +962,31 @@ msgstr "Environment"
 
 #: e_metrobus/templates/pages/question_translations.html:38
 msgid "Energie"
-msgstr ""
+msgstr "Energy"
 
 #: e_metrobus/templates/pages/question_translations.html:39
 msgid ""
-"Wieviel Energie ist für die jährliche Stromversorgung der Elektrobusse auf "
-"der Linie 200 notwendig? So viel wie ausreichen würde zur Versorgung von:"
+"Wie viel Energie ist für die jährliche Stromversorgung der Elektrobusse auf "
+"der Linie 200 notwendig? So viel wie der Jahresstromverbrauch von:"
 msgstr ""
+"How much energy is needed for the annual power supply of the electric buses "
+"on route 200? As much as would suffice to supply:"
 
 #: e_metrobus/templates/pages/question_translations.html:40
-msgid "584 Haushalten"
-msgstr ""
+msgid "584 Dreipersonenhaushalten"
+msgstr "584 three-person households"
 
 #: e_metrobus/templates/pages/question_translations.html:40
-msgid "56 Haushalten"
-msgstr ""
+msgid "56 Dreipersonenhaushalten"
+msgstr "56 three-person households"
 
 #: e_metrobus/templates/pages/question_translations.html:40
-msgid "285 Haushalten"
-msgstr ""
+msgid "285 Dreipersonenhaushalten"
+msgstr "285 three-person households"
 
 #: e_metrobus/templates/pages/question_translations.html:40
-msgid "1010 Haushalten"
-msgstr ""
+msgid "1.010 Dreipersonenhaushalten"
+msgstr "1,010 three-person households"
 
 #: e_metrobus/templates/pages/question_translations.html:42
 msgid ""
@@ -1003,153 +994,172 @@ msgid ""
 "befindlichen Elektrobussen liegt bei etwa 2.044.000 kWh, was dem "
 "Energiebedarf von ca. 584 Dreipersonenhaushalten entspricht."
 msgstr ""
+"The annual electricity consumption of the entire bus line 200 with all "
+"electric buses in operation is about 2,044,000 kWh, which equates to the "
+"energy requirements of about 584 three-person households."
 
 #: e_metrobus/templates/pages/question_translations.html:44
 msgid "Wettereinfluss"
-msgstr ""
+msgstr "Influence of weather"
 
 #: e_metrobus/templates/pages/question_translations.html:45
 msgid ""
 "Welche Wetterbedingungen haben einen Einfluss auf die Nutzung des "
-"Pantographen (Ladung von oben) zur Ladung der Elektro-Gelenkbusse?"
+"Pantografen (Ladung von oben) zur Ladung der Elektro-Gelenkbusse?"
 msgstr ""
+"What weather conditions affect the use of Pantographs (charge from above) to "
+"charge the electric articulated buses?"
 
 #: e_metrobus/templates/pages/question_translations.html:46
 msgid "Hitze"
-msgstr ""
+msgstr "Heat"
 
 #: e_metrobus/templates/pages/question_translations.html:46
 msgid "Schnee/Eis"
-msgstr ""
+msgstr "Snow/ice"
 
 #: e_metrobus/templates/pages/question_translations.html:46
 msgid "Regen"
-msgstr ""
+msgstr "Rain"
 
 #: e_metrobus/templates/pages/question_translations.html:46
 msgid "Wind"
-msgstr ""
+msgstr "Wind"
 
 #: e_metrobus/templates/pages/question_translations.html:46
 msgid "Keine der genannten"
-msgstr ""
+msgstr "None of the above"
 
 #: e_metrobus/templates/pages/question_translations.html:48
-msgid "Der Betrieb des Pantographen ist weitgehend wetterunabhängig möglich."
+msgid "Der Betrieb des Pantografen ist weitgehend wetterunabhängig möglich."
 msgstr ""
+"The pantograph can be operated largely independent of weather conditions."
 
 #: e_metrobus/templates/pages/question_translations.html:50
 msgid "Reichweite"
-msgstr ""
+msgstr "Range"
 
 #: e_metrobus/templates/pages/question_translations.html:51
 msgid ""
 "Was sind geeignete technologische Ansätze für den lokal emissionsfreien "
 "Betrieb der Berliner Busflotte?"
 msgstr ""
+"What are suitable technological approaches for emission-free operation of "
+"the Berlin bus fleet?"
 
 #: e_metrobus/templates/pages/question_translations.html:52
 msgid "Busse leichter machen"
-msgstr ""
+msgstr "Making buses weigh less"
 
 #: e_metrobus/templates/pages/question_translations.html:52
 msgid ""
 "Verschiedene Elektrobustypen im Mix (Elektrobusse mit Depot- und "
 "Gelegenheitsladung)"
 msgstr ""
+"Different types of electric buses in the mix (electric buses with depot and "
+"opportunity charging)"
 
 #: e_metrobus/templates/pages/question_translations.html:52
-#, fuzzy
-#| msgid "Busse"
 msgid "Mehr Busse"
-msgstr "Buses"
+msgstr "More buses"
 
 #: e_metrobus/templates/pages/question_translations.html:52
 msgid "Wasserstoff-Brennstoffzelle"
-msgstr ""
+msgstr "Hydrogen fuel cell"
 
 #: e_metrobus/templates/pages/question_translations.html:52
 msgid "Oberleitung (Hybrid-Oberleitungsbusse)"
-msgstr ""
+msgstr "Overhead contact line (hybrid trolley buses)"
 
 #: e_metrobus/templates/pages/question_translations.html:52
 msgid "Förderung des motorisierten Individualverkehrs"
-msgstr ""
+msgstr "Promotion of motorised private transport"
 
 #: e_metrobus/templates/pages/question_translations.html:54
 msgid ""
-"Der Umstieg des Busverkehrs von Diesel- auf lokal emissionsfreie und CO2-"
-"neutrale Busse als Maßnahme im Verkehr zur Erreichung der Luftreinhalte- und "
-"Klimaziele stellt die Verkehrsbetriebe vor große Herausforderungen. So "
-"stehen verschiedene lokal emissionsfreie Busse zur Verfügung, für die zuerst "
-"Infrastruktur aufgebaut werden muss."
+"Der Umstieg des Busverkehrs von Diesel- auf lokal emissionsfreie und "
+"CO<sub>2</sub>-neutrale Busse als Maßnahme im Verkehr zur Erreichung der "
+"Luftreinhalte- und Klimaziele stellt die Verkehrsbetriebe vor große "
+"Herausforderungen. So stehen verschiedene lokal emissionsfreie Busse zur "
+"Verfügung, für die zuerst Infrastruktur aufgebaut werden muss."
 msgstr ""
+"The changeover of bus transport from diesel-powered to locally emission-free "
+"and CO<sub>2</sub>-neutral buses, as a measure in transport to achieve the "
+"air pollution and climate targets, poses great challenges for transport "
+"companies. Various locally emission-free buses are available, for which "
+"infrastructure must first be established."
 
 #: e_metrobus/templates/pages/question_translations.html:56
 msgid "Windräder"
-msgstr ""
+msgstr "Wind turbines"
 
 #: e_metrobus/templates/pages/question_translations.html:57
 msgid ""
 "Wie viele Windenergieanlagen sind bilanziell für den Betrieb der Elektro-"
 "Gelenkbusse auf der Linie 200 im Jahr notwendig?"
 msgstr ""
+"On the balance sheet, how many wind turbines are needed to operate the "
+"electric articulated buses on route 200 per year?"
 
 #: e_metrobus/templates/pages/question_translations.html:60
 msgid ""
 "Es werden etwa 0,2 Windräder mit einer Leistung von je 3 MW benötigt, um die "
 "Elektrobusse der Linie 200 rein aus Windstrom zu versorgen."
 msgstr ""
+"About 0.2 wind turbines with a capacity of 3 MW each are needed to supply "
+"the electric buses of line 200 purely from wind power."
 
 #: e_metrobus/templates/pages/question_translations.html:63
-msgid "Politk"
+msgid "Politik"
 msgstr "Policy"
 
 #: e_metrobus/templates/pages/question_translations.html:67
 msgid "Erster E-Bus"
-msgstr ""
+msgstr "First E-Bus"
 
 #: e_metrobus/templates/pages/question_translations.html:68
-#, fuzzy
-#| msgid "Seit wann fahren Elektrobusse in Berlin?"
 msgid "Seit wann fahren Elektrobusse für die BVG in Berlin?"
 msgstr "In what year where electric buses first introduced in Berlin?"
 
 #: e_metrobus/templates/pages/question_translations.html:71
 msgid "Die erste Linie mit Elektrobussen war im Jahr 2015 die Linie 204."
-msgstr ""
+msgstr "The first line with electric buses was line 204 in 2015."
 
 #: e_metrobus/templates/pages/question_translations.html:73
 msgid "Vollelektrifizierung"
-msgstr ""
+msgstr "Full electrification"
 
 #: e_metrobus/templates/pages/question_translations.html:74
 msgid ""
 "Wie viele Elektrobusse werden für eine Vollelektrifizierung des Berliner "
-"Busnetzes erwartet?"
+"Busnetzes voraussichtlich benötigt?"
 msgstr ""
+"How many electric buses are expected to be needed in order to fully "
+"electrify the Berlin bus network?"
 
 #: e_metrobus/templates/pages/question_translations.html:75
-msgid "Ca. 1000"
-msgstr ""
+msgid "Ca. 1.000"
+msgstr "Ca. 1,000"
 
 #: e_metrobus/templates/pages/question_translations.html:75
-msgid "Ca. 1450 (aktuelle Busflotte)"
-msgstr ""
+msgid "Ca. 1.450 (aktuelle Busflotte)"
+msgstr "Ca. 1,450 (current bus fleet)"
 
 #: e_metrobus/templates/pages/question_translations.html:75
-msgid "Ca. 1800"
-msgstr ""
+msgid "Ca. 1.800"
+msgstr "Ca. 1,800"
 
 #: e_metrobus/templates/pages/question_translations.html:75
-msgid "Ca. 2300"
-msgstr ""
+msgid "Ca. 2.300"
+msgstr "Ca. 2,300"
 
 #: e_metrobus/templates/pages/question_translations.html:77
 msgid ""
-"Die geschätzte Anzahl liegt zwischen ca. 1700 und 1900 Bussen bei einer "
+"Die geschätzte Anzahl liegt zwischen ca. 1.700 und 1.900 Bussen bei einer "
 "vollständigen Elektrifizierung."
 msgstr ""
+"The estimated number is between 1,700 and 1,900 buses with full "
+"electrification."
 
 #: e_metrobus/templates/pages/question_translations.html:79
 msgid "Zeitplan"
@@ -1158,21 +1168,25 @@ msgstr "Schedule"
 #: e_metrobus/templates/pages/question_translations.html:80
 msgid "Bis wann sollen ausschließlich Elektrobusse auf Berlins Straßen fahren?"
 msgstr ""
+"From when will only electric buses be allowed to drive on Berlin's roads?"
 
 #: e_metrobus/templates/pages/question_translations.html:83
 msgid ""
 "Berlins Mobilitätsgesetz, nach wie vor einzigartig in Deutschland, gibt in "
 "Berlin den Zeitrahmen für den vollständigen Umstieg von Diesel auf "
-"alternative Antriebe vor: Das entscheidende Jahr ist 2030. "
+"alternative Antriebe vor: Das entscheidende Jahr ist 2030."
 msgstr ""
+"Berlin's mobility law, still unique in Germany, sets the timeframe in Berlin "
+"for the complete changeover from diesel to alternative drives: The decisive "
+"year is 2030."
 
 #: e_metrobus/templates/pages/question_translations.html:85
 msgid "Klimaneutral"
-msgstr ""
+msgstr "Climate-neutral"
 
 #: e_metrobus/templates/pages/question_translations.html:86
 msgid "Bis wann soll Berlin klimaneutral sein?"
-msgstr ""
+msgstr "By when should Berlin be climate-neutral?"
 
 #: e_metrobus/templates/pages/question_translations.html:89
 #, python-format
@@ -1180,6 +1194,8 @@ msgid ""
 "Bis 2050 will die Stadt klimaneutral werden und die Kohlendioxidemissionen "
 "um mindestens 85 %% (bezogen auf 1990) reduzieren."
 msgstr ""
+"By 2050, the city wants to become climate-neutral and reduce carbon dioxide "
+"emissions by at least 85%% (compared to 1990)."
 
 #: e_metrobus/templates/pages/question_translations.html:92
 msgid "Ich"
@@ -1190,215 +1206,188 @@ msgid "Vorteile"
 msgstr "Advantages"
 
 #: e_metrobus/templates/pages/question_translations.html:97
-#, fuzzy
-#| msgid ""
-#| "Was sind Vorteile einer elektrifizierten Buslinie? (Mehrfachauswahl noch "
-#| "nicht möglich)"
-msgid "Was sind Vorteile einer elektrifizierten Buslinie? "
-msgstr ""
-"What are the advantages of an electrified bus line? (multiple choice not yet "
-"possible)"
+msgid "Was sind Vorteile einer elektrifizierten Buslinie?"
+msgstr "What are the advantages of an electrified bus line?"
 
 #: e_metrobus/templates/pages/question_translations.html:98
-#, fuzzy
-#| msgid "Weniger CO2-Belastung"
 msgid "Weniger CO<sub>2</sub>-Belastung"
-msgstr "Less CO2 pollution"
+msgstr "Less CO<sub>2</sub> pollution"
 
 #: e_metrobus/templates/pages/question_translations.html:98
-#, fuzzy
-#| msgid "Weniger CO2-Belastung"
 msgid "Weniger Lärmbelastung"
-msgstr "Less CO2 pollution"
+msgstr "Less noise pollution"
 
 #: e_metrobus/templates/pages/question_translations.html:98
 msgid "Kürzere Fahrzeiten"
-msgstr ""
+msgstr "Shorter travel times"
 
 #: e_metrobus/templates/pages/question_translations.html:98
 msgid "Günstigere Fahrkarten"
-msgstr ""
+msgstr "Cheaper tickets"
 
 #: e_metrobus/templates/pages/question_translations.html:98
 msgid "Keine Belastung durch Stickoxide und Feinstaub"
-msgstr ""
+msgstr "No pollution by nitrogen oxides and fine dust"
 
 #: e_metrobus/templates/pages/question_translations.html:100
 msgid ""
 "Elektrobusse tragen zu einer lebenswerteren Stadt bei, weil sie lokal "
 "emissionsfrei sind und somit keine Stickoxide oder Feinstaub durch den "
-"Kraftstoffeinsatz ausstoßen. Auch verursachen Elektrobusse weniger CO2-"
-"Emissionen im Vergleich zu Dieselbussen."
+"Kraftstoffeinsatz ausstoßen. Auch verursachen Elektrobusse weniger CO<sub>2</"
+"sub>-Emissionen im Vergleich zu Dieselbussen."
 msgstr ""
+"Electric buses contribute to a more liveable city because they are locally "
+"emission-free and therefore do not emit nitrogen oxides or fine dust through "
+"fuel consumption. Electric buses also cause less CO<sub>2</sub> emissions "
+"compared to diesel buses."
 
 #: e_metrobus/templates/pages/question_translations.html:102
 msgid "Wahl des Verkehrsmittels"
-msgstr ""
+msgstr "Choice of mode of transport"
 
 #: e_metrobus/templates/pages/question_translations.html:103
 msgid ""
 "Für wie viel CO<sub>2</sub> ist jede*r Berliner*in statistisch pro Jahr "
 "verantwortlich?"
 msgstr ""
+"How much CO<sub>2</sub> is each Berliner statistically responsible for each "
+"year?"
 
 #: e_metrobus/templates/pages/question_translations.html:104
-#, fuzzy
-#| msgid "Tonnen"
 msgid "0,5 Tonnen"
-msgstr "Tonnes"
+msgstr "0.5 tonnes"
 
 #: e_metrobus/templates/pages/question_translations.html:104
-#, fuzzy
-#| msgid "Tonnen"
-msgid "4,8 Tonnen"
-msgstr "Tonnes"
+msgid "4,9 Tonnen"
+msgstr "4.9 tonnes"
 
 #: e_metrobus/templates/pages/question_translations.html:104
-#, fuzzy
-#| msgid "Tonnen"
 msgid "8 Tonnen"
-msgstr "Tonnes"
+msgstr "8 tonnes"
 
 #: e_metrobus/templates/pages/question_translations.html:104
-#, fuzzy
-#| msgid "Tonnen"
 msgid "2 Tonnen"
-msgstr "Tonnes"
+msgstr "2 tonnes"
 
 #: e_metrobus/templates/pages/question_translations.html:106
 msgid ""
-"Jede*r Berliner*in ist statistisch gesehen für 4,8 Tonnen CO<sub>2</sub> pro "
-"Jahr verantwortlich. "
+"Jede*r Berliner*in ist statistisch gesehen für 4,9 Tonnen CO<sub>2</sub> pro "
+"Jahr verantwortlich."
 msgstr ""
+"Statistically speaking, every Berliner is responsible for 4.9 tons of "
+"CO<sub>2</sub> per year."
+
+#: e_metrobus/templates/pages/question_translations.html:108
+msgid "E-Bus"
+msgstr "E-bus"
 
 #: e_metrobus/templates/pages/question_translations.html:109
 msgid "Woran erkennt man einen Elektrobus?"
-msgstr ""
+msgstr "How do you recognise an electric bus?"
 
 #: e_metrobus/templates/pages/question_translations.html:110
 msgid "Der Elektrobus produziert keine Abgase während des Fahrbetriebs."
-msgstr ""
+msgstr "The electric bus produces no exhaust fumes during operation."
 
 #: e_metrobus/templates/pages/question_translations.html:110
 msgid "Der Elektrobus hat einen sichtbaren Aufbau auf dem Dach."
-msgstr ""
+msgstr "The electric bus has a visible structure on the roof."
 
 #: e_metrobus/templates/pages/question_translations.html:110
 msgid "Der Elektrobus ist leiser als ein konventioneller Bus."
-msgstr ""
+msgstr "The electric bus has a visible structure on the roof."
 
 #: e_metrobus/templates/pages/question_translations.html:110
-msgid "Der Elektrobus ermöglicht kürzer Fahrzeiten."
-msgstr ""
+msgid "Der Elektrobus ermöglicht kürzere Fahrzeiten."
+msgstr "The electric bus enables shorter travel times."
 
 #: e_metrobus/templates/pages/question_translations.html:112
 msgid ""
-"Leider schaffen Elektrobusse noch keine Zeitreisen, die Fahrzeit wird also "
-"nicht kürzer. Aber alle anderen Antworten sind richtig."
+"Leider schaffen E-Busse noch keine Zeitreisen, die Fahrzeit wird also nicht "
+"kürzer. Aber alle anderen Antworten sind richtig."
 msgstr ""
+"Unfortunately, electric buses do not yet manage time travel, so the journey "
+"time will not be shorter. But all other answers are correct."
 
 #: e_metrobus/templates/pages/question_translations.html:114
 msgid "E-Bus Linien"
-msgstr ""
+msgstr "E-Bus lines"
 
 #: e_metrobus/templates/pages/question_translations.html:115
 msgid ""
 "Auf welchen Linien (neben der Linie 200) ist ebenfalls eine Fahrt mit einem "
 "Elektrobus möglich?"
-msgstr ""
+msgstr "On which routes (besides route 200) is an electric bus also available?"
 
 #: e_metrobus/templates/pages/question_translations.html:116
-#, fuzzy
-#| msgid "Linie 200"
 msgid "Linie 100"
-msgstr "Line 200"
+msgstr "Line 100"
 
 #: e_metrobus/templates/pages/question_translations.html:116
 msgid "Linien M29 und M41"
-msgstr ""
+msgstr "Lines M29 and M41"
 
 #: e_metrobus/templates/pages/question_translations.html:116
 msgid "Linien 142, 147 und 300"
-msgstr ""
+msgstr "Lines 142, 147 and 300"
 
 #: e_metrobus/templates/pages/question_translations.html:116
-#, fuzzy
-#| msgid "Linie 200"
 msgid "Linie N2"
-msgstr "Line 200"
+msgstr "Line N2"
 
 #: e_metrobus/templates/pages/question_translations.html:118
 msgid ""
-"Bis Ende 2020 wird die BVG insgesamt 120 Elektrobusse (von der Standard-"
-"Größe Eindecker) in ihrer Flotte haben. Diese sind zum Beispiel auf den "
-"Linien 142, 147, 155, 250, 294, N50 und 300 unterwegs."
+"Bis Ende 2020 wird die BVG insgesamt 120 Elektrobusse (von der Standardgröße "
+"Eindecker) in ihrer Flotte haben. Diese sind zum Beispiel auf den Linien "
+"142, 147, 155, 250, 294, N50 und 300 unterwegs."
 msgstr ""
+"By the end of 2020, BVG will have a total of 120 electric buses (of standard "
+"single-decker size) in its fleet. They operate, for example, on routes 142, "
+"147, 155, 250, 294, N50 and 300."
 
 #: e_metrobus/templates/questions/e_metrobus/batteries.html:5
 #: e_metrobus/templates/questions/e_metrobus/loading_time.html:5
 msgid "Bild eines E-Busses an einer Ladesäule"
-msgstr ""
+msgstr "Picture of an E-bus at a charging station"
 
-#: e_metrobus/templates/questions/e_metrobus/batteries.html:7
-msgid ""
-"\n"
-"Die Batterien der Elektro-Gelenkbusse, die auf der Linie 200 eingesetzt "
-"werden, sind auf dem Dach angebracht.\n"
-msgstr ""
-
-#: e_metrobus/templates/questions/e_metrobus/costs.html:5
+#: e_metrobus/templates/questions/e_metrobus/costs.html:6
 msgid ""
 "\n"
 "Wie bei vielen Technologien sind auch bei Elektrobussen zu Beginn einer "
 "Marktdurchdringung die Fertigungszahlen gering und demnach die Stückkosten "
-"hoch. Mit zunehmender Serienfertigung können durch Skaleneffekte "
-"Preissenkungen erzielt werden. \n"
+"hoch. Mit zunehmender Serienfertigung werden die Busse günstiger.\n"
 msgstr ""
+"\n"
+"As is the case with many technologies, the production figures for electric "
+"buses are low at the beginning of a market penetration and therefore the "
+"unit costs are high. As series production increases, buses become cheaper. \n"
 
 #: e_metrobus/templates/questions/e_metrobus/loading.html:5
 msgid "Bild einer Ladestation mit Pantograf"
-msgstr ""
+msgstr "Picture of a charging station with pantograph"
 
 #: e_metrobus/templates/questions/e_metrobus/loading.html:7
-#, fuzzy
-#| msgid ""
-#| "\n"
-#| "Der Bus wird an den Endhaltestellen Hertzallee und Michelangelostraße mit "
-#| "einem Pantographen aufgeladen. Dieser ist in der Ladesäule integriert. "
-#| "Wenn der Bus unter der Ladesäule steht, wird der Pantograph "
-#| "heruntergefahren und verbindet sich mit den Schienen auf dem Dach des "
-#| "Busses. Geladen wird in wenigen Minuten mit 450 kW. Wird die Leistung mit "
-#| "einem handelsüblichen Wasserkocher verglichen (etwa 2 kW Leistung) "
-#| "entspricht die Ladeleistung 225 Wasserkochern.\n"
 msgid ""
 "\n"
-"Ein Pantograph ist ein Stromabnehmer zur Übertragung der elektrischen "
-"Energie von der Ladestation in den Bus. Der Pantograph ist in der "
-"Ladestation integriert. Wenn der Bus an der richtigen Stelle steht, wird der "
-"Pantograph heruntergefahren und verbindet sich in wenigen Sekunden mit den "
+"Ein Pantograf ist ein Stromabnehmer zur Übertragung der elektrischen Energie "
+"von der Ladestation in den Bus. Der Pantograf ist in der Ladestation "
+"integriert. Wenn der Bus an der richtigen Stelle steht, wird der Pantograf "
+"heruntergefahren und verbindet sich in wenigen Sekunden mit den "
 "Kontaktpunkten auf dem Dach des Busses. Geladen wird in wenigen Minuten mit "
 "bis zu 450 kW. Wird die Leistung mit einem handelsüblichen Wasserkocher "
 "verglichen (etwa 2 kW Leistung) entspricht die Ladeleistung 225 "
 "Wasserkochern.\n"
 msgstr ""
 "\n"
-"The bus is charged using a pantograph at the final stops - Hertzallee and "
-"Michelangelostraße. This is integrated in the charging station. When the bus "
-"stands under the charging station, the pantograph is lowered and connects to "
-"the rails on the roof of the bus. Charging is completed in a few minutes "
-"with 450 kW. If the power is compared with a standard kettle (approx. 2kW "
-"power), the charging capacity is equivalent to 225 kettles.\n"
+"A pantograph is a current collector that transfers electrical energy from "
+"from the charging station to the bus. The pantograph is integrated in the "
+"charging station. When the bus is in the right position, the pantograph is "
+"moved down and connects to the contact points on the roof of the bus within "
+"a few seconds, charging up to 450 kW in a few minutes. If the power is "
+"compared with a standard kettle (approx. 2 kW power), the charging capacity "
+"is equivalent to 225 kettles.\n"
 
 #: e_metrobus/templates/questions/e_metrobus/loading_time.html:7
-#, fuzzy
-#| msgid ""
-#| "\n"
-#| "Die Ladezeiten betragen in der Regel wenige Minuten. Damit hat der Bus "
-#| "wieder so viel Energie geladen, wie er auf der Strecke verbraucht hat. "
-#| "Allgemein ist der Verbrauch und damit auch die benötigte Ladezeit von "
-#| "vielen Faktoren abhängig (Anzahl der Fahrgäste, Verkehrsaufkommen, Stau, "
-#| "Wetter, Fahrweise etc.). Dementsprechend sind auch kürzere oder längere "
-#| "Ladezeiten möglich.\n"
 msgid ""
 "\n"
 "Damit hat der Bus wieder so viel Energie geladen, wie er auf der Strecke "
@@ -1408,58 +1397,93 @@ msgid ""
 "kürzere oder längere Ladezeiten möglich.\n"
 msgstr ""
 "\n"
-"few minutes\n"
+"With this, the bus has recharged as much energy as it consumed on the route. "
+"In general, consumption and thus the required charging time depends on many "
+"factors (number of passengers, traffic volume, congestion, weather, driving "
+"style, etc.) Accordingly, shorter or longer charging times are also "
+"possible.\n"
 
-#: e_metrobus/templates/questions/ich/advantages.html:4
+#: e_metrobus/templates/questions/ich/advantages.html:5
 msgid ""
 "\n"
-"Die Reduzierung der Schadstoffemissionen werden begleitet von weniger Lärm. "
-"Als Fahrgast profitierst Du von einem deutlich ruhigeren Fahrerlebnis. "
+"    Die Reduzierung der Schadstoffemissionen werden begleitet von weniger "
+"Lärm. Als Fahrgast profitierst du von einem deutlich ruhigeren Fahrerlebnis. "
 "Elektrische Busse sind vor allem beim Anfahren leiser als Dieselbusse und "
 "vibrieren weniger. Zur Erhöhung der Sicherheit für andere "
 "Verkehrsteilnehmer*innen ertönt beim Anfahren allerdings ein akustisches "
-"Signal mittels des AVAS (Acousitic Vehicle Alerting System). Als Anwohner "
-"der Buslinie 200 darfst Du Dich über eine erheblich geringere Abgasbelastung "
-"freuen. \n"
+"Signal mittels des AVAS (Acousitic Vehicle Alerting System). Als Anwohner*in "
+"der Buslinie 200 darfst du dich über eine erheblich geringere Abgasbelastung "
+"freuen.\n"
+"    "
 msgstr ""
+"\n"
+"The reduction of pollutant emissions is accompanied by less noise. As a "
+"passenger, you benefit from a much quieter driving experience. Electric "
+"buses are quieter than diesel buses, especially when starting up, and "
+"vibrate less. To increase safety for other road users, however, an acoustic "
+"signal is emitted when starting off by means of the AVAS (Acousitic Vehicle "
+"Alerting System). As a resident of the 200 bus route, you can enjoy a "
+"considerably lower exhaust emission level. \n"
+"    "
 
-#: e_metrobus/templates/questions/ich/e_bus.html:4
+#: e_metrobus/templates/questions/ich/e_bus.html:5
 msgid ""
 "\n"
-"Elektrobusse zeichnen sich durch ihr nahezu geräuschloses Anfahren aus. Zur "
-"Erhöhung der Sicherheit für andere Verkehrsteilnehmer*innen ertönt beim "
+"    Elektrobusse zeichnen sich durch ihr nahezu geräuschloses Anfahren aus. "
+"Zur Erhöhung der Sicherheit für andere Verkehrsteilnehmer*innen ertönt beim "
 "Anfahren ein akustisches Signal mittels des AVAS (Acousitic Vehicle Alerting "
-"System). Außerdem weisen die Fahrzeuge keinerlei schädliche Abgase im "
-"Fahrbetrieb auf. Dadurch wird die Luftqualität direkt um den Bus sowie für "
+"System). Außerdem produzieren die Fahrzeuge im Fahrbetrieb keinerlei "
+"schädliche Abgase. Dadurch wird die Luftqualität direkt um den Bus sowie für "
 "die gesamte Stadt besser, sehr zur Freude von Fahrradfahrenden und "
-"Fußgängern, die bisher immer durch die Abgas-Wolke der Dieselbusse "
+"Fußgänger*innen, die bisher immer durch die Abgaswolke der Dieselbusse "
 "beeinträchtigt wurden. Die auf der Linie 200 eingesetzten E-Gelenkbusse "
 "haben die Batterien auf dem Dach verbaut, wodurch deutlich mehr Aufbauten "
 "auf dem Dach der Busse zu erkennen sind als bei Dieselbussen, bei denen dort "
-"lediglich die Klimageräte angebracht sind. \n"
+"lediglich die Klimageräte angebracht sind.\n"
+"    "
 msgstr ""
+"\n"
+"Electric buses are characterized by their almost silent starting. To "
+"increase safety for other road users, an acoustic signal is emitted when the "
+"bus starts up by means of the AVAS (Acousitic Vehicle Alerting System). In "
+"addition, the vehicles produce no harmful exhaust fumes when in motion. This "
+"improves the air quality directly around the bus and for the entire city, "
+"much to the delight of cyclists and pedestrians, who have always been "
+"affected by the exhaust cloud from diesel buses. The E-articulated buses "
+"used on Line 200 have the batteries mounted on the roof, which means that "
+"there are significantly more superstructures on the roof of the buses than "
+"on diesel buses, where only the air-conditioning units are installed there.\n"
+"    "
 
-#: e_metrobus/templates/questions/ich/footprint.html:4
+#: e_metrobus/templates/questions/ich/footprint.html:5
 msgid ""
 "\n"
-"Im Bundesdurchschnitt beträgt der CO<sub>2</sub>-Fußabdruck pro Kopf sogar "
-"8,8 Tonnen. Der Verkehrssektor verursacht ein knappes Drittel dieser "
+"    Im Bundesdurchschnitt beträgt der CO<sub>2</sub>-Fußabdruck pro Kopf "
+"sogar 8,8 Tonnen. Der Verkehrssektor verursacht ein knappes Drittel dieser "
 "Emissionen, ebenso wie Haushalte, Gewerbe, Handel und Dienstleistungen. Mit "
 "deutlich über 40 Prozent ist der „Umwandlungssektor“, also die "
 "Energiebereitstellung in Kraftwerken, der größte Emittent.\n"
+"    "
 msgstr ""
+"\n"
+"On a national average, the CO<sub>2</sub> footprint per capita is as high as "
+"8.8 tonnes. The transport sector is responsible for just under a third of "
+"the emissions, as are households, trade, commerce and services. At well over "
+"40 percent of the total contribution, the &quot;conversion sector&quot;, i."
+"e. the provision of energy in power plants, is the largest emitter. \n"
+"    "
 
-#: e_metrobus/templates/questions/ich/footprint.html:7
-#: e_metrobus/templates/questions/politik/neutral.html:8
+#: e_metrobus/templates/questions/ich/footprint.html:9
+#: e_metrobus/templates/questions/politik/neutral.html:10
 #: e_metrobus/templates/questions/politik/schedule.html:10
 msgid "Quelle"
-msgstr ""
+msgstr "Source"
 
-#: e_metrobus/templates/questions/ich/lines.html:4
+#: e_metrobus/templates/questions/ich/lines.html:5
 msgid ""
 "\n"
-"Die Elektrobusse wurden zunächst auf Innenstadtlinien eingesetzt. Seit 2020 "
-"sind aber auch mehr und mehr Elektrobusse in Pankow und Lichtenberg "
+"    Die Elektrobusse wurden zunächst auf Innenstadtlinien eingesetzt. Seit "
+"2020 sind aber auch mehr und mehr Elektrobusse in Pankow und Lichtenberg "
 "unterwegs. Bei der Linienauswahl wurden durch Luftverschmutzung betroffene "
 "Gebiete besonders berücksichtigt. Die Elektro-Eindecker auf diesen Linien "
 "sind für die Depotladung ausgelegt, d.h. sie laden meistens nur einmal "
@@ -1468,12 +1492,28 @@ msgid ""
 "diese Busse flexibel einsetzbar, haben aber eine begrenzte Reichweite. Die "
 "Elektrobusflotte ist auf den genannten Linien zur Zeit zum Teil noch "
 "abwechselnd im Mischverkehr mit konventionellen Dieselbussen unterwegs, der "
-"Einsatz der Elektrobusse wird sukzessive maximiert.\n"
+"Einsatz der Elektrobusse wird sukzessive ausgeweitet.\n"
+"    "
 msgstr ""
+"\n"
+"The electric buses were initially used, among other things, especially on "
+"inner city lines. Since 2020, however, more and more electric buses have "
+"also been in operation in Pankow and Lichtenberg. When selecting the routes, "
+"special attention was paid to areas affected by air pollution. The electric "
+"monoplanes on these lines are designed for depot charging, i.e. they usually "
+"charge their batteries only once a day in the depot and have no charging "
+"facilities on the route, as is the case with the electric articulated buses "
+"of line 200. This means that these buses can be used flexibly, but have a "
+"limited range. The electric bus fleet on the routes as mentioned above is "
+"currently still operating in mixed traffic with conventional diesel buses, "
+"and the use of electric buses is being successively expanded.\n"
+"    "
 
 #: e_metrobus/templates/questions/politik/ebus_time.html:5
 msgid "Bild eines E-Busses mit der Aufschrift Hab den Wagen voll geladen"
 msgstr ""
+"Picture of an E-Bus with the inscription &quot;Have the car fully "
+"loaded&quot;"
 
 #: e_metrobus/templates/questions/politik/ebus_time.html:7
 msgid ""
@@ -1488,10 +1528,20 @@ msgid ""
 "Gelegenheitsladung) in den Linienbetrieb, weil das Berliner Busnetz "
 "unterschiedlichste Linientypen hat.\n"
 msgstr ""
+"\n"
+"The pilot project, with 4 prototypes of the Solaris Urbino 12 electric type "
+"with induction charging technology, was successfully completed and these "
+"buses are now no longer in regular service after the end of the project. "
+"With the electrification of line 200, there are currently 78 electric buses "
+"at BVG. By the end of 2020, this number will rise to 138 electric buses. BVG "
+"is not relying on just one type of technology for electrification, but is "
+"bringing different bus types and strategies for charging (currently depot "
+"and occasional charging) into regular service. This is because the Berlin "
+"bus network has a wide variety of line types.\n"
 
 #: e_metrobus/templates/questions/politik/full_electrification.html:5
 msgid "Bild mehrerer E-Busse an Ladesäulen"
-msgstr ""
+msgstr "Picture of several E-buses at charging stations"
 
 #: e_metrobus/templates/questions/politik/full_electrification.html:7
 msgid ""
@@ -1505,24 +1555,44 @@ msgid ""
 "Zusätzlich wird durch die Elektrifizierung der Busflotte, zum Teil durch die "
 "geringere Reichweite einiger Elektrobusse, eine größere Busflotte benötigt.\n"
 msgstr ""
+"\n"
+"A concrete figure is highly dependent on the future development of "
+"technologies. Various aspects will influence public mobility in Berlin in "
+"the coming years. As the city continues to densify and expand, the network "
+"of routes and the trips offered will also be gradually expanded. Due to this "
+"increasing demand alone, more than the current approx. 1,450 buses will be "
+"necessary in the future. In addition, the electrification of the bus fleet, "
+"partly due to the shorter range of some electric buses, will require a "
+"larger bus fleet.\n"
 
-#: e_metrobus/templates/questions/politik/neutral.html:5
+#: e_metrobus/templates/questions/politik/neutral.html:6
 #, python-format
 msgid ""
 "\n"
-"Berlin hat Klimaneutralität zu einem seiner Ziele für die Zukunft erklärt "
-"und dies entsprechend im Berliner Energiewendegesetz verbindlich festgelegt. "
-"Die öffentliche Hand will und muss mit gutem Beispiel vorangehen:  Zum "
-"Beispiel ist geplant, dass die Berliner Senats- und Bezirksverwaltungen ab "
-"2030 CO<sub>2</sub>-neutral arbeiten, wobei unter anderem umfassende "
-"Gebäudesanierungen eine tragende Rolle spielen werden. So soll der "
-"Primärenergieverbrauch bis 2050 um 80 %% gegenüber 2010 gesenkt werden.\n"
+"    Berlin hat Klimaneutralität zu einem seiner Ziele für die Zukunft "
+"erklärt und dies entsprechend im Berliner Energiewendegesetz verbindlich "
+"festgelegt. Die öffentliche Hand will und muss mit gutem Beispiel "
+"vorangehen:  Zum Beispiel ist geplant, dass die Berliner Senats- und "
+"Bezirksverwaltungen ab 2030 CO<sub>2</sub>-neutral arbeiten, wobei unter "
+"anderem umfassende Gebäudesanierungen eine tragende Rolle spielen werden. So "
+"soll der Primärenergieverbrauch bis 2050 um 80 %% gegenüber 2010 gesenkt "
+"werden.\n"
+"    "
 msgstr ""
+"\n"
+"Berlin has declared climate neutrality to be one of its goals for the future "
+"and has made this binding in the Berlin Energy Turnaround Act. The public "
+"sector wants to and must set a good example:  For example, it is planned "
+"that Berlin's senate and district administrations will be CO<sub>2</sub>-"
+"neutral from 2030, with comprehensive building refurbishments, among other "
+"things, playing a key role. For example, primary energy consumption is to be "
+"reduced by 80 %% by 2050 compared to 2010.\n"
+"    "
 
 #: e_metrobus/templates/questions/politik/schedule.html:5
 #: e_metrobus/templates/questions/umwelt/energy.html:5
 msgid "Bild eines E-Busses der Linie 300"
-msgstr ""
+msgstr "Picture of an E-Bus of line 300"
 
 #: e_metrobus/templates/questions/politik/schedule.html:7
 msgid ""
@@ -1531,12 +1601,16 @@ msgid ""
 "Umstieg. Andere Technologien werden weiterhin beobachtet, um auch auf neue "
 "Angebote reagieren zu können.\n"
 msgstr ""
+"\n"
+"At present, battery electric buses offer the most suitable solution for the "
+"changeover. Other technologies will continue to be monitored in order to be "
+"able to react to new offers. \n"
 
 #: e_metrobus/templates/questions/umwelt/energy.html:7
 msgid ""
 "\n"
 "Ein Elektrobus hat im Durchschnitt einen Verbrauch von 2 kWh/km. Bei einer "
-"Tagesfahrleistung von 200 km für jeden der Elektrobus auf der Linie 200 "
+"Tagesfahrleistung von 200 km für jeden der Elektrobusse auf der Linie 200 "
 "ergibt sich damit ein Energiebedarf von etwa 2.044.000 kWh. Dies entspricht "
 "dem jährlichen Energiebedarf von ca. 584 Dreipersonenhaushalten. Zum "
 "Vergleich: Der konventionell angetriebene Bus verbraucht etwa 480.340 Liter "
@@ -1545,37 +1619,63 @@ msgid ""
 "ineffizienter als Elektromotoren: Sie bringen weniger der hineingesteckten "
 "Energie „auf die Straße“.\n"
 msgstr ""
+"\n"
+"An electric bus has an average consumption of 2 kWh/km. With a daily mileage "
+"of 200 km for each of the electric buses on route 200, this results in an "
+"energy requirement of about 2,044,000 kWh. This corresponds to the annual "
+"energy requirement of about 584 three-person households. By way of "
+"comparison, the conventionally powered bus consumes about 480, 340 liters of "
+"diesel per year. Converted to the amount of energy, this corresponds to an "
+"additional demand of a factor of 2.3, because combustion engines are "
+"significantly more inefficient than electric motors: they bring less of the "
+"energy &quot;on the road&quot;.\n"
 
-#: e_metrobus/templates/questions/umwelt/reach.html:5
+#: e_metrobus/templates/questions/umwelt/reach.html:6
 msgid ""
 "\n"
-"Der Umstieg des Busverkehrs von Diesel- auf lokal emissionsfreie und CO2-"
-"neutrale Busse als Maßnahme im Verkehr zur Erreichung der Luftreinhalte- und "
-"Klimaziele stellt die Verkehrsbetriebe vor große Herausforderungen. So "
-"stehen verschiedene lokal emissionsfreie Busse zur Verfügung, für die zuerst "
-"Infrastruktur aufgebaut werden muss.\n"
-"Für den lokal emissionsfreien Betrieb kommen zuerst verschiedene "
+"    Für den lokal emissionsfreien Betrieb kommen zuerst verschiedene "
 "Elektrobustypen im Mix (Depot- und Gelegenheitsladung) in Frage. Die "
 "Anwendung beider Technologien ist für Berlin sinnvoll, weil Depotlader-Busse "
-"am Flexibelsten sind, dafür aber eine begrenzte Reichweite haben. "
+"am flexibelsten sind, dafür aber eine begrenzte Reichweite haben. "
 "Gelegenheitslader wie auf der Linie 200 haben zwar eine nahezu unbegrenzte "
 "Reichweite durch die Nachladung auf der Strecke, sind jedoch von "
-"Ladeinfrastruktur im öffentlichen Raum abhängig. \n"
-"Weitere Alternativen wie Hybrid-Oberleitungsbusse werden derzeit untersucht. "
-"Diese Fahrzeuge laden während der Fahrt, benötigen aber relativ viel "
-"Infrastruktur. Auch Wasserstoffbrennstoffzellen-Busse wären lokal "
+"Ladeinfrastruktur im öffentlichen Raum abhängig.\n"
+"    Weitere Alternativen wie Hybrid-Oberleitungsbusse werden derzeit "
+"untersucht. Diese Fahrzeuge laden während der Fahrt, benötigen aber relativ "
+"viel Infrastruktur. Auch Wasserstoff-Brennstoffzellen-Busse wären lokal "
 "emissionsfrei und hätten eine relativ große Reichweite. Bevor diese zum "
 "Einsatz kommen können, sind jedoch Fragen zur grünen Produktion, Versorgung "
 "und Lagerung von Wasserstoff zu klären. Im Forschungsprojekt E-MetroBus wird "
-"die Anwendung unter Berücksichtigung dieser Fragestellungen untersucht. \n"
+"die Anwendung unter Berücksichtigung dieser Fragestellungen untersucht.\n"
+"    "
 msgstr ""
+"\n"
+"For local emission-free operation, various types of electric bus in a mix "
+"(depot and opportunity charging) are first of all considered. The use of "
+"both technologies makes sense for Berlin, because depot-charging buses are "
+"the most flexible, but have a limited range. Occasional chargers such as "
+"those on line 200 have an almost unlimited range due to recharging on the "
+"line, but are dependent on charging infrastructure in public areas. \n"
+"Other alternatives such as hybrid trolleybuses are currently being "
+"investigated. These vehicles charge while driving, but require a relatively "
+"large amount of infrastructure. Hydrogen fuel cell buses would also be "
+"locally emission-free and have a relatively long range. However, before they "
+"can be used, questions of green production, supply and storage of hydrogen "
+"must be clarified. In the E-MetroBus research project, the application is "
+"being investigated with these issues in mind. \n"
+"    "
 
-#: e_metrobus/templates/questions/umwelt/weather.html:5
+#: e_metrobus/templates/questions/umwelt/weather.html:6
 msgid ""
 "\n"
-"Extrem starke Winde sind allerdings bei der Positionierung des Fahrzeuges am "
-"Lademast vom Fahrpersonal zu berücksichtigen. \n"
+"    Extrem starke Winde sind allerdings bei der Positionierung des "
+"Fahrzeuges am Lademast vom Fahrpersonal zu berücksichtigen. \n"
+"    "
 msgstr ""
+"\n"
+"However, extremely strong winds must be taken into account by the driving "
+"personnel when positioning the vehicle below the charging mast. \n"
+"    "
 
 #: e_metrobus/templates/questions/umwelt/windturbines.html:5
 msgid ""
@@ -1585,14 +1685,23 @@ msgid ""
 "einzelnes mittelgroßes Windrad (3 MW Klasse) generiert im Durchschnitt das "
 "Fünffache dieser Energiemenge pro Jahr.\n"
 msgstr ""
+"\n"
+"The electric buses on Line 200 have an annual mileage of about 1,022 million "
+"km and thus an energy requirement of about 2,044,000 kWh. A single medium-"
+"sized wind turbine (3 MW class) generates,  on average, five times this "
+"amount of energy per year. \n"
 
 #: e_metrobus/templates/questions/umwelt/windturbines.html:11
 msgid "Liste von Windkraftanlagen in Berlin und Brandenburg"
-msgstr ""
+msgstr "List of wind turbines in Berlin and Brandenburg"
+
+#: e_metrobus/templates/questions/umwelt/windturbines.html:12
+msgid "Liste der Windkraftanlagentypen von Enercon"
+msgstr "List of wind turbines in Berlin and Brandenburg"
 
 #: e_metrobus/templates/widgets/info_table.html:8
 msgid "Fahrzeug"
-msgstr ""
+msgstr "Vehicle"
 
 #: e_metrobus/templates/widgets/info_table.html:10
 msgid "Stickoxide"
@@ -1602,260 +1711,19 @@ msgstr "Nitrogen oxide"
 msgid "Bitte gib Deine Strecke ein!"
 msgstr "Please enter your route!"
 
-#: e_metrobus/templates/widgets/top_bar.html:40
-msgid "App teilen"
-msgstr ""
-
 #: e_metrobus/templates/widgets/top_bar_route.html:10
 msgid "Strecke ändern"
 msgstr "Change route"
 
-#, fuzzy
-#~| msgid "als konventionelle Busse"
-#~ msgid "Konventioneller Bus Icon"
-#~ msgstr "than conventional buses"
-
-#~ msgid "Zur nächsten Frage"
-#~ msgstr "To the next question"
-
-#~ msgid "PKW"
-#~ msgstr "Car"
-
-#~ msgid "App auf mobilen Geräten verfügbar"
-#~ msgstr "App available on mobile devices"
-
-#, fuzzy
-#~| msgid "Im Vergleich zum <span>Pkw</span> sparst Du"
-#~ msgid "Im Vergleich zum <span>Pkw</span> sparst du"
-#~ msgstr "In comparison to a <span>passenger car</span> you are saving"
-
-#~ msgid "Deine Fahrt"
-#~ msgstr "Your journey"
-
-#~ msgid "Liter Diesel"
-#~ msgstr "Litres of Diesel"
-
-#~ msgid "weniger"
-#~ msgstr "less"
-
-#, fuzzy
-#~| msgid "Glückwunsch du hast das Quiz mit %(score)s Punkten abgeschlossen!"
 #~ msgid ""
-#~ "Glückwunsch!<br>Du hast das Quiz mit %(score)s Punkten abgeschlossen!"
-#~ msgstr "Congratulations! You finished the quiz with %(score)s points."
-
-#~ msgid "Quiz neu starten"
-#~ msgstr "Restart the quiz"
-
-#~ msgid "E-Metrobus"
-#~ msgstr "E-Metrobus"
-
-#~ msgid "27-33 Minuten"
-#~ msgstr "27-33 minutes"
-
-#~ msgid "Der Bus muss nur wenige Minuten laden!"
-#~ msgstr "The bus only needs to charge for a few minutes!"
-
-#~ msgid "Wann sollen E-Busse auf Linie 200 zum Einsatz kommen?"
-#~ msgstr "When will the E-buses be used on line 200?"
-
-#~ msgid "Linie 200 soll ab dem Jahr 2020 unterwegs sein!"
-#~ msgstr "Line 200 should be on the road from the year 2020!"
-
-#~ msgid "Der Bus wird mittels eines Pantographen geladen"
-#~ msgstr "The bus is charged using a pantograph"
-
-#, fuzzy
-#~| msgid "CO2 Reduktion"
-#~ msgid "CO<sub>2</sub> Reduktion"
-#~ msgstr "CO2 reduction"
-
-#, fuzzy
-#~| msgid ""
-#~| "Wie viel CO2 werden durch den Einsatz der Elektrobusse auf der Linie 200 "
-#~| "jährlich eingespart?"
-#~ msgid ""
-#~ "Wie viel CO<sub>2</sub> werden durch den Einsatz der Elektrobusse auf der "
-#~ "Linie 200 jährlich eingespart?"
+#~ "Die Batterien der Elektro-Gelenkbusse, die auf der Linie 200 eingesetzt "
+#~ "werden, sich auf dem Dach angebracht."
 #~ msgstr ""
-#~ "How much CO2 will be saved annually by using the electric buses on line "
-#~ "200?"
+#~ "The batteries of the electric articulated buses that will be usedon Line "
+#~ "200 are mounted on the roof."
 
-#, fuzzy
-#~| msgid ""
-#~| "444 t CO2 können durch die Elektrifizierung der Linie 200 pro Jahr "
-#~| "eongespart werden"
-#~ msgid ""
-#~ "444 t CO<sub>2</sub> können durch die Elektrifizierung der Linie 200 pro "
-#~ "Jahr eongespart werden"
-#~ msgstr ""
-#~ "444 tonnes of CO2 can be saved per year through the electrification of "
-#~ "line 200"
+#~ msgid "Genauso"
+#~ msgstr "Likewise"
 
-#~ msgid "Elektrobusse fahren seit dem Jahr 2015 in Berlin"
-#~ msgstr "Electric buses have been in operation in Berlin since 2015"
-
-#, fuzzy
-#~| msgid "Vorteile sind unte anderem eine geringere CO2- und Lärm-Belastung"
-#~ msgid ""
-#~ "Vorteile sind unte anderem eine geringere CO<sub>2</sub>- und Lärm-"
-#~ "Belastung"
-#~ msgstr ""
-#~ "Advantages are, among others, a reduction in both CO2 and noise pollution"
-
-#~ msgid ""
-#~ "\n"
-#~ "Planmäßiger Start der Elektrifizierung der Linie 200 ist 2020. Vorerst "
-#~ "sollen 17 E-Busse auf dieser Linie eingesetzt werden.\n"
-#~ msgstr ""
-#~ "\n"
-#~ "Electrification of line 200 is scheduled to start in 2020, with 17 E-"
-#~ "buses planned to be used on this line initially.\n"
-
-#, fuzzy
-#~| msgid ""
-#~| "\n"
-#~| "E-Busse sind lokal komplett emissionsfrei. Mit der Elektrifizierung der "
-#~| "Buslinie 200 werden pro Fahrt circa 15 kg CO2 eingespart. Auf das Jahr "
-#~| "hochgerechnet werden circa 444 t Co2 eingespart. Um den gleichen Effekt "
-#~| "zu erreichen, müssten bei durchschnittlichem Fahrverhalten rund 12 "
-#~| "Diesel-Personenkraftwagen elektrifiziert werden.\n"
-#~ msgid ""
-#~ "\n"
-#~ "E-Busse sind lokal komplett emissionsfrei. Mit der Elektrifizierung der "
-#~ "Buslinie 200 werden pro Fahrt circa 15 kg CO<sub>2</sub> eingespart. Auf "
-#~ "das Jahr hochgerechnet werden circa 444 t C0<sub>2</sub> eingespart. Um "
-#~ "den gleichen Effekt zu erreichen, müssten bei durchschnittlichem "
-#~ "Fahrverhalten rund 12 Diesel-Personenkraftwagen elektrifiziert werden.\n"
-#~ msgstr ""
-#~ "\n"
-#~ "E-buses are locally completely emission-free. The electrification of bus "
-#~ "line 200 will save approximately 15 kg of CO2 per journey. This means "
-#~ "that over the course of the whole year, approximately 444 tonnes of CO2 "
-#~ "will be saved. To achieve the same effect, around 12 diesel passenger "
-#~ "cars would have to to be electrified assuming regular driving behaviour.\n"
-
-#, fuzzy
-#~| msgid ""
-#~| "\n"
-#~| "Als Fahrgast profitieren Sie von einem deutlich ruhigeren Fahrerlebnis.\n"
-#~| "Elektrische Busse sind leiser als Dieselbusse und vibrieren weniger.\n"
-#~| "Als Anwohner der Buslinie 200 dürfen Sie sich über eine erheblich "
-#~| "geringere Lärm- und Abgasbelastung freuen.\n"
-#~| "Insgesamt trägt der E-Bus so zu einem lebenswerten Berlin bei.\n"
-#~| "Die Geräuschemission eines E-Busses entspricht denen eines "
-#~| "durchschnittlichen PKW und ist damit um ca. die Hälfte geringer als die "
-#~| "eines modernen Dieselbusmotors.\n"
-#~ msgid ""
-#~ "\n"
-#~ "Als Fahrgast profitierst du von einem deutlich ruhigeren Fahrerlebnis.\n"
-#~ "Elektrische Busse sind leiser als Dieselbusse und vibrieren weniger.\n"
-#~ "Wenn du an der Buslinie 200 wohnst, darfst du dich über eine erheblich "
-#~ "geringere Lärm- und Abgasbelastung freuen.\n"
-#~ "Insgesamt trägt der E-Bus so zu einem lebenswerten Berlin bei.\n"
-#~ "Die Geräuschemission eines E-Busses entspricht denen eines "
-#~ "durchschnittlichen Pkws und ist damit um ca. die Hälfte geringer als die "
-#~ "eines modernen Dieselbusmotors.\n"
-#~ msgstr ""
-#~ "\n"
-#~ "As a passenger, you benefit from a much quiter driving experience.\n"
-#~ "Electric buses are quieter than diesel buses and they vibrate less. \n"
-#~ "As a resident of bus line 200, you can enjoy much lower noise and exhaust "
-#~ "pollution levels.\n"
-#~ "All in all, the E-bus thus contributes to a Berlin worth living in.\n"
-#~ "The noise emissions of an E-bus are equivalent to that of an average "
-#~ "passenger car, which are approximately half the amount of a modern diesel "
-#~ "bus engine.\n"
-
-#, fuzzy
-#~| msgid ""
-#~| "\n"
-#~| "Ziel des Verbundprojektes E-Bus Berlin war es, eine Buslinie in Berlin "
-#~| "komplett elektrisch zu betreiben. Der mehrmonatige Testbetrieb im "
-#~| "Alltag, welcher am 31.08.2015 aufgenommen wurde, wurde wissenschaftlich "
-#~| "durch die TU Berlin begleitet und hinsichtlich Umweltbilanz, "
-#~| "Wirtschaftlichkeit und Nutzerakzeptanz bewertet. Aktuell ist die "
-#~| "Testphase abgeschlossen und die Elektrobusse schon vollkommen in die "
-#~| "Flotte der BVG integriert.\n"
-#~ msgid ""
-#~ "\n"
-#~ "Ziel des Verbundprojektes E-Bus Berlin war es, eine Buslinie in Berlin "
-#~ "komplett elektrisch zu betreiben. Der mehrmonatige Testbetrieb im Alltag, "
-#~ "welcher am 31.08.2015 aufgenommen wurde, wurde wissenschaftlich durch die "
-#~ "TU Berlin begleitet und hinsichtlich Umweltbilanz, Wirtschaftlichkeit und "
-#~ "Akzeptanz bei den Fahrgästen bewertet. Aktuell ist die Testphase "
-#~ "abgeschlossen und die Elektrobusse schon vollkommen in die Flotte der BVG "
-#~ "integriert.\n"
-#~ msgstr ""
-#~ "\n"
-#~ "The aim of the joint project E-Bus Berlin has been to operate a "
-#~ "completely electric bus line in Berlin. The trial operation in everyday "
-#~ "life, which commenced on 31.08.2015 and lasted for several months, was "
-#~ "scientifically accompanied by the TU Berlin. In these months, the "
-#~ "envrionmental impact,economic efficiency and user acceptance of the "
-#~ "electric bus line were evaluated. The trial phase is now completed and "
-#~ "the electric buses are already fully integrated into the BVG fleet.\n"
-
-#~ msgid "Looks like something went wrong!"
-#~ msgstr "Wrong"
-
-#~ msgid "Zu Fuß"
-#~ msgstr "On foot"
-
-#~ msgid "RICHTIG!"
-#~ msgstr "CORRECT!"
-
-#~ msgid "FALSCH..."
-#~ msgstr "WRONG..."
-
-#~ msgid "Glückwunsch!"
-#~ msgstr "Congratulations!"
-
-#~ msgid ""
-#~ "Hier kannst Du weiter entdecken und Spaß mit dem Quiz haben! Die erste "
-#~ "Frage hast Du schon beantwortet!"
-#~ msgstr ""
-#~ "Here you can learn more and have fun with the quiz! You have already "
-#~ "answered the first question!"
-
-#~ msgid "CO2"
-#~ msgstr "CO2"
-
-#~ msgid "Überspringen"
-#~ msgstr "Skip"
-
-#~ msgid "Legale Informationen"
-#~ msgstr "Legal information"
-
-#~ msgid "Link zum Teilen deiner Punkte:"
-#~ msgstr "Link to share your points:"
-
-#~ msgid "Was vermittelt die App?"
-#~ msgstr "What does the app convey?"
-
-#~ msgid "Genaue Zahlen der eigenen Emissionen durch eine Fahrt mit dem E-Bus"
-#~ msgstr ""
-#~ "Exact figures of the personal emissions contribution caused by a tripwith "
-#~ "the E-Bus"
-
-#~ msgid "Vergleich der Zahlen zu anderen Verkehrsmitteln"
-#~ msgstr "Comparison of the figures with other modes of transport"
-
-#~ msgid "Informationen über E-Metrobus und die Umwelt anhand eines Quizes"
-#~ msgstr "Information regarding E-Metrobus and the environment with a quiz"
-
-#~ msgid "Die Mobilität der Zukunft kommt nach Berlin"
-#~ msgstr "The mobility of the future comes to Berlin"
-
-#~ msgid ""
-#~ "Seit August 2015 fährt die Linie 204 elektrisch durch die Hauptstadt. "
-#~ "Steigen Sie ein und erleben sie die Vorteile der elektrischen Mobilität! "
-#~ "Auf der Live-Karte können Sie jederzeit sehen, wo unsere Elektrobusse "
-#~ "gerade unterwegs sind. Und während Sie auf den Bus warten: Warum nicht "
-#~ "einfach auf Ihrem Smartphone weiterlesen?"
-#~ msgstr ""
-#~ "Since August 2015, line 204 has been running electrically through the "
-#~ "capital.Come and experience the advantages of electric mobility! Through "
-#~ "the use of thelive map, you can always track where our electric buses are "
-#~ "currently on theroad. And while you are waiting for the bus to arrive, "
-#~ "why not discover newinformation about the topic?"
+#~ msgid "NOx"
+#~ msgstr "NOx"

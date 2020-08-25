@@ -74,7 +74,7 @@ button.close-button:hover {
 
     &--chart {
         margin-right: 0;
-        padding: 1rem 1rem 2rem;
+        padding: 1rem 1rem 3.5rem;
 
         @media only screen and (orientation: landscape) {
             padding: 1rem 10vw;
@@ -130,3 +130,14 @@ button.close-button:hover {
         height: auto;
     }
 }
+
+.plotly-graph-div {
+    height:55vh;
+    width:100vw;
+  
+    @media (orientation: landscape) {
+      height: 100vh;
+      width: 80vw;
+      margin: 0 auto;
+    }
+  }

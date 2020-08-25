@@ -3,7 +3,7 @@
 {% load static %}
 {% load i18n %}
 
-{% block subtitle %} - {% trans 'CO2 Emissionen im Vergleich' %}{% endblock %}
+{% block subtitle %} - {% trans 'CO2-Emissionen im Vergleich' %}{% endblock %}
 
 {% block body_class %}l-scroll l-scroll--nav l-scroll--nofooter{% endblock %}
 
@@ -31,12 +31,12 @@
         </div>
       </div>
       <div class="text-center data-source-button" data-open="comparisonData">
-        <button><img src="{% static 'images/icons/i_next_gray.svg' %}" alt="{% trans 'Zurück' %}">{% trans "Woher kommen die Zahlen?" %}</button> 
+        <button><img src="{% static 'images/icons/i_next_gray.svg' %}" alt="{% trans 'Zurück' %}">{% trans "Woher kommen die Zahlen?" %}</button>
       </div>
     </div>
 
     <div class="data__source data__source--chart">
-      <sup>*</sup> {% trans 'Wert berechnet sich auf Grundlage des deutschen Strommixes. Da der aktuelle Strommix nicht CO<sub>2</sub>-neutral ist, sind auch Elektrofahrzeuge für CO<sub>2</sub> Austoß verantwortlich.' %}
+      <sup>*</sup> {% trans 'Wert berechnet sich auf Grundlage des deutschen Strommixes. Da der aktuelle Strommix nicht CO<sub>2</sub>-neutral ist, sind auch Elektrofahrzeuge für CO<sub>2</sub>-Austoß verantwortlich.' %}
     </div>
 
   </div>
@@ -58,7 +58,7 @@
   <script>
     $.ajax({
       type: "GET",
-      url: "/get_comparison_chart",
+      url: "{% url 'navigation:get_comparison_chart' %}",
       dataType: 'json',
       data: {"route": "route", "emission": "co2"},
       success: function(json)
