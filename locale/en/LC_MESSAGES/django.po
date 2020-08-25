@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-24 11:39+0000\n"
+"POT-Creation-Date: 2020-08-25 09:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -159,22 +159,22 @@ msgstr ""
 "I just took an E-bus on the 200 line and saved the world %(co2)s g CO "
 "<sub>2</sub> emissions. Take a look here:"
 
-#: e_metrobus/navigation/widgets.py:104
+#: e_metrobus/navigation/widgets.py:112
 msgid "Quiz"
 msgstr "Quiz"
 
-#: e_metrobus/navigation/widgets.py:111
+#: e_metrobus/navigation/widgets.py:119
 #: e_metrobus/templates/navigation/display_route.html:22
 #: e_metrobus/templates/navigation/display_route.html:37
 #: e_metrobus/templates/navigation/environment.html:43
 msgid "Meine Strecke"
 msgstr "My route"
 
-#: e_metrobus/navigation/widgets.py:118
+#: e_metrobus/navigation/widgets.py:126
 msgid "E-MetroBus"
 msgstr "E-MetroBus"
 
-#: e_metrobus/navigation/widgets.py:125
+#: e_metrobus/navigation/widgets.py:133
 #: e_metrobus/templates/navigation/legal.html:6
 msgid "Infos"
 msgstr "Information"
@@ -296,8 +296,8 @@ msgid ""
 "Verkehr und digitale Infrastruktur erhält."
 msgstr ""
 "E-MetroBus is a research and development project which receives funding "
-"within the framework of the Electromobility funding directive of the "
-"Federal Ministry of Transport and Digital Infrastructure."
+"within the framework of the Electromobility funding directive of the Federal "
+"Ministry of Transport and Digital Infrastructure."
 
 #: e_metrobus/templates/includes/desktop.html:80
 msgid "Busse"
@@ -308,8 +308,8 @@ msgid ""
 "Um lange ladungsbedingte Standzeiten zu vermeiden, müssen die Busse in der "
 "Lage sein, mit einer hohen Leistung geladen zu werden."
 msgstr ""
-"In order to avoid long charging-related downtimes, the buses must be "
-"able to be charged at high power."
+"In order to avoid long charging-related downtimes, the buses must be able to "
+"be charged at high power."
 
 #: e_metrobus/templates/includes/desktop.html:91
 msgid "Ladeinfrastruktur"
@@ -327,17 +327,17 @@ msgstr ""
 "directly from renewable energy sources as well as supplied from the supply "
 "network."
 
-#: e_metrobus/templates/includes/desktop.html:107
+#: e_metrobus/templates/includes/desktop.html:115
 msgid "Projektziele"
 msgstr "Project goals"
 
-#: e_metrobus/templates/includes/desktop.html:111
-#: e_metrobus/templates/includes/desktop.html:121
-#: e_metrobus/templates/includes/desktop.html:131
+#: e_metrobus/templates/includes/desktop.html:119
+#: e_metrobus/templates/includes/desktop.html:129
+#: e_metrobus/templates/includes/desktop.html:139
 msgid "Zur Website"
 msgstr "Visit the website"
 
-#: e_metrobus/templates/includes/desktop.html:116
+#: e_metrobus/templates/includes/desktop.html:124
 msgid ""
 "Elektrobusse fahren, wie die Erfahrungen in anderen Städten zeigen, stabil "
 "und machen bereits etliche Städte rund um die Welt ein großes Stück "
@@ -360,7 +360,7 @@ msgstr ""
 "electric bus projects and also help other cities to electrify their bus "
 "fleets. Thus, the E-MetroBus project is a pioneer for future electromobility."
 
-#: e_metrobus/templates/includes/desktop.html:126
+#: e_metrobus/templates/includes/desktop.html:134
 msgid ""
 "Das RLI entwickelt für E-MetroBus unterschiedliche Szenarien, wie eine "
 "lokale, netzdienliche Versorgung der Ladestationen erreicht werden kann. "
@@ -375,15 +375,15 @@ msgid ""
 msgstr ""
 "The RLI is developing various scenarios for E-MetroBus of how a local, "
 "network-friendly supply of the charging stations can be achieved. The energy "
-"systems are modelled, simulated and their topology is then optimised from "
-"an economic and ecological perspective. In order to relieve the local power "
+"systems are modelled, simulated and their topology is then optimised from an "
+"economic and ecological perspective. In order to relieve the local power "
 "grid, the use of renewable energy systems and their integration into smart "
 "grids, which regulate consumption and generation in the grid according to "
 "energy requirements, will be examined in detail. Synergies with other modes "
 "of transport and their transferability to transport companies of different "
 "sizes will then be examined"
 
-#: e_metrobus/templates/includes/desktop.html:136
+#: e_metrobus/templates/includes/desktop.html:144
 msgid ""
 "Die TU Berlin übernimmt im E-MetroBus Projekt einerseits aktuelle "
 "Anwendungsforschung, insbesondere die Entwicklung eines E-Bus-Leitsystems, "
@@ -404,31 +404,31 @@ msgstr ""
 "concept by means of simulations as well as in data monitoring and data "
 "evaluation."
 
-#: e_metrobus/templates/includes/desktop.html:145
+#: e_metrobus/templates/includes/desktop.html:153
 msgid "Möchtest du Feedback zum Projekt geben?"
 msgstr "Would you like to give feedback on the project?"
 
-#: e_metrobus/templates/includes/desktop.html:146
+#: e_metrobus/templates/includes/desktop.html:154
 msgid "Kontaktiere uns"
 msgstr "Contact us"
 
-#: e_metrobus/templates/includes/desktop.html:169
+#: e_metrobus/templates/includes/desktop.html:177
 #: e_metrobus/templates/navigation/legal.html:14
 msgid "Impressum"
 msgstr "Imprint"
 
-#: e_metrobus/templates/includes/desktop.html:170
+#: e_metrobus/templates/includes/desktop.html:178
 #: e_metrobus/templates/navigation/legal.html:15
 msgid "Datenschutz"
 msgstr "Data protection"
 
-#: e_metrobus/templates/includes/desktop.html:187
+#: e_metrobus/templates/includes/desktop.html:195
 #: e_metrobus/templates/navigation/legal.html:61
 msgid "Meinung schicken"
 msgstr "Send feedback"
 
-#: e_metrobus/templates/includes/desktop.html:198
 #: e_metrobus/templates/includes/desktop.html:206
+#: e_metrobus/templates/includes/desktop.html:214
 msgid "Zurück zur Startseite"
 msgstr "Return to the homepage"
 
@@ -451,6 +451,10 @@ msgid ""
 msgstr ""
 "Please visit the page in portrait mode if you are interested in the E-"
 "Metrobus project."
+
+#: e_metrobus/templates/includes/share_links.html:24
+msgid "Link wurde kopiert"
+msgstr "Link has been copied"
 
 #: e_metrobus/templates/navigation/answer.html:6
 msgid "Antwort"
@@ -636,7 +640,7 @@ msgid "Quiz erledigt!"
 msgstr "Quiz over!"
 
 #: e_metrobus/templates/navigation/finished_base.html:21
-#: e_metrobus/templates/widgets/top_bar.html:46
+#: e_metrobus/templates/widgets/top_bar_reveal.html:14
 #, python-format
 msgid "%(score)s%% richtig beantwortet"
 msgstr "%(score)s%% answered correctly"
@@ -717,14 +721,13 @@ msgid "Antworten"
 msgstr "Submit"
 
 #: e_metrobus/templates/navigation/quiz_finished.html:12
-#: e_metrobus/templates/navigation/quiz_finished.html:16
 msgid "Ergebnis teilen"
 msgstr "Share the result"
 
-#: e_metrobus/templates/navigation/quiz_finished.html:36
-#: e_metrobus/templates/widgets/top_bar.html:71
-msgid "Link wurde kopiert"
-msgstr "Link has been copied"
+#: e_metrobus/templates/navigation/quiz_finished.html:15
+#: e_metrobus/templates/widgets/top_bar_reveal.html:8
+msgid "App teilen"
+msgstr "Share the app"
 
 #: e_metrobus/templates/navigation/route.html:7
 msgid "Deine Strecke"
@@ -856,7 +859,7 @@ msgid "Stecker von der Seite"
 msgstr "Change route"
 
 #: e_metrobus/templates/pages/question_translations.html:17
-msgid "Pantograph von oben"
+msgid "Pantograf von oben"
 msgstr "Pantograph from above"
 
 #: e_metrobus/templates/pages/question_translations.html:17
@@ -870,7 +873,7 @@ msgstr "Changing the battery"
 #: e_metrobus/templates/pages/question_translations.html:19
 msgid ""
 "Der Bus wird an den Endhaltestellen Hertzallee und Michelangelostraße sowie "
-"im Betriebshof mit einem Pantographen aufgeladen."
+"im Betriebshof mit einem Pantografen aufgeladen."
 msgstr ""
 "The bus will be charged with a pantograph at the terminal stops Hertzallee "
 "and Michelangelostraße, as well as in the depot."
@@ -922,19 +925,19 @@ msgstr ""
 "How much more does an electric bus cost than a conventional diesel bus?"
 
 #: e_metrobus/templates/pages/question_translations.html:29
-msgid "Doppelt"
+msgid "Das Doppelte"
 msgstr "Double"
 
 #: e_metrobus/templates/pages/question_translations.html:29
-msgid "Dreifach"
+msgid "Das Dreifache"
 msgstr "Triple"
 
 #: e_metrobus/templates/pages/question_translations.html:29
-msgid "Zehnfach"
+msgid "Das Zehnfache"
 msgstr "Tenfold"
 
 #: e_metrobus/templates/pages/question_translations.html:29
-msgid "Genauso"
+msgid "Genau gleich viel"
 msgstr "Likewise"
 
 #: e_metrobus/templates/pages/question_translations.html:31
@@ -1349,8 +1352,7 @@ msgstr ""
 "\n"
 "As is the case with many technologies, the production figures for electric "
 "buses are low at the beginning of a market penetration and therefore the "
-"unit costs are high. As series production increases, buses become "
-"cheaper. \n"
+"unit costs are high. As series production increases, buses become cheaper. \n"
 
 #: e_metrobus/templates/questions/e_metrobus/loading.html:5
 msgid "Bild einer Ladestation mit Pantograf"
@@ -1437,12 +1439,12 @@ msgstr ""
 "increase safety for other road users, an acoustic signal is emitted when the "
 "bus starts up by means of the AVAS (Acousitic Vehicle Alerting System). In "
 "addition, the vehicles produce no harmful exhaust fumes when in motion. This "
-"improves the air quality directly around the bus and for the entire city, much "
-"to the delight of cyclists and pedestrians, who have always been affected by "
-"the exhaust cloud from diesel buses. The E-articulated buses used on Line 200 "
-"have the batteries mounted on the roof, which means that there are significantly "
-"more superstructures on the roof of the buses than on diesel buses, where only "
-"the air-conditioning units are installed there.\n"
+"improves the air quality directly around the bus and for the entire city, "
+"much to the delight of cyclists and pedestrians, who have always been "
+"affected by the exhaust cloud from diesel buses. The E-articulated buses "
+"used on Line 200 have the batteries mounted on the roof, which means that "
+"there are significantly more superstructures on the roof of the buses than "
+"on diesel buses, where only the air-conditioning units are installed there.\n"
 "    "
 
 #: e_metrobus/templates/questions/ich/footprint.html:5
@@ -1456,12 +1458,11 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"On a national average, the CO<sub>2</sub> footprint per capita is as high "
-"as 8.8 tonnes. The transport sector is responsible for just under a third "
-"of the emissions, as are households, trade, commerce and services. At "
-"well over 40 percent of the total contribution, the &quot; conversion "
-"sector&quot;, i.e. the provision of energy in power plants, is the largest "
-"emitter. \n"
+"On a national average, the CO<sub>2</sub> footprint per capita is as high as "
+"8.8 tonnes. The transport sector is responsible for just under a third of "
+"the emissions, as are households, trade, commerce and services. At well over "
+"40 percent of the total contribution, the &quot; conversion sector&quot;, i."
+"e. the provision of energy in power plants, is the largest emitter. \n"
 "    "
 
 #: e_metrobus/templates/questions/ich/footprint.html:9
@@ -1614,12 +1615,12 @@ msgstr ""
 "An electric bus has an average consumption of 2 kWh/km. With a daily mileage "
 "of 200 km for each of the electric buses on route 200, this results in an "
 "energy requirement of about 2,044,000 kWh. This corresponds to the annual "
-"energy requirement of about 584 three-person households. By way of comparison, "
-"the conventionally powered bus consumes about 480, 340 liters of diesel per "
-"year. Converted to the amount of energy, this corresponds to an additional "
-"demand of a factor of 2.3, because combustion engines are significantly more "
-"inefficient than electric motors: they bring less of the energy &quot;on the "
-"road&quot;.\n"
+"energy requirement of about 584 three-person households. By way of "
+"comparison, the conventionally powered bus consumes about 480, 340 liters of "
+"diesel per year. Converted to the amount of energy, this corresponds to an "
+"additional demand of a factor of 2.3, because combustion engines are "
+"significantly more inefficient than electric motors: they bring less of the "
+"energy &quot;on the road&quot;.\n"
 
 #: e_metrobus/templates/questions/umwelt/reach.html:6
 msgid ""
@@ -1702,13 +1703,12 @@ msgstr "Nitrogen oxide"
 msgid "Bitte gib Deine Strecke ein!"
 msgstr "Please enter your route!"
 
-#: e_metrobus/templates/widgets/top_bar.html:40
-msgid "App teilen"
-msgstr "Share the app"
-
 #: e_metrobus/templates/widgets/top_bar_route.html:10
 msgid "Strecke ändern"
 msgstr "Change route"
+
+#~ msgid "Genauso"
+#~ msgstr "Likewise"
 
 #~ msgid "NOx"
 #~ msgstr "NOx"
