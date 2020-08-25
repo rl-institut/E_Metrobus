@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-25 10:22+0000\n"
+"POT-Creation-Date: 2020-08-25 11:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -105,7 +105,7 @@ msgstr ""
 "Wow! We can hardly teach you anything anymore. You can find all of the facts "
 "again in our info section."
 
-#: e_metrobus/navigation/forms.py:16
+#: e_metrobus/navigation/forms.py:15
 msgid "Schreib uns deine Meinung/Kritik:"
 msgstr "You can give us feedback:"
 
@@ -155,10 +155,13 @@ msgid ""
 msgstr "I just got on an E-bus on the 200 line. Look here:"
 
 #: e_metrobus/navigation/utils.py:52
-#, python-format
+#, fuzzy, python-format
+#| msgid ""
+#| "Ich bin gerade in einem E-Bus auf der Linie 200 gefahren und habe der "
+#| "Welt dabei %(co2)s g CO<sub>2</sub>-Emissionen erspart. Schau mal hier"
 msgid ""
 "Ich bin gerade in einem E-Bus auf der Linie 200 gefahren und habe der Welt "
-"dabei %(co2)s g CO<sub>2</sub>-Emissionen erspart. Schau mal hier"
+"dabei %(co2)s g CO2-Emissionen erspart. Schau mal hier"
 msgstr ""
 "I just took an E-bus on the 200 line and saved the world %(co2)s g CO "
 "<sub>2</sub> emissions. Take a look here:"
@@ -484,8 +487,8 @@ msgid "Kategorie %(cat_label)s abgeschlossen!"
 msgstr "You finished category %(cat_label)s!"
 
 #: e_metrobus/templates/navigation/comparison.html:6
-msgid "CO<sub>2</sub> Emissionen im Vergleich"
-msgstr "CO<sub>2</sub> emissions in comparison"
+msgid "CO2-Emissionen im Vergleich"
+msgstr "CO2 emissions in comparison"
 
 #: e_metrobus/templates/navigation/comparison.html:27
 #: e_metrobus/templates/navigation/comparison.html:29
