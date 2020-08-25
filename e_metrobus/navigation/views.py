@@ -293,7 +293,7 @@ class AnswerView(NavigationView):
     }
 
     def get_context_data(self, question, **kwargs):
-        self.title = questions.QUESTIONS[question.category].label
+        self.title = questions.QUESTIONS[question.category].get_label()
         self.title_icon = questions.QUESTIONS[question.category].small_icon
         context = super(AnswerView, self).get_context_data(**kwargs)
         context["question"] = question
