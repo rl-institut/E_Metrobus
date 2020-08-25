@@ -72,7 +72,6 @@ class NavigationView(PosthogMixin, TemplateView):
             answers=answers,
             template=self.top_bar_template,
             request=self.request,
-            quiz_finished="hashed_score" in self.request.session
         )
         return context
 
