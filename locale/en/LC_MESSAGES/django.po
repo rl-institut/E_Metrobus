@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-25 09:49+0000\n"
+"POT-Creation-Date: 2020-08-25 09:54+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -977,8 +977,8 @@ msgid "285 Dreipersonenhaushalten"
 msgstr "285 three-person households"
 
 #: e_metrobus/templates/pages/question_translations.html:40
-msgid "1010 Dreipersonenhaushalten"
-msgstr "1010 three-person households"
+msgid "1.010 Dreipersonenhaushalten"
+msgstr "1,010 three-person households"
 
 #: e_metrobus/templates/pages/question_translations.html:42
 msgid ""
@@ -997,7 +997,7 @@ msgstr "Influence of weather"
 #: e_metrobus/templates/pages/question_translations.html:45
 msgid ""
 "Welche Wetterbedingungen haben einen Einfluss auf die Nutzung des "
-"Pantographen (Ladung von oben) zur Ladung der Elektro-Gelenkbusse?"
+"Pantografen (Ladung von oben) zur Ladung der Elektro-Gelenkbusse?"
 msgstr ""
 "What weather conditions affect the use of Pantographs (charge from above) to "
 "charge the electric articulated buses?"
@@ -1023,7 +1023,7 @@ msgid "Keine der genannten"
 msgstr "None of the above"
 
 #: e_metrobus/templates/pages/question_translations.html:48
-msgid "Der Betrieb des Pantographen ist weitgehend wetterunabhängig möglich."
+msgid "Der Betrieb des Pantografen ist weitgehend wetterunabhängig möglich."
 msgstr ""
 "The pantograph can be operated largely independent of weather conditions."
 
