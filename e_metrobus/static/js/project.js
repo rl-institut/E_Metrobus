@@ -87,7 +87,7 @@ $(window).scroll(function(event) {
   $(".animate-desktop").each(function(i, el) {
     var el = $(el);
     if (el.visible(true)) {
-      el.addClass("triggeredCSS3"); 
+      el.addClass("triggeredCSS"); 
     } 
   });
   
