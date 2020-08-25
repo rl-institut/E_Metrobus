@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-25 10:03+0000\n"
+"POT-Creation-Date: 2020-08-25 10:22+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -105,6 +105,10 @@ msgstr ""
 "Wow! We can hardly teach you anything anymore. You can find all of the facts "
 "again in our info section."
 
+#: e_metrobus/navigation/forms.py:16
+msgid "Schreib uns deine Meinung/Kritik:"
+msgstr "You can give us feedback:"
+
 #: e_metrobus/navigation/models.py:29
 msgid "Technisches Problem"
 msgstr "Technical problem"
@@ -127,7 +131,7 @@ msgstr "Something is not working? A link is broken?"
 
 #: e_metrobus/navigation/models.py:39
 msgid "Ist etwas schwierig oder frustrierend zu nutzen?"
-msgstr "Is something difficult or frustrating to use"
+msgstr "Is something difficult or frustrating to use?"
 
 #: e_metrobus/navigation/models.py:41
 msgid "Um welchen Inhalt geht es?"

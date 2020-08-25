@@ -5,6 +5,7 @@ from django.utils.safestring import mark_safe
 
 from e_metrobus.navigation.models import Bug, Feedback
 from e_metrobus.navigation.widgets import FeedbackCommentWidget
+from django.utils.translation import gettext_lazy as _
 
 
 class FeedbackForm(forms.ModelForm):
@@ -12,7 +13,7 @@ class FeedbackForm(forms.ModelForm):
         model = Feedback
         fields = ("comment",)
         labels = {
-            "comment": "Schreib uns deine Meinung/Kritik:",
+            "comment": _("Schreib uns deine Meinung/Kritik:"),
         }
         widgets = {
             "comment": FeedbackCommentWidget
@@ -26,4 +27,4 @@ class BugForm(forms.ModelForm):
 
     @property
     def descriptions(self):
-        return mark_safe(json.dumps(self.Meta.model.initial_descriptions))
+        return mark_safe(self.Meta.model.initial_descriptions)
