@@ -73,6 +73,7 @@ class TopBarWidget(CustomWidget):
         title_alt=None,
         template=None,
         request=None,
+        quiz_finished=False
     ):
         if template:
             self.template_name = template
@@ -85,6 +86,7 @@ class TopBarWidget(CustomWidget):
         self.score_changed = False
         self.request = request
         self.share_link_js = True
+        self.quiz_finished = quiz_finished
 
     def get_context(self, **kwargs):
         context = super(TopBarWidget, self).get_context(**kwargs)
@@ -94,6 +96,12 @@ class TopBarWidget(CustomWidget):
         context["score"] = percent
         context["slogan"] = utils.get_slogan(percent)
         return context
+
+    def reveal(self, renderer=None):
+        template_name = "widgets/top_bar_reveal.html"
+        if renderer is None:
+            renderer = get_default_renderer()
+        return mark_safe(renderer.render(template_name, self.get_context()))
 
 
 class FooterWidget(CustomWidget):

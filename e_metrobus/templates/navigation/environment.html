@@ -49,7 +49,7 @@
       <div onclick="select_emission(this);">{% trans 'CO<sub>2</sub>' %}</div>
     </li>
     <li class="tabs-title tabs-title--emissions tabs-title--30" id="nitrogen">
-      <div onclick="select_emission(this);">{% trans 'NOx' %}</div>
+      <div onclick="select_emission(this);">{% trans 'NO<sub>x</sub>' %}</div>
     </li>
     <li class="tabs-title tabs-title--emissions tabs-title--40" id="fine_dust">
       <div onclick="select_emission(this);">{% trans 'Feinstaub' %}</div>
@@ -65,7 +65,7 @@
 {% endfor %}
 
 <div id="co2_info" class="data__source data__source--chart">
-  <sup>*</sup> {% trans 'Wert berechnet sich auf Grundlage des deutschen Strommixes. Da der aktuelle Strommix nicht CO<sub>2</sub>-neutral ist, sind auch Elektrofahrzeuge für CO<sub>2</sub> Austoß verantwortlich.' %}
+  <sup>*</sup> {% trans 'Wert berechnet sich auf Grundlage des deutschen Strommixes. Da der aktuelle Strommix nicht CO<sub>2</sub>-neutral ist, sind auch Elektrofahrzeuge für CO<sub>2</sub>-Austoß verantwortlich.' %}
 </div>
 
 {% endblock content %}

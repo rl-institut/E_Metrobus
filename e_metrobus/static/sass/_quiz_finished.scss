@@ -19,6 +19,11 @@
     text-align: center;
     z-index: 9999;
 
+    &.whatsapp img {
+      width: 4.1rem;
+      transform: translateY(-.55rem);
+    }
+
     img {
       width: 3rem;
       margin-top: 1rem;
