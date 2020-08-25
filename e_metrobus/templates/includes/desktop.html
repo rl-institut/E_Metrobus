@@ -9,20 +9,22 @@
       <h1 class="a-desktop a-desktop--header">{% trans 'E-MetroBus Berlin' %}</h1>
       <span class="a-desktop a-desktop--subheader">{% trans 'Elektrifizierung von Gelenkbussen im Berliner ÖPNV mit Schnellladeinfrastruktur' %}</span>
     </div>
-    <div class="language-flag show-for-medium a-desktop a-desktop--lang">
-      {% get_current_language as LANGUAGE_CODE %}
-      {% if LANGUAGE_CODE == "de" %}
-        <a href="en/?visited" data-open="language_popup">
-          <img src="{% static 'images/icons/i_flag_uk.svg' %}" alt="{% trans 'UK Flagge' %}">
-          <span>English</span>
-        </a>
-      {% else %}
-        <a href="/?visited" data-open="language_popup">
-          <img src="{% static 'images/icons/i_flag_de.svg' %}" alt="{% trans 'Deutschland Flagge' %}">
-          <span>Deutsch</span>
-        </a>
-      {% endif %}
-    </div>
+    {% if not summary %}
+      <div class="language-flag show-for-medium a-desktop a-desktop--lang">
+        {% get_current_language as LANGUAGE_CODE %}
+        {% if LANGUAGE_CODE == "de" %}
+          <a href="en/?visited" data-open="language_popup">
+            <img src="{% static 'images/icons/i_flag_uk.svg' %}" alt="{% trans 'UK Flagge' %}">
+            <span>English</span>
+          </a>
+        {% else %}
+          <a href="/?visited" data-open="language_popup">
+            <img src="{% static 'images/icons/i_flag_de.svg' %}" alt="{% trans 'Deutschland Flagge' %}">
+            <span>Deutsch</span>
+          </a>
+        {% endif %}
+      </div>
+    {% endif %}
   </div>
 </section>
 
@@ -147,14 +149,16 @@
   </div>
 </section>
 
-<section class="desktop desktop-contact show-for-medium animate-desktop animate-desktop--bottom">
-  <div class="grid-x align-center grid-width--large">
-    <div class="desktop-contact__frame">
-      <p>{% trans 'Möchtest du Feedback zum Projekt geben?' %}</p>
-      <button class="button" data-open="feedback_reveal">{% trans 'Kontaktiere uns' %}</button>
+{% if not summary %}
+  <section class="desktop desktop-contact show-for-medium animate-desktop animate-desktop--bottom">
+    <div class="grid-x align-center grid-width--large">
+      <div class="desktop-contact__frame">
+        <p>{% trans 'Möchtest du Feedback zum Projekt geben?' %}</p>
+        <button class="button" data-open="feedback_reveal">{% trans 'Kontaktiere uns' %}</button>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+{% endif %}
 
 <section class="desktop desktop-img">
   <div class="grid-x align-center grid-width--100">
