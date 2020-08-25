@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-25 11:30+0000\n"
+"POT-Creation-Date: 2020-08-25 12:57+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -241,31 +241,31 @@ msgstr ""
 "Electrification of MetroBus lines in Berlin public transport with fast-"
 "charging infrastructure"
 
-#: e_metrobus/templates/includes/desktop.html:16
+#: e_metrobus/templates/includes/desktop.html:17
 msgid "UK Flagge"
 msgstr "UK Flag"
 
-#: e_metrobus/templates/includes/desktop.html:21
+#: e_metrobus/templates/includes/desktop.html:22
 msgid "Deutschland Flagge"
 msgstr "German Flag"
 
-#: e_metrobus/templates/includes/desktop.html:32
+#: e_metrobus/templates/includes/desktop.html:34
 msgid "E-MetroBus App auf einem Smartphone"
 msgstr "E-MetroBus app on a smartphone"
 
-#: e_metrobus/templates/includes/desktop.html:37
+#: e_metrobus/templates/includes/desktop.html:39
 msgid ""
 "Auf <span class=\"heading--highlight\">Smartphones</span> unter <span class="
 "\"heading--bold\">e-metrobus.berlin</span> verfügbar"
 msgstr ""
-"On <span class=\"heading--highlight\">smartphones</span> under <span class="
-"\"heading--bold\">e-metrobus.berlin</span> available"
+"Available on <span class=\"heading--highlight\">smartphones</span> under "
+"<span class=\"heading--bold\">e-metrobus.berlin</span>"
 
-#: e_metrobus/templates/includes/desktop.html:40
+#: e_metrobus/templates/includes/desktop.html:42
 msgid "Teste deine Kenntnisse über E-Mobilität mit einem Quiz"
 msgstr "Test your knowledge about e-mobility with a quiz"
 
-#: e_metrobus/templates/includes/desktop.html:41
+#: e_metrobus/templates/includes/desktop.html:43
 msgid ""
 "Erfahre, wie viel CO<sub>2</sub>, NO<sub>x</sub> und Feinstaub du im "
 "Vergleich zu anderen Verkehrsmitteln sparst"
@@ -273,27 +273,27 @@ msgstr ""
 "Discover how much CO<sub>2</sub>, NO<sub>x</sub> and particulate matter you "
 "save compared to other means of transport"
 
-#: e_metrobus/templates/includes/desktop.html:42
+#: e_metrobus/templates/includes/desktop.html:44
 msgid "Finde weitere Infos zum E-MetroBus-Projekt"
 msgstr "Find out more about the E-MetroBus project"
 
-#: e_metrobus/templates/includes/desktop.html:52
+#: e_metrobus/templates/includes/desktop.html:54
 msgid "Über das Projekt"
 msgstr "About the project"
 
-#: e_metrobus/templates/includes/desktop.html:58
+#: e_metrobus/templates/includes/desktop.html:60
 msgid "Laufzeit"
 msgstr "Project duration"
 
-#: e_metrobus/templates/includes/desktop.html:62
+#: e_metrobus/templates/includes/desktop.html:64
 msgid "Das E-MetroBus-Projekt läuft von Januar 2019 bis Januar 2023."
-msgstr "The E-MetroBus project runs from January 2019 to January 2023"
+msgstr "The E-MetroBus project runs from January 2019 to January 2023."
 
-#: e_metrobus/templates/includes/desktop.html:69
+#: e_metrobus/templates/includes/desktop.html:71
 msgid "Förderung"
 msgstr "Funding"
 
-#: e_metrobus/templates/includes/desktop.html:73
+#: e_metrobus/templates/includes/desktop.html:75
 msgid ""
 "E-MetroBus ist ein Forschungs- und Entwicklungsvorhaben, das Fördermittel im "
 "Rahmen der Förderrichtlinie Elektromobilität des Bundesministeriums für "
@@ -303,11 +303,11 @@ msgstr ""
 "within the framework of the Electromobility funding directive of the Federal "
 "Ministry of Transport and Digital Infrastructure."
 
-#: e_metrobus/templates/includes/desktop.html:80
+#: e_metrobus/templates/includes/desktop.html:82
 msgid "Busse"
 msgstr "Buses"
 
-#: e_metrobus/templates/includes/desktop.html:84
+#: e_metrobus/templates/includes/desktop.html:86
 msgid ""
 "Um lange ladungsbedingte Standzeiten zu vermeiden, müssen die Busse in der "
 "Lage sein, mit einer hohen Leistung geladen zu werden."
@@ -315,11 +315,11 @@ msgstr ""
 "In order to avoid long charging-related downtimes, the buses must be able to "
 "be charged at high power."
 
-#: e_metrobus/templates/includes/desktop.html:91
+#: e_metrobus/templates/includes/desktop.html:93
 msgid "Ladeinfrastruktur"
 msgstr "Charging infrastructure"
 
-#: e_metrobus/templates/includes/desktop.html:95
+#: e_metrobus/templates/includes/desktop.html:97
 msgid ""
 "Die Ladeinfrastruktur, die in E-MetroBus erprobt wird, erbringt Leistungen "
 "von über 300kW. Der dafür benötigte Strom soll sowohl direkt mit "
@@ -331,17 +331,21 @@ msgstr ""
 "directly from renewable energy sources as well as supplied from the supply "
 "network."
 
-#: e_metrobus/templates/includes/desktop.html:115
+#: e_metrobus/templates/includes/desktop.html:107
+msgid "Hier geht es zum Projekt-Flyer"
+msgstr "Download the project flyer"
+
+#: e_metrobus/templates/includes/desktop.html:117
 msgid "Projektziele"
 msgstr "Project goals"
 
-#: e_metrobus/templates/includes/desktop.html:119
-#: e_metrobus/templates/includes/desktop.html:129
-#: e_metrobus/templates/includes/desktop.html:139
+#: e_metrobus/templates/includes/desktop.html:121
+#: e_metrobus/templates/includes/desktop.html:131
+#: e_metrobus/templates/includes/desktop.html:141
 msgid "Zur Website"
 msgstr "Visit the website"
 
-#: e_metrobus/templates/includes/desktop.html:124
+#: e_metrobus/templates/includes/desktop.html:126
 msgid ""
 "Elektrobusse fahren, wie die Erfahrungen in anderen Städten zeigen, stabil "
 "und machen bereits etliche Städte rund um die Welt ein großes Stück "
@@ -364,7 +368,7 @@ msgstr ""
 "electric bus projects and also help other cities to electrify their bus "
 "fleets. Thus, the E-MetroBus project is a pioneer for future electromobility."
 
-#: e_metrobus/templates/includes/desktop.html:134
+#: e_metrobus/templates/includes/desktop.html:136
 msgid ""
 "Das RLI entwickelt für E-MetroBus unterschiedliche Szenarien, wie eine "
 "lokale, netzdienliche Versorgung der Ladestationen erreicht werden kann. "
@@ -387,7 +391,7 @@ msgstr ""
 "of transport and their transferability to transport companies of different "
 "sizes will then be examined"
 
-#: e_metrobus/templates/includes/desktop.html:144
+#: e_metrobus/templates/includes/desktop.html:146
 msgid ""
 "Die TU Berlin übernimmt im E-MetroBus Projekt einerseits aktuelle "
 "Anwendungsforschung, insbesondere die Entwicklung eines E-Bus-Leitsystems, "
@@ -408,31 +412,31 @@ msgstr ""
 "concept by means of simulations as well as in data monitoring and data "
 "evaluation."
 
-#: e_metrobus/templates/includes/desktop.html:153
+#: e_metrobus/templates/includes/desktop.html:156
 msgid "Möchtest du Feedback zum Projekt geben?"
 msgstr "Would you like to give feedback on the project?"
 
-#: e_metrobus/templates/includes/desktop.html:154
+#: e_metrobus/templates/includes/desktop.html:157
 msgid "Kontaktiere uns"
 msgstr "Contact us"
 
-#: e_metrobus/templates/includes/desktop.html:177
+#: e_metrobus/templates/includes/desktop.html:181
 #: e_metrobus/templates/navigation/legal.html:14
 msgid "Impressum"
 msgstr "Imprint"
 
-#: e_metrobus/templates/includes/desktop.html:178
+#: e_metrobus/templates/includes/desktop.html:182
 #: e_metrobus/templates/navigation/legal.html:15
 msgid "Datenschutz"
 msgstr "Data protection"
 
-#: e_metrobus/templates/includes/desktop.html:195
+#: e_metrobus/templates/includes/desktop.html:199
 #: e_metrobus/templates/navigation/legal.html:61
 msgid "Meinung schicken"
 msgstr "Send feedback"
 
-#: e_metrobus/templates/includes/desktop.html:206
-#: e_metrobus/templates/includes/desktop.html:214
+#: e_metrobus/templates/includes/desktop.html:210
+#: e_metrobus/templates/includes/desktop.html:218
 msgid "Zurück zur Startseite"
 msgstr "Return to the homepage"
 
@@ -860,7 +864,7 @@ msgstr "How is the bus line 200 charged?"
 
 #: e_metrobus/templates/pages/question_translations.html:17
 msgid "Stecker von der Seite"
-msgstr "Change route"
+msgstr "Plug on the side"
 
 #: e_metrobus/templates/pages/question_translations.html:17
 msgid "Pantograf von oben"
@@ -895,7 +899,7 @@ msgstr ""
 
 #: e_metrobus/templates/pages/question_translations.html:23
 msgid "Im Boden"
-msgstr "In the ground"
+msgstr "Below the floor"
 
 #: e_metrobus/templates/pages/question_translations.html:23
 msgid "Am Heck"
@@ -1053,7 +1057,7 @@ msgid ""
 "Gelegenheitsladung)"
 msgstr ""
 "Different types of electric buses in the mix (electric buses with depot and "
-"occasional charging)"
+"opportunity charging)"
 
 #: e_metrobus/templates/pages/question_translations.html:52
 msgid "Mehr Busse"
@@ -1073,15 +1077,15 @@ msgstr "Promotion of motorised private transport"
 
 #: e_metrobus/templates/pages/question_translations.html:54
 msgid ""
-"Der Umstieg des Busverkehrs von Diesel- auf lokal emissionsfreie und CO2-"
-"neutrale Busse als Maßnahme im Verkehr zur Erreichung der Luftreinhalte- und "
-"Klimaziele stellt die Verkehrsbetriebe vor große Herausforderungen. So "
-"stehen verschiedene lokal emissionsfreie Busse zur Verfügung, für die zuerst "
-"Infrastruktur aufgebaut werden muss."
+"Der Umstieg des Busverkehrs von Diesel- auf lokal emissionsfreie und "
+"CO<sub>2</sub>-neutrale Busse als Maßnahme im Verkehr zur Erreichung der "
+"Luftreinhalte- und Klimaziele stellt die Verkehrsbetriebe vor große "
+"Herausforderungen. So stehen verschiedene lokal emissionsfreie Busse zur "
+"Verfügung, für die zuerst Infrastruktur aufgebaut werden muss."
 msgstr ""
 "The changeover of bus transport from diesel-powered to locally emission-free "
-"and CO2-neutral buses, as a measure in transport to achieve the air "
-"pollution and climate targets, poses great challenges for transport "
+"and CO<sub>2</sub>-neutral buses, as a measure in transport to achieve the "
+"air pollution and climate targets, poses great challenges for transport "
 "companies. Various locally emission-free buses are available, for which "
 "infrastructure must first be established."
 
@@ -1254,8 +1258,8 @@ msgid "0,5 Tonnen"
 msgstr "0.5 tonnes"
 
 #: e_metrobus/templates/pages/question_translations.html:104
-msgid "4,8 Tonnen"
-msgstr "4.8 tonnes"
+msgid "4,9 Tonnen"
+msgstr "4.9 tonnes"
 
 #: e_metrobus/templates/pages/question_translations.html:104
 msgid "8 Tonnen"
@@ -1378,8 +1382,8 @@ msgstr ""
 "A pantograph is a current collector that transfers electrical energy from "
 "from the charging station to the bus. The pantograph is integrated in the "
 "charging station. When the bus is in the right position, the pantograph is "
-"shut down and connects to the contact points on the roof of the bus within a "
-"few seconds, charging up to 450 kW in a few minutes. If the power is "
+"moved down and connects to the contact points on the roof of the bus within "
+"a few seconds, charging up to 450 kW in a few minutes. If the power is "
 "compared with a standard kettle (approx. 2 kW power), the charging capacity "
 "is equivalent to 225 kettles.\n"
 
@@ -1414,10 +1418,10 @@ msgid ""
 msgstr ""
 "\n"
 "The reduction of pollutant emissions is accompanied by less noise. As a "
-"passenger you benefit from a much quieter driving experience. Electric buses "
-"are quieter than diesel buses, especially when starting up, and vibrate "
-"less. To increase safety for other road users, however, an acoustic signal "
-"is emitted when starting off by means of the AVAS (Acousitic Vehicle "
+"passenger, you benefit from a much quieter driving experience. Electric "
+"buses are quieter than diesel buses, especially when starting up, and "
+"vibrate less. To increase safety for other road users, however, an acoustic "
+"signal is emitted when starting off by means of the AVAS (Acousitic Vehicle "
 "Alerting System). As a resident of the 200 bus route, you can enjoy a "
 "considerably lower exhaust emission level. \n"
 "    "
@@ -1465,7 +1469,7 @@ msgstr ""
 "On a national average, the CO<sub>2</sub> footprint per capita is as high as "
 "8.8 tonnes. The transport sector is responsible for just under a third of "
 "the emissions, as are households, trade, commerce and services. At well over "
-"40 percent of the total contribution, the &quot; conversion sector&quot;, i."
+"40 percent of the total contribution, the &quot;conversion sector&quot;, i."
 "e. the provision of energy in power plants, is the largest emitter. \n"
 "    "
 
@@ -1647,11 +1651,11 @@ msgid ""
 msgstr ""
 "\n"
 "For local emission-free operation, various types of electric bus in a mix "
-"(depot and occasional charging) are first of all considered. The use of both "
-"technologies makes sense for Berlin because depot-loading buses are the most "
-"flexible, but have a limited range. Occasional chargers such as those on "
-"line 200 have an almost unlimited range due to recharging on the line, but "
-"are dependent on charging infrastructure in public areas. \n"
+"(depot and opportunity charging) are first of all considered. The use of "
+"both technologies makes sense for Berlin, because depot-charging buses are "
+"the most flexible, but have a limited range. Occasional chargers such as "
+"those on line 200 have an almost unlimited range due to recharging on the "
+"line, but are dependent on charging infrastructure in public areas. \n"
 "Other alternatives such as hybrid trolleybuses are currently being "
 "investigated. These vehicles charge while driving, but require a relatively "
 "large amount of infrastructure. Hydrogen fuel cell buses would also be "
@@ -1670,7 +1674,7 @@ msgid ""
 msgstr ""
 "\n"
 "However, extremely strong winds must be taken into account by the driving "
-"personnel when positioning the vehicle on the loading mast. \n"
+"personnel when positioning the vehicle below the charging mast. \n"
 "    "
 
 #: e_metrobus/templates/questions/umwelt/windturbines.html:5
