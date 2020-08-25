@@ -497,5 +497,5 @@ def get_comparison_chart(request):
     return JsonResponse({"div": plotly_chart.div, "script": plotly_chart.script})
 
 
-def get_desktop_page(request):
-    return TemplateResponse(request, "includes/desktop.html")
+class DesktopPage(FeedbackMixin, TemplateView):
+    template_name = "includes/desktop.html"
