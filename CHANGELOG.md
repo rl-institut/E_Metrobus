@@ -13,6 +13,7 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 ### Changed
 - blank page shown before switch to mobile/desktop view
 - desktop page is loaded dynamically if needed
+- feedback and language selection are not shown on summary page
 
 ### Fixed
 - contact form on LP
