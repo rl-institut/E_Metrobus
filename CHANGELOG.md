@@ -5,8 +5,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project tries to adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- BVG flyer on desktop page
+- smoke tests for all pages and quiz
+- translations for all pages
+
 ### Changed
-- blank page shown before siwch to mobile/desktop view
+- blank page shown before switch to mobile/desktop view
+- desktop page is loaded dynamically if needed
+
+### Fixed
+- contact form on LP
+- share links and icons
+- overlapping answer button o multiple choice questions
+- clipboard for chrome (using container attr)
 
 ## [0.19.0] - 2020-08-06
 ### Added
