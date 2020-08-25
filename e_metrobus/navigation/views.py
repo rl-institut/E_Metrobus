@@ -1,5 +1,6 @@
 from django.http.response import JsonResponse
 from django.shortcuts import get_object_or_404, Http404, HttpResponse, redirect
+from django.template.response import TemplateResponse
 from django.views.generic import TemplateView
 
 from e_metrobus.navigation import (
@@ -61,6 +62,7 @@ class NavigationView(PosthogMixin, TemplateView):
         score = questions.get_total_score(self.request.session)
         answers = questions.get_all_answers(self.request.session)
         context["footer"] = widgets.FooterWidget(links=self.footer_links)
+
         context["top_bar"] = widgets.TopBarWidget(
             title=self.title,
             title_icon=self.title_icon,
@@ -130,8 +132,6 @@ class DashboardView(CheckStationsMixin, NavigationView):
                 )
             )
         context["categories"] = categories
-        if "hashed_score" in self.request.session:
-            context["top_bar"].quiz_finished = True
 
         return context
 
@@ -495,3 +495,7 @@ def get_comparison_chart(request):
     else:
         raise ValueError("Unknown emission")
     return JsonResponse({"div": plotly_chart.div, "script": plotly_chart.script})
+
+
+class DesktopPage(FeedbackMixin, TemplateView):
+    template_name = "includes/desktop.html"

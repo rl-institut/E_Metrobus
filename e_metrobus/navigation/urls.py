@@ -32,6 +32,7 @@ urlpatterns = [
         "zusammenfassung/", view=views.SummaryView.as_view(), name="questions_as_text",
     ),
     path("informationen/", view=views.LegalView.as_view(), name="legal"),
+    path("get_desktop_page/", view=views.DesktopPage.as_view(), name="get_desktop_page"),
     path("accept_privacy_policy/", views.accept_privacy_policy),
     path("send_posthog_event/", views.send_posthog_event),
     path(
