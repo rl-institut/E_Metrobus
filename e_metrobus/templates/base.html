@@ -43,8 +43,7 @@
   -->
   <body class="{% block body_class %}l-scroll l-scroll--nav{% endblock %}">
 
-    <div id="desktop" hidden>
-      {% include "includes/desktop.html" %}
+    <div id="desktop">
     </div>
     <div id="portrait" class="grid-container portrait full" hidden>
 
@@ -59,7 +58,9 @@
 
     </div>
 
-    {% block modal %}{% endblock modal %}
+    {% block modal %}
+      {{top_bar.reveal}}
+    {% endblock modal %}
 
     <!-- Le javascript
     ================================================== -->
@@ -121,12 +122,25 @@
           return check;
         };
 
+        function insert_desktop_page() {
+          $.ajax({
+            url: "{% url 'navigation:get_desktop_page' %}",
+            async: false,
+            dataType: "html",
+            success: function(response) {
+              $("#desktop").html(response);
+              $(document).foundation();
+            }
+          });
+        }
+
         if (check_mobile()) {
-          $("#desktop").hide();
+          $("#desktop").remove();
           $("#portrait").show();
         } else {
+          insert_desktop_page();
           $("#desktop").show();
-          $("#portrait").hide();
+          $("#portrait").remove();
         }
       </script>
     {% endblock javascript %}
