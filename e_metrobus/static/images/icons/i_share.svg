@@ -6,18 +6,14 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   height="83.345833"
-   width="77.383331"
-   viewBox="0 0 18.572 20.003"
-   x="0px"
-   y="0px"
-   version="1.1"
-   id="svg8"
-   sodipodi:docname="noun_Share_501313.svg"
    style="fill:#000000"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+   id="svg8"
+   version="1.1"
+   y="0px"
+   x="0px"
+   viewBox="0 0 18.572 20.003"
+   width="77.383331"
+   height="83.345833">
   <metadata
      id="metadata14">
     <rdf:RDF>
@@ -32,38 +28,13 @@
   </metadata>
   <defs
      id="defs12" />
-  <sodipodi:namedview
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="1853"
-     inkscape:window-height="1025"
-     id="namedview10"
-     showgrid="false"
-     fit-margin-top="0"
-     fit-margin-left="0"
-     fit-margin-right="0"
-     fit-margin-bottom="0"
-     inkscape:zoom="2.36"
-     inkscape:cx="41.666667"
-     inkscape:cy="41.675"
-     inkscape:window-x="67"
-     inkscape:window-y="27"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg8" />
   <title
      id="title2">share</title>
   <desc
      id="desc4">Created with Sketch.</desc>
   <path
-     d="M 12.659,14.738 6.418,11.255 c 0.169,-0.386 0.263,-0.81 0.263,-1.254 0,-0.391 -0.084,-0.763 -0.216,-1.11 l 6.293,-3.513 c 0.611,0.659 1.489,1.08 2.474,1.08 1.844,0 3.34,-1.446 3.34,-3.229 C 18.572,1.446 17.076,0 15.232,0 c -1.844,0 -3.339,1.446 -3.339,3.229 0,0.367 0.077,0.713 0.193,1.041 L 5.769,7.796 C 5.16,7.169 4.3,6.772 3.34,6.772 1.496,6.772 0,8.218 0,10.001 c 0,1.783 1.496,3.229 3.34,3.229 0.904,0 1.721,-0.351 2.323,-0.914 l 6.377,3.559 c -0.087,0.287 -0.147,0.584 -0.147,0.899 0,1.783 1.494,3.229 3.339,3.229 1.844,0 3.34,-1.446 3.34,-3.229 0,-1.783 -1.496,-3.229 -3.34,-3.229 -1.041,0 -1.96,0.471 -2.573,1.194 z"
-     sketch:type="MSShapeGroup"
-     id="path6"
      style="fill:#252424;fill-opacity:1"
-     inkscape:connector-curvature="0" />
+     id="path6"
+     sketch:type="MSShapeGroup"
+     d="M 12.659,14.738 6.418,11.255 c 0.169,-0.386 0.263,-0.81 0.263,-1.254 0,-0.391 -0.084,-0.763 -0.216,-1.11 l 6.293,-3.513 c 0.611,0.659 1.489,1.08 2.474,1.08 1.844,0 3.34,-1.446 3.34,-3.229 C 18.572,1.446 17.076,0 15.232,0 c -1.844,0 -3.339,1.446 -3.339,3.229 0,0.367 0.077,0.713 0.193,1.041 L 5.769,7.796 C 5.16,7.169 4.3,6.772 3.34,6.772 1.496,6.772 0,8.218 0,10.001 c 0,1.783 1.496,3.229 3.34,3.229 0.904,0 1.721,-0.351 2.323,-0.914 l 6.377,3.559 c -0.087,0.287 -0.147,0.584 -0.147,0.899 0,1.783 1.494,3.229 3.339,3.229 1.844,0 3.34,-1.446 3.34,-3.229 0,-1.783 -1.496,-3.229 -3.34,-3.229 -1.041,0 -1.96,0.471 -2.573,1.194 z" />
 </svg>
