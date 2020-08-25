@@ -50,7 +50,7 @@ def share_text(request):
         co2 = route_data["bus"].co2 - route_data["e-bus"].co2
         text = _(
             "Ich bin gerade in einem E-Bus auf der Linie 200 gefahren und "
-            "habe der Welt dabei %(co2)s g CO<sub>2</sub>-Emissionen erspart. "
+            "habe der Welt dabei %(co2)s g CO2-Emissionen erspart. "
             "Schau mal hier"
         ) % {"co2": round(co2, 2)}
     return text
