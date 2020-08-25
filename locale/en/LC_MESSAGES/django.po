@@ -155,16 +155,11 @@ msgid ""
 msgstr "I just got on an E-bus on the 200 line. Look here:"
 
 #: e_metrobus/navigation/utils.py:52
-#, fuzzy, python-format
-#| msgid ""
-#| "Ich bin gerade in einem E-Bus auf der Linie 200 gefahren und habe der "
-#| "Welt dabei %(co2)s g CO<sub>2</sub>-Emissionen erspart. Schau mal hier"
 msgid ""
 "Ich bin gerade in einem E-Bus auf der Linie 200 gefahren und habe der Welt "
 "dabei %(co2)s g CO2-Emissionen erspart. Schau mal hier"
 msgstr ""
-"I just took an E-bus on the 200 line and saved the world %(co2)s g CO "
-"<sub>2</sub> emissions. Take a look here:"
+"I just took an E-bus on the 200 line and saved the world %(co2)s g CO2 emissions. Take a look here:"
 
 #: e_metrobus/navigation/widgets.py:112
 msgid "Quiz"
