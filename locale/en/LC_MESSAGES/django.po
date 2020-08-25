@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-25 09:54+0000\n"
+"POT-Creation-Date: 2020-08-25 09:58+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1124,33 +1124,33 @@ msgstr "Full electrification"
 #: e_metrobus/templates/pages/question_translations.html:74
 msgid ""
 "Wie viele Elektrobusse werden für eine Vollelektrifizierung des Berliner "
-"Busnetzes erwartet?"
+"Busnetzes benötigt?"
 msgstr ""
 "How many electric buses are expected to be needed in order to fully "
 "electrify the Berlin bus network?"
 
 #: e_metrobus/templates/pages/question_translations.html:75
-msgid "Ca. 1000"
-msgstr "Ca. 1000"
+msgid "Ca. 1.000"
+msgstr "Ca. 1,000"
 
 #: e_metrobus/templates/pages/question_translations.html:75
-msgid "Ca. 1450 (aktuelle Busflotte)"
-msgstr "Ca. 1450 (current bus fleet)"
+msgid "Ca. 1.450 (aktuelle Busflotte)"
+msgstr "Ca. 1,450 (current bus fleet)"
 
 #: e_metrobus/templates/pages/question_translations.html:75
-msgid "Ca. 1800"
-msgstr "Ca. 1800"
+msgid "Ca. 1.800"
+msgstr "Ca. 1,800"
 
 #: e_metrobus/templates/pages/question_translations.html:75
-msgid "Ca. 2300"
-msgstr "Ca. 2300"
+msgid "Ca. 2.300"
+msgstr "Ca. 2,300"
 
 #: e_metrobus/templates/pages/question_translations.html:77
 msgid ""
-"Die geschätzte Anzahl liegt zwischen ca. 1700 und 1900 Bussen bei einer "
+"Die geschätzte Anzahl liegt zwischen ca. 1.700 und 1.900 Bussen bei einer "
 "vollständigen Elektrifizierung."
 msgstr ""
-"The estimated number is between 1700 and 1900 buses with full "
+"The estimated number is between 1,700 and 1,900 buses with full "
 "electrification."
 
 #: e_metrobus/templates/pages/question_translations.html:79
