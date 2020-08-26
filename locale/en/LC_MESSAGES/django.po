@@ -1294,7 +1294,7 @@ msgstr "The electric bus has a visible structure on the roof."
 
 #: e_metrobus/templates/pages/question_translations.html:110
 msgid "Der Elektrobus ist leiser als ein konventioneller Bus."
-msgstr "The electric bus has a visible structure on the roof."
+msgstr "The electric bus is quieter than a conventional bus."
 
 #: e_metrobus/templates/pages/question_translations.html:110
 msgid "Der Elektrobus ermöglicht kürzere Fahrzeiten."
