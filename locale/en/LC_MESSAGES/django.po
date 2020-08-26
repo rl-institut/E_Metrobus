@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-25 12:57+0000\n"
+"POT-Creation-Date: 2020-08-26 09:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -708,8 +708,7 @@ msgstr "Report an error"
 
 #: e_metrobus/templates/navigation/legal.html:75
 msgid ""
-"Hast du ein Bug oder inhaltliche Fehler gefunden? Dann melde dich gerne bei "
-"uns!"
+"Hast du Bugs oder inhaltliche Fehler gefunden? Dann melde dich gerne bei uns!"
 msgstr "Did you find a bug or error in the content? Then please contact us!"
 
 #: e_metrobus/templates/navigation/legal.html:87
