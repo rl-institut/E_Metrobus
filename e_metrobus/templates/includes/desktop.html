@@ -10,7 +10,7 @@
       <span class="a-desktop a-desktop--subheader">{% trans 'Elektrifizierung von Gelenkbussen im Berliner ÖPNV mit Schnellladeinfrastruktur' %}</span>
     </div>
     {% if not summary %}
-      <div class="language-flag show-for-medium a-desktop a-desktop--lang">
+      <div class="language-flag a-desktop a-desktop--lang" style="display: none;">
         {% get_current_language as LANGUAGE_CODE %}
         {% if LANGUAGE_CODE == "de" %}
           <a href="en/?visited" data-open="language_popup">
@@ -174,7 +174,7 @@
   </div>
 </section>
 
-  <section class="desktop desktop-footer show-for-medium">
+  <section class="desktop desktop-footer" style="display: none;">
     <div class="grid-x align-center grid-width--medium">
       <div class="cell">
         <ul>
@@ -218,3 +218,17 @@
       <span aria-hidden="true">{% trans 'Zurück zur Startseite' %}</span>
     </button>
   </div>
+
+  {% block javascript %}
+  <script>
+    $( document ).ready(function() {
+      const userAgent = navigator.userAgent.toLowerCase();
+      const isTablet = /(ipad|tablet|(android(?!.*mobile))|(windows(?!.*phone)(.*touch))|kindle|playbook|silk|(puffin(?!.*(IP|AP|WP))))/.test(userAgent);
+      console.log(isTablet);
+      if (isTablet || $(window).width() >= 640) {
+        $('.desktop-footer').show();
+        $('.language-flag').show();
+      }
+    });
+  </script>
+{% endblock %}
