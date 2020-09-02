@@ -174,6 +174,7 @@
   </div>
 </section>
 
+{% if not summary %}
   <section class="desktop desktop-footer">
     <div class="grid-x align-center grid-width--medium">
       <div class="cell">
@@ -184,37 +185,38 @@
       </div>
     </div>
   </section>
+{% endif %}
 
-  <div class="reveal" id="feedback_reveal" data-reveal>
-    <button class="close-button" data-close aria-label="Close modal" type="button">
-      <span aria-hidden="true">&times;</span>
-    </button>
-    <form method="post" class="feedback__form">
-      {% csrf_token %}
-      {{feedback}}
-      <input type="hidden" name="feedback">
-      <div class="cell feedback__btn">
-        <div class="grid-x align-center text-center">
-          <div class="cell">
-            <button class="button--yellow" type="submit" style= "cursor:pointer">{% trans 'Meinung schicken' %}</button>
-          </div>
+<div class="reveal" id="feedback_reveal" data-reveal>
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <form method="post" class="feedback__form">
+    {% csrf_token %}
+    {{feedback}}
+    <input type="hidden" name="feedback">
+    <div class="cell feedback__btn">
+      <div class="grid-x align-center text-center">
+        <div class="cell">
+          <button class="button--yellow" type="submit" style= "cursor:pointer">{% trans 'Meinung schicken' %}</button>
         </div>
       </div>
-    </form>
-  </div>
+    </div>
+  </form>
+</div>
 
-  <div class="full reveal legal" id="imprint_reveal" data-reveal>
-    {% include 'includes/imprint.html' %}
-    <button class="close-button" data-close aria-label="Close modal" type="button">
-      <div class="icon"></div>
-      <span aria-hidden="true">{% trans 'Zurück zur Startseite' %}</span>
-    </button>
-  </div>
+<div class="full reveal legal" id="imprint_reveal" data-reveal>
+  {% include 'includes/imprint.html' %}
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <div class="icon"></div>
+    <span aria-hidden="true">{% trans 'Zurück zur Startseite' %}</span>
+  </button>
+</div>
 
-  <div class="full reveal legal" id="privacy_reveal" data-reveal>
-    {% include 'includes/privacy.html' %}
-    <button class="close-button" data-close aria-label="Close modal" type="button">
-      <div class="icon"></div>
-      <span aria-hidden="true">{% trans 'Zurück zur Startseite' %}</span>
-    </button>
-  </div>
+<div class="full reveal legal" id="privacy_reveal" data-reveal>
+  {% include 'includes/privacy.html' %}
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <div class="icon"></div>
+    <span aria-hidden="true">{% trans 'Zurück zur Startseite' %}</span>
+  </button>
+</div>
