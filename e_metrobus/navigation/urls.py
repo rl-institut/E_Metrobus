@@ -35,6 +35,7 @@ urlpatterns = [
     path("get_desktop_page/", view=views.DesktopPage.as_view(), name="get_desktop_page"),
     path("accept_privacy_policy/", views.accept_privacy_policy),
     path("send_posthog_event/", views.send_posthog_event),
+    path("check_mobile/", views.check_mobile),
     path(
         "get_comparison_chart/", views.get_comparison_chart, name="get_comparison_chart"
     ),
