@@ -322,10 +322,6 @@ $desktop-padding-xxsmall: .6rem;
 
 .desktop-app { 
 
-  @media only screen and (max-width: 639px) {
-    display: none;
-  }
-
   .desktop-app__img  {
     @media only screen and (min-width: 640px) and (max-width: 1023px) {
       text-align: center;
