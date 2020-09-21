@@ -26,6 +26,18 @@
           </div>
         </div>
       </div>
+      <div class="cell landpage__features">
+        <span>{% trans 'Weiter kannst du...' %}</span>
+        <img src="{% static 'images/icons/i_quiz_black.svg' %}" alt="Quiz">
+        <span>{% trans '...ein Quiz zur E-Mobilität machen' %}</span>
+        <a href="{% url 'navigation:dashboard' %}"><button name="" class="button button--yellow button--small">{% trans 'Los!' %}</button></a>
+        <img src="{% static 'images/icons/i_quiz_black.svg' %}" alt="C02">
+        <span>{% trans '...weitere Emissionen berechnen' %}</span>
+        <a href="{% url 'navigation:environment' %}"><button name="" class="button button--yellow button--small">{% trans 'Los!' %}</button></a>
+        <img src="{% static 'images/icons/i_ebus_black_line_v2.svg' %}" alt="E-Bus">
+        <span>{% trans '...mehr über das Projekt erfahren' %}</span>
+        <a href="{% url 'navigation:questions_as_text' %}"><button name="" class="button button--yellow button--small">{% trans 'Los!' %}</button></a>
+      </div>
       <div class="cell landpage__language">
         <div class="grid-x align-center text-center">
           <div class="cell landpage__language--switch" {% if visited %}style="animation: none"{% endif %}>
