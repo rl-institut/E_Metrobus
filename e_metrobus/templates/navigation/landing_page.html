@@ -5,13 +5,9 @@
 
 {% block subtitle %} - {% trans 'Start' %}{% endblock %}
 
-{% block body_class %}class="l-scroll l-scroll--nonav"{% endblock %}
+{% block body_class %}l-scroll l-scroll--nonav{% endblock %}
 
 {% block content %}
-  <div class="cell landpage__bus a-lp-bus" {% if visited %}style="animation: none"{% endif %}>
-    <img src="{% static 'images/icons/Icon_E_Bus_BVG.svg' %}" alt="E-Bus als Icon">
-  </div>
-
   <div class="cell">
     <div class="grid-x align-center text-center landpage">
       <div class="cell landpage__button" {% if visited %}style="animation: none"{% endif %}>
@@ -19,26 +15,32 @@
           <div id="animateLPText" class="landpage__button-text">
             <span>{% if non_bus_user %}{% trans 'Toll, dass du dich für den E-Bus interessierst!' %}{% else %}{% trans 'Toll, dass du mit einem E-Bus fährst!' %}{% endif %}</span>
           </div>
-          <div class="landpage__button-btn">
-            <a href="{% if non_bus_user %}{% url 'navigation:tour' %}{% else %}{% url 'navigation:route' %}{% endif %}"><button name="boarding" class="button a-lp-btn" {% if visited %}style="animation: none"{% endif %}>{% trans 'Los geht&#39;s!' %}</button></a>
+          <div class="landpage__skyline">
+            <img src="{% static 'images/LP_Berlin_Skyline.svg' %}" alt="Brandenburger Tor, E-Bus und Fernsehturm">
           </div>
-          <div class="landpage__language">
-            <div class="grid-x align-center text-center">
-              <div class="cell landpage__language--switch" {% if visited %}style="animation: none"{% endif %}>
-                {% get_current_language as LANGUAGE_CODE %}
-                {% if LANGUAGE_CODE == "de" %}
-                  <a href="/en/{% if non_bus_user %}welcome/{% endif %}?visited" data-open="language_popup" onclick="send_posthog_event('english');">
-                    <img src="{% static 'images/icons/i_flag_uk.svg' %}" alt="uk_flag">
-                    <p>Switch to English</p>
-                  </a>
-                {% else %}
-                  <a href="/{% if non_bus_user %}welcome/{% endif %}?visited" data-open="language_popup">
-                    <img src="{% static 'images/icons/i_flag_de.svg' %}" alt="uk_flag">
-                    <p>Zu Deutsch wechseln</p>
-                  </a>
-                {% endif %}
-              </div>
-            </div>
+          <div id="animateLPText" class="landpage__button-text--small">
+            <span>{% trans 'Wie viel CO2 spare ich mit diesem E-Bus?' %}</span>
+          </div>
+          <div class="landpage__button-btn">
+            <a href="{% if non_bus_user %}{% url 'navigation:tour' %}{% else %}{% url 'navigation:route' %}{% endif %}"><button name="boarding" class="button a-lp-btn" {% if visited %}style="animation: none"{% endif %}>{% trans 'Berechnen' %}</button></a>
+          </div>
+        </div>
+      </div>
+      <div class="cell landpage__language">
+        <div class="grid-x align-center text-center">
+          <div class="cell landpage__language--switch" {% if visited %}style="animation: none"{% endif %}>
+            {% get_current_language as LANGUAGE_CODE %}
+            {% if LANGUAGE_CODE == "de" %}
+              <a href="/en/{% if non_bus_user %}welcome/{% endif %}?visited" data-open="language_popup" onclick="send_posthog_event('english');">
+                <img src="{% static 'images/icons/i_flag_uk.svg' %}" alt="uk_flag">
+                <p>Switch to English</p>
+              </a>
+            {% else %}
+              <a href="/{% if non_bus_user %}welcome/{% endif %}?visited" data-open="language_popup">
+                <img src="{% static 'images/icons/i_flag_de.svg' %}" alt="uk_flag">
+                <p>Zu Deutsch wechseln</p>
+              </a>
+            {% endif %}
           </div>
         </div>
       </div>

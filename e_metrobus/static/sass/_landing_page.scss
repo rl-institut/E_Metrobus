@@ -59,6 +59,12 @@
     margin: 20% 1rem 0;
   }
 
+  &__skyline img {
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
     &__logo {
     margin: .25rem 0;
 
@@ -121,6 +127,11 @@
       font-weight: bold;
       line-height: 1.85rem;
     }
+    &-text--small span {
+      font-size: 1.25rem;
+      font-weight: 400;
+      line-height: 1.85rem;
+    }
     &-btn {
       margin: 1rem 0;
 
@@ -179,8 +190,6 @@
   }
   &__bottom {
     padding: 0 .5rem 0;
-    position: fixed;
-    bottom: 0;
 
     @media (orientation: landscape) and (max-width: 1023px) {
       position: relative;
