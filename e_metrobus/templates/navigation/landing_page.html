@@ -40,7 +40,7 @@
       </div>
       <div class="cell landpage__language">
         <div class="grid-x align-center text-center">
-          <div class="cell landpage__language--switch" {% if visited %}style="animation: none"{% endif %}>
+          <div class="cell landpage__language--switch">
             {% get_current_language as LANGUAGE_CODE %}
             {% if LANGUAGE_CODE == "de" %}
               <a href="/en/{% if non_bus_user %}welcome/{% endif %}?visited" data-open="language_popup" onclick="send_posthog_event('english');">
@@ -61,22 +61,22 @@
           <div class="cell landpage__text" {% if visited %}style="animation: none"{% endif %}>
             <p>{% trans 'Die App ist Teil des Forschungsprojektes E-MetroBus der folgenden Partner:' %}</p>
           </div>
-          <div class="cell small-4 landpage__logo landpage__logo--bvg" {% if visited %}style="animation: none"{% endif %}>
+          <div class="cell small-4 landpage__logo landpage__logo--bvg">
             <a href="https://www.bvg.de/de">
               <img src="{% static 'images/logos/BVG_Herz_Gelb_RGB.png' %}" alt="BVG Logo">
             </a>
           </div>
-          <div class="cell small-4 landpage__logo landpage__logo--tu" {% if visited %}style="animation: none"{% endif %}>
+          <div class="cell small-4 landpage__logo landpage__logo--tu">
             <a href="https://www.mpm.tu-berlin.de/menue/home/">
               <img src="{% static 'images/logos/TU-Berlin_logo.png' %}" alt="TU Berlin Logo">
             </a>
           </div>
-          <div class="cell small-4 landpage__logo landpage__logo--rli" {% if visited %}style="animation: none"{% endif %}>
+          <div class="cell small-4 landpage__logo landpage__logo--rli">
             <a href="https://reiner-lemoine-institut.de/">
               <img src="{% static 'images/logos/RLi_logo.png' %}" alt="RLI Logo">
             </a>
           </div>
-          <div class="cell landpage__logo landpage__logo--bmwi" {% if visited %}style="animation: none"{% endif %}>
+          <div class="cell landpage__logo landpage__logo--bmwi">
             <img src="{% static 'images/logos/Logokombi.jpg' %}" alt="{% trans 'Elektromobilität vor Ort, BMWI, NOW und PTJ Logo' %}">
           </div>
         </div>

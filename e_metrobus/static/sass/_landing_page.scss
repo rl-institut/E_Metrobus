@@ -49,15 +49,7 @@
 
 .landpage {
   height: 100%;
-  margin: 1.5rem 1rem 0;
-
-  @media only screen and (min-height: 667px) {
-    margin: 15% 1rem 0;
-  }
-
-  @media only screen and (min-height: 800px) {
-    margin: 20% 1rem 0;
-  }
+  margin: 1rem 1rem 0;
 
   &__skyline img {
     width: 100%;
@@ -94,35 +86,23 @@
       margin-bottom: .35rem;
     }
     &--bvg {
-      animation: fadein 2s;
-      animation-delay: 2.15s;
-      animation-fill-mode: backwards;
       img {
         max-width: 2.75rem;
       }
     }
     &--tu {
-      animation: fadein 2s;
-      animation-delay: 2.3s;
-      animation-fill-mode: backwards;
       img {
         margin-top: 0.3rem;
         max-width: 3.25rem;
       }
     }
     &--rli {
-      animation: fadein 2s;
-      animation-delay: 2.45s;
-      animation-fill-mode: backwards;
       img {
         margin-top: 0.5rem;
         max-width: 3.25rem;
       }
     }
     &--bmwi {
-      animation: fadein 2s;
-      animation-delay: 2.45s;
-      animation-fill-mode: backwards;
       img {
         width: 100%;
         max-width: 22rem;
@@ -166,9 +146,6 @@
     justify-content: center;
     padding-bottom: 2rem;
     &--switch {
-      animation: fadein 1.5s;
-      animation-fill-mode: backwards;
-      animation-delay: 2.6s;
       a {
         display: flex;
         flex-direction: row;
@@ -209,7 +186,8 @@
     }
   }
   &__bottom {
-    padding: 0 .5rem 2rem;
+    padding: 0 .5rem 0;
+    margin-bottom: 1rem;
 
     @media (orientation: landscape) and (max-width: 1023px) {
       position: relative;
