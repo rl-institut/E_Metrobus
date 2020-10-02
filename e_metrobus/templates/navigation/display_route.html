@@ -12,120 +12,61 @@
 <!-- route display -->
 <div class="display-route__bg"></div>
 
-<div class="cell display-route" id="onboardingAnimate1">
-  <div class="grid-x text-center align-middle display-route__stations">
-    <div class="cell">
-      <div class="grid-x">
-        <div class="cell display-route__start" id="display-route-start">
-          {{stations.0}}
-        </div>
-        <img class="show-for-portrait display-route__img" src="{% static 'images/icons/route.svg' %}" alt="{% trans 'Meine Strecke' %}">
-        <div class="cell display-route__end" id="display-route-end">
-          {{stations.1}}
-        </div>
-      </div>
-    </div>
+<div class="display-route__text">
+  <p class="display-route__sentence">{% trans "Auf dieser " %}
+  {% if distance < 1 %}
+    <span class="display-route__number display-route-number">{{distance_in_meter|floatformat:"0"}} m</span>
+  {% else %}
+    <span class="display-route__number display-route-number">{{distance|floatformat:"1"}} km</span>
+  {% endif %}
+  {% trans "langen Strecke sparst du:" %}
+  </p>
+</div>
+
+<div class="grid-x">
+  <div class="cell small-3 display-route__img">
+    <img class="show-for-portrait" id="onboardingAnimateIcon2" src="{% static 'images/icons/Icon_E_Car.svg' %}" alt="{% trans 'E-Pkw' %}">
   </div>
-  <div class="carousel-arrow carousel-arrow--next" onclick="show2()">
-    <img src="{% static 'images/icons/i_next_black_large.svg' %}" alt="{% trans 'Zur nächsten Seite' %}">
+  <div class="cell small-9 display-route__wrap">
+    <div class="display-route__text">
+      <p class="display-route__sentence">
+        <span class="display-route__number display-route-number">{{co2.e_pkw.percent|floatformat:"0"}} % CO<sub>2</sub></span>
+        <span class="display-route__number display-route__number--small display-route-small-number">({{co2.e_pkw.gram|floatformat:"0"}} g CO<sub>2</sub>)</span>
+        {% trans "im Vergleich zum Elektro-Pkw" %}
+      </p>
+    </div>
   </div>
 </div>
 
-<div class="cell display-route" id="onboardingAnimate2" style="display: none;">
-  <div class="grid-x display-route__grid text-center align-center">
-    <div class="cell display-route__wrap">
-      <img class="larger show-for-portrait" src="{% static 'images/icons/Icon_Route.svg' %}" alt="{% trans 'Meine Strecke' %}">
-      <div class="display-route__text">
-        <p class="display-route__sentence">{% trans "Deine Strecke mit dem <span>Elektrobus</span> beträgt" %}</p>
-        {% if distance < 1 %}
-          <p class="display-route__number display-route-number">{{distance_in_meter|floatformat:"0"}} m</p>
-        {% else %}
-          <p class="display-route__number display-route-number">{{distance|floatformat:"1"}} km</p>
-        {% endif %}
-      </div>
-    </div>
-  </div>
-  <div class="carousel-arrow carousel-arrow--previous" onclick="show1()">
-    <img src="{% static 'images/icons/i_previous_black_large.svg' %}" alt="{% trans 'Zur vorherigen Seite' %}">
-  </div>
-  <div class="carousel-arrow carousel-arrow--next" onclick="show3()">
-    <img src="{% static 'images/icons/i_next_black_large.svg' %}" alt="{% trans 'Zur nächsten Seite' %}">
+<div class="cell small-3 display-route__img">
+  <img class="show-for-portrait" id="onboardingAnimateIcon3" src="{% static 'images/icons/Icon_Conventional_Bus.svg' %}" alt="{% trans 'Dieselbus' %}">
+</div>
+<div class="cell small-9 display-route__wrap">
+  <div class="display-route__text">
+    <p class="display-route__sentence">
+      <span class="display-route__number display-route-number">{{co2.bus.percent|floatformat:"0"}} % CO<sub>2</sub></span>
+      <span class="display-route__number display-route__number--small display-route-small-number">({{co2.e_pkw.gram|floatformat:"0"}} g CO<sub>2</sub>)</span>
+      {% trans "im Vergleich zum Dieselbus" %}
+    </p>
   </div>
 </div>
 
-<div class="cell display-route" id="onboardingAnimate3" style="display: none;">
-  <div class="grid-x display-route__grid text-center align-center">
-    <div class="cell display-route__wrap">
-      <img class="show-for-portrait" id="onboardingAnimateIcon2" src="{% static 'images/icons/Icon_E_Car.svg' %}" alt="{% trans 'E-Pkw' %}">
-      <div class="display-route__text">
-        <p class="display-route__sentence">{% trans "Im Vergleich zum <span>Elektro-Pkw</span> sparst du auf dieser Strecke" %}</p>
-        <p class="display-route__number display-route-number">{{co2.e_pkw.percent|floatformat:"0"}} % CO<sub>2</sub></p>
-        <p class="display-route__number display-route__number--small display-route-small-number">({{co2.e_pkw.gram|floatformat:"0"}} g CO<sub>2</sub>)</p>
-      </div>
-    </div>
-  </div>
-  <div class="carousel-arrow carousel-arrow--previous" onclick="show2()">
-    <img src="{% static 'images/icons/i_previous_black_large.svg' %}" alt="{% trans 'Zur vorherigen Seite' %}">
-  </div>
-  <div class="carousel-arrow carousel-arrow--next" onclick="show4()">
-    <img src="{% static 'images/icons/i_next_black_large.svg' %}" alt="{% trans 'Zur nächsten Seite' %}">
+<div class="cell small-3 display-route__img">
+  <img class="show-for-portrait" id="onboardingAnimateIcon5" src="{% static 'images/icons/Icon_Conventional_Car.svg' %}" alt="{% trans 'Pkw (Diesel)' %}">
+</div>
+<div class="cell small-9 display-route__wrap">
+  <div class="display-route__text">
+    <p class="display-route__sentence">
+      <span class="display-route__number display-route-number">{{co2.car.percent|floatformat:"0"}} % CO<sub>2</sub></span>
+      <span class="display-route__number display-route__number--small display-route-small-number">({{co2.car.gram|floatformat:"0"}} g CO<sub>2</sub>)</span>
+      {% trans "im Vergleich zum Pkw (Diesel)" %}
+    </p>
   </div>
 </div>
 
-<div class="cell display-route" id="onboardingAnimate4" style="display: none;">
-  <div class="grid-x display-route__grid text-center align-center">
-    <div class="cell display-route__wrap">
-      <img class="show-for-portrait" id="onboardingAnimateIcon3" src="{% static 'images/icons/Icon_Conventional_Bus.svg' %}" alt="{% trans 'Dieselbus' %}">
-      <div class="display-route__text">
-        <p class="display-route__sentence">{% trans "Im Vergleich zum <span>Dieselbus</span> sparst du auf dieser Strecke" %}</p>
-        <p class="display-route__number display-route-number">{{co2.bus.percent|floatformat:"0"}} % CO<sub>2</sub></p>
-        <p class="display-route__number display-route__number--small display-route-small-number">({{co2.bus.gram|floatformat:"0"}} g CO<sub>2</sub>)</p>
-      </div>
-    </div>
-  </div>
-  <div class="carousel-arrow carousel-arrow--previous" onclick="show3()">
-    <img src="{% static 'images/icons/i_previous_black_large.svg' %}" alt="{% trans 'Zur vorherigen Seite' %}">
-  </div>
-  <div class="carousel-arrow carousel-arrow--next" onclick="show5()">
-    <img src="{% static 'images/icons/i_next_black_large.svg' %}" alt="{% trans 'Zur nächsten Seite' %}">
-  </div>
-</div>
+<a href="{% url 'navigation:comparison' %}"><button name="" class="button button--yellow button--small">{% trans 'Chart ansehen' %}</button></a>
 
-<div class="cell display-route" id="onboardingAnimate5" style="display: none;">
-  <div class="grid-x display-route__grid text-center align-center">
-    <div class="cell display-route__wrap">
-      <img class="show-for-portrait" id="onboardingAnimateIcon5" src="{% static 'images/icons/Icon_Conventional_Car.svg' %}" alt="{% trans 'Pkw (Diesel)' %}">
-      <div class="display-route__text">
-        <p class="display-route__sentence">{% trans "Im Vergleich zum <span>Pkw (Diesel)</span> sparst du auf dieser Strecke" %}</p>
-        <p class="display-route__number display-route-number">{{co2.car.percent|floatformat:"0"}} % CO<sub>2</sub></p>
-        <p class="display-route__number display-route__number--small display-route-small-number">({{co2.car.gram|floatformat:"0"}} g CO<sub>2</sub>)</p>
-      </div>
-    </div>
-  </div>
-  <div class="carousel-arrow carousel-arrow--previous" onclick="show4()">
-    <img src="{% static 'images/icons/i_previous_black_large.svg' %}" alt="{% trans 'Zur vorherigen Seite' %}">
-  </div>
-  <div class="carousel-arrow carousel-arrow--next" onclick="show6()">
-    <img src="{% static 'images/icons/i_next_black_large.svg' %}" alt="{% trans 'Zur nächsten Seite' %}">
-  </div>
-</div>
-
-<div class="cell display-route" id="onboardingAnimate6" style="display: none;">
-  <div class="grid-x display-route__grid text-center align-center">
-    <div class="cell display-route__wrap">
-      <img class="show-for-portrait" id="onboardingAnimateIcon4" src="{% static 'images/icons/Icon_Pedestrian_Bike.svg' %}" alt="{% trans 'Fussgänger und Fahrrad' %}">
-      <div class="display-route__text">
-        <p class="display-route__sentence">{% trans "Nur noch <span>zu Fuß</span> oder mit dem <span>Fahrrad</span> kannst du es besser machen!" %}</p>
-      </div>
-    </div>
-  </div>
-  <div class="carousel-arrow carousel-arrow--previous" onclick="show5()">
-    <img src="{% static 'images/icons/i_previous_black_large.svg' %}" alt="{% trans 'Zur vorherigen Seite' %}">
-  </div>
-  <div class="carousel-arrow carousel-arrow--next" onclick="toComparisonPage()">
-    <img src="{% static 'images/icons/i_next_black_large.svg' %}" alt="{% trans 'Zur nächsten Seite' %}">
-  </div>
-</div>
+<a href="{% url 'navigation:environment' %}"><button name="" class="button button--yellow button--small">{% trans 'Quiz machen' %}</button></a>
 
 
 {% endblock %}
@@ -134,40 +75,6 @@
 {{block.super}}
 
 <script>
-
-function show1() {
-  $('#onboardingAnimate1').fadeIn(800);
-  $('#onboardingAnimate2').hide();
-};
-
-function show2() {
-  $('#onboardingAnimate1').hide();
-  $('#onboardingAnimate2').fadeIn(800);
-  $('#onboardingAnimate3').hide();
-};
-
-function show3() {
-  $('#onboardingAnimate2').hide();
-  $('#onboardingAnimate3').fadeIn(800);
-  $('#onboardingAnimate4').hide();
-};
-
-function show4() {
-  $('#onboardingAnimate3').hide();
-  $('#onboardingAnimate4').fadeIn(800);
-  $('#onboardingAnimate5').hide();
-};
-
-function show5() {
-  $('#onboardingAnimate4').hide();
-  $('#onboardingAnimate5').fadeIn(800);
-  $('#onboardingAnimate6').hide();
-};
-
-function show6() {
-  $('#onboardingAnimate5').hide();
-  $('#onboardingAnimate6').fadeIn(800);
-};
 
 function toComparisonPage() {
   window.location = "{% url 'navigation:comparison' %}";
