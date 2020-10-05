@@ -12,62 +12,75 @@
 <!-- route display -->
 <div class="display-route__bg"></div>
 
-<div class="display-route__text">
-  <p class="display-route__sentence">{% trans "Auf dieser " %}
-  {% if distance < 1 %}
-    <span class="display-route__number display-route-number">{{distance_in_meter|floatformat:"0"}} m</span>
-  {% else %}
-    <span class="display-route__number display-route-number">{{distance|floatformat:"1"}} km</span>
-  {% endif %}
-  {% trans "langen Strecke sparst du:" %}
-  </p>
-</div>
+<div class="display__layout">
 
-<div class="grid-x">
-  <div class="cell small-3 display-route__img">
-    <img class="show-for-portrait" id="onboardingAnimateIcon2" src="{% static 'images/icons/Icon_E_Car.svg' %}" alt="{% trans 'E-Pkw' %}">
-  </div>
-  <div class="cell small-9 display-route__wrap">
+  <div class="display__section">
     <div class="display-route__text">
-      <p class="display-route__sentence">
-        <span class="display-route__number display-route-number">{{co2.e_pkw.percent|floatformat:"0"}} % CO<sub>2</sub></span>
-        <span class="display-route__number display-route__number--small display-route-small-number">({{co2.e_pkw.gram|floatformat:"0"}} g CO<sub>2</sub>)</span>
-        {% trans "im Vergleich zum Elektro-Pkw" %}
+      <p class="display-route__upper-sentence">{% trans "Auf dieser " %}
+      {% if distance < 1 %}
+        <span class="display-route__number display-route-number">{{distance_in_meter|floatformat:"0"}} m</span>
+      {% else %}
+        <span class="display-route__number display-route-number">{{distance|floatformat:"1"}} km</span>
+      {% endif %}
+      {% trans "langen Strecke sparst du:" %}
       </p>
     </div>
   </div>
-</div>
-
-<div class="cell small-3 display-route__img">
-  <img class="show-for-portrait" id="onboardingAnimateIcon3" src="{% static 'images/icons/Icon_Conventional_Bus.svg' %}" alt="{% trans 'Dieselbus' %}">
-</div>
-<div class="cell small-9 display-route__wrap">
-  <div class="display-route__text">
-    <p class="display-route__sentence">
-      <span class="display-route__number display-route-number">{{co2.bus.percent|floatformat:"0"}} % CO<sub>2</sub></span>
-      <span class="display-route__number display-route__number--small display-route-small-number">({{co2.e_pkw.gram|floatformat:"0"}} g CO<sub>2</sub>)</span>
-      {% trans "im Vergleich zum Dieselbus" %}
-    </p>
+  
+  <div class="grid-x display__section">
+    <div class="cell small-3 display-route__img">
+      <img class="show-for-portrait" id="onboardingAnimateIcon2" src="{% static 'images/icons/Icon_E_Car.svg' %}" alt="{% trans 'E-Pkw' %}">
+    </div>
+    <div class="cell small-9 display-route__wrap">
+      <div class="display-route__text">
+        <p class="display-route__sentence">
+          <span class="display-route__number display-route-number">{{co2.e_pkw.percent|floatformat:"0"}} % CO<sub>2</sub></span>
+          <span class="display-route__number display-route__number--small display-route-small-number">({{co2.e_pkw.gram|floatformat:"0"}} g CO<sub>2</sub>)</span>
+          {% trans "im Vergleich zum Elektro-Pkw" %}
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="grid-x display__section">
+    <div class="cell small-3 display-route__img">
+      <img class="show-for-portrait" id="onboardingAnimateIcon3" src="{% static 'images/icons/Icon_Conventional_Bus.svg' %}" alt="{% trans 'Dieselbus' %}">
+    </div>
+    <div class="cell small-9 display-route__wrap">
+      <div class="display-route__text">
+        <p class="display-route__sentence">
+          <span class="display-route__number display-route-number">{{co2.bus.percent|floatformat:"0"}} % CO<sub>2</sub></span>
+          <span class="display-route__number display-route__number--small display-route-small-number">({{co2.e_pkw.gram|floatformat:"0"}} g CO<sub>2</sub>)</span>
+          {% trans "im Vergleich zum Dieselbus" %}
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="grid-x display__section">
+    <div class="cell small-3 display-route__img">
+      <img class="show-for-portrait" id="onboardingAnimateIcon5" src="{% static 'images/icons/Icon_Conventional_Car.svg' %}" alt="{% trans 'Pkw (Diesel)' %}">
+    </div>
+    <div class="cell small-9 display-route__wrap">
+      <div class="display-route__text">
+        <p class="display-route__sentence">
+          <span class="display-route__number display-route-number">{{co2.car.percent|floatformat:"0"}} % CO<sub>2</sub></span>
+          <span class="display-route__number display-route__number--small display-route-small-number">({{co2.car.gram|floatformat:"0"}} g CO<sub>2</sub>)</span>
+          {% trans "im Vergleich zum Pkw (Diesel)" %}
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="grid-x display__section">
+    <div class="display__chart">
+      <a href="{% url 'navigation:comparison' %}">{% trans 'Chart ansehen' %}</a>
+    </div>
+    <div class="display__quiz">
+      <a href="{% url 'navigation:dashboard' %}"><button name="" class="button">{% trans 'Quiz machen' %}</button></a>
+    </div>
   </div>
 </div>
-
-<div class="cell small-3 display-route__img">
-  <img class="show-for-portrait" id="onboardingAnimateIcon5" src="{% static 'images/icons/Icon_Conventional_Car.svg' %}" alt="{% trans 'Pkw (Diesel)' %}">
-</div>
-<div class="cell small-9 display-route__wrap">
-  <div class="display-route__text">
-    <p class="display-route__sentence">
-      <span class="display-route__number display-route-number">{{co2.car.percent|floatformat:"0"}} % CO<sub>2</sub></span>
-      <span class="display-route__number display-route__number--small display-route-small-number">({{co2.car.gram|floatformat:"0"}} g CO<sub>2</sub>)</span>
-      {% trans "im Vergleich zum Pkw (Diesel)" %}
-    </p>
-  </div>
-</div>
-
-<a href="{% url 'navigation:comparison' %}"><button name="" class="button button--yellow button--small">{% trans 'Chart ansehen' %}</button></a>
-
-<a href="{% url 'navigation:environment' %}"><button name="" class="button button--yellow button--small">{% trans 'Quiz machen' %}</button></a>
-
 
 {% endblock %}
 

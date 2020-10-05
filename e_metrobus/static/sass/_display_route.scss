@@ -1,3 +1,18 @@
+.display__layout {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: 100%;
+  background-color: $primary-color-1;
+}
+
+.display__section {
+  width: 100%;
+
+  @media screen and (min-height: 650px) {
+    padding: .5rem 0;
+  }
+}
 
 .display-route {
   position: absolute;
@@ -51,6 +66,7 @@
 
   &__text {
     margin: 0;
+    width: 100%;
   }
 
   &__number {
@@ -66,7 +82,8 @@
   }
 
 
-  &__sentence {
+  &__sentence,
+  &__upper-sentence {
     display: inline-block;
     font-weight: 400;
     font-size: 1rem;
@@ -78,10 +95,62 @@
     }
   }
 
+  &__upper-sentence {
+    width: 100%;
+    text-align: center;
+    padding-top: 1rem;
+  }
+
   &__number {
     display: inline-block;
     font-weight: 700;
-    font-size: 1.25rem;
+    font-size: 2rem;
+    padding: 0 .25rem;
+
+    @media screen and (max-height: 599px) {
+      font-size: 1.25rem;
+      padding: 0;
+    }
+
+    &--small {
+      font-size: 1rem;
+    }
+  }
+}
+
+.display__chart {
+  padding-top: 3rem;
+  padding-bottom: 1rem;
+}
+
+.display__quiz {
+  padding-bottom: 1.5rem;
+}
+
+.display__chart,
+.display__quiz {
+  background-color: $primary-color-1;
+  width: 100%;
+  text-align: center;
+}
+
+.display__chart a,
+.display__chart a:hover,
+.display__chart a:focus,
+.display__chart a:active,
+.display__chart a:visited {
+  color: $secondary-color;
+  font-weight: 700;
+
+  &::before {
+    background-image :url('../images/icons/i_next_black_large.svg');
+    display: inline-block;
+    background-size: 1rem;
+    width: 1rem;
+    height: 1rem;
+    transform: translateY(2px) translateX(-4px);
+    position:relative;
+    content: "";
   }
 }
 
