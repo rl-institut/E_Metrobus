@@ -36,7 +36,7 @@
         <p class="display-route__sentence">
           <span class="display-route__number display-route-number">{{co2.e_pkw.percent|floatformat:"0"}} % CO<sub>2</sub></span>
           <span class="display-route__number display-route__number--small display-route-small-number">({{co2.e_pkw.gram|floatformat:"0"}} g CO<sub>2</sub>)</span>
-          {% trans "im Vergleich zum Elektro-Pkw" %}
+          <span class="display-route__comparison">{% trans "im Vergleich zum Elektro-Pkw" %}</span>
         </p>
       </div>
     </div>
@@ -51,7 +51,7 @@
         <p class="display-route__sentence">
           <span class="display-route__number display-route-number">{{co2.bus.percent|floatformat:"0"}} % CO<sub>2</sub></span>
           <span class="display-route__number display-route__number--small display-route-small-number">({{co2.e_pkw.gram|floatformat:"0"}} g CO<sub>2</sub>)</span>
-          {% trans "im Vergleich zum Dieselbus" %}
+          <span class="display-route__comparison">{% trans "im Vergleich zum Dieselbus" %}</span>
         </p>
       </div>
     </div>
@@ -66,7 +66,7 @@
         <p class="display-route__sentence">
           <span class="display-route__number display-route-number">{{co2.car.percent|floatformat:"0"}} % CO<sub>2</sub></span>
           <span class="display-route__number display-route__number--small display-route-small-number">({{co2.car.gram|floatformat:"0"}} g CO<sub>2</sub>)</span>
-          {% trans "im Vergleich zum Pkw (Diesel)" %}
+          <span class="display-route__comparison">{% trans "im Vergleich zum Pkw (Diesel)" %}</span>
         </p>
       </div>
     </div>

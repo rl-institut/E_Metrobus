@@ -67,6 +67,9 @@
   &__text {
     margin: 0;
     width: 100%;
+    @media screen and (min-width: 400px) {
+      padding-left: .5rem;
+    }
   }
 
   &__number {
@@ -92,6 +95,14 @@
 
     span {
       font-weight: 700;
+    }
+
+    span.display-route__comparison {
+      font-weight: 400;
+
+      @media screen and (min-height: 600px) {
+        display: block;
+      }
     }
   }
 
