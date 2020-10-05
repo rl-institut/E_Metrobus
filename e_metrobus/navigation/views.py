@@ -439,6 +439,8 @@ class LandingPageView(PosthogMixin, FeedbackMixin, TemplateView):
             context["visited"] = True
         if "privacy" in self.request.session:
             context["privacy_accepted"] = True
+        if "mobile" not in self.request.session:
+            context["initial_mobile_check"] = True
         return context
 
 
@@ -462,6 +464,12 @@ def accept_privacy_policy(request):
 
 def send_posthog_event(request):
     utils.posthog_event(request, event=request.GET["event"])
+    return HttpResponse()
+
+
+def check_mobile(request):
+    request.session["mobile"] = request.GET["is_mobile"]
+    utils.posthog_event(request)
     return HttpResponse()
 
 
