@@ -231,6 +231,32 @@
   }
 }
 
+.desktop.desktop-device {
+  position: relative;
+  padding: 1rem 0;
+  height: 20rem;
+  .desktop-device__color {
+    z-index: 1;
+    position: absolute;
+    height: 50%;
+    width: 100%;
+  }
+  .desktop-device__color--1 {
+    top: 0;
+    background-color: $primary-color-1;
+  }
+  .desktop-device__color--2 {
+    bottom: 0;
+    background-color: $white;
+  }
+  .desktop-device__img {
+    z-index: 5;
+    img {
+      height: 20rem;
+    }
+  }
+}
+
 // CSS for desktop LP and mobile SUMMARY
 $desktop-padding-large: 9rem;
 $desktop-padding-medium: 4.5rem;
@@ -284,6 +310,9 @@ $desktop-padding-xxsmall: .6rem;
 
   @media only screen and (min-width: 1024px) {
     margin-bottom: $desktop-padding-large;
+  }
+  &.desktop-header {
+    margin-bottom: 0;
   }
 }
 
