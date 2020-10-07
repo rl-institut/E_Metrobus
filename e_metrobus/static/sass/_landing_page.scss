@@ -127,6 +127,7 @@
       white-space: nowrap;
       font-weight: 700;
       font-size: 1.5rem;
+      letter-spacing: .05rem;
       color: $white;
       background-color: $secondary-color;
       padding: .75rem;
@@ -798,24 +799,24 @@ $desktop-padding-xxsmall: .6rem;
   animation: desktop-animation-bottom 1.25s $cubic-bezier-ease-out 1s both;
 }
 
-.a-desktop.a-desktop--lang {
-  animation: desktop-animation-opacity 1.25s $cubic-bezier-ease-in 1.25s both;
+.a-desktop.a-desktop--img {
+  animation: desktop-animation-left 1.25s $cubic-bezier-ease-out 1.5s both;
+}
+
+.a-desktop.a-desktop--subtext {
+  animation: desktop-animation-bottom 1.25s $cubic-bezier-ease-out 2s both;
+}
+
+.a-desktop.a-desktop--arrows {
+  animation: desktop-animation-opacity 1.25s $cubic-bezier-ease-out 2.5s both;
 }
 
 .a-desktop.a-desktop--device {
-  animation: desktop-animation-opacity 1.25s $cubic-bezier-ease-in 1.75s both;
+  animation: desktop-animation-opacity 1.25s $cubic-bezier-ease-out 3s both;
 }
 
-.a-desktop.a-desktop--app-heading {
-  animation: desktop-animation-opacity 1.25s $cubic-bezier-ease-in 2s both;
-}
-
-.a-desktop.a-desktop--app-icons {
-  animation: desktop-animation-opacity 1.25s $cubic-bezier-ease-in 2.25s both;
-}
-
-.a-desktop.a-desktop--app-text {
-  animation: desktop-animation-opacity 1.25s $cubic-bezier-ease-in 2.5s both;
+.a-desktop.a-desktop--lang {
+  animation: desktop-animation-opacity 1.25s $cubic-bezier-ease-in 3.5s both;
 }
 
 .animate-desktop.animate-desktop--bottom.triggeredCSS {
@@ -838,7 +839,10 @@ $desktop-padding-xxsmall: .6rem;
   .a-desktop.a-desktop--frame,
   .a-desktop.a-desktop--header,
   .a-desktop.a-desktop--subheader,
+  .a-desktop.a-desktop--subtext,
+  .a-desktop.a-desktop--img,
   .a-desktop.a-desktop--lang,
+  .a-desktop.a-desktop--arrows,
   .a-desktop.a-desktop--device,
   .a-desktop.a-desktop--app-heading,
   .a-desktop.a-desktop--app-icons,

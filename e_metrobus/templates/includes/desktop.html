@@ -9,14 +9,14 @@
       <h1 class="a-desktop a-desktop--header">{% trans 'E-MetroBus Berlin' %}</h1>
       <span class="a-desktop a-desktop--subheader">{% trans 'Elektrifizierung von Gelenkbussen im Berliner ÖPNV mit Schnellladeinfrastruktur' %}</span>
     </div>
-    <div class="cell medium-8 large-8 landpage__img">
+    <div class="cell medium-8 large-8 landpage__img a-desktop a-desktop--img">
       <img src="{% static 'images/LP_Berlin_Skyline.svg' %}" alt="Berlin Skyline">
     </div>
-    <div class="cell large-8 landpage__subtext">
+    <div class="cell large-8 landpage__subtext a-desktop a-desktop--subtext">
       <p>{% trans 'Welchen Einfluss hat deine E-Bus-Fahrt auf die Umwelt?' %}</p>
       <p>{% trans 'Schau mal auf deinem <span class="highlight">Smartphone</span> unter <span class="underline">e-metrobus.berlin' %}</span></p>
     </div>
-    <div class="cell landpage__arrows">
+    <div class="cell landpage__arrows a-desktop a-desktop--arrows">
     </div>
     {% if not summary %}
       <div class="language-flag a-desktop a-desktop--lang">
@@ -40,15 +40,15 @@
 <section class="desktop desktop-device">
   <div class="desktop-device__color desktop-device__color--1"></div>
   <div class="desktop-device__color desktop-device__color-2"></div>
-  <div class="desktop-device__img">
+  <div class="desktop-device__img a-desktop a-desktop--device">
     <img src="/static/images/LP_Device_v3.svg" alt="{% trans 'E-MetroBus App auf einem Smartphone' %}">
   </div>
 </section>
 
-<div class="cell landpage__arrows">
+<div class="cell landpage__arrows animate-desktop animate-desktop--opacity">
 </div>
 
-<section class="desktop desktop-features">
+<section class="desktop desktop-features animate-desktop animate-desktop--opacity">
   <div class="grid-x align-center grid-width--large">
     <div class="cell small-4 desktop-features__item">
       <div>
