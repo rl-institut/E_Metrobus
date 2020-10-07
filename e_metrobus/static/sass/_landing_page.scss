@@ -245,6 +245,7 @@ $desktop-padding-xxsmall: .6rem;
 }
 
 .desktop-header {
+  background-color: $primary-color-1;
   padding-top: $desktop-padding-small;
   @media only screen and (min-width: 1024px) {
     padding-top: $desktop-padding-medium;
