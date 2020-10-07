@@ -140,6 +140,14 @@
     }
   }
 
+  &__arrows {
+    height: 4rem;
+    background-image: url(../images/arrows_down_black.svg);
+    background-size: auto 4rem;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
   .a-lp-btn {
     animation: a-lp-btn .75s $cubic-bezier-ease-out 1s both;
   }
@@ -282,9 +290,6 @@ $desktop-padding-xxsmall: .6rem;
 .desktop-header {
   background-color: $primary-color-1;
   padding-top: $desktop-padding-small;
-  @media only screen and (min-width: 1024px) {
-    padding-top: $desktop-padding-medium;
-  }
   @media only screen and (orientation: landscape) and (max-width: 1023px) {
     padding: 1rem 5vw;
   }
