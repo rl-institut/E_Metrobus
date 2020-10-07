@@ -105,6 +105,13 @@
     }
   }
 
+  &__img {
+    padding: 0 4.5rem 8rem;
+    img {
+      width: 100%;
+    }
+  }
+
   .a-lp-btn {
     animation: a-lp-btn .75s $cubic-bezier-ease-out 1s both;
   }
