@@ -260,6 +260,10 @@
 
 .desktop.desktop-features {
   padding-top: 2rem;
+  margin-bottom: 9rem;
+  @media only screen and (min-width: 1024px) {
+    margin-bottom: 13rem;
+  }
   .desktop-features__item {
     padding: 0 1rem;
   }
