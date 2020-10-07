@@ -19,7 +19,7 @@
             <img src="{% static 'images/LP_Berlin_Skyline.svg' %}" alt="Brandenburger Tor, E-Bus und Fernsehturm">
           </div>
           <div id="animateLPText" class="landpage__button-text--small">
-            <span>{% trans 'Wie viel CO2 spare ich mit diesem E-Bus?' %}</span>
+            <span>{% trans 'Wie viel CO<sub>2</sub> spare ich mit diesem E-Bus?' %}</span>
           </div>
           <div class="landpage__button-btn">
             <a href="{% if non_bus_user %}{% url 'navigation:tour' %}{% else %}{% url 'navigation:route' %}{% endif %}"><button name="boarding" class="button a-lp-btn" {% if visited %}style="animation: none"{% endif %}>{% trans 'Berechnen' %}</button></a>
