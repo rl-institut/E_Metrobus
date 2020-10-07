@@ -112,6 +112,34 @@
     }
   }
 
+  &__subtext {
+    padding: 0;
+    p {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      padding-bottom: .5rem;
+    }
+    p span {
+      display: inline;
+    }
+    .highlight {
+      white-space: nowrap;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: $white;
+      background-color: $secondary-color;
+      padding: .75rem;
+      line-height: 2.75rem;
+    }
+    .underline {
+      border-bottom: 2px solid $secondary-color;
+      white-space: nowrap;
+      font-weight: 700;
+      font-size: 1.5rem;
+    }
+  }
+
   .a-lp-btn {
     animation: a-lp-btn .75s $cubic-bezier-ease-out 1s both;
   }
