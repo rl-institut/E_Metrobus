@@ -13,8 +13,8 @@
       <img src="{% static 'images/LP_Berlin_Skyline.svg' %}" alt="Berlin Skyline">
     </div>
     <div class="cell medium-8 large-8 landpage__subtext">
-      <p>Welchen Einfluss hat deine E-Bus-Fahrt auf die Umwelt?</p>
-      <p>Schau mal auf deinem <span class="highlight">Smartphone</span> unter <span class="underline">e-metrobus.berlin</span></p>
+      <p>{% trans 'Welchen Einfluss hat deine E-Bus-Fahrt auf die Umwelt?' %}</p>
+      <p>{% trans 'Schau mal auf deinem <span class="highlight">Smartphone</span> unter <span class="underline">e-metrobus.berlin' %}</span></p>
     </div>
     <div class="cell landpage__arrows">
     </div>
@@ -47,6 +47,44 @@
 
 <div class="cell landpage__arrows">
 </div>
+
+<section class="desktop desktop-features">
+  <div class="grid-x align-center grid-width--large">
+    <div class="cell small-4 desktop-features__item">
+      <div>
+        <div class="icon icon--1"></div>
+        <div class="heading">
+          <h2>{% trans 'Emissionen sparen' %}</h2>
+        </div>
+      </div>
+      <div class="text">
+        {% trans 'Erfahre, wie viel CO2, NOx und Feinstaub du im Vergleich zu anderen Verkehrsmitteln sparst' %}
+      </div>
+    </div>
+    <div class="cell small-4 desktop-features__item">
+      <div>
+        <div class="icon icon--2"></div>
+        <div class="heading">
+          <h2>{% trans 'Spielen und lernen' %}</h2>
+        </div>
+      </div>
+      <div class="text">
+        {% trans 'Teste deine Kenntnisse über E-Mobilität mit einem Quiz' %}
+      </div>
+    </div>
+    <div class="cell small-4 desktop-features__item">
+      <div>
+        <div class="icon icon--3"></div>
+        <div class="heading">
+          <h2>{% trans 'E-MetroBus kennenlernen' %}</h2>
+        </div>
+      </div>
+      <div class="text">
+        {% trans 'Finde die wichtigsten Informationen zum E-MetroBus-Projekt' %}
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="desktop desktop-app">
   <div class="grid-x align-center grid-width--large">

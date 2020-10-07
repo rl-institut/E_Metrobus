@@ -258,6 +258,39 @@
   }
 }
 
+.desktop.desktop-features {
+  padding-top: 2rem;
+  .desktop-features__item {
+    padding: 0 1rem;
+  }
+  .icon {
+    height: 4rem;
+    width: 4rem;
+    margin: 0 auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    &--1 {
+      background-image: url(../images/icons/i_quiz_black.svg);
+    }
+    &--2 {
+      background-image: url(../images/icons/i_quiz_black.svg);
+    }
+    &--3 {
+      background-image: url(../images/icons/i_ebus_black_line_v2.svg);
+    }
+  }
+  h2 {
+    padding-top: 2rem;
+    font-weight: 700;
+    font-size: 1.25rem;
+    text-align: center;
+  }
+  .text {
+    text-align: center;
+  }
+}
+
 // CSS for desktop LP and mobile SUMMARY
 $desktop-padding-large: 9rem;
 $desktop-padding-medium: 4.5rem;
