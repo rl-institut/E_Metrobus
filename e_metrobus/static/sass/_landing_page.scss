@@ -234,7 +234,8 @@
 .desktop.desktop-device {
   position: relative;
   padding: 1rem 0;
-  height: 20rem;
+  height: 24rem;
+  margin-bottom: 0;
   .desktop-device__color {
     z-index: 1;
     position: absolute;
@@ -252,7 +253,7 @@
   .desktop-device__img {
     z-index: 5;
     img {
-      height: 20rem;
+      height: 22rem;
     }
   }
 }
