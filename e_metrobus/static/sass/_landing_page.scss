@@ -107,6 +107,9 @@
 
   &__img {
     padding: 0 4.5rem 8rem;
+    @media screen and (max-width: 599px) {
+      padding: 0 1rem 4rem;
+    }
     img {
       width: 100%;
     }
@@ -552,6 +555,10 @@ $desktop-padding-xxsmall: .6rem;
 }
 
 .desktop-project {
+
+  @media screen and (max-width: 599px) {
+    padding-top: 4rem;
+  }
 
   &__heading {
     padding-bottom: $desktop-padding-xsmall;
