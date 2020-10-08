@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project tries to adhere to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+### Changed
+- wording and image on mobile LP
+- added buttons on mobile LP to skip onboarding 
+- default stations are set, if user skips route page
+
 ## [1.2.0] - 2020-10-05
 ### Added
 - posthog event to distinguish between mobile/desktop device
