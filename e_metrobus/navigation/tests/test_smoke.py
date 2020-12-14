@@ -4,6 +4,8 @@ from django.core.exceptions import ImproperlyConfigured
 from django.test import Client
 from django.urls import reverse
 
+from e_metrobus.navigation import stations
+
 
 def test_landing_page():
     client = Client()
@@ -19,11 +21,12 @@ def test_welcome_page():
     assert response.status_code == 200
 
 
-def test_route_redirect():
+def test_default_route():
     client = Client()
     url = reverse("navigation:dashboard")
     response = client.get(url)
-    assert response.status_code == 302
+    assert response.status_code == 200
+    assert client.session["stations"] == stations.DEFAULT_STATIONS
 
 
 def test_route_page():
