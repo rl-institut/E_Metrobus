@@ -9,7 +9,16 @@
       <h1 class="a-desktop a-desktop--header">{% trans 'E-MetroBus Berlin' %}</h1>
       <span class="a-desktop a-desktop--subheader">{% trans 'Elektrifizierung von Gelenkbussen im Berliner ÖPNV mit Schnellladeinfrastruktur' %}</span>
     </div>
+    <div class="cell medium-8 large-8 landpage__img a-desktop a-desktop--img">
+      <img src="{% static 'images/LP_Berlin_Skyline.svg' %}" alt="Berlin Skyline">
+    </div>
     {% if not summary %}
+      <div class="cell large-8 landpage__subtext a-desktop a-desktop--subtext">
+        <p>{% trans 'Welchen Einfluss hat deine E-Bus-Fahrt auf die Umwelt?' %}</p>
+        <p>{% trans 'Schau mal auf deinem <span class="highlight">Smartphone</span> unter <span class="underline">e-metrobus.berlin' %}</span></p>
+      </div>
+      <div class="cell landpage__arrows a-desktop a-desktop--arrows">
+      </div>
       <div class="language-flag a-desktop a-desktop--lang">
         {% get_current_language as LANGUAGE_CODE %}
         {% if LANGUAGE_CODE == "de" %}
@@ -28,25 +37,56 @@
   </div>
 </section>
 
-<section class="desktop desktop-app">
-  <div class="grid-x align-center grid-width--large">
-    <div class="cell small-6 large-3 desktop-app__img a-desktop a-desktop--device">
+{% if not summary %}
+  <section class="desktop desktop-device">
+    <div class="desktop-device__color desktop-device__color--1"></div>
+    <div class="desktop-device__color desktop-device__color-2"></div>
+    <div class="desktop-device__img a-desktop a-desktop--device">
       <img src="/static/images/LP_Device_v3.svg" alt="{% trans 'E-MetroBus App auf einem Smartphone' %}">
     </div>
-    <div class="cell medium-8 large-9 desktop-app__text">
-      <div>
-        <div class="heading a-desktop a-desktop--app-heading">
-          <h2>{% trans 'Auf <span class="heading--highlight">Smartphones</span> unter <span class="heading--bold">e-metrobus.berlin</span> verfügbar' %}</h2>
+  </section>
+
+  <div class="cell landpage__arrows animate-desktop animate-desktop--opacity">
+  </div>
+
+  <section class="desktop desktop-features animate-desktop animate-desktop--opacity">
+    <div class="grid-x align-center grid-width--large">
+      <div class="cell small-4 desktop-features__item">
+        <div>
+          <div class="icon icon--1"></div>
+          <div class="heading">
+            <h2>{% trans 'Emissionen sparen' %}</h2>
+          </div>
         </div>
-        <div class="benefits a-desktop a-desktop--app-text">
-          <p class="icons icons--1">{% trans 'Teste deine Kenntnisse über E-Mobilität mit einem Quiz' %}</p>
-          <p class="icons icons--2">{% trans 'Erfahre, wie viel CO<sub>2</sub>, NO<sub>x</sub> und Feinstaub du im Vergleich zu anderen Verkehrsmitteln sparst' %}</p>
-          <p class="icons icons--3">{% trans 'Finde weitere Infos zum E-MetroBus-Projekt' %}</p>
+        <div class="text">
+          {% trans 'Erfahre, wie viel CO2, NOx und Feinstaub du im Vergleich zu anderen Verkehrsmitteln sparst' %}
+        </div>
+      </div>
+      <div class="cell small-4 desktop-features__item">
+        <div>
+          <div class="icon icon--2"></div>
+          <div class="heading">
+            <h2>{% trans 'Spielen und lernen' %}</h2>
+          </div>
+        </div>
+        <div class="text">
+          {% trans 'Teste deine Kenntnisse über E-Mobilität mit einem Quiz' %}
+        </div>
+      </div>
+      <div class="cell small-4 desktop-features__item">
+        <div>
+          <div class="icon icon--3"></div>
+          <div class="heading">
+            <h2>{% trans 'E-MetroBus kennenlernen' %}</h2>
+          </div>
+        </div>
+        <div class="text">
+          {% trans 'Finde die wichtigsten Informationen zum E-MetroBus-Projekt' %}
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+{% endif %}
 
 <section class="desktop desktop-project">
   <div class="grid-x align-center grid-width--large">
