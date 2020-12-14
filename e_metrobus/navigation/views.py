@@ -14,11 +14,11 @@ from e_metrobus.navigation import (
 )
 
 
-class CheckStationsMixin:
+class DefaultStationsMixin:
     def get(self, request, *args, **kwargs):
         if "stations" not in request.session:
-            return redirect("navigation:route")
-        return super(CheckStationsMixin, self).get(request, *args, **kwargs)
+            request.session["stations"] = stations.DEFAULT_STATIONS
+        return super(DefaultStationsMixin, self).get(request, *args, **kwargs)
 
 
 class FeedbackMixin:
@@ -96,7 +96,7 @@ class RouteView(PosthogMixin, TemplateView):
         return redirect("navigation:display_route")
 
 
-class DashboardView(CheckStationsMixin, NavigationView):
+class DashboardView(DefaultStationsMixin, NavigationView):
     template_name = "navigation/dashboard.html"
     footer_links = {
         "info": {"enabled": True},
@@ -135,7 +135,7 @@ class DashboardView(CheckStationsMixin, NavigationView):
         return context
 
 
-class DisplayRouteView(CheckStationsMixin, NavigationView):
+class DisplayRouteView(DefaultStationsMixin, NavigationView):
     template_name = "navigation/display_route.html"
     footer_links = {"dashboard": {"selected": True}}
     back_url = "navigation:route"
@@ -180,7 +180,7 @@ class DisplayRouteView(CheckStationsMixin, NavigationView):
         return super(DisplayRouteView, self).get(request, *args, **kwargs)
 
 
-class ComparisonView(CheckStationsMixin, NavigationView):
+class ComparisonView(DefaultStationsMixin, NavigationView):
     template_name = "navigation/comparison.html"
     footer_links = {"dashboard": {"selected": True}}
     back_url = "navigation:route"
@@ -195,7 +195,7 @@ class ComparisonView(CheckStationsMixin, NavigationView):
         return context
 
 
-class EnvironmentView(CheckStationsMixin, NavigationView):
+class EnvironmentView(DefaultStationsMixin, NavigationView):
     template_name = "navigation/environment.html"
     footer_links = {
         "info": {"enabled": True},
@@ -413,7 +413,7 @@ class LegalView(FeedbackMixin, NavigationView):
         return redirect("navigation:legal")
 
 
-class SummaryView(CheckStationsMixin, NavigationView):
+class SummaryView(DefaultStationsMixin, NavigationView):
     template_name = "navigation/summary.html"
     footer_links = {
         "info": {"enabled": True},

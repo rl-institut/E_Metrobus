@@ -6,6 +6,9 @@ and this project tries to adhere to [Semantic Versioning](https://semver.org/spe
 
 ## [Unreleased]
 ### Changed
+- wording and image on mobile LP
+- added buttons on mobile LP to skip onboarding 
+- default stations are set, if user skips route page
 - desktop LP design (wording and image)
 
 ## [1.2.0] - 2020-10-05
