@@ -241,19 +241,19 @@ msgstr ""
 
 #: e_metrobus/templates/includes/desktop.html:17
 msgid "Welchen Einfluss hat deine E-Bus-Fahrt auf die Umwelt?"
-msgstr ""
+msgstr "What impact does your e-bus ride have on the environment?"
 
 #: e_metrobus/templates/includes/desktop.html:18
 msgid ""
 "Schau mal auf deinem <span class=\"highlight\">Smartphone</span> unter <span "
 "class=\"underline\">e-metrobus.berlin"
 msgstr ""
-"Available on <span class=\"highlight\">smartphones</span> under "
+"Available on <span class=\"highlight\">smartphones</span>: "
 "<span class=\"underline\">e-metrobus.berlin</span>"
 
 #: e_metrobus/templates/includes/desktop.html:26
 msgid "UK Flagge"
-msgstr "UK Flag"
+msgstr "UK flag"
 
 #: e_metrobus/templates/includes/desktop.html:31
 msgid "Deutschland Flagge"
@@ -265,27 +265,27 @@ msgstr "E-MetroBus app on a smartphone"
 
 #: e_metrobus/templates/includes/desktop.html:58
 msgid "Emissionen sparen"
-msgstr ""
+msgstr "Reduce emissions"
 
 #: e_metrobus/templates/includes/desktop.html:62
 msgid ""
 "Erfahre, wie viel CO<sub>2</sub>, NO<sub>x</sub> und Feinstaub du im "
 "Vergleich zu anderen Verkehrsmitteln sparst"
 msgstr ""
-"Discover how much CO<sub>2</sub>, NO<sub>x</sub> and particulate matter you "
-"save compared to other means of transport"
+"Discover your reduction of CO<sub>2</sub>, NO<sub>x</sub> and particulate matter "
+"compared to other means of transport"
 
 #: e_metrobus/templates/includes/desktop.html:69
 msgid "Spielen und lernen"
-msgstr ""
+msgstr "Quiz time"
 
 #: e_metrobus/templates/includes/desktop.html:73
 msgid "Teste deine Kenntnisse über E-Mobilität mit einem Quiz"
-msgstr "Test your knowledge about e-mobility with a quiz"
+msgstr "Test your e-mobility knowledge in our quiz"
 
 #: e_metrobus/templates/includes/desktop.html:80
 msgid "E-MetroBus kennenlernen"
-msgstr "E-MetroBus Berlin"
+msgstr "Get to know E-MetroBus"
 
 #: e_metrobus/templates/includes/desktop.html:84
 msgid "Finde die wichtigsten Informationen zum E-MetroBus-Projekt"
@@ -550,10 +550,10 @@ msgstr "Data concerning your route"
 
 #: e_metrobus/templates/navigation/display_route.html:19
 msgid "Auf dieser "
-msgstr ""
+msgstr "On this "
 
 #: e_metrobus/templates/navigation/display_route.html:25
-msgid "langen Strecke sparst du:"
+msgid "route the reduction of emissions is at:"
 msgstr ""
 
 #: e_metrobus/templates/navigation/display_route.html:32
@@ -562,19 +562,19 @@ msgstr "Electric car"
 
 #: e_metrobus/templates/navigation/display_route.html:39
 msgid "im Vergleich zum Elektro-Pkw"
-msgstr ""
+msgstr "compared to an electric car"
 
 #: e_metrobus/templates/navigation/display_route.html:54
 msgid "im Vergleich zum Dieselbus"
-msgstr ""
+msgstr "compared to a diesel bus"
 
 #: e_metrobus/templates/navigation/display_route.html:69
 msgid "im Vergleich zum Pkw (Diesel)"
-msgstr ""
+msgstr "compared to a diesel car"
 
 #: e_metrobus/templates/navigation/display_route.html:77
 msgid "Chart ansehen"
-msgstr ""
+msgstr "Show chart"
 
 #: e_metrobus/templates/navigation/environment.html:6
 msgid "Umwelteinfluss der E-Busse"
@@ -659,11 +659,11 @@ msgstr "It's great that you are taking an E-Bus!"
 
 #: e_metrobus/templates/navigation/landing_page.html:22
 msgid "Wie viel CO<sub>2</sub> spare ich mit diesem E-Bus?"
-msgstr ""
+msgstr "What is the CO<sub>2</sub> reduction with this e-bus?"
 
 #: e_metrobus/templates/navigation/landing_page.html:25
 msgid "Berechnen"
-msgstr ""
+msgstr "Calculate"
 
 #: e_metrobus/templates/navigation/landing_page.html:30
 msgid "Weiter kannst du..."
@@ -671,17 +671,17 @@ msgstr "Here you can..."
 
 #: e_metrobus/templates/navigation/landing_page.html:32
 msgid "...ein Quiz zur E-Mobilität machen"
-msgstr ""
+msgstr "...do an e-mobility quiz"
 
 #: e_metrobus/templates/navigation/landing_page.html:33
 #: e_metrobus/templates/navigation/landing_page.html:36
 #: e_metrobus/templates/navigation/landing_page.html:39
 msgid "Los!"
-msgstr ""
+msgstr "Start!"
 
 #: e_metrobus/templates/navigation/landing_page.html:35
 msgid "...weitere Emissionen berechnen"
-msgstr ""
+msgstr "... calculate other emissions"
 
 #: e_metrobus/templates/navigation/landing_page.html:38
 msgid "...mehr über das Projekt erfahren"
