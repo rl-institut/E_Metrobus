@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base.html" %}
 
 {% load static %}
 {% load i18n %}
@@ -7,7 +7,7 @@
 
 {% block body_class %}l-scroll l-scroll--nav l-scroll--nofooter{% endblock %}
 
-{% block content %}
+{% block content %}
 
 <!-- route display -->
 <div class="display-route__bg"></div>
@@ -26,7 +26,7 @@
       </p>
     </div>
   </div>
-  
+
   <div class="grid-x display__section">
     <div class="cell small-3 display-route__img">
       <img class="show-for-portrait" id="onboardingAnimateIcon2" src="{% static 'images/icons/Icon_E_Car.svg' %}" alt="{% trans 'E-Pkw' %}">
@@ -41,7 +41,7 @@
       </div>
     </div>
   </div>
-  
+
   <div class="grid-x display__section">
     <div class="cell small-3 display-route__img">
       <img class="show-for-portrait" id="onboardingAnimateIcon3" src="{% static 'images/icons/Icon_Conventional_Bus.svg' %}" alt="{% trans 'Dieselbus' %}">
@@ -56,7 +56,7 @@
       </div>
     </div>
   </div>
-  
+
   <div class="grid-x display__section">
     <div class="cell small-3 display-route__img">
       <img class="show-for-portrait" id="onboardingAnimateIcon5" src="{% static 'images/icons/Icon_Conventional_Car.svg' %}" alt="{% trans 'Pkw (Diesel)' %}">
@@ -71,7 +71,7 @@
       </div>
     </div>
   </div>
-  
+
   <div class="grid-x display__section">
     <div class="display__chart">
       <a href="{% url 'navigation:comparison' %}">{% trans 'Chart ansehen' %}</a>
@@ -82,7 +82,7 @@
   </div>
 </div>
 
-{% endblock %}
+{% endblock %}
 
 {% block javascript %}
 {{block.super}}
