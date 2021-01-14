@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-26 09:16+0000\n"
+"POT-Creation-Date: 2021-01-04 09:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,12 +31,12 @@ msgid "Elektro-Pkw"
 msgstr "Electric car"
 
 #: e_metrobus/navigation/chart.py:68 e_metrobus/navigation/constants.py:75
-#: e_metrobus/templates/navigation/display_route.html:78
+#: e_metrobus/templates/navigation/display_route.html:47
 msgid "Dieselbus"
 msgstr "Diesel bus"
 
 #: e_metrobus/navigation/chart.py:69
-#: e_metrobus/templates/navigation/display_route.html:97
+#: e_metrobus/templates/navigation/display_route.html:62
 msgid "Pkw (Diesel)"
 msgstr "Car (diesel)"
 
@@ -168,8 +168,6 @@ msgid "Quiz"
 msgstr "Quiz"
 
 #: e_metrobus/navigation/widgets.py:119
-#: e_metrobus/templates/navigation/display_route.html:22
-#: e_metrobus/templates/navigation/display_route.html:37
 #: e_metrobus/templates/navigation/environment.html:43
 msgid "Meine Strecke"
 msgstr "My route"
@@ -242,58 +240,74 @@ msgstr ""
 "charging infrastructure"
 
 #: e_metrobus/templates/includes/desktop.html:17
-msgid "UK Flagge"
-msgstr "UK Flag"
+msgid "Welchen Einfluss hat deine E-Bus-Fahrt auf die Umwelt?"
+msgstr "What impact does your e-bus ride have on the environment?"
 
-#: e_metrobus/templates/includes/desktop.html:22
+#: e_metrobus/templates/includes/desktop.html:18
+msgid ""
+"Schau mal auf deinem <span class=\"highlight\">Smartphone</span> unter <span "
+"class=\"underline\">e-metrobus.berlin"
+msgstr ""
+"Available on <span class=\"highlight\">smartphones</span>: "
+"<span class=\"underline\">e-metrobus.berlin</span>"
+
+#: e_metrobus/templates/includes/desktop.html:26
+msgid "UK Flagge"
+msgstr "UK flag"
+
+#: e_metrobus/templates/includes/desktop.html:31
 msgid "Deutschland Flagge"
 msgstr "German Flag"
 
-#: e_metrobus/templates/includes/desktop.html:34
+#: e_metrobus/templates/includes/desktop.html:45
 msgid "E-MetroBus App auf einem Smartphone"
 msgstr "E-MetroBus app on a smartphone"
 
-#: e_metrobus/templates/includes/desktop.html:39
-msgid ""
-"Auf <span class=\"heading--highlight\">Smartphones</span> unter <span class="
-"\"heading--bold\">e-metrobus.berlin</span> verfügbar"
-msgstr ""
-"Available on <span class=\"heading--highlight\">smartphones</span> under "
-"<span class=\"heading--bold\">e-metrobus.berlin</span>"
+#: e_metrobus/templates/includes/desktop.html:58
+msgid "Emissionen sparen"
+msgstr "Reduce emissions"
 
-#: e_metrobus/templates/includes/desktop.html:42
-msgid "Teste deine Kenntnisse über E-Mobilität mit einem Quiz"
-msgstr "Test your knowledge about e-mobility with a quiz"
-
-#: e_metrobus/templates/includes/desktop.html:43
+#: e_metrobus/templates/includes/desktop.html:62
 msgid ""
 "Erfahre, wie viel CO<sub>2</sub>, NO<sub>x</sub> und Feinstaub du im "
 "Vergleich zu anderen Verkehrsmitteln sparst"
 msgstr ""
-"Discover how much CO<sub>2</sub>, NO<sub>x</sub> and particulate matter you "
-"save compared to other means of transport"
+"Discover your reduction of CO<sub>2</sub>, NO<sub>x</sub> and particulate matter "
+"compared to other means of transport"
 
-#: e_metrobus/templates/includes/desktop.html:44
-msgid "Finde weitere Infos zum E-MetroBus-Projekt"
+#: e_metrobus/templates/includes/desktop.html:69
+msgid "Spielen und lernen"
+msgstr "Quiz time"
+
+#: e_metrobus/templates/includes/desktop.html:73
+msgid "Teste deine Kenntnisse über E-Mobilität mit einem Quiz"
+msgstr "Test your e-mobility knowledge in our quiz"
+
+#: e_metrobus/templates/includes/desktop.html:80
+msgid "E-MetroBus kennenlernen"
+msgstr "Get to know E-MetroBus"
+
+#: e_metrobus/templates/includes/desktop.html:84
+msgid "Finde die wichtigsten Informationen zum E-MetroBus-Projekt"
 msgstr "Find out more about the E-MetroBus project"
 
-#: e_metrobus/templates/includes/desktop.html:54
+#: e_metrobus/templates/includes/desktop.html:94
 msgid "Über das Projekt"
 msgstr "About the project"
 
-#: e_metrobus/templates/includes/desktop.html:60
+#: e_metrobus/templates/includes/desktop.html:100
 msgid "Laufzeit"
 msgstr "Project duration"
 
-#: e_metrobus/templates/includes/desktop.html:64
+#: e_metrobus/templates/includes/desktop.html:104
 msgid "Das E-MetroBus-Projekt läuft von Januar 2019 bis Januar 2023."
 msgstr "The E-MetroBus project runs from January 2019 to January 2023."
 
-#: e_metrobus/templates/includes/desktop.html:71
+#: e_metrobus/templates/includes/desktop.html:111
 msgid "Förderung"
 msgstr "Funding"
 
-#: e_metrobus/templates/includes/desktop.html:75
+#: e_metrobus/templates/includes/desktop.html:115
 msgid ""
 "E-MetroBus ist ein Forschungs- und Entwicklungsvorhaben, das Fördermittel im "
 "Rahmen der Förderrichtlinie Elektromobilität des Bundesministeriums für "
@@ -303,11 +317,11 @@ msgstr ""
 "within the framework of the Electromobility funding directive of the Federal "
 "Ministry of Transport and Digital Infrastructure."
 
-#: e_metrobus/templates/includes/desktop.html:82
+#: e_metrobus/templates/includes/desktop.html:122
 msgid "Busse"
 msgstr "Buses"
 
-#: e_metrobus/templates/includes/desktop.html:86
+#: e_metrobus/templates/includes/desktop.html:126
 msgid ""
 "Um lange ladungsbedingte Standzeiten zu vermeiden, müssen die Busse in der "
 "Lage sein, mit einer hohen Leistung geladen zu werden."
@@ -315,11 +329,11 @@ msgstr ""
 "In order to avoid long charging-related downtimes, the buses must be able to "
 "be charged at high power."
 
-#: e_metrobus/templates/includes/desktop.html:93
+#: e_metrobus/templates/includes/desktop.html:133
 msgid "Ladeinfrastruktur"
 msgstr "Charging infrastructure"
 
-#: e_metrobus/templates/includes/desktop.html:97
+#: e_metrobus/templates/includes/desktop.html:137
 msgid ""
 "Die Ladeinfrastruktur, die in E-MetroBus erprobt wird, erbringt Leistungen "
 "von über 300kW. Der dafür benötigte Strom soll sowohl direkt mit "
@@ -331,21 +345,21 @@ msgstr ""
 "directly from renewable energy sources as well as supplied from the supply "
 "network."
 
-#: e_metrobus/templates/includes/desktop.html:107
+#: e_metrobus/templates/includes/desktop.html:147
 msgid "Hier geht es zum Projekt-Flyer"
 msgstr "Download the project flyer"
 
-#: e_metrobus/templates/includes/desktop.html:117
+#: e_metrobus/templates/includes/desktop.html:157
 msgid "Projektziele"
 msgstr "Project goals"
 
-#: e_metrobus/templates/includes/desktop.html:121
-#: e_metrobus/templates/includes/desktop.html:131
-#: e_metrobus/templates/includes/desktop.html:141
+#: e_metrobus/templates/includes/desktop.html:161
+#: e_metrobus/templates/includes/desktop.html:171
+#: e_metrobus/templates/includes/desktop.html:181
 msgid "Zur Website"
 msgstr "Visit the website"
 
-#: e_metrobus/templates/includes/desktop.html:126
+#: e_metrobus/templates/includes/desktop.html:166
 msgid ""
 "Elektrobusse fahren, wie die Erfahrungen in anderen Städten zeigen, stabil "
 "und machen bereits etliche Städte rund um die Welt ein großes Stück "
@@ -368,7 +382,7 @@ msgstr ""
 "electric bus projects and also help other cities to electrify their bus "
 "fleets. Thus, the E-MetroBus project is a pioneer for future electromobility."
 
-#: e_metrobus/templates/includes/desktop.html:136
+#: e_metrobus/templates/includes/desktop.html:176
 msgid ""
 "Das RLI entwickelt für E-MetroBus unterschiedliche Szenarien, wie eine "
 "lokale, netzdienliche Versorgung der Ladestationen erreicht werden kann. "
@@ -391,7 +405,7 @@ msgstr ""
 "of transport and their transferability to transport companies of different "
 "sizes will then be examined"
 
-#: e_metrobus/templates/includes/desktop.html:146
+#: e_metrobus/templates/includes/desktop.html:186
 msgid ""
 "Die TU Berlin übernimmt im E-MetroBus Projekt einerseits aktuelle "
 "Anwendungsforschung, insbesondere die Entwicklung eines E-Bus-Leitsystems, "
@@ -412,31 +426,31 @@ msgstr ""
 "concept by means of simulations as well as in data monitoring and data "
 "evaluation."
 
-#: e_metrobus/templates/includes/desktop.html:156
+#: e_metrobus/templates/includes/desktop.html:196
 msgid "Möchtest du Feedback zum Projekt geben?"
 msgstr "Would you like to give feedback on the project?"
 
-#: e_metrobus/templates/includes/desktop.html:157
+#: e_metrobus/templates/includes/desktop.html:197
 msgid "Kontaktiere uns"
 msgstr "Contact us"
 
-#: e_metrobus/templates/includes/desktop.html:181
+#: e_metrobus/templates/includes/desktop.html:222
 #: e_metrobus/templates/navigation/legal.html:14
 msgid "Impressum"
 msgstr "Imprint"
 
-#: e_metrobus/templates/includes/desktop.html:182
+#: e_metrobus/templates/includes/desktop.html:223
 #: e_metrobus/templates/navigation/legal.html:15
 msgid "Datenschutz"
 msgstr "Data protection"
 
-#: e_metrobus/templates/includes/desktop.html:199
+#: e_metrobus/templates/includes/desktop.html:241
 #: e_metrobus/templates/navigation/legal.html:61
 msgid "Meinung schicken"
 msgstr "Send feedback"
 
-#: e_metrobus/templates/includes/desktop.html:210
-#: e_metrobus/templates/includes/desktop.html:218
+#: e_metrobus/templates/includes/desktop.html:252
+#: e_metrobus/templates/includes/desktop.html:260
 msgid "Zurück zur Startseite"
 msgstr "Return to the homepage"
 
@@ -493,8 +507,9 @@ msgstr "CO2 emissions in comparison"
 
 #: e_metrobus/templates/navigation/comparison.html:27
 #: e_metrobus/templates/navigation/comparison.html:29
-msgid "Mehr entdecken!"
-msgstr "Discover more!"
+#: e_metrobus/templates/navigation/display_route.html:80
+msgid "Quiz starten"
+msgstr "Start quiz"
 
 #: e_metrobus/templates/navigation/comparison.html:34
 #: e_metrobus/templates/widgets/top_bar.html:10
@@ -533,56 +548,33 @@ msgstr "Image for category"
 msgid "Daten zu deiner Strecke"
 msgstr "Data concerning your route"
 
-#: e_metrobus/templates/navigation/display_route.html:30
-#: e_metrobus/templates/navigation/display_route.html:52
-#: e_metrobus/templates/navigation/display_route.html:71
-#: e_metrobus/templates/navigation/display_route.html:90
-#: e_metrobus/templates/navigation/display_route.html:109
-#: e_metrobus/templates/navigation/display_route.html:126
-msgid "Zur nächsten Seite"
-msgstr "To the next page"
+#: e_metrobus/templates/navigation/display_route.html:19
+msgid "Auf dieser "
+msgstr "On this "
 
-#: e_metrobus/templates/navigation/display_route.html:39
-msgid "Deine Strecke mit dem <span>Elektrobus</span> beträgt"
-msgstr "Your route with the <span>electric bus</span> is"
+#: e_metrobus/templates/navigation/display_route.html:25
+msgid "route the reduction of emissions is at:"
+msgstr ""
 
-#: e_metrobus/templates/navigation/display_route.html:49
-#: e_metrobus/templates/navigation/display_route.html:68
-#: e_metrobus/templates/navigation/display_route.html:87
-#: e_metrobus/templates/navigation/display_route.html:106
-#: e_metrobus/templates/navigation/display_route.html:123
-msgid "Zur vorherigen Seite"
-msgstr "To the previous page"
-
-#: e_metrobus/templates/navigation/display_route.html:59
+#: e_metrobus/templates/navigation/display_route.html:32
 msgid "E-Pkw"
 msgstr "Electric car"
 
-#: e_metrobus/templates/navigation/display_route.html:61
-msgid "Im Vergleich zum <span>Elektro-Pkw</span> sparst du auf dieser Strecke"
-msgstr ""
-"In comparison to a <span>passenger car</span> you are saving on this route"
+#: e_metrobus/templates/navigation/display_route.html:39
+msgid "im Vergleich zum Elektro-Pkw"
+msgstr "compared to an electric car"
 
-#: e_metrobus/templates/navigation/display_route.html:80
-msgid "Im Vergleich zum <span>Dieselbus</span> sparst du auf dieser Strecke"
-msgstr ""
-"In comparison to a <span>diesel bus</span> you are saving on this route"
+#: e_metrobus/templates/navigation/display_route.html:54
+msgid "im Vergleich zum Dieselbus"
+msgstr "compared to a diesel bus"
 
-#: e_metrobus/templates/navigation/display_route.html:99
-msgid "Im Vergleich zum <span>Pkw (Diesel)</span> sparst du auf dieser Strecke"
-msgstr ""
-"In comparison to a <span>car (diesel)</span> you are saving on this route"
+#: e_metrobus/templates/navigation/display_route.html:69
+msgid "im Vergleich zum Pkw (Diesel)"
+msgstr "compared to a diesel car"
 
-#: e_metrobus/templates/navigation/display_route.html:116
-msgid "Fussgänger und Fahrrad"
-msgstr "Pedestrian and bicycle"
-
-#: e_metrobus/templates/navigation/display_route.html:118
-msgid ""
-"Nur noch <span>zu Fuß</span> oder mit dem <span>Fahrrad</span> kannst du es "
-"besser machen!"
-msgstr ""
-"You can only do better <span>on foot</span> or with the <span>bike</span>!"
+#: e_metrobus/templates/navigation/display_route.html:77
+msgid "Chart ansehen"
+msgstr "Show chart"
 
 #: e_metrobus/templates/navigation/environment.html:6
 msgid "Umwelteinfluss der E-Busse"
@@ -657,34 +649,60 @@ msgstr "%(score)s%% answered correctly"
 msgid "Start"
 msgstr "Start"
 
-#: e_metrobus/templates/navigation/landing_page.html:20
+#: e_metrobus/templates/navigation/landing_page.html:16
 msgid "Toll, dass du dich für den E-Bus interessierst!"
 msgstr "It's great that you are interested in the E-bus!"
 
-#: e_metrobus/templates/navigation/landing_page.html:20
+#: e_metrobus/templates/navigation/landing_page.html:16
 msgid "Toll, dass du mit einem E-Bus fährst!"
 msgstr "It's great that you are taking an E-Bus!"
 
-#: e_metrobus/templates/navigation/landing_page.html:23
-msgid "Los geht&#39;s!"
-msgstr "Let's start!"
+#: e_metrobus/templates/navigation/landing_page.html:22
+msgid "Wie viel CO<sub>2</sub> spare ich mit diesem E-Bus?"
+msgstr "What is the CO<sub>2</sub> reduction with this e-bus?"
 
-#: e_metrobus/templates/navigation/landing_page.html:48
+#: e_metrobus/templates/navigation/landing_page.html:25
+msgid "Berechnen"
+msgstr "Calculate"
+
+#: e_metrobus/templates/navigation/landing_page.html:30
+msgid "Weiter kannst du..."
+msgstr "Here you can..."
+
+#: e_metrobus/templates/navigation/landing_page.html:32
+msgid "...ein Quiz zur E-Mobilität machen"
+msgstr "...do an e-mobility quiz"
+
+#: e_metrobus/templates/navigation/landing_page.html:33
+#: e_metrobus/templates/navigation/landing_page.html:36
+#: e_metrobus/templates/navigation/landing_page.html:39
+msgid "Los!"
+msgstr "Start!"
+
+#: e_metrobus/templates/navigation/landing_page.html:35
+msgid "...weitere Emissionen berechnen"
+msgstr "... calculate other emissions"
+
+#: e_metrobus/templates/navigation/landing_page.html:38
+msgid "...mehr über das Projekt erfahren"
+msgstr "... learn more about the E-MetroBus project"
+
+#: e_metrobus/templates/navigation/landing_page.html:62
 msgid ""
 "Die App ist Teil des Forschungsprojektes E-MetroBus der folgenden Partner:"
 msgstr ""
 "The app is part of the research project E-MetroBus of the following partners:"
 
-#: e_metrobus/templates/navigation/landing_page.html:66
+#: e_metrobus/templates/navigation/landing_page.html:80
 #: e_metrobus/templates/navigation/legal.html:41
 msgid "Elektromobilität vor Ort, BMWI, NOW und PTJ Logo"
 msgstr "Electric mobility on site, BMWI, NOW and PTJ logo"
 
-#: e_metrobus/templates/navigation/landing_page.html:75
+#: e_metrobus/templates/navigation/landing_page.html:89
 msgid "Hinweis: Unsere Website sammelt keine personenbezogenen Daten."
 msgstr "Note: Our website does not collect personal data."
 
-#: e_metrobus/templates/navigation/landing_page.html:76
+#: e_metrobus/templates/navigation/landing_page.html:90
 msgid "Okay"
 msgstr "Okay"
 
@@ -1713,16 +1731,3 @@ msgstr "Please enter your route!"
 #: e_metrobus/templates/widgets/top_bar_route.html:10
 msgid "Strecke ändern"
 msgstr "Change route"
-
-#~ msgid ""
-#~ "Die Batterien der Elektro-Gelenkbusse, die auf der Linie 200 eingesetzt "
-#~ "werden, sich auf dem Dach angebracht."
-#~ msgstr ""
-#~ "The batteries of the electric articulated buses that will be usedon Line "
-#~ "200 are mounted on the roof."
-
-#~ msgid "Genauso"
-#~ msgstr "Likewise"
-
-#~ msgid "NOx"
-#~ msgstr "NOx"
