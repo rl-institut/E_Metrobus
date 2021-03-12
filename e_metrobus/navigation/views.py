@@ -107,6 +107,9 @@ class DashboardView(DefaultStationsMixin, NavigationView):
     back_url = None
 
     def get(self, request, *args, **kwargs):
+        if "questions" not in request.session:
+            request.session["questions"] = {}
+        request.session.save()
         if (
             questions.all_questions_answered(request.session)
             and "hashed_score" not in request.session
@@ -172,13 +175,6 @@ class DisplayRouteView(DefaultStationsMixin, NavigationView):
         }
         return context
 
-    def get(self, request, *args, **kwargs):
-        # Set first question as "answered":
-        if "questions" not in request.session:
-            request.session["questions"] = {}
-        request.session.save()
-        return super(DisplayRouteView, self).get(request, *args, **kwargs)
-
 
 class ComparisonView(DefaultStationsMixin, NavigationView):
     template_name = "navigation/comparison.html"
@@ -242,9 +238,10 @@ class QuestionView(NavigationView):
         return context
 
     def get(self, request, *args, **kwargs):
-        if kwargs["category"] in request.session["questions"] and request.session[
-            "questions"
-        ][kwargs["category"]].get("finished", False):
+        if (
+            kwargs["category"] in request.session["questions"] and
+            request.session["questions"][kwargs["category"]].get("finished", False)
+        ):
             next_answer = questions.get_next_answer(kwargs["category"])
             if next_answer is None:
                 return redirect("navigation:dashboard")
