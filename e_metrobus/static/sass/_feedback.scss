@@ -27,7 +27,7 @@
   }
 
   &__quest {
-    margin: 0 0 2rem;
+    margin: 0 0 .5rem;
 
     @include breakpoint(medium only) {
       margin-left: 0;
@@ -87,6 +87,24 @@
       text-align: center;
     }
   }
+
+  .github {
+    padding-top: 3rem;
+    a,
+    a:link,
+    a:hover,
+    a:active,
+    a:visited,
+    a:focus {
+      color: $secondary-color;
+      font-weight: 700;
+    }
+    img {
+      width: 1rem;
+      margin-right: .5rem;
+      transform: translateY(-2px);
+    }
+  }
 }
 
 .bug__question p {
@@ -131,12 +149,12 @@ a.feedback__bug-link:hover,
 a.feedback__bug-link:active,
 a.feedback__bug-link:visited,
 a.feedback__bug-link:focus {
-  color: $secondary-color;
+  color: $gray-4;
 }
 
 a.feedback__bug-link {
   display: block;
-  padding-top: 1.75rem;
+  padding-top: .75rem;
   font-weight: 700;
 
   img {
