@@ -19,6 +19,11 @@
     </a>
   </div>
   <div class="cell small-4 share-reveal__icon">
+    <a href="tg://msg_url?url={{share_url}}&amp;text={{share_text}}.">
+      <img src="{% static 'images/icons/i_twitter.png' %}" alt="Twitter Icon">
+    </a>
+  </div>
+  <div class="cell small-4 share-reveal__icon">
     <img id="share_link" src="{% static 'images/icons/i_copy.svg' %}" alt="Copy Icon" data-clipboard-text="{{share_url}}" onclick="link_copied();">
     <div id="link_copied" hidden>
       {% trans 'Link wurde kopiert' %}
